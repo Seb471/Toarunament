@@ -1,0 +1,99 @@
+[Info]
+name = "Misawa Cram School";把**换成这个背景的名称.0627以后的版本是必须加引号的.
+
+[Camera]
+startx = 0             ;镜头起始X轴坐标，默认为0
+starty = 0             ;镜头起始Y轴坐标，默认为0
+boundleft = -216       ;背景左边的空余。计算方法图片宽度除以2再减去160
+boundright = 216       ;右边空余，只是正负号问题。
+boundhigh = 26        ;背景上边空余，计算方法图片高度减去240
+boundlow = 0           ;下边空余，一般都为0
+verticalfollow = .2    ;人物跳跃多少时镜头开始上下移动
+tension = 60           ;人物水平移动多少时镜头开始左(右)移
+
+[PlayerInfo]
+p1startx = -70         ;开局时玩家1的X坐标
+p1starty = 0           ;开局时玩家1的Y坐标
+p1startz = 0           ;开局时玩家1的Z坐标
+p1facing = 1           ;开局时玩家1的朝向（1为向左，-1为向右）
+p2startx = 70          ;开局时玩家2的X坐标
+p2starty = 0           ;开局时玩家2的Y坐标
+p2startz = 0           ;开局时玩家2的Y坐标
+p2facing = -1          ;开局时玩家1的朝向
+
+leftbound = -1000      ;人物左移的空间(不能改)
+rightbound = 1000      ;人物右移的空间(不能改)
+topbound = 0           ;人物上移的空间(不能改)
+botbound = 0           ;人物下移的空间(不能改)
+
+[Scaling]
+topz = 0               ;Z轴顶部的缩放坐标(一般不要改)
+botz = 50              ;Z轴底部的缩放坐标
+topscale = 1           ;Z轴顶部的缩放比例
+botscale = 1.2         ;Z轴底部的缩放比例
+
+[Bound]
+screenleft = 15        ;人物到了背景左端边界时，可超出空间大小。
+screenright = 15       ;人物到了背景右端边界时，可超出空间大小。
+
+[StageInfo]
+zoffset = 240          ;人物在背景上的底线（也就是立脚点） 
+autoturn = 1           ;人物是否自动转向
+resetBG = 0            ;每个回合背景是否重启
+
+[Shadow]
+color = 92,92,92       ;人物影子的颜色RGB值
+yscale = .5            ;影子的Y轴缩放比例
+reflect = 0            ;取1的话表示地面有镜面效果. 
+
+[Music]
+bgmusic = sound\MAJOKARI.mp3             ;背景音乐
+bgvolume = 0           ;声音大小
+
+[BGdef]
+spr = stages\aof01.sff   ;背景的SFF文件
+debugbg = 0            ;是否调试为背景(选1的话为调试,速度很慢~)
+
+;基本参数解释
+;[BG # ]                ;背景层次号（可自定义）
+;type = normal          ;背景类型（NORMAL-普通，ANIM-动画，Parallax视差）
+;spriteno = 0, 0        ;在SFF文件中定义的组号。
+;mask = 0               ;是否清除透明色(默认为0,不清除)
+;start = 0,0            ;图片开始位置（和图片有关，具体的要自己调整）
+;delta = 1,1            ;图片的相对镜头的移动速度
+;trans = none           ;图片透明度变化（根据需要可以有add、sub、avg等）
+;layerno = 0            ;层次属性，在人物后面是0，人物前面是1
+;velocity = 0,0         ;镜头不动时的移动速度（默认0，0为不动）
+;tile = 0,0             ;图片是否重叠出现（默认0，0为不重叠）
+;tilespacing = 0,0      ;重叠图片之间的间隔
+;window = 0,0, 319, 239 ;整个背景的大小
+;windowdelta = 0,0      ;整个背景相对于镜头的移动速度
+
+
+[BG 0]                  ;最底层(一般来说同在人物后的图层写在前面的更靠后)
+type = anim           ;背景类型为NORMAL
+actionno = 1       
+mask = 0                ;不清除透明色
+start = 0, 0            ;开始坐标为0,0
+delta = .6,.6           ;由于前景和背景的移动速度不一样，这样才有背景才有层次感。
+                        ;一般计算方法是背景宽度除以前景的宽度。
+[BG 1]
+type  = normal          
+spriteno = 0,0          ;对应图片编号为0,1
+start = 0, 0            ;开始坐标为0,0 
+delta = 1,1             ;相对移动速度
+mask = 1  
+
+[Begin action 1]
+0,1,0,0,12
+0,2,0,0,12
+0,4,0,0,12
+0,2,0,0,12
+0,1,0,0,12
+0,2,0,0,8
+0,4,0,0,8
+0,2,0,0,8
+0,1,0,0,8
+0,2,0,0,28
+0,4,0,0,8
+0,2,0,0,8

@@ -1,0 +1,39 @@
+[Info]
+localcoord = 640,480
+
+[SceneDef]
+spr = system.sff
+startscene = 0
+
+;-----------------------------------------------------------------
+[Scene 0]
+clearcolor = 0,0,0
+;BG
+bg.name = BG0
+;Overlay Anims (from 0 to 9)
+layerall.pos = 0,0
+;Music
+bgm = gameover.ogg
+bgm.loop = 0
+end.time = 250
+
+;fadein.time = 20
+;fadeout.time = 20
+
+[BG0Def]
+[BG0]
+type  = anim
+actionno = 10
+
+
+;BG
+[Begin Action 10]
+4,0,0,0,40
+4,1,0,0,2
+4,2,0,0,2
+4,3,0,0,2
+4,4,0,0,2
+4,5,0,0,2
+4,4,0,0,2
+4,5,0,0,2
+4,4,0,0,-1

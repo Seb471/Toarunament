@@ -1,0 +1,20 @@
+- Training mode attack data x
+- Training mode input display x
+- Trials mode x
+
+- Itsuwa
+- Frenda
+- all jabs have facep2 to not have infinites
+- add another way of grab teching
+- add alternative half circle inputs
+- added just defend (only gains meter, no hp)
+- changed input/invul data for cancel assault, and it now costs 0.5 instead of 1 bar x
+- changed guard cancel's and pushblock's input to be with x+a x
+- changed the meter cost of guard cancel to be 1 bar instead of 0.5 and added the possibility to combo from it x
+- fix Yuriko's overhead moves (Enhanced 5C, 2B and 2C) x
+- fix yuriko's back grab
+- fix himegami being stuck from tsuchi's go to sleep
+- made the dp inputs of Mikoto like the rest of the case (so, simpler) x
+- nerf kuroko's 236b's hitstun
+- buffed kanzaki's 5c (christian stance) x
+- reduce distance of pushback of kazakiri's grab

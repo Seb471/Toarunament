@@ -1,0 +1,158 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+Mugino can air dash 
+She can also dash cancel on ground
+
+<#f0f000>Normals:</>
+
+Standing Jab						^LK / ^A
+
+Low Kick (Hits low)					_F^LK / _F^A
+
+Side Kick						^MK / ^B
+
+Knee Hit						_B^MK / _B^B	
+
+	
+						
+
+
+
+High Kick						^HK / ^C
+
+Front Kick (Can be held, held is unblockable)		_F^HK / _F^C
+
+Step On Me (Hits a falling or downed opponent)		_B^HK / _B^C
+
+
+Crouching Jab						^LK / ^A (Crouching)
+
+Crouching Low Kick 					^MK / ^B (Crouching)
+
+Crouching Sweep  					^HK / ^C (Crouching)
+
+
+Air Jab							^LK / ^A (Air)
+
+Air Kick			 			^MK / ^B (Air)
+
+Air Upper Kick	(sends up)	 			^HK / ^C (Air)
+
+
+Spot Dodge 						^LP / ^X 
+
+
+Charge Meltdowner Balls					^MP / ^Y (held)
+
+<#00ff00>Information about balls:</>
+Mugino can have up to 2 additional Meltdowner balls, 
+they each add one beam to beam supers (Buff OK) 
+and also add damage to hyper moves
+They are lost when hit
+You can dash cancel supers with 2 balls
+
+Dashes 	(Hold direction)				^MP / ^Y
+(Works on ground, backwards and forwards
+Does the same as the _F_F or _D_D dash)
+
+Gauge Charge 						^HP / ^Z (Held)
+
+Gauge Charge 						^LK + ^HK / ^A + ^C (Held)
+
+Burst (Once per round)					^LK + ^MK / ^A + ^B
+
+
+<#ff0000>Supers and Hypers:</>
+
+Single Straight Beam (Can be held) (Buff OK)		
+_D_DF_F ^LK / _D_DF_F ^A
+
+<#00ff00>Lvl-1</>
+Single Straight Beam EX					_B_DB_D_DF_F ^LK / _B_DB_D_DF_F ^A
+
+Multiple Straight Beams (Can be held) (Buff OK)		
+_D_DF_F ^MK / _D_DF_F ^B
+
+<#00ff00>Lvl-1</>
+Multiple Straight Beams EX				_B_DB_D_DF_F ^MK / _B_DB_D_DF_F ^B
+
+<#00ff00>Lvl-2</>
+Beam Combo		 				_D_DF_F ^HK / _D_DF_F ^C
+
+
+Air Downwards Single Beam (Buff OK)			
+							_D_DF_F ^LK / _D_DF_F ^A (Air)
+
+Air Straight Single Beam (Buff OK)			
+							_D_DF_F ^MK / _D_DF_F ^B (Air)
+<#00ff00>Lvl-1</>
+Air Downwards Beams EX			
+							_D_DF_F ^HK / _D_DF_F ^C (Air)
+(You can hold down to fall faster)
+
+
+
+Single Upwards Beam (Can be held) (Buff OK)		
+_F_D_DF ^LK / _F_D_DF ^A
+
+
+Multiple Upwards Beams 	(Can be held) (Buff OK)		
+_F_D_DF ^MK / _F_D_DF ^B
+
+<#00ff00>Lvl-1</>
+Multiple Upwards Beams EX  				_F_D_DF ^HK / _F_D_DF ^C
+
+
+
+Short Laser Kick 					_D_DB_B ^LK / _D_DB_B ^A 
+
+Long Laser Kick						_D_DB_B ^MK / _D_DB_B ^B 
+
+<#00ff00>Lvl-1</>
+Laser Kick EX						_D_DB_B ^HK / _D_DB_B ^C 
+
+
+Short Gorilla Grab 					_B_D_DB ^LK / _B_D_DB ^A
+
+Long Gorilla Grab					_B_D_DB ^MK / _B_D_DB ^B 
+
+<#00ff00>Lvl-1</>
+Meltdowner Grab						_B_D_DB ^HK / _B_D_DB ^C 
+
+<#ff0000>Information about grabs:</>
+If you hold _U during the grab, 
+you'll send the opponent up
+If you hold _D during the grab, 
+you'll send the opponent down
+If you hold _F during the grab, 
+you'll send the opponent forward
+If you hold _B during the grab, 
+you'll send the opponent back
+
+
+<#00ff00>Lvl-2</>
+Meltdowner Shield					_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+
+<#00ff00>Information about Meltdowner Shield:</>
+If you stand behind the shield you are immune to projectiles
+The shield hurts opponents that touch it 
+It can be destroyed if its HP goes down to 0
+It disappears after some time as well
+
+
+<#00ff00>Lvl-3</>
+Hyper Meltdowner Beam
+							_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C 
+
+<#00ff00>Lvl-5</><#ff0000>Low HP</>
+Body Crystal Hyper
+_D_D ^LK + ^MK + ^HK / _D_D ^A + ^B + ^C 
+
+
+
+Credits:
+
+Writing : DidiGetsRekt
+
+

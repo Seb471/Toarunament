@@ -1,0 +1,16 @@
+[Statedef -4]
+
+ignoreHitPause{
+	let condition = fvar(18)>0 || fvar(20)>0 || var(20);
+}
+
+ignoreHitPause if $condition{
+	text{
+		text: "Fallere825";
+		font: 0;
+		align: ifelse(teamside=1,1,-1);
+		pos: ifelse(teamside=1,27.5,320-27.5),55;
+		color: 0,192,0;
+		scale: 0.75,0.75;
+	}
+}

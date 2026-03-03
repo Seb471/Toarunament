@@ -1,0 +1,328 @@
+; KFM's constants and state file.
+; There are comments scattered through this file, so you may like to
+; take a look if would like to learn more about the cns.
+
+[Data]
+;Amount of life to start with
+life = 1000
+;attack power (more is stronger)
+attack = 100
+;defensive power (more is stronger)
+defence = 100
+;Levels
+power = 6000
+;Percentage to increase defense everytime player is knocked down
+fall.defence_up = 50
+;Time which player lies down for, before getting up
+liedown.time = 60
+;Number of points for juggling
+airjuggle = 15
+;Default hit spark number for HitDefs
+sparkno = 2
+;Default guard spark number
+guard.sparkno = 40
+;1 to enable echo on KO
+KO.echo = 0
+;Volume offset (negative for softer)
+volume = 0
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 20
+FloatPersistIndex = 20
+
+[Size]
+xscale = 1           ;Horizontal scaling factor.
+yscale = 1           ;Vertical scaling factor.
+ground.back = 15     ;Player width (back, ground)
+ground.front = 16    ;Player width (front, ground)
+air.back = 12        ;Player width (back, air)
+air.front = 12       ;Player width (front, air)
+height = 90          ;Height of player (for opponent to jump over)
+attack.dist = 160    ;Default attack distance
+proj.attack.dist = 90 ;Default attack distance for projectiles
+proj.doscale = 0     ;Set to 1 to scale projectiles too
+head.pos = -5, -120   ;Approximate position of head
+mid.pos = -5, -80    ;Approximate position of midsection
+shadowoffset = 0     ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
+
+[Velocity]
+walk.fwd  = 2.4      ;Walk forward
+walk.back = -2.2     ;Walk backward
+run.fwd  = 8,0;10, 0    ;Run forward (x, y)
+run.back = -4.5,-3.8 ;Hop backward (x, y)
+jump.neu = 0,-8.4    ;Neutral jumping velocity (x, y)
+jump.back = -2.55    ;Jump back Speed (x, y)
+jump.fwd = 2.5       ;Jump forward Speed (x, y)
+runjump.back = -2.55,-8.1 ;Running jump speeds (opt)
+runjump.fwd = 4,-8.1      ;.
+airjump.neu = 0,-8.1      ;.
+airjump.back = -2.55      ;Air jump speeds (opt)
+airjump.fwd = 2.5         ;.
+air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
+air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
+air.gethit.airrecover.add = 0,-4.5    ;Velocity offset for air recovery (x, y) **MUGEN 1.0**
+air.gethit.airrecover.back = -1       ;Extra x-velocity for holding back during air recovery **MUGEN 1.0**
+air.gethit.airrecover.fwd = 0         ;Extra x-velocity for holding forward during air recovery **MUGEN 1.0**
+air.gethit.airrecover.up = -2         ;Extra y-velocity for holding up during air recovery **MUGEN 1.0**
+air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during air recovery **MUGEN 1.0**
+
+[Movement]
+airjump.num = 0       ;Number of air jumps allowed (opt)
+airjump.height = 50   ;Minimum distance from ground before you can air jump (opt)
+yaccel = .44          ;Vertical acceleration
+stand.friction = .85  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching
+stand.friction.threshold = 2          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
+crouch.friction.threshold = .05       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
+air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
+air.gethit.groundrecover.ground.threshold = -20 ;Y-position below which falling player can use the recovery command **MUGEN 1.0**
+air.gethit.groundrecover.groundlevel = 10   ;Y-position at which player in the ground recovery state touches the ground **MUGEN 1.0**
+air.gethit.airrecover.threshold = -1  ;Y-velocity above which player may use the air recovery command **MUGEN 1.0**
+air.gethit.airrecover.yaccel = .35    ;Vertical acceleration for player in the air recovery state **MUGEN 1.0**
+air.gethit.trip.groundlevel = 15      ;Y-position at which player in the tripped state touches the ground **MUGEN 1.0**
+down.bounce.offset = 0, 20            ;Offset for player bouncing off the ground (x, y) **MUGEN 1.0**
+down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing off the ground **MUGEN 1.0**
+down.bounce.groundlevel = 12          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
+down.friction.threshold = .05         ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "fvar(20) = %f, numexplod=%d %d, arrowhead pos x %f y %f, angle %f"
+params = fvar(20),playerID(id),life,facing,Helper(9651), parentdist x,helper(9651),parentdist y, helper(9651),fvar(0)
+;ignorehitpause = 
+;persistent = 
+
+
+;lower margin of will
+[State 0, VarSet]
+type = VarSet
+trigger1 = fvar(20)<0 
+fv = 20    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+;high margin of will
+[State 0, VarSet]
+type = VarSet
+trigger1 = fvar(20)>3000 
+fv = 20    ;fv = 10
+value = 3000
+;ignorehitpause = 
+;persistent =
+
+;will value
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 25
+value = cond(fvar(20)>=3000,2,fvar(20)/1000)
+
+;confidence value
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+fv = 25    ;fv = 10
+value = life*1./lifemax-enemynear,life*1./enemynear,lifemax
+
+;will consumption value
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+fv = 21    ;fv = 10
+value = 750+(ifelse(fvar(25)>=0,-1,1)*(ifelse(abs(fvar(25))>0.125,250,abs(life*1./lifemax-enemynear,life*1./enemynear,lifemax)*2000)))
+;ignorehitpause = 
+;persistent =
+
+;aureolus dummy decreasing while having him
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = fvar(18)>0 && roundstate=2
+trigger1 = stateno!=960
+trigger1 = helper(965),stateno!=[963,964]
+fvar(18)=-1
+;ignorehitpause = 
+;persistent =
+
+;Super will decreasing while in honos628
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = fvar(19)>0 && var(20)=1 && roundstate=2
+trigger1 = stateno!=950
+fvar(19)=-1
+;ignorehitpause = 
+;persistent =
+
+;magic name done
+[State 0, VarSet]
+type = VarSet
+trigger1 = (fvar(19)=0 || roundstate>=3) && var(20)=1
+v = 20
+value = 0
+
+;AlmightyGaugeHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(30000) = 0
+	stateno = 30000
+	ID = 30000
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "gauge"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+;AlmightyGaugeHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(965) = 1
+	trigger1 = Numhelper(30001) = 0
+	stateno = 30000
+	ID = 30001
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "gauge"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+;Exclamation Helper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(7200) = 0
+	trigger1 = var(22) > 0
+	stateno = 7200
+	ID = 7200
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "no touching"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+ignorehitpause = 1
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = var(22)>0
+trigger1 = stateno!=1208
+attr = SCA,AA,AP,AT
+slot = 0
+stateno = 1208
+time = 1
+forceair = 0
+;ignorehitpause = 
+;persistent = 
+
+[State -2]
+Type = AssertSpecial
+Trigger1 = var(20)=1
+Flag = TimerFreeze
+IgnoreHitPause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(20)=1 && var(13) = 0
+var(13) = 1
+
+[State ]
+Type = Helper
+TriggerAll = NumExplod(10969) = 0
+Trigger1 = var(20)=0 && var(13)=1; || var(20)
+StateNo = 10968
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+Ownpal = 1
+ID = 10969
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(20)=0 && var(13) = 1
+var(13) = 0
+
+[State ]
+Type = Helper
+;triggerall = stateno!=1510 && stateno!=3011 && stateno!=[3021,3022]
+Trigger1 = NumHelper(10980) = 0
+Trigger1 = var(20)=1
+StateNo = 10980
+PauseMoveTime = 9**9
+Ownpal = 1
+ID = 10980
+
+;------------------------------------------------------------------------------------------
+;Magic name chars
+[State ]
+Type = Null
+trigger1 = 1 && var(12):= 0
+trigger2 = enemynear,name = "Stiyl Magnus" && var(12):= 1
+trigger3 = enemynear,name = "Tsuchimikado Motoharu" && var(12):= 2
+trigger4 = enemynear,name = "Kanzaki Kaori" && var(12):= 3
+trigger5 = enemynear,name = "Aureolus Izzard" && var(12):= 4
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+[Statedef -3]
+
+
+;This controller plays a sound everytime KFM lands from a jump, or
+;from his back-dash.
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 ;Jump land
+trigger2 = stateno = 106 ;Run-back land
+value = 40, 0
+
+;aura ?
+[State -3]
+Type = Helper
+Triggerall = NumHelper(999) <= 8
+trigger1 = fvar(19)>=0
+trigger1 = var(20)
+StateNo = 999
+ID = 999
+Ownpal = 1
+Keyctrl = 0
+SprPriority = -5
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;var(12) is the magic name users
+;var(13) is the conditionality for the heat mode to end
+;var(20) magic name
+;var(21) steps for gun
+;var(22) value for the amount of "NUHUH"s available
+;var(25) is the will value based on the will meter
+;fvar(18) is the aurolus dummy meter
+;fvar(19) is the magic name timer
+;fvar(20) will meter
+;fvar(21) is will consumption
+;fvar(25) is confidence level
+

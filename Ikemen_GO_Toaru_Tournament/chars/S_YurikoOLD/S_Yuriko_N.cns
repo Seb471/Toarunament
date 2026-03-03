@@ -1,0 +1,2080 @@
+;===========================================================================
+; 通常攻撃技
+;===========================================================================
+;-------------------------------------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------------------------------
+;立ち
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;立ち弱
+[Statedef 200]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 1
+	velset = 0,0
+	ctrl = 0
+	anim = 200
+	poweradd = 5 * helper(20000),Fvar(2)
+	sprpriority = 2
+
+	[State 200, 幅]
+		type = Width
+		trigger1 = 1
+		value = 12,10
+
+	[State 200, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 1
+
+	[State 200, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 200, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 500, 4
+
+	[State 200, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 2
+		attr = S, NA
+		damage = 5 * Fvar(3), 0
+		animtype = Light
+		guardflag = MA
+		hitflag = MAF
+		priority = 3, Hit
+		pausetime = 4, 4
+		sparkno = -1
+		sparkxy = 0,-80
+		hitsound = S600, 3
+
+		guardsound = S600, 8
+		ground.type = High
+		ground.slidetime = 10
+		ground.hittime  = 10
+		ground.velocity = -2
+		air.velocity = -2
+
+		getpower = 20 * helper(20000),Fvar(2)
+		
+		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+		fall.recover = 0
+
+	[State 200,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -2
+
+	[State 200,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11000
+		PosType = P1
+		Pos = 50, -80
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11000
+		persistent=0
+		trans = Add
+
+	[State 200, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 200, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;立ち中
+[Statedef 210]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 2
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	velset = 0,0
+	anim = 210
+	sprpriority = 2
+
+	[State 210, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 2100, 0
+
+	[State 210, 幅]
+		type = Width
+		trigger1 = 1
+		value = 22,10
+
+	[State 210, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 2
+
+	[State 210, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 500, 4
+
+	[State 210, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 210, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 3
+		attr = S, NA
+		animtype  = Medium
+		damage    = 20 * Fvar(3)
+		hitflag = MAF
+		guardflag = MA
+		pausetime = 8,8
+		sparkno = -1
+		sparkxy = 0,-80
+		hitsound   = S600,3
+		guardsound = S600, 8
+
+		ground.type = High
+		ground.slidetime = 15
+		ground.hittime  = 15
+		ground.velocity = -2
+		air.velocity = -2
+
+		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+		fall.recover = 0
+
+		getpower = 20 * helper(20000),Fvar(2)
+
+	[State 210,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -4
+
+	[State 210,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11010
+		PosType = P1
+		Pos = 70, -90
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11010
+		persistent=0
+		trans = Add
+
+	[State 210, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 210, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;立ち強
+[Statedef 220]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 3
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	velset = 0,0
+	anim = 220
+	sprpriority = 2
+
+	[State 220, 幅]
+		type = Width
+		trigger1 =  AnimElemNo(0) =[3,6]
+		value = 30,10
+
+;	[State 220, ボイス]
+;		type = PlaySnd
+;		trigger1 = AnimElem = 3
+;		value = 2100, 3
+
+	[State 220, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 220, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 500, 4
+
+	[State 220, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 3
+
+	[State 220, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 4
+		attr = S, NA
+		animtype  = hard
+		damage    = 40 * Fvar(3)
+		hitflag = MAF
+		guardflag = MA
+		pausetime = 10,10
+		sparkno = -1
+		sparkxy = 0,-40
+		hitsound   = S600,3
+		guardsound = S600, 8
+
+		ground.type = High
+		ground.slidetime = 20
+		ground.hittime  = 20
+		ground.velocity = -4
+		air.velocity = -4
+
+		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+		fall.recover = 0
+
+		getpower = 50 * helper(20000),Fvar(2)
+
+	[State 220,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -6
+
+	[State 220,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11020
+		PosType = P1
+		Pos = 80, -40
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11020
+		persistent=0
+		trans = Add
+
+	[State 220, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 220, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;-------------------------------------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------------------------------
+;立ちEX
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;立ち弱EX
+[Statedef 230]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 1
+	velset = 0,0
+	ctrl = 0
+	anim = 200
+	poweradd = 5 * helper(20000),Fvar(2)
+	sprpriority = 2
+
+	[State 230, 幅]
+		type = Width
+		trigger1 = 1
+		value = 12,10
+
+	[State 230, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 1
+
+	[State 230, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 230, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 500, 4
+
+	[State 230, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 2
+		attr = S, NA
+		damage = 60 * Fvar(3), 0
+		animtype = Light
+		guardflag = MA
+		hitflag = MAF
+		priority = 3, Hit
+		pausetime = 4, 4
+		sparkno = -1
+		sparkxy = 0,-80
+		hitsound = S600, 3
+
+		guardsound = S600, 8
+		ground.type = High
+		ground.slidetime = 7
+		ground.hittime  = 7
+		ground.velocity = -10,-2
+		air.velocity = -10,-2
+
+		getpower = 20 * helper(20000),Fvar(2)
+		p2facing = 1
+		
+		fall = 1
+		fall.recover = 0
+
+	[State 230,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -5
+
+	[State 230,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11000
+		PosType = P1
+		Pos = 50, -80
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11000
+		persistent=0
+		trans = Add
+
+	[State 230, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,128,256
+		color = 0
+
+	[State 230, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 230, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 230, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 230, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;立ち中EX
+[Statedef 240]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 2
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	velset = 0,0
+	anim = 210
+	sprpriority = 2
+
+	[State 240, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 2100, 0
+
+	[State 240, 幅]
+		type = Width
+		trigger1 = 1
+		value = 22,10
+
+	[State 240, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 2
+
+	[State 240, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 500, 4
+
+	[State 240, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 240, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 3
+		attr = S, NA
+		animtype  = Medium
+		damage    = 20 * Fvar(3)
+		guardflag = MA
+		hitflag = MAF
+		pausetime = 5,5
+		sparkno = -1
+		sparkxy = 0,-80
+		hitsound   = S600,3
+		guardsound = S600, 8
+
+		ground.type = High
+		ground.slidetime = 15
+		ground.hittime  = 15
+		ground.velocity = -2,-13
+		air.velocity = -2,-13
+
+		fall = 1
+		fall.recover = 0
+
+		p2facing = 1
+		getpower = 20 * helper(20000),Fvar(2)
+
+	[State 240,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -15
+
+	[State 240,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11010
+		PosType = P1
+		Pos = 70, -90
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11010
+		persistent=0
+		trans = Add
+
+	[State 240, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,128,256
+		color = 0
+
+	[State 240, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 240, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 240, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 240, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;立ち強EX
+[Statedef 250]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 3
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	velset = 0,0
+	anim = 220
+	sprpriority = 2
+
+	[State 250, 幅]
+		type = Width
+		trigger1 =  AnimElemNo(0) =[3,6]
+		value = 30,10
+
+;	[State 250, ボイス]
+;		type = PlaySnd
+;		trigger1 = AnimElem = 3
+;		value = 2100, 3
+
+	[State 250, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 250, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 500, 4
+
+	[State 250, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 3
+
+	[State 250, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 4
+		attr = S, NA
+		animtype  = hard
+		damage    = 40 * Fvar(3)
+		guardflag = H
+		pausetime = 5,5
+		hitflag = MAF
+		sparkno = -1
+		sparkxy = 0,-40
+		hitsound   = S600,3
+		guardsound = S600, 8
+
+		ground.type = High
+		ground.slidetime = 20
+		ground.hittime  = 20
+		ground.velocity = -8
+		air.velocity = -8
+
+		fall = 1
+		fall.recover = 0
+
+		getpower = 50 * helper(20000),Fvar(2)
+		ID = 250
+		p2facing = 1
+
+	[State 250,ステート奪取]
+		Type = targetState
+		trigger1 = movehit = 1
+		value = 7000
+		ID = 250
+
+	[State 250,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -20
+
+	[State 250,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11020
+		PosType = P1
+		Pos = 80, -40
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11020
+		persistent=0
+		trans = Add
+
+	[State 240, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,128,256
+		color = 0
+
+	[State 240, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 240, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 250, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 250, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;-------------------------------------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------------------------------
+;しゃがみ
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;しゃがみ弱
+[Statedef 400]
+	type    = C
+	movetype= A
+	physics = C
+	juggle  = 1
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 400
+	sprpriority = 2
+
+	[State 400, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 400, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 500, 4
+
+	[State 400, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 0
+		var(3) = 1
+
+	[State 400, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 2
+		attr = C, NA
+		damage    = 10 * Fvar(3)
+		animtype  = Light
+		hitflag = MAF
+		guardflag = L
+		pausetime = 4,4
+		sparkno = -1
+		sparkxy = 0,-30
+		hitsound   = S600,3
+		guardsound = S600, 8
+
+		ground.type = Low
+		ground.slidetime = 15
+		ground.hittime  = 15
+		ground.velocity = -2
+		air.velocity = -2
+
+		down.velocity = -2,0
+		down.hittime = 5
+
+		getpower = 20 * helper(20000),Fvar(2)
+		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+		fall.recover = 0
+
+	[State 400,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11000
+		PosType = P1
+		Pos = 50, -50
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11000
+		persistent=0
+		trans = Add
+
+	[State 400,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -2
+
+	[State 400, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 400, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 11
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;しゃがみ中
+[Statedef 410]
+	type    = C
+	movetype= A
+	physics = C
+	juggle  = 2
+	poweradd= 20 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 410
+	sprpriority = 2
+	facep2 = 1
+
+	[State 410, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 2100, 0
+
+	[State 410, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 410, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 500, 2
+
+	[State 410, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 2
+
+	[State 410, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 3
+		attr = C, NA ;しゃがみ通常打撃（Crouching, Normal Attack）
+		damage    = 20 * Fvar(3)
+		priority  = 3
+		animtype  = medium
+		hitflag = MAF
+		guardflag = L
+		pausetime = 10,10
+		sparkno = -1
+		sparkxy = 0,-30
+		hitsound   = S600,3
+		guardsound = S600, 8
+
+		ground.type = Low
+		ground.slidetime = 15
+		ground.hittime  = 15
+		ground.velocity = -3,0
+		air.velocity = -3,0
+
+		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+		fall.recover = 0
+
+		getpower = 30 * helper(20000),Fvar(2)
+
+	[State 410,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -4
+
+	[State 410,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11010
+		PosType = P1
+		Pos = 60, -30
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11010
+		persistent=0
+		trans = Add
+
+	[State 410, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 410, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 11 ;しゃがむステートへ（コモンステート）
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;しゃがみ強
+[Statedef 420]
+	type    = C
+	movetype= A
+	physics = C
+	juggle  = 3
+	poweradd= 30 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 420
+	sprpriority = 2
+	facep2 = 1
+
+	[State 420, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 2100, 2
+
+	[State 420, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 420, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 4
+		value = 500, 2
+
+	[State 420, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 3
+
+	[State 420, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 5
+		attr = C, NA ;しゃがみ通常打撃（Crouching, Normal Attack）
+		damage    = 30 * Fvar(3)
+		priority  = 3
+		animtype  = up
+		hitflag = MAFD
+		guardflag = L
+		pausetime = 10,10
+		sparkno = -1
+		sparkxy = 0,-30
+		hitsound   = S600,0
+		guardsound = S600, 8
+
+		ground.type = Low
+		ground.slidetime = 15
+		ground.hittime  = 15
+		ground.velocity = -2,-4
+		air.velocity = -2,-4
+
+		fall = 1
+		fall.recover = 0
+;		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+;		fall.recover = 0
+
+		getpower = 20 * helper(20000),Fvar(2)
+
+	[State 420,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -6
+
+	[State 420, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 5
+		value = 600, 1
+
+	[State 420,エフェクト]
+		Type = Explod
+		trigger1 = AnimElem = 5
+		Anim = 425
+		PosType = P1
+		Pos = 20, 0
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 1,1
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 425
+		persistent=0
+		trans = Add
+
+	[State 420, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 420, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 11 ;しゃがむステートへ（コモンステート）
+		ctrl = 1
+
+;-------------------------------------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------------------------------
+;しゃがみEX
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;しゃがみ弱EX
+[Statedef 430]
+	type    = C
+	movetype= A
+	physics = C
+	juggle  = 1
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 400
+	sprpriority = 2
+
+	[State 430, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 1
+		var(2) = 0
+
+	[State 430, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 500, 4
+
+	[State 430, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 0
+		var(3) = 1
+
+	[State 430, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 2
+		attr = C, NA
+		damage    = 30 * Fvar(3)
+		animtype  = Light
+		hitflag = MAF
+		guardflag = L
+		pausetime = 4,4
+		sparkno = -1
+		sparkxy = 0,-30
+		hitsound   = S600,3
+		guardsound = S600, 8
+
+		ground.type = Low
+		ground.slidetime = 15
+		ground.hittime  = 15
+		ground.velocity = -10
+		air.velocity = -10
+
+		down.velocity = -2,0
+		down.hittime = 5
+
+		getpower = 20 * helper(20000),Fvar(2)
+		fall = 1
+		fall.recover = 0
+
+	[State 430,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11000
+		PosType = P1
+		Pos = 50, -50
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11000
+		persistent=0
+		trans = Add
+
+	[State 430, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,128,256
+		color = 0
+
+	[State 430, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 430, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 430,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -5
+
+	[State 430, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 430, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 11
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;しゃがみ中EX
+[Statedef 440]
+	type    = C
+	movetype= A
+	physics = C
+	juggle  = 2
+	poweradd= 20 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 410
+	sprpriority = 2
+	facep2 = 1
+
+	[State 440, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 440, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 2100, 0
+
+	[State 440, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 2
+		value = 500, 2
+
+	[State 440, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 2
+
+	[State 440, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 3
+		attr = C, NA ;しゃがみ通常打撃（Crouching, Normal Attack）
+		damage    = 40 * Fvar(3)
+		priority  = 3
+		animtype  = medium
+		hitflag = MAF
+		guardflag = H
+		pausetime = 5,5
+		sparkno = -1
+		sparkxy = 0,-30
+		hitsound   = S600,3
+		guardsound = S600, 8
+
+		ground.type = Low
+		ground.slidetime = 10
+		ground.hittime  = 10
+		ground.velocity = -3,0
+		air.velocity = -3,0
+
+		fall = 1
+		fall.recover = 0
+		ID = 440
+		p2facing = 1
+
+		getpower = 30 * helper(20000),Fvar(2)
+
+	[State 440,ステート奪取]
+		Type = targetState
+		trigger1 = movehit = 1
+		value = 7000
+		ID = 440
+
+	[State 440,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -15
+
+	[State 440,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11010
+		PosType = P1
+		Pos = 60, -30
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11010
+		persistent=0
+		trans = Add
+
+	[State 440, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,128,256
+		color = 0
+
+	[State 440, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 440, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 440, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 440, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 11 ;しゃがむステートへ（コモンステート）
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;しゃがみ強EX
+[Statedef 450]
+	type    = C
+	movetype= A
+	physics = C
+	juggle  = 3
+	poweradd= 30 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 420
+	sprpriority = 2
+	facep2 = 1
+
+	[State 450, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 450, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 2100, 2
+
+	[State 450, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 4
+		value = 500, 2
+
+	[State 450, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 3
+
+	[State 450, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 5
+		attr = C, NA ;しゃがみ通常打撃（Crouching, Normal Attack）
+		damage    = 50 * Fvar(3)
+		priority  = 3
+		animtype  = up
+		hitflag = MAFD
+		guardflag = AH
+		pausetime = 5,5
+		sparkno = -1
+		sparkxy = 0,-30
+		hitsound   = S600,0
+		guardsound = S600, 8
+
+		ground.type = Low
+		ground.slidetime = 15
+		ground.hittime  = 15
+		ground.velocity = 0,-15
+		air.velocity = 0,-15
+
+		fall = 1
+		fall.recover = 0
+
+		getpower = 20 * helper(20000),Fvar(2)
+
+	[State 450,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -30
+
+	[State 450, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 5
+		value = 600, 1
+
+	[State 450,エフェクト]
+		Type = Explod
+		trigger1 = AnimElem = 5
+		Anim = 425
+		PosType = P1
+		Pos = 20, 0
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 1,1
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 425
+		persistent=0
+		trans = Add
+
+	[State 450, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,0,256
+		color = 0
+
+	[State 450, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 450, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 450, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 450, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 11 ;しゃがむステートへ（コモンステート）
+		ctrl = 1
+
+;-------------------------------------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------------------------------
+;ジャンプ
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ジャンプ弱
+[Statedef 600]
+	type    = A
+	movetype= A
+	physics = A
+	juggle  = 1
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 600
+	sprpriority = 5
+
+	[State 600, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 600, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 4
+		value = 500, 4
+
+	[State 600, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 1
+
+	[State 600, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 4
+		attr = A, NA
+		damage = 10 * Fvar(3)
+		hitflag = MAF
+		animtype  = light
+		guardflag = HA
+		priority = 3
+		pausetime = 3,3
+		sparkno = -1
+		sparkxy = 0,0
+		hitsound   = S600,3
+		guardsound = S600, 8
+		ground.type = High
+		ground.slidetime = 12
+		ground.hittime  = 12
+		ground.velocity = -4
+		air.velocity = -2,-3
+
+		getpower = 10 * helper(20000),Fvar(2)
+		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+		fall.recover = 0
+
+	[State 600,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -2
+
+	[State 600,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11000
+		PosType = P1
+		Pos = 60, -20
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11000
+		persistent=0
+		trans = Add
+
+	[State 600, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 600, コントロール]
+		type = CtrlSet
+		trigger1 = Time = 8
+		value = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ジャンプ中
+[Statedef 610]
+	type    = A
+	movetype= A
+	physics = A
+	juggle  = 2
+	poweradd= 20 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 610
+	sprpriority = 5
+
+	[State 610, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 2100, 0
+
+	[State 610, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 610, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 500, 5
+
+	[State 610, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 2
+
+	[State 610, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 3
+		attr = A, NA
+		damage = 20 * Fvar(3)
+		guardflag = HA
+		hitflag = MAF
+		animtype  = medium
+		priority = 3
+		pausetime = 4,4
+		sparkno = -1
+		sparkxy = 0,-40
+		hitsound   = S600,3
+		guardsound = S600, 8
+		ground.type = High
+		ground.slidetime = 20
+		ground.hittime  = 20
+		ground.velocity = -2
+		air.velocity = -2,-3
+
+		getpower = 30 * helper(20000),Fvar(2)
+		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+		fall.recover = 0
+
+	[State 610,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -4
+
+	[State 610,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11010
+		PosType = P1
+		Pos = 65, -60
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11010
+		persistent=0
+		trans = Add
+
+	[State 610, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 610, コントロール]
+		type = CtrlSet
+		trigger1 = Time = 17
+		value = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ジャンプ強
+[Statedef 620]
+	type    = A
+	movetype= A
+	physics = A
+	juggle  = 3
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 620
+	sprpriority = 2
+
+	[State 620, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 4
+		value = 2100, 1
+
+	[State 620, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 620, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 500, 2
+
+	[State 620, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 3
+
+	[State 620, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 4
+		attr = A, NA
+		damage = 40 * Fvar(3)
+		guardflag = HA
+		priority = 4
+		pausetime = 5,5
+		sparkno = -1
+		sparkxy = 0,-20
+		hitsound   = S600,3
+		guardsound = S600, 8
+		hitflag = MAF
+		animtype  = hard
+		ground.type = High
+		ground.slidetime = 17
+		ground.hittime  = 17
+		ground.velocity = -5,10
+		air.velocity = -5,10
+		fall = 1
+		fall.recover = 0
+;		fall = IfElse(Var(3) > helper(20000),Var(3), 1, 0) ;地上コンボ限界を超えたらダウン
+
+		getpower = 20 * helper(20000),Fvar(2)
+
+	[State 620,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -6
+
+	[State 620,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11020
+		PosType = P1
+		Pos = 50, -50
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11020
+		persistent=0
+		trans = Add
+
+	[State 620, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+;-------------------------------------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------------------------------
+;ジャンプEX
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ジャンプ弱EX
+[Statedef 630]
+	type    = A
+	movetype= A
+	physics = A
+	juggle  = 1
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 600
+	sprpriority = 5
+
+	[State 630, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 630, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 4
+		value = 500, 4
+
+	[State 630, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 1
+
+	[State 630, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 4
+		attr = A, NA
+		damage = 20 * Fvar(3)
+		guardflag = HA
+		hitflag = MAF
+		animtype  = light
+		priority = 3
+		pausetime = 5,5
+		sparkno = -1
+		sparkxy = 0,0
+		hitsound   = S600,3
+		guardsound = S600, 8
+		ground.type = High
+		ground.slidetime = 12
+		ground.hittime  = 12
+		ground.velocity = -10,10
+		air.velocity = -10,10
+
+		getpower = 10 * helper(20000),Fvar(2)
+		fall = 1
+		fall.recover = 0
+
+	[State 630,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -5
+
+	[State 630,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11000
+		PosType = P1
+		Pos = 60, -20
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11000
+		persistent=0
+		trans = Add
+
+	[State 630, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,128,256
+		color = 0
+
+	[State 630, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 630, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 630, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 630, コントロール]
+		type = CtrlSet
+		trigger1 = Time = 8
+		value = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ジャンプ中EX
+[Statedef 640]
+	type    = A
+	movetype= A
+	physics = A
+	juggle  = 2
+	poweradd= 20 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 610
+	sprpriority = 5
+
+	[State 640, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 640, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 2100, 0
+
+	[State 640, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 500, 5
+
+	[State 640, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 2
+
+	[State 640, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 3
+		attr = A, NA
+		damage = 20 * Fvar(3)
+		guardflag = HA
+		hitflag = MAF
+		animtype  = medium
+		priority = 3
+		pausetime = 4,4
+		sparkno = -1
+		sparkxy = 0,-40
+		hitsound   = S600,3
+		guardsound = S600, 8
+		ground.type = High
+		ground.slidetime = 15
+		ground.hittime  = 15
+		ground.velocity = -4
+		air.velocity = -2,-3
+
+		getpower = 30 * helper(20000),Fvar(2)
+		fall = 1
+		fall.recover = 0
+		ID = 640
+		p2facing = 1
+
+	[State 640,ステート奪取]
+		Type = targetState
+		trigger1 = movehit = 1
+		value = 7000
+		ID = 640
+
+	[State 640,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -15
+
+	[State 640,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11010
+		PosType = P1
+		Pos = 65, -60
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11010
+		persistent=0
+		trans = Add
+
+	[State 640, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,128,256
+		color = 0
+
+	[State 640, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 640, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 640, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+	[State 640, コントロール]
+		type = CtrlSet
+		trigger1 = Time = 17
+		value = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ジャンプ強EX
+[Statedef 650]
+	type    = A
+	movetype= A
+	physics = A
+	juggle  = 3
+	poweradd= 10 * helper(20000),Fvar(2)
+	ctrl = 0
+	anim = 620
+	sprpriority = 2
+
+	[State 650, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 650, ボイス]
+		type = PlaySnd
+		trigger1 = AnimElem = 4
+		value = 2100, 1
+
+	[State 650, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 500, 2
+
+	[State 650, 地上コンボ限界管理]
+		type = VarAdd
+		trigger1 = Time = 1
+		var(3) = 3
+
+	[State 650, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 4
+		attr = A, NA
+		damage = 40 * Fvar(3)
+		guardflag = HA
+		priority = 4
+		pausetime = 5,5
+		sparkno = -1
+		sparkxy = 0,-20
+		hitsound   = S600,3
+		guardsound = S600, 8
+		hitflag = MAF
+		animtype  = hard
+		ground.type = High
+		ground.slidetime = 17
+		ground.hittime  = 17
+		ground.velocity = 0,20
+		air.velocity = -0,20
+		fall = 1
+		fall.recover = 0
+
+		getpower = 20 * helper(20000),Fvar(2)
+		ID = 650
+		p2facing = 1
+
+	[State 650,ステート奪取]
+		Type = targetState
+		trigger1 = movehit = 1
+		value = 7050
+		ID = 650
+
+	[State 650,攻撃係数減少]
+		Type = VarAdd
+		trigger1 = movehit = 1
+		fvar(1) = -25
+
+	[State 650,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11020
+		PosType = P1
+		Pos = 50, -50
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.25,0.25
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11020
+		persistent=0
+		trans = Add
+
+	[State 650, 色変更]
+		type = PalFX
+		trigger1 = movehit = 1
+		time = 5
+		add = 256,128,256
+		color = 0
+
+	[State 650, 電池消費]
+		type = VarAdd
+		trigger1 = movehit = 1
+		fvar(10) = -10
+
+	[State 650, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = movehit = 1
+		value = 900, 1
+
+	[State 650, キャンセルフラグ設定]
+		type = VarSet
+		trigger1 = MoveContact
+		var(2) = 1
+
+;-------------------------------------------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------------------------------
+;特殊
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;反射変更
+[Statedef 800]
+	type    = U
+	movetype= U
+	physics = U
+	ctrl = 1
+
+	[State 800, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 0
+		value = 900, 2
+
+	[State 800, 反射タイプ切り替え]
+		type = VarSet
+		trigger1 = Time = 0
+		trigger1 = var(7) = 1
+		var(20) = IfElse( var(20) = 2 , 0 ,var(20) + 1 )
+
+	[State 800, 反射タイプ切り替え]
+		type = VarSet
+		trigger1 = Time = 0
+		trigger1 = var(7) = 0
+		var(20) = IfElse( var(20) = 4 ,5 ,4 )
+
+	[State 800, 色変更]
+		type = PalFX
+		trigger1 = Time = 0
+		time = 10
+		add = 256,0,256
+		color = 0
+
+	[State 800, アニメ]
+		type = ChangeAnim
+		triggerAll = time = 0
+		trigger1 = StateType = S
+		trigger2 = StateType = C
+		value = IfElse(StateType = S,0,11)
+
+;--------------------------------------------------------------
+[Statedef 801,反射変更:打 AI用]
+	type    = U
+	movetype= U
+	physics = U
+	ctrl = 0
+
+	[State 801, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 0
+		value = 900, 2
+
+	[State 801, 反射タイプ切り替え]
+		type = VarSet
+		trigger1 = Time = 0
+		var(20) = 0
+
+	[State 801, 色変更]
+		type = PalFX
+		trigger1 = Time = 0
+		time = 10
+		add = 256,0,256
+		color = 0
+
+	[State 801, コントロール]
+		type = CtrlSet
+		trigger1 = Time = 0
+		value = 1
+
+;--------------------------------------------------------------
+[Statedef 802,反射変更:投 AI用]
+	type    = U
+	movetype= U
+	physics = U
+	ctrl = 0
+
+	[State 802, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 0
+		value = 900, 2
+
+	[State 802, 反射タイプ切り替え]
+		type = VarSet
+		trigger1 = Time = 0
+		var(20) = 1
+
+	[State 802, 色変更]
+		type = PalFX
+		trigger1 = Time = 0
+		time = 10
+		add = 256,0,256
+		color = 0
+
+	[State 802, コントロール]
+		type = CtrlSet
+		trigger1 = Time = 0
+		value = 1
+
+;--------------------------------------------------------------
+[Statedef 803,反射変更:遠 AI用]
+	type    = U
+	movetype= U
+	physics = U
+	ctrl = 0
+
+	[State 803, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 0
+		value = 900, 2
+
+	[State 803, 反射タイプ切り替え]
+		type = VarSet
+		trigger1 = Time = 0
+		var(20) = 2
+
+	[State 803, 色変更]
+		type = PalFX
+		trigger1 = Time = 0
+		time = 10
+		add = 256,0,256
+		color = 0
+
+	[State 803, コントロール]
+		type = CtrlSet
+		trigger1 = Time = 0
+		value = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;溜め
+[Statedef 850]
+	type    = S
+	movetype= I
+	physics = S
+	ctrl = 0
+	anim = 850
+
+;	[State 850, 音を鳴らす]
+;		type = PlaySnd
+;		trigger1 = Time = 0
+;		lowpriority = 1
+;		value = 3000, 1
+
+	[State 850, 溜め継続フラグON]
+		type = VarSet
+		trigger1 = Time = 0
+		var(30) = 1
+
+	[State 850,溜め]
+		Type = PowerAdd
+		Trigger1 = 1
+		value = 8
+
+	[State 850, ステート変更]
+		type = ChangeState
+		trigger1 = var(30) = 0
+		trigger2=roundstate>2
+		value = 0
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;充電
+[Statedef 900]
+	type    = S
+	movetype= I
+	physics = S
+	ctrl = 0
+	anim = 900
+
+	[State 900, 充電継続フラグON]
+		type = VarSet
+		trigger1 = Time = 0
+		var(31) = 1
+
+	[State 900,ラストオーダーヘルパー]
+		type = helper
+		trigger1 = AnimElem = 2
+		trigger1 = numhelper(8600) = 0
+		name = "LO"
+		id = 8600
+		pos =  0,0
+		postype = left
+		stateno = 8620
+		helpertype = normal
+		sprpriority = 1
+		keyctrl = 0
+		ownpal = 1
+
+	[State 900,電池回復]
+		Type = VarAdd
+		TriggerALL = fvar(10) < Helper(20000),fvar(10)
+		Trigger1 = Helper(8600),StateNo = 8620
+		Trigger2 = numHelper(8600) = 0
+		fvar(10) = Helper(20000),fvar(10) / 400
+
+	[State 900, ステート変更]
+		type = ChangeState
+		trigger1 = var(31) = 0
+		value = 0
+		ctrl = 1
+

@@ -1,0 +1,1794 @@
+[Statedef 200,Standing Shockwave A]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+;anim = 200                       ;Change animation (Def: no change)
+poweradd = 10                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+facep2=1
+
+[State 200,V1=0]
+		Type=VarSet
+		Trigger1=time=0
+		var(1)=0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1= time=0
+trigger1 = anim!=0
+value = 0
+;elem = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 24,0
+player = 6,6
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=2
+helpertype = normal ;player
+name = "Shockwave"
+ID = 201
+stateno = 201
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+;ignorehitpause
+persistent=0
+
+[State 0, VelAdd]
+type = VelAdd
+triggerall = var(1)
+;trigger1=enemynear,frontedgedist <20
+trigger1=enemynear,backedgedist <20
+x = -fvar(11)*0.111
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1=enemynear,stateno=[120,160]
+x = -3
+ignorehitpause = 1
+persistent = 0 
+
+
+[State 200, 3]
+type = ChangeState
+;trigger1 = time>13
+trigger1=helper(201),anim=201
+trigger1=helper(201),animtime=0
+triggerall=time>12
+value = 1
+ctrl = 0
+
+;Shockwave Helper A
+[Statedef 201]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 201                       ;Change animation (Def: no change)                   ;Power to add (Def: 0)
+sprpriority = 4                 ;Set p1's sprite layering priority to 2 (in front)
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=time=0
+		value=1,4
+		channel=2
+
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+
+
+[State 200, 1]
+type = HitDef
+trigger1 = !movecontact
+trigger1 = !movereversed
+attr = S, NA                    ;Attribute: Standing, Normal Attack
+damage = Ceil(18*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S1,9                ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=High
+		Ground.SlideTime=22
+		Ground.HitTime=24
+		Guard.SlideTime=19
+		Guard.HitTime=19
+		Air.HitTime=14
+		Ground.velocity=-2.75
+		AirGuard.velocity=-3.25,.8
+		Air.Type=High
+		Air.velocity=-1,-3 ;X-velocity at which opponent is pushed,
+Air.Fall = 1
+Fall.Recover = IfElse(P2MoveType = A,0,1)
+Fall.RecoverTime = 40
+;Y-velocity at which opponent is pushed
+air.hittime = 20                 ;Time before opponent regains control in air
+getpower = 20,10
+GivePower = 20,10
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+sprpriority=4
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-20*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;GuardSpark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = moveguarded =1
+		trigger1=!movereversed
+		stateno=6035
+		id=6035
+		postype = p2
+		Pos = 30,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 0
+		ignorehitpause = 1
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+v =   1  
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+
+[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		
+		Trigger1=target,StateType != A
+		Trigger1=parent,fVar(0) > 0.85
+		fvar(0)= 0.85
+		persistent = 0
+ 		ignorehitpause = 1
+
+	
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		
+		Trigger1=target,StateType = A
+		fvar(0)= parent,fvar(0)*0.80
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 3
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger2=animtime=0
+trigger3=movereversed
+ignorehitpause = 1
+;persistent = 
+
+
+;-----------------------------------------------------------------------
+[Statedef 210,Standing Shockwave B]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+;anim = 200                       ;Change animation (Def: no change)
+Poweradd=FVar(11)                   ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+facep2=1
+
+[State 200,V1=0]
+		Type=VarSet
+		Trigger1=time=0
+		var(1)=0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1= time=0
+trigger1 = anim!=0
+value = 0
+;elem = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 26,0
+player = 12,12
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "ChargeEffect"
+ID = 215
+stateno = 215
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+;ignorehitpause
+persistent=0
+
+;Small Version
+[State 0, Helper]
+type = Helper
+trigger1 = command!= "hold_b" && time<15
+helpertype = normal ;player
+name = "Shockwave"
+ID = 211
+stateno = 211
+pos = -30,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+;ignorehitpause
+persistent=0
+
+;Big Version
+[State 0, Helper]
+type = Helper
+triggerall=numhelper(211)=0
+trigger1 = command= "hold_b" && time>=15
+helpertype = normal ;player
+name = "Shockwave"
+ID = 212
+stateno = 212
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+scale=0.3,0.3
+supermovetime = 0
+pausemovetime = 0
+;ignorehitpause
+persistent=0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = 0;var(1)
+x = -fvar(11)*0.222
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = helper(211),moveguarded
+;trigger2 = helper(212),moveguarded
+x = -4
+ignorehitpause = 1
+persistent = 0 
+
+
+[State 200, 3]
+type = ChangeState
+triggerall=time>13
+trigger1=helper(211),anim=211
+trigger1=helper(211),animtime=0
+trigger2=helper(212),anim=212
+trigger2=helper(212),animtime=0
+
+value = 1
+ctrl = 0
+
+;Shockwave Helper B Small
+[Statedef 211]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 211                      ;Change animation (Def: no change)                   ;Power to add (Def: 0)
+sprpriority = 4                ;Set p1's sprite layering priority to 2 (in front)
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=time=0
+		value=1,21
+		channel=2
+
+
+
+
+[State 200, 1]
+type = HitDef
+trigger1 = !movecontact
+trigger1 = !movereversed
+attr = S, NA                    ;Attribute: Standing, Normal Attack
+damage = Ceil(30*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Medium                ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S1,9                  ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=Low
+		Ground.SlideTime=31
+		Ground.HitTime=31
+		Guard.SlideTime=26
+		Guard.HitTime=26
+		Air.HitTime=20
+		Ground.velocity=-2.25
+		AirGuard.velocity=-6.25,.8
+		Air.Type=High
+		Air.velocity=-1.2,-4  ;X-velocity at which opponent is pushed,
+Air.Fall = 1
+Fall.Recover = IfElse(P2MoveType = A,0,1)
+Fall.RecoverTime = 46
+;Y-velocity at which opponent is pushed
+air.hittime = 24                ;Time before opponent regains control in air
+getpower = 20,10
+GivePower = 20,10
+YAccel = .38+parent,fvar(11)*.00066
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+sprpriority=4
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;GuardSpark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = moveguarded =1
+		trigger1=!movereversed
+		stateno=6035
+		id=6035
+		postype = p2
+		Pos = 30,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 0
+		ignorehitpause = 1
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+v =   1  
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		fvar(0)= parent,fvar(0)*0.85
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 3
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger2=animtime=0
+trigger3=movereversed
+ignorehitpause = 1
+;persistent = 
+
+
+;Shockwave Helper B Big
+[Statedef 212]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 212                     ;Change animation (Def: no change)                   ;Power to add (Def: 0)
+sprpriority = 0                ;Set p1's sprite layering priority to 2 (in front)
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=time=0
+		value=1,24
+		channel=2
+
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+;facing = 0
+pos = 0,0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 200, 1]
+type = HitDef
+trigger1 = !movecontact
+trigger1 = !movereversed
+attr = S, NA                    ;Attribute: Standing, Normal Attack
+damage = Ceil(45*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Hard              ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = LA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-50*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S1,9                 ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=Low
+		Ground.SlideTime=23
+		Ground.HitTime=23
+		Guard.SlideTime=21
+		Guard.HitTime=21
+		Air.HitTime=20
+		Ground.velocity=-0.5,-9
+		AirGuard.velocity=-6.25,.8
+		Air.Type=High
+		Air.velocity=-1,-8
+Fall=1
+Air.Fall = 1
+Fall.Recover = 0
+Fall.RecoverTime = 35
+;Y-velocity at which opponent is pushed
+getpower = 20,10
+GivePower = 20,10
+YAccel = .42+parent,fvar(11)*.00066
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+sprpriority=0
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;GuardSpark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = moveguarded =1
+		trigger1=!movereversed
+		stateno=6035
+		id=6035
+		postype = p2
+		Pos = 30,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 0
+		ignorehitpause = 1
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+v =   1  
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		fvar(0)= parent,fvar(0)*0.85
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 3
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger2=animtime=0
+trigger3=movereversed
+ignorehitpause = 1
+;persistent = 
+
+;Charging Effect
+[Statedef 215]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 6060                      ;Change animation (Def: no change)                   ;Power to add (Def: 0)
+sprpriority = 0                ;Set p1's sprite layering priority to 2 (in front)
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.5,0.5
+ignorehitpause =1 
+;persistent = 
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = time*20,256
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+;facing = 0
+pos = 0,0
+ignorehitpause = 1
+;persistent = 
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno!=210
+trigger2=parent,numhelper(211)!=0
+trigger3=parent,numhelper(212)!=0
+ignorehitpause = 1
+;persistent = 
+
+
+;----------------------------------------------------------------------------
+[Statedef 220,Explosion C]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+;anim = 200  
+Poweradd=FVar(11)                     ;Change animation (Def: no change)                   ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 200,V1=0]
+		Type=VarSet
+		Trigger1=time=0
+		var(1)=0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1= time=0
+trigger1 = anim!=0
+value = 0
+;elem = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 27,0
+player = 17,17
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "Circle"
+ID = 225
+stateno = 225
+pos = -35,-60
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "Circle 2"
+ID = 226
+stateno = 226
+pos = 45,-60
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "Explosion"
+ID = 221
+stateno = 221
+pos = 40,-60
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+;ignorehitpause
+persistent=0
+
+[State 0, VelAdd]
+type = VelAdd
+triggerall = var(1)
+trigger1=enemynear,backedgedist <20
+x = -fvar(11)*0.333
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1=enemynear,stateno=[120,160]
+trigger1=helper(221),anim=221
+trigger1=helper(221),moveguarded
+x=-5
+ignorehitpause = 1
+persistent = 0 
+
+
+[State 200, 3]
+type = ChangeState
+;trigger1 = time>13
+trigger1=helper(221),anim=221
+trigger1=helper(221),animtime=0
+triggerall=time>17
+value = 1
+ctrl = 0
+
+;Explosion Helper C
+[Statedef 221]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 222                       ;Change animation (Def: no change)                   ;Power to add (Def: 0)
+sprpriority = 4                 ;Set p1's sprite layering priority to 2 (in front)
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 1.1,1.1
+ignorehitpause = 1
+;persistent = 
+
+
+
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = animtime=0
+trigger1=anim=222
+value = 221
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = anim=221
+time = 1
+;add = 0,0,0
+mul = 256,200,180
+;sinadd = 0,0,0,10
+invertall = 0
+color = 30
+ignorehitpause = 1
+;persistent = 
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=time=0
+		value=2,7
+		channel=2
+		persistent=0
+		ignorehitpause=1
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=anim=221
+		value=1,30
+		channel=2
+		persistent=0
+		ignorehitpause=1
+
+
+[State 200, 1]
+type = HitDef
+trigger1 = !movecontact
+trigger1 = !movereversed
+attr = S, NP                     ;Attribute: Standing, Normal Attack
+damage = Ceil(65*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S1,12               ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=High
+		Ground.SlideTime=12
+		Ground.HitTime=10
+		Guard.SlideTime=11
+		Guard.HitTime=10
+		Air.HitTime=10
+		Ground.velocity=-3.25
+		AirGuard.velocity=-3.25,.8
+		Air.Type=High
+		Air.velocity=-1.9,-3 ;X-velocity at which opponent is pushed,
+Fall.RecoverTime=8+10
+;Y-velocity at which opponent is pushed
+air.hittime = 15                 ;Time before opponent regains control in air
+getpower = 20,10
+GivePower = 20,10
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+EnvShake.Time = 16
+EnvShake.Ampl = 3
+EnvShake.Freq = 90
+palfx.time = 60
+Palfx.Mul =  255,255,255
+Palfx.Add = -30,-130,-130
+Palfx.SinAdd = 100,30,30,6
+fall=1
+sprpriority=4
+
+;GuardSpark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = moveguarded =1
+		trigger1=!movereversed
+		stateno=6035
+		id=6035
+		postype = p2
+		Pos = 30,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 0
+		ignorehitpause = 1
+
+[State -2,壁吹き飛ばし]
+	type = TargetState
+	trigger1 = moveHit = 1
+	value = 7000
+
+[State -2,向き直し]
+	type = TargetFacing
+	trigger1 = moveHit = 1
+	value = -1
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+v =   1  
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		fvar(0)= parent,fvar(0)*0.80
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 7
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger2=animtime=0 && anim=221
+ignorehitpause = 1
+;persistent = 
+
+;-------------------------------------------------------------------------
+
+
+[statedef 225, circle 1]
+anim=4551
+sprpriority = 3
+ctrl=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 1
+value = parent,id
+ignorehitpause = 1
+persistent = 0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+mul = 200,200,200
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, AngleAdd]
+type = Angledraw
+trigger1 = 1
+scale=0.2,0.2
+ignorehitpause =1 
+;persistent = 
+
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 8,-82
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno!=220
+ignorehitpause = 1
+;persistent = 
+
+
+;--------------------------------------------------
+
+[statedef 226, circle 2]
+anim=4551
+sprpriority = 3
+ctrl=0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+mul = 200,200,200
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 1
+value = parent,id
+ignorehitpause = 1
+persistent = 0
+
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = -3,-85
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, AngleAdd]
+type = Angledraw
+trigger1 = 1
+value = 90
+scale=0.2,0.2
+ignorehitpause =1 
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno!=220
+ignorehitpause = 1
+;persistent = 
+
+
+
+;--------------------------------------------------------------------------
+[Statedef 600,Wing Slap A]
+type    = A                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = N                     ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 600                    ;Change animation (Def: no change)
+poweradd = 10                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+
+[State 200,V1=0]
+		Type=VarSet
+		Trigger1=time=0
+		var(1)=0
+
+
+[State 0, Width]
+type = Width
+trigger1 = time=0
+edge = 16,8
+player = 16,8
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, VelAdd]
+type = VelAdd
+triggerall = var(1)
+trigger1=enemynear,backedgedist <20
+x = -fvar(11)*0.111
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1=enemynear,stateno=[120,160]
+x = -1
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, VelAdd]
+type = VelMul
+trigger1=1
+x = 0.80
+ignorehitpause = 1
+
+
+[State 200, 3]
+type = ChangeState
+
+trigger1=animtime=0
+value = 1
+ctrl = 0
+
+[Statedef 610,Wing Slap B]
+type    = A                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = N                     ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 610                    ;Change animation (Def: no change)
+poweradd = fvar(11)                     ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+
+[State 200,V1=0]
+		Type=VarSet
+		Trigger1=time=0
+		var(1)=0
+
+[State 0, Width]
+type = Width
+trigger1 = time=0
+edge = 18,8
+player = 18,8
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, VelAdd]
+type = VelAdd
+triggerall = var(1)
+trigger1=enemynear,backedgedist <20
+x = -fvar(11)*0.111
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1=enemynear,stateno=[120,160]
+x = -1
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=16
+helpertype = normal ;player
+name = "Shockwave"
+ID = 615
+stateno = 615
+pos = 0,-60
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+ignorehitpause=1
+persistent=0
+
+[State 0, VelAdd]
+type = VelMul
+trigger1=1
+x = 0.80
+ignorehitpause = 1
+
+
+[State 200, 3]
+type = ChangeState
+
+trigger1=animtime=0
+value = 1
+ctrl = 0
+
+;Shockwave B
+[Statedef 615]
+Type = A
+MoveType = A
+Physics = N
+SprPriority = 5
+Anim = 615
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time=0
+time = 5
+freq = 60
+ampl = -6
+phase = 90
+ignorehitpause = 1
+;persistent = 
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=time=0
+		value=1,10
+		channel=2
+		persistent=0
+		ignorehitpause=1
+
+[State 0, Fast Explod]
+type = Explod
+trigger1 = time=0
+anim = 616
+trans = add
+ID = 616
+pos = 70,20
+postype = p1
+bindtime = -2
+removetime = -2
+scale = 1.2,0.4
+sprpriority =3
+ownpal = 1
+removeongethit = 0
+ignorehitpause =1
+persistent = 0
+
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+
+[State -1]
+Type = HitDef
+triggerall = !(enemy,Name = "Kamijou Touma") || !(enemy,var(50) = 666) 
+Trigger1 =! MoveContact
+Trigger1 =! MoveReversed
+Trigger1 = Time >= 1
+Attr = S, SA
+Damage = Ceil(35*parent,fvar(10)),5
+AnimType  = Hard
+HitFlag = MAF
+GuardFlag = MA
+Priority  = 3, Dodge
+PauseTime = 6,8
+Guard.PauseTime = 6,6
+HitSound   = s1,11
+GuardSound = s1,0
+SparkNo = -1
+Guard.SparkNo = s10000
+sparkxy = 0,floor(-70*const(Size.yScale))
+Ground.Type = High
+Air.Type = High
+Ground.SlideTime = 19
+Ground.HitTime  = 19
+AirGuard.CtrlTime = 7
+Ground.Velocity = -3.5
+Guard.Velocity = -2.5
+Air.Velocity = -2,-3
+AirGuard.Velocity = -2.4,-1
+Down.Velocity = -2.4,-2
+SprPriority = 5
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+Down.CornerPush.VelOff = 0
+Guard.cornerPush.VelOff = 0
+Airguard.CornerPush.VelOff = 0
+Fall.XVelocity = 0
+Down.Bounce = 1
+EnvShake.Time = 6
+EnvShake.Ampl = 3
+EnvShake.Freq = 90
+YAccel = .45+fvar(11)*.00066
+Kill = 1
+Guard.Kill = 0
+Fall = 0
+Air.Fall = 1
+Fall.Recover = IfElse(P2MoveType = A,0,1)
+Fall.RecoverTime =45
+GetPower = 30, 30
+GivePower = 30,30
+
+[State -1]
+Type = HitDef
+triggerall= (enemy,Name = "Kamijou Touma") 
+trigger1=enemy,var(50) = 666 
+trigger2=enemy,stateno= [6400,6429]
+trigger3=enemy,stateno= [6662,6666]
+Triggerall =! MoveContact
+Triggerall =! MoveReversed
+Triggerall = Time >= 1
+Attr = S, SP
+Damage = Ceil(35*parent,fvar(10)),5
+AnimType  = Hard
+HitFlag = MAF
+GuardFlag = MA
+Priority  = 3, Dodge
+PauseTime = 6,8
+Guard.PauseTime = 6,6
+HitSound   = s1,11
+GuardSound = s1,0
+SparkNo = -1
+Guard.SparkNo = s10000
+sparkxy = 0,floor(-70*const(Size.yScale))
+Ground.Type = High
+Air.Type = High
+Ground.SlideTime = 26
+Ground.HitTime  = 26
+AirGuard.CtrlTime = 7
+Ground.Velocity = -3.5
+Guard.Velocity = -2.5
+Air.Velocity = -2,-3
+AirGuard.Velocity = -2.4,-1
+Down.Velocity = -2.4,-2
+SprPriority = 5
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+Down.CornerPush.VelOff = 0
+Guard.cornerPush.VelOff = 0
+Airguard.CornerPush.VelOff = 0
+Fall.XVelocity = 0
+Down.Bounce = 1
+EnvShake.Time = 6
+EnvShake.Ampl = 3
+EnvShake.Freq = 90
+YAccel = .45+fvar(11)*.00066
+Kill = 1
+Guard.Kill = 0
+Fall = 0
+Air.Fall = 1
+Fall.Recover = IfElse(P2MoveType = A,0,1)
+Fall.RecoverTime =26
+GetPower = 30, 30
+GivePower = 30,30
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;GuardSpark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = moveguarded =1
+		trigger1=!movereversed
+		stateno=6035
+		id=6035
+		postype = p2
+		Pos = 30,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 0
+		ignorehitpause = 1
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+v =   1  
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		fvar(0)= parent,fvar(0)*0.90
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 3
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+
+
+[State -1]
+Type = DestroySelf
+Trigger1 = AnimTime = 0
+trigger2=movecontact ||movereversed
+trigger3=parent,movetype=H
+IgnoreHitPause = 1
+;------------------------------------------------------------------
+
+[Statedef 620,Wing Slap C]
+type    = A                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = N                     ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 620                    ;Change animation (Def: no change)
+poweradd = fvar(11)                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+
+[State 200,V1=0]
+		Type=VarSet
+		Trigger1=time=0
+		var(1)=0
+
+
+[State 0, Width]
+type = Width
+trigger1 = time=0
+edge = 18,8
+player = 18,8
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=9
+helpertype = normal ;player
+name = "Wind"
+ID = 625
+stateno = 625
+pos = 40,-30
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+;ignorehitpause
+persistent=0
+
+
+[State 0, VelAdd]
+type = VelAdd
+triggerall = var(1)
+trigger1=enemynear,backedgedist <20
+x = -fvar(11)*0.111
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1=enemynear,stateno=[120,160]
+x = -1
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, VelAdd]
+type = VelMul
+trigger1=1
+x = 0.80
+ignorehitpause = 1
+
+
+[State 200, 3]
+type = ChangeState
+
+trigger1=time>=55
+value = 1
+ctrl = 0
+
+;--------------------------------------------------------------
+
+;Wind Helper C
+[Statedef 625]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 625                       ;Change animation (Def: no change)                   ;Power to add (Def: 0)
+sprpriority = 3                 ;Set p1's sprite layering priority to 2 (in front)
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 1.2,1.2
+ignorehitpause = 1
+;persistent = 
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=time=0
+		value=2,10
+		channel=2
+		persistent=0
+		ignorehitpause=1
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+triggerall = !movereversed
+trigger1 = !(enemy,Name = "Kamijou Touma") || !(enemy,var(50) = 666) 
+attr = S, NP                     ;Attribute: Standing, Normal Attack
+damage = Ceil(65*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = HA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S2,1                ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=High
+		Ground.SlideTime=12
+		Ground.HitTime=10
+		Guard.SlideTime=11
+		Guard.HitTime=10
+		Air.HitTime=10
+		Ground.velocity=-3.25
+		AirGuard.velocity=-3.25,.8
+		Air.Type=High
+		Air.velocity=-1.9,-3 ;X-velocity at which opponent is pushed,
+Fall.RecoverTime=8+10
+;Y-velocity at which opponent is pushed
+air.hittime = 15                 ;Time before opponent regains control in air
+getpower = 20,10
+GivePower = 20,10
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+EnvShake.Time = 16
+EnvShake.Ampl = 3
+EnvShake.Freq = 90
+sprpriority=4
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+triggerall = !movereversed
+trigger1= (enemy,Name = "Kamijou Touma") 
+trigger1=enemy,var(50) = 666 
+trigger2=enemy,stateno= [6400,6429]
+trigger3=enemy,stateno= [6662,6666]
+attr = S, NA             ;Attribute: Standing, Normal Attack
+damage = Ceil(65*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = HA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S2,1                ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=High
+		Ground.SlideTime=12
+		Ground.HitTime=10
+		Guard.SlideTime=11
+		Guard.HitTime=10
+		Air.HitTime=10
+		Ground.velocity=-3.25
+		AirGuard.velocity=-3.25,.8
+		Air.Type=High
+		Air.velocity=-1.9,-3 ;X-velocity at which opponent is pushed,
+Fall.RecoverTime=8+10
+;Y-velocity at which opponent is pushed
+air.hittime = 15                 ;Time before opponent regains control in air
+getpower = 20,10
+GivePower = 20,10
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+EnvShake.Time = 16
+EnvShake.Ampl = 3
+EnvShake.Freq = 90
+sprpriority=4
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;GuardSpark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = moveguarded =1
+		trigger1=!movereversed
+		stateno=6035
+		id=6035
+		postype = p2
+		Pos = 30,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 0
+		ignorehitpause = 1
+
+[State -2,壁吹き飛ばし]
+	type = TargetState
+	trigger1 = moveHit = 1
+	value = 7000
+
+[State -2,向き直し]
+	type = TargetFacing
+	trigger1 = moveHit = 1
+	value = -1
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+v =   1  
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		fvar(0)= parent,fvar(0)*0.80
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 7
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger2=animtime=0
+ignorehitpause = 1
+;persistent = 

@@ -1,0 +1,510 @@
+;---------------------------------------------------------------------
+[Characters]
+ ;How to add characters
+ ;---------------------
+ ;Use the format:
+ ;    charname, stagefilename
+ ;
+ ;eg. For a player with filename "kfm",
+ ;    and stage filename "stages/mybg.def"
+ ;type (without the semicolon):
+ ;    kfm, stages/mybg.def
+ ;
+ ;If you want to load a different def file, you can enter it
+ ;as a directory plus the def file. This example loads up
+ ;chars/kfm/alt-kfm.def:
+ ;    kfm/alt-kfm.def, stages/mybg.def
+ ;
+ ;If you put "random" as the stagefilename, then a random stage will
+ ;be selected for that player. eg.
+ ;    kfm, random
+ ;
+ ;Zipped characters are also supported.
+ ;Place the ZIP file in the chars/ directory. The syntax is as
+ ;follows:
+ ;    zipname.zip:defname.def, stages/mybg.def
+ ;For example, if you have newsuave.def in suave.zip, the syntax is:
+ ;    suave.zip:newsuave.def, stages/mybg.def
+ ;If your def file has the same name as the zip file (eg. suave.def
+ ;in suave.zip), you can just put the name of the zip file alone:
+ ;    suave.zip, stages/mybg.def
+ ;
+ ;Optional parameters may follow on the same line, separated
+ ;by commas. Each parameter has the form:
+ ;    paramname = paramvalue
+ ;where paramname is the name of the parameter type, and
+ ;paramvalue is the value to assign that parameter.
+ ;The optional parameters are:
+ ;
+ ; - music
+ ;   Set the paramvalue to the name of the music file to use
+ ;   as the BGM for that character. This overrides the bgmusic
+ ;   parameter in the stage's .def file, so you can re-use the
+ ;   same stage for multiple characters, but have a different
+ ;   BGM playing for each person.
+ ;
+ ; - includestage
+ ;   Set the paramvalue to 0 to avoid including this stage
+ ;   in the stage select list (in VS, training modes, etc)
+ ;
+ ; - order
+ ;   Set the paramvalue to the ordering priority to give the
+ ;   character. Valid values are from 1 to 10. A smaller value
+ ;   means you will fight the character sooner. You will never
+ ;   fight an order 2 character before an order 1 character,
+ ;   and never an order 3 character before an order 2 one.
+ ;   For example, you might want to set your boss character
+ ;   to have order=3. The default order value is 1 if you omit
+ ;   this param. See *.maxmatches under [Options] for how to
+ ;   limit the number of matches per order priority.
+ ;
+ ;   Some examples:
+ ;        kfm, stages/mybg.def, includestage=0
+ ;        kfm, stages/mybg.def, music=sound/song.mp3
+ ;        kfm, stages/mybg.def, music=sound/song.mp3, includestage=0
+ ;        kfm, stages/mybg.def, order=3
+ ;
+ ;You can also add a randomize icon to the select screen. To do
+ ;this, put the word "randomselect" on a line of its own, with no
+ ;extra parameters.
+ ;
+ ;Insert your characters below.
+
+empty 
+empty
+empty
+empty
+
+Gunha, order = 2
+empty ;Misaki
+Mugino, order = 2
+ slot = {
+misakaNEW,previous=d, next=w, order = 3
+necomisaka,previous=d, next=w, order = 3
+}
+slot = {
+KakineOT15,previous=d, next=w, order = 3
+KakineDM,previous=d, next=w, order = 3
+}
+slot = {
+Accelerator,previous=d, next=w, order = 2
+AcceleratorOT3,previous=d, next=w, order = 2
+}
+slot = {
+kamijo,previous = d, next = w, order = 2 ;Middle cause he's the bridge between science and magic
+hood_kamijo,previous = d, next = w, order = 2
+}
+
+Pendex, order=5
+Himegami_Aisa, order = 5
+
+empty
+empty
+empty
+empty
+
+empty
+empty
+empty
+empty
+;End of row 1
+
+
+
+;Row 2
+empty
+empty
+empty
+empty
+
+Kumagawa, order = 6
+Junko,order=3
+Kinuhata, order = 3
+ slot = {
+kuroko_sNEW,previous = d, next = w,  order = 8
+}
+empty
+Last_Order, order = 6
+
+Tsuchimikado, order = 3
+
+stiyl,order=4
+empty
+empty
+empty
+Thor,order=4
+empty
+
+empty 
+empty
+empty
+empty
+;End of Row 2
+
+;Row 3
+empty 
+empty
+empty
+empty
+
+empty 
+empty
+Hamazura,order=4
+empty ;Saten
+empty
+ slot = {
+S_Yuriko,previous = d, next = w,  order = 7
+S_YurikoOLD,previous = d, next = w,  order = 7
+}
+
+
+Kamisato, order = 2
+
+kanzaki,order=4;
+itsuwa ;empty
+empty
+empty
+empty
+empty
+
+empty 
+empty
+empty
+empty
+;End of Row 3
+
+;Row4
+empty
+empty
+empty
+empty
+
+empty
+empty
+Frenda ;empty
+empty
+empty
+Kazakiri,order=4
+
+randomselect
+
+Lola_Stuart,order = 2
+empty
+empty
+empty
+empty
+empty
+
+empty
+empty
+empty
+empty
+;End of Row 4
+
+;Row5
+empty
+empty
+empty
+empty
+
+empty
+empty
+empty
+empty
+empty
+empty
+
+training,order=9
+
+empty
+empty
+empty
+empty
+empty
+empty
+
+empty
+empty
+empty
+empty
+;End of Row 5
+
+;Row6
+empty
+empty
+empty
+empty
+
+empty
+empty
+empty
+empty
+empty
+empty
+
+empty
+
+empty
+empty
+empty
+empty
+empty
+empty
+
+empty
+empty
+empty
+empty
+;End of Row 6
+
+;Row void
+empty
+empty
+empty
+empty
+
+empty
+empty
+empty
+empty
+empty
+empty
+
+empty
+
+empty
+empty
+empty
+empty
+empty
+empty
+
+empty
+empty
+empty
+empty
+;End of Row Void
+
+
+;End of FG Row
+
+
+
+
+
+;-----------------------
+[ExtraStages]
+ ;Put extra stages here. They will be available in VS and Watch modes.
+ ;For example, you can insert "stages/mybg.def".
+
+stages/City_Outskirts.def
+stages/rb2-mary.def
+stages/School-3.def 
+stages/LUMINANCE_CITY.def ;Railgun Level Upper
+
+stages/room.def ;OT1 
+
+stages/KOF94_Korea_Stage.def ;OT2
+stages/aof01.def ;OT2
+
+stages/SFIV_Training.def ;OT3 
+stages/KOF99_ChinaTown2.def ;OT3
+stages/daemonbride9.def ;Railgun Sisters
+stages/IF_academy_city.def ;OT3 
+stages/fatehollow_bridge2.def ;OT3
+
+stages/kofnw-hangar.def ;OT3
+
+
+stages/SA_Sunset_Beach.def ;OT4 
+
+stages/NewPlaygroundRain.def ;Accel OP
+
+stages/xjuggernaut.def ;OT6
+
+stages/StGeorgeCathedral.def ;OT7 
+stages/MBAA 7th Heaven Church.def ;OT7 
+
+stages/Nice_Afternoon_In_The_City_II.def
+stages/aof2-airport.def ;OT10
+
+stages/Anime_School_Park.def ;Railgun Daihaseisai 
+stages/Zero City Rooftop.def ;Railgun Daihaseisai
+
+stages/rio.def		;Railgun Daihaseisai
+;stages/Train.def  ;Railgun Daihaseisai TO CHANGE
+
+stages/Underground-Sewer.def ;Railgun Daihaseisai 
+stages/AW-Build-D.def ;Railgun Daihaseisai
+
+
+
+stages/italy2k1.def ;OT11 
+
+stages/academy_city_acmi.def ;OT12 
+stages/aof1-thefactory.def ;OT13
+stages/KOF1994A-JS.def ;OT13
+;stages/Ciudad_Academia.def   ;OT13  ASS
+
+stages/RushHour.def   ;OT15
+
+stages/Midnight_Escape.def  ;OT19
+
+
+stages/SB2-snowy_aurora_borealis.def ;IndexIII OP2
+stages/Dogfight.def ;OT20
+stages/Dusk Mountains.def ;OT21
+stages/Academy.def ;OT22 
+
+stages/NaturalSelector.def ;NT4 
+
+stages/XX'DB'BRIDGE'RUINS'XX.def ;NT6 
+stages/warehouse-In.def ;NT6 
+
+
+stages/NoMoreWorld.def  ;NT9 
+stages/tuyokisu_schoolyard2.def ;NT9 
+
+stages/NewNight.def ;NT14 
+
+Stages/The Windowless Building.def ;NT18 
+
+Stages/QueenBritannia.def ;NT22
+
+
+stages/JAP98.def
+stages/bay-night2014.def
+stages/GoldenHall.def
+stages/JUBILEE.def
+stages/Witch_on_the_Holy_Night.def
+stages/FGO_Kara_no_Kyoukai_Rooftop_1.1.def
+;---------------------------------------------------------------------
+[Options]
+ ;Here you set the maximum number of matches to fight before game ends in arcade
+ ;mode. The first number is the number of matches against characters with
+ ;order=1, followed by order=2 and order=3 respectively. For example, for 4,3,1
+ ;you will fight up to 4 randomly-picked characters who have order=1, followed
+ ;by 3 with order=2 and 1 with order=3.
+ ;IKEMEN feature: Max 30 orders mugen limitation is lifted.
+ ;IKEMEN feature: Characters can use individual maxmatches settings (see
+ ;'maxmatches' parameter in [Characters] section)
+
+ ;Maximum number of matches to fight before game ends in Arcade single mode.
+arcade.maxmatches = 2,2,2,2,3,3,2,2,0,0
+
+ ;Like arcade.maxmatches, but applies to Arcade team modes (sans 'Ratio').
+team.maxmatches = 2,2,2,2,3,3,2,2,0,0
+
+ ;Maximum number of matches to fight before game ends in Time Attack mode.
+timeattack.maxmatches = 2,2,2,2,3,3,2,2,0,0
+
+ ;IKEMEN feature: Similar to arcade.maxmatches, but applies to Survival mode.
+ ;Use -1 value to choose which order number should have unlimited matches.
+ ;By omitting -1 survival mode will end after particular amount of matches set
+ ;below (in such case you can actually "complete" the mode).
+survival.maxmatches = -1,-1,-1,-1,-1,-1,-1,-1,0,0
+
+ ;IKEMEN feature: A 'Ratio' mode allows each team to select up to 3 characters
+ ;and distribute 4 "ratio levels" amongst them, affecting their life and damage
+ ;(ratio 2 is the default to which other ratios are compared, percentages are
+ ;adjustable in options screen).
+ ;Arcade ratio matches use 'ratiomatches' configuration instead of 'maxmatches'
+ ;settings. Each entry here, separated by commas, represents a single match and
+ ;consists of 2 assignments, separated by colon. Assignment on the left side of
+ ;colon refers to the number of characters you will face in this match (valid
+ ;numbers from 1 to 3, or a random selection range, consisting of one number,
+ ;followed by a dash and another number). Assignment written after colon refers
+ ;to character's order param, that can be used to limit which characters should
+ ;be randomly chosen for this match. For example 2-3:4 entry means a match
+ ;against team of 2 or 3 characters, chosen from characters with order=4.
+arcade.ratiomatches = 1-3:1, 3:1, 2:1, 2:1, 1:2, 3:1, 1-2:3,1-2:4,1:5,1-3:5,2:6,1-3:7,1:8
+
+ ;AI ramping
+ ;IKEMEN feature: AI ramping settings has been moved here from mugen.cfg
+ ;You can view AI ramping output for all battles from the last chosen mode via
+ ;debug/t_aiRamp.txt (useful reference also for vanilla mugen).
+
+ ;Arcade / Time Attack single mode AI ramping
+ ;For both parameters below, the first number corresponds to the number of
+ ;matches won, and the second number to the AI difficulty offset. The actual
+ ;difficulty is the sum of the AI difficulty level (set in the options menu) and
+ ;the value of the offset at a particular match.
+ ;  AIramp.start = start_match, start_diff
+ ;  AIramp.end   = end_match, end_diff
+ ;The difficulty offset function is a constant value of start_diff from the
+ ;first match until start_match matches have been won. From then the offset
+ ;value increases linearly from start_diff to end_diff. After end_diff matches
+ ;have been won, the offset value is end_diff.
+ ;  e_d            /----------
+ ;               /
+ ;  s_d _______/
+ ;     ^      ^     ^        ^
+ ;   1st_m   s_m   e_m     last_m
+ ;For example, if you have:
+ ;  AIramp.start = 2,0
+ ;  AIramp.end   = 4,2
+ ;For 6 matches at level 4, the difficulty will be (by match):
+ ;  4,4,4,5,6,6
+
+;arcade.AIramp.start = 2, 0
+;arcade.AIramp.end   = 4, 2
+
+ ;Arcade / Time Attack team modes AI ramping (sans 'Ratio')
+ ;For 4 matches at level 4 and default values, the difficulty will be:
+ ;  4,4,5,6
+
+team.AIramp.start = 1, 0
+team.AIramp.end   = 3, 2
+
+ ;Arcade / Time Attack 'Ratio' mode AI ramping
+ ;For 4 matches at level 4 and default values, the difficulty will be:
+ ;  4,4,5,6
+
+ratio.AIramp.start = 1, 0
+ratio.AIramp.end   = 3, 2
+
+ ;Survival Mode AI ramping
+ ;For 16 matches at level 4 and default values, the difficulty will be:
+ ;  1,1,1,2,2,3,3,4,4,4,5,5,6,6,7,7,8
+
+;survival.AIramp.start = 0, -3
+;survival.AIramp.end   = 16, 4
+
+;-------------------------------------------------------------------------------
+[StoryMode]
+ ;Story Mode arcs declaration. Assigned arcs are selectable via Story Mode
+ ;submenu ('menu.itemname.storymode' parameter in screenpack DEF file)
+ ;
+ ;Declaring arcs consists of setting up following parameters:
+ ; - name
+ ;   IKEMEN feature: Set to name that should be returned by GameMode trigger.
+ ;   This parameter also initiates new story arc declaration, so it has to be
+ ;   assigned before any other parameter used by the same arc. All arcs should
+ ;   have unique names.
+ ;
+ ; - displayname
+ ;   IKEMEN feature: Set to name that should be displayed in Story Mode submenu.
+ ;
+ ; - path
+ ;   IKEMEN feature: Path to file with lua extension (relative to game
+ ;   directory), containing story mode arc coded in Lua language.
+ ;   https://github.com/K4thos/Ikemen_GO/wiki/Miscellaneous-Info#arcs
+ ;
+ ; - unlock
+ ;   IKEMEN feature: Pure Lua code, executed exactly as is, each time upon
+ ;   loading main menu. If it evaluates to boolean 'true' the story arc will be
+ ;   selectable from story mode submenu, or hidden on 'false'. Default: true.
+ ;   https://github.com/K4thos/Ikemen_GO/wiki/Miscellaneous-Info#lua_unlock
+ ;
+ ;Examples:
+ name = test_story
+ displayname = Storyboard example
+ path = story/Storyboard_example/test_story.lua
+ unlock = true
+ ;
+ name = test_story2
+ displayname = Storyboard example 2 for testing
+ path = story/Storyboard_example/test_story.lua
+ unlock = true
+ ;
+ ;Declare your Story Mode arcs below.

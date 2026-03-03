@@ -1,0 +1,179 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+After losing a round, you will get Angel Mode
+Some moves change in Angel Mode and you
+also get new ones
+Kazakiri can air dash backwards and forwards 
+in Angel Mode
+She also has a passive health regeneration
+after she's been hit
+
+<#f0f000>Normals:</>
+
+Hesitant Jab						^LK / ^A
+
+Standing Push 						^MK / ^B
+
+Strong Push						^HK / ^C
+
+Strong Punch						_F^HK / _F^C
+(Wall bounce)
+
+
+Crouching Punch						^LK / ^A (Crouching)
+
+Crouching Push					^MK / ^B (Crouching)
+
+Crouching Sweep  					^HK / ^C (Crouching)
+
+
+Air Jab							^LK / ^A (Air)
+
+Air Low Jab			 			^MK / ^B (Air)
+
+Air Front Kick			 			^HK / ^C (Air)
+(Wall bounce if close to wall)
+
+Air Down Kick						_D^HK / _D^C (Air)
+(Ground bounce if target is airborne)
+
+
+Scales							^LP / ^X 
+(They block projectiles)
+
+Scared Throw					_B / _F _+ ^LP / ^X
+
+Dashes							Dir+ ^MP / Dir +^Y 
+
+Homing Angel Dash				^MP / ^Y (Air Ok)
+(Angel Mode)
+
+Phase Out						^HP / ^Z (Air OK in Angel Mode)
+(Drains HP but not hittable)
+
+Gauge Charge 						^LK + ^HK / ^A + ^C (Held)
+
+
+
+<#ff0000>Specials Supers and Hypers:</>
+
+Lunge Flying Kick		
+_D_DF_F ^LK / _D_DF_F ^A
+(Wall bounce if close to wall)
+
+<#f0f000>Information about Lunge moves:</>
+If you maintain the button, the run lasts longer
+If you maintain forward when attacking,
+the run cancels into Upper
+If you maintain back then it cancels into
+Tackle
+The jump will automatically raise to
+the height of the opponent
+
+Lunge Flying Sword Strikes		
+_D_DF_F ^LK / _D_DF_F ^A (Angel Mode)
+(Wall bounce if close to wall)
+
+
+Lunge Flying Overhead Punch		
+_D_DF_F ^MK / _D_DF_F ^B
+(The run is faster)
+(Ground bounce)
+
+Lunge Flying Overhead Sword		
+_D_DF_F ^MK / _D_DF_F ^B (Angel Mode)
+(The run is faster)
+(Ground bounce)
+
+
+<#00ff00>Lvl-1</>
+Lunge EX						
+_D_DF_F ^HK / _D_DF_F ^C
+(The super will automatically jump if needed
+and trigger if needed)
+
+
+Short Tackle					
+_D_DB_B ^LK / _D_DB_B ^A 
+
+Strong Tackle 						
+_D_DB_B ^MK / _D_DB_B ^B
+(Wall bounce if close to wall)
+
+<#00ff00>Lvl-1</>
+Tackle EX						
+_D_DB_B ^HK / _D_DB_B ^C
+(Wall bounce)
+
+
+Short Upper				
+_F_DF_F ^LK / _F_DF_F ^A 
+
+  _! Down Sword Followup		
+^LK / ^A (Angel Mode)
+(Ground Bounce)
+
+  _! Upper Sword Followup		
+^MK / ^B (Angel Mode)
+
+  _! Angel Buster		
+^HK / ^C (Angel Mode)
+(Command Grab)
+
+Long Upper				
+_F_DF_F ^MK / _F_DF_F ^B
+(Inv on startup)
+
+<#00ff00>Lvl-1</>
+Upper EX						
+_F_DF_F ^HK / _F_DF_F ^C
+
+
+Sword Combo		
+_D_DF_F ^LK / _D_DF_F ^A (Air)
+(Angel Mode)(You can mash A)
+(Wall bounce if close to wall)
+
+Down Sword Combo		
+_D_DF_F ^MK / _D_DF_F ^B (Air)
+(Angel Mode)
+(Second hit has ground bounce if airborne)
+
+<#00ff00>Lvl-1</>
+Sword Combo EX		
+_D_DF_F ^HK / _D_DF_F ^C (Air)
+(Angel Mode)
+(Wall bounce if close to wall)
+
+
+<#00ff00>Lvl-1</>
+Angel Lightning				
+_B_DB_D_DF_F ^MK / _B_DB_D_DF_F^B 
+(Angel Mode OR <50% HP)
+(Can be extended for 0.3 meter per strike)
+
+<#00ff00>Lvl-2</>
+Angel Slash					
+_B_DB_B ^HK / _B_DB_B ^C (Air OK)
+(Angel Mode)
+(Ground Bounce)
+
+<#00ff00>Lvl-3</>
+Angel Burst			
+_B_DB_D_DF_F ^HK / _B_DB_D_DF_F^C
+(Angel Mode OR <50% HP)
+
+<#00ff00>Lvl-3</>
+Angel Backstab		
+_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C (Air OK)
+(Angel Mode)
+(Unblockable)(Can be done while phasing out)
+
+
+
+Credits:
+
+Writing : DidiGetsRekt, Seb368
+
+

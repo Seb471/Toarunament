@@ -1,0 +1,93 @@
+<#f0f000>Movelist :</>
+
+Dash							_F_F
+Air Dash						_F_F (air)
+Back Hop						_B_B
+Back Air Dash						_B_B (air)
+
+Charge up						^3K / ^A_+^B_+^C
+<#00ff00>Lvl-2</>
+Burst 							^3K / ^A_+^B_+^C (while being hit)
+
+Short Palm						^LK / ^A
+Sternum Palm						^MK / ^B
+Rail Raise						^HK / ^C
+
+Low Palm						^LK / ^A (crouch)
+Low Kick						^MK / ^B (crouch)
+Yoink							^HK / ^C (crouch)
+(makes opponent drop like a fly)
+
+Air Palm						^LK / ^A (air)
+Air Upward Kick						^MK / ^B (air)
+Air Vector Circle					^HK / ^C (air)
+
+					
+
+Reverse Blood Flow					(Hold) ^MK / ^B
+Football kick						_F^HK / _F^C
+
+Dashes								Dir+ ^MP / Dir +^Y 
+
+<#ff0000>These vector moves use a little SP</>
+Vector teleport forward					_D_DF_F^MP / _D_DF_F^Y
+Vector teleport backward				_D_DB_B^MP / _D_DB_B^Y
+
+Vector counter (physical)				^MP^MP / ^Y^Y
+
+Vector counter (projectile)				_D_D^MP / _D_D^Y
+(can be held down)
+
+Vector shield (Super Armor)				^HP/ ^Z
+(can be held down)
+
+
+Grab					_B / _F  _+ ^LP / ^X
+(throws guy to the other side)
+
+Rail Uppercut					_D_DF_F^LK / _D_DF_F^A
+Rail Kick					_D_DF_F^MK / _D_DF_F^B
+(can be held)
+<#00ff00>Lvl-1</> 
+Rail Rain 					_D_DF_F^HK / _D_DF_F^C
+
+Heartbreak						_D_DB_B^LK / _D_DB_B^A
+Faceplant						_D_DB_B^MK / _D_DB_B^B
+<#00ff00>Lvl-1</> 
+Murder offscreen					_D_DB_B^LK / _D_DB_B^C
+
+Vector Uppercut						_F_D_DF^LK / _F_D_DF^A
+
+Vector Slam						_F_D_DF^MK / _F_D_DF^B
+(Sends to the edge of the stage)
+
+<#00ff00>Lvl-1</>  
+Bloody Grab						_F_D_DF^HK / _F_D_DF^C
+
+Air Rail Throw					_D_DF_F^LK / _D_DF_F^A (air)
+Air Counter					_D_DF_F^MK / _D_DF_F^B (air)
+
+Rock							_D_DB_B^LK / _D_DB_B^A (air)
+Rock Start						_D_DB_B^MK / _D_DB_B^B (air)
+<#00ff00>Lvl-1</> 
+Rock Start, Heat End !					_D_DB_B^HK / _D_DB_B^C (air)
+
+Earthgeyser						_D_D^LK / _D_D^A
+<#00ff00>Lvl-1</> 
+Earthquake						_D_D^MK / _D_D^B
+<#00ff00>Lvl-2</> 
+Gas Explosion						_D_D^HK / _D_D^C
+
+<#00ff00>Lvl-2</> 
+Murder Combo						_B_DB_D_DF_F^LK / _B_DB_D_DF_F^A
+<#00ff00>Lvl-3</> 
+Vector Ball (Index vers.)				_B_DB_D_DF_F^MK / _B_DB_D_DF_F^B
+<#00ff00>Lvl-4</> 
+Vector Ball (Railgun S vers.)				_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+
+
+
+Credits :
+
+Writing : Seb368, DidiGetsRekt
+Patches : Seb368

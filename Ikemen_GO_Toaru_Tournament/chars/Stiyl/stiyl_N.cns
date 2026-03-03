@@ -1,0 +1,875 @@
+;---------------------------------------------------------------------------
+; Jab
+[Statedef 200]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 0                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 200                       ;Change animation (Def: no change)
+poweradd = 10                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 200, 1]
+type = HitDef
+trigger1 = time = 0
+attr = S, NA                     ;Attribute: Standing, Normal Attack
+damage = ceil((23+numhelper(4017))*fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 8                 ;Time attacker pauses, time opponent shakes
+sparkno = S7002                     ;Spark anim no (Def: set above)
+sparkxy = -10, -76               ;X-offset for the "hit spark" rel. to p2,
+;Y-offset for the spark rel. to p1
+HitSound=S0,2+random%2                  ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+ground.type = High               ;Type: High, Low, Trip (def: Normal)
+Ground.SlideTime=17
+		Ground.HitTime=17
+		Guard.SlideTime=14
+		Guard.HitTime=14            ;Time opponent is in hit state
+ground.velocity = -3             ;Velocity at which opponent is pushed
+airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -1.4,-2.4           ;X-velocity at which opponent is pushed,
+yaccel=0.41
+air.fall=1
+fall.recover=1
+fall.recovertime=27
+;Y-velocity at which opponent is pushed
+air.hittime = 15                 ;Time before opponent regains control in air
+
+
+[State -1,攻撃補正,上書き,カウンター]
+		type = Varset
+		Trigger1=MoveHit=1
+		
+		Trigger1=target,StateType != A
+		Trigger1=fVar(0) > 0.75
+		fvar(0)= 0.75
+		persistent = 0
+ 		ignorehitpause = 1
+
+	
+	[State -1,攻撃補正,上書き,カウンター]
+		type = Varset
+		Trigger1=MoveHit=1
+		
+		Trigger1=target,StateType = A
+		fvar(0)= fvar(0)*0.75
+		persistent = 0
+ 		ignorehitpause = 1
+[State 200, 2]
+type = PlaySnd
+trigger1 = Time = 0
+value = 1, 3
+
+[State 200,V1=1]
+Type=VarSet
+Trigger1=MoveContact
+var(1)=1
+ignorehitpause = 1
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Fire jab
+[Statedef 210]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+velset = 0,0
+anim = 210
+sprpriority = -1
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 210, Width]
+type = Width
+trigger1 = (AnimElemTime (2) >= 0) && (AnimElemTime (7) < 0)
+value = 15,0
+
+[State 210, 1]
+type = PlaySnd
+trigger1 = Time = 2
+value = 1, 2
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 3
+anim = 227
+ID = 227
+pos = -25,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause = 1
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 210, 2]
+type = HitDef
+trigger1 = animelem=5
+trigger2 = animelem=6
+attr = S, NA
+animtype  = Medium
+damage    = ceil((20+numhelper(4017))*fvar(0)),5
+hitflag=MAF
+guardflag = MA
+pausetime = 6,7
+sparkno = S7002 
+sparkxy = -10,-70
+hitsound   = s20, 1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 24
+ground.hittime  = 24
+guard.slidetime = 20
+guard.hittime  = 20
+ground.velocity = -4
+air.velocity = -2.5,-2
+yaccel=0.40
+air.fall=1
+fall.recover=0
+palfx.time = 60
+Palfx.Mul =  255,255,255
+Palfx.Add = -30,-130,-130
+Palfx.SinAdd = 100,30,30,6
+
+
+[State -1,攻撃補正,上書き,カウンター]
+		type = Varset
+		Trigger1 = MoveHit=1 && animelemtime(6)>=0
+		fvar(0)= fvar(0)*0.75
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State 210, 4]
+type = SprPriority
+trigger1 = AnimElem = 5
+value = 2
+
+[State 200,V1=1]
+		Type=VarSet
+		Trigger1=MoveContact
+		var(1)=1
+
+[State 210, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Fire Large Attack
+[Statedef 220]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+velset = 0,0
+anim = 221
+sprpriority = 2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = Time = 2
+value = 1, 20
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S220,0
+channel = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 4
+anim = 1125
+ID = 1125
+pos = 50,-150
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = -1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.875,0.625
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 230, 2]
+type = HitDef
+trigger1 = animelem=5
+trigger2 = animelem=6
+trigger3 = animelem=7
+attr = S, NA
+animtype  = Hard
+damage    = ceil((30+numhelper(4017))*fvar(0)),3
+hitflag=MAF
+guardflag = MA
+pausetime = 6,7
+sparkno = S7003
+sparkxy = -10,-37
+hitsound   = s20, 1
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 25
+ground.hittime  = 25
+guard.slidetime = 18+6*(animelemno(0)<7)
+guard.hittime  = 18+6*(animelemno(0)<7)
+ground.velocity = -3.5
+guard.velocity = -4.5
+air.velocity = -2.5,-2.5
+air.fall=1
+fall.recover=1
+fall.recovertime=35
+yaccel=0.40
+palfx.time = 60
+Palfx.Mul =  255,255,255
+Palfx.Add = -30,-130,-130
+Palfx.SinAdd = 100,30,30,6
+GetPower=45,18
+GivePower=25,16
+
+[State 0, Helper]
+type = Helper
+Triggerall = movehit
+trigger1 = animelem=5
+trigger2 = animelem=6
+trigger3 = animelem=7
+helpertype = normal ;player
+name = "Fire"
+ID = 8600
+stateno = 8600 
+pos = 0,-50
+postype = p2    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0 
+ignorehitpause = 1
+
+
+;[State 0, MoveHitReset]
+;type = MoveHitReset
+;trigger1 = animtime=0
+;ignorehitpause = 
+;persistent = 
+
+[State 200,V1=1]
+Type=VarSet
+Trigger1=MoveContact
+var(1)=1
+ignorehitpause = 1
+
+[State -1,攻撃補正,上書き,カウンター]
+		type = Varset
+		Trigger1=MoveHit=1  && animelemtime(7)>=0
+		fvar(0)= fvar(0)*0.70
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 230, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Crouching jab
+[Statedef 400]
+type    = C
+movetype= A
+physics = C
+juggle  = 0
+poweradd= 8
+ctrl = 0
+anim = 400
+sprpriority = 2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 400, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 1, 2
+
+[State 400, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = C, NA
+damage    = ceil((23+numhelper(4017))*fvar(0)),2
+priority  = 3
+animtype  = Light
+hitflag = MAF
+guardflag = L
+pausetime = 10,11
+sparkno = S7002
+sparkxy = -10,-42
+HitSound=S0,2+random%2                  ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+ground.type = Low
+ground.slidetime = 13
+ground.hittime  = 17
+ground.velocity = -4
+air.velocity = -1.5,-3
+
+[State 200,V1=1]
+Type=VarSet
+Trigger1=MoveContact
+var(1)=1
+ignorehitpause = 1
+
+[State -1,攻撃補正,空中当て,非カウンター]
+		type = Varset
+		Trigger1=MoveHit=1
+	
+		Trigger1=target,StateType = A
+		fvar(0)= fvar(0)*0.65
+		persistent = 0
+ 		ignorehitpause = 1
+
+	[State -1,攻撃補正,上書き,カウンター]
+		type = Varset
+		Trigger1=MoveHit=1
+		
+		Trigger1=target,StateType != A
+		fvar(0)= fvar(0)*0.80
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State 400, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl=1
+
+;---------------------------------------------------------------------------
+;Crouching sleeve
+[Statedef 410]
+type    = C
+movetype= A
+physics = C
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+anim = 410
+sprpriority = 2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State ]
+Type = PosAdd
+Trigger1 = AnimElem = 5, = [0,1]
+X = 5.85
+
+[State 410, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 1, 4
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 5
+anim = 415
+ID = 415
+pos = 10,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.25
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 410, 2]
+type = HitDef
+trigger1 = animelem=6
+trigger2 = animelem=7
+attr = C, NA
+damage    = ceil((20+numhelper(4017))*fvar(0)),2
+animtype  = Medium
+hitflag = MAF
+guardflag = L
+pausetime = 6,7
+sparkno = S7002
+sparkxy = -10,-55
+hitsound   = s20, 1
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 17
+ground.velocity = -4
+air.velocity = -3,-5
+palfx.time = 60
+Palfx.Mul =  255,255,255
+Palfx.Add = -30,-130,-130
+Palfx.SinAdd = 100,30,30,6
+
+[State 200,V1=1]
+Type=VarSet
+Trigger1=MoveContact
+var(1)=1
+ignorehitpause = 1
+
+[State -1,攻撃補正,上書き]
+		type = Varset
+		
+		Trigger1=MoveHit && animelemtime(7)>=0
+		Trigger1=fVar(0) > 0.80
+		fvar(0)= 0.80
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State 410, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Crouching explosion
+; CNS difficulty: easy
+[Statedef 420]
+type    = C
+movetype= A
+physics = C
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+anim = 420
+sprpriority = 2
+;ignorehitpause = 
+;persistent = 
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 430, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = s1, 5
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelemtime(5) = 0
+helpertype = normal ;player
+name = "explosion"
+ID = 1305
+stateno = 1305
+pos = 50,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = var(1)
+trigger1=enemynear,backedgedist <20
+x = -fvar(11)*0.333
+ignorehitpause = 1
+persistent = 0 
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = helper(1305),movehit && command="holdup" 
+value = 40
+ctrl = 1
+;anim =
+;ignorehitpause = 
+;persistent = 
+
+[State 430, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+
+;---------------------------------------------------------------------------
+;Jump Punch
+[Statedef 600]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 5
+ctrl = 0
+anim = 600
+sprpriority = 2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 600,重力]
+Type=VelAdd
+Trigger1=1
+y = .475
+
+
+[State 600, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = 1, 2
+
+[State 600, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NA
+damage    = ceil((25+numhelper(4017))*fvar(0)),2
+guardflag = HA
+priority = 3
+pausetime = 8,8
+sparkno = S7002
+sparkxy = -10,-58
+HitSound=S0,2+random%2                  ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+ground.type = High
+ground.slidetime = 17
+ground.hittime  = 17
+guard.slidetime = 12
+guard.hittime  = 12
+ground.velocity = -3
+air.velocity = -0.7,-2.5
+air.hittime = 22
+air.fall=1
+fall.recover=1
+fall.recovertime=45
+yaccel =.35+fvar(11)*.00066
+
+[State 200,V1=1]
+Type=VarSet
+Trigger1=MoveContact
+var(1)=1
+ignorehitpause = 1
+
+[State -1,攻撃補正,上書き]
+		type = Varset
+		Trigger1=MoveHit=1
+		Trigger1=fVar(0) > 0.65
+		fvar(0)= 0.65
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State 600,State]
+	Type=ChangeState
+	Trigger1=Pos Y>=0
+	Trigger1=Vel Y >0
+	value=52
+	Ctrl=1
+
+
+;---------------------------------------------------------------------------
+;Jump sleeve
+; CNS difficulty: easy
+[Statedef 610]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+anim = 610
+sprpriority = 2
+
+[State 620, 停止]
+		type = PosFreeze
+		trigger1 = pos y > -15
+		trigger1 = AnimElemNo(0) <= 5
+		value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S220,0
+
+channel = 0
+
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 600,重力]
+Type=VelAdd
+Trigger1=animelemtime(6)<0
+trigger1= vel Y >=0
+y = .075
+
+[State 600,重力]
+Type=VelAdd
+Trigger1=animelemtime(6)<0
+trigger1= vel Y <0
+y = .30
+
+
+[State 600,重力]
+Type=VelAdd
+Trigger1=animelemtime(6)>=0
+y = .475
+
+
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = Time = 2
+value = 1, 20
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 4
+anim = 1125
+ID = 1125
+pos = 50,-140
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = -1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.625
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+
+[State 610, 3]
+type = HitDef
+trigger1 = animelem = 5
+trigger2 = animelem = 6
+attr = A, NA
+damage = ceil((30+numhelper(4017))*fvar(0)),2
+guardflag = HA
+priority = 4
+pausetime = 8,8
+sparkno = S7002
+sparkxy = -10,-55
+hitsound   = s20, 1
+guardsound = 6,0
+animtype = Med
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 20
+guard.slidetime = 17
+guard.hittime  = 17
+ground.velocity = -6
+air.velocity = -3,-2
+palfx.time = 60
+Palfx.Mul =  255,255,255
+Palfx.Add = -30,-130,-130
+Palfx.SinAdd = 100,30,30,6
+air.fall=1
+fall.recover=1
+fall.recovertime=45
+yaccel =.40+fvar(11)*.00066
+GetPower=20,12
+GivePower=13,9
+
+[State 200,V1=1]
+Type=VarSet
+Trigger1=MoveContact
+var(1)=1
+ignorehitpause = 1
+
+[State -1,攻撃補正,上書き,カウンター]
+		type = Varset
+		Trigger1=MoveHit=1  && animelemtime(7)>=0
+		trigger1 = fvar(0) > 0.70
+		
+		fvar(0)= 0.70
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State 600,State]
+	Type=ChangeState
+	Trigger1=Pos Y>=0
+	Trigger1=Vel Y >0
+	value=52
+	Ctrl=1
+
+;---------------------------------------------------------------------------
+;Jump explosion
+; CNS difficulty: easy
+[Statedef 620]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+anim = ifelse(var(21)=1,1150,1151)
+sprpriority = 2
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 1151
+trigger1 = animelemtime(3)<0
+trigger1 = time>=2
+trigger1 = command = "c"
+value = 1150
+elem = 3
+ignorehitpause = 1
+;persistent = 
+
+[State 620, 停止]
+		type = PosFreeze
+		trigger1 = pos y > -15
+		trigger1 = AnimElemNo(0) <= 3
+		value = 1
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 600,重力]
+Type=VelAdd
+Trigger1=1
+y = .475
+
+[State 210, 1]
+type = PlaySnd
+trigger1 = Time = 2
+value = s1, 2
+
+[State 0, Helper]
+type = Helper
+triggerall = animelemtime(3) = 0
+trigger1 = anim = 1150
+trigger1 = var(20) >= 10 * -(var(21)-1)
+trigger2 = anim = 1151
+helpertype = normal ;player
+name = "explosion"
+ID = 621
+stateno = 621
+pos = 50,150
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = anim = 1150
+trigger1 = animelemtime(4) = 0 && var(20) >= 10 * -(var(21)-1)
+var(20) = -10
+;ignorehitpause = 
+;persistent =
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelemtime(4)=1
+trigger1=enemynear,backedgedist <20
+x = -fvar(11)*0.22
+ignorehitpause = 1
+;persistent = 
+
+[State 600,State]
+	Type=ChangeState
+	Trigger1=Pos Y>=0
+	Trigger1=Vel Y >0
+	value=52
+	Ctrl=1
+
+
+		

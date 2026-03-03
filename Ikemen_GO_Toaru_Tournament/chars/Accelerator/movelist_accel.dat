@@ -1,0 +1,108 @@
+<#f0f000>Mechanic similar to Yuriko :</>
+
+A battery meter which can be recharged with ^LP_+^MP /
+^X_+^Y (it also charges the super meter a little bit)
+at the same time since it is always draining and most
+of the attacks require that battery.
+
+<#f0f000>Movelist :</>
+
+Dash							_F_F
+Tornado Dash						_F_F (air)
+Back Hop						_B_B
+Back Air Dash						_B_B (air)
+
+Charge up						^3K / ^A_+^B_+^C
+
+Battery Charge Up					^LP + ^MP / ^X + ^Y
+
+<#00ff00>Lvl-1.5</>
+Toronzon 						^HK + ^MP / ^C + ^Y
+(Gives back 30% battery instantly
+
+
+<#00ff00>Lvl-2</>
+Burst 							^3K / ^A_+^B_+^C (while being hit)
+
+Short Palm						^LK / ^A
+Sternum Palm						^MK / ^B
+Shotgun baby !						^HK / ^C
+
+Low Palm						^LK / ^A (crouch)
+Low Kick						^MK / ^B (crouch)
+Yoink							^HK / ^C (crouch)
+(makes opponent drop like a fly)
+
+Air Palm						^LK / ^A (air)
+Air Upward Kick						^MK / ^B (air)
+Air Vector Circle					^HK / ^C (air)
+
+Football kick						_F^LK / _F^A
+Up to <#ff0000>2% Battery Use</>
+Rasengan						(Hold) ^MK / ^B
+Gun							_F^HK / _F^C
+
+Dashes				Dir+ ^MP / Dir +^Y 
+
+<#ff0000>10% Battery Use</>
+Vector teleport forward					_D_DF_F^MP / _D_DF_F^Y
+<#ff0000>10% Battery Use</>
+Vector teleport backward				_D_DB_B^MP / _D_DB_B^Y
+
+<#ff0000>10% Battery Use</>
+Vector counter (physical)				^MP^MP / ^Y^Y
+<#ff0000>10% Battery Use</>
+Vector counter (projectile)				_D_D^MP / _D_D^Y
+(can be held down)
+
+Grab					_B / _F  _+ ^LP / ^X
+(throws guy to the other side)
+
+Low Vector Whirlwind					_D_DF_F^LK / _D_DF_F^A
+Vector Whirlwind					_D_DF_F^MK / _D_DF_F^B
+(makes you hop backwards)
+<#00ff00>Lvl-1</> _+ <#ff0000>5% Battery Use</>
+Triple Vector Wind					_D_DF_F^HK / _D_DF_F^C
+
+Heartbreak						_D_DB_B^LK / _D_DB_B^A
+Faceplant						_D_DB_B^MK / _D_DB_B^B
+<#00ff00>Lvl-1</> _+ <#ff0000>5% Battery Use</>
+Murder offscreen					_D_DB_B^LK / _D_DB_B^C
+
+Close Tornado						_F_D_DF^LK / _F_D_DF^A
+(sends opponent to other side of the screen)
+Far Tornado						_F_D_DF^MK / _F_D_DF^B
+<#00ff00>Lvl-1</> _+ <#ff0000>5% Battery Use</>
+Triple Tornado						_F_D_DF^HK / _F_D_DF^C
+
+Get Close Whirlwind					_D_DF_F^LK / _D_DF_F^A (air)
+Get Far Whirlwind					_D_DF_F^MK / _D_DF_F^B (air)
+
+Rock							_D_DB_B^LK / _D_DB_B^A (air)
+Rock Start						_D_DB_B^MK / _D_DB_B^B (air)
+<#00ff00>Lvl-1</> _+ <#ff0000>5% Battery Use</>
+Rock Start, Heat End !					_D_DB_B^HK / _D_DB_B^C (air)
+
+Earthgeyser						_D_D^LK / _D_D^A
+<#00ff00>Lvl-1</> _+ <#ff0000>0.5% Battery Use</>
+Earthquake						_D_D^MK / _D_D^B
+<#00ff00>Lvl-2</> _+ <#ff0000>10% Battery Use</>
+Gas Explosion						_D_D^HK / _D_D^C
+
+<#00ff00>Lvl-2</> _+ <#ff0000>5% Battery Use</>
+Murder Combo						_B_DB_D_DF_F^LK / _B_DB_D_DF_F^A
+<#00ff00>Lvl-3</> _+ <#ff0000>12.5% Battery Use</>
+Vector Ball (Index vers.)				_B_DB_D_DF_F^MK / _B_DB_D_DF_F^B
+<#00ff00>Lvl-4</> _+ <#ff0000>25% Battery Use</>
+Vector Ball (Railgun S vers.)				_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+_-with <#ff0000>battery <= 30%</>
+<#00ff00>Lvl-4</>
+Black Wings						_B_DB_D_DF_F^LP / _B_DB_D_DF_F^X
+_-with <#ff8800>battery <= 50%</>
+and <#ff0000>low health</>
+(You can do Black Wings with no battery)
+
+Credits :
+
+Writting : Seb368
+Patches : Seb368

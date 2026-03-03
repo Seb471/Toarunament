@@ -1,0 +1,248 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+Junko can go into Rampage Dress Mode which gives her
+a faster run, more moves, free RD moves, more guaranteed
+damage on supers/hypers
+Stage 2 unlocks more moves and features
+Charging meter gets faster in RD Mode too,
+and even faster in stage 2
+She can hold on the wall behind her if you press ^Y
+when near the edge, and in that state
+if you hold up she'll jump up and if you hold down 
+she'll rush down
+
+
+
+Instant Down Dash 					_D_D / _D ^MP / _D ^Y 
+(RD Mode)
+
+<#f0f000>Normals:</>
+
+Quick Low Kick						^LK / ^A
+
+High Kick						^MK / ^B
+
+Tornado Kick						^HK / ^C
+
+Overhead Kick						_B^HK / _B^C
+(Ground Bounce if target is airborne)
+
+<#00ff00>Lvl-0.5</>
+RD Overhead Kick					_B^HK+^MP / _B^C+^Y
+(Ground Bounce)
+
+
+
+Crouching Low Kick					^LK / ^A (Crouching)
+
+Crouching Punch					^MK / ^B (Crouching)
+
+Crouching Sweep  					^HK / ^C (Crouching)
+
+Anti-Air Upper  					_F^HK / _F^C (Crouching)
+
+
+Air Jab							^LK / ^A (Air)
+
+Air High Kick			 			^MK / ^B (Air)
+
+Air Turning Kick			 		^HK / ^C (Air)
+
+Air Upkick						_U^HK / _U^C (Air)
+
+<#00ff00>Lvl-0.5</>
+RD Air Upkick						_U^HK+^MP / _U^C+^Y (Air)
+
+
+Kick Throw			_F^LP / _F^X 
+
+Judo Throw			_B^LP / _B^X 
+
+Dashes				Dir + ^MP / Dir + ^Y 
+
+<#00ff00>Lvl-2</>
+Rampage Dress Mode				_D_D^MP / _D_D^Y 
+(^Y Can be held to go to Stage 2 for one more level)
+
+<#00ff00>Lvl-1</>
+Rampage Dress Mode Stage 2			_D_D^MP / _D_D^Y 
+(In RD Mode Stage 1)
+
+Flash Step					_D_DF_F^MP / _D_DF_F^Y
+(RD Mode)(Goes further in Stage 2)
+
+Gauge Charge 						^LK + ^HK / ^A + ^C (Held)
+
+Parry into Dodge Forward						_D_DF_F^HP / _D_DF_F^Z 
+
+Parry into Dodge Backwards						_D_DB_B^HP / _D_DB_B^Z 
+
+
+Roman Cancel						^HP / ^Z 
+(RD Mode)(In Stage 2 you can cancel 
+RD moves and lvl 1 supers)
+
+<#f0f000>Information:</>
+When she backdashes, she does a handstand 
+from which you can do a number of things
+
+Backdash						_B (Handstand)
+
+Jump 							_U (Handstand)
+
+Crouch							_D (Handstand)
+
+Handstand Double Kick					^LK / ^A (Handstand)
+
+Handstand Upper						^MK / ^B (Handstand)
+
+<#00ff00>Lvl-1</>
+EX Handstand Upper					^HK / ^C (Handstand)
+(Ground Bounce)
+
+
+<#ff0000>Specials Supers and Hypers:</>
+
+Kick Flurry 		Spam ^MK / Spam ^B
+
+RD Kick Flurry 		
+Spam ^HK + Hold ^MP / Spam ^C + Hold ^Y
+(RD Mode)
+(Wall bounce if close to wall)
+
+
+Punch Flurry 		
+_D_DF_F ^LK / _D_DF_F ^A
+
+Punch Flurry into Upper		
+_D_DF_F ^MK / _D_DF_F ^B
+(Cancellable into Scissor Kicks)
+
+<#00ff00>Lvl-0.5</>
+RD Punch Flurry into Huge Punch		
+_D_DF_F ^LK+^MP / _D_DF_F ^A+^Y
+(RD Mode)(Wall Bounce)
+
+<#00ff00>Lvl-0.5</>
+RD Punch Flurry into Huge Punch			
+_D_DF_F ^MK+^MP / _D_DF_F ^B+^Y
+(RD Mode)(Wall Bounce)
+
+
+Short Lunge Punch					
+_D_DB_B ^LK / _D_DB_B ^A 
+
+Long Lunge Punch						
+_D_DB_B ^MK / _D_DB_B ^B
+(Cancellable into Punch Flurry)
+
+<#00ff00>Lvl-0.5</>
+RD Lunge Punch						
+_D_DB_B ^LK+^MP / _D_DB_B ^A+^Y
+
+<#00ff00>Lvl-0.5</>
+RD Lunge Punch						
+_D_DB_B ^MK+^MP / _D_DB_B ^B+^Y
+
+<#00ff00>Lvl-1</>
+Lunge Punch into Flurry						
+_D_DB_B ^HK / _D_DB_B ^C
+
+
+Short Scissor Kicks				
+_F_DF_F ^LK / _F_DF_F ^A 
+(Press ^A for second kick)
+
+Long Scissor Kicks				
+_F_DF_F ^MK / _F_DF_F ^B
+(Press ^B for second kick)
+(Cancellable into Air Upkick)
+
+<#00ff00>Lvl-0.5</>
+RD Scissor Kicks				
+_F_DF_F ^LK+^MP / _F_DF_F ^A+^Y
+
+<#00ff00>Lvl-0.5</>
+RD Scissor Kicks				
+_F_DF_F ^MK+^MP / _F_DF_F ^B+^Y
+
+<#00ff00>Lvl-1</>
+EX Scissor Kicks				
+_F_DF_F ^HK / _F_DF_F ^C
+(Cancellable into Air Upkick)
+
+
+Short Flying Kick		
+_D_DF_F ^LK / _D_DF_F ^A (Air)
+
+Long Upwards Flying Kick		
+_D_DF_F ^MK / _D_DF_F ^B (Air)
+
+<#00ff00>Lvl-0.5</>
+RD Flying Kick		
+_D_DF_F ^MK+^MP / _D_DF_F ^B+^Y (Air)
+(Wall bounce if close to wall)
+
+<#00ff00>Lvl-0.5</>
+RD Flying Kick		
+_D_DF_F ^MK+^MP / _D_DF_F ^B+^Y (Air)
+(Wall bounce if close to wall)
+
+<#00ff00>Lvl-1</>
+EX Flying Kick		
+_D_DF_F ^HK / _D_DF_F ^C (Air)
+(Wall bounce if close to wall)
+
+
+Close Divekick		
+_D_DB_B ^LK / _D_DB_B ^A (Air)
+
+Long Divekick		
+_D_DB_B ^MK / _D_DB_B ^B (Air)
+
+<#00ff00>Lvl-0.5</>
+RD Divekick		
+_D_DB_B ^MK+^MP / _D_DB_B ^B+^Y (Air)
+
+<#00ff00>Lvl-0.5</>
+RD Divekick	
+_D_DB_B ^MK+^MP / _D_DB_B ^B+^Y (Air)
+
+<#00ff00>Lvl-2</>
+EX Divekick		
+_D_DB_B ^HK / _D_DB_B ^C (Air)
+(Wall bounce if close to wall)
+
+
+
+<#00ff00>Lvl-2</>
+Hyper Combo into Flying Kick						
+_D_DF_F ^HK / _D_DF_F ^C
+(The super will automatically trigger if needed)
+
+
+<#00ff00>Lvl-1</>
+Iron Beam Throw			
+_B_DB_D_DF_F ^LK / _B_DB_D_DF_F^A
+(Hold _F to send it forwards)
+(Hold _U to send it diagonally upwards)
+(Hold _B to send it straight up)
+
+
+<#00ff00>Lvl-3</>
+Triple Kick Combo		
+_B_DB_D_DF_F ^HK / _B_DB_D_DF_F^C
+
+
+<#00ff00>Lvl-4 (Stage 1)</> <#00ff00>Lvl-3 (Stage 2)</>
+Astral Buddy		
+_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+(RD Mode)
+
+
+Credits:
+
+Writing : DidiGetsRekt
+
+

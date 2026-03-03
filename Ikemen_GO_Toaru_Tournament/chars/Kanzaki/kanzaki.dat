@@ -1,0 +1,367 @@
+<#f0f000>Movelist :</>
+
+
+<#f0f000>Information :</>
+
+Kanzaki is a stance and install based character.
+
+Each stance provides a different moveset that should
+be used at the right moment and for the right situation.
+This gives her the flexibility and all the tools necessary
+to fight her opponents, the weakness comes in not being
+at the correct stance at the correct time.
+
+The install can be used in conjunction with the stances
+and has a different effect in each stance.
+
+When she uses the install and the most powerful stance
+to go all out,
+she uses her magic name of <#ffffff>Salvare000</>
+
+
+<#f0f000>Stances :</>
+
+_`<#0000ff>Stigma / Christian :</> Stance where you get
+all the normal tools such as grab, charge, block and is more
+focused on punches, kicks and slashing through
+(normal tools / rushdown)
+
+_`<#ffff00>Battoujutsu / Buddhist :</> Stance where you have less
+general mobility but gain a special dash, is combo focused
+and has more attack range with slashes
+(mixup / rushdown / midrange)
+
+_`<#ff0000>Nanasen / Shinto :</> Stance where you can't walk but
+have better air maneuvarablilty than the previous stance
+(omitting the special dash) and has more spatial control
+and is setplay focused using wires and magic
+(setplay / zoner)
+
+_`<#7733ff>Amakusa :</> Stance which is the culmination
+and enhancer of all previous stances
+at the cost of constant meter drain
+
+
+<#f0f000>Install :</>
+
+_`<#770000>Breaker of God :</> Install that increases overall mobility
+(based on the current stance you're in)
+and physical attack damage in exchange for
+damaging yourself at every physical attack
+(punches, kicks, nodachi slashes) you perform.
+
+
+<#f0f000>Non-stance and non-install specific moves :</>
+
+
+<#f0f000>XYZs :</>
+
+Taunt									^S
+(needs to be implemented)
+
+Spot Dodge								^LP / ^X
+<#770000>Breaker of God</>				_D^LP /_D^X
+
+<#0000ff>Stigma / Christian</> 			^MP / ^Y
+<#ffff00>Battoujutsu / Buddhist</>		_F^MP / _F^Y
+<#ff0000>Nanasen / Shinto</>			_B^MP / _B^Y
+<#7733ff>Amakusa</>						_D^MP / _D^Y
+
+
+<#f0f000>Specials and Supers :</>
+
+<#00ff00>Lvl-2</>
+Yuisen Air Slash						_B_DB_D_DF_F^MK / _B_DB_D_DF_F^B (air)
+<#00ff00>Lvl-2</>
+Yuisen									_B_DB_D_DF_F^MK / _B_DB_D_DF_F^B
+
+
+<#f0f000>Hypers :</>
+
+<#00ff00>Lvl-4</>
+<#000000>True Yuisen</>					_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+
+
+<#0000ff>Stigma / Christian</> <#f0f000>specific moves :</>
+
+
+<#f0f000>XYZs :</>
+
+Run										_F_F
+Air Dash								_F_F (air)
+Back Hop								_B_B
+Back Air Dash							_B_B (air)
+
+Wire grab								_F^LP / _F^X
+_!Pull									_B
+_!Up Throw								_U
+_!Crash									_D
+
+Charge up								^LK_+^HK / ^A_+^C
+
+
+<#f0f000>Normals :</>
+
+Kick									^LK / ^A
+Handle Jab								^MK / ^B
+(can be canceled from a whiff of Kick)
+Overslash								^HK / ^C
+
+Low Handle Jab							^LK / ^A (crouch)
+Low Scabbard Jab						^MK / ^B (crouch)
+Low Slash								^HK / ^C (crouch)
+(hits twice)
+(launches the opponent in the air at
+the second hit)
+
+Elbow									^LK / ^A (air)
+(cancels into itself)
+Air Slash								^MK / ^B (air)
+Axe Kick								^HK / ^C (air)
+
+
+<#f0f000>Specials and Supers :</>
+
+Slamslash								_D_DB_B^LK / _D_DB_B^A
+Lungeslash								_D_DB_B^MK / _D_DB_B^B
+<#00ff00>Lvl-1</>
+Instant Slash							_D_DB_B^HK / _D_DB_B^C
+
+
+<#ffff00>Battoujutsu / Buddhist</> <#f0f000>specific moves :</>
+
+
+<#f0f000>XYZs :</>
+
+Saint Dash								_F_F / _B_B (air OK)
+(costs 0.25 meter)
+
+
+<#f0f000>Normals :</>
+
+Small Slash								^LK / ^A
+Upward Slash							^MK / ^B
+High Slash								^HK / ^C
+(can be canceled into anything while airborne)
+
+Aerial Small Slash						^LK / ^A (air)
+Horizontal Slash						^MK / ^B (air)
+Aerial Overslash						^HK / ^C (air)
+Downslash								_D^HK / _D^C (air)
+
+
+<#f0f000>Specials and Supers :</>
+
+Split Second Upslash					_D_DF_F^LK /_D_DF_F^A (air OK)
+_!Split Second Double Upslash			_F (air OK)
+Split Second Midslash					_D_DF_F^MK /_D_DF_F^B (air OK)
+_!Split Second Double Midslash			_F (air OK)
+Split Second Downslash					_D_DF_F^HK /_D_DF_F^C (air OK)
+_!Split Second Double Downslash			_F (air OK)
+
+<#00ff00>Lvl-1</>
+Raikiri : Triple Slash					_D_DF_F_F^HK /_D_DF_F_F^C
+<#00ff00>Lvl-1</>
+Raikiri : Counter						_D_DF_F_B^HK /_D_DF_F_B^C
+<#00ff00>Lvl-2</>
+Raikiri : Finer							_D_DF_F_D^HK /_D_DF_F_D^C
+
+<#ffff00>About Raikiri : Finer :</>
+You enter a pose where you have 2 seconds to choose
+between ^LK, ^MK and ^HK / ^A, ^B and ^C.
+_`^LK / ^A for Upslash
+_`^MK / ^B for Midslash
+_`^HK / ^C for Downslash
+
+You can enter 6 inputs for free and you consume
+1/3 of a bar for each additional input
+
+
+<#ff0000>Nanasen / Shinto</> <#f0f000>specific moves :</>
+
+
+<#f0f000>Normals :</>
+
+Wire									^LK or ^MK or ^HK / ^A or ^B or ^C
+
+<#ffff00>About Wire :</>
+^LK / ^A, ^MK / ^B and ^HK / ^C determine
+the distance of the wire
+
+While on the left-side of the screen facing the opponent :
+_`No direction are - wires
+_`Holding _D are | wires
+_`Holding _F are / wires
+_`Holding _B are \ wires
+
+In addition, the opponent has to pay attention
+to their current position compared to the wire
+so that they may be able to block it well
+(low or high)
+
+First low wire (^LK / ^A) hits downed opponents
+
+The same wire can't be chained twice in a row
+
+
+<#f0f000>Specials and Supers :</>
+
+Sliding Wires							_D_D^LK / _D_D^A
+_!Fireball								^LK / ^A
+(holding a direction changes the speed of it)
+_!Geyser								^MK / ^B
+(holding a direction changes the position of it)
+_!Red Lotus Flame						^HK / ^C
+(holding a direction changes the position of it)
+Backliding Wires						_D_D^MK / _D_D^B
+_!Fireball								^LK / ^A
+(holding a direction changes the speed of it)
+_!Geyser								^MK / ^B
+(holding a direction changes the position of it)
+_!Red Lotus Flame						^HK / ^C
+(holding a direction changes the position of it)
+
+<#00ff00>Lvl-1</>
+Magic Combination						_D_D^HK /_D_D^C
+<#00ff00>Lvl-2</>
+Nanasen									_D_D_DF_F^HK /_D_D_DF_F^C
+<#00ff00>Lvl-1</>
+Prohibition Barrier						_D_D_DB_B^HK /_D_D_DB_B^C
+(puts a wire barrier for 10 seconds that counters physical
+and projectile attacks)
+
+
+<#7733ff>Amakusa</> <#f0f000>input changes and enhancements :</>
+
+_`Gain every move from every stance
+_`Yuisen and True Yuisen get a 50% damage boost
+
+
+<#f0f000>From</> <#0000ff>Stigma / Christian</> <#f0f000>:</>
+
+
+<#f0f000>Input changes :</>
+
+_`All moves are the same
+
+
+<#f0f000>Enhancement :</>
+
+_`Gain a wall clinging ability out of which
+you can act in multiple ways
+
+Wall cling								_B^LP / _B^X
+_!Fall									do nothing / _D
+_!Air Jump								_UB / _U / _UF
+_!Slamslash								^LK / ^A
+_!Lungeslash							^MK / ^B
+<#00ff00>Lvl-1</>
+_!Instant Slash							^HK / ^C
+
+
+<#f0f000>From</> <#ffff00>Battoujutsu / Buddhist</> <#f0f000>:</>
+
+
+<#f0f000>Input changes :</>
+
+_`All normals are performed with a _F input
+(except Downslash)
+_`Saint Dash is performed with the same input
+while holding ^HP / ^Z
+
+
+<#f0f000>Enhancement :</>
+
+_`Gain more mix up potential for
+the Split Second Slash series
+
+Split Second Slash series
+_D_DF_F^LK, ^MK or ^HK /_D_DF_F^A, ^B or ^C (air OK)
+_!Into Upslash							_U (air OK)
+_!Into Midslash							_F (air OK)
+_!Into Downslash						_D (air OK)
+
+
+<#f0f000>From</> <#ff0000>Nanasen / Shinto</> <#f0f000>:</>
+
+
+<#f0f000>Input changes :</>
+
+_` All wire normals are performed while holding ^HP / ^Z
+
+
+<#f0f000>Enhancement :</>
+
+_`Gain one more followup of any kind from
+the Sliding Wires series
+
+Sliding Wires series					_D_D^LK or ^MK / _D_D^A or ^B
+_!Fireball								^LK / ^A
+    _!Fireball							^LK / ^A
+    _!Geyser							^MK / ^B
+    _!Red Lotus Flame					^HK / ^C
+_!Geyser								^MK / ^B
+    _!Fireball							^LK / ^A
+    _!Geyser							^MK / ^B
+    _!Red Lotus Flame					^HK / ^C
+_!Red Lotus Flame						^HK / ^C
+    _!Fireball							^LK / ^A
+    _!Geyser							^MK / ^B
+    _!Red Lotus Flame					^HK / ^C
+
+
+<#770000>Breaker of God</> <#f0f000>specific moves and enhancements :</>
+
+_`Yuisen and True Yuisen get a 50% damage boost
+
+
+<#f0f000>For</> <#0000ff>Stigma / Christian</> <#f0f000>:</>
+
+_`Every attack move deals 2x more damage
+_`Every attack move damages you 1x the damage
+(so the same damage you inflicted to the opponent
+without <#770000>Breaker of God</>)
+_`Gain one extra jump
+_`Higher speed and mobility
+_`Jump cancel every move (while damaging yourself)
+_`Air dash faster and goes further
+(while damaging yourself)
+
+
+<#f0f000>For</> <#ffff00>Battoujutsu / Buddhist</> <#f0f000>:</>
+
+_`Every attack move deals 2x more damage
+_`Every attack move damages you 1x the damage
+(so the same damage you inflicted to the opponent
+without <#770000>Breaker of God</>)
+_`Slightly higher speed and mobility
+_`Gain access to the Instant Dash series
+
+Instant Dash : Front					_F_D_DF^LK / _F_D_DF^A (air OK)
+(dash right up to the opponent's face)
+Instant Dash : Behind					_F_D_DF^MK / _F_D_DF^B (air OK)
+(dash to the opponent's behind)
+Instant Dash : Behind (var.)			_F_D_DF^HK / _F_D_DF^C (air OK)
+(dash to the opponent's behind
+from the ground to the air and vice versa)
+
+
+<#f0f000>For</> <#ff0000>Nanasen / Shinto</> <#f0f000>:</>
+
+_`Air influence speed increased
+(holding _F or _B makes Kanzaki go in that direction faster
+while airborne)
+
+<#f0f000>For</> <#7733ff>Amakusa</> <#f0f000>:</>
+
+_`Gain all previously mentionned
+specific moves and changes
+
+
+
+Credits :
+
+Writing (movelist) : Seb368
+Coding : Seb368, DidiGetsRekt
+Spritework : Yuzuriha's sprites reworked,
+ebora for downscaling them

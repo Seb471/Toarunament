@@ -1,0 +1,468 @@
+
+;===================================================================
+;交代モーション
+;===================================================================
+[Statedef 358000]
+	type = S
+	ctrl = 0
+	velset = 0,0
+
+	;ココ
+	;交代モーションと台詞
+	;10F以上は確保して下さい。長すぎると待機までが長引くのでほどほどに
+	[state 358000,Anim変更]
+		type = changeanim
+		trigger1 = time = 0
+		value = 181;			モーション
+
+	[State 358000, 交代ボイス]
+		type = PlaySnd
+		trigger1 = time = 1
+		value = 2151,1;			台詞
+
+	[State 358000,カメラに追われないように]
+		type = ScreenBound
+		trigger1 = partner,stateno = 358003
+		value = 0
+		movecamera = 0,0
+
+	[state 358000];待機時間
+		type = varset
+		trigger1 = partner,stateno = 358003
+		sysfvar(4) = 60
+		ignorehitpause = 1
+
+	[state 358000,2];交代成立
+		type = varset
+		trigger1 = partner,stateno = 358003
+		sysfvar(3) = 1
+		ignorehitpause = 1
+
+	[state 358000,2];交代成立後無敵◇
+		type = nothitby
+		trigger1 = partner,stateno = 358003 || time > 10
+		value = SCA
+		time = 999
+
+	[state 358000,押し出し判定削除]
+		type = playerpush
+		trigger1 = partner,stateno = 358003
+		value = 0
+
+	[State 358000,ジャンプステートへ]
+		type = Changestate
+		trigger1 = animtime = 0 || time > 30
+		value = 358001
+
+;===================================================================
+;後退ジャンプ中
+;===================================================================
+[Statedef 358001]
+	type = S
+	ctrl = 0
+	anim = 40
+
+	;ココ
+	;ジャンプ音の指定
+	[State 358001, ジャンプ音]
+		type = PlaySnd
+		trigger1 = anim = 40 && animtime = 0
+		value = 0,1
+		persistent = 0
+
+	[State 358001,カメラに追われないように]
+		type = ScreenBound
+		trigger1 = 1
+		value = 0
+		movecamera = 0,0
+
+	[State 358001,後方ジャンプ]
+		type = ChangeAnim
+		trigger1 = anim = 40 && animtime = 0
+		value = 43
+
+	[State 358001,ジャンプ速度]
+		type = VelSet
+		trigger1 = anim = 43
+		x = -15
+		Y = -5
+
+	[state 358001,5];特殊交代の待機時間
+		type = varset
+		trigger1 = time = 0
+		trigger1 = partner,sysfvar(3) = -2
+		sysfvar(4) = 60*5
+
+	[state 358001,5];ディレイドの待機時間
+		type = varset
+		trigger1 = time = 0
+		trigger1 = partner,sysfvar(3) < -2
+		sysfvar(4) = 60*2;◆
+
+	[State 358001,待機ステートに移行]
+		type = ChangeState
+		trigger1 = backEdgeDist <= -40
+		value = 358002
+
+;===================================================================
+;待機中
+;===================================================================
+[Statedef 358002]
+	type = A
+	ctrl = 0
+	anim = 0
+	movetype= I
+	physics = S
+
+	[state 358002];Attack消去
+		type = removeexplod
+		trigger1 = 1
+		ID = 358002
+
+	[state 358002];アシスト選択リセット
+		type = varset
+		trigger1 = sysfvar(3) != 0
+		sysfvar(3) = 0
+
+	[state 358002];待機時間0
+		type = varset
+		trigger1 = sysfvar(4) < 0
+		sysfvar(4) = 0
+
+	[state 358002];待機時間カウントダウン
+		type = varadd
+		trigger1 = sysfvar(4) > 0
+		sysfvar(4) = -1
+
+	[State 358002,カメラに追われないように]
+		type = ScreenBound
+		trigger1 = 1
+		value = 0
+		movecamera = 0,0
+
+	[State 358002,透明化]
+		type = AssertSpecial
+		trigger1 = 1
+		flag = noshadow
+		flag2 = invisible
+
+	[state 358002,無敵化]
+		type = NotHitBy
+		trigger1 = 1
+		value = SCA
+
+	[state 358002,押し出し判定削除]
+		type = playerpush
+		trigger1 = 1
+		value = 0
+
+	[State 358002, 黒ずみ]
+		type = PalFX
+		trigger1 = 1
+		time = 1
+		add = 0,0,0
+		mul = 100, 100, 100
+
+	[State 358002,待機中電池回復]
+		Type = VarAdd
+		TriggerALL = sysvar(4) = 0
+		Trigger1 = fvar(10) < Helper(20000),fvar(10)
+		fvar(10) = Helper(20000),fvar(10) / 1000
+
+	[State 358002,待機中ライフ回復]
+		type = LifeAdd
+		trigger1 = sysfvar(4) = 0
+		value = 1
+		persistent = 3;回復;◇
+
+	[State 358002,向き合わせ]
+		type = Turn
+		trigger1 = numpartner
+		trigger1 = facing != partner,facing
+
+	[State 358002,すごく後ろに移動]
+		type = PosSet
+		trigger1 = 1
+		x = -10000*(facing)
+		y = 0
+		ignorehitpause = 1
+		persistent = 1
+
+	[State 358002,通常乱入]
+		type = ChangeState
+		triggerall = numpartner
+		trigger1 = partner,stateno = 358000 && partner,time >= 10;	相方が後退モーション
+		trigger2 = partner,alive = 0;								相方死亡
+		trigger3 = win || losetime || DrawGame;						ラウンド終了
+		trigger4 = ID < partner,ID && partner,stateno = 358002;		相方も待機ステート☆
+		value = 358003
+
+	[state 358002,AssistOK表示]
+		type = Explod
+		trigger1 = !numexplod(358001) && !numexplod(358002)
+		trigger1 = sysfvar(4) = 0
+		anim = F3580
+		pos =  ifelse(teamside=1,80,173), 38
+		postype = left
+		facing = ifelse(teamside=1,1,1)
+		bindtime = -1
+		supermovetime = 9999999999999
+		pausemovetime = 9999999999999
+		scale = .5, .5
+		ontop = 1
+		removetime = 1
+		ID = 358000
+
+	[state 358002,残り時間黄帯]
+		type = Explod
+		trigger1 = !numexplod(358001) && !numexplod(358002)
+		trigger1 = sysfvar(4) > 0
+		anim = F3583
+		pos =  ifelse(teamside=1,139-ceil(sysfvar(4)*0.25),180), 45
+		postype = left
+		facing = ifelse(teamside=1,1,1)
+		bindtime = -1
+		supermovetime = 9999999999999
+		pausemovetime = 9999999999999
+		scale = sysfvar(4)*0.25, .25
+		ontop = 1
+		removetime = 1
+		ID = 358003
+
+	[state 358002,残り時間黄帯_1P側の見栄え調整]
+		type = Explod
+		trigger1 = !numexplod(358001) && !numexplod(358002)
+		trigger1 = sysfvar(4) > 0 && teamside=1
+		anim = F3583
+		pos =  138, 45
+		postype = left
+		facing = ifelse(teamside=1,1,1)
+		bindtime = -1
+		supermovetime = 9999999999999
+		pausemovetime = 9999999999999
+		scale = 2, .25
+		ontop = 1
+		removetime = 1
+		ID = 358003
+
+;===特殊交代===============
+;	[state 358002,3]
+;		type = varset
+;		sysfvar(3) = -2
+;		triggerall = numpartner
+;		triggerall = partner,alive && partner,stateno < 358000
+;		triggerall = partner,ctrl && power >= 500 || power >= 1000
+;		triggerall = sysfvar(4) <= 0
+;		;乱入条件。常時ステートへのAI記述と同等でOKです;ココ
+;		trigger1 = partner,MoveType = H
+;		trigger1 = Random < 5
+;		trigger1 = partner,command = "z" && partner,command = "holdback"
+
+	[state 358002];再突入F
+		type = varset
+		trigger1 = sysfvar(3) = -2
+		sysfvar(4) = 600
+
+	[State 358002,]
+		type = ChangeState
+		triggerall = numpartner
+		trigger1 = partner,alive
+		trigger1 = sysfvar(3) = -2
+		value = 358003
+
+;===アシスト指定===============;ココ
+
+;---ディレイド指定-------
+;	[state 358002,1]
+;		type = varset
+;		triggerall = numpartner
+;		triggerall = partner,alive
+;		triggerall = sysfvar(4) <= 0
+;		;乱入後に移行するステート番号(-を付けて下さい)
+;		sysfvar(3) = -3200
+;		;乱入条件。常時ステートへのAI記述と同等でOKです
+;		trigger1 = partner,HitDefAttr = SCA, HA, HT, HP
+;		trigger1 = power >= 1500
+;		trigger1 = Random < 10
+
+
+;---アシスト攻撃A-------
+;鉄筋
+	[state 358002,1]
+		type = varset
+		triggerall = numpartner
+		triggerall = partner,alive
+		triggerall = sysfvar(4) <= 0
+		triggerall = partner,movetype != H;◇
+		;乱入後に移行するステート番号
+		sysfvar(3) = 2000
+		;乱入条件。常時ステートへのAI記述と同等でOKです
+		trigger1 = Random < 3 * (IfElse(Life>partner,Life,3,1))
+		trigger1 = partner,P2BodyDist X > 80
+;		trigger1 = partner,command = "c"
+
+	[state 358002];再突入F
+		type = varset
+		triggerall = partner,movetype != H;◇
+		trigger1 = sysfvar(3) = 2000
+		sysfvar(4) = 60*2.5;乱入終了後(失敗含む)に再度乱入可能になるまでのF数
+;-----------------------
+
+;---アシスト攻撃B-------
+;突撃
+	[state 358002,1]
+		type = varset
+		triggerall = numpartner
+		triggerall = partner,alive
+		triggerall = sysfvar(4) <= 0
+		triggerall = partner,movetype != H;◇
+		;乱入後に移行するステート番号
+		sysfvar(3) = 2100
+		;乱入条件。常時ステートへのAI記述と同等でOKです
+		trigger1 = Random < 3 * (IfElse(Life>partner,Life,3,1))
+		trigger1 = partner,P2BodyDist X <= 80
+		trigger1 = partner,StateNo != [2000,4000]
+;		trigger1 = partner,command = "c"
+
+	[state 358002];再突入F
+		type = varset
+		triggerall = partner,movetype != H;◇
+		trigger1 = sysfvar(3) = 2100
+		sysfvar(4) = 60*2.5;乱入終了後(失敗含む)に再度乱入可能になるまでのF数
+;-----------------------
+
+	[State 358002,]
+		type = ChangeState
+		triggerall = numpartner
+		trigger1 = partner,alive
+		trigger1 = partner,movetype != H
+		trigger1 = sysfvar(3) != 0
+		value = 358004
+
+;===================================================================
+;通常突入
+;===================================================================
+[Statedef 358003]
+	type = A
+	ctrl = 1
+	physics = A
+	anim = 42
+
+	[State 358003,突入初期位置]
+		type = PosSet
+		trigger1 = time = 0
+		x = -170*(facing)
+		y = -140
+
+	[State 358003, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 0
+		trigger1 = RANDOM%3=0
+		value = 2500, 2
+
+	[state 358003,2];特殊交代によるゲージ消費
+		type = poweradd
+		trigger1 = sysfvar(3) = -2
+		trigger1 = time = 0
+		value = -500-500*(partner,ctrl=0)
+
+	[state 358003,Change表示]
+		type = Explod
+		trigger1 = time = 1
+		anim = F3581
+		pos =  ifelse(teamside=1,88,173), 40
+		postype = left
+		facing = ifelse(teamside=1,1,1)
+		bindtime = -1
+		supermovetime = 9999999999999
+		pausemovetime = 9999999999999
+		scale = .5, .5
+		ontop = 1
+		removetime = 30
+		ID = 358001
+
+	[State 358003,突入落下]
+		type = VelSet
+		trigger1 = anim = 42;time >=0
+		x = 6
+		Y = 10
+
+;===================================================================
+;アシスト突入
+;===================================================================
+[Statedef 358004]
+	type = A
+	ctrl = 0
+	physics = N
+	anim = 42
+
+	[State 358003, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 0
+		Trigger1  abs(sysfvar(3)) = 2100
+		trigger1 = RANDOM%3=0
+		value = 2500, 0
+
+	[state 358004];ディレイドのゲージ余剰消費
+		type = poweradd
+		trigger1 = time = 0
+		trigger1 = sysfvar(3) < -1
+		value = -500
+
+	[state 358004,AssistAttack表示]
+		type = Explod
+		trigger1 = time = 0
+		anim = F3582
+		pos =  ifelse(teamside=1,55,173), 40
+		postype = left
+		facing = ifelse(teamside=1,1,1)
+		bindtime = -1
+		supermovetime = 9999999999999
+		pausemovetime = 9999999999999
+		scale = .5, .5
+		ontop = 1
+		removetime = -1
+		ID = 358002
+
+	;ココ
+	;乱入行動によって位置と速度調整をどうぞ
+	[State 358004,突入初期位置]
+		type = PosSet
+		trigger1 = time = 0
+		x = partner,pos x -50 * (partner,facing)
+		y = -140
+
+	[State 358004,突入落下]
+		type = VelSet
+		trigger1 = anim = 42;time >=0
+		x = 3
+		Y = 10
+
+	[State 358004,着地アニメ]
+		type = changeanim
+		trigger1 = pos y >= 0
+		value = 47
+		persistent = 0
+
+	[State 358004,着地Vel]
+		type = velset
+		trigger1 = pos y >= 0
+		x = 0
+		y = 0
+
+	[State 358004,着地Pos]
+		type = posset
+		trigger1 = pos y >= 0
+		y = 0
+
+	[State 358004,sfv3が0になった];◆
+		type = ctrlset
+		trigger1 = sysfvar(3) = 0
+		value = 1
+
+	[State 358004,攻撃ステートへ];☆
+		type = changestate
+		trigger1 = anim = 47 && animtime = 0
+		value = floor(abs(sysfvar(3)))
+
+

@@ -1,0 +1,16 @@
+[Statedef -4]
+
+ignoreHitPause{
+	let condition = var(20)=-1 && var(21)=1;
+}
+
+ignoreHitPause if $condition{
+	text{
+		text: "Salvare000";
+		font: 0;
+		align: ifelse(teamside=1,1,-1);
+		pos: ifelse(teamside=1,27.5,320-27.5),55;
+		color: 256,256,256;
+		scale: 0.75,0.75;
+	}
+}

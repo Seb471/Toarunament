@@ -1,0 +1,98 @@
+<#f0f000>Information :</>
+
+Kuroko has a TP cooldown bar.
+Each time she teleports it fills up.
+You can only TP when it's empty.
+
+<#f0f000>Movelist :</>
+
+(air OK means it's doable in the air)
+
+Dash				_F_F
+Back Jump			_B_B
+High Jump			_F_UF / _F_F_U
+
+Forwards Teleport		_F^MP / _F^Y (Air OK)
+Backwards Teleport		_B^MP / _B^Y (Air OK)
+Upwards Teleport		_U^MP / _U^Y (Air OK)
+Ground Teleport			_D^MP / _D^Y (Air)
+
+Spot Dodge			^LP /^X 
+
+<#00ff00>Lvl-5</>
+TP Frenzy			^HP / ^Z
+
+<#333333>Information about TP Frenzy:</>
+TP Frenzy is a heat mode with unlimited meter and TP.
+
+
+Charge up			^HP / ^Z
+
+
+Jab				^LK / ^A
+
+Direct				^MK / ^B
+Lunge Punch			_B^MK / _B^B
+
+Gut Punch			^HK / ^C
+High Kick			_B^HK / _B^C
+
+TP Throw			^HK / ^C (close to opponent)
+
+Air Kick			^LK / ^A (air)
+Air Palm			^MK / ^B (air)
+Air Thrust Kick			^HK / ^C (air)
+
+Low Palm			^LK / ^A (crouch)
+Low Thrust Palm			^MK / ^B (crouch)
+Low Kick			^HK / ^C (crouch)
+(makes opponent fall)
+
+
+
+
+Needles				_D_DF_F^LK / _D_DF_F^A
+
+Homing Needles			_D_DF_F^MK / _D_DF_F^B
+
+<#00ff00>Lvl-1</>
+Needles EX			_D_DF_F^HK / _D_DF_F^C (Air OK)
+
+Diagonal Needles		_D_DF_F^LK / _D_DF_F^A (Air)
+
+Straight Needles		_D_DF_F^MK / _D_DF_F^B (Air)
+
+
+
+
+Teleport Kick			_D_DB_B^LK/ _D_DB_B^A
+
+Teleport Kick Crossup		_D_DB_B^MK/ _D_DB_B^B
+
+<#00ff00>Lvl-1</>
+Dropkick Counter		_D_DB_B^HK/ _D_DB_B^C
+
+Dropkick			_D_DB_B^LK/ _D_DB_B^A (air)
+
+Teleport Kick 			_D_DB_B^MK/ _D_DB_B^B (Air)
+
+<#00ff00>Lvl-1</>
+Finisher Kick 			_D_DB_B^HK/ _D_DB_B^C (Air)
+
+
+
+
+<#00ff00>Lvl-2</>
+Teleport Kick Combo		_F_DF_D_DB_B^HK / _F_DF_D_DB_B^C
+
+<#00ff00>Lvl-3</>
+Needle Ultimate			_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+
+<#00ff00>TP Frenzy</> <#ff0000>Low HP</>
+Justice Enforcer		_B_DB_D_DF_F^HP / _B_DB_D_DF_F^X
+
+
+
+Credits :
+
+Writing : Seb368, DidiGetsRekt

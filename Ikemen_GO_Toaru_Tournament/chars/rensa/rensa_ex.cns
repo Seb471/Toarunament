@@ -1,0 +1,14 @@
+;------------------------------------------
+[Statedef 900]
+type     = S
+movetype = I
+physics  = N
+ctrl     = 0
+velset   = 0,0
+anim     = 900000+(var(20)*10)
+sprpriority = 1
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0

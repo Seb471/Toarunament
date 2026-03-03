@@ -1,0 +1,742 @@
+;236a series
+[Statedef 1000]
+Type    = S
+MoveType= A
+Physics = S
+Ctrl = 0
+SprPriority = 2
+Facep2 = 1
+;poweradd= Ceil(fvar(11)/2)
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time = 0
+trigger1 = var(20) = 1
+v = 21    ;fv = 10
+value = 2
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = var(21) = 0
+trigger2 = var(21) = 1
+trigger3 = var(21) = 3
+value = 1000+var(25)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = var(21) = 2
+value = 1010+var(25)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = anim = [1010,1012]
+triggerall = time = 0
+trigger1 = var(21) = 2
+v = 21    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = anim = [1000,1002]
+triggerall = animelem = 7
+trigger1 = var(21) = 1
+trigger2 = var(21) = 3
+v = 21    ;fv = 10
+value = 2
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = anim = [1000,1002]
+triggerall = animelem = 7
+trigger1 = var(21) = 0
+v = 21    ;fv = 10
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Helper]
+type = Helper
+triggerall = anim = [1000,1002]
+trigger1 = animelemtime(3) = 0
+helpertype = normal ;player
+name = "gun cration"
+ID = 1002
+stateno = 1002
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = -1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.33
+size.yscale = 0.33
+
+[State 0, Helper]
+type = Helper
+triggerall = anim = [1010,1011]
+trigger1 = animelemtime(3) = 0
+helpertype = normal ;player
+name = "Bullet"
+ID = 1001
+stateno = 1001
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State -1]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;236b series
+[Statedef 1010]
+Type    = S
+MoveType= A
+Physics = S
+Ctrl = 0
+SprPriority = 2
+Facep2 = 1
+;poweradd= Ceil(fvar(11)/2)
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time = 0
+trigger1 = var(20) = 1
+v = 21    ;fv = 10
+value = 3
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = var(21) = 0
+trigger2 = var(21) = 1
+trigger3 = var(21) = 2
+value = 1000+var(25)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = var(21) = 3
+value = 1010+var(25)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = anim = [1010,1012]
+triggerall = time = 0
+trigger1 = var(21) = 3
+v = 21    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = anim = [1000,1002]
+triggerall = animelem = 7
+trigger1 = var(21) = 1
+trigger2 = var(21) = 2
+v = 21    ;fv = 10
+value = 3
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = anim = [1000,1002]
+triggerall = animelem = 7
+trigger1 = var(21) = 0
+v = 21    ;fv = 10
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Helper]
+type = Helper
+triggerall = anim = [1000,1002]
+trigger1 = animelemtime(3) = 0
+helpertype = normal ;player
+name = "gun creation"
+ID = 1002
+stateno = 1002
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = -1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.33
+size.yscale = 0.33
+
+[State 0, Helper]
+type = Helper
+triggerall = anim = [1010,1011]
+trigger1 = animelemtime(3) = 0
+helpertype = normal ;player
+name = "Sword"
+ID = 1001
+stateno = 1001
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State -1]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;214a series
+[Statedef 1100]
+Type    = S
+MoveType= A
+Physics = S
+Ctrl = 0
+SprPriority = 2
+Facep2 = 1
+;poweradd= Ceil(fvar(11)/2)
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "tester"
+ID = 11070
+stateno = 11070
+pos = 50,topedge
+postype = back    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 1100+var(25)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = time = 0
+fv = 20
+value = -fvar(21)
+;ignorehitpause = 
+;persistent = 
+
+[State -1]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;214b series
+[Statedef 1110]
+Type    = S
+MoveType= A
+Physics = S
+Ctrl = 0
+SprPriority = 2
+Facep2 = 1
+;poweradd= Ceil(fvar(11)/2)
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 1110+var(25)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 320, エフェクト]
+Type = Explod
+;triggerall = var(25) = 0 && fvar(20)>0
+Trigger1 = AnimElem = 3
+Anim = 11052
+ID = 11052
+supermovetime = 100
+Postype = p1
+Pos = 60,-115
+Ownpal = 1
+SprPriority = 1
+bindtime = -1
+IgnoreHitPause = 1
+persistent =0
+
+[State -1]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;22a series
+[Statedef 1200]
+Type    = S
+MoveType= A
+Physics = S
+Ctrl = 0
+SprPriority = 2
+Facep2 = 1
+;poweradd= Ceil(fvar(11)/2)
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animtime>=-fvar(25)*100
+value = SCA;,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;value2 = S,NA
+time = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = animtime>=-fvar(25)*100
+time = 1
+add = 64,64,64
+mul = 256,256,256
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 1200+var(25)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = anim = 1200
+x = 2.25
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+[State -1]
+Type = ChangeState
+Triggerall = AnimTime = 0
+trigger1 = anim = 1200
+trigger2 = anim = 1201
+Value = 1207-(command="holddown")*2-(command="holdup")
+
+[State 0, VarAdd]
+type = VarAdd
+Triggerall = Time = 0
+trigger1 = anim = 1202
+v = 22 
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State -1]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;TP Crouch
+[Statedef 1205]
+Type    = C
+MoveType= I
+Physics = S
+Ctrl = 0
+Anim = 1205
+SprPriority = 2
+Facep2 = 1
+velset=0,0
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = animelem=1
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = animelem=1
+value = 0
+;movecamera = 0,0
+ignorehitpause = 1
+;persistent = 
+
+[State -1, 座標移動]
+type = Posset;add
+triggerall = AnimElemTime(1) = 1
+trigger1=prevstateno=1200
+trigger1=command!="holdfwd"
+x = enemy, pos x-40*facing
+;x = P2BodyDist x-10-EnemyNear,Vel X*5
+persistent=0
+ignorehitpause=1
+
+[State -1, 座標移動]
+type = Posset;add
+triggerall = AnimElemTime(1) = 1
+trigger1=prevstateno=1200
+trigger1=command="holdfwd"
+x = enemy, pos x+40*facing
+;x = P2BodyDist x+40-EnemyNear,Vel X*5
+persistent=0       
+ignorehitpause=1
+
+[State -1, 座標移動]
+type = Posset
+trigger1 = AnimElemTime(1) = 1
+y=0
+persistent=0       
+ignorehitpause=1
+
+[State 0, Turn]
+type = Turn
+triggerall = AnimElemTime(1) = 2
+triggerall = P2Dist X <0
+trigger1=prevstateno=1200
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelemtime(3)<=0
+value = SCA
+
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+;Crouch
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime=0
+value=11
+ctrl = 1
+;anim =
+;persistent = 
+
+;TP Air
+[Statedef 1206]
+Type    = A
+MoveType= I
+Physics = N
+Ctrl = 0
+Anim = 1206
+SprPriority = 2
+Facep2 = 1
+velset=0,0
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = animelem=1
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = animelem=1
+value = 0
+;movecamera = 0,0
+ignorehitpause = 1
+;persistent = 
+
+[State -1, 座標移動]
+type = Posset;add
+triggerall = AnimElemTime(1) = 1
+trigger1=prevstateno=1200
+trigger1=command!="holdfwd"
+x = enemy, pos x-40*facing
+;x = P2BodyDist x-10-EnemyNear,Vel X*5
+persistent=0
+ignorehitpause=1
+
+[State -1, 座標移動]
+type = Posset;add
+triggerall = AnimElemTime(1) = 1
+trigger1=prevstateno=1200
+trigger1=command="holdfwd"
+x = enemy, pos x+40*facing
+;x = P2BodyDist x+40-EnemyNear,Vel X*5
+persistent=0       
+ignorehitpause=1
+
+[State -1, 座標移動]
+type = Posset
+trigger1 = AnimElemTime(1) = 1
+y = enemy,pos Y -50
+persistent=0
+ignorehitpause=1
+
+[State 0, Turn]
+type = Turn
+triggerall = AnimElemTime(1) = 2
+triggerall = P2Dist X <0
+trigger1=prevstateno=1200
+ignorehitpause = 1
+persistent = 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelemtime(3)<=0
+value = SCA
+
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+[State 600,重力]
+		Type=VelSet
+		Trigger1=animelemtime(3)=0
+		trigger1=prevstateno=1850
+		x=0
+
+[State 600,重力]
+		Type=VelAdd
+		Trigger1=animelemtime(3)>=0
+		y = .49 
+
+;Land
+[State 600,State]
+		Type=ChangeState
+		Trigger1=Pos Y>=0
+		Trigger1=Vel Y >0
+		value=52
+		Ctrl=1
+
+;TP Stand
+[Statedef 1207]
+Type    = S
+MoveType= I
+Physics = S
+Ctrl = 0
+Anim = 1207
+SprPriority = 2
+Facep2 = 1
+velset=0,0
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = animelem=1
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = animelem=1
+value = 0
+;movecamera = 0,0
+ignorehitpause = 1
+;persistent = 
+
+[State -1, 座標移動]
+type = Posset;add
+triggerall = AnimElemTime(1) = 1
+trigger1=prevstateno=1200
+trigger1=command!="holdfwd"
+x = enemy, pos x-40*facing
+;x = P2BodyDist x-10-EnemyNear,Vel X*5
+persistent=0
+ignorehitpause=1
+
+[State -1, 座標移動]
+type = Posset;add
+triggerall = AnimElemTime(1) = 1
+trigger1=prevstateno=1200
+trigger1=command="holdfwd"
+x = enemy, pos x+40*facing
+;x = P2BodyDist x+40-EnemyNear,Vel X*5
+persistent=0       
+ignorehitpause=1
+
+[State -1, 座標移動]
+type = Posset
+trigger1 = AnimElemTime(1) = 1
+y=0
+persistent=0       
+ignorehitpause=1
+
+[State 0, Turn]
+type = Turn
+triggerall = AnimElemTime(1) = 2
+triggerall = P2Dist X <0
+trigger1=prevstateno=1200
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelemtime(3)<=0
+value = SCA
+
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+;Stand
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime=0
+value=0
+ctrl = 1
+;anim =
+;persistent = 
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;TP reversal
+[Statedef 1208]
+type     = U
+movetype = I
+physics  = N
+ctrl     = 0
+velset   = 0,0
+anim     = 1208+(pos y<0)
+
+[State 0, VarAdd]
+type = VarAdd
+Trigger1 = Time = 0
+v = 22 
+value = -1
+;ignorehitpause = 
+;persistent = 
+
+[State 4000, Pause]
+type = Pause
+trigger1 = time = 0
+time = 55
+movetime = 55
+
+[State 2500, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 901, Effect]
+type = PlaySnd
+trigger1 = time = 1
+value = 1209, 0
+
+[State 1000, Spark]
+type = Explod
+trigger1 = time = 0
+Anim = 7200
+pos = ceil(-3*const(size.xscale)),ceil(-78*const(size.yscale))
+postype = P1
+ownpal = 1
+sprpriority = 5
+scale = const(size.xscale),const(size.yscale)
+pausemovetime = 99999999
+facing = facing
+
+[State 220, Position]
+type = PosSet
+trigger1 = Time = 1
+x = ceil(ifelse(frontedgedist-P2dist X<30,30*facing,Pos X+((P2dist X+30)*facing)))
+persistent = 0
+
+[State 53,0]
+Type=Turn
+TriggerAll=time=1
+Trigger1=P2BodyDist X<0
+ignorehitpause=1
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime=0
+value=0+(pos y<0)*50
+ctrl = 1
+;anim =
+;persistent = 
+
+;22b series
+[Statedef 1210]
+Type    = S
+MoveType= A
+Physics = S
+Ctrl = 0
+SprPriority = 2
+Facep2 = 1
+;poweradd= Ceil(fvar(11)/2)
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 1210+var(25)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Helper]
+type = Helper
+;triggerall = anim = 1210
+trigger1 = animelemtime(4) = 0
+helpertype = normal ;player
+name = "ropes"
+ID = anim+5
+stateno = 1215 
+pos = p2dist x,0+enemynear,const(size.mid.pos.y)*(anim+5=[1216,1217])+p2dist y*(anim+5=1217)
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+
+
+[State -1]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1

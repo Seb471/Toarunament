@@ -1,0 +1,2363 @@
+;Wings Deploying
+[Statedef 4100] 
+type    = A
+physics = N
+ctrl = 0
+anim = 4105
+sprpriority = -1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.65,0.65
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = time=0
+v = 3
+value = 1
+ignorehitpause = 1
+;persistent = 
+
+;Wings Idle Switch
+[State 101,1]
+Type=ChangeState
+Trigger1=AnimTime=0
+value=4105
+Ctrl=0
+
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+trigger1=parent,stateno!=[5200,5299]
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = ishelper(4100)
+time = 1
+;facing = 0
+pos = -8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = ishelper(4200)
+time = 1
+;facing = 0
+pos = 8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+trigger1=parent,stateno!=[5200,5299]
+ignorehitpause = 1
+;persistent = 
+
+
+
+;------------------------------------------------------------
+
+[Statedef 4105,Wing Helper Idle] 
+type    = A
+physics = N
+ctrl = 0
+;anim = 4100
+sprpriority = -1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+;triggerall=anim!=4100
+trigger1 = ishelper(4100)
+trigger1=helper(4200),anim=4100;root,helper(4200),anim=4100
+trigger1=(helper(4200),animelemno(0))!=animelemno(0)
+
+value = 4100
+elem = helper(4200),animelemno(0)
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+;triggerall=anim!=4100
+trigger1 = ishelper(4200)
+trigger1=helper(4100),anim=4100
+trigger1=helper(4100),animelemno(0)!=animelemno(0)
+value = 4100
+elem = helper(4100),animelemno(0)
+ignorehitpause = 1
+;persistent = 
+
+[State 0, Turn]
+type = Turn
+trigger1 = ishelper(4200)
+trigger1= facing != parent,facing
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Turn]
+type = Turn
+trigger1 = ishelper(4100)
+trigger1= facing = parent,facing
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1=anim!=4100
+
+value = 4100
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.65,0.65
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = ishelper(4100)
+time = 1
+;facing = 0
+pos = -8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = ishelper(4200)
+time = 1
+;facing = 0
+pos = 8,-60
+ignorehitpause = 1
+;persistent = 
+
+
+
+;Wing Slap A
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno=600
+trigger1=ishelper(4200)
+value=4110
+Ctrl=0
+ignorehitpause=1
+
+;Wing Slap B Attack
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno=610
+trigger1=ishelper(4100)
+value=4115
+Ctrl=0
+ignorehitpause=1
+
+;Wing Slap B Idle
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno=610
+trigger1=ishelper(4200)
+value=4116
+Ctrl=0
+ignorehitpause=1
+
+
+;Wing Wind C
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno=620
+value=4126
+Ctrl=0
+ignorehitpause=1
+
+
+;Wing Wind Stomp
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno=2500
+value=4150
+Ctrl=0
+ignorehitpause=1
+
+;Wing Laser Explosion
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno=2600
+value=4160
+Ctrl=0
+ignorehitpause=1
+
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+triggerall=roundstate<3
+trigger1=parent,stateno!=[5200,5299]
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+trigger2=root,pos Y >=0
+trigger2=root,stateno!=[110,115]
+trigger2=root,stateno!=41
+trigger3=root,statetype=S
+trigger3=root,stateno!=[110,115]
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall=roundstate<3
+trigger1=parent,stateno!=[5200,5299]
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+trigger2=root,pos Y >=0
+trigger2=root,stateno!=[110,115]
+trigger2=root,stateno!=41
+trigger3=root,statetype=S
+trigger3=root,stateno!=[110,115]
+ignorehitpause = 1
+;persistent = 
+
+
+
+[Statedef 4110,Wing Helper Wing Slap A] 
+type    = A
+movetype=A
+physics = N
+ctrl = 0
+anim = 4115
+sprpriority = -1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.65,0.65
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=1
+time = 1
+;facing = 0
+pos = 8,-60
+ignorehitpause = 1
+;persistent = 
+
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=time=0
+		value=1,5
+		channel=2
+		persistent=0
+		ignorehitpause=1
+
+[State 200, 1]
+type = HitDef
+triggerall = !(enemy,Name = "Kamijou Touma") || !(enemy,var(50) = 666) 
+trigger1 = !movecontact
+trigger1 = !movereversed
+attr = A, NA                  ;Attribute: Standing, Normal Attack
+damage = Ceil(18*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = HA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 8                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S1,9                 ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=High
+		Ground.SlideTime=21
+		Ground.HitTime=22
+		Guard.SlideTime=18
+		Guard.HitTime=19
+		Air.HitTime=22
+		Ground.velocity=-2.75
+		AirGuard.velocity=-3.25,.8
+		Air.Type=High
+		Air.velocity=-1.9,-4 ;X-velocity at which opponent is pushed,
+Air.Fall = 1
+Fall.Recover = IfElse(P2MoveType = A,0,1)
+Fall.RecoverTime = 40
+;Y-velocity at which opponent is pushed
+getpower = 20,10
+GivePower = 20,10
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+YAccel = .40+parent,fvar(11)*.00066
+sprpriority=-1
+
+[State 200, 1]
+type = HitDef
+triggerall= !movecontact
+triggerall = !movereversed
+triggerall= (enemy,Name = "Kamijou Touma") 
+trigger1=enemy,var(50) = 666 
+trigger2=enemy,stateno= [6400,6429]
+trigger3=enemy,stateno= [6662,6666]
+attr = A, NP                  ;Attribute: Standing, Normal Attack
+damage = Ceil(18*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = HA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 8                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S1,9              ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=High
+		Ground.SlideTime=21
+		Ground.HitTime=22
+		Guard.SlideTime=18
+		Guard.HitTime=19
+		Air.HitTime=22
+		Ground.velocity=-2.75
+		AirGuard.velocity=-3.25,.8
+		Air.Type=High
+		Air.velocity=-1.9,-4 ;X-velocity at which opponent is pushed,
+Air.Fall = 1
+Fall.Recover = IfElse(P2MoveType = A,0,1)
+Fall.RecoverTime = 27
+;Y-velocity at which opponent is pushed
+getpower = 20,10
+GivePower = 20,10
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+YAccel = .40+parent,fvar(11)*.00066
+sprpriority=-1
+
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;GuardSpark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = moveguarded =1
+		trigger1=!movereversed
+		stateno=6035
+		id=6035
+		postype = p2
+		Pos = 30,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 0
+		ignorehitpause = 1
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+trigger1=parent,stateno=600
+v =   1  
+value = 1
+ignorehitpause = 1
+;persistent = 0
+
+
+[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		
+		Trigger1=target,StateType != A
+		Trigger1=parent,fVar(0) > 0.85
+		fvar(0)= 0.85
+		persistent = 0
+ 		ignorehitpause = 1
+
+	
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		
+		Trigger1=target,StateType = A
+		fvar(0)= parent,fvar(0)*0.80
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 3
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+ignorehitpause = 1
+;persistent = 
+
+
+
+;Wings Slap A Cancel
+[State 101,1]
+Type=ChangeState
+Triggerall=parent,stateno=600 && parent,animelem=1
+trigger1= time>=10
+trigger2=parent,var(1)
+value=4110
+Ctrl=0
+ignorehitpause=1
+
+;Wings Idle Switch
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno!=600
+value=4105
+Ctrl=0
+ignorehitpause=1
+
+
+;---------------------------------------------------------------------
+
+[Statedef 4115,Wing Helper Wing Slap B] 
+type    = A
+movetype=A
+physics = N
+ctrl = 0
+anim = 4125
+sprpriority = 1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.70,0.70
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=1
+time = 1
+;facing = 0
+pos = -8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = animelemtime(12)>=0
+value = 5
+ignorehitpause = 1
+;persistent = 
+
+[State 200,効果音]
+		Type=PlaySnd
+		Trigger1=animelemtime(8)>=0
+		value=1,5
+		channel=2
+		persistent=0
+		ignorehitpause=1
+
+[State 200, 1]
+type = HitDef
+triggerall = !(enemy,Name = "Kamijou Touma") || !(enemy,var(50) = 666) 
+trigger1 = !movecontact
+trigger1 = !movereversed
+attr = S, NA                     ;Attribute: Standing, Normal Attack
+damage = Ceil(30*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Medium                ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = HA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S1,9               ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=Low
+		Ground.SlideTime=28
+		Ground.HitTime=28
+		Guard.SlideTime=21
+		Guard.HitTime=21
+		Air.HitTime=26
+		Ground.velocity=2.25
+		AirGuard.velocity=6.25,.8
+		Air.Type=High
+		Air.velocity=3.9,-4  ;X-velocity at which opponent is pushed,
+Air.Fall = 1
+Fall.Recover = IfElse(P2MoveType = A,0,1)
+Fall.RecoverTime = 45
+;Y-velocity at which opponent is pushed
+getpower = 20,10
+GivePower = 20,10
+YAccel = .45+parent,fvar(11)*.00066
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+sprpriority=4
+
+[State 200, 1]
+type = HitDef
+triggerall= !movecontact
+triggerall = !movereversed
+triggerall= (enemy,Name = "Kamijou Touma") 
+trigger1=enemy,var(50) = 666 
+trigger2=enemy,stateno= [6400,6429]
+trigger3=enemy,stateno= [6662,6666]
+attr = S, NP                     ;Attribute: Standing, Normal Attack
+damage = Ceil(30*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
+animtype = Medium                ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = HA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
+sparkno = -1                   ;Spark anim no (Def: set above)
+Guard.SparkNo=S6100
+Sparkxy=-20,floor(-20*const(Size.yScale))
+;Y-offset for the spark rel. to p1
+HitSound=S1,9                 ;Sound to play on hit
+GuardSound=S1,0                ;Sound to play on guard
+Ground.Type=Low
+		Ground.SlideTime=28
+		Ground.HitTime=28
+		Guard.SlideTime=21
+		Guard.HitTime=21
+		Air.HitTime=26
+		Ground.velocity=2.25
+		AirGuard.velocity=6.25,.8
+		Air.Type=High
+		Air.velocity=3.9,-4  ;X-velocity at which opponent is pushed,
+Air.Fall = 1
+Fall.Recover = IfElse(P2MoveType = A,0,1)
+Fall.RecoverTime = 28
+;Y-velocity at which opponent is pushed
+getpower = 20,10
+GivePower = 20,10
+YAccel = .45+parent,fvar(11)*.00066
+ground.cornerpush.veloff = 0
+Air.cornerpush.veloff= 0
+sprpriority=4
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6000
+		id=6000
+		postype = p2
+		Pos = 0,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+;GuardSpark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = moveguarded =1
+		trigger1=!movereversed
+		stateno=6035
+		id=6035
+		postype = p2
+		Pos = 30,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 0
+		ignorehitpause = 1
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+v =   1  
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		Trigger1=MoveHit=1
+		fvar(0)= parent,fvar(0)*0.85
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 3
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+ignorehitpause = 1
+;persistent = 
+
+;Wings Idle Switch
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno!=610
+value=4105
+Ctrl=0
+ignorehitpause=1
+
+[Statedef 4116,Wing Helper Wing Slap B Idle] 
+type    = A
+movetype=I
+physics = N
+ctrl = 0
+anim = 4100
+sprpriority = -1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = time=0
+ignorehitpause = 0
+persistent = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.65,0.65
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=1
+time = 1
+;facing = 0
+pos = 8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+ignorehitpause = 1
+;persistent = 
+
+;Wings Idle Switch
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno!=610
+value=4105
+Ctrl=0
+ignorehitpause=1
+
+;--------------------------------------------------------
+
+[Statedef 4126,Wing Helper Wing Wind C] 
+type    = A
+movetype=I
+physics = N
+ctrl = 0
+anim = 4135
+sprpriority = -1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = animelemtime(4)>=0
+trigger1=ishelper(4100)
+value = 5
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, Turn]
+type = Turn
+trigger1 = time=0
+trigger1=facing!=-parent,facing
+ignorehitpause = 0
+persistent = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.65,0.65
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=ishelper(4100)
+time = 1
+;facing = 0
+pos = -12,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=ishelper(4200)
+time = 1
+;facing = 0
+pos = 8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+ignorehitpause = 1
+;persistent = 
+
+;Wings Idle Switch
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno!=620
+value=4105
+Ctrl=0
+ignorehitpause=1
+
+;--------------------------------------------------------------------------------
+
+[Statedef 4150,Wing Helper Wing Stomp Super] 
+type    = A
+movetype=I
+physics = N
+ctrl = 0
+anim = 4150
+sprpriority = -1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = animelemtime(4)>=0
+trigger1=ishelper(4100)
+value = 5
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, Turn]
+type = Turn
+trigger1 = time=0
+trigger1=facing!=-parent,facing
+ignorehitpause = 0
+persistent = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time<=32
+;value = 1
+scale = 0.65+0.2*time,0.65+0.2*time
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=ishelper(4100)
+time = 1
+;facing = 0
+pos = -12,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=ishelper(4200)
+time = 1
+;facing = 0
+pos = 8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+ignorehitpause = 1
+;persistent = 
+
+;Wings Idle Switch
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno!=2500
+value=4105
+Ctrl=0
+ignorehitpause=1
+;----------------------------------------------------------
+
+[Statedef 4160,Wing Laser Explosion] 
+type    = A
+movetype=I
+physics = N
+ctrl = 0
+anim = 4160
+sprpriority = -1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.65,0.65
+ignorehitpause = 1
+;persistent = 
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=ishelper(4100)
+time = 1
+;facing = 0
+pos = -12,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=ishelper(4200)
+time = 1
+;facing = 0
+pos = 8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+trigger2=parent,stateno=2610
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+trigger2=parent,stateno=2610
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+trigger2=root,pos Y >=0
+trigger2=root,stateno!=[110,115]
+trigger3=root,statetype=S
+trigger3=root,stateno!=[110,115]
+ignorehitpause = 1
+;persistent = 
+
+;------------------------------------------------------
+[Statedef 4180,Wing Helper Deploying EX] 
+type    = A
+movetype=I
+physics = N
+ctrl = 0
+anim = 4150
+sprpriority = -1
+
+[State -1]
+Type = HitOverRide
+Trigger1 = 1
+Attr = SCA, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = -1
+IgnoreHitPause = 1
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = time=0
+v = 3
+value = 1
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+ignorehitpause = 1
+;persistent = 
+
+
+
+[State 0, Turn]
+type = Turn
+trigger1 = time=0
+trigger1=facing!=-parent,facing
+ignorehitpause = 0
+persistent = 1
+
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=ishelper(4100)
+time = 1
+;facing = 0
+pos = -12,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1=ishelper(4200)
+time = 1
+;facing = 0
+pos = 8,-60
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+v = 3
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,movetype=H
+trigger1=parent,stateno!=[120,160]
+ignorehitpause = 1
+;persistent = 
+
+;Wings Idle Switch
+[State 101,1]
+Type=ChangeState
+Trigger1=parent,stateno!=2700
+value=4105
+Ctrl=0
+ignorehitpause=1
+;=================================================================================
+
+; Proj Hitspark Helper
+[StateDef 6000]
+type = S
+physics = N
+anim = 6005
+velset = 0,0
+ctrl = 0
+sprpriority = 9
+
+[State 10010, 影なし]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 10010, 透過]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 10010, 伸縮]
+type = AngleDraw
+trigger1 = 1
+scale = 0.8,0.8
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+;add = 0,0,0
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, Fast Explod]
+type = Explod
+trigger1 = time=0
+anim = 6000
+trans = add
+ID = 6000
+pos = 0,0
+postype = p1
+bindtime = -1
+removetime = -2
+scale = 0.4,0.4
+sprpriority =8
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+persistent = 0
+
+
+
+[State 10010, 傾き]
+type = VarRandom
+trigger1 = time = 0
+v = 43
+range = 0,360
+
+[State 10010, 傾き]
+type = AngleSet
+trigger1 = 1
+value = var(43)
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1 = time = 13
+
+
+; Phys Hitspark Helper
+[StateDef 6005]
+type = S
+physics = N
+anim = 12030
+velset = 0,0
+ctrl = 0
+sprpriority = 9
+
+[State 10010, 影なし]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 10010, 透過]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 10010, 伸縮]
+type = AngleDraw
+trigger1 = 1
+scale = 0.6,0.6
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+;add = 0,0,0
+mul = 220,220,220
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1 = animtime=0
+
+
+
+;------------------------------------------------------------
+; Guardspark Helper
+[StateDef 6035]
+type = S
+physics = N
+anim = 6035
+velset = 0,0
+ctrl = 0
+;facep2=-1
+sprpriority = 3
+
+[State 0, Turn]
+type = Turn
+trigger1 = enemynear,facing !=facing
+ignorehitpause = 1
+persistent = 0
+
+
+[State 10010, 影なし]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 10010, 透過]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 10010, 伸縮]
+type = AngleDraw
+trigger1 = 1
+scale = 1.2,1.2
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+;add = 0,0,0
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1 = animtime=0
+
+
+;---------------------------------------------------------------------------------------------
+
+;Magic Circles Helper
+[statedef 4500]
+anim=4550
+sprpriority = 3
+ctrl=0
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+ [State 800, 2]
+    type = BindToRoot ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 0+10*(root,stateno=[3000,3099]),0-0*(root,stateno=[3000,3099])
+ignorehitpause=1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+v = 1    ;fv = 10
+value = parent,stateno
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "Circle"
+ID = 4501
+stateno = 4501
+pos = -35,-60
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "Circle 2"
+ID = 4502
+stateno = 4502
+pos = 45,-60
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "Black Lightning"
+ID = 4503
+stateno = 4503+(parent,ishelper=1)
+pos = 0,-75
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999
+pausemovetime = 999999
+ignorehitpause = 1
+persistent = 0
+
+
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1=parent,stateno!=[3000,3299]
+trigger1 = parent,stateno!=var(1)
+trigger1=parent,ishelper=0
+trigger2=parent,ishelper=1
+trigger2=time>=20
+trigger3=root,movetype=H && root,stateno!=[120,159]
+
+;-----------------------------------------------------
+
+[statedef 4501, circle 1]
+anim=4551
+sprpriority = 3
+ctrl=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 1
+value = parent,id
+ignorehitpause = 1
+persistent = 0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+mul = 200,200,200
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, AngleAdd]
+type = Angledraw
+trigger1 = 1
+scale=0.8+0.1*(root,stateno=[3000,3099]),0.8+0.1*(root,stateno=[3000,3099])
+ignorehitpause =1 
+;persistent = 
+
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = -30,-80
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !playeridexist(var(1))
+ignorehitpause = 1
+;persistent = 
+
+
+;--------------------------------------------------
+
+[statedef 4502, circle 2]
+anim=4551
+sprpriority = 3
+ctrl=0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+mul = 200,200,200
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 1
+value = parent,id
+ignorehitpause = 1
+persistent = 0
+
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 40,-80
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, AngleAdd]
+type = Angledraw
+trigger1 = 1
+value = 90
+scale=0.8+0.1*(root,stateno=[3000,3099]),0.8+0.1*(root,stateno=[3000,3099])
+ignorehitpause =1 
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !playeridexist(var(1))
+ignorehitpause = 1
+;persistent = 
+
+
+
+
+[statedef 4503, black lightning]
+anim=4552
+sprpriority = 4
+ctrl=0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+mul = 200,200,200
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 1
+value = parent,id
+ignorehitpause = 1
+persistent = 0
+
+[State 0, AngleAdd]
+type = Angledraw
+trigger1 = 1
+scale=0.6+0.2*(root,stateno=[3000,3099]),0.6+0.2*(root,stateno=[3000,3099])
+ignorehitpause =1 
+;persistent = 
+
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 0,-95
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !playeridexist(var(1))
+ignorehitpause = 1
+;persistent = 
+
+
+;----------------------------------------------
+
+[statedef 4504, big black lightning]
+anim=4552
+sprpriority = 4
+ctrl=0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+mul = 200,200,200
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 1
+value = parent,id
+ignorehitpause = 1
+persistent = 0
+
+[State 0, AngleAdd]
+type = Angledraw
+trigger1 = 1
+scale=0.85,0.85
+ignorehitpause =1 
+;persistent = 
+
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 0,-95
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !playeridexist(var(1))
+ignorehitpause = 1
+;persistent = 
+
+;===========================================================================
+;Symbols Helper
+[Statedef 30000]
+anim = 29999;
+
+
+
+
+
+;Incrementation var physical
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+var(6)=root,var(6)+1
+ignorehitpause = 1
+persistent = 0
+
+;Incrementation var magical
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+var(7)=root,var(7)+1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)!=0
+var(5)=1
+ignorehitpause = 1
+persistent=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(7)!=0
+var(5)=2
+ignorehitpause = 1
+persistent=0
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)=0
+trigger1=var(7)=0
+trigger1=var(5)!=0
+var(5)=-1
+ignorehitpause = 1
+persistent=0
+
+
+
+;Symbol slot 1 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11705) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=1
+trigger1=roundstate<2
+trigger1=var(5)=1
+trigger1=var(6):=var(6)-1
+anim = 770+var(5)
+ID = 11705
+pos = ifelse(teamside=1,38,205), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 1 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11705) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=1
+trigger1=roundstate<2
+trigger1=var(5)=2
+trigger1=var(7):=var(7)-1
+anim = 770+var(5)
+ID = 11705
+pos = ifelse(teamside=1,38,205), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 1 runtime
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11705) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=1
+trigger1=roundstate=2
+anim = 770+parent,var(8)
+ID = 11705
+pos = ifelse(teamside=1,38,205), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11705)
+trigger1 = Parent,var(9) != 0
+ID = 11705
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)!=0
+var(5)=1
+ignorehitpause = 1
+persistent=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(7)!=0
+var(5)=2
+ignorehitpause = 1
+persistent=0
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)=0
+trigger1=var(7)=0
+trigger1=var(5)!=0
+var(5)=-1
+ignorehitpause = 1
+persistent=0
+
+
+
+;Symbol slot 2 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11706) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=2
+trigger1=roundstate<2
+trigger1=var(5)=1
+trigger1=var(6):=var(6)-1
+anim = 770+var(5)
+ID = 11706
+pos = ifelse(teamside=1,48,215), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 2 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11706) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=2
+trigger1=roundstate<2
+trigger1=var(5)=2
+trigger1=var(7):=var(7)-1
+anim = 770+var(5)
+ID = 11706
+pos = ifelse(teamside=1,48,215), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 2 runtime
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11706) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=2
+trigger1=roundstate=2
+anim = 770+parent,var(8)
+ID = 11706
+pos = ifelse(teamside=1,48,215), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11706)
+trigger1 = Parent,var(9) != 0
+ID = 11706
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)>0
+var(5)=1
+ignorehitpause = 1
+persistent=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(7)>0
+var(5)=2
+ignorehitpause = 1
+persistent=0
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)=0
+trigger1=var(7)=0
+trigger1=var(5)!=0
+var(5)=-1
+ignorehitpause = 1
+persistent=0
+
+;Symbol slot 3 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11707) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=3
+trigger1=roundstate<2
+trigger1=var(5)=1
+trigger1=var(6):=var(6)-1
+anim = 770+var(5)
+ID = 11707
+pos = ifelse(teamside=1,58,225), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+
+;Symbol slot 3 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11707) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=3
+trigger1=roundstate<2
+trigger1=var(5)=2
+trigger1=var(7):=var(7)-1
+anim = 770+var(5)
+ID = 11707
+pos = ifelse(teamside=1,58,225), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 3 runtime
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11707) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=3
+trigger1=roundstate=2
+anim = 770+parent,var(8)
+ID = 11707
+pos = ifelse(teamside=1,58,225), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11707)
+trigger1 = Parent,var(9) != 0
+ID = 11707
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)>0
+var(5)=1
+ignorehitpause = 1
+persistent=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(7)>0
+var(5)=2
+ignorehitpause = 1
+persistent=0
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)=0
+trigger1=var(7)=0
+trigger1=var(5)!=0
+var(5)=-1
+ignorehitpause = 1
+persistent=0
+
+;Symbol slot 4 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11708) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=4
+trigger1=roundstate<2
+trigger1=var(5)=1
+trigger1=var(6):=var(6)-1
+anim = 770+var(5)
+ID = 11708
+pos = ifelse(teamside=1,68,235), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+
+;Symbol slot 4 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11708) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=4
+trigger1=roundstate<2
+trigger1=var(5)=2
+trigger1=var(7):=var(7)-1
+anim = 770+var(5)
+ID = 11708
+pos = ifelse(teamside=1,68,235), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 4 runtime
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11708) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=4
+trigger1=roundstate=2
+anim = 770+parent,var(8)
+ID = 11708
+pos = ifelse(teamside=1,68,235), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11708)
+trigger1 = Parent,var(9) != 0
+ID = 11708
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)>0
+var(5)=1
+ignorehitpause = 1
+persistent=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(7)>0
+var(5)=2
+ignorehitpause = 1
+persistent=0
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)=0
+trigger1=var(7)=0
+trigger1=var(5)!=0
+var(5)=-1
+ignorehitpause = 1
+persistent=0
+
+;Symbol slot 5 roundtsrat
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11709) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=5
+trigger1=roundstate<2
+trigger1=var(5)=1
+trigger1=var(6):=var(6)-1
+anim = 770+var(5)
+ID = 11709
+pos = ifelse(teamside=1,78,245), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 5 roundtsrat
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11709) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=5
+trigger1=roundstate<2
+trigger1=var(5)=2
+trigger1=var(7):=var(7)-1
+anim = 770+var(5)
+ID = 11709
+pos = ifelse(teamside=1,78,245), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 5 runtime
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11709) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=5
+trigger1=roundstate=2
+anim = 770+parent,var(8)
+ID = 11709
+pos = ifelse(teamside=1,78,245), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11709)
+trigger1 = Parent,var(9) != 0
+ID = 11709
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)>0
+var(5)=1
+ignorehitpause = 1
+persistent=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(7)>0
+var(5)=2
+ignorehitpause = 1
+persistent=0
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)=0
+trigger1=var(7)=0
+trigger1=var(5)!=0
+var(5)=-1
+ignorehitpause = 1
+persistent=0
+
+;Symbol slot 6 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11710) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=6
+trigger1=roundstate<2
+trigger1=var(5)=1
+trigger1=var(6):=var(6)-1
+anim = 770+var(5)
+ID = 11710
+pos = ifelse(teamside=1,88,255), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 6 roundstart
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11710) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=6
+trigger1=roundstate<2
+trigger1=var(5)=2
+trigger1=var(7):=var(7)-1
+anim = 770+var(5)
+ID = 11710
+pos = ifelse(teamside=1,88,255), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 6 runtime
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11710) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=6
+trigger1=roundstate=2
+anim = 770+parent,var(8)
+ID = 11710
+pos = ifelse(teamside=1,88,255), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11710)
+trigger1 = Parent,var(9) != 0
+ID = 11710
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)>0
+var(5)=1
+ignorehitpause = 1
+persistent=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(7)>0
+var(5)=2
+ignorehitpause = 1
+persistent=0
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  var(6)=0
+trigger1=var(7)=0
+trigger1=var(5)!=0
+var(5)=-1
+ignorehitpause = 1
+persistent=0
+
+;Symbol slot 7 roundtsrat
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11711) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=7
+trigger1=roundstate<2
+trigger1=var(5)=1
+trigger1=var(6):=var(6)-1
+anim = 770+var(5)
+ID = 11711
+pos = ifelse(teamside=1,98,265), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 7 roundtsrat
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11711) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=7
+trigger1=roundstate<2
+trigger1=var(5)=2
+trigger1=var(7):=var(7)-1
+anim = 770+var(5)
+ID = 11711
+pos = ifelse(teamside=1,98,265), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+;Symbol slot 7 runtime
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11711) = 0
+trigger1 = (Parent,var(6)+parent,var(7))>=7
+trigger1=roundstate=2
+anim = 770+parent,var(8)
+ID = 11711
+pos = ifelse(teamside=1,98,265), 40
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.25,0.1
+ownpal = 0
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11711)
+trigger1 = Parent,var(9) != 0
+ID = 11711
+
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = Parent,var(9) = 0
+trigger1 = parent,var(6)>parent,var(7)
+time = 2
+add = 70,40,20
+mul=256,156,156
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = Parent,var(9) = 0
+trigger1 = parent,var(6)<parent,var(7)
+time = 2
+add = 30,50,90
+mul=156,156,256
+;sinadd = 0,0,0,10
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+
+
+;------------------------------------
+
+;Install Symbol
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11715) = 0
+trigger1 = Parent,var(9) != 0
+anim = 770+parent,var(9)
+ID = 11715
+pos = ifelse(teamside=1,38,205), 45
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -1
+scale = 0.3,0.15
+ownpal = 0
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11715)
+trigger1 = Parent,var(9) = 0
+ID = 11715
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = Parent,var(9) =1
+trigger1=time%120=0
+time = 120
+add = 70,40,20
+mul=256,156,156
+sinadd = 70,40,20,60
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = Parent,var(9) =2
+trigger1=time%120=0
+time = 120
+add = 30,50,90
+mul=156,156,256
+sinadd = 30,50,90,60
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+

@@ -1,0 +1,210 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+After certain moves, Thor has a special "slide"
+state which has different attacks from
+his usual moveset
+He also slides after running
+Thor can air dash backwards and forwards
+
+<#f0f000>Normals:</>
+
+Standing Low Kick						^LK / ^A
+
+Standing Hook  						^MK / ^B
+
+High Kick						^HK / ^C
+
+Double Kick						_F^HK / _F^C
+(Makes air targets bounce 2 times max
+per combo)
+
+
+Crouching Low Kick						^LK / ^A (Crouching)
+
+Crouching Punch					^MK / ^B (Crouching)
+
+Crouching Sweep  					^HK / ^C (Crouching)
+
+
+Air Punch							^LK / ^A (Air)
+
+Air Arc Blades			 			^MK / ^B (Air)
+
+Air Side Kick			 			^HK / ^C (Air)
+
+Air Stomp						_D^HK / _D^C (Air)
+
+
+Throw									_B / _F  _+ ^LP / ^X
+
+Dashes				Dir+ ^MP / Dir +^Y 
+
+
+Almighty Install				^MP / ^Y 
+(With Good Fight meter full)
+
+<#ffff00>Information about Almighty Install:</>
+Almighty Install gives you more moves
+that are some form of advanced teleportation
+for the round you activate it in only
+To fill the Good Fight meter, you need to either
+do long combos or be hit by long combos
+You can also shoot yourself
+
+<#00ff00>Lvl-3+</>
+Mjolnir Mode					_D_D^MP / _D_D^Y 
+
+<#00ffff>Information about Mjolnir mode:</>
+Mjolnir mode enhances the range and
+damage of all Arc Blades based moves
+It is also a heat mode
+
+
+Gauge Charge 						^LK + ^HK / ^A + ^C (Held)
+
+
+Spot Dodge						^HP / ^Z 
+
+Almighty Counter						_F^HP / _F^Z 
+(Air OK)(Almighty Install)
+
+<#ffff00>Information about Almighty TP:</>
+Any Almighty move will change depending
+on the current state of the opponent
+You will be crouching if opponent is standing
+Airborne if the opponent is crouching
+Airborne or anti-air if they are airborne
+
+Gun Taunt						^S 
+(At the very start of the round)
+(Fills good fight for HP)
+
+
+<#ff0000>Specials Supers and Hypers:</>
+
+A Arc Blades Rekka Start		
+_D_DF_F ^LK / _D_DF_F ^A
+
+    _!A Arc Blades Rekka A Route		
+^LK /  ^A
+(Mid)
+
+    _!A Arc Blades Rekka B Route		
+^MK /  ^B
+(Overhead)
+
+    _!A Arc Blades Rekka B Route		
+^HK /  ^C
+(Low)
+
+B Arc Blades Rekka Start		
+_D_DF_F ^MK / _D_DF_F ^B
+(Mid)(Ends with slide)
+
+    _!B Arc Blades Rekka Followup		
+^MK / ^B
+(Overhead)
+
+<#00ff00>Lvl-1</>
+Arc Blades Combo EX						
+_D_DF_F ^HK / _D_DF_F ^C
+
+
+Lunge Slice  						
+_D_DB_B ^LK / _D_DB_B ^A 
+
+Boosted Lunge Slice  						
+_D_DB_B ^MK / _D_DB_B ^B
+(Ends with slide)
+
+<#00ff00>Lvl-2</>
+Boosted Slice EX					
+_D_DB_B ^HK / _D_DB_B ^C
+(Makes opponent bounce)
+(Ends with slide on hit)
+
+
+Arc Blades Burst  						
+_D_D ^LK / _D_D ^A 
+
+Arc Blades Burst Bigger  					
+_D_D ^MK / _D_D ^B 
+
+<#00ff00>Lvl-1</>
+Arc Blades Burst EX  					
+_D_D ^HK / _D_D ^C 
+
+
+Dive Slice A		
+_D_DB_B ^LK / _D_DB_B ^A (Air)
+
+Dive Slice B		
+_D_DB_B ^MK / _D_DB_B ^B (Air)
+(Ends with slide)
+
+<#00ff00>Lvl-1</>
+Dive Slice EX		
+_D_DB_B ^HK / _D_DB_B ^C (Air)
+(Ends with slide on hit)(Makes opponent bounce)
+
+
+Slide Sweep 
+_D_DF_F ^LK / _D_DF_F ^A (Slide)
+(Low)
+
+Arc Blades Sommersault 
+_D_DF_F ^MK / _D_DF_F ^B (Slide)
+(Overhead)(Makes opponent bounce)
+
+<#00ff00>Lvl-1</>
+Upperkick EX
+_D_DF_F ^HK / _D_DF_F ^C (Slide)
+
+
+Almighty TP
+_B_D_DB ^LK / _B_D_DB ^A (Air OK)
+(Almighty Install)
+
+Almighty TP Crossup
+_B_D_DB ^MK / _B_D_DB ^B (Air OK)
+(Almighty Install)
+
+<#00ff00>Lvl-1</>
+Almighty TP EX
+_B_D_DB ^HK / _B_D_DB ^C (Air OK)
+(Almighty Install)
+(Unblockable for 20 ticks)
+
+
+Almighty Attack
+_D_DB_B ^LK / _D_DB_B ^A (Slide)
+(Almighty Install)
+
+Almighty Attack Crossup
+_D_DB_B ^MK / _D_DB_B ^B (Slide)
+(Almighty Install)
+
+<#00ff00>Lvl-2</>
+Almighty Combo
+_D_DB_B ^HK / _D_DB_B ^C (Slide)
+(Almighty Install)
+
+
+
+<#00ff00>Lvl-3</>
+Almighty Hyper						
+_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+(Almighty Install)
+
+<#00ffff>Mjolnir Mode</>
+Mjolnir Hyper		
+_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C
+(Ends Mjolnir Mode)
+
+
+Credits:
+
+Writing : DidiGetsRekt
+
+

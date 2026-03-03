@@ -1,0 +1,21 @@
+[SceneDef]
+spr = logo.sff
+
+[Scene 0]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 255,255,255
+bg.name = BG0
+bgm = logo.mp3
+bgm.loop = 0
+end.time = 300
+
+[BG0Def]
+
+[BG0]
+type  = normal
+spriteno = 0,2
+start = -160, 0
+mask = 1

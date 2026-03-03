@@ -1,0 +1,106 @@
+[Info]
+name ="Church Of Orsola"
+displayname="Church Of Orsola"
+versiondate=12/11/2008
+mugenversion=04,14,2001
+author="Lightoss"
+pal.defaults=1,2,3,4,5
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -120
+boundright = 120
+boundhigh = -175
+boundlow  =  20
+verticalfollow = 0.6
+tension = 80
+floortension = 40
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 220
+zoffsetlink = 34
+autoturn = 1
+resetBG = 1
+hires= 1
+
+[Shadow]
+color = 32,32,32
+yscale = .25
+intensity = 80
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/ACQUA.mp3
+bgvolume = 255
+
+[BGdef]
+spr = MBAA 7th Heaven Church.sff
+debugbg = 1
+
+;----------------------------------------------
+
+
+[BG 1]
+type = normal
+spriteno = 0,0
+layerno = 0
+start = 0,157
+delta = 2,2
+mask = 0
+
+[BG 1]
+type = normal
+spriteno = 0,1
+layerno = 0
+start = 0,157
+delta = 2,2
+trans = add
+mask = 0
+
+[BG 1]
+type = normal
+spriteno = 0,2
+layerno = 0
+start = 0,157
+delta = 2,2
+trans = add
+mask = 0
+
+[Files]
+sprite=
+sound=
+anim=
+cmd=
+cns=
+st=
+stcommon=
+[Arcade]
+intro.storyboard=
+ending.storyboard=

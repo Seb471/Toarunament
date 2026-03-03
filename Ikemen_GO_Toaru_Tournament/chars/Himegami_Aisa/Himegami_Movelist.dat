@@ -1,0 +1,117 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+Himegami is a joke character so don't expect much,
+though she has potential...
+
+She can air jump once and that jump is much stronger
+than the ground one
+
+<#f0f000>Normals:</>
+
+Low Poke						^LK / ^A
+
+Middle Poke	 					^MK / ^B
+
+High Poke	 					^HK / ^C
+
+
+Crouching Weak Punch  					^LK / ^A (Crouching)
+
+Crouching Weak Chop 					^MK / ^B (Crouching)
+
+Crouching Leg Sweep  					^HK / ^C (Crouching)
+
+
+Air Weak Punch						^LK / ^A (Air)
+
+Air Slap			 			^MK / ^B (Air)
+
+Air Kick		 				^HK / ^C (Air)
+
+Stun Baton Low Blow					^MP / ^Y
+(Can shock if you press ^MP / ^Y once more)
+
+Stun Baton High Blow 					_B ^MP / _B ^Y
+(Can shock if you press ^MP / ^Y once more)
+
+
+Dodge 							^LP / ^X
+(Can be held, but if you hold it for too long she falls)
+
+Roman Cancel 						^HP / ^Z
+
+Charge Gauge 						^S
+
+Komoe								^LK / ^A (when downed)
+(press this when downed to have a cross appear,
+upon the next attack when downed, Komoe will ram
+into the opponent)
+
+<#ff0000>Supers and Hypers:</>
+
+Near Pebble Throw					D_DF_F ^LK / _D_DF_F ^A
+
+Middle Pebble Throw					_D_DF_F ^MK / _D_DF_F ^B
+
+Far Pebble Throw					_D_DF_F ^HK / _D_DF_F ^C
+
+
+Reckless Charge (Near)					_D_DB_B ^LK / _D_DB_B ^A	
+(Damages Himegami a bit and makes her fall on hit)
+
+Reckless Charge (Mid)					_D_DB_B ^MK / _D_DB_B ^B	
+(Damages Himegami a bit and makes her fall on hit)
+
+Reckless Charge (Far)					_D_DB_B ^HK / _D_DB_B ^C	
+(Damages Himegami a bit and makes her fall on hit)
+
+<#00ff00>Lvl-1</>
+Small Fan Slam						_B_DB_D_DF_F ^LK / _B_DB_D_DF_F ^A
+
+<#00ff00>Lvl-2</>
+Mid Fan Slam						_B_DB_D_DF_F ^MK / _B_DB_D_DF_F ^B
+
+<#00ff00>Lvl-3</>
+Big Fan Slam						_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C
+
+
+<#00ff00>Lvl-1</>
+Weak Counter						_D_D ^LK / _D_D ^A
+
+<#00ff00>Lvl-2</>
+Mid Counter						_D_D ^MK / _D_D ^B
+
+<#00ff00>Lvl-3</>
+Strong Counter						_D_D ^HK / _D_D ^C
+
+
+<#00ff00>Lvl-1</>
+Weak Gekota Throw					_D_D_D ^LK / _D_D_D ^A
+
+<#00ff00>Lvl-2</>
+Mid Gekota Throw					_D_D_D ^MK / _D_D_D ^B
+
+<#00ff00>Lvl-3</>
+Strong Gekota Throw					_D_D_D ^HK / _D_D_D ^C
+
+
+Taser 							_F_DF_D_DB_B ^MP / _F_DF_D_DB_B ^Y
+
+<#00ff00>Lvl-1</>
+Stun Baton Combo 					_B_DB_D_DF_F ^MP / _B_DB_D_DF_F ^Y
+
+
+Air Drop Kick 						_D_D ^LK / _D_D ^A (Air)
+
+Air Drop Kick 						_D_D ^MK / _D_D ^B (Air)
+
+Air Drop Kick 						_D_D ^HK / _D_D ^C (Air)
+
+
+<#00ff00>Lvl-3</> and <#ff0000>low health</>
+Deep Blood						_D_D ^HP / _D_D ^Z
+(Instant Kill)
+
+
+Credits: DidiGetsRekt

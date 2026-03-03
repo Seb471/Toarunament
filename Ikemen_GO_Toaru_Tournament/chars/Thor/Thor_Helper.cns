@@ -1,0 +1,422 @@
+;Mjolnir Helper
+[Statedef 980]
+anim = 29999; placeholder
+
+[State 3050, ”wŒi•Ï‰»]
+type = BGPalFX
+trigger1 = 1
+time =  1
+add = 0,0,0
+mul = 140,140,140
+invertall = 0
+color = 256
+
+
+;Revert to non Mjolnir
+[State 0, RemapPal]
+type = RemapPal
+trigger1= parent,fvar(7)=0
+;trigger1=!(stateno=[3000,3099]) || ((stateno=[3000,3099]) && movetype=H)
+source = 1,1
+dest = 1,(palno)
+ignorehitpause =1
+;persistent =
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,fvar(7)=0
+ignorehitpause = 1
+;persistent = 
+
+;==========================================================
+;Almigthy Meter Helper
+[Statedef 30000]
+anim = 29999;
+
+;DoYouWish Bar Out
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11600) = 0
+;trigger1 = Parent,fvar(6) != 0
+anim = 11600
+ID = 11600
+pos = ifelse(teamside=1,8,205), 217
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = .5,.5
+ownpal = 0
+ignorehitpause = 1
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = root,var(3)=1
+time = 1
+add = 1,1,0
+mul = 256,256,0
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+
+;BlackBar
+[State 30000];ƒQ[ƒW‰º’n
+type = Explod
+trigger1 = numexplod(11103) = 0
+;trigger1 = Parent,fvar(6) != 0
+anim = 11103
+ID = 11103
+pos = ifelse(teamside=1,16,213), 228
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+;ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR bar P1
+[State 30000]
+type = Explod
+triggerAll = numexplod(11103);Black bar
+trigger1 = numexplod(11100) = 0
+;trigger1 = Parent,fvar(6) = 1200
+trigger1 = teamside=1
+anim = 11101
+ID = 11100
+pos = 16, 228
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR Bar P2
+[State 30000]
+type = Explod
+triggerAll = numexplod(11103)
+trigger1 = numexplod(11100) = 0
+;trigger1 = Parent,fvar(6) = 1200
+trigger1 = teamside=2
+anim = 11101
+ID = 11100
+pos = 305, 228
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR Decrease
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11100) = 1
+scale = Parent,fvar(6)/4800,.5
+ID = 11100
+
+[State 30000];ƒQ[ƒWŒõ‘ò
+type = Explod
+triggerAll = numexplod(11210) = 0
+triggerAll = teamside=1
+trigger1 = Parent,fvar(6)=2400
+anim = 11200
+ID = 11210
+pos = 16, 228
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000];ƒQ[ƒWŒõ‘ò2p
+type = Explod
+triggerAll = numexplod(11212) = 0
+triggerAll = teamside=2
+trigger1 = Parent,fvar(6)=2400
+anim = 11200
+ID = 11212
+pos = 305, 228
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;[State 30000]
+;type = ModifyExplod
+;trigger1 = numexplod(11210) = 1
+;scale = Parent,var(21)/3000.0,.5
+;ID = 11210
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11212)
+trigger1 = Parent,fvar(6) !=2400
+ID = 11212
+
+
+;;Remove WR bar
+;[State 30000]
+;type = RemoveExplod
+;triggerAll = numexplod(11100)
+;trigger1 = Parent,fvar(6) =0
+;ID = 11100
+
+;;RemoveBarOUT
+;[State 30000] 
+;type = RemoveExplod
+;triggerAll = numexplod(11600)
+;trigger1 = Parent,fvar(6) = 0
+;ID = 11600
+
+
+;==================================================================
+;Mjolnir Meter Helper
+[Statedef 30001]
+anim = 29999;
+
+;DoYouWish Bar Out
+[State 30000] 
+type = Explod
+triggerAll = numexplod(11700) = 0
+trigger1 = Parent,fvar(7) != 0
+anim = 11600
+ID = 11700
+pos = ifelse(teamside=1,8,205), 197
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = .5,.5
+ownpal = 1
+ignorehitpause = 1
+
+;BlackBar
+[State 30000];ƒQ[ƒW‰º’n
+type = Explod
+triggerAll = numexplod(11203) = 0
+trigger1 = Parent,fvar(7) != 0
+anim = 11103
+ID = 11203
+pos = ifelse(teamside=1,16,213), 208
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+;ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR bar P1
+[State 30000]
+type = Explod
+triggerAll = numexplod(11203);Black bar
+trigger1 = numexplod(11200) = 0
+trigger1 = Parent,fvar(7)!=0
+trigger1 = teamside=1
+anim = 11100
+ID = 11200
+pos = 16, 208
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR Bar P2
+[State 30000]
+type = Explod
+triggerAll = numexplod(11203)
+trigger1 = numexplod(11200) = 0
+trigger1 = Parent,fvar(7)!=0
+trigger1 = teamside=2
+anim = 11100
+ID = 11200
+pos = 305, 208
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+
+[State 30000];ƒQ[ƒWŒõ‘ò
+type = Explod
+triggerAll = numexplod(11310) = 0
+triggerAll = teamside=1
+trigger1 = Parent,fvar(7)!=0
+anim = 11200
+ID = 11310
+pos = 16, 208
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000];ƒQ[ƒWŒõ‘ò2p
+type = Explod
+triggerAll = numexplod(11310) = 0
+triggerAll = teamside=2
+trigger1 = Parent,fvar(7)!=0
+anim = 11200
+ID = 11310
+pos = 305, 208
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11310) = 1
+scale = Parent,fvar(7)/2400,.5
+ID = 11310
+ignorehitpause=1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11310)
+trigger1 = Parent,fvar(7) =0
+ID = 11310;11210
+ignorehitpause=1
+
+;WR Decrease
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11200) = 1
+scale = Parent,fvar(7)/2400,.5
+ID = 11200
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11203)
+trigger1 = Parent,fvar(7) = 0
+ID = 11203
+
+
+;Remove WR bar
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11200)
+trigger1 = Parent,fvar(7) =0
+ID = 11200
+
+;RemoveBarOUT
+[State 30000] 
+type = RemoveExplod
+triggerAll = numexplod(11700)
+trigger1 = Parent,fvar(7) = 0
+ID = 11700
+
+;===============================================
+;Gethit Helper
+[Statedef 30002]
+anim = 29999;
+
+;Gethit Combo add
+[State 30002]
+	type=ParentVarAdd
+	trigger1 = parent,movetype=H
+	trigger1 = parent,animelemtime(1)=0
+	
+	fv = 12
+	value = 1/(1+parent,fvar(12))
+
+;Mjolnir Mode Countdown
+[State -2]
+	type=parentVarAdd
+	;triggerall = stateno != 6470
+	;triggerall = stateno != 6471
+	;triggerall = stateno != 6200
+	;triggerall = stateno != 6250
+	trigger1 = parent,fvar(7) > 0
+	trigger1= parent,stateno!=[2000,2002]
+	trigger1= parent,stateno!=2100
+	trigger1= parent,stateno!=[2200,2999]
+	trigger1= (parent,stateno!=[3000,3199]) && parent,movetype!=H
+	trigger2 = parent,fvar(7) > 1
+
+	
+	fv = 7
+	value = -1
+
+;Combo Helper
+[Statedef 30003]
+anim = 29999;
+
+;Almighty Combo add
+[State -2]
+	type=ParentVarAdd
+	triggerall= parent,fvar(6)<2400
+	triggerall= parent,stateno!=2002
+	triggerall= parent,stateno!=[3000,3199]
+	triggerall= parent,stateno!=[960,970]
+	triggerall=roundstate=2
+	trigger1=P2stateno!=[5080,5150]
+	trigger1=P2stateno!=[5035,5050]
+	trigger1 = parent,fvar(11) > 3
+	
+	fv = 6
+	value = ifelse((root,life<=(0.3*root,lifemax)),Ceil(parent,fvar(11)/(36*(1+(P2Stateno=[7050,7070])))),Ceil(parent,fvar(11)/(60*(1+(P2Stateno=[7050,7070])))))
+
+

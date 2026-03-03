@@ -1,0 +1,115 @@
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;学習
+[Statedef 30000]
+	type = S
+	anim = 9910
+	ctrl = 0
+
+	[State 30000, 位置固定]
+		type = BindToRoot
+		trigger1 = 1
+		time = 1
+		facing = 1
+		pos = 0, 0
+
+	[State 30000, 影,透過]
+		type = AssertSpecial
+		trigger1 = 1
+		flag = noshadow
+		flag2 = invisible
+
+	[State 30000,ON]
+		type = varset
+		trigger1 = var(0) = 0
+		var(0) = 1
+
+	[State 30000, ステート変更]
+		type = ChangeState
+		TriggerAll = Alive = 1				;生きている
+		TriggerAll = RoundState = 2			;戦闘中
+;		TriggerAll = Var(59) > 0			;AI起動
+
+		TriggerAll = FVar(1) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(2) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(3) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(4) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(5) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(6) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(7) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(8) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(9) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(10) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(11) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(12) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(13) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(14) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(15) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(16) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(17) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(18) != EnemyNear(Var(40)),StateNo
+		TriggerAll = FVar(19) != EnemyNear(Var(40)),StateNo
+
+		trigger1 = EnemyNear(Var(40)),HitDefAttr = SCA,AT,AA,AP
+		trigger1 = var(0) < 20
+		value = 30001
+		ctrl = 0
+
+;--------------------------------------------------------------
+;学習
+[Statedef 30001]
+	type = S
+	anim = 9910
+	ctrl = 0
+
+	[State 30001, 位置固定]
+		type = BindToRoot
+		trigger1 = 1
+		time = 1
+		facing = 1
+		pos = 0, 0
+
+	[State 30001, 影,透過]
+		type = AssertSpecial
+		trigger1 = 1
+		flag = noshadow
+		flag2 = invisible
+
+	[State 30001,]
+		Type = VarSet
+		Trigger1 = Alive = 1				;生きている
+		Trigger1 = RoundState = 2			;戦闘中
+		fvar(var(0)) = EnemyNear(Var(40)),StateNo
+
+	[State 30001,]
+		Type = VarSet
+		TriggerAll = Alive = 1				;生きている
+		TriggerAll = RoundState = 2			;戦闘中
+		trigger1 = EnemyNear(Var(40)),HitDefAttr = SCA,AA
+		var(var(0)) = 1
+
+	[State 30001,]
+		Type = VarSet
+		TriggerAll = Alive = 1				;生きている
+		TriggerAll = RoundState = 2			;戦闘中
+		trigger1 = EnemyNear(Var(40)),HitDefAttr = SCA,AT
+		var(var(0)) = 2
+
+	[State 30001,]
+		Type = VarSet
+		TriggerAll = Alive = 1				;生きている
+		TriggerAll = RoundState = 2			;戦闘中
+		trigger1 = EnemyNear(Var(40)),HitDefAttr = SCA,AP
+		var(var(0)) = 3
+
+	[State 30001,]
+		Type = VarAdd
+		trigger1 = Alive = 1				;生きている
+		trigger1 = RoundState = 2			;戦闘中
+		var(0) = 1
+
+	[State 30001, ステート変更]
+		type = ChangeState
+		trigger1 = Time = 1
+		value = 30000
+

@@ -1,0 +1,538 @@
+; KFM's constants and state file.
+; There are comments scattered through this file, so you may like to
+; take a look if would like to learn more about the cns.
+
+[Data]
+;Amount of life to start with
+life = 1000
+;attack power (more is stronger)
+attack = 100
+;defensive power (more is stronger)
+defence = 100
+;Levels
+power = 7000
+;Percentage to increase defense everytime player is knocked down
+fall.defence_up = 50
+;Time which player lies down for, before getting up
+liedown.time = 60
+;Number of points for juggling
+airjuggle = 15
+;Default hit spark number for HitDefs
+sparkno = 2
+;Default guard spark number
+guard.sparkno = 40
+;1 to enable echo on KO
+KO.echo = 0
+;Volume offset (negative for softer)
+volume = 0
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 20
+FloatPersistIndex = 40
+
+[Size]
+xscale = 0.925           ;Horizontal scaling factor.
+yscale = 0.925           ;Vertical scaling factor.
+ground.back = 15     ;Player width (back, ground)
+ground.front = 10    ;Player width (front, ground)
+air.back = 12        ;Player width (back, air)
+air.front = 12       ;Player width (front, air)
+height = 60          ;Height of player (for opponent to jump over)
+attack.dist = 160    ;Default attack distance
+proj.attack.dist = 90 ;Default attack distance for projectiles
+proj.doscale = 0     ;Set to 1 to scale projectiles too
+head.pos = -5, -90   ;Approximate position of head
+mid.pos = -5, -60    ;Approximate position of midsection
+shadowoffset = 0     ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
+
+[Velocity]
+walk.fwd = 2.85
+walk.back = -2.85
+run.fwd = 6.5, 0
+run.back = -4.5,-3.8 ;Hop backward (x, y)
+jump.neu = 0,-9    ;Neutral jumping velocity (x, y)
+jump.back = -2.55    ;Jump back Speed (x, y)
+jump.fwd = 2.5       ;Jump forward Speed (x, y)
+runjump.back = -2.55,-8.1 ;Running jump speeds (opt)
+runjump.fwd = 4,-8.1      ;.
+airjump.neu = 0,-8.1      ;.
+airjump.back = -2.55      ;Air jump speeds (opt)
+airjump.fwd = 2.5         ;.
+air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
+air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
+air.gethit.airrecover.add = 0,-4.5    ;Velocity offset for air recovery (x, y) **MUGEN 1.0**
+air.gethit.airrecover.back = -1       ;Extra x-velocity for holding back during air recovery **MUGEN 1.0**
+air.gethit.airrecover.fwd = 0         ;Extra x-velocity for holding forward during air recovery **MUGEN 1.0**
+air.gethit.airrecover.up = -2         ;Extra y-velocity for holding up during air recovery **MUGEN 1.0**
+air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during air recovery **MUGEN 1.0**
+
+[Movement]
+airjump.num = 0       ;Number of air jumps allowed (opt)
+airjump.height = 50   ;Minimum distance from ground before you can air jump (opt)
+yaccel = .44          ;Vertical acceleration
+stand.friction = .85  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching
+stand.friction.threshold = 2          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
+crouch.friction.threshold = .05       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
+air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
+air.gethit.groundrecover.ground.threshold = -20 ;Y-position below which falling player can use the recovery command **MUGEN 1.0**
+air.gethit.groundrecover.groundlevel = 10   ;Y-position at which player in the ground recovery state touches the ground **MUGEN 1.0**
+air.gethit.airrecover.threshold = -1  ;Y-velocity above which player may use the air recovery command **MUGEN 1.0**
+air.gethit.airrecover.yaccel = .35    ;Vertical acceleration for player in the air recovery state **MUGEN 1.0**
+air.gethit.trip.groundlevel = 15      ;Y-position at which player in the tripped state touches the ground **MUGEN 1.0**
+down.bounce.offset = 0, 20            ;Offset for player bouncing off the ground (x, y) **MUGEN 1.0**
+down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing off the ground **MUGEN 1.0**
+down.bounce.groundlevel = 12          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
+down.friction.threshold = .05         ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
+
+;Default language victory quotes (optional).  **MUGEN 1.0**
+;If this section is included, the default language victory quotes must be in English.
+[Quotes]
+; Up to 100 victory quotes can be specified per language (victory0 - victory99)
+victory1 = "The speed of my slash woven by my Shichiten Shichitou, Nanasen, can kill a person seven times in the period known as ‘an instant’."
+victory2 = "You need a lot of training. Come back in ten years."
+victory3 = "You look familiar. Did I see you on TV?"
+victory4 = "Your moves are too predictable. You want to learn Kung Fu Palm? It's not for novices."
+victory5 = "That was a good workout."
+victory6 = "I want to challenge more skilled fighters."
+victory7 = "What do you mean my girlfriend is in another temple?"
+
+;Alternate language victory quotes (optional).
+;0 or more alternate language sections may be added, preceded by the
+;ISO 639-1 code followed by a ".", e.g. "[ja.Quotes]".
+;See language setting in mugen.cfg.
+[ja.Quotes]
+victory1 = "???????????????????????!"
+victory2 = "???????"
+victory3 = "?????????????????…?"
+victory4 = "??????????????? ??????????????????? ????????"
+victory5 = "??? ??????"
+victory6 = "?????????????"
+victory7 = "????!????????????"
+
+
+
+;intro decider
+[Statedef 190]
+type = U
+ctrl = 0
+velset = 0,0
+
+[State 191, 2] ;Assert this until you want "round 1, fight" to begin
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = invisible
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = Changestate
+trigger1 = Roundsexisted = 0
+value = 191
+
+;normal intro
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 190
+velset = 0,0
+
+[State 190, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, ?????]
+type = Explod
+trigger1 = AnimElemTime(13) = 0
+anim = 6800
+postype = p1
+pos = 0,5
+sprpriority = 3
+ownpal = 1
+
+[State 190, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Kneeting Needles
+; CNS difficulty: easy
+[Statedef 195]
+type = U
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 19
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = command = "a" && command != "b" && command != "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger2 = command != "a" && command = "b" && command != "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger3 = command != "a" && command != "b" && command = "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger4 = command != "a" && command != "b" && command != "c" && command = "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger5 = command != "a" && command != "b" && command != "c" && command != "x" && command = "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger6 = command != "a" && command != "b" && command != "c" && command != "x" && command != "y" && command = "z" && !(command = "start" && var(21)>=0)
+trigger7 = command != "a" && command != "b" && command != "c" && command != "x" && command != "y" && command != "z" && (command = "start" && var(21)>=0)
+v = 25
+value = var(26)
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time>0
+triggerall = var(19)<2
+trigger1 = command = "a" && command != "b" && command != "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger2 = command != "a" && command = "b" && command != "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger3 = command != "a" && command != "b" && command = "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger4 = command != "a" && command != "b" && command != "c" && command = "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger5 = command != "a" && command != "b" && command != "c" && command != "x" && command = "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger6 = command != "a" && command != "b" && command != "c" && command != "x" && command != "y" && command = "z" && !(command = "start" && var(21)>=0)
+trigger7 = command != "a" && command != "b" && command != "c" && command != "x" && command != "y" && command != "z" && (command = "start" && var(21)>=0)
+v = 26
+value = (command = "a") + 2*(command="b") + 3*(command="c") + 4*(command="x") + 5*(command="y") + 6*(command="z") + var(21)*(command="start")
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(25)!=var(26)
+v = 19
+value = 1
+
+[State 0, VarSet]
+type = VarSet
+;triggerall = var(25)!=-1
+triggerall = var(26)!=-1
+trigger1 = var(25)=var(26)
+v = 19
+value = 2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(19)=2
+trigger2 = var(19)=1
+trigger2 = animtime=0
+v = 20
+value = var(26)
+;ignorehitpause = 
+persistent = 0
+
+[State -1]
+Type = PlaySnd
+TriggerAll = var(19)=1
+trigger1 = animtime = 0
+Value = s24000, 0
+Channel = 1
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(pos y<0,50,0)
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Kneeting Needles Super
+; CNS difficulty: easy
+[Statedef 196]
+type = U
+ctrl = 0
+anim = 196
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 2
+poweradd = -1000
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 42
+anim = -1
+movetime = 42
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 19
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = command = "a" && command != "b" && command != "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger2 = command != "a" && command = "b" && command != "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger3 = command != "a" && command != "b" && command = "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger4 = command != "a" && command != "b" && command != "c" && command = "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger5 = command != "a" && command != "b" && command != "c" && command != "x" && command = "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger6 = command != "a" && command != "b" && command != "c" && command != "x" && command != "y" && command = "z" && !(command = "start" && var(21)>=0)
+trigger7 = command != "a" && command != "b" && command != "c" && command != "x" && command != "y" && command != "z" && (command = "start" && var(21)>=0)
+v = 25
+value = var(26)
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time>0
+triggerall = var(19)<2
+trigger1 = command = "a" && command != "b" && command != "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger2 = command != "a" && command = "b" && command != "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger3 = command != "a" && command != "b" && command = "c" && command != "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger4 = command != "a" && command != "b" && command != "c" && command = "x" && command != "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger5 = command != "a" && command != "b" && command != "c" && command != "x" && command = "y" && command != "z" && !(command = "start" && var(21)>=0)
+trigger6 = command != "a" && command != "b" && command != "c" && command != "x" && command != "y" && command = "z" && !(command = "start" && var(21)>=0)
+trigger7 = command != "a" && command != "b" && command != "c" && command != "x" && command != "y" && command != "z" && (command = "start" && var(21)>=0)
+v = 26
+value = (command = "a") + 2*(command="b") + 3*(command="c") + 4*(command="x") + 5*(command="y") + 6*(command="z") + var(21)*(command="start")
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(25)!=var(26)
+v = 19
+value = 1
+
+[State 0, VarSet]
+type = VarSet
+;triggerall = var(25)!=-1
+triggerall = var(26)!=-1
+trigger1 = var(25)=var(26)
+v = 19
+value = 2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(19)=2
+trigger2 = var(19)=1
+trigger2 = animtime=0
+v = 20
+value = var(26)
+;ignorehitpause = 
+persistent = 0
+
+[State -1]
+Type = PlaySnd
+TriggerAll = var(19)=1
+trigger1 = animtime = 0
+Value = s24000, 0
+Channel = 1
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(pos y<0,50,0)
+ctrl = 1 
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+
+[Statedef -2]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "var(20) = %d, var(21)=%d, var(22)=%d, helper(24000),var = %d, helper(24000),var = %d, roundstate = %d"
+params = var(20),var(21),var(22), helper(24000),var(1),helper(24000),var(4), ifelse(gametime%256<128,ifelse(gametime%128<64,gametime%64,64-gametime%64),ifelse(gametime%128<64,-gametime%64,-64+gametime%64))
+;ignorehitpause = 
+;persistent = 
+
+[State 0, DisplayToClipboard]
+type = AppendToClipboard
+trigger1 = 1
+text = "\nvar(19) = %d, var(25)=%d, var(26)=%d, map(esperPower)=%f, map(phase)=%f, map(palfxmodifier)=%f"
+params = var(19),enemy,id,var(26),map(esperPower),map(phase), map(palfxmodifier)
+;ignorehitpause = 
+;persistent = 
+
+[State -2, air jump - reset]
+type = VarSet
+triggerall = var(23)>=1
+trigger1 = statetype!=A
+var(23) = 0
+
+[State -2, air jump - set] ; this detects your button pressing for the first jump
+type = VarAdd
+trigger1= (stateno=[50,51]) 
+triggerall = var(23)=0
+var(23) = 1
+
+;Gives 1000 at the start of the battle
+[State -2,???????]
+	Type= PowerSet
+	trigger1 = roundsexisted = 0 && roundstate = 0 && roundno = 1;
+	value = 1000 ; 0?6000????? 1000???1? ??????1000
+
+;step process during match defaulting at 2 (aka set)
+[State 0, VarSet]
+type = VarSet
+trigger1 = stateno!=[195,196]
+trigger1 = roundstate = 2
+trigger1 = var(19)!=2
+var(19) = 2
+
+;first value during match reset
+[State 0, VarSet]
+type = VarSet
+trigger1 = stateno!=[195,196]
+trigger1 = roundstate = 2
+trigger1 = var(25)!=-1
+var(25) = -1
+
+;second value during match reset
+[State 0, VarSet]
+type = VarSet
+trigger1 = stateno!=[195,196]
+trigger1 = roundstate = 2
+trigger1 = var(26)!=-1
+var(26) = -1
+
+;temporary esper power setter at the beginning of the match
+[State 0, VarSet]
+type = VarSet
+trigger1 = roundstate = 2 && var(20)=0;
+var(20) = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+var(22) = -1
+
+;the numbers I have to work with :
+;0, 7-99 -> 94 potential esper powers
+;0 -> reserved for kamijou touma as a reference to when rensa exploded herself trying to copy him
+
+;Level 4s
+;10 -> 24
+
+;Level 3s
+;25 -> 39
+
+;Level 2s
+;40 -> 54
+
+;Level 1s
+;55 -> 69
+
+;Level 0s
+;70 -> 84
+
+;Extra/more lvls than expected in the respective reserved spots
+;85 -> 99
+;7 -> 9
+
+
+[State 0, VarSet]
+type = VarSet
+;Kamijou Touma
+trigger1 = enemy,name = "Kamijou Touma" && var(21):=100;originally 0 but it doesn't work with maps and vars
+;Lvl-4s
+trigger2 = enemy,name = "Hokaze Junko" && var(21):=10
+trigger3 = enemy,name = "Kinuhata Saiai" && var(21):=11
+trigger4 = enemy,name = "kuroko_s" && var(21):=12
+;Lvl-3s
+trigger5 = enemy,name = "Last_Order" && var(21):=25
+;Lvl-2s
+;Lvl-1s
+;Lvl-0s
+trigger6 = enemy,name = "Tsuchimikado Motoharu" && var(21):=70
+;Extras
+trigger7 = enemy,name = "Suzushina Yuriko" && var(21):=85
+trigger8 = enemy,name = "Kazakiri Hyouka" && var(21):=86
+var(22) = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(21)>=0 && var(22)=-1
+var(21) = -1
+
+[State -2]
+Type = Helper
+TriggerAll = RoundState = [0,2]
+TriggerAll = NumEnemy > 0
+TriggerAll = NumHelper(24000) = 0
+Trigger1 = NumPartner = 0
+Trigger2 = NumPartner > 0
+Trigger2 = Partner,ID > ID
+Trigger3 = TeamMode = Turns
+StateNo = 24000
+PosType = Back
+Pos = 50, -140
+Ownpal = 1
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+ID = 24000
+
+
+;DamageDampening Reset
+[State -2]
+	type = varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fv = 0
+	value = 1
+	ignorehitpause = 1
+
+;Air dash count reset
+[State -2];???
+ 	type = Varset
+ 	triggerAll = var(17)
+	trigger1 = statetype != A
+	trigger2 = movetype = H
+ 	var(17)=0
+	ignorehitpause = 1
+
+;Cornerpush reset
+[State -2];??????
+	type = varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fvar(11)=0
+	ignorehitpause = 1
+
+
+
+;----------------------------------------------
+;Specific esper powers that work all the/over time
+
+;	Auto-Rebirth
+[State -2, LifeAdd]
+type = LifeAdd
+triggerAll = alive
+trigger1 = roundstate = 2
+trigger1 = gametime%(6+3*ceil(life/50))=0 
+trigger1 = !ishelper
+value = 1
+absolute = 1
+ignorehitpause = 1
+persistent = 1
+
+
+;var(17) is the air dash count
+;var(19) is esper power choosing confirmation
+;var(20) is the esper power
+;var(21) is the additional esper powers
+;var(22) is the boolean to confirm that the opponent is indeed one of the listed espers whose powers can be taken (if the code also exists)
+;var(23) is jump variable
+;esperPower is the esper power that is present at all times (used for the text sctrl)
+;var(25) is second most recent esper power chosen during taunt
+;var(26) is most recent esper power during taunt

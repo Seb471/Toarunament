@@ -1,0 +1,45 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Hokaze Junko"        ;Name of character
+displayname = "Hokaze Junko" ;Name of character to display
+versiondate = 05,22,2023    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.1         ;Version of M.U.G.E.N character works on (X.XX)
+author = "DidiGetsRekt (Code), Gloves of Doom (Art)"         ;Character author name
+pal.defaults = 1,2,3,4      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+localcoord = 320,240        ;Local coordinate space width and height
+
+; Files for the player
+[Files]
+cmd     = Junko.cmd           ;Command set
+cns     = Junko.cns           ;Constants
+st      = Junko.cns           ;States
+st2 = Junko_N.cns
+st3 = Junko_S.cns
+st4 = Junko_H.cns
+st5= Junko_Ex.cns
+st6= Junko_Helper.cns
+stcommon = common.cns      ;Common states (from data/ or motif)
+movelist = Junko_Movelist.dat
+sprite  = Junko.sff           ;Sprite
+anim    = Junko.air           ;Animation
+sound   = Junko.snd           ;Sound
+ai      = Junko.ai            ;AI hints data (not used)
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+a = 1 ;Press button X to select palette 1, etc.
+b = 2
+c = 3
+x = 4
+y = 5
+z = 6
+;x2 = 7 ;Hold Start and press button X for palette 7, etc.
+;y2 = 8
+;z2 = 9
+;a2 = 10
+;b2 = 11
+;c2 = 12

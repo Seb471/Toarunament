@@ -1,0 +1,37 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Kanzaki Kaori"        ;Name of character
+displayname = "Kanzaki Kaori (WIP)" ;Name of character to display
+versiondate = 05,13,2022    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.1          ;Version of M.U.G.E.N character works on (X.XX)
+ikemenversion = 1
+author = "Seb368,ebora,DidiGetsRekt"         ;Character author name
+pal.defaults = 1,2,3,4,5,6      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+localcoord = 320,240        ;Local coordinate space width and height
+[Files]
+sprite	= kanzaki.sff
+anim	= kanzaki.air
+cns	= kanzaki.cns
+cmd	= kanzaki.cmd
+sound	= kanzaki.snd
+
+;for mugen
+st	= kanzaki.cns
+st1	= kanzaki_ST0.cns
+st2	= kanzaki_ST1.cns
+st3	= kanzaki_ST2.cns
+st4	= kanzaki_S.cns
+st5	= kanzaki_H.cns
+st6	= kanzaki_Helper.cns
+st7	= kanzaki_ex.cns
+stcommon= common.cns
+
+;for ikemen go
+st8	= kanzaki_text.zss
+font0	= jg.fnt
+
+movelist= kanzaki.dat

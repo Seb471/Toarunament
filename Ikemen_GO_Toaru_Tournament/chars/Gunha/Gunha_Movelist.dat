@@ -1,0 +1,376 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+Gunha has a "slide" after his backdash 
+from which he can do certain actions
+He can also double jump for <#ffff00>5% Guts</>
+He has less defense if you have <#ffff00><20% Guts</>
+He has more defense and charge speed
+if you have <#ffff00>100% Guts</>
+
+<#f0f000>Information on Combo Limiter:</>
+Every normal and special add to the gauge
+When it's full the opponent will either
+get a special recovery or a special lay down
+when they hit the ground
+Before that they are invincible to normals and specials
+But you can use supers and hypers to extend the combo
+
+
+<#f0f000>Normals:</>
+
+Standing Right Jab					^LK / ^A
+
+	_!Standing Left Jab				^LK / ^A
+
+Standing Punch  					^MK / ^B
+
+Standing Knee  						_B^MK / _B^B
+(or ^B after Standing Left Jab)
+(Can hold _U to convert it into a launcher)
+
+High Kick						^HK / ^C
+
+<#ffff00>10% Guts</>
+Small Amazing Punch						_F^HK / _F^C
+(Wall Bounce)
+
+
+Crouching Low Jab						^LK / ^A (Crouching)
+
+Crouching Punch					^MK / ^B (Crouching)
+
+Crouching Sweep  					^HK / ^C (Crouching)
+
+Crouching Upper 					_F^HK / _F^C (Crouching)
+
+
+Air Jab							^LK / ^A (Air)
+
+Air Chop			 			^MK / ^B (Air)
+
+Air Upper Kick			 			_U^MK / _U^B (Air)
+
+Air Turn Kick			 			^HK / ^C (Air)
+
+Air Gorilla Stomp						_D^HK / _D^C (Air)
+(Bounce on air opponents)
+
+<#ffff00>5% Guts</>
+Air Amazing Kick						_F^HK / _F^C (Air)
+(Wall Bounce on air opponents)
+(After certain moves only)
+
+Endure				^LP / ^X
+(Spends <#ffff00>Guts</> to armor through moves)
+
+Throw				_F^LP / _F^X
+
+<#ffff00>10% Guts</>
+Gutsy Dash Forward				_D_DF_F ^MP / _D_DF_F^Y (Air OK)
+
+<#ffff00>10% Guts</>
+Gutsy Dash Behind				_D_DB_B ^MP / _D_DB_B^Y (Air OK)
+
+<#ffff00>10% Guts</>
+Amazing Down Dash				_D ^HK+^MP / _D ^C+^Y (Air)
+
+
+<#00ff00>Lvl-3+</>
+<#ffff00>100% Guts</>
+Hype Mode				_D_D^MP / _D_D^Y 
+
+<#ffff00>Information about Hype Mode:</>
+You get unlimited meter and guts for a limited time
+There is also no combo limiter
+If you do a 50+ hit combo you get a bonus explosion
+If you drop the combo after the timer reaches 0
+then it ends with a sigh if you have under 50 hits
+
+
+Gauge Charge 						^LK + ^HK / ^A + ^C (Held)
+
+<#ffff00>10% Guts</>
+Forehead Parry						_F^HP / _F^Z 
+(If you time it well you get more <#ffff00>Guts</>)
+
+Projectile Slap						_D_DF_F^HP / _D_DF_F^Z 
+
+
+Fireworks						^S 
+(Gives <#ffff00>20% Guts</>)
+
+<#00ff00>Lvl-2</>
+EX Fires Up						_D_D^S 
+(Gives <#ffff00>100% Guts</>)
+
+
+<#ffff00>50% Guts</>
+Exploding Guard					^LK+^MK / ^A+^B (During Block
+
+
+
+
+<#ff0000>Specials Supers and Hypers:</>
+
+Physical Amazing Punch		
+_D_DF_F ^LK / _D_DF_F ^A
+
+    _!Physical Amazing Punch Followup	
+_F^LK /  _F^A
+
+    _!A Low Dash		
+_F^MK /  _F^B
+
+	_!Amazing Overhead
+_F^LK /  _F^A
+(Overhead)
+
+	_!Amazing Sliding Aura
+_F^MK /  _F^B
+
+	_!Crouching Upper 
+_F^HK /  _F^C
+
+<#ffff00>10% Guts</>
+    _!A Amazing Front Kick		
+_F^HK /  _F^C
+(Wall Bounce)(Guard Break)
+
+
+
+Distance Amazing Punch		
+_D_DF_F ^MK / _D_DF_F ^B
+(Can be held for guard break)
+(Press ^Y to spend 
+<#ffff00>30% Guts</>
+and complete the charge)
+(Can be used twice in the gutless system)
+
+<#ffff00>Information about Gutless:</>
+If you do a move more than a certain amount of
+times in a row then Gunha will not do it and
+will shake his head
+
+
+
+<#00ff00>Lvl-1</>
+Amazing Rushing Punches						
+_D_DF_F ^HK / _D_DF_F ^C
+
+
+Short Amazing Lunge 						
+_D_DB_B ^LK / _D_DB_B ^A
+(Can be held for guard break/wall bounce)
+(Press ^Y to spend 
+<#ffff00>20% Guts</>
+and complete the charge)
+
+Amazing Lunge 	 						
+_D_DB_B ^MK / _D_DB_B ^B
+(Can be held for guard break/wall bounce)
+(Press ^Y to spend 
+<#ffff00>20% Guts</>
+and complete the charge)
+
+<#00ff00>Lvl-1</>
+Amazing Lunge Combo				
+_D_DB_B ^HK / _D_DB_B ^C
+(Guard Break)
+(Wall Bounce)
+
+
+Small Shockwave 						
+_D_D ^LK / _D_D ^A 
+
+Shockwave					
+_D_D ^MK / _D_D ^B 
+
+<#00ff00>Lvl-1</>
+Amazing Shockwave  					
+_D_D ^HK / _D_D ^C 
+(Hits opponents lying down)
+
+
+Sugoiryuken						
+_F_DF_F ^LK / _F_DF_F ^A 
+(Has armor if you have <#ffff00>>50% Guts</>)
+
+<#ffff00>10% Guts</>
+Amazing Rising Punch				
+_F_DF_F ^LK+^MP / _F_DF_F ^A+^Y
+
+Amazing Anti Air						
+_F_DF_F ^MK / _F_DF_F ^B
+(Can be used twice in the gutless system)
+
+<#00ff00>Lvl-1</>
+Messatsu Sugoiryuken						
+_F_DF_F ^HK / _F_DF_F ^C
+(Has armor if you have <#ffff00>>50% Guts</>)
+
+
+Push						
+_B_DB_B ^LK / _B_DB_B ^A 
+(Makes opponents stand again)
+
+Spinning Throw					
+_B_DB_B ^MK / _B_DB_B ^B
+(Has armor if you have <#ffff00>>50% Guts</>)
+
+<#00ff00>Lvl-1</>
+Amazing Gutsy Throw				
+_B_DB_B ^HK / _B_DB_B ^C
+(Instant and automatic in combo)
+(Hold _U for antiair version)
+	
+<#00ff00>Lvl-1</>
+	_!Instant Gutsy Dash
+^MP / ^Y
+(Press during the startup)
+(Hold _U for anti air version)
+
+
+Amazing Dashing Punch
+_B_DB_D_DF_F ^LK / _B_DB_D_DF_F ^A (During Slide)
+(Has armor if you have <#ffff00>>50% Guts</>)
+(Gutsy Bounce)
+
+Amazing Sliding Aura
+_B_DB_D_DF_F ^MK / _B_DB_D_DF_F ^B (During Slide)
+(Low)
+
+	_!Amazing Overhead
+_D_DF_F^LK /  _D_DF_F^A
+(Overhead)
+
+	_!Amazing Upper Knee
+_D_DF_F^MK /  _D_DF_F^B
+
+<#00ff00>Lvl-1</>
+	_!Amazing Lariat
+_D_DF_F^HK /  _D_DF_F^C
+
+<#00ff00>Lvl-2</>
+Hyper Eccentric etc... Amazing Punch
+_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C (During Slide)
+(Guard Break)
+(Gutsy Ricochet)
+
+
+Special Dash 						_F_F (During Slide)
+
+	_!Amazing Overhead
+^LK /  ^A
+(Overhead)
+
+	_!Gutsy Dash Behind
+^MK /  ^B
+
+
+<#00ff00>Lvl-1</>
+	_!Amazing Lariat
+^HK /  ^C
+
+
+Air Physical Amazing Punch		
+_D_DF_F ^LK / _D_DF_F ^A (Air)
+(Can be held)
+
+<#ffff00>10% Guts</>
+	_!Air Amazing Finisher
+(Hold ^A)
+(Wall Bounce)
+
+Air Distance Amazing Punch		
+_D_DF_F ^MK / _D_DF_F ^B (Air)
+
+<#00ff00>Lvl-1</>
+EX Air Distance Amazing Punch		
+_D_DF_F ^HK / _D_DF_F ^C (Air)
+(Guard Break)
+(Gutsy Bounce)
+(Hits enemies lying down)
+
+
+
+
+Amazing Flying Kick		
+_D_DB_B ^LK / _D_DB_B ^A (Air)
+(Wall Bounce)
+
+Amazing Divekick		
+_D_DB_B ^MK / _D_DB_B ^B (Air)
+(Gutsy Bounce)
+
+<#00ff00>Lvl-1</>
+Amazing Kick Combo	
+_D_DB_B ^HK / _D_DB_B ^C (Air)
+(Wall Bounce)
+
+
+<#00ff00>Lvl-2/>
+Huge Punch	
+_B_DB_D_DF_F ^LK / _B_DB_D_DF_F ^A
+(Unblockable)
+(Gutsy Ricochet)
+(Has armor if you have <#ffff00>>50% Guts</>)
+
+<#00ff00>Lvl-2/>
+Electric Amazing Punch	
+_B_DB_D_DF_F ^MK / _B_DB_D_DF_F ^B
+(Can be charged)
+(Instant in combos)
+(More damage on air opponents)
+
+
+<#00ff00>Lvl-3</>
+Super Amazing Punch					
+_D_DB_B_DB_D_DF_F ^HK / _D_DB_B_DB_D_DF_F ^C
+(More damage raw)
+(Ends hype mode)
+
+<#00ff00>Lvl-2</>
+Raging Guts
+_F^LK^LK_F^MK^HK/ _F^A^A_F^B^C
+
+<#00ff00>Lvl-2</>
+Raging Guts Counter
+_B^LK^LK_B^MK^HK/ _B^A^A_B^B^C
+
+
+<#00ff00>Lvl-1</>
+<#ffff00>25% Guts</>
+Jump Off and Amazing Fall
+B_DB_D_DF_F ^LK+^MK/ B_DB_D_DF_F ^A+^B (While hit on ground or laying down)
+(Can hold right or left during fall to orient)
+(Guard Break)(Hits downed)
+
+<#00ff00>Lvl-2</>
+Hyper Amazing Fall
+_D_D_D ^LK/ _D_D_D^X (Air OK unless double jump)
+(Can hold right or left during fall to orient)
+(Guard Break)(Hits downed)
+
+
+
+
+<#00ff00>Hype Mode</>
+Nerfed Hyper Gutsy Combo
+_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+(Air unblockable)
+(Ends hype mode)
+
+
+<#00ff00>Lvl-5</>
+<#ffff00>100% Guts</> or <#ff0000>Low HP</>
+Hyper Gutsy Combo
+_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+(Air unblockable)
+
+
+Credits:
+
+Writing : DidiGetsRekt
+
+

@@ -1,0 +1,705 @@
+
+;into st 2
+[Statedef 2000]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 2000
+sprpriority = 2
+facep2 = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0 
+helpertype = normal ;player
+name = "shinto"
+ID = 24002
+stateno = 24002
+pos = 0,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+var(20) = 2 
+
+
+[State ]
+type = velset
+trigger1 = time = 0
+x = 0
+y = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S2400,0
+channel = -1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime=0
+value = 2001
+;anim =
+;ignorehitpause = 
+;persistent = 
+
+;st 2 stand
+[Statedef 2001]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 2001
+sprpriority = 2
+facep2 = 1
+
+[State ]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State ]
+type = velset
+trigger1 = time = 0
+x = 0
+y = 0
+
+[State ]
+type = ChangeState
+trigger1 = p2dist X < -1
+value = 2010
+
+[State ]
+type = ChangeState
+trigger1 = command = "jump"
+value = 2201
+ctrl = 0
+
+;st 2 turn
+[Statedef 2010]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 2010
+sprpriority = 2
+facep2 = 0
+
+[State ]
+type = ChangeState
+trigger1 = animtime = 0
+value = 2001
+
+;st 2 back to st 0
+[Statedef 2030]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 2030
+sprpriority = 2
+facep2 = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0 
+helpertype = normal ;player
+name = "cross"
+ID = 24000
+stateno = 24000
+pos = 0,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+var(20) = 0 
+
+
+[state ]
+type = velset
+trigger1 = time = 0
+y = 0
+
+[state ]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S30,0
+channel = -1
+
+[State ]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;Wire
+[Statedef 2100]
+movetype= A
+physics = N
+ctrl = 0
+sprpriority = 2
+facep2 = 1
+velset=0,0
+poweradd=fvar(11)
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time=0
+value = 2100+(pos y<0)
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time=0 && anim=2100
+statetype = S       ;S,A,C,L
+;ignorehitpause = 
+;persistent = 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time=0 && anim=2101
+statetype = A       ;S,A,C,L
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+var(32) = var(22)
+
+[State 0, VarSet]
+type = VarSet
+trigger1=time=0
+var(22)=-1+(command="a")+5*(command="b")+9*(command="c")+(command="holddown"&&command!="holdback"&&command!="holdfwd")+2*(command!="holddown"&&command="holdback"&&command!="holdfwd")+3*(command!="holddown"&&command!="holdback"&&command="holdfwd")
+
+;modulus of 4 determines the placement of the wire whereas the multiple of 4 determines the direction of the slash
+
+[State -1,îƒópäiî[]
+		type = Varset
+		Trigger1=Time=0
+		fvar(10)= fvar(0)
+		persistent = 0
+ 		ignorehitpause = 1
+
+	[State -1,ç≈í·çUåÇï€è·]
+		type = Varset
+		Trigger1=Time=0
+		Trigger1=fvar(0)<=0.50
+		fvar(10)= 0.50
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = var(7) < 7
+trigger1 = var(32)!=var(22)
+trigger1 = animelemtime(1)=5;important for the two anims
+helpertype = normal ;player
+name = "wire"
+ID = 2101
+stateno = 2101
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, LifeAdd]
+type = null
+trigger1 = time = 0 && var(21)=1
+value = -ceil(20*fvar(10))
+kill = 0
+absolute = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S2400,0
+channel = -1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = helper(2101),movecontact=1
+var(1)=1
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime=0
+value = ifelse(var(20)=-1 || var(20)=0,50*(pos y<0),var(20)*1000+1+199*(pos y<0))
+ctrl = ifelse(var(20)=-1 || var(20)=0,1,0)
+
+;into st 2 air
+[Statedef 2200]
+type    = A
+movetype= I
+physics = N
+ctrl = 0
+anim = 2204
+sprpriority = 2
+facep2 = 1
+
+[State 50, 1]
+type = VelAdd
+trigger1 = var(21)=1
+trigger1 = command = "holdfwd"
+x = .5
+
+[State 50, 1]
+type = VelAdd
+trigger1 = var(21)=1
+trigger1 = command = "holdback"
+x = -.5
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall= time=0
+trigger1 = prevstateno=2100
+trigger2 = prevstateno=6000
+trigger3 = prevstateno=751
+value = 2201
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0 && anim=2204
+helpertype = normal ;player
+name = "temple"
+ID = 24002
+stateno = 24002
+pos = 0,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+var(20) = 2 
+
+[state ]
+type = velmul
+trigger1 = 1
+x = 0.9
+
+[State ]
+type = veladd
+trigger1 = animelemtime(2) <= 0
+y = 0.2
+
+[State ]
+type = veladd
+trigger1 = animelemtime(2) >= 0
+y = 0.45
+
+[State -1]
+Type = Explod
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+Anim = 10052
+ID = 10052
+PosType = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 0.5,0.5
+SprPriority = 0
+IgnoreHitPause = 1
+RemoveTime = -2
+RemoveOnGetHit = 1
+persistent = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = anim = 2204 && time = 0
+value = S2400,0
+channel = -1
+
+[State ]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 2001
+ctrl = 0
+
+;st 2 jump
+[Statedef 2201]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 2200
+sprpriority = 2
+facep2 = 0
+
+[State ]
+type = velset
+trigger1 = animelemtime(3) >= 0 && animelemtime(4) <= 0
+y = -10
+
+[State ]
+type = velset
+triggerall = command = "holdfwd"
+trigger1 = time = 0
+x = 3
+
+[State ]
+type = velset
+triggerall = command = "holdback"
+trigger1 = time = 0
+x = -3
+
+[State 50, 1]
+type = VelAdd
+trigger1 = var(21)=1
+trigger1 = command = "holdfwd"
+x = .5
+
+[State 50, 1]
+type = VelAdd
+trigger1 = var(21)=1
+trigger1 = command = "holdback"
+x = -.5
+
+
+[State ]
+type = veladd
+trigger1 = animelemtime(4) >= 0
+y = 0.75
+
+[State ]
+type = StateTypeSet
+trigger1 = AnimElem = 2
+statetype = A
+
+[State -1]
+Type = Explod
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+Anim = 10052
+ID = 10052
+PosType = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 0.5,0.5
+SprPriority = 0
+IgnoreHitPause = 1
+RemoveTime = -2
+RemoveOnGetHit = 1
+persistent = 0
+
+[State ]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 2001
+ctrl = 0
+
+;st 2 back to st 0 air
+[Statedef 2230]
+type    = A
+movetype= I
+physics = N
+ctrl = 0
+anim = 2205
+sprpriority = 2
+facep2 = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "cross"
+ID = 24000
+stateno = 24000
+pos = 0,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+var(20) = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S30,0
+channel = -1
+
+[State ]
+type = ChangeState
+trigger1 = animtime = 0
+value = 50
+ctrl = 1
+
+[State ]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 52
+ctrl = 1
+
+
+;Wire slide
+[Statedef 2400]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 2102
+sprpriority = 2
+facep2 = 1
+poweradd=fvar(11)/2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1=time=0
+var(22)=12+(command="22_b")
+
+[State 0, VarSet]
+type = VarSet
+trigger1=time=0
+var(26)=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1=1
+var(27)=-(command="holdback")+(command="holdfwd")
+
+[State -1,îƒópäiî[]
+		type = Varset
+		Trigger1=time = 0
+		fvar(10)= fvar(0)
+		persistent = 0
+ 		ignorehitpause = 1
+
+	[State -1,ç≈í·çUåÇï€è·]
+		type = Varset
+		Trigger1=time = 0
+		Trigger1=fvar(0)<=0.20
+		fvar(10)= 0.20
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = (animelemtime(2)=0 || animelemtime(2)=1) && var(22)=12 && var(7) < 7
+helpertype = normal ;player
+name = "wire_sliding"
+ID = 2405
+stateno = 2405
+pos = 0,0
+postype = back    ;p2,front,back,left,right
+
+[State 0, Helper]
+type = Helper
+trigger1 = (animelemtime(2)=0 || animelemtime(2)=1) && var(22)=13 && var(7) < 7
+helpertype = normal ;player
+name = "wire_sliding"
+ID = 2405
+stateno = 2405
+pos = 0,0
+postype = front    ;p2,front,back,left,right
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = helper(2405),movecontact=1
+var(1)=1
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S2400,0
+channel = -1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+var(28) = 0
+persistent = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time>0 && (command="a" || command="b" || command="c")
+var(28) = (command="a")+2*(command="b")+3*(command="c")
+persistent = 0
+
+[State -1, 2nd input]
+type = ChangeState
+trigger1 = var(28)!=0
+trigger1 = var(20)=-1 || var(20)=2
+trigger1 = statetype != A
+trigger1 = stateno!=[5000,6000]
+value = 2401
+
+[State ]
+type = ChangeState
+trigger1 = animtime=0
+value = 0+(var(20)=2)*2001
+ctrl = (var(20)=-1 || (var(20)=0 && power=0))
+
+;Followup of Wire slide
+[Statedef 2401]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 2103
+sprpriority = 2
+facep2 = 1
+poweradd=0;fvar(11)
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1=1
+var(27)=-(command="holdback")+(command="holdfwd")
+
+[State -1,îƒópäiî[]
+		type = Varset
+		Trigger1=Time=0
+		fvar(10)= fvar(0)
+		persistent = 0
+ 		ignorehitpause = 1
+
+	[State -1,ç≈í·çUåÇï€è·]
+		type = Varset
+		Trigger1=Time=0
+		Trigger1=fvar(0)<=0.10
+		fvar(10)= 0.10
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = command="a"
+trigger1 = var(26)<1+(var(20)=-1)
+trigger1 = numhelper(2410)<1+(var(20)=-1)
+;trigger1=numhelper(2410)<1+(var(20)=-1)+(var(21)=1)
+helpertype = normal ;player
+name = "fireball"
+ID = 2410
+stateno = 2410
+pos = 30,-80
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = command="b"
+trigger1 = var(26)<1+(var(20)=-1)
+trigger1 = numhelper(2411)<1+(var(20)=-1)
+helpertype = normal ;player
+name = "geyser"
+ID = 2411
+stateno = 2411
+pos = screenwidth*(0.5+0.25*var(27)),0
+postype = back    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = command="c"
+trigger1 = var(26)<1+(var(20)=-1)
+trigger1 = numhelper(2412)<1+(var(20)=-1)
+helpertype = normal ;player
+name = "fire trap"
+ID = 2412
+stateno = 2412
+pos = screenwidth*(0.5+0.25*var(27)),0
+postype = back    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = helper(2410),movecontact=1
+trigger2 = helper(2411),movecontact=1
+trigger3 = helper(2412),movecontact=1
+var(1)=1
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = var(26)<1+(var(20)=-1)+(var(21)=1)
+trigger1 = command="a" || command="b" || command="c"
+value = S2400+(command="a")+2*(command="b")+3*(command="c"),0
+channel = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = command="a" || command="b" || command="c"
+var(26) = 1
+
+
+[State ]
+type = ChangeState
+trigger1 = animtime=0
+value = 0+(var(20)=2)*2001
+ctrl = (var(20)=-1 || (var(20)=0 && power=0))

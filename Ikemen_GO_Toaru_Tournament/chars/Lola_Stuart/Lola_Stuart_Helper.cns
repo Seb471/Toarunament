@@ -1,0 +1,2867 @@
+;Remote control : Beam
+[Statedef 1500]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1500
+ctrl = 0
+sprpriority = 2
+
+[State 1500, Remote]
+type=Explod
+trigger1 = AnimElem = 4
+anim = 1501
+postype = p1
+pos = -35, -95
+
+[State 191, Snd 1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1500,0
+
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Index Beam"
+ID = 1510
+stateno = 1510 
+pos = 50,50
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 1500, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Index Coming
+[Statedef 1510]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,-5
+anim = 1502
+sprpriority = 2
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "mini earthquake"
+ID = 1603
+stateno = 1603 
+pos = 0,-50
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+
+[State 1510, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 1
+stateno = 1515
+time = 1
+[State 1510, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+[State 1510, 0]
+type = ChangeState
+trigger1 = time > 10
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 1511
+
+;Index Attack beam
+[Statedef 1511]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd=-1000
+velset = 0,0
+anim = 1503
+sprpriority = 2
+
+[State 3000, Super A]
+type = SuperPause
+trigger1 = AnimElem = 15
+anim=-1
+sound = S600, 1
+time = 150
+
+
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem=15
+helpertype = normal ;player
+name = "Black lightning"
+ID = 1602
+stateno = 1602 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem=15
+helpertype = normal ;player
+name = "Circle 1"
+ID = 1600
+stateno = 1600 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem=15
+helpertype = normal ;player
+name = "Circle 2"
+ID = 1601
+stateno = 1601 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 15
+value = S545,0
+volumescale = 100
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+
+
+[State -1,超必殺エフェクト]
+		Type=Explod
+		Trigger1=animelem=15
+		Anim=4300
+		postype=p1
+		Pos=rootdist x -rootdist x,rootdist y-rootdist y -50
+		sprPriority=4
+		Ownpal=1
+		RemoveonGetHit=1
+		IgnoreHitPause=1
+		persistent = 0
+		Scale=const(Size.xScale),const(Size.yScale)
+		SuperMoveTime=9999
+		PauseMoveTime=9999
+
+[State 1511, Red Beam]
+type = Explod
+trigger1 = AnimElem = 1
+ID=11623
+anim = 11623
+postype = p1
+pos = 0, 0
+ignorehitpause=0
+[State 1511, Hitdef]
+type = HitDef
+triggerall = anim = 1503
+trigger1 = time%2=0
+attr = S, SP
+animtype  = Medium
+damage    = Ceil(parent,fvar(0)*6),1
+guardflag = MA
+hitflag = MAF
+priority = 3,hit
+pausetime = 1,1
+sparkno = -1
+sparkxy = 0,0
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = High
+air.type = High
+ground.slidetime = 5
+ground.hittime  = 15
+ground.velocity = -3
+air.velocity = -1.4,-3
+ground.cornerpush.veloff=0
+air.cornerpush.veloff=0
+down.cornerpush.veloff=0
+guard.cornerpush.veloff=0
+airguard.cornerpush.veloff=0
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		triggerall = movehit=1
+		trigger1 =  hitcount%3 = 0
+		trigger2=hitcount=1
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-75*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 1
+		ignorehitpause = 1
+
+[State 1511, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 1
+stateno = 1515
+time = 1
+
+[State 1511, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+
+[State 1511, 0]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1512
+;Remote control : Swords
+[Statedef 1520]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1500
+ctrl = 0
+sprpriority = 2
+
+[State 1500, Remote]
+type=Explod
+trigger1 = AnimElem = 4
+anim = 1501
+postype = p1
+pos = -35, -95
+
+[State 191, Snd 1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1500,0
+
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Index Swords"
+ID = 1521
+stateno = 1521 
+pos = 50,50
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 1500, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Index Coming
+[Statedef 1521]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,-5
+anim = 1502
+sprpriority = 2
+
+
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "mini earthquake"
+ID = 1603
+stateno = 1603 
+pos = 0,-50
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+
+
+
+[State 1510, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 1
+stateno = 1515
+time = 1
+[State 1510, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+[State 1510, 0]
+type = ChangeState
+trigger1 = time > 10
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 1522
+
+;Index Attack swords
+[Statedef 1522]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1520
+sprpriority = 2
+
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem = 60
+helpertype = normal ;player
+name = "Black lightning"
+ID = 1602
+stateno = 1602 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem = 60
+helpertype = normal ;player
+name = "Circle 1"
+ID = 1600
+stateno = 1600 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem = 60
+helpertype = normal ;player
+name = "Circle 2"
+ID = 1601
+stateno = 1601 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 1512
+ID = 15120
+pos = rootdist x -rootdist x -50,rootdist y-rootdist y -50
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 60
+id = 15120
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 16
+anim = 1513
+ID = 15121
+pos = rootdist x -rootdist x+25,rootdist y-rootdist y -68.75
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 60
+id = 15121
+;ignorehitpause = 
+;persistent = 
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 16
+anim = 1513
+ID = 15122
+pos = rootdist x -rootdist x+25,rootdist y-rootdist y -31.25
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 60
+id = 15122
+;ignorehitpause = 
+;persistent = 
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 36
+anim = 1513
+ID = 15123
+pos = rootdist x -rootdist x -25,rootdist y-rootdist y -87.5
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 60
+id = 15123
+;ignorehitpause = 
+;persistent = 
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 36
+anim = 1513
+ID = 15124
+pos = rootdist x -rootdist x -25,rootdist y-rootdist y -12.5
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 60
+id = 15124
+;ignorehitpause = 
+;persistent = 
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelem=60
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;value2 = S,NA
+time = -1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 3000, Super A]
+type = SuperPause
+trigger1 = AnimElem = 60
+anim=-1
+sound = S600, 1
+time = 180
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 60
+value = S545,3
+volumescale = 100
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+
+[State -1,超必殺エフェクト]
+		Type=Explod
+		Trigger1=animelem=60
+		Anim=4300
+		postype=p1
+		Pos=rootdist x -rootdist x,rootdist y-rootdist y -50
+		sprPriority=4
+		Ownpal=1
+		RemoveonGetHit=1
+		IgnoreHitPause=1
+		persistent = 0
+		Scale=const(Size.xScale),const(Size.yScale)
+		SuperMoveTime=9999
+		PauseMoveTime=9999
+
+
+
+[State 1511, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=60
+helpertype = normal ;player
+name = "Quarter Circle Sword"
+ID = 1523
+stateno = 1523 
+pos = 0,-50
+postype = p2    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 30
+pausemovetime = 30
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem=60
+helpertype = normal ;player
+name = "Quarter Circle Sword reverse"
+ID = 1524
+stateno = 1524 
+pos = 0,-50
+postype = p2    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 30
+pausemovetime = 30
+
+[State 1510, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 1
+stateno = 1515
+time = 1
+
+[State 1511, 0]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1512
+[State 1511, 0]
+type = ChangeState
+trigger1 =  parent,command != "hold_z" && time = [0,59)
+value = 1525
+[State 1511, 0]
+type = ChangeState
+trigger1 =  parent,command != "hold_z" && time = [59,118)
+value = 1526
+[State 1511, 0]
+type = ChangeState
+trigger1 =  parent,command != "hold_z" && time = [118,177)
+value = 1527
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S545,2
+volumescale = 100
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+
+
+;Quarter Circle Sword
+[Statedef 1523]
+type=A
+movetype = A
+physics=N
+anim = 1510
+
+[State 1511, Hitdef]
+type = HitDef
+trigger1 = time=0
+attr = S, SP
+animtype  = Hard
+damage    = p2life/4,0
+guardflag = MA
+hitflag = MAF
+priority = 3,hit
+pausetime = 15,15
+sparkno = -1
+sparkxy = 0,0
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = High
+air.type = High
+ground.slidetime = 5
+ground.hittime  = 15
+ground.velocity = -3
+air.velocity = -1.4,-3
+air.fall=1
+fall.recover=0
+ground.cornerpush.veloff=0
+air.cornerpush.veloff=0
+down.cornerpush.veloff=0
+guard.cornerpush.veloff=0
+airguard.cornerpush.veloff=0
+
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+;ignorehitpause = 
+;persistent = 
+
+;Quarter Circle Sword reverse
+[Statedef 1524]
+type=A
+movetype = A
+physics=N
+anim = 1511
+
+[State 1511, Hitdef]
+type = HitDef
+trigger1 = time=0
+attr = S, SP
+animtype  = Hard
+damage    = p2life/4,0
+guardflag = MA
+hitflag = MAF
+priority = 3,hit
+pausetime = 15,15
+sparkno = -1
+sparkxy = 0,0
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = High
+air.type = High
+ground.slidetime = 5
+ground.hittime  = 15
+ground.velocity = -3
+air.velocity = -1.4,-3
+air.fall=1
+fall.recover=0
+ground.cornerpush.veloff=0
+air.cornerpush.veloff=0
+down.cornerpush.veloff=0
+guard.cornerpush.veloff=0
+airguard.cornerpush.veloff=0
+
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+;ignorehitpause = 
+;persistent = 
+
+;1 sword
+[Statedef 1525]
+type =  S
+movetype = A
+physics = S
+anim = 1509
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Black lightning"
+ID = 1602
+stateno = 1602 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Circle 1"
+ID = 1600
+stateno = 1600 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Circle 2"
+ID = 1601
+stateno = 1601 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S545,2
+volumescale = 0
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15120
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15121
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15122
+;ignorehitpause = 
+;persistent = 
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 1"
+ID = 15250
+stateno = 15250
+pos = rootdist x -rootdist x -50,rootdist y-rootdist y -50
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+
+
+
+[State 1511, 0]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1512
+
+
+
+;3 swords
+[Statedef 1526]
+type =  S
+movetype = A
+physics = S
+anim = 1509
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Black lightning"
+ID = 1602
+stateno = 1602 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Circle 1"
+ID = 1600
+stateno = 1600 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Circle 2"
+ID = 1601
+stateno = 1601 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S545,2
+volumescale = 0
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 1"
+ID = 15250
+stateno = 15250
+pos = rootdist x -rootdist x -50,rootdist y-rootdist y -50
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 2"
+ID = 15260
+stateno = 15260
+pos = rootdist x -rootdist x+25,rootdist y-rootdist y -68.75
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 3"
+ID = 15260
+stateno = 15260
+pos = rootdist x -rootdist x+25,rootdist y-rootdist y -31.25
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15120
+;ignorehitpause = 
+;persistent = 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15121
+;ignorehitpause = 
+;persistent = 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15122
+;ignorehitpause = 
+;persistent = 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15123
+;ignorehitpause = 
+;persistent = 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15124
+;ignorehitpause = 
+;persistent = 
+[State 1511, 0]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1512
+
+;5 swords
+[Statedef 1527]
+type =  S
+movetype = A
+physics = S
+anim = 1509
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Black lightning"
+ID = 1602
+stateno = 1602 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Circle 1"
+ID = 1600
+stateno = 1600 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Circle 2"
+ID = 1601
+stateno = 1601 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S545,2
+volumescale = 0
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 1"
+ID = 15250
+stateno = 15250
+pos = rootdist x -rootdist x -50,rootdist y-rootdist y -50
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 2"
+ID = 15260
+stateno = 15260
+pos = rootdist x -rootdist x+25,rootdist y-rootdist y -68.75
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 3"
+ID = 15260
+stateno = 15260
+pos = rootdist x -rootdist x+25,rootdist y-rootdist y -31.25
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 4"
+ID = 15270
+stateno = 15270
+pos = rootdist x -rootdist x -25,rootdist y-rootdist y -87.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "sword travel 5"
+ID = 15270
+stateno = 15270
+pos = rootdist x -rootdist x -25,rootdist y-rootdist y -12.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15120
+;ignorehitpause = 
+;persistent = 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15121
+;ignorehitpause = 
+;persistent = 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15122
+;ignorehitpause = 
+;persistent =
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15123
+;ignorehitpause = 
+;persistent = 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 15124
+;ignorehitpause = 
+;persistent =
+
+[State 1511, 0]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1512
+
+;first sword
+[Statedef 15250]
+type = A
+movetype = A
+physics = N
+anim = 1512
+sprpriority = 3
+velset = 10,0
+
+[State 210, Hitdef]
+type = HitDef
+trigger1 = !movecontact
+trigger1=!movereversed
+attr = S, NP
+animtype  = Light
+damage    = 10,0
+guardflag = MA
+pausetime = 1,5
+sparkno = -1
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 18
+ground.hittime  = 18
+ground.velocity = -5
+air.velocity = -2.5,-3.5
+air.fall=1
+fall.recover=1
+fall.recover=37
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,animtime=0
+trigger2=movereversed
+trigger3=movecontact
+;ignorehitpause = 
+;persistent = 
+
+;second and third sword
+[Statedef 15260]
+type = A
+movetype = A
+physics = N
+anim = 1512
+sprpriority = 3
+velset = 30,0
+
+[State 210, Hitdef]
+type = HitDef
+trigger1 = !movecontact
+trigger1=!movereversed
+attr = S, NP
+animtype  = Light
+damage    = 20,0
+guardflag = MA
+pausetime = 1,6
+sparkno = -1
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 14
+ground.velocity = -5
+air.velocity = -2.5,-3.5
+air.fall=1
+fall.recover=1
+fall.recover=37
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,animtime=0
+trigger2=movereversed
+trigger3=movecontact
+;ignorehitpause = 
+;persistent = 
+
+;fourth and fifth sword
+[Statedef 15270]
+type = A
+movetype = A
+physics = N
+anim = 1512
+sprpriority = 3
+velset = 20,0
+
+[State 210, Hitdef]
+type = HitDef
+trigger1 = !movecontact
+trigger1=!movereversed
+attr = S, NP
+animtype  = Light
+damage    = 30,0
+guardflag = MA
+pausetime = 1,8
+sparkno = -1
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 14
+ground.velocity = -5
+air.velocity = -2.5,-3.5
+air.fall=1
+fall.recover=1
+fall.recover=37
+
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,animtime=0
+trigger2=movereversed
+trigger3=movecontact
+;ignorehitpause = 
+;persistent = 
+
+;Remote Control : Earthquake
+[Statedef 1530]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1500
+ctrl = 0
+sprpriority = 2
+
+[State 1500, Remote]
+type=Explod
+trigger1 = AnimElem = 4
+anim = 1501
+postype = p1
+pos = -35, -95
+
+[State 191, Snd 1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1500,0
+
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Index earthquake"
+ID = 1531
+stateno = 1531 
+pos = 50,50
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 1500, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Index Coming
+[Statedef 1531]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,-5
+anim = 1502
+sprpriority = 2
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "mini earthquake"
+ID = 1603
+stateno = 1603 
+pos = 0,-50
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+
+
+[State 1510, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 1
+stateno = 1515
+time = 1
+[State 1510, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+[State 1510, 0]
+type = ChangeState
+trigger1 = time > 30
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 1532
+
+;Index earthquake
+[Statedef 1532]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1521
+sprpriority = 2
+
+[State 1510, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 1
+stateno = 1515
+time = 1
+[State 1510, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem=6
+anim = 10955
+ID = 10955
+pos = 30,-90
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 3000, Super A]
+type = SuperPause
+trigger1 = AnimElem = 5
+anim=-1
+sound = S600, 1
+time = 138
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem=5
+helpertype = normal ;player
+name = "Black lightning"
+ID = 1602
+stateno = 1602 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 2310, ?????????]
+type = Helper
+trigger1 = animelemtime(6)>= 10
+ID = 1604
+pos = 0,-Pos Y
+postype = p1
+stateno = 1604
+helpertype = normal
+name = "earthquake"
+keyctrl = 0
+ownpal = 1
+persistent=0
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem=5
+helpertype = normal ;player
+name = "Circle 1"
+ID = 1600
+stateno = 1600 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = animelem=5
+helpertype = normal ;player
+name = "Circle 2"
+ID = 1601
+stateno = 1601 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 5
+value = S545,1
+volumescale = 100
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+
+[State 1510, 0]
+type = ChangeState
+trigger1 = animtime = 0
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 1512
+
+;Remote Control : St.George
+[Statedef 1540]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1500
+ctrl = 0
+sprpriority = 2
+
+[State 1500, Remote]
+type=Explod
+trigger1 = AnimElem = 4
+anim = 1501
+postype = p1
+pos = -35, -95
+
+[State 191, Snd 1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1500,0
+
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Index stgeorge"
+ID = 1541
+stateno = 1541 
+pos = 50,50
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 1500, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;Index Coming
+[Statedef 1541]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,-5
+anim = 1502
+sprpriority = 2
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "mini earthquake"
+ID = 1603
+stateno = 1603 
+pos = 0,-50
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+
+[State 1510, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+
+[State 1510, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 1
+stateno = 1515
+time = 1
+
+[State 1510, 0]
+type = ChangeState
+trigger1 = time > 10
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 1542
+
+;Index St.George
+[Statedef 1542]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 15020
+sprpriority = 2
+
+
+[State 1510, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+
+[State 1510, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 1
+stateno = 1515
+time = 1
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = s546,4
+;volumescale = 100
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+[State 1500, Helper]
+type = Helper
+trigger1 = time=437
+helpertype = normal ;player
+name = "Black lightning"
+ID = 1602
+stateno = 1602 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time=482
+helpertype = normal ;player
+name = "beam"
+ID = 1605
+stateno = 1605
+sprpriority = 5
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time=789
+helpertype = normal ;player
+name = "red beam"
+sprpriority = 6
+ID = 1606
+stateno = 1606
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+pausemovetime = 9999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 482
+value = S546,13
+volumescale = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 822
+value = S546,12
+volumescale = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 788
+value = S546,15
+volumescale = 100
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent =
+
+[State 0, EnvColor]
+type = EnvColor
+trigger1 = time = 788
+value = 0,0,0
+time = 336
+under = 1
+;ignorehitpause = 
+;persistent =  
+[State 3000, Super A]
+type = SuperPause
+trigger1 = time = 788
+anim=-1
+darken = 0
+sound = S600, 1
+time = 336
+poweradd= -2000
+
+[State 1500, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "Circle 1"
+ID = 1600
+stateno = 1600 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+[State 1500, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "Circle 2"
+ID = 1601
+stateno = 1601 
+;pos = -10,-10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+
+[State 0, ReversalDef]
+type = ReversalDef
+trigger1 = (p2name = "Kamijou Touma" || p2name = "Kamijo Toma") && p2dist x <= 100 && p2stateno = 3000
+reversal.attr = S,NA,SA,HA;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+pausetime = 0,0
+;sparkno = S1500,
+;sparkxy = 0,0 ;offset
+hitsound = S1,0
+p1stateno = 1545
+p2stateno = 1546
+;ignorehitpause = 
+;persistent = 
+
+
+
+
+
+[State 1510, 0]
+type = ChangeState
+trigger1 = (time = 787 && (parent,command != "hold_z" || power < 2000)) || time > 933
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 1512
+[State 1510, 0]
+type = ChangeState
+trigger1 = (p2name = "Kamijou Touma" || p2name = "Kamijo Toma") && p2life < 10 && (helper(1605),movehit || helper(1606),movehit)
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 1545
+
+
+
+;Index test
+[Statedef 1545]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1561
+sprpriority = 2
+
+
+[State 0, Pause]
+type = Pause
+trigger1 = time = 0
+time = 5360
+movetime = 5360
+;endcmdbuftime = 0
+;pausebg = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = time >826
+time = -1
+add = -64,-64,-32
+mul = 256,256,256
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = time = 0 || time = 4396
+time = -1
+add = -256+17,-256+17,-256+17
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+;color = 256
+;ignorehitpause = 
+;persistent = 
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = time = 4068
+time = -1
+add = 256,128,128
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+;color = 256
+;ignorehitpause = 
+;persistent = 
+[State 1500, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "komoe"
+ID = 1607
+stateno = 1607 
+;pos = -10,-10
+size.xscale = 1.5
+size.yscale = 1.5
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+pausemovetime = 9999
+
+
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time = [0,5360]
+flag = nomusic
+flag2=timerfreeze
+flag3 = roundnotover
+
+
+
+[State 0, AllPalFX]
+type = AllPalFX
+trigger1 = time = 5125
+time = 180
+;add = 0,0,0
+;mul = 256,256,256
+sinadd = 256,256,256,720
+;invertall = 0
+;color = 256
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 5305
+anim = 11010
+ID = 11010
+pos = 0,0
+postype = left  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 1,1
+sprpriority = 5
+ontop = 1
+ownpal = 1
+
+
+[State 0, AllPalFX]
+type = envcolor
+trigger1 = time = 5305
+time = -1
+value = 256,256,256
+;mul = 256,256,256
+;sinadd = 256,256,256,720
+;invertall = 0
+;color = 256
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time=0
+x = -50*facing
+y = 0
+;ignorehitpause = 
+;persistent = 
+[State 0, Explod]
+type = Explod
+trigger1 = time=0
+anim = 15195
+ID = 15195
+pos = 160,0
+postype = back  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0.1
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 5360
+;scale = 0.5,0.5
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=3125
+anim = 15190
+ID = 15191
+pos = -15,-200
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0.1
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 5360
+yangle = 180
+scale = 0.5,0.5
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time%(random%60 +60)=0
+anim = 15190
+ID = 15190
+pos = 0,-200
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0.1
+accel = 0,0
+random = 320,0
+removetime = 3000
+pausemovetime = 5360
+scale = 0.5,0.5
+yangle=random%2 * 180
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = [826,2220]
+x = -0.01
+y = -(1523-time)*0.0001
+;ignorehitpause = 
+;persistent = 
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 2221
+x = 0
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time=0
+channel = -1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 1
+value = s546,10
+;volumescale = 100
+channel = 6
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+;ignorehitpause = 
+;persistent = 
+
+[State 1510, 0]
+type = ChangeState
+trigger1 = time > 5360
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 1512
+
+;Touma test
+[Statedef 1546]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+;anim = 1560
+sprpriority = 7
+[State 0, Pause]
+type = Pause
+trigger1 = time = 0
+time = 5360
+movetime = 5360
+;endcmdbuftime = 0
+;pausebg = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = time >826
+time = -1
+add = -64,-64,-32
+mul = 256,256,256
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent =
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = time=0
+value = 1560
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+ 
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = time = 0
+value = 0
+movecamera = 200*-facing,0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+x = 200*-facing
+y = 0
+;ignorehitpause = 
+;persistent = 
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 1
+x = 0.17
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 720
+x = 0
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = time = 2824
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 2824
+x = 0.625
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 2971
+x = 0
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time=0 || time > 5358
+channel = -1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time > 5358
+flag = nokosnd
+
+
+[State 0, LifeSet]
+type = Lifeadd
+trigger1 = time = 5359
+value = -9999
+;ignorehitpause = 
+;persistent = 
+
+
+[State 1510, 0]
+type = selfstate
+trigger1 = time = 5360
+;trigger1 = var(10) = 1
+;trigger1=time>40
+value = 5050
+ctrl = 1
+
+
+;Index Retreat
+[Statedef 1512]
+type    = S
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1507
+sprpriority = 2
+
+
+[State 1512, VelSet]
+type = VelSet
+trigger1 = animelem = 3
+y = 5
+[State 1500, Helper]
+type = Helper
+trigger1 = Pos Y = 5
+helpertype = normal ;player
+name = "mini earthquake"
+ID = 1603
+stateno = 1603 
+pos = 0,-5
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+
+
+[State 1512, 0]
+type = Destroyself 
+trigger1 = pos Y >= 50
+
+
+
+;Index Hit
+[Statedef 1515]
+type    = A
+movetype= H
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 1508
+sprpriority = 2
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time = 0
+channel = 6
+;ignorehitpause = 
+;persistent = 
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 1
+id = 15120
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 1
+id = 15121
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 1
+id = 15122
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 1
+id = 15123
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 1
+id = 15124
+[State 1520, Remove Beam]
+type = RemoveExplod
+trigger1=Animelem=1
+ID = 11623
+[State 1520, VelSet]
+type = VelSet
+trigger1 = animelem = 2
+x = -3
+y = -3
+
+[State 1520, Gravity]
+type = Gravity
+trigger1 = time > 10
+
+[State 1520, 0]
+type = ChangeState
+trigger1 = Pos Y > 0 && Vel Y > 0
+value = 1516
+
+;Index On ground
+[Statedef 1516]
+type    = A
+movetype= H
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 15081
+sprpriority = 2
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 2020, 0]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1512
+
+
+
+[statedef 1600, circle 1]
+anim=1551
+sprpriority = 3
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = -35,-60
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = (parent,stateno = 1512 && parent,Pos Y >= 50) || (parent,stateno = 1545 && parent,time = 825)
+;ignorehitpause = 
+;persistent = 
+
+[statedef 1601, circle 2]
+anim=1551
+sprpriority = 3
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 45,-60
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, AngleAdd]
+type = Angledraw
+trigger1 = 1
+value = 90
+;ignorehitpause = 
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = (parent,stateno = 1512 && parent,Pos Y >= 50) || (parent,stateno = 1545 && parent,time = 825)
+;ignorehitpause = 
+;persistent = 
+
+[statedef 1602, black lightning]
+anim=1552
+sprpriority = 4
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 0,-75
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =(parent,stateno = 1512 && parent,Pos Y >= 50) || (parent,stateno = 1545 && parent,time = 825)
+;ignorehitpause = 
+;persistent = 
+
+[statedef 1603, mini earthquake]
+anim=11301
+sprpriority = 3
+
+[State 1510, SE 地面衝撃音]
+		type = PlaySnd
+		trigger1 = time = 0
+		value = 200, 14
+;channel = 6
+ 
+[State 1510,岩]
+ 		Type = Explod
+ 		trigger1 = time = 0
+		anim = 11303
+		id=13520
+		postype = p1
+		Pos = 0,-10
+		pausemovetime = 0
+		supermovetime = 0
+		ownpal = 1
+		;scale = 0.75,0.85
+		sprpriority = 5
+		ignorehitpause = 1
+		persistent=0
+ 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+;ignorehitpause = 
+;persistent = 
+
+
+
+[Statedef 1604, earthquake]
+	type = A ;
+	movetype= A ;
+	velset = 0,0
+	anim =  11501;
+	sprpriority = -1
+
+	[State 2310, ???]
+		type = AssertSpecial
+		trigger1 = 1
+		flag = Noshadow
+	[State 2310,?????????]
+ 		Type = Explod
+ 		trigger1 = time = 0
+ 		Anim = 11500
+ 		BindTime = 1
+ 		Ownpal = 1
+ 		Scale = 1,0.25
+ 		IgnoreHitPause = 1
+ 		SuperMoveTime = 99999
+ 		PauseMoveTime = 99999
+ 		SprPriority = 3
+ 		ID = 10030
+
+[State 10220, ????]
+type = hitdef
+trigger1 = time = 0
+ 		attr = S, HA
+ 		damage = 100
+ 		animtype = Light
+ 		;guardflag = A
+ 		hitflag = M
+ 		priority = 3, Hit
+ 		pausetime = 7, 7
+ 		sparkno = -1
+ 		sparkxy = -10, -76
+ 		hitsound = s200, 14
+ 		guardsound = 6, 0
+ 		ground.type = High
+ 		ground.slidetime = 5
+ 		ground.hittime  = 12
+ 		ground.velocity = -1,-7.5
+ 		fall = 1
+ 		fall.recover = 0
+ 		fall.recovertime = 9999999999999999
+ 		id = 2310
+ 		Yaccel = 0.55
+
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		trigger1= movehit
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-45*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+ 	[State 2310, ??????]
+		type = EnvShake
+		trigger1 = time = 0
+		time = 15
+		freq = 160
+		ampl = -20
+		phase = 0
+
+	[State 2310, SE ?????]
+		type = PlaySnd
+		trigger1 = time = 0
+		value = 50, 0
+
+	[State 2310, ????]
+		type = DestroySelf
+		trigger1 = animtime=0
+
+
+[statedef 1605, beam]
+anim=12730
+sprpriority = 5
+movetype = A
+
+[State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 25,-75
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+[State 1511, Hitdef]
+type = null
+trigger1 = (p2name = "Kamijou Touma" || p2name = "Kamijo Toma") && p2life < 10
+attr = S, SP
+animtype  = Medium
+damage    = 0
+guardflag = MA
+hitflag = MAF
+priority = 3,hit
+pausetime = 0,0
+sparkno = -1
+sparkxy = 0,0
+hitsound   = -1
+guardsound = 6,0
+ground.type = High
+air.type = High
+ground.slidetime = 5
+ground.hittime  = 15
+ground.velocity = -3
+air.velocity = -1.4,1.4
+ground.cornerpush.veloff=0
+air.cornerpush.veloff=0
+down.cornerpush.veloff=0
+guard.cornerpush.veloff=0
+airguard.cornerpush.veloff=0
+p2stateno=1546
+
+[State 1511, Hitdef]
+type = HitDef
+trigger1 = ifelse(((p2name = "Kamijou Touma" || p2name = "Kamijo Toma") && p2stateno = [6400,6405]),(time%32=0 && parent,stateno=1542),(time%4=0 && parent,stateno=1542))
+attr = S, SP
+animtype  = Medium
+damage    = 3,1
+guardflag = MA
+hitflag = MAF
+priority = 3,hit
+pausetime = 0,0
+sparkno = -1
+sparkxy = 0,0
+hitsound   = -1
+guardsound = 6,0
+ground.type = High
+air.type = High
+ground.slidetime = 5
+ground.hittime  = 15
+ground.velocity = -3
+air.velocity = -1.4,1.4
+ground.cornerpush.veloff=0
+air.cornerpush.veloff=0
+down.cornerpush.veloff=0
+guard.cornerpush.veloff=0
+airguard.cornerpush.veloff=0
+kill=ifelse((p2name = "Kamijou Touma" || p2name = "Kamijo Toma"),0,1)
+guard.kill=ifelse((p2name = "Kamijou Touma" || p2name = "Kamijo Toma"),0,1)
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		triggerall = movehit=1
+		trigger1 =  hitcount%3 = 0
+		trigger2=hitcount=1
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-75*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 1
+		ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno = 1512 || parent,stateno = 1515 || (parent,stateno = 1545 && parent,time = 825)
+;ignorehitpause = 
+;persistent = 
+
+[statedef 1606, red beam]
+anim=12732
+sprpriority = 6
+movetype = A
+[State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 37.5,-75
+
+  [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != parent,facing
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = parent,stateno=1545 && parent,time=0
+value = 12733
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 1511, Hitdef]
+type = HitDef
+trigger1 = ifelse(((p2name = "Kamijou Touma" || p2name = "Kamijo Toma") && p2stateno = [6400,6405]),(time%32=16 && parent,stateno=1542),(time%2=1 && parent,stateno=1542))
+attr = S, HP
+animtype  = Hard
+damage    = 2
+hitflag = MAF
+priority = 3,hit
+pausetime = 0,0
+sparkno = -1
+sparkxy = 0,0
+hitsound   = -1
+guardsound = 6,0
+ground.type = High
+air.type = High
+ground.slidetime = 5
+ground.hittime  = 15
+ground.velocity = -3
+air.velocity = -1.4,1.4
+ground.cornerpush.veloff=0
+air.cornerpush.veloff=0
+down.cornerpush.veloff=0
+guard.cornerpush.veloff=0
+airguard.cornerpush.veloff=0
+kill=ifelse((p2name = "Kamijou Touma" || p2name = "Kamijo Toma"),0,1)
+guard.kill=ifelse((p2name = "Kamijou Touma" || p2name = "Kamijo Toma"),0,1)
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		triggerall = movehit=1
+		trigger1 =  hitcount%2 = 0
+		trigger2=hitcount=1
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-75*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 1
+		ignorehitpause = 1
+
+; Hitsparks (Accelerator)
+	[State 200, 線形ヒットエフェ]
+		type = explod
+		triggerall = movehit=1
+		trigger1 =  hitcount%3 = 0
+		trigger2=hitcount=1
+		anim = 13520+random%10
+		id=13520
+		postype = p2
+		Pos = 0,floor(-75*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		scale = 0.5,0.5
+		removetime=-2
+		sprpriority = 9
+		persistent = 1
+		ignorehitpause = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 24
+;scale = 
+;ignorehitpause = 
+;persistent = 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno = 1512 || parent,stateno = 1515 || (parent,stateno = 1545 && parent,time = 825)
+;ignorehitpause = 
+;persistent = 
+
+[statedef 1607, komoe's appartment]
+anim=19999
+sprpriority = 0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = parent,time = 1
+time = 5360-825
+add = -128,-128,-128
+mul = 256,256,256
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = parent,time = 825 || parent,time = 4396
+time = 5360-825
+add = -192,-192,-128
+mul = 256,256,256
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent = 
+[State 0, PalFX]
+type = PalFX
+trigger1 = parent,time = 4068;4396
+time = 5360-825
+add = 256,128,128
+mul = 256,256,256
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent =
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = time = 0
+    pos = 0,0
+
+  
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time = 5360
+;ignorehitpause = 
+;persistent = 

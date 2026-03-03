@@ -1,0 +1,147 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+Necomisaka can do one air jump 
+and can air dash in both directions
+
+Taunt							^S
+
+<#f0f000>Normals:</>
+
+Spark							^LK / ^A
+
+Punch	 						^MK / ^B
+
+Neco Chaser (Can be held) 				^HK / ^C
+
+Reverse Neco Chaser  					_B^HK / _B^C
+
+
+Crouching Spark						^LK / ^A (Crouching)
+
+Crouching Iron Sand Sword				^MK / ^B (Crouching)
+
+Crouching Iron Sand Whip				_F^MK / _F^B (Crouching)
+(launcher)
+
+Crouching Iron Sand Chainsaw (Can be Held)  		
+^HK / ^C (Crouching)
+
+
+Air Spark						^LK / ^A (Air)
+
+Air Kick			 			^MK / ^B (Air)
+
+Air Magnetism			 			_D ^MK / _D ^B (Air)
+
+Air Elec Slash			 			^HK / ^C (Air)
+
+Air Elec Ball						_D^HK / _D^C (Air)
+
+
+Elec Throw 					_B / _F  _+ ^LP / ^X
+
+Heat Mode (More than 1 bar)				^MP / ^Y 
+(You can use any SP in heat mode)
+
+Spot Dodge						_D^MP / _D^Y 
+
+
+
+Melty Shield						^HP / ^Z (Air OK)(Crouch OK)
+
+
+<#ff0000>Supers and Hypers:</>
+
+
+Discharge		
+_D_DF_F ^LK / _D_DF_F ^A
+
+Big Discharge		
+_D_DF_F ^MK / _D_DF_F ^B
+
+<#00ff00>Lvl-1</>
+Discharge EX		
+_D_DF_F ^HK / _D_DF_F ^C
+
+Air Magnetic Can		
+_D_DF_F ^LK / _D_DF_F ^A (Air)
+
+Air Magnetic Can (Dashes backwards)(Can be held)	
+_D_DF_F ^MK / _D_DF_F ^B (Air)
+
+<#00ff00>Lvl-1</>
+Supercharged Steel Beam EX (The beam explodes later)		
+_D_DF_F ^HK / _D_DF_F ^C (Air)
+
+
+Throwing a Stick Straight						
+_D_DB_B ^LK / _D_DB_B ^A 
+
+Throwing a Stick Upwards 						
+_D_DB_B ^MK / _D_DB_B ^B
+
+<#00ff00>Lvl-1</>
+Magnetic Steel Beam						
+_D_DB_B ^HK / _D_DB_B ^C
+
+
+Small Elec Stomp
+_D_D ^LK / _D_D ^A
+
+Big Elec Stomp
+_D_D ^MK / _D_D ^B
+
+<#00ff00>Lvl-1</>
+Lighting Stomp
+_D_D ^HK / _D_D ^C
+
+
+Wall Magnetism 						
+_B_D_DB ^LK / _B_D_DB ^A (Air OK)
+_!Wall Switch			_D_DF_F ^K / _D_DF_F ^A/^B/^C
+_!Discharge				_D_DB_B ^K / _D_DB_B ^A/^B/^C
+
+
+Magnet Jump					
+_B_D_DB ^MK / _B_D_DB ^B (Air OK)
+
+
+<#00ff00>Lvl-1</>
+Elec Dash						
+_B_D_DB ^HK / _B_D_DB ^C (Air OK)
+
+
+Parry Strike						
+_D_DB_B ^HP / _D_DB_B ^Z
+
+
+<#00ff00>Lvl-1</>
+Railgun					
+_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C
+
+<#00ff00>Lvl-3</> (during heat mode)
+Hyper Railgun					
+_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C
+
+<#00ff00>Lvl-1</>
+All Sisters Attack!					
+_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+
+<#00ff00>Lvl-1</>
+Sisters Tsunami					
+_D_D_D_D ^HK / _D_D_D_D ^C
+
+<#00ff00>Lvl-1</>
+Sisters Tornado				
+_D_DB_B_D_DB_B ^HK / _D_DB_B_D_DB_B ^C
+
+<#00ff00>Lvl-3</>
+Level 5 Ensemble Attack
+_D_DF_F_D_DF_F ^HK / _D_DF_F_D_DF_F ^C
+
+
+Credits:
+
+Writing: DidiGetsRekt, Seb368
+

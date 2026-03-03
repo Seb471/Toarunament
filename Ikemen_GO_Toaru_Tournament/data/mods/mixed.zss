@@ -1,0 +1,80 @@
+[Statedef 1392454;
+  type: U;
+  physics: N;
+  sprpriority: 5;]
+  
+if(time = 0){
+	changeAnim{
+		value: F 1296512518+isHelper(1296512519)+2*isHelper(1296512520)+3*isHelper(1296512521)
+	}
+	if(isHelper(1296512521)){
+		null{
+			facing: 1;
+			pos: const(size.ground.front)/2,const(size.head.pos.y);
+		}
+	}
+}
+
+if (time<8 && !isHelper(1296512521)){
+	angleDraw{scale: 1+(1-time/8.),1+(1-time/8.)}
+	trans{trans: addalpha; alpha: time*32, 256-time*32}
+}
+
+if(animtime = 0){
+	destroySelf{}
+}
+
+[Statedef -4]
+
+ignorehitpause if !isHelper {
+	
+	if(stateNo = [120,155]){
+		mapSet{map: "guardAnim"; value: anim}
+		if(map(wasGuarding)=0){
+			mapSet{map: "wasGuarding"; value: 1}			
+		}
+	}
+	if(map(wasGuarding)=1 && stateNo = [5000,5999]){
+		helper{
+			name: "exclamation mark";
+			id: 1296512518+(map(guardAnim)%10=1)+2*(map(guardAnim)%10=2);
+			postype: p1;
+			pos: ifelse(pos y<0,const(size.air.front),const(size.ground.front))/2,ifelse(map(guardAnim)%10=1,const(size.mid.pos.y),const(size.head.pos.y));
+			stateno: 1392454;
+			ownpal: 1;
+			size.xscale: 0.5;
+			size.yscale: 0.5;
+		}
+	}
+	if(stateNo != [120,155]){
+		if(map(wasGuarding)=1){
+			mapSet{map: "wasGuarding"; value: 0}			
+		}
+	}
+	
+	if(enemyNear,stateNo = 800){
+		if(map(attemptingToThrow)=0){
+			mapSet{map: "attemptingToThrow"; value: 1}			
+		}
+	}
+	
+	if(enemyNear,prevStateNo = 800 && map(attemptingToThrow)=1) && getHitVar(isbound){
+		helper{
+			name: "exclamation mark";
+			id: 1296512521;
+			postype: p2;
+			pos: const(size.ground.front),const(size.head.pos.y);
+			stateno: 1392454;
+			ownpal: 1;
+			facing: -1;
+			size.xscale: 0.5;
+			size.yscale: 0.5;
+		}
+	}
+	
+	if(enemyNear,stateNo != 800){
+		if(map(attemptingToThrow)=1){
+			mapSet{map: "attemptingToThrow"; value: 0}			
+		}
+	}
+}

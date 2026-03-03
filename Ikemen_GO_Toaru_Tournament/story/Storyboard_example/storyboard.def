@@ -1,0 +1,118 @@
+;chars :
+;0 -> kamijou touma
+;1 -> aogami pierce
+
+
+
+;----------------------------------------------------------
+[Info]
+name = "storyboard"
+localcoord = 1280,960
+mugenversion = 1.1
+
+[SceneDef]
+;skipbutton = 0
+startscene = 0
+spr = storyboard.sff
+snd = storyboard.snd
+font0 = osaka_mono.def
+font1 = jg.fnt
+
+;Himegami enters the screen and does diag 1
+[Scene 0]
+fadein.time = 60
+layerall.pos = 639,959
+layer0.anim = 0
+layer1.anim = 250
+layer1.starttime = 60
+layer2.text = "Lately, I feel like my presence has gone unnoticed by everyone. Eventually leaving me out of their lives."
+layer2.font = 0,,1
+layer2.spacing = 0,5
+;layer2.textwindow = 9,734,1269,934 -> window testing, in the end not really useful
+;layer2.textdisplay = 2 ;default speed
+layer2.offset = -620,-190
+layer2.starttime = 92
+end.time = 482;60+32+210(string length * textdisplay)+180(ticks to read the thing)
+
+;Himegami diag 2
+[Scene 1]
+layer0.anim = 0
+layer1.anim = 251
+layer2.text = "I'm not asking for much, I just wish I could be a part of everyone’s adventures and not feel like a side character."
+layer2.font = 0,,1
+layer2.spacing = 0,5
+;layer2.textwindow = 9,734,1269,934 -> window testing, in the end not really useful
+;layer2.textdisplay = 2 ;default speed
+layer2.offset = -620,-190
+end.time = 410;230+180
+
+;Himegami diag 3
+[Scene 2]
+layer0.anim = 0
+layer1.anim = 251
+layer2.text = "But I don’t really know how to do that..."
+layer2.font = 0,,1
+layer2.spacing = 0,5
+;layer2.textwindow = 9,734,1269,934 -> window testing, in the end not really useful
+;layer2.textdisplay = 2 ;default speed
+layer2.offset = -620,-190
+end.time = 262;82+180
+
+;Himegami diag 4
+[Scene 3]
+layer0.anim = 0
+layer1.anim = 251
+layer2.text = "..."
+layer2.font = 0,,1
+layer2.spacing = 0,5
+;layer2.textwindow = 9,734,1269,934 -> window testing, in the end not really useful
+;layer2.textdisplay = 2 ;default speed
+layer2.offset = -620,-190
+fadeout.time = 60
+end.time = 186;6+180
+
+;Aogami jumpscare
+[Scene 4]
+layer0.anim = 100
+layer0.offset = 0,2880
+sound0.value = 0,0
+end.time = 94;94(sfx)
+
+;Himegami does a 360
+[Scene 5]
+layer0.text = "bye bye world !"
+layer0.font = 0,,1
+end.time = 120
+
+
+;touma pondering
+[Begin Action 0]
+0,7, 0,0, -1
+
+;Aogami jumpscare
+[Begin Action 100]
+1,0, 0,0, -1, , , 8,8
+
+
+; dialogue box creation
+[Begin Action 250]
+2,500, 0,0, 1,,AS16D240
+2,500, 0,0, 1,,AS32D224
+2,500, 0,0, 1,,AS48D208
+2,500, 0,0, 1,,AS64D192
+2,500, 0,0, 1,,AS80D176
+2,500, 0,0, 1,,AS96D160
+2,500, 0,0, 1,,AS112D144
+2,500, 0,0, 1,,AS128D128
+2,500, 0,0, 1,,AS144D112
+2,500, 0,0, 1,,AS160D96
+2,500, 0,0, 1,,AS176D80
+2,500, 0,0, 1,,AS192D64
+2,500, 0,0, 1,,AS208D48
+2,500, 0,0, 1,,AS224D32
+2,500, 0,0, 1,,AS240D16
+2,500, 0,0, -1, , AS256D0
+
+; dialogue box stay
+[Begin Action 251]
+2,500, 0,0, -1, , AS256D0

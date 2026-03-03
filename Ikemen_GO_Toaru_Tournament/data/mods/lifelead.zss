@@ -1,0 +1,144 @@
+[Function lifeLeadP1(i,j,id) value]
+let value = 0;
+let valueSide1 = 0;
+let valueSide2 = 0;
+if ($i>=4){
+	let valueSide1 = $valueSide1 + float(playerId($id+3),life)/playerId($id+3),lifeMax;
+}
+if ($i>=3){
+	let valueSide1 = $valueSide1 + float(playerId($id+2),life)/playerId($id+2),lifeMax;
+}
+if ($i>=2){
+	let valueSide1 = $valueSide1 + float(playerId($id+1),life)/playerId($id+1),lifeMax;
+}
+if ($i>=1){
+	let valueSide1 = $valueSide1 + float(playerId($id),life)/playerId($id),lifeMax;
+}
+
+if ($j>=4){
+	let valueSide2 = $valueSide2 + float(playerId($id+$i+3),lifeMax - playerId($id+$i+3),life)/playerId($id+$i+3),lifeMax;
+}
+if ($j>=3){
+	let valueSide2 = $valueSide2 + float(playerId($id+$i+2),lifeMax - playerId($id+$i+2),life)/playerId($id+$i+2),lifeMax;
+}
+if ($j>=2){
+	let valueSide2 = $valueSide2 + float(playerId($id+$i+1),lifeMax - playerId($id+$i+1),life)/playerId($id+$i+1),lifeMax;
+}
+if ($j>=1){
+	let valueSide2 = $valueSide2 + float(playerId($id+$i),lifeMax - playerId($id+$i),life)/playerId($id+$i),lifeMax;
+}
+let value = float($valueSide1/$i + $valueSide2/$j);
+
+[Function lifeLeadP2(i,j,id) value]
+let value = 0;
+let valueSide1 = 0;
+let valueSide2 = 0;
+if ($j>=4){
+	let valueSide2 = $valueSide2 + float(playerId($id+$i+3),life)/playerId($id+$i+3),lifeMax;
+}
+if ($j>=3){
+	let valueSide2 = $valueSide2 + float(playerId($id+$i+2),life)/playerId($id+$i+2),lifeMax;
+}
+if ($j>=2){
+	let valueSide2 = $valueSide2 + float(playerId($id+$i+1),life)/playerId($id+$i+1),lifeMax;
+}
+if ($j>=1){
+	let valueSide2 = $valueSide2 + float(playerId($id+$i),life)/playerId($id+$i),lifeMax;
+}
+
+if ($i>=4){
+	let valueSide1 = $valueSide1 + float(playerId($id+3),lifeMax - playerId($id+3),life)/playerId($id+3),lifeMax;
+}
+if ($i>=3){
+	let valueSide1 = $valueSide1 + float(playerId($id+2),lifeMax - playerId($id+2),life)/playerId($id+2),lifeMax;
+}
+if ($i>=2){
+	let valueSide1 = $valueSide1 + float(playerId($id+1),lifeMax - playerId($id+1),life)/playerId($id+1),lifeMax;
+}
+if ($i>=1){
+	let valueSide1 = $valueSide1 + float(playerId($id),lifeMax - playerId($id),life)/playerId($id),lifeMax;
+}
+let value = float($valueSide1/$i + $valueSide2/$j);
+
+[Statedef -4]
+
+let quantityP1 = 1 + numPartner;
+let quantityP2 = numEnemy;
+
+ignorehitpause if !isHelper {
+	if (id=56){#P1's id
+		#Science cursor part 1
+		if(numexplod(1296512517)=0) {
+			explod {
+				id: 1296512517;
+				anim: F 1296512517;
+				postype: left;
+				pos: (gameWidth/2),5;
+				facing: -1;
+				scale: 0.0625,0.0625;
+				ownpal: 1;
+			}	
+		}
+
+		#P1 bar
+		if(numexplod(1296512514)=0) {
+			explod {
+				id: 1296512514;
+				anim: F 1296512514;
+				postype: left;
+				pos: (gameWidth/2)-18.625,4;
+				ownpal: 1;
+			}	
+		}
+		else{
+			let lifeLeadP1 = call lifeLeadP1($quantityP1,$quantityP2,id);
+			mapSet{map: "lifeLeadP1"; value: $lifeLeadP1}
+			modifyExplod{
+				id: 1296512514;
+				scale: map(lifeLeadP1),1
+			}
+		}
+		
+		#P2 bar
+		if(numexplod(1296512515)=0) {
+			explod {
+				id: 1296512515;
+				anim: F 1296512515;
+				postype: left;
+				pos: (gameWidth/2)+18.625,4;
+				facing: -1;
+				ownpal: 1;
+			}	
+		}
+		else{
+			let lifeLeadP2 = call lifeLeadP2($quantityP1,$quantityP2,id);
+			mapSet{map: "lifeLeadP2"; value: $lifeLeadP2}
+			modifyExplod{
+				id: 1296512515;
+				scale: map(lifeLeadP2),1
+			}
+		}
+		
+		#Background
+		if(numexplod(1296512516)=0) {
+			explod {
+				id: 1296512516;
+				anim: F 1296512516;
+				postype: left;
+				pos: (gameWidth/2),5;
+				facing: -1;
+				scale: 0.5,0.5;
+				ownpal: 1;
+			}	
+		}
+		
+		#Science cursor part 2
+		if(numexplod(1296512517)>0){
+			modifyExplod{
+				id: 1296512517;
+				postype: left;
+				pos: (gameWidth/2)+(map(lifeLeadP1)-1)*18.625,5;
+			}
+		}
+	}
+}

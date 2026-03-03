@@ -1,0 +1,49 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Lola_Stuart"        ;Name of character
+displayname = "Lola Stuart" ;Name of character to display
+versiondate = 09,07,2021    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.1          ;Version of M.U.G.E.N character works on (X.XX)
+author = "Seb368 (coding), ebora (sprites)"         ;Character author name
+pal.defaults = 1,2,3,4,5,6      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+localcoord = 320,240        ;Local coordinate space width and height
+
+; Files for the player
+[Files]
+cmd     = Lola_Stuart.cmd           ;Command set
+cns     = Lola_Stuart.cns           ;Constants
+st      = Lola_Stuart.cns           ;States
+stcommon = common.cns      ;Common states (from data/ or motif)
+st1     = Lola_Stuart_ex.cns
+st2     = Lola_Stuart_N.cns
+st3     = Lola_Stuart_S.cns
+st4     = Lola_Stuart_H.cns
+st5     = Lola_Stuart_Helper.cns
+sprite  = Lola_Stuart.sff           ;Sprite
+anim    = Lola_Stuart.air           ;Animation
+sound   = Lola_Stuart.snd           ;Sound
+movelist = Lola_Stuart.dat
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+x = 4 ;Press button X to select palette 1, etc.
+y = 5
+z = 6
+a = 1
+b = 2
+c = 3
+;x2 = 7 ;Hold Start and press button X for palette 7, etc.
+;y2 = 8
+;z2 = 9
+;a2 = 10
+;b2 = 11
+;c2 = 12
+
+; Arcade mode
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

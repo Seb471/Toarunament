@@ -1,0 +1,124 @@
+;Will stab
+[Statedef 900]
+type     = S
+movetype = I
+physics  = S
+anim = 900
+ctrl     = 0
+sprpriority = 3
+velset = 0,0
+
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = animelemtime(5) = 0
+fv = 20
+value = 1000.
+;ignorehitpause = 
+;persistent = 
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = animelemtime(5) = 0
+value = -10
+kill = 0
+absolute = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Magic name
+[Statedef 950]
+type = A
+movetype = A
+physics = N
+sprpriority = 2
+velset = 0,0
+anim = 950
+ctrl = 0
+poweradd = -4000
+
+[State 8000, PosFreeze]
+type = PosFreeze
+trigger1 = 1
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(11101) = 0
+helpertype = normal ;player
+name = "super will bar"
+ID = 11101
+stateno = 11101
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+
+[State ]
+Type = EnvShake
+Trigger1 = time = 18
+Time  = 16
+Ampl  = 4
+Freq  = 90
+
+[State ]
+Type = Helper
+Trigger1 = time=15
+StateNo = 10968
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+Ownpal = 1
+ID = 10968
+
+[State ]
+Type = Helper
+Trigger1 = time = 19
+StateNo = 8030
+PosType = P1
+Pos = 0, -75
+Ownpal = 1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+ID = 8030
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0 
+v = 20    ;fv = 10
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0 
+fv = 19    ;fv = 10
+value = 900
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0 
+fv = 20    ;fv = 10
+value = 3000
+;ignorehitpause = 
+;persistent = 
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50

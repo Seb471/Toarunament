@@ -1,0 +1,99 @@
+[Statedef -4]
+
+#esper power for text display
+ignoreHitPause{
+	if ((roundstate = [0,1] && roundno = 1) || (roundstate = 2 && var(26) = -1)) && map(esperPower)!=var(20){
+		mapSet{
+			map: "esperPower";
+			value: var(20);
+		}
+	}
+	if roundstate = 2 && var(26) != -1 && map(esperPower)!=var(26){
+		mapSet{
+			map: "esperPower";
+			value: var(26);
+		}
+	}
+}
+
+#;Accel RGB = 100,100,100
+#;Kakine RGB = 32,96,208
+#;Mikoto RGB = 240,144,88
+#;Mugino RGB = 160,112,192
+#;Misaki RGB = 232,192,64
+#;Aihana RGB = 16,160,128 (personal choice to balance the rest)
+#;Gunha (used for additional espers) RGB = 136,4,48
+
+#text to display
+ignoreHitPause if helper(24000),var(1)-1>=0{
+	#Kamijou Touma
+	if map(esperPower) = 100.{
+		text{ text: "Imagine Breaker"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 192+map(palfxmodifier),192+map(palfxmodifier),192+map(palfxmodifier);}
+	}
+	
+	#Preloaded Lvl-5 powers
+	if map(esperPower) = 1.{
+		text{ text: "Vector Control"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 100+map(palfxmodifier),100+map(palfxmodifier),100+map(palfxmodifier);}
+	}
+	if map(esperPower) = 2.{
+		text{ text: "Dark Matter"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 32+map(palfxmodifier),96+map(palfxmodifier),208+map(palfxmodifier);}
+	} 
+	if map(esperPower) = 3.{
+		text{ text: "Electromaster"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 240+map(palfxmodifier),144+map(palfxmodifier),88+map(palfxmodifier);}
+	} 
+	if map(esperPower) = 4.{
+		text{ text: "Meltdowner"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 160+map(palfxmodifier),112+map(palfxmodifier),192+map(palfxmodifier);}
+	} 
+	if map(esperPower) = 5.{
+		text{ text: "Mental Out"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 232+map(palfxmodifier),192+map(palfxmodifier),64+map(palfxmodifier);}
+	} 
+	if map(esperPower) = 6.{
+		text{ text: "???"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 16+map(palfxmodifier),160+map(palfxmodifier),128+map(palfxmodifier);}
+	} 
+	
+	#Lvl-4s
+	if map(esperPower) = 10.{
+		text{ text: "Rampage Dress"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 128+map(palfxmodifier),48+map(palfxmodifier),128+map(palfxmodifier);}
+	}
+	if map(esperPower) = 11.{
+		text{ text: "Offence Armour"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 160+map(palfxmodifier),160+map(palfxmodifier),160+map(palfxmodifier);}
+	}
+	if map(esperPower) = 12.{
+		text{ text: "Teleport"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 0+map(palfxmodifier),128+map(palfxmodifier),64+map(palfxmodifier);}
+	}
+	
+	#Lvl-3s
+	if map(esperPower) = 25.{
+		text{ text: "Radio Noise"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 160+map(palfxmodifier),112+map(palfxmodifier),48+map(palfxmodifier);}
+	}
+
+	#Lvl-2s
+	#Lvl-1s
+	#Lvl-0s
+	if map(esperPower) = 70.{
+		text{ text: "Auto-Rebirth"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 0+map(palfxmodifier),192+map(palfxmodifier),0+map(palfxmodifier);}
+	}
+	
+	#Extras
+	if map(esperPower) = 85.{
+		text{ text: "Vector Control"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 100+map(palfxmodifier),100+map(palfxmodifier),100+map(palfxmodifier);}
+	}
+	if map(esperPower) = 86.{
+		text{ text: "Counter stop"; font: 0;	align: ifelse(teamside=1,1,-1); pos: ifelse(teamside=1,27,320-27),38.5; scale: 0.75,0.75; color: 192+map(palfxmodifier),192+map(palfxmodifier),32+map(palfxmodifier);}
+	}
+}
+
+
+#phase for textdisplay based on phase from helper 24001
+ignoreHitPause{
+	if helper(24000),var(1)!=map(phase)+1{
+		mapSet{
+			map: "phase";
+			value: helper(24000),var(1)-1;
+		}
+		mapSet{
+			map: "palfxmodifier";
+			value:  64 * map(phase);
+		}
+	}
+}

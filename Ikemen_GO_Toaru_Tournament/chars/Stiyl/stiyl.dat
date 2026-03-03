@@ -1,0 +1,223 @@
+<#f0f000>Movelist :</>
+
+
+<#f0f000>Information :</>
+
+Stiyl is a setup/setplay based character with an install.
+
+His main resource are <#ff0000>cards</>,
+which he has <#ff0000>200</> at roundstart.
+He gains <#ff0000>100-cards</> after each round.
+You can go as high as <#ff0000>999-cards</>.
+All his specials, supers and hypers require
+<#ff0000>cards</> to perform or activate them.
+So to be viable with Stiyl is to keep track of <#ff0000>cards</>,
+and have enough <#ff0000>cards</> all the time.
+
+He also has an install available to him by sacrificing
+a set number of <#ff0000>cards</> to get stronger for a long period
+of time.
+
+When he uses the install to go all out,
+he uses his magic name of <#ff0000>Fortis931</>
+
+
+<#f0f000>Install :</>
+
+_`<#ff0000>Heat Mode :</> This is a comeback mechanic that
+needs to be grinded before unleashing it.
+You activate it as soon as you have at least
+<#ff0000>931-cards</> available.
+You consume <#ff0000>30-cards</>/sec during it.
+
+Here are the effects of the install :
+_`It makes your attack increase twofold after consuming
+<#ff0000>333-cards</>.
+_`It also decreases your defence 1.5-fold after consuming
+<#ff0000>333-cards</>.
+_`Your charge up animation changes and deals damage.
+_`During <#ff0000>Heat Mode</>, all the specials requiring <#ff0000>cards</>
+now don't require any.
+
+
+<#f0f000>XYZs :</>
+
+Only this much ?						^S
+(comes in tandem with his ^Y ability)
+
+Run										_F_F
+Back Hop								_B_B
+Back Dash								_B_B (air)
+
+Card charge								^LP / ^X
+(As its name implies you get to charge your cards.
+The rate of which you charge <#ff0000>cards</> is <#ff0000>60-cards</>/sec.)
+<#00ff00>Lvl-0.75</>
+EX Card charge							_D^LP / _D^X
+(As its name implies you get to charge your cards.
+The rate of this version is <#ff0000>240-cards</>/sec.)
+<#00ff00>Lvl-1.5</>
+Instant Card Charge						^MP_+^HK / ^Y_+^C
+(Gives <#ff0000>200-cards</> instantly)
+
+Grab Explosion							_B / _F  _+ ^LP / ^X
+
+Back Charge								_B_B^LP / _B_B^X (air OK)
+(During a Back Hop, you can press ^LP / ^X
+to gain <#ff0000>15-cards</>)
+Heat Mode								_D_D^LP / _D_D^X
+(You can activate it by either using the normal motion
+or by pressing ^LK_+^MK / ^A_+^B when hit by the
+opponent.)
+
+Charge up	 							^MP / ^LK_+^HK / ^Y / ^A_+^B (Held)
+(The more trap cards he has on the ground,
+the faster his charge up speed)
+
+Dash 	(Hold direction)				^MP / ^Y 
+
+<#ff0000>20-cards</>
+Mirage									^HP / ^Z
+<#00ff00>Lvl-0.5</>
+_!Mirage Counter						^HP / ^Z (hold)
+(if Mirage is hit and Stiyl isn't hit)
+
+<#ffff00>About Mirage :</>
+It will create a mirage that does the same animation
+as the taunt. During that time Stiyl will be able
+to move around while being invisible.
+He'll return to be visible by either the mirage finishing
+or by attacking during the mirage.
+
+If the mirage is hit, then it will disappear... like a mirage.
+
+To know if it's a mirage or a taunt, the general rule
+of thumb is the following :
+_`The taunt is more likely to say "Only this much ?"
+"Kono tedo kai ?"
+_`The mirage is more likely to say "Good Grief"
+"Yare yare"
+
+Also if you are both on the ground and holding
+down ^HP / ^Z and have enough meter,
+it will make Stiyl go behind the opponent and
+immobilise them if it connects
+while consuming meter.
+
+Back Trap								_B_B^HP / _B_B^Z
+(During a Back Hop, you can press ^HP / ^Z
+as many times as possible to set down trap cards)
+
+
+<#f0f000>Normals :</>
+
+Elbow									^LK / ^A
+Sleeve Pierce							^MK / ^B
+(hits twice)
+Sleeve Roundhouse						^HK / ^C
+(hits thrice)
+
+Low Elbow								^LK / ^A (crouch)
+Low Sleeve Pierce						^MK / ^B (crouch)
+(hits twice)
+Explosion								^HK / ^C (crouch)
+(launches the opponent in the air and
+is cancellable to anything if it connects)
+
+Punch									^LK / ^A (air)
+(cancels into itself)
+Air Sleeve Roundhouse					^MK / ^B (air)
+(hits twice)
+Incineration							^HK / ^C (air)
+
+
+<#f0f000>Specials and Supers :</>
+
+<#ff0000>10-cards</>
+To begin with...						_D_DB_B^LK / _D_DB_B^A
+<#ff0000>20-cards</>
+The form is a sword						_D_DB_B^MK / _D_DB_B^B (air OK)
+<#ff0000>120-cards</> _+ <#00ff00>Lvl-2</>
+Vampire Killing Cross					_D_DB_B^HK / _D_DB_B^C
+
+<#ff0000>35-cards</>
+Air Curve Fire Ball						_D_DF_F^LK / _D_DF_F^A (air)
+<#ff0000>45-cards</>
+Air Straight Fire Ball					_D_DF_F^MK / _D_DF_F^B (air)
+<#ff0000>75-cards</> _+ <#00ff00>Lvl-1</>
+Air Fire Balls							_D_DF_F^HK / _D_DF_F^C (air)
+
+<#ffff00>About Air Fire Balls :</>
+The fireballs will explode into either:
+_`A vertical pillar when they touch the ground
+(hits downed)
+_`A horizontal pillar when they touch a wall
+
+In addition, the fireballs can explode early from :
+_`A collision with an enemy projectile
+which won't do damage to anyone
+_`A collision with The form is a sword
+which can damage the enemy
+
+<#ff0000>1-card</> (up to <#ff0000>3-cards</> if button held down)
+Trap card (close)						_D_D^LK / _D_D^A
+<#ff0000>1-card</> (up to <#ff0000>3-cards</> if button held down)
+Trap card (far)							_D_D^MK / _D_D^B
+<#ff0000>5-cards</> _+ <#00ff00>Lvl-1</>
+Trap cards								_D_D^HK / _D_D^C
+
+<#ffff00>About trap cards :</>
+You throw cards on the ground and they create a
+pillar of flames if the opponent is near them and
+you have at least <#ff0000>30-cards</> to burn.
+
+<#ff0000>40-cards</>
+Vortex of fire							~B_F^LK / ~B_F^A
+<#ff0000>60-cards</>
+Vortex of flames						~B_F^MK / ~B_F^B
+<#ff0000>80-cards</> _+ <#00ff00>Lvl-1</>
+Blue Vortex of flames					~B_F^HK / ~B_F^C
+
+<#ff0000>30-cards</>
+Flame Pillar							_F_D_DF ^LK / _F_D_DF ^A 
+<#ff0000>50-cards</>
+Large Flame Pillar						_F_D_DF ^MK / _F_D_DF ^B
+<#ff0000>75-cards</> _+ <#00ff00>Lvl-1</>
+Blue Flame Pillar						_F_D_DF ^HK / _F_D_DF ^C
+
+
+<#f0f000>Hypers :</>
+
+<#ff0000>60 to 180-cards</> _+ <#00ff00>Lvl-1 to 3</>
+<#ff7700>The gift of pain</>			_D_DF_F^HK / _D_DF_F^C
+
+<#ffff00>About The gift of pain :</>
+The more the cards you have and
+the more the levels you have
+the more damaging the attack.
+However to get to the higher levels you need
+to hold down the button more.
+
+The visual cue is the Fire turning bluer.
+However that doesn't necessarily mean that
+you will get a higher level super.
+
+You have to keep track of how many cards
+and levels you have.
+
+Here are the 3 levels of power :
+_`<#ff0000>60-cards</> _+ <#00ff00>Lvl-1</>
+_`<#ff0000>120-cards</> _+ <#00ff00>Lvl-2</> _+ holding ^HK / ^C half-way
+_`<#ff0000>180-cards</> _+ <#00ff00>Lvl-3</> _+ holding ^HK / ^C fully
+
+<#ff0000>200-cards</> _+ <#00ff00>Lvl-3</>
+<#ff7700>Innocentius</>					_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+
+
+
+Credits :
+
+Writing (movelist) : Seb368, DidiGetsRekt
+Coding : Seb368, DidiGetsRekt
+Spritework : Warachia's sprites reworked,
+ebora for Innocentius

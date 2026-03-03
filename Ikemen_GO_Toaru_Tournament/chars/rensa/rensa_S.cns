@@ -1,0 +1,571 @@
+;236a ground series
+[Statedef 1000]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+Poweradd=FVar(11)
+velset = 0,0
+anim = 1000000+(var(20)*10)
+ctrl = 0
+sprpriority = 2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+[State 200,V1=1]
+Type=VarSet
+Trigger1=MoveContact
+var(1)=1
+ignorehitpause = 1
+
+;	Vector control state
+
+[State 1050, 5]
+type = ChangeState
+triggerall = var(20) = 1
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;	Dark Matter state
+
+[State 1050, 5]
+type = ChangeState
+triggerall = var(20) = 2
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;	Electro master state
+
+
+[State 320, VelSet]
+type = VelSet
+triggerall = var(20) = 3
+trigger1= AnimElem = 4
+trigger2= AnimElem = 5
+x = -1.5
+
+[State 320, エフェクト]
+Type = Explod
+triggerall = var(20) = 3
+Trigger1 = AnimElem = 3
+Anim = 10400
+ID = 10400
+supermovetime = 100
+Postype = p1
+Pos = 50,-70
+scale = 0.5
+Ownpal = 1
+SprPriority = 1
+bindtime = -1
+IgnoreHitPause = 1
+persistent =0
+
+[State 1050, 5]
+type = ChangeState
+triggerall = var(20) = 3
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;	Meltdowner state
+
+	[State 1101, チャージアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 4
+		trigger1 = Anim = 1000040
+		trigger1 = Animelemtime(2) = 2
+		trigger1 = command = "hold_a"
+		value = 1000041
+
+	[State 1101, 通常5bアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 4
+		trigger1 = Anim = 1000040
+		trigger1 = AnimTime = 0
+		value = 1000042
+
+	[State 1102, ガー不5bアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 4
+		trigger1 = Anim = 1000041
+		trigger1 = animtime= 0
+		trigger1 = command = "hold_a"
+		value = 1000043
+
+	[State 1102, 通常5bアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 4
+		trigger1 = Anim = 1000041
+		trigger1 = command != "hold_a"
+		value = 1000042
+[State 1104]
+Type = AssertSpecial
+triggerall = var(20) = 4
+trigger1 = Anim = 1000043
+flag = noautoturn
+
+[State 1050, 5]
+type = ChangeState
+triggerall = var(20) = 4
+triggerall = AnimTime = 0
+trigger1 = 1000042
+trigger1 = 1000043
+value = 0
+ctrl = 1
+
+;	???
+
+[State 0, TargetLifeAdd]
+type = TargetLifeAdd
+triggerall = var(20) = 6
+trigger1 = time = 0
+value = -100
+ID = -1
+kill = 1
+absolute = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 1050, 5]
+type = ChangeState
+triggerall = var(20) = 6
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Helper for 236a series
+[Statedef 1005]
+type    = S
+movetype= A
+physics = N
+ctrl = 0
+anim = 1005000+(var(20)*10)
+sprpriority = 4
+
+[State 0, VelSet]
+type = VelSet
+triggerall = isHelper(1005030)
+trigger1 = time = 0
+x = 4
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = isHelper(1005030)
+;value = 1
+scale = 0.3,0.3
+ignorehitpause = 1
+;persistent = 
+
+[State 6131, NoHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = , NT, ST, HT ,NA, SA, HA,NP
+time = -1
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,SP,HP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 0
+stateno = 1852
+time = 2
+forceair = 0
+ignorehitpause = 1
+;persistent = 
+
+[State -2, 飛び道具]
+type = Hitdef
+triggerall = isHelper(1005030)
+trigger1 = !movecontact
+trigger1=!movereversed
+attr = S, SP 
+damage = Ceil(95*parent,fvar(10)),2
+getpower = 100,45
+animtype = Hard
+pausetime = 0,15
+hitflag		  = MAF
+guardflag = MA
+sparkxy = 0,0
+hitsound = s1,4
+guardsound = s0,5
+ground.type = High
+ground.slidetime = 23
+ground.hittime = 20
+ground.velocity = -4.9
+air.velocity = -3,-3
+air.juggle = 4 
+envshake.time = 6
+palfx.time = 30
+palfx.add = 0,0,220
+palfx.sinadd = 0,0,220,10
+palfx.color = 0
+palfx.invertall = 1
+sparkno=-1
+
+
+[State 0, ParentVarAdd]
+type = ParentVarSet
+trigger1 = movecontact
+v =   1  
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+
+	[State -1,攻撃補正,上書き,カウンター]
+		type = ParentVarset
+		triggerall = isHelper(1005030)
+		Trigger1=MoveHit=1
+		fvar(0)= parent,fvar(0)*0.80
+		persistent = 0
+ 		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = ParentVaradd
+		trigger1 = movehit
+		fVar(11) = 3
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+		triggerall = isHelper(1005030)
+trigger1 = movecontact
+trigger2=movereversed
+value =10950
+
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VelSet]
+type = VelSet
+		triggerall = isHelper(1005030)
+trigger1 = anim =10950
+
+x = 0
+y = 0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+		triggerall = isHelper(1005030)
+trigger1 = anim = 10950
+movetype = I        ;I,A,H
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+		triggerall = isHelper(1005030)
+trigger1 = anim=10950
+trigger1=animtime=0
+ignorehitpause = 1
+;persistent = 
+
+;236b ground series
+[Statedef 1010]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+Poweradd=FVar(11)
+velset = 0,0
+anim = 1010000+(var(20)*10)
+ctrl = 0
+sprpriority = 2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+;	Vector control state
+
+	[State 1010, 移動速度]
+		type = VelSet
+		triggerall = var(20) = 1
+		trigger1 = animelemtime(1) = 14
+		x = const(velocity.run.back.x)-1.5
+		y = -7.75;const(velocity.run.back.y)
+		persistent=0
+
+	[State 1010, 空中移行]
+		type = StateTypeSet
+		triggerall = var(20) = 1
+		trigger1 = animelemtime(1) = 14
+		statetype = A
+		physics = N
+
+	[State 1010, 重力付加]
+		type = VelAdd
+		triggerall = var(20) = 1
+		trigger1 = StateType = A
+		y = 0.55
+
+	[State 1010, ステート変更]
+		type = ChangeState
+		triggerall = var(20) = 1
+		trigger1 = Vel Y > 0
+		trigger1 = Pos Y >= 0
+		value = 52
+
+;	Dark Matter state
+
+[State 1050, 5]
+type = ChangeState
+triggerall = var(20) = 2
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;	Electro master state
+
+[State 760, エフェクト]
+type = Explod
+triggerall = var(20) = 3
+trigger1 = AnimElem = 6
+Postype = p1
+Pos = 20, -70
+SprPriority = 2
+anim = 12100
+
+[State 760, hitdef]
+type = HitDef
+triggerall = var(20) = 3
+trigger1 = AnimElem = 6
+attr = S, SP
+damage    = Ceil(72*fvar(10))
+animtype = Hard
+hitflag = MAF
+guardflag = MA
+hitsound = s1,6
+pausetime = 10,20
+sparkno = s8000
+sparkxy = 0,-70
+guardsound = s0,5
+ground.type = low
+ground.hittime  = 70
+guard.hittime = 5
+ground.velocity = -5,-3
+air.velocity = -5,-3
+fall.recover = 0
+fall = 1
+ground.cornerpush.veloff = 0
+envshake.time = 6
+palfx.time = 30
+palfx.add = 0,0,220
+palfx.sinadd = 0,0,220,10
+palfx.color = 0
+palfx.invertall = 1
+
+[State 1050, 5]
+type = ChangeState
+triggerall = var(20) = 3
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;	Meltdowner state
+
+	[State 1101, チャージアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 4
+		trigger1 = Anim = 1010040
+		trigger1 = Animelemtime(2) = 4
+		trigger1 = command = "hold_b"
+		value = 1010041
+
+	[State 1101, 通常5bアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 4
+		trigger1 = Anim = 1010040
+		trigger1 = AnimTime = 0
+		value = 1010042
+
+	[State 1102, ガー不5bアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 4
+		trigger1 = Anim = 1010041
+		trigger1 = animtime= 0
+		trigger1 = command = "hold_b"
+		value = 1010043
+
+	[State 1102, 通常5bアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 4
+		trigger1 = Anim = 1010041
+		trigger1 = command != "hold_b"
+		value = 1010042
+
+[State 1104]
+Type = AssertSpecial
+triggerall = var(20) = 4
+trigger1 = Anim = 1010043
+flag = noautoturn
+
+[State 1050, 5]
+type = ChangeState
+triggerall = var(20) = 4
+triggerall = AnimTime = 0
+trigger1 = 1000042
+trigger1 = 1000043
+value = 0
+ctrl = 1
+
+;236a air series
+[Statedef 1020]
+type    = A
+movetype= A
+physics = A
+juggle  = 0
+Poweradd=FVar(11)
+velset = 0,0
+anim = 1020000+(var(20)*10)
+ctrl = 0
+sprpriority = 2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+;	Vector control state
+
+	[State 1020, 移動速度]
+		type = VelSet
+		triggerall = var(20) = 1
+		trigger1 = animelemtime(3) = 0
+		x = 5;const(velocity.run.fwd.x)
+		;y = 3.6;const(velocity.run.back.y)
+		persistent=0
+		
+	[State 1020, 位置固定]
+		type = PosFreeze
+		triggerall = var(20) = 1
+		trigger1 = animelemtime(4) < 0
+		
+	[State 1020, 重力付加]
+		type = VelAdd
+		triggerall = var(20) = 1
+		trigger1 = animelemtime(4) >= 0
+		y = 0.55
+
+	[State 1010, ステート変更]
+		type = ChangeState
+		triggerall = var(20) = 1
+		trigger1 = Vel Y > 0
+		trigger1 = Pos Y >= 0
+		value = 52
+
+;	Dark Matter state
+
+[State 1350, 1]
+type = velset
+triggerall = var(20) = 2
+trigger1 = animelemtime(1) >= 0 && animelemtime(8) < 0
+x = 0
+y = 0
+
+[State 0, VelAdd]
+type = VelAdd
+triggerall = var(20) = 2
+trigger1 = var(1)
+x = -fvar(11)*0.666
+ignorehitpause = 1
+persistent = 0
+
+	[State 1010, ステート変更]
+		type = ChangeState
+		triggerall = var(20) = 2
+		trigger1 = Vel Y > 0
+		trigger1 = Pos Y >= 0
+		value = 52
+
+;236b air series
+[Statedef 1030]
+type    = A
+movetype= A
+physics = A
+juggle  = 0
+Poweradd=FVar(11)
+velset = 0,0
+anim = 1030000+(var(20)*10)
+ctrl = 0
+sprpriority = 2
+
+[State 200,V1=0]
+Type=VarSet
+Trigger1=time=0
+var(1)=0
+
+;	Vector control state
+
+	[State 1101, チャージアニメ変更]
+		type = Changeanim
+		triggerall = var(20) = 1
+		trigger1 = time = 0
+		value = 103001+random%2
+
+	[State 1030, 移動速度]
+		type = VelSet
+		triggerall = var(20) = 1
+		trigger1 = animelemtime(2) = 2
+		x = const(velocity.run.back.x)
+		y = -3.6;const(velocity.run.back.y)
+		persistent=0
+		
+	[State 1030, 位置固定]
+		type = PosFreeze
+		triggerall = var(20) = 1
+		trigger1 = animelemtime(2) < 2
+		
+	[State 1030, 重力付加]
+		type = VelAdd
+		triggerall = var(20) = 1
+		trigger1 = animelemtime(2) >= 2
+		y = 0.55
+
+	[State 1010, ステート変更]
+		type = ChangeState
+		triggerall = var(20) = 1
+		trigger1 = Vel Y > 0
+		trigger1 = Pos Y >= 0
+		value = 52
+
+;	Dark Matter state
+
+[State 1350, 1]
+type = velset
+triggerall = var(20) = 2
+trigger1 = animelemtime(1) >= 0 && animelemtime(8) < 0
+x = 0
+y = 0
+
+	[State 1010, ステート変更]
+		type = ChangeState
+		triggerall = var(20) = 2
+		trigger1 = Vel Y > 0
+		trigger1 = Pos Y >= 0
+		value = 52

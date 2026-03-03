@@ -1,0 +1,189 @@
+
+<#f0f000>Movelist :</>
+
+Run						_F_F
+Double Back Hop				_B_B
+
+
+Throw 					_B / _F  _+ ^LP / ^X
+
+
+Charge up				^LK_+^HK / ^A_+^C
+
+Burst 					^LK_+^MK / ^A_+^B(while being hit)
+
+Run						^MP / ^Y
+
+Lay Down					_D^MP / _D^Y
+
+
+
+
+Flip Dodge					 ^HP / ^Z
+<#00ff00>Lvl-0.3</> 
+Coat Trick				__D_DF_F ^HP / _D_DF_F^Z (Air OK)
+<#00ff00>Lvl-0.5/> 
+Stun Grenade				__D_DB_B ^HP / _D_DB_B^Z
+Sliding Dodge				^HP / ^Z (While Run)
+
+
+<#f0f000>Information :</>
+Coat Trick can be used to parry 
+one hit or projectile as long 
+as the coat is between you and 
+the opponent
+
+Taunt 						_S
+
+<#f0f000>Information :</>
+Bomb Mode:
+Use _S in any circumstance
+to cycle between Bomb Modes
+This only affects the bombs you throw
+in that mode
+The modes are Remote Controlled and
+Time 6s, Time 12s, Time 18s
+
+
+
+
+<#f0f000>Normals:</>
+
+Low Kick				^LK / ^A
+
+Standing Knee Combo				^MK / ^B
+Upper Knee				_B ^MK / _B ^B
+
+
+Double Kick Combo			^HK / ^C
+
+Overhead Kick Combo				_B^HK / _B^C
+
+
+Crouching Low Kick				^LK / ^A (crouch)
+Crouching Poke Kick				^MK / ^B (crouch)
+Crouching Sweep					^HK / ^C (crouch)
+	_!A Anti Air Kick			F^HK / F^C (crouch)
+
+	_!A Standing Front Kick			^HK/^C
+
+Anti Air Kick				F^HK / F^C (crouch)
+
+Air Kick				^LK / ^A (air)
+Air Straight Kick				^MK / ^B (air)
+Air Dropkick				^HK / ^C (air)
+
+Air Stomp				_D^HK / _D^C (air)
+
+	_!A Air Small Bombs			_B^LK/_B^A
+
+	_!A Air Missile				_B^MK/_B^B
+
+
+
+
+<#ff0000>Specials, Supers, Hypers:</>
+
+<#f0f000>Information :</>
+Chain Explosions:
+Any explosion can trigger another if it hits
+another bomb
+These explosions damage you as well,
+but you recover faster than the enemy
+if you weren't being hit
+Her burst is also an explosion
+
+
+Slow Missile				_D_DF_F^LK / _D_DF_F^A
+
+Slow 2 Missiles				_D_DF_F^MK / _D_DF_F^B
+
+<#00ff00>Lvl-1</>
+EX Missiles				_D_DF_F^HK / _D_DF_F^C
+(You're immune to first hit)
+
+
+Dodge Back Small Bombs			~B_D_DF_F^LK / ~B_D_DF_F^A
+
+Dodge Back Missile			~B_D_DF_F^MK / ~B_D_DF_F^B
+
+Dodge Back Small Bombs			_D_DF_F^LK / _D_DF_F^A
+(During back hop)
+
+
+
+Bomb Setup  	
+_D_DB_B^LK / _D_DB_B^A
+
+
+Bomb Throw			_D_DB_B^MK / _D_DB_B^B
+
+
+<#00ff00>Lvl-1</> 
+EX Bomb Dolls				_D_DB_B^HK / _D_DB_B^C
+
+
+Dodge Back Setup				_D_D^LK / _D_D^A
+
+Dodge Back Setup Twice				_D_D^MK / _D_D^B
+
+Ignite						_D_D^LK / _D_D^A
+(When 6 bombs are on the field)
+Ignite						_D_D^MK / _D_D^B
+(When 6 bombs are on the field)
+
+Ignite						^HK + ^MP / ^C + ^Y
+(When at least one bomb is on the field)
+
+Ignite						^HK + ^MP / ^C + ^Y
+(While laying down)
+
+<#00ff00>Lvl-1</> 
+EXplode ALL				_D_D^HK / _D_D^C
+(Includes Time Bombs)
+
+
+
+
+Upperkick				_F_D_DF^LK / _F_D_DF^A
+(Air Unblockable)
+
+Anti Air Missile		_F_D_DF^MK / _F_D_DF^B
+
+<#00ff00>Lvl-1</> 
+EX Upperkick Missile		_F_D_DF^HK / _F_D_DF^C
+
+
+Air Small Bombs 				_D_DF_F^LK / _D_DF_F^A (Air)
+
+Air Missile			_D_DF_F^MK / _D_DF_F^B (Air)
+
+<#00ff00>Lvl-1</>
+EX Air Missiles				_D_DF_F^HK / _D_DF_F^C (Air)
+
+
+
+
+
+<#00ff00>Lvl-2</>
+Ignis Gas Grenade
+_B_DB_D_DF_F^MK / _B_DB_D_DF_F^B
+
+<#f0f000>Information :</>
+Ignis Gas:
+Trigger a chain explosion to detonate the gas,
+destroying the whole field
+
+<#00ff00>Lvl-2</> 
+<#0000ff>Lots of Missiles</>
+_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+(You're immune to first hit)
+
+<#00ff00>Lvl-3</> 
+<#0000ff>Ha Det Bra</> (Command Grab)
+_F_DF_D_DB_B^HK / _F_DF_D_DB_B^C
+
+
+Credits :
+
+Writing : DidiGetsRekt

@@ -1,0 +1,164 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+Kinuhata cannot air dash or air jump
+She can use Nitrogen to super jump with _D_U
+She can also dash cancel up to specials
+And dash cancel supers when in Offense Mode
+
+<#ffffff>Information about Nitrogen:</>
+Kinuhata has a Nitrogen bar which refills slowly
+Nitrogen is used to switch modes, burst, parry etc
+
+Offense mode can buff some moves (Buff OK)
+Defense mode gives super armor 
+
+She has 3 Nitrogen Bottles per round
+Using a Nitrogen Bottle you can burst
+or refill instantly the Nitrogen meter
+
+<#f0f000>Normals:</>
+
+Standing Punch							^LK / ^A
+
+Elbow Hit								^MK / ^B
+Strike Followup							^MK / ^B 
+
+Tackle									_F^MK / _F^B
+
+Strong Palm (Buff OK)					^HK / ^C
+
+Heavy Palm (Buff OK)					_F^HK / _F^C
+
+Nitrogen Ball (Reversal)(Is a projectile)(Costs Nitrogen)
+_B^HK / _B^C
+
+
+Crouching Punch							^LK / ^A (Crouching)
+
+Crouching Low Kick 						^MK / ^B (Crouching)
+
+Crouching Sweep  						^HK / ^C (Crouching)
+
+
+Air Punch						
+^LK / ^A (Air)
+
+Air Double Palm			 			
+^MK / ^B (Air)
+
+Air Gorilla Strike (Buff OK)			 	
+^HK / ^C (Air)
+
+Air Down Double Palm (Buff OK)				
+_D^HK / _D^C (Air)
+
+Grab 					_B / _F  _+ ^LP / ^X
+
+
+Refill Nitrogen (Uses one bottle) 			_D^LP / _D^X 
+
+<#00ff00>Lvl-1</>
+Instant Refill Nitrogen (Uses one bottle) 			
+_D_D^LP / _D_D^X 
+
+Offense Mode Switch (Need more than 50% Nitrogen)		
+_F^HP / _F^Z 
+
+Defense Mode Switch (Need more than 50% Nitrogen)		
+_B^HP / _B^Z 
+
+
+Gauge Charge	 						^MP / ^LK_+^HK / ^Y / ^A_+^B (Held)
+
+Dash 	(Hold direction)				^MP / ^Y 
+
+Burst 
+(Uses Nitrogen bottle if you have one else full Nitrogen meter)
+^LK_+^MK / ^A_+^B
+
+Nitrogen Parry	(Uses Nitrogen)				^HP / ^Z 
+
+
+<#ff0000>Supers and Hypers:</>
+
+<#ff0000>Information about rekkas:</>
+You can use whatever combination but it goes in
+this order:
+Starter -> Mid -> Finisher
+
+
+Elbow Lunge Rekka Starter		
+_D_DF_F ^LK / _D_DF_F ^A
+
+Strong Palm Rekka Starter (Buff OK)		
+_D_DF_F ^MK / _D_DF_F ^B
+
+
+_! Quick Punch Mid (Buff OK)
+_F ^LK / _F ^A
+
+_! Short Lunge Punch Mid (Buff OK)
+_B ^LK / _B ^A
+
+_! Low Sweep Mid
+_F ^MK / _F ^B
+
+_! Tackle Mid
+_B ^MK / _B ^B
+
+
+    _! Rotating Palm Finisher (Buff Ok)
+_F ^LK / _F ^A
+
+    _! Punch Launcher Finisher (Launches grounded opponents)
+_B ^LK / _B ^A
+
+    _! Heavy Palm Finisher (Buff OK)
+_F ^MK / _F ^B
+
+    _! Crouch Upper Launcher Finisher (Launches air opponents)
+_B ^MK / _B ^B
+
+<#00ff00>Lvl-1</>
+Combo EX (Buff OK)					_D_DF_F ^HK / _D_DF_F ^C
+
+
+Short Lunge Punch (Buff OK)				_D_DB_B ^LK / _D_DB_B ^A 
+
+Long Lunge Punch (Buff OK)				_D_DB_B ^MK / _D_DB_B ^B 
+
+<#00ff00>Lvl-1</>
+Lunge Punch EX (Buff OK)	 			_D_DB_B ^HK / _D_DB_B ^C 
+
+
+Ground Punch (Buff OK)					_D_D ^LK / _D_D ^A
+
+Hop Ground Punch (Buff OK)				_D_D ^MK / _D_D ^B 
+
+<#00ff00>Lvl-1</>
+Ground Punch EX (Buff OK)				_D_D ^HK / _D_D ^C
+
+
+Air Ground Punch (Buff OK)				_D_D ^LK / _D_D ^A (Air)
+
+Air Lunge Ground Punch (Buff OK)			_D_D ^MK / _D_D ^B  (Air)
+
+<#00ff00>Lvl-1</>
+Air Ground Punch EX (Buff OK)				_D_D ^HK / _D_D ^C (Air)
+
+
+<#00ff00>Lvl-2</>
+Pocket Rockets						_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+
+<#00ff00>Lvl-3</>
+Heaviest Palm (Buff OK)
+							_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C 
+
+
+
+Credits:
+
+Writing : DidiGetsRekt, Seb368
+
+

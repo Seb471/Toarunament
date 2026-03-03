@@ -1,0 +1,1354 @@
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ディープブラッド
+[Statedef 4000,ディープブラッド]
+	type     = S
+	movetype = I
+	physics  = S
+	ctrl     = 0
+	anim = 4000
+	sprpriority = -1
+
+	[State 4000, ステート変更]
+		type = ChangeState
+		trigger1 = IsHelper = 0
+		value = 0
+		ctrl = 1
+
+	[State 4000, 位置固定]
+		type = BindToParent
+		trigger1 = 1
+		time = 10
+		pos = 0,0
+
+	[State 4000, ステート変更]
+		type = ChangeState
+		TriggerAll = (abs(floor(Pos X) - floor(EnemyNear(root,Var(40)),Pos X)) = [0,Root,var(31)]) || (P2BodyDist X  = [0,Root,var(31)])
+		TriggerAll = Root,var(18) = 0
+;		TriggerAll = Root,MoveType != H
+;		TriggerAll = Root,MoveType != A
+;		TriggerAll = Root,Pos Y = 0
+		Trigger1 = EnemyNear(root,Var(40)),ID = Enemy(0),ID ;対象がリーダー
+		Trigger1 = root,var(10) = 1
+		Trigger1 = EnemyNear(root,Var(40)),MoveType = A
+		Trigger2 = EnemyNear(root,Var(40)),ID = Enemy(1),ID ;対象がパートナー
+		Trigger2 = root,var(11) = 1
+		Trigger2 = EnemyNear(root,Var(40)),MoveType = A
+		value = 4100
+		ctrl = 0
+
+;----------------------------------------------
+[Statedef 4100,ディープブラッド]
+	type     = S
+	movetype = A
+	physics  = S
+	ctrl     = 0
+	anim = Root,var(30)
+	sprpriority = 3
+
+	[State 4100, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 1
+		attr = S, HA
+		damage    = 1
+		priority = 10, Hit
+		animtype = herd
+		hitflag = MA
+		pausetime = 10,10
+		sparkno = S4115
+		sparkxy = -10,-50
+		hitsound   = S800,0
+		guardsound = 0,0
+		guard.dist = 0
+		ground.slidetime = 20
+		ground.hittime = 20
+		ground.velocity = 0,0
+		ID = 4000
+		numhits = 0
+		givepower = -200
+		getpower = 100
+;		fall = 1
+
+	[State 4100]
+		type = ParentVarSet
+		trigger1 = movehit
+		var(18) = Root,var(17)
+
+	[State 4100]
+		type = targetstate
+		trigger1 = Target(4000),Alive
+		value = 4110
+		ID = 4000
+		ignorehitpause = 1
+
+	[State 4100, 掴んだ相手のライフ増減]
+		type = TargetLifeAdd
+		trigger1 = movehit
+		trigger1 = root,Var(12) = 1
+		ID = 4000
+		value = - 10000000
+
+	[State 4100, 掴んだ相手のライフ増減]
+		type = TargetLifeAdd
+		trigger1 = movehit
+		trigger1 = root,Var(12) = 2
+		ID = 4000
+		value = - ( LifeMax / 3 )
+
+	[State 4100, 掴んだ相手のライフ増減]
+		type = TargetLifeAdd
+		trigger1 = movehit
+		trigger1 = root,Var(12) = 3
+		ID = 4000
+		value = - ( LifeMax / 9 )
+
+	[State 4100, 掴んだ相手のライフ増減]
+		type = TargetLifeAdd
+		trigger1 = movehit
+		trigger1 = root,Var(12) = 4
+		ID = 4000
+		value = - ( LifeMax / 15 )
+
+	[State 4100, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 4000
+		ctrl = 0
+
+	[State 4100]
+		Type     = DestroySelf
+		Trigger1 = MoveReversed
+
+;----------------------------------------------
+[Statedef 4110,ディープブラッドHIT]
+	type    = S
+	movetype= H
+	physics = S
+	VelSet = 0,0
+
+	[State 4110,]
+		type = AssertSpecial
+		trigger1 = 1
+		flag = NOKO
+
+	[State 4110,]
+		type = ChangeAnim2
+		trigger1 = life = 0
+		value = 9910
+
+	[State 4110,]
+		type = ChangeAnim
+		trigger1 = life > 0
+		value = 5002
+
+	[State 4110,]
+		type = PosSet
+		trigger1 = 1
+		Y = 0
+
+	[State 4110, 相手ステートに戻す]
+		type = SelfState
+		trigger1 = Time >= 10
+		trigger1 = life > 0
+		value = IfElse(Pos Y = 0,5000,5020)
+
+	[State 4110, 相手ステートに戻す]
+		type = ChangeState
+		trigger1 = Time >= 10
+		trigger1 = life = 0
+		value = 4115
+
+
+;----------------------------------------------
+[Statedef 4115,ディープブラッドHIT]
+	type    = S
+	movetype= H
+	physics = S
+	VelSet = 0,0
+
+	[State 4115,]
+		type = ChangeAnim2
+		trigger1 = 1
+		value = 9910
+
+	[State 4115,]
+		type = StateTypeSet
+		trigger1 = time > 10
+		statetype = S
+		movetype = I
+		physics = N
+
+	[State 4115, 相手ステートに戻す]
+		type = SelfState
+		trigger1 = Alive = 1
+		trigger1 = life > 0
+		trigger2 = time > 100
+		value = 5110
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+[Statedef 4200,魔法のステッキ電撃]
+	type     = A
+	movetype = A
+	physics  = N
+	ctrl     = 0
+	anim     = IfElse(Root,var(29) = 1,4201,4202)
+	sprpriority = 3
+
+	[State 4200, 位置固定]
+		type = BindToParent
+		trigger1 = 1
+		time = 1000
+		pos = 50,IfElse(Root,var(29) = 1,-103,-40)
+
+	[State 4200, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 1
+		attr = S, HP
+		damage = 0
+		animtype = Back
+		priority = 7,hit
+		pausetime = 0,10
+		sparkno = -1
+		sparkxy = 0,0
+		hitsound = S800,1
+		hitflag = MAFDP
+		guardsound = S500,6
+		guard.sparkno = S30060
+
+		ground.type = High
+		ground.slidetime = 14
+		ground.hittime = 16
+		ground.velocity = -2,-2
+		air.velocity = -2,-2
+		down.bounce = 1
+		fall.recover = 0
+		getpower = 0
+
+		fall = 1
+
+		palfx.time = 80
+		palfx.mul = 0,0,255
+
+	[State 4200,aa]
+		type = targetlifeadd
+		trigger1 = MoveHit = 1
+		absolute = 1
+		value = - 50 * helper(20000),Fvar(9)
+
+	[State 4200,エフェクト]
+		Type = Explod
+		TriggerAll = NumExplod(4210) = 0
+		trigger1 = movehit
+		Anim = 4210
+		PosType = P2
+		Pos = 0,-50
+		BindTime = -1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 1,1
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 1
+		ID = 4210
+		trans = add
+
+	[State 4200, ヘルパーを消す]
+		type = DestroySelf
+		Trigger1 = root,stateno != 1300
+		Trigger2 = root,stateno = 1300
+		Trigger2 = (Root,var(29) = 1 && root,AnimElem = 5) || (Root,var(29) = 2 && root,AnimElem = 6)
+		Trigger3 = MoveReversed
+
+;---------------------------------------------------------------------------
+[Statedef 4250, Elec]
+	type     = A
+	movetype = A
+	physics  = N
+	ctrl     = 0
+	anim     = 4202
+	sprpriority = 3
+
+	[State 4250, 位置固定]
+		type = BindToParent
+		trigger1 = 1
+		time = 1000
+		pos = 50,-40
+
+	[State 4250, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 1
+		attr = S, HP
+		damage = 0
+		animtype = Back
+		priority = 7,hit
+		pausetime = 0,10
+		sparkno = -1
+		sparkxy = 0,0
+		hitsound = S800,1
+		hitflag = MAFDP
+		guardsound = S500,6
+		guard.sparkno = S30060
+
+		ground.type = High
+		ground.slidetime = 14
+		ground.hittime = 16
+		ground.velocity = -2,-2
+		air.velocity = -2,-2
+		down.bounce = 1
+		fall.recover = 0
+		getpower = 0
+
+		fall = 1
+
+		palfx.time = 80
+		palfx.mul = 0,0,255
+
+	[State 4250,aa]
+		type = targetlifeadd
+		trigger1 = MoveHit = 1
+		absolute = 1
+		value = - 50 * helper(20000),Fvar(9)
+
+	[State 4250,エフェクト]
+		Type = Explod
+		TriggerAll = NumExplod(4210) = 0
+		trigger1 = movehit
+		Anim = 4210
+		PosType = P2
+		Pos = 0,-50
+		BindTime = -1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 1,1
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 1
+		ID = 4260
+		trans = add
+
+	[State 4250, ヘルパーを消す]
+		type = DestroySelf
+		
+		Trigger1 = root,stateno = 3501
+		Trigger1 = root,AnimElem = 15
+		Trigger2 = MoveReversed
+		Trigger3 = root,stateno != 3501
+
+;---------------------------------------------------------------------------
+[Statedef 4300,こもえ]
+	type     = S
+	movetype = A
+	physics  = N
+	ctrl     = 0
+	anim     = 8000
+	sprpriority = 3
+	VelSet = 10,0
+	
+
+	[State 4300, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 1
+		attr = S, HP
+		damage = 0
+		animtype = Back
+		priority = 7,hit
+		pausetime = 0,10
+		sparkno = -1
+		sparkxy = 0,0
+		hitsound = S600,2
+		hitflag = MAFDP
+		guardsound = S600,2
+		guard.sparkno = S30060
+
+		ground.type = High
+		ground.slidetime = 14
+		ground.hittime = 16
+		ground.velocity = -50,-10
+		down.bounce = 1
+		fall.recover = 0
+
+		fall = 1
+
+	[State 4300,aa]
+		type = targetlifeadd
+		trigger1 = MoveHit = 1
+		absolute = 1
+		value = - 50 * helper(20000),Fvar(9)
+
+
+	[State 4300, ステート変更]
+		type = ChangeState
+		trigger1 = movehit
+		trigger2 = Pos X = root,Pos X
+		value = 4310
+
+	[State 4300, ヘルパーを消す]
+		type = DestroySelf
+		Trigger1 = time > 200
+
+;----------------------------------------------
+[Statedef 4310,こもえ]
+	type     = S
+	movetype = I
+	physics  = N
+	ctrl     = 0
+	anim     = 8010
+	sprpriority = -1
+	VelSet = 0,0
+
+	[State 4310]
+		type = posset
+		trigger1 = AnimElem = 1
+		X = Root,Pos X
+		Y = Root,Pos Y
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+[Statedef 4400,血の香り：準備]
+	type     = S
+	movetype = A
+	physics  = S
+	ctrl     = 0
+	anim = 4400
+	sprpriority = 3
+
+	[State 4400, 時間設定]
+		type = ParentVarSet
+		trigger1 = time = 0
+		var(13) = Root,var(29) * 100 + 50
+
+
+	[State 3400, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = time = 0
+		value = 800, 5
+
+	[State 4400, ステート変更]
+		type = ChangeState
+		trigger1 = time = 1
+		value = 4405
+
+;-------------------------------------------------
+[Statedef 4405,血の香り：本体]
+	type     = S
+	movetype = A
+	physics  = S
+	ctrl     = 0
+	anim = 4405
+	sprpriority = 3
+
+	[State 4405, ヒット定義（投げ用）]
+		type = HitDef
+		trigger1 = AnimElem = 1
+		attr = S, HT
+		hitflag = MAFD
+		guardflag = MA
+		priority = 6, hit
+		animtype = herd
+		ground.velocity = 0, 0
+		pausetime = 0, 0
+		sparkno = -1  ;-1だからヒットスパークは表示しない
+		ground.slidetime = 20
+		ground.hittime = 20
+		fall.recover = 1
+		ID = 4400
+
+	[State 4405,ID格納]
+		type = VarSet
+		var(5) = target(4400),ID
+		trigger1 = var(5) = 0
+
+	[State 4405,相手のステート変更]
+		type = targetstate
+		Trigger1 = target(4400),ID = Enemy(0),ID ;対象がリーダー
+		Trigger1 = Root,var(10) = 1
+		Trigger2 = target(4400),ID = Enemy(1),ID ;対象がパートナー
+		Trigger2 = Root,var(11) = 1
+		value = 4409
+		ID = 4400
+		ignorehitpause = 1
+
+	[State 4405, 自分のステート変更]
+		type = ChangeState
+		Trigger1 = AnimElem = 3
+		value = 4406
+
+	[State 4405]
+		Type     = DestroySelf
+		Trigger1 = MoveReversed
+		Trigger2 = Root,var(13) = 0
+
+;-------------------------------------------------
+[Statedef 4406,血の香り：自分（当身をとる）]
+	type     = S
+	movetype = A
+	physics  = S
+	ctrl     = 0
+	anim = 4406
+	sprpriority = 3
+
+	[State 4406, 永続用当身]
+		type = ReversalDef
+		trigger1 = 1
+		reversal.attr = SCA,AA,AT,AP
+		p2stateno = 4410
+		IgnoreHitPause = 1
+		ID = 4400
+
+	[State 4406,当身を取ったら永続！]
+		type = targetstate
+		TriggerAll = playerID(var(5)),StateNo != 4410
+		TriggerAll = Root,var(13) > 0
+		Trigger1 = playerID(var(5)),ID = Enemy(0),ID ;対象がリーダー
+		Trigger1 = Root,var(10) = 1
+		Trigger2 = playerID(var(5)),ID = Enemy(1),ID ;対象がパートナー
+		Trigger2 = Root,var(11) = 1
+		value = 4410
+		ignorehitpause = 1
+
+	[State 4406]
+		Type     = DestroySelf
+		Trigger1 = MoveReversed
+		Trigger2 = Root,var(13) = 0
+
+;--------------------------------------
+[Statedef 4409,血の香り：相手（当身をさせる）]
+	type    = S
+	movetype= A
+	physics = S
+	velset = 0
+
+	[State 4409,相手を強制的に攻撃モーションに]
+		type = ChangeAnim2
+		trigger1 = time = 0
+		value = 4409
+
+	[State 4409,相手に強制的に攻撃させる]
+		type = HitDef
+		trigger1 = AnimElem = 1
+		attr = S, NA
+		hitflag = MFAD
+		guardflag = MA
+		priority = 6, hit
+		animtype = herd
+		ground.velocity = 0, 0
+		pausetime = 0, 0
+		sparkno = -1  ;-1だからヒットスパークは表示しない
+		ground.slidetime = 20
+		ground.hittime = 20
+		fall.recover = 1
+		ID = 4400
+
+	[State 4409, 相手ステートに戻す]
+		type = SelfState
+		trigger1 = Time > 50
+		value = 5050
+
+;--------------------------------------
+[Statedef 4410,血の香り：相手（こっちこ～い）]
+	type    = S
+	movetype= H
+	physics = S
+	velset = Const(velocity.walk.fwd.x),0
+
+	[State 4410,]
+		type = ChangeAnim
+		trigger1 = time = 0
+		value = 20
+
+	[State 4410,]
+		type = PosSet
+		trigger1 = time = 0
+		Y = 0
+
+	[State 4410,]
+		type = velSet
+		trigger1 = 1
+		X = Const(velocity.walk.fwd.x)
+
+	[State 4410,]
+		type = PalFX
+		trigger1 = 1
+		time = 10
+		mul = 255,0,0
+
+	[State 4410,]
+		type = Turn
+		trigger1 = Pos X > enemynear(0),Pos X
+		trigger1 = Facing = 1
+		trigger2 = Pos X < enemynear(0),Pos X
+		trigger2 = Facing = -1
+
+	[State 4410, 相手ステートに戻す]
+		type = SelfState
+		trigger1 = Enemy(0),Name = "Himegami Aisa" 
+		trigger1 = NumEnemy = 1
+		trigger1 = Enemy(0),Var(13) = 0
+		trigger2 = Enemy(0),Name = "Himegami Aisa" 
+		trigger2 = Enemy(1),Name != "Himegami Aisa"
+		trigger2 = Enemy(0),Var(13) = 0
+		trigger3 = Enemy(0),Name != "Himegami Aisa"
+		trigger3 = Enemy(1),Name = "Himegami Aisa"
+		trigger3 = Enemy(1),Var(13) = 0
+		trigger4 = Enemy(0),Name = "Himegami Aisa"
+		trigger4 = Enemy(1),Name = "Himegami Aisa"
+		trigger4 = Enemy(0),Var(13) + Enemy(1),Var(13) = 0
+		value = 5050
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+[Statedef 4500,ハリセン]
+	type     = A
+	movetype = A
+	physics  = N
+	ctrl     = 0
+	anim     = IfElse(Root,var(29) = 2,4510,IfElse(Root,var(29) = 3,4520,4500))
+	sprpriority = 3
+
+	[State 4500, 位置固定]
+		type = BindToParent
+		trigger1 = AnimElemNo(0) < 7
+		time = 1
+		pos = 0,0
+
+	[State 4500, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 4
+		attr = S, HP
+		damage = 100 * helper(20000),Fvar(9) * Root,var(29)
+		animtype = up
+		priority = 7,hit
+		pausetime = 0,10
+		sparkno = -1
+		sparkxy = 0,0
+		hitsound = S600,0
+		guardflag = MA
+		hitflag = MAFDP
+		guardsound = S600,0
+		guard.sparkno = S30060
+
+		ground.type = High
+		ground.slidetime = 0
+		ground.hittime = 0
+		ground.velocity = 0,0
+		down.bounce = 0
+		fall.recover = 0
+		ID = 4500
+		getpower = 0
+
+	[State 200,エフェクト]
+		Type = Explod
+		trigger1 = moveHit = 1
+		Anim = 11040
+		PosType = P2
+		Pos = 0, -4
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.5,0.5
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11040
+		persistent=0
+		trans = Add
+
+	[State 200,エフェクト]
+		Type = Explod
+		trigger1 = moveHit = 1
+		Anim = 4530
+		PosType = P2
+		Pos = 0, 0
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.5,0.5
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 4530
+		persistent=0
+		trans = Add
+
+	[State 4500, 再使用時間設定]
+		type = ParentVarSet
+		trigger1 = MoveHit = 1
+		var(23) = 240
+
+	[State 4500, 画面揺らし]
+		type = EnvShake
+		trigger1 = moveHit = 1
+		time = 16
+		freq = 20
+		ampl = -5
+		phase = 0
+
+	[State 4500, 位置]
+		type = PosSet
+		trigger1 = AnimElem = 7
+		time = 1
+		X = Root,Pos X - 50
+		Y = -100
+
+	[State 4500,移動速度]
+		type = VelSet
+		trigger1 = AnimElem = 7
+		X = -6
+		Y = -3
+
+	[State 4500,回転角度]
+		type = AngleAdd
+		trigger1 = AnimElemNo(0) >= 7
+		value = 10
+
+	[State 4500,回転]
+		type = AngleDraw
+		trigger1 = AnimElemNo(0) >= 7
+
+	[State 4500, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElemTime(7) = 80
+		value = 600, 0
+		volume  = -200
+
+	[State 4500, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElemTime(7) = 95
+		value = 2000, 0
+		volume  = -100
+		pan = -1
+
+	[State 4500,]
+		type = targetstate
+		Trigger1 = MoveHit
+		Value = 4510
+
+	[State 4500, ヘルパーを消す]
+		type = DestroySelf
+		Trigger1 = MoveReversed
+		Trigger2 = AnimTime = 0
+		Trigger3 = Root,MoveType = H
+
+;--------------------------------------
+[Statedef 4510,ハリセン:相手]
+	type    = S
+	movetype= H
+	physics = S
+	velset = 0,0
+
+	[State 4510,]
+		type = ChangeAnim
+		trigger1 = time = 0
+		value = 5002
+
+	[State 4510,]
+		type = AngleDraw
+		trigger1 = Floor(gametime%10) < 4
+		scale = EnemyNear(root,Var(40)),Const(size.xscale),0.25
+
+	[State 4510,]
+		type = AngleDraw
+		trigger1 = Floor(gametime%10) >= 4
+		scale = EnemyNear(root,Var(40)),Const(size.xscale),0.1
+
+	[State 4510,]
+		type = PosSet
+		trigger1 = time = 0
+		Y = 0
+
+	[State 4510, 相手ステートに戻す]
+		type = SelfState
+		trigger1 = Time >= 50
+		value = 5050
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+[Statedef 4550,岩]
+	type     = A
+	movetype = A
+	physics  = N
+	ctrl     = 0
+	anim     = 4551
+	sprpriority = 3
+
+	[State 4550, 位置固定]
+		type = BindToParent
+		trigger1 = Root,AnimElemNo(0) = 5
+		trigger1 = Root,StateNo = 3150
+		time = 1
+		pos = 12,-50
+
+	[State 4550, 位置固定]
+		type = BindToParent
+		trigger1 = Root,AnimElemNo(0) = 6
+		trigger1 = Root,StateNo = 3150
+		time = 1
+		pos = 12,-60
+
+	[State 4550, 位置固定]
+		type = BindToParent
+		trigger1 = Root,AnimElemNo(0) = 7
+		trigger1 = Root,StateNo = 3150
+		time = 1
+		pos = 12,-100
+
+	[State 4550, 位置固定]
+		type = BindToParent
+		trigger1 = Root,AnimElemNo(0) = 8
+		trigger1 = Root,StateNo = 3150
+		time = 1
+		pos = 12,-100
+
+	[State 4550, 位置固定]
+		type = BindToParent
+		trigger1 = Root,AnimElemNo(0) = 9
+		trigger1 = Root,StateNo = 3150
+		time = 1
+		pos = 10,-100
+
+	[State 4550, ステート変更]
+		type = ChangeState
+		trigger1 = Root,StateNo = 3160
+		value = 4560
+
+	[State 4550, ステート変更]
+		type = ChangeState
+		Trigger1 = Root,StateNo != [3150,3160]
+		trigger1 = Root,AnimElemNo(0) >= 5
+		value = 4570
+
+	[State 4550, ヘルパーを消す]
+		type = DestroySelf
+		Trigger1 = MoveReversed
+		Trigger2 = AnimTime = 0
+		Trigger3 = Root,StateNo != [3150,3160]
+
+;---------------------------------------------
+[Statedef 4560,岩成功]
+	type     = A
+	movetype = A
+	physics  = N
+	ctrl     = 0
+	anim     = 4561
+	sprpriority = 3
+
+	[State 4560, ぶつかり判定]
+		type = PlayerPush
+		trigger1 = 1
+		value = 0
+
+	[State 4560,回転角度]
+		type = AngleAdd
+		trigger1 = Root,AnimElemNo(0) >= 2
+		value = 10
+
+	[State 4560,回転]
+		type = AngleDraw
+		trigger1 = Root,AnimElemNo(0) >= 2
+
+	[State 4560, 位置固定]
+		type = BindToParent
+		trigger1 = time = 0
+		time = 1
+		pos = 10,-100
+
+	[State 4560, 移動速度]
+		type = VelSet
+		trigger1 = Root,AnimElem = 2
+		X = 3
+		Y = -2
+
+	[State 4560, 加速度]
+		type = VelAdd
+		trigger1 = Root,AnimElemNo(0) >= 2
+		trigger2 = Vel X > 0
+		Y = 0.2
+
+	[State 4560, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 1
+		attr = S, HP
+		damage = 300 * helper(20000),Fvar(9) * Root,var(29)
+		animtype = up
+		priority = 7,hit
+		pausetime = 0,10
+		sparkno = -1
+		sparkxy = 0,0
+		hitsound = S600,2
+		hitflag = MAFDP
+		guardsound = S600,3
+		guard.sparkno = S30060
+
+		ground.type = High
+		ground.slidetime = 14
+		ground.hittime = 16
+		ground.velocity = -10,-10
+		air.velocity = -10,-10
+		down.bounce = 2
+		fall.recover = 0
+		getpower = 0
+
+		fall = 1
+
+	[State 4560,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11040
+		PosType = P1
+		Pos = 0, -0
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.5,0.5
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11040
+		persistent=0
+		trans = Add
+
+	[State 4560,エフェクト]
+		Type = Explod
+		trigger1 = movehit = 1
+		Anim = 11050
+		PosType = P1
+		Pos = 0, -0
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.5,0.5
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 11050
+		persistent=0
+		trans = Add
+
+	[State 4560, 画面揺らし]
+		type = EnvShake
+		trigger1 = moveHit = 1
+		time = 32
+		freq = 80
+		ampl = -32
+		phase = 0
+
+	[State 4560, ステート変更]
+		type = ChangeState
+		Trigger1 = Root,StateNo != [3160,3170]
+		Trigger1 = Vel X = 0
+		value = 4570
+
+	[State 4560, ヘルパーを消す]
+		type = DestroySelf
+		Trigger1 = MoveReversed
+		Trigger2 = AnimTime = 0
+		Trigger3 = Pos Y > 0
+
+;---------------------------------------------
+[Statedef 4570,岩失敗]
+	type     = A
+	movetype = A
+	physics  = N
+	ctrl     = 0
+	anim     = 4561
+	sprpriority = 3
+
+	[State 4570, 移動速度]
+		type = VelSet
+		trigger1 = Time = 0
+		X = 0.5
+		Y = -2
+
+	[State 4570, 加速度]
+		type = VelAdd
+		trigger1 = 1
+		Y = 0.2
+
+	[State 4560, ぶつかり判定]
+		type = PlayerPush
+		trigger1 = 1
+		value = 0
+
+	[State 4570, ヒット定義]
+		type = HitDef
+		trigger1 = AnimElem = 1
+		attr = S, NA
+		animtype  = hard
+		damage    = 300 * helper(20000),Fvar(9) * Root,var(29)
+		pausetime = 8,8
+		sparkno = 0
+		sparkxy = -10,-50
+		hitsound = S600,2
+		hitflag = MAFDP
+		guardsound = 6,0
+
+		ground.type = High
+		ground.slidetime = 40
+		ground.hittime  = 40
+		ground.velocity = -10,-10
+		air.velocity = -10,-10
+		affectteam = B
+		fall.recover = 0
+
+		fall = 1
+		getpower = 0
+
+	[State 4560, 画面揺らし]
+		type = EnvShake
+		trigger1 = moveHit = 1
+		time = 32
+		freq = 80
+		ampl = -32
+		phase = 0
+
+	[State 4570, ヘルパーを消す]
+		type = DestroySelf
+		Trigger1 = MoveReversed
+		Trigger2 = AnimTime = 0
+		Trigger3 = Pos Y > 0
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;カットイン
+[Statedef 4900,カットイン]
+	type     = S
+	movetype = I
+	physics  = S
+	anim = IfElse(TeamSide=1,10001,10002)
+	sprpriority = -1
+
+	[State 4900, 位置]
+		type = PosSet
+		trigger1 = 1
+		X = -160
+		Y = -170
+
+	[State 4900, 影]
+		type = AssertSpecial
+		trigger1 = 1
+		flag = noshadow
+
+	[State 4900, 色変更]
+		type = PalFX
+		Trigger1 = time >=30
+		Trigger1 = time <=50
+		time = 1
+		add = (time -30) * 12.8 ,0,0
+		mul = 256 ,256 - (time -30) * 12.8,256 - (time -30) * 12.8
+
+	[State 4900, 色変更]
+		type = PalFX
+		Trigger1 = time >=50
+		time = 1
+		add = 256,0,0
+		mul = 256 ,0,0
+
+	[State 4900, フェードアウト]
+		type = Trans
+		Trigger1 = time >=50
+		trans = addalpha
+		alpha = 256 - (time -50) * 12.8,(time -50) * 12.8
+
+	[State 4900, ヘルパーを消す]
+		type = DestroySelf
+		Trigger1 = AnimTime = 0
+		Trigger2 = Root,MoveType = H
+
+
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;負け演出
+[Statedef 30000,負け演出1-1]
+	type     = S
+	movetype = I
+	physics  = S
+	anim = 8500
+	sprpriority = -3
+
+	[State 30000, ターン]
+		type = Turn
+		triggerAll = time = 1
+		trigger1 = Facing = -1
+		trigger1 = Pos X < 0
+		trigger2 = Facing = 1
+		trigger2 = Pos X > 0
+
+	[State 30000, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = time = 1
+		value = 3000, 0
+
+	[State 30000,位置]
+		type = PosSet
+		trigger1 = time = 1
+		Y = 0
+
+	[State 30000,ぶつかり判定]
+		type = PlayerPush
+		trigger1 = 1
+		value = 0
+
+	[State 30000,移動速度]
+		type = VelSet
+		trigger1 = Pos X != [Root,Pos X-5,Root,Pos X+5]
+		X = 10
+
+	[State 30000,移動速度]
+		type = VelSet
+		trigger1 = Pos X = [Root,Pos X-5,Root,Pos X+5]
+		X = 0
+
+	[State 30000, ステート変更]
+		type = ChangeState
+		trigger1 = Pos X = [Root,Pos X-5,Root,Pos X+5]
+		value = 30010
+
+;----------------------------------------------------------
+[Statedef 30010,負け演出1-2]
+	type     = S
+	movetype = I
+	physics  = S
+	anim = 8501
+	sprpriority = -3
+
+	[State 30000, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 3000, 1
+
+	[State 30010, ステート変更]
+		type = ChangeState
+		trigger1 = AnimTime = 0
+		value = 30020
+
+;----------------------------------------------------------
+[Statedef 30020,負け演出1-3]
+	type     = S
+	movetype = I
+	physics  = S
+	anim = 8502
+	sprpriority = -3
+
+	[State 30000, ターン]
+		type = Turn
+		trigger1 = EnemyNear(Root,Var(40)),Facing = Facing
+
+	[State 30000, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = time = 1
+		value = 3000, 2
+
+	[State 30010, ステート変更]
+		type = ChangeState
+		trigger1 = Time > 1000
+		value = 30030
+
+;----------------------------------------------------------
+[Statedef 30030,負け演出1-4]
+	type     = S
+	movetype = I
+	physics  = S
+	anim = 8502
+	sprpriority = -1
+
+	[State 30030, ステート変更]
+		type = ChangeState
+		trigger1 = Time > 100
+		value = 30030
+
+[Statedef 700, Charge]
+type     = S
+movetype = I
+physics  = S
+ctrl     = 0
+velset   = 0,0
+anim     = 700
+sprpriority = 1
+
+[State 700, ????????]
+type = PowerAdd
+trigger1 = 1
+value = 4
+
+[State 700, ?????];???????.txt???
+type = Explod
+trigger1 = animelem = 1
+trigger1 = NumExplod(130) = 0
+anim = 710
+facing = -1
+postype = p1
+pos = 0,10
+sprpriority = 3
+ownpal = 1
+scale = .75, .75
+removetime = -1 ;?-1??????????????????????
+bindtime = -1
+removeongethit = 1
+ID = 130
+
+;[State 1100, Voice]
+;type = PlaySnd
+;trigger1 = AnimElem = 3
+;value = s700,0
+;channel = 0
+[State 700, remove]
+Type=RemoveExplod
+Trigger1 = command != "hold_s"
+Trigger2 = Power >= powermax
+ID = 130
+[State 700, ??????]
+type = ChangeState
+trigger1 = command != "hold_s" ;?hold_c???????????(C?????????)
+trigger2 = Power >= powermax
+trigger3 = RoundState != 2
+value = 0
+ctrl = 1
+
+
+[Statedef 900, Dodge]
+type     = S
+movetype = I
+physics  = S
+ctrl     = 0
+velset   = 0,0
+anim     = 900
+sprpriority = 0
+
+	[State 6500,Snd2]
+		Type=playSnd
+		trigger1 = random%2=0
+		Trigger1=AnimElemTime(1)=0 ;&& random%2=0
+		value=810,0
+		channel=0
+
+
+[State 900, AfterImage]
+type = AfterImage
+trigger1 = animelem =1
+trigger2 = animelem =4
+trigger3 = animelem =6
+time = 20
+length = 20
+
+
+[State 900, Splat]
+type = ChangeState
+trigger1 = animelem = 6
+value = 910
+ctrl = 0
+
+[State 800, End]
+type = ChangeState
+trigger1 = command != "hold_x"
+value = 0
+ctrl = 1
+
+[Statedef 910, Splat]
+type     = S
+movetype = I
+physics  = S
+ctrl     = 0
+velset   = 0,0
+anim     = 910
+sprpriority = 1
+
+
+
+[State 810, End]
+type = ChangeState
+trigger1 = command != "hold_x"
+trigger2 = animelem = 2
+value = 5120
+ctrl = 1
+
+; FRC
+[Statedef 6700]
+type    = U
+movetype= I
+physics = U
+juggle  = 0
+poweradd= 0
+ctrl = 0
+sprpriority = 2
+
+
+
+[State 6700, ]
+type = PowerAdd
+trigger1 = Time = 0
+value = -500
+
+
+
+
+
+
+
+
+[State 6700,キャンセル]
+Type=varSet
+Trigger1=Time=0
+var(1)=1
+
+[State 6700, Blink Yellow]
+type = PalFX
+trigger1 = 1
+time = 2
+add = 255,255,255
+
+	[State 6700,]
+		type = Explod
+		trigger1 = time = 0
+		anim = 16000
+		pos = 5, -60
+		postype = p1
+		bindtime = -1
+		supermovetime = 9999
+		pausemovetime = 9999
+		scale = 1, 1
+		sprpriority = 3
+		ownpal = 1
+		removeongethit = 1
+
+
+
+[State 6700, 3]
+type = Changeanim
+trigger1 = time=0
+trigger1 = statetype !=A
+trigger1 = statetype = C
+value = 11
+
+[State 6700, 3]
+type = Changeanim
+trigger1 = time=0
+trigger1 = statetype !=A
+trigger1 = statetype = S
+value = 0
+
+[State 6700, 3]
+type = ChangeState
+trigger1 = time>0
+trigger1 = statetype !=A
+trigger1 = command = "holddown"
+value = 11
+ctrl = 1
+
+[State 6700, 3]
+type = ChangeState
+trigger1 = time>0
+trigger1 = statetype !=A
+trigger1 = command != "holddown"
+value = 0
+ctrl = 1
+
+
+

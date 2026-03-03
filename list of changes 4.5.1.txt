@@ -1,0 +1,30 @@
+Hello @everyone and Merry Christmas !!!
+
+Today is the day of giving, for the much anticipated update 4.5 of Toarunament is upon us.
+
+If you want to skip what the update is about, go past the bullet points.
+
+This update features :
+
+- Universal grab and grab tech (now you don't have to look up the movelist for the grab input will be at a consistent spot between characters), almost all characters have now a grab. The universal grab and grab tech was done by yours trully, and the majority of the new grabs added to characters which previously didn't have them you can thank @DidiGetsRekt for those !
+- Consistent Kakines (by @DidiGetsRekt)
+- Added UMT versions of certain characters
+- Certain moves have been swapped around to accomodate for the universal grab (check the movelists)
+- Revamped Counter attack system begun (only Kanzaki, Tsuchimikado, Stiyl, Kinuhata and Junko have them as of yet). I would like some feedback on that.
+- Touma has a visual representation of a counter attack leadup (the move where you can cancel into a counterattack specific combo) and the actual counter _attack_ (succeeding in inputting the counter attack during the combo). Kinuhata and Junko also have this counter attack logic, but doesn't have the visual representation for those.
+- Kanzaki, Stiyl and Tsuchimikado have now a better visual for their magic name mode
+- New sprites for Hamazura made by @Jagwit
+- Major Accel Sisters changes
+- Thor has now an air version of Almighty TP
+- Tsuchimikado's Ducking Step has evolved (check his movelist for details)
+- Bug fixes
+
+On a serious note now, as you may or may not know, Didi is now on hiatus for personal reasons (and we support him all the way while awaiting for his eventual return), meaning that now Toarunament is now leaderless (but we the staff are still here, we'll just have to discuss more).
+But it's not because our Guts leader is gone that it means the death of Toarunament, it presents us the opportunity to prioritise what's necessary for the game on a lower capacity, and this means that now, more than ever, your feedback is important.
+However do note that because of our current situation, everything will go even slower than before, but it's fine.
+
+We look forward to your support and also wish you an early Happy New Year !
+
+Have a nice day !!
+
+PS : I wonder how we'll name our next update...

@@ -1,0 +1,217 @@
+Samus Aran 78's Car bonus stage update by mabskmk : Update vX.X² --> v7.8 Winugen and Mugen1.0.
+
+Hi here is mabskmk.
+"I updated car bonus 2, so now it works with new mugen
+and generally speaking it works better."
+
+
+How to install : 
+Unzip the car into the directory chars\car3
+Unzip the satge and his music into the \stages directory.
+then open select.def and add this line in the [Characters] section : 
+Car3, stages\carbg2.def
+
+(Note: i called the file "3" since i am not Samus or Pioupiou and so you can have the three version in your mugen.)
+
+
+Updates:
+
+- Now the player can jump on the car (still needs some adjustments).
+- Added option to re-fight the bonus in next rounds.
+- Added custom_states to prevent grabs and other custom states.
+  - old codes of gethit removed.
+- Added helper to fix the posicion on the floor.
+  - Added playerpush
+- Updated the count helper to be agressive only when the time runs out :p
+  - Player not defend forever
+- Added noautoturn to prevent the disappearance of the car at the end.
+- correction of some codes.
+
+
+			Enjoy it !
+
+WHERE TO PUT THE FILES
+mugen\chars\car\
+	car.act
+	car.air
+	car.cmd
+	car.cns
+	car.def
+	car.sff
+	car.snd
+	car.txt
+	car1.cns
+mugen\sound\
+	car.mp3
+mugen\stages\
+	carbg.def
+	carbg.sff
+
+
+
+My mail : xxxx :S
+My Site : http://mabskmk.webs.com/apps/blog/
+
+
+Credits : 
+
+- Samus Aran 78 : for doing the first version of the bonus stage ;).
+- Pioupiou and V.K. for update it.
+
+
+
+
+
+Old update text : 
+Samus Aran 78's Car bonus stage update by Pioupiou : Update v1.5 --> vX.X - Mugen 06/27/2000 version only.
+
+Hi here is Pioupiou.
+I updated car bonus 2, so now it works with new mugen
+and generally speaking it works better.
+
+Well here are the changes : 
+- Loads of tweaks by V.K. (big thanks to him)
+- Works with the 07.31.2000 version of mugen (unlike others char car bonus got some probs)
+- Improved imunne list so it will works better.
+
+Know isssues : 
+- Well, as Samus said, it is very frustrating to be unable to make the player to jump on the car.
+  I don't see a way to make it (and i tried some too!), i think the best is to wait for an engine update
+  that would allow it. But maybe someone has an idea. If so please send a mail to Samus and me.
+
+- As Samus said too, some character that use custom state moves, may causes the car to have big problems.
+  If you notice this, please send a mail to Samus (samusaran78@hotmail.com) with the character and the move
+  if possible.
+
+- Update issues : In the second round the lifebar may blink, but don't worry i am still thinking 
+  to correct this. During a Superpause the lifebars reapers, but this is mugen fault here.
+  if you notice something else please mail Samus and me.
+  DURING THE SECOND ROUND DON'T TOUCH ANY KEY IF YOU WANT MY TRICK TO AVOID IT WORK WELL! Excpet if you enjoy hitting the rest of the car. but then you can have bugs. (push F4 to reset round then)
+
+
+Hi here is Pioupiou. 
+I updated Samus Aran 78 Car bonus stage, coz this is my favourite bonus stage ever.
+Samus did a great job on it.
+This is a stage where you have to break a car, a Mercedes Benz(TM) to be exact.
+Now you have 40 seconds to break it, if no you fail, and the car will explode and kill you by doing this. 
+Well train yourself and make a record ! ;).
+
+
+How to install : 
+Unzip the car into the directory chars\car2
+Unzip the satge and his music into the \stages directory.
+then open select.def and add this line in the [Characters] section : 
+Car2, stages\carbg2.def
+
+(Note: i called the file "2" since i am not Samus and so you can have the two version in your mugen.)
+
+
+Well here are the changes : 
+- Now it works right in all the stages.
+- Fixed the too long death delay
+- Changed the volume of all the sounds (too low)
+- Added the time counter like in the original stage !!!! - Now you have 40 sec to beat the car. try to make a record.
+- Added one round only support !. Well this is no perfect but, even if mugen is very flexible it has limits.
+- Redone the stage, now you no longer see the car if you use this stage with the car. also adjusted music voulme and edit the clouds in the sky so they no longer look cutted off.
+- Added imunities versus the attacks of Picco, Shadow Dio and KFM that causes the car to disappear (custom states...) 
+- Correct a typo in the txt file ! ;)
+
+Know isssues : 
+- Well, as Samus said, it is very frustrating to be unable to make the player to jump on the car.
+  I don't see a way to make it (and i tried some too!), i think the best is to wait for an engine update
+  that would allow it. But maybe someone has an idea. If so please send a mail to Samus and me.
+
+- As Samus said too, some character that use custom state moves, may causes the car to have big problems.
+  If you notice this, please send a mail to Samus (samusaran78@hotmail.com) wiht the character and the move
+  if possible.
+
+- Update issues : In the second round the lifebar may blink, but don't worry i am still thinking 
+  to correct this. During a Superpause the lifebars reapers, but this is mugen fault here.
+  if you notice something else please mail Samus and me.
+  DURING THE SECOND ROUND DON'T MOVE IF YOU WANT MY TRICK TO AVOID IT WORK WELL! Excpet if you enjoy hitting the rest of the car. but then you can have bugs.
+
+
+Enjoy it ! (P.S : My personnal record is 25 second left with VK's Gouki! ;) - If you try to make a record don't cheat by pressing space of F1, be fairplay!)
+
+
+My mail : PioupiouD@libertysurf.fr
+My Site : http://www.multimania.com/pioupioud
+	 -Go to my site for the car bonus stage record contest! ;)
+
+Credits : 
+
+- Samus Aran 78 : for doing the first version of the bonus stage ;).
+
+Original Version of txt file by samus
+Mercedez Benz (Version 1.5)
+
+Hi, My name is SamusAran78, and thank you for downloading the very first 
+bonus game for M.U.G.E.N.  If you downloaded this character please
+help me by making it better.  I have tested this with many characters
+but there are some characters that i just don't have with special moves 
+that have uncommon states.  If you notice anything out of the ordinary... 
+oh such as the car disapearing, ect.. ect... ect...
+Please email me with the character and if possible what that character's
+move and state that causes the bug.
+
+Please note that this is a very beta version.  Thank you for your support.
+Obla-di Obla-da Life goes on.
+
+NOTE:  You must have the car only in the 'carbg' stage that is included
+	in the zip file!  Otherwise it will not look right.
+
+-SamusAran78
+email:  samusaran78@hotmail.com
+
+
+Special thanks to:
+
+For helping me squash some nasty bugs:
+Podunkian 
+Nemisis 
+AnotherGamer 
+Sunboy 
+da_^GUY^ 
+Xardion 
+Kenshiroh 
+Hanzo
+Jagoros - for being the officail 'Car Bonus Stage Bug Tester Guy'
+				-www.tricorpgames.com
+
+For knowing how to stop a character from throwing the car:
+Dr. M
+
+For the background music:
+Tenshin
+
+
+WHERE TO PUT THE FILES
+mugen\chars\car\
+	car.act
+	car.air
+	car.cmd
+	car.cns
+	car.def
+	car.sff
+	car.snd
+	car.txt
+	car1.cns
+mugen\sound\
+	car.mp3
+mugen\stages\
+	carbg.def
+	carbg.sff
+
+
+BUGS AND STUFF THAT STILL MUST BE FIXED:
+1.	There are other uncommon states that other characters use when
+	attacking so if you find any attacks that cause the car to disapear
+	please let me know.  
+2.	I want there to be only 1 round specifically for the bonus game
+	and I haven't really tried to investigate how to do this.
+3.	I am getting very fustrated with not being able to have player 1
+	jump up on the car.  Trust me I've been programming for years,
+	I've used alot of tricks, but I just can't seem to have this
+	occur.  So I'm gonna leave it alone for awhile and come back to
+	it later, maybe I missed something.  If anybody knows anything
+	that could help please do not hesitate to email me.

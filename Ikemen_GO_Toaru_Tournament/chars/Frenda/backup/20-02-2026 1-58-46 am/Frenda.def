@@ -1,0 +1,48 @@
+
+
+; Player information
+[Info]
+name = "Frenda Seivelun"    ;Name of character
+displayname = "Frenda Seivelun" ;Name of character to display
+versiondate = 15,02,2026   ;Version of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.1          ;Version of M.U.G.E.N character works on (X.XX)
+author = "DidiGetsRekt"         ;Character author name
+pal.defaults = 1,2,3,4      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+localcoord = 320,240         ;Local coordinate space width and height
+
+; Files for the player
+[Files]
+cmd     = Frenda.cmd        ;Command set
+cns     = Frenda.cns        ;Constants
+st      = Frenda.cns           ;States
+st2 = Frenda_N.cns
+st3 = Frenda_S.cns
+st4 = Frenda_H.cns
+st5= Frenda_Ex.cns
+st6= Frenda_Helper.cns
+stcommon = common.cns      ;Common states (from data/ or motif)
+sprite  = Frenda.sff        ;Sprite
+anim    = Frenda.air        ;Animation
+sound   = Frenda.snd           ;Sound
+ai      = Frenda.ai         ;AI hints data (not used)
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+x = 1 ;Press button X to select palette 1, etc.
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+;x2 = 7 ;Hold Start and press button X for palette 7, etc.
+;y2 = 8
+;z2 = 9
+;a2 = 10
+;b2 = 11
+;c2 = 12
+
+; Arcade mode
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

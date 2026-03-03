@@ -1,0 +1,79 @@
+;Faça do dia de hoje o melhor dia de sua vida.
+
+[Info]
+name 		= "Academy City Park"
+author 		= "kater15"
+
+[Camera]
+startx 		= 0
+starty 		= 0
+boundleft 	= -46
+boundright 	= 46
+boundhigh 	= -25
+boundlow 	= 0
+tension 	= 50
+verticalfollow 	= .75
+floortension 	= 90
+
+[PlayerInfo]
+p1startx 	= -70
+p1starty 	= 0
+p1startz 	= 0
+p1facing 	= 1
+p2startx 	= 70
+p2starty 	= 0
+p2startz 	= 0
+p2facing 	= -1
+leftbound 	= -1000
+rightbound 	= 1000
+topbound  	= 0
+botbound  	= 0
+
+[Bound]
+screenleft 	= 20
+screenright 	= 20
+
+[StageInfo]
+zoffset 	= 225
+autoturn 	= 1
+resetBG 	= 0
+Hires		= 1
+
+[Scaling]
+topz     	= 0
+botz     	= 50
+topscale 	= 1
+botscale 	= 1.2
+
+[Shadow]
+color 		= 0,0,0
+yscale 		= .2
+
+[Music]
+bgmusic 	= sound/GIRLPOWER.mp3
+bgvolume 	= 255
+
+[BGdef]
+spr 		= stages/Anime_School_Park.sff
+debugbg 	= 0
+
+[BG image]
+type  		= normal
+spriteno 	= 0, 0
+start 		= 0,-70
+delta 		= 2,2
+
+[BG image]
+type  		= normal
+spriteno 	= 0, 1
+start 		= 0,-70
+delta 		= 2,2
+trans		= add
+
+[BG image]
+type  		= normal
+spriteno 	= 0, 2
+start 		= 0,-70
+delta 		= 2,2
+trans		= add
+

@@ -1,0 +1,203 @@
+;/////////////////////////;
+;autor "fernando Ruiz"    ;
+;Edit= "IORIKYO"          ;
+;Game= KOF99              ;
+;\\\\\\\\\\\\\\\\\\\\\\\\\;
+
+[Info]
+name = "Sewers"
+[Camera]
+startx = 0
+starty = 0
+boundleft = -216
+boundright = 216
+boundhigh = -8
+boundlow = 0
+verticalfollow = .1
+tension = 50
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 220
+zoffsetlink = 10
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 128,128,128
+yscale = .3
+;////////////////////////////////////////
+[Music]
+bgmusic = sound/VSMITORI.mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/Underground-Sewer.sff
+debugbg = 1
+;////////////////////////////////////////
+
+[BG 7]
+type = normal
+spriteno = 7,0
+ID = 10
+start = 0,0
+delta = 1,1
+mask = 1
+velocity = 6,0
+tile = 1,0
+tilespacing = 0,0
+
+[BG 8]
+type = normal
+spriteno = 8,0
+ID = 10
+start = -58,0
+delta = 1,1
+mask = 1
+velocity = 6,0
+tile = 1,0
+tilespacing = 0,0
+
+[BG Black]
+type = normal
+spriteno = 5,0
+ID = 5
+start = 0,0
+delta = 1,1
+mask = 1
+
+[BGCtrlDef 5]
+ctrlID = 5
+positionlink = 1
+
+[BGCtrl 5]
+type = velset
+time = 2708
+x = 6
+
+[BG 0]
+type = normal
+spriteno = 0,0
+ID = 0
+layerno = 0
+start = 0,0
+delta = 1,1
+mask = 0
+
+
+
+
+[BG 1]
+type = anim
+actionno = 1
+ID = 1
+layerno = 0
+start = 0,0
+delta = 1,1
+mask = 1
+
+[Begin Action 1]
+1,0, 0,0, 7
+1,1, 0,0, 7
+1,2, 0,0, 7
+1,3, 0,0, 7
+1,4, 0,0, 7
+1,5, 0,0, 7
+1,6, 0,0, 7
+1,7, 0,0, 7
+
+
+[BG 2]
+type = anim
+actionno = 2
+ID = 1
+layerno = 0
+start = 0,0
+delta = 1,1
+mask = 1
+
+[Begin Action 2]
+2,0, 0,0, 7
+2,1, 0,0, 7
+2,2, 0,0, 7
+2,3, 0,0, 7
+
+[BG ñÿî†ÅïïR]
+type = anim
+actionno = 3
+ID = 1
+layerno = 0
+start = 0,0
+delta = 1,1
+mask = 1
+
+[Begin Action 3]
+3,0, 0,0,10
+3,1, 0,0,10
+3,2, 0,0,10
+3,3, 0,0,10
+3,4, 0,0,10
+3,5, 0,0,10
+3,6, 0,0,10
+3,7, 0,0,10
+
+[BG â∫êÖ]
+type = anim
+actionno = 4
+ID = 1
+layerno = 0
+start = 0,0
+delta = 1,1
+mask = 1
+
+[Begin Action 4]
+4,0, 0,0, 5
+4,1, 0,0, 5
+4,2, 0,0, 5
+4,3, 0,0, 5
+4,4, 0,0, 5
+4,5, 0,0, 5
+4,6, 0,0, 5
+4,7, 0,0, 5
+
+
+
+
+[BG ÉäÉtÉg]
+type = normal
+spriteno = 10,0
+ID = 10
+layerno = 0
+start = 0,0
+delta = 1,1
+mask = 1
+
+[BG dummy]
+type = dummy
+ID = 10
+positionlink = 1

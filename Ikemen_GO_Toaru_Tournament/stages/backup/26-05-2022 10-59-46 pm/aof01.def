@@ -1,0 +1,99 @@
+[Info]
+name = "Misawa Cram School";°Ñ**»»³ÉÕâ¸ö±³¾°µÄÃû³Æ.0627ÒÔºóµÄ°æ±¾ÊÇ±ØÐÓÒºÅµÄ.
+
+[Camera]
+startx = 0             ;¾µÍ·ÆðÊ¼XÖá×ø±ê£¬Ä¬ÈÏÎª0
+starty = 0             ;¾µÍ·ÆðÊ¼YÖá×ø±ê£¬Ä¬ÈÏÎª0
+boundleft = -216       ;±³¾°×ó±ßµÄ¿ÕÓà¡£¼ÆËã·½·¨Í¼Æ¬¿úÒÈ³ÒÔ2ÔÙ¼õÈ¥160
+boundright = 216       ;ÓÒ±ß¿ÕÓà£¬Ö»ÊÇÕ¸ººÅÎÊÌâ¡£
+boundhigh = 26        ;±³¾°ÉÏ±ß¿ÕÓà£¬¼ÆËã·½·¨Í¼Æ¬¸ß¶È¼õÈ¥240
+boundlow = 0           ;ÏÂ±ß¿ÕÓà£¬Ò»°ã¶¼Îª0
+verticalfollow = .2    ;ÈËÎøÔ¾¶àÉÙÊ±¾µÍ·¿ªÊ¼ÉÏÏÂÒÆ¶¯
+tension = 60           ;ÈËÎ®Æ½ÒÆ¶¯¶àÉÙÊ±¾µÍ·¿ªÊ¼×ÓÒ)ÒÆ
+
+[PlayerInfo]
+p1startx = -70         ;¿ª¾ÖÊ±Íæ¼Ò1µÄX×ø±
+p1starty = 0           ;¿ª¾ÖÊ±Íæ¼Ò1µÄY×ø±
+p1startz = 0           ;¿ª¾ÖÊ±Íæ¼Ò1µÄZ×ø±
+p1facing = 1           ;¿ª¾ÖÊ±Íæ¼Ò1µÄ³¯Ïò£¨1ÎªÏò×ó£¬-1ÎªÏòÓÒ£©
+p2startx = 70          ;¿ª¾ÖÊ±Íæ¼Ò2µÄX×ø±
+p2starty = 0           ;¿ª¾ÖÊ±Íæ¼Ò2µÄY×ø±
+p2startz = 0           ;¿ª¾ÖÊ±Íæ¼Ò2µÄY×ø±
+p2facing = -1          ;¿ª¾ÖÊ±Íæ¼Ò1µÄ³¯Ï
+
+leftbound = -1000      ;ÈËÎóÒÆµÄ¿Õ¼²»ÄÜ¸Ä)
+rightbound = 1000      ;ÈËÎÒÒÆµÄ¿Õ¼²»ÄÜ¸Ä)
+topbound = 0           ;ÈËÎÏÒÆµÄ¿Õ¼²»ÄÜ¸Ä)
+botbound = 0           ;ÈËÎÂÒÆµÄ¿Õ¼²»ÄÜ¸Ä)
+
+[Scaling]
+topz = 0               ;ZÖá¶¥²¿µÄËõ·Å×ø±Ò»°ã²»Òª¸Ä)
+botz = 50              ;ZÖáµ×²¿µÄËõ·Å×ø±
+topscale = 1           ;ZÖá¶¥²¿µÄËõ·Å±ÈÀ
+botscale = 1.2         ;ZÖáµ×²¿µÄËõ·Å±ÈÀ
+
+[Bound]
+screenleft = 15        ;ÈËÎ½ÁË±³¾°×ó¶Ë±ß½çÊ±£¬¿É³¬³ö¿Õ¼ä´óÐ¡¡£
+screenright = 15       ;ÈËÎ½ÁË±³¾°ÓÒ¶Ë±ß½çÊ±£¬¿É³¬³ö¿Õ¼ä´óÐ¡¡£
+
+[StageInfo]
+zoffset = 240          ;ÈËÎÚ±³¾°ÉÏµÄµ×Ïß£¨Ò²¾ÍÊÇÁ¢½Åµã£© 
+autoturn = 1           ;ÈËÎÇ·ñ×Ô¶¯×ªÏ
+resetBG = 0            ;Ã¿¸ö»ØºÏ±³¾°ÊÇ·ñÖØÆ
+
+[Shadow]
+color = 92,92,92       ;ÈËÎ°×ÓµÄÑÕÉ«RGBÖµ
+yscale = .5            ;Ó°×ÓµÄYÖáËõ·Å±ÈÀ
+reflect = 0            ;È¡1µÄ»°±úæ¾µØÃæÓÐ¾µÃæÐ§¹ 
+
+[Music]
+bgmusic = sound\MAJOKARI.mp3             ;±³¾°ÒôÀÖ
+bgvolume = 0           ;ÉùÒô´óÐ¡
+
+[BGdef]
+spr = stages\aof01.sff   ;±³¾°µÄSFFÎÄ¼
+debugbg = 0            ;ÊÇ·ñµ÷ÊÔÎª±³¾°(Ñ¡1µÄ»°Îªµ÷ÊÔ,ËÙ¶ÈºÜÂ~)
+
+;»ù±¾²ÎÊ½âÊÍ
+;[BG # ]                ;±³¾°²ã´ÎºÅ£¨¿É×Ô¶¨Òå£©
+;type = normal          ;±³¾°ÀàÐÍ£¨NORMAL-ÆÕÍ¨£¬ANIM-¶¯»­£¬ParallaxÊÓ²û¿©
+;spriteno = 0, 0        ;ÔÚSFFÎÄ¼ÖÐ¶¨ÒåµÄ×éºÅ¡£
+;mask = 0               ;ÊÇ·ñÇå³Í¸Ã÷É«(Ä¬ÈÏÎª0,²»Çå³)
+;start = 0,0            ;Í¼Æ¬¿ªÊ¼Î»ÖÃ£¨ºÍÍ¼Æ¬ÓÐ¹Ø£¬¾ßÌåµÄÒª×Ô¼ºµ÷Õû£©
+;delta = 1,1            ;Í¼Æ¬µÄÏà¶Ô¾µÍ·µÄÒÆ¶¯ËÙ¶È
+;trans = none           ;Í¼Æ¬Í¸Ã÷¶È±ä»¯£¨¸ù¾ÝÐèÒª¿ÉÒÔÓÐadd¡¢sub¡¢avgµÈ£©
+;layerno = 0            ;²ã´ÎÊôÐÔ£¬ÔÚÈËÎóÃæÊÇ0£¬ÈËÎ°ÃæÊÇ1
+;velocity = 0,0         ;¾µÍ·²»¶¯Ê±µÄÒÆ¶¯ËÙ¶È£¨Ä¬ÈÏ0£¬0Îª²»¶¯£©
+;tile = 0,0             ;Í¼Æ¬ÊÇ·ñÖØµ³öÏÖ£¨Ä¬ÈÏ0£¬0Îª²»ÖØµ£©
+;tilespacing = 0,0      ;ÖØµÍ¼Æ¬Ö®¼äµÄ¼ä¸
+;window = 0,0, 319, 239 ;Õû¸ö±³¾°µÄ´óÐ¡
+;windowdelta = 0,0      ;Õû¸ö±³¾°Ïà¶ÔÓÚ¾µÍ·µÄÒÆ¶¯ËÙ¶È
+
+
+[BG 0]                  ;×ûÑ×²Ò»°ãÀ´ËµÍ¬ÔÚÈËÎóµÄÍ¼²ãÐ´ÔÚÇ°ÃæµÄ¸¿º
+type = anim           ;±³¾°ÀàÐÍÎªNORMAL
+actionno = 1       
+mask = 0                ;²»Çå³Í¸Ã÷É«
+start = 0, 0            ;¿ªÊ¼×ø±ª0,0
+delta = .6,.6           ;ÓÉÓÚÇ°¾°ºÍ±³¾°µÄÒÆ¶¯ËÙ¶È²»Ò»Ñù£¬ÕâÑù²ÅÓÐ±³¾°²ÅÓÐ²ã´Î¸Ð¡£
+                        ;Ò»°ã¼ÆËã·½·¨ÊÇ±³¾°¿úÒÈ³ÒÔÇ°¾°µÄ¿úÒÈ¡£
+[BG 1]
+type  = normal          
+spriteno = 0,0          ;¶ÔÓ¦Í¼Æ¬±àºÅÎª0,1
+start = 0, 0            ;¿ªÊ¼×ø±ª0,0 
+delta = 1,1             ;Ïà¶ÔÒÆ¶¯ËÙ¶È
+mask = 1  
+
+[Begin action 1]
+0,1,0,0,12
+0,2,0,0,12
+0,4,0,0,12
+0,2,0,0,12
+0,1,0,0,12
+0,2,0,0,8
+0,4,0,0,8
+0,2,0,0,8
+0,1,0,0,8
+0,2,0,0,28
+0,4,0,0,8
+0,2,0,0,8

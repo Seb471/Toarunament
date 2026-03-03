@@ -1,0 +1,148 @@
+<#f0f000>Movelist :</>
+
+Smoking Lola				_D_DF_F^S
+(You become invincible after 1,5 seconds
+The catch is that you take constant damage
+and you can die from said move
+(because you are smoking))
+
+Run					_F_F
+Back Hop				_B_B
+
+Spot Dodge				^LP / ^X
+Hair Stab				_F^LP / _F^X
+Charge up				^MP / ^Y
+
+Hair Whip				^LK / ^A
+Detonation				^MK / ^B
+(can be held for greater area/damage)
+Slash				^HK / ^C
+(makes opponent fly and fall at the final hit)
+
+Hair Flick				^LK / ^A (crouch)
+Low Kick				^MK / ^B (crouch)
+(trips the opponent)
+Hair Spike (mid)			^HK / ^C (crouch)
+
+Hair Drill				^LK / ^A (air)
+(hold for more air time)
+Air Blasts				^MK / ^B (air)
+Hair Beyblade				^HK / ^C (air)
+(hold for more air time)
+
+Hair Thrust				_F^MK / _F^B
+Hair Wave				_F^HK / _F^C 
+Double Kick				_DF^MK / _DF^B (crouch)
+Hair Spike (close)			_DB^HK / _DB^C (crouch)
+Hair Spike (far)			_DF^HK / _DF^C (crouch)
+Hair Pierce				_D^HK / _D^C (air)
+
+
+The Second call: thy name is LSRAPHM (Straight)
+_D_DF_F^LK / _D_DF_F^A
+The Second call: thy name is LSRAPHM (diag mid)
+_D_DF_F^MK / _D_DF_F^B
+<#00ff00>Lvl-1</>
+The Second call: thy name is LSRAPHM (3 Diag)
+_D_DF_F^HK / _D_DF_F^C
+
+The Second call: thy name is LSRAPHM (Straight Up)
+_D_DB_B^LK /_D_DB_B^A
+The Second call: thy name is LSRAPHM (2 Diag Up)
+_D_DB_B^MK / _D_DB_B^B
+<#00ff00>Lvl-1</>
+The Second call: thy name is LSRAPHM (3 Diag Up)
+_D_DB_B^HK / _D_DB_B^C
+
+
+<#00ff00>Lvl-2</>
+True Second call: thy name is LSRAPHM
+_F_DF_D_DB_B^HK / _F_DF_D_DB_B^C
+
+
+Knockout spell (close)			_D_D^LK / _D_D^A
+Knockout spell (mid)			_D_D^MK / _D_D^B
+<#00ff00>Lvl-1</>
+True Knockout spell
+_D_D^HK / _D_D^C
+
+Demon Wings (Short)			_F_D_DF^LK / _F_D_DF^A
+Demon Wings (Long)			_F_D_DF^MK / _F_D_DF^B
+<#00ff00>Lvl-1</>
+Demon Wings  EX				_F_D_DF^HK / _F_D_DF^C
+
+<#00ff00>Lvl-2</>
+Ballistic Trajectory
+_B_D_DB^HK / _B_D_DB^C
+
+<#00ff00>Lvl-3</>
+<#ff0000>MAGICK: FLAMING_SWORD</>
+_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+<#00ff00>Lvl-5</>
+<#ff0000>MAGICK: FLAMING_SWORD EX</>
+_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C (hold)
+(If the opponent dies from it, Japan gets nuked)
+
+<#00f0f0>Index (John Pen Mode) Assist System :</>
+
+Chapter 11, Verse 2			^HP / ^Z
+(Index Swords)
+_! Hold less than 1 second = 1 sword
+_! Hold between 1 and 2 seconds = 3 swords
+_! Hold between 2 and 3 seconds = 5 swords
+
+Chapter 32, Verse 44			^HP / ^Z
+_! After holding 3 seconds
+(Index Impalement)
+Tracks P2's whereabouts with 2 sets of swords,
+each set deals 1/4 P2's current lifepoints
+worth of damage
+
+Chapter 8, Verse 25			_D_DF_F^HP / _D_DF_F^Z
+(Index Red Beams)
+A beam with a small charge time where Index is
+vulnerable to any attack.
+If the opponent defends against it, he/she has
+small chip damage
+
+Chapter 10, Verse 3			_D_D^HP / _D_D^Z
+(Index Earthquake)
+Index assends upwards to strike black-red lightning.
+It has the same propreties as
+Accel's earthquake lvl-1 super.
+If any opponent is on the ground, they'll fall
+
+<#00ffff>Local Weapon : "St. George's Sanctuary"</>
+_F_D_DF^HP / _F_D_DF^Z
+(Index Beam)
+Index charges for a long time to unleash
+a very annoying beam.
+She is vulnerable all throughout the move.
+In order for this move to be effective you'll need to
+take care of the adversary while she is charging.
+Once she charged it and unleashed it,
+it's the perfect moment to charge power
+and unleash any Supers/Hypers available.
+
+It can also be extended by mainting ^HP / ^Z to get to :
+<#00ff00>Lvl-2</>
+<#ff0000>Stage 2 : Eli Eli Lama Sabachtani</>
+("My God, my God, why have you forsaken me ?"
+Matthew 27:45-46)
+The blue beam gets an additional red beam on top
+signaling the second stage of it.
+It is unblockable because it is the reward after
+waiting for so long.
+
+However do note that for this Local weapon to work
+in general, you need to be at the right place
+at the right time
+
+
+
+Credits :
+
+Writting (movelist) : Seb368
+Coding : Seb368
+Spritework : ebora, (some sprites were also taken
+from other toaru works)

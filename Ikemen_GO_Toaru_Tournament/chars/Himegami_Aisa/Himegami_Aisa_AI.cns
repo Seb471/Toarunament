@@ -1,0 +1,654 @@
+
+[Statedef -3]
+
+;AI
+[State -3, AI起動用]
+	Type = VarSet
+	TriggerAll = Var(59) = 0 && RoundState = [1,2]
+	TriggerAll = helper(20000),var(0) = 1
+	Trigger1 = Command = "CPU1"
+	Trigger2 = Command = "CPU2"
+	Trigger3 = Command = "CPU3"
+	Trigger4 = Command = "CPU4"
+	Trigger5 = Command = "CPU5"
+	Trigger6 = Command = "CPU6"
+	Trigger7 = Command = "CPU7"
+	Trigger8 = Command = "CPU8"
+	Trigger9 = Command = "CPU9"
+	Trigger10 = Command = "CPU10"
+	Trigger11 = Command = "CPU11"
+	Trigger12 = Command = "CPU12"
+	Trigger13 = Command = "CPU13"
+	Trigger14 = Command = "CPU14"
+	Trigger15 = Command = "CPU15"
+	Trigger16 = Command = "CPU16"
+	Trigger17 = Command = "CPU17"
+	Trigger18 = Command = "CPU18"
+	Trigger19 = Command = "CPU19"
+	Trigger20 = Command = "CPU20"
+	Trigger21 = Command = "CPU21"
+	Trigger22 = Command = "CPU22"
+	Trigger23 = Command = "CPU23"
+	Trigger24 = Command = "CPU24"
+	Trigger25 = Command = "CPU25"
+	Trigger26 = Command = "CPU26"
+	Trigger27 = Command = "CPU27"
+	Trigger28 = Command = "CPU28"
+	Trigger29 = Command = "CPU29"
+	Trigger30 = Command = "CPU30"
+	Trigger31 = Command = "CPU31"
+	Trigger32 = Command = "CPU32"
+	Trigger33 = Command = "CPU33"
+	Trigger34 = Command = "CPU34"
+	Trigger35 = Command = "CPU35"
+	Trigger36 = Command = "CPU36"
+	Trigger37 = Command = "CPU37"
+	Trigger38 = Command = "CPU38"
+	Trigger39 = Command = "CPU39"
+	Trigger40 = Command = "CPU40"
+	Trigger41 = Command = "CPU41"
+	Trigger42 = Command = "CPU42"
+	Trigger43 = Command = "CPU43"
+	Trigger44 = Command = "CPU44"
+	Trigger45 = Command = "CPU45"
+	Trigger46 = Command = "CPU46"
+	Trigger47 = Command = "CPU47"
+	Trigger48 = Command = "CPU48"
+	Trigger49 = Command = "CPU49"
+	Trigger50 = Command = "CPU50"
+	Trigger51 = Command = "CPU51"
+	Trigger52 = Command = "CPU52"
+	Trigger53 = Command = "CPU53"
+	Trigger54 = Command = "CPU54"
+	Trigger55 = Command = "CPU55"
+	Trigger56 = Command = "CPU56"
+	Trigger57 = Command = "CPU57"
+	Trigger58 = Command = "CPU58"
+	Trigger59 = Command = "CPU59"
+	Trigger60 = Command = "CPU60"
+	Trigger61 = helper(20000),var(6)
+	IgnoreHitPause = 1
+	var(59) = helper(20000),var(5)
+
+
+;---------------------------------------------------------------------------------------------
+;カウンター
+[State -3,AI ブロー]
+	type = ChangeState
+	value = IfElse(power < 2000,3400,IfElse(power < 3000,3401,3402))
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	triggerall = 1000 <= power	;ゲージチェック
+	triggerall = statetype != A
+	triggerall = inguarddist = 1
+
+	triggerAll = Random <= Var(59) * 100
+
+	trigger1 = ctrl || StateNo = 21
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = var(2) = 1
+	trigger3 = (StateNo = [1000,1900])  ;必殺キャンセル
+	trigger3 = var(2) = 1
+
+[State -3, AI ハリセンC]
+	type = ChangeState
+	value = 3002
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype != A			;空中以外
+	triggerall = Var(23) = 0
+	triggerall = 3000 <= power	;ゲージチェック
+	triggerall = EnemyNear(Var(40)),MoveType = A
+
+	triggerAll = Random <= Var(59) * 100
+
+	trigger1 = ctrl || StateNo = 21
+
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = var(2) = 1
+
+	trigger3 = (StateNo = [1000,1900])  ;必殺キャンセル
+	trigger3 = var(2) = 1
+
+[State -3,AI ダッシュアタックA]
+	type = ChangeState
+	value = 1800
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	triggerall = statetype != A
+	triggerall = EnemyNear(Var(40)),MoveType = A
+	triggerall = P2BodyDist X = [0,30]
+
+	triggerAll = Random <= Var(59) * 10
+
+	trigger1 = ctrl || StateNo = 21
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = var(2) = 1
+
+[State -3, AI 上段]
+	type = ChangeState
+	value = 1200
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype != A			;空中以外
+	TriggerAll = EnemyNear(Var(40)),StateType = A
+	triggerAll = EnemyNear(Var(40)),Vel Y > 0
+	triggerAll = EnemyNear(Var(40)),Pos Y < -70
+	triggerAll = P2BodyDist X = [0,45]
+
+	triggerAll = Random <= Var(59) * 200
+
+	trigger1 = ( (StateNo = [200,699]) && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+
+[State -3, AI 上段]
+	type = ChangeState
+	value = 1010
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype != A			;空中以外
+	TriggerAll = EnemyNear(Var(40)),StateType = A
+	triggerAll = EnemyNear(Var(40)),Vel Y > 0
+	triggerAll = EnemyNear(Var(40)),Pos Y < -70
+	triggerAll = P2BodyDist X = [0,80]
+
+	triggerAll = Random <= Var(59) * 50
+
+	trigger1 = ctrl = 1 || StateNo = 21
+
+;---------------------------------------------------------------------------------------------
+;立ち回り
+[State -3, AI ガード]
+	Type     = ChangeState
+	Value    = 120
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = inguarddist
+	TriggerAll = Ctrl = 1 || StateNo = 21
+
+	trigger1 = Random <= Var(59) * 100 + 500
+	trigger2 = Var(59) = 5
+
+[State -3, AI 歩き]
+	Type     = ChangeState
+	Value    = 21
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = !inguarddist
+	TriggerAll = StateType != A
+
+	TriggerAll = Ctrl
+	TriggerAll = StateNo != 21
+
+	TriggerAll = P2BodyDist X > 10
+
+	Trigger1 = EnemyNear(Var(40)),MoveType = I
+	trigger1 = Random <= Var(59) * 100
+
+	Trigger2 = EnemyNear(Var(40)),StateType = L
+	trigger2 = Random <= Var(59) * 200
+	
+	trigger3 = Random <= Var(59) * 50
+
+	Trigger4 = EnemyNear(Var(40)),MoveType = H
+	trigger4 = Random <= Var(59) * 100
+
+[State -3, AI ダッシュアタック]
+	Type     = ChangeState
+	Value    = 1802
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = !inguarddist
+	TriggerAll = StateType != A
+
+	TriggerAll = Ctrl || StateNo = 21
+	TriggerAll = P2BodyDist X >= 70
+
+	Trigger1 = EnemyNear(Var(40)),MoveType = I
+	trigger1 = Random <= Var(59) * 50 + 300
+
+[State -3,AI 血の香り]
+	type = ChangeState
+	value = IfElse(power < 2000,3300,IfElse(power < 3000,3301,3302))
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	triggerall = 1000 <= power	;ゲージチェック
+	triggerall = statetype != A
+	triggerall = !inguarddist
+	TriggerAll = P2BodyDist X >= 70
+	TriggerAll = var(13) = 0
+	triggerAll = Random <= Var(59) * 50 + 100
+	TriggerAll = var(10) = 1 || var(11) = 1
+
+	trigger1 = ctrl || StateNo = 21
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = var(2) = 1
+	trigger3 = (StateNo = [1000,1900])  ;必殺キャンセル
+	trigger3 = var(2) = 1
+
+;---------------------------------------------------------------------------------------------
+;
+[State -3, AI 石投げ]
+	type = ChangeState
+	value = 1500 + Floor(RANDOM%3)
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = S			;立ち
+	TriggerAll = helper(20000),Var(12) = 0 || Random < Var(59) * 10
+
+	;ランダム
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2BodyDist X >= 120
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 160 + 200
+
+	trigger2 = (stateno = [200,699]) || stateno = 1550
+	trigger2 = Var(2) = 1
+	trigger2 = P2BodyDist X >= 120
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 160 + 200
+
+;---------------------------------------------------------------------------------------------
+;基本攻撃
+[State -3, AI スタンガン]
+	type = ChangeState
+	value = 1700
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = S			;立ち
+
+	;ランダム
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2BodyDist X = [5,20]
+	trigger1 = EnemyNear(Var(40)),StateType != A
+	trigger1 = Random <= Var(59) * 50 + 500
+	trigger1 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+
+[State -3, AI 立ち弱]
+	type = ChangeState
+	value = 200
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = S			;立ち
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [0,10]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 500
+
+	;ガード・喰らい中追撃
+	trigger2 = ( stateno = 200 && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger2 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger2 = P2BodyDist X = [0,10]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+[State -3, AI 立ち中]
+	type = ChangeState
+	value = 210
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = S			;立ち
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [11,15]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 300
+
+	;追撃
+	trigger2 = stateno = 200
+	trigger2 = Var(2) = 1
+	trigger2 = P2BodyDist X = [11,15]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+	;ガード・喰らい中追撃
+	trigger3 = ( stateno = 200 && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger3 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger3 = P2BodyDist X = [11,15]
+	trigger3 = P2BodyDist Y >= -50
+	trigger3 = Random <= Var(59) * 50 + 300
+
+[State -3, AI 立ち強]
+	type = ChangeState
+	value = 220
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = S			;立ち
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [16,30]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 300
+
+	;追撃
+	trigger2 = stateno = [200,210]
+	trigger2 = Var(2) = 1
+	trigger2 = P2BodyDist X = [16,30]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+	;ガード・喰らい中追撃
+	trigger3 = ( (stateno = [200,210]) && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger3 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger3 = P2BodyDist X = [16,30]
+	trigger3 = P2BodyDist Y >= -50
+	trigger3 = Random <= Var(59) * 50 + 300
+
+
+[State -3, AI しゃがみ弱]
+	type = ChangeState
+	value = 400
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = C			;しゃがみ
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [0,10]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 500
+
+	;ガード・喰らい中追撃
+	trigger2 = ( stateno = 200 && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger2 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger2 = P2BodyDist X = [0,10]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+[State -3, AI しゃがみ中]
+	type = ChangeState
+	value = 410
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = C			;しゃがみ
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [11,15]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 300
+
+	;追撃
+	trigger2 = stateno = 400
+	trigger2 = Var(2) = 1
+	trigger2 = P2BodyDist X = [11,15]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+	;ガード・喰らい中追撃
+	trigger3 = ( stateno = 400 && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger3 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger3 = P2BodyDist X = [11,15]
+	trigger3 = P2BodyDist Y >= -50
+	trigger3 = Random <= Var(59) * 50 + 300
+
+[State -3, AI しゃがみ強]
+	type = ChangeState
+	value = 420
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = C			;しゃがみ
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [16,30]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 300
+
+	;追撃
+	trigger2 = stateno = [400,410]
+	trigger2 = Var(2) = 1
+	trigger2 = P2BodyDist X = [16,30]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+	;ガード・喰らい中追撃
+	trigger3 = ( (stateno = [400,410]) && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger3 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger3 = P2BodyDist X = [16,30]
+	trigger3 = P2BodyDist Y >= -50
+	trigger3 = Random <= Var(59) * 50 + 300
+
+
+[State -3, AI ジャンプ弱]
+	type = ChangeState
+	value = 600
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = A			;空中
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [0,10]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 500
+
+	;ガード・喰らい中追撃
+	trigger2 = ( stateno = 200 && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger2 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger2 = P2BodyDist X = [0,10]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+[State -3, AI ジャンプ中]
+	type = ChangeState
+	value = 610
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = A			;空中
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [11,15]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 300
+
+	;追撃
+	trigger2 = stateno = 600
+	trigger2 = Var(2) = 1
+	trigger2 = P2BodyDist X = [11,15]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+	;ガード・喰らい中追撃
+	trigger3 = ( stateno = 600 && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger3 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger3 = P2BodyDist X = [11,15]
+	trigger3 = P2BodyDist Y >= -50
+	trigger3 = Random <= Var(59) * 50 + 300
+
+[State -3, AI ジャンプ強]
+	type = ChangeState
+	value = 620
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype = A			;空中
+
+	;喰らい以外でランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2StateNo != [5000,5600]
+	trigger1 = P2BodyDist X = [16,30]
+	trigger1 = P2BodyDist Y >= -50
+	trigger1 = Random <= Var(59) * 50 + 300
+
+	;追撃
+	trigger2 = stateno = [600,610]
+	trigger2 = Var(2) = 1
+	trigger2 = P2BodyDist X = [16,30]
+	trigger2 = P2BodyDist Y >= -50
+	trigger2 = Random <= Var(59) * 20 + 900
+
+	;ガード・喰らい中追撃
+	trigger3 = ( (stateno = [600,610]) && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger3 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger3 = P2BodyDist X = [16,30]
+	trigger3 = P2BodyDist Y >= -50
+	trigger3 = Random <= Var(59) * 50 + 300
+
+;---------------------------------------------------------------------------------------------
+;
+[State -3, AI 下段]
+	type = ChangeState
+	value = 1210
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype != A			;空中以外
+	TriggerAll = EnemyNear(Var(40)),StateType != A
+
+	;相手立ち時ランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2BodyDist X = [26,35]
+	trigger1 = Random <= Var(59) * 50 + 500
+
+	;追撃
+	trigger2 = Var(2) = 1
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = P2BodyDist X = [26,35]
+	trigger2 = Random <= Var(59) * 20 + 900
+
+	;ガード・喰らい中追撃
+	trigger3 = ( (StateNo = [200,699]) && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger3 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger3 = P2BodyDist X = [26,35]
+	trigger3 = Random <= Var(59) * 50 + 300
+
+[State -3, AI 上段]
+	type = ChangeState
+	value = 1200
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype != A			;空中以外
+	TriggerAll = EnemyNear(Var(40)),StateType = A
+
+	;相手しゃがみ時ランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2BodyDist X = [26,35]
+	trigger1 = Random <= Var(59) * 50 + 500
+
+	;追撃
+	trigger2 = Var(2) = 1
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = P2BodyDist X = [26,35]
+	trigger2 = Random <= Var(59) * 20 + 900
+
+	;ガード・喰らい中追撃
+	trigger3 = ( (StateNo = [200,699]) && Var(2) = 1 ) || ctrl = 1 || StateNo = 21
+	trigger3 = (P2StateNo = [5000,5020]) || (P2StateNo = [120,155]) || (EnemyNear(Var(40)),MoveType = H)
+	trigger3 = P2BodyDist X = [26,35]
+	trigger3 = Random <= Var(59) * 50 + 300
+
+[State -3, AI 電撃]
+	Type     = Helper
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype != A			;空中以外
+	triggerall = StateNo = 1300
+	triggerall = NumHelper(4200) = 0
+	triggerall = MoveContact > 0
+	triggerall = MoveContact < 10
+	trigger1 = Random <= Var(59) * 20 + 900
+
+	helpertype = normal
+	Stateno  = 4200
+	ID       = 4200
+	Postype  = P1
+	Pos      = 62,IfElse(var(29) = 1,-103,-40)
+	Ownpal   = 1
+	Keyctrl  = 0
+	Persistent = 0
+	size.xscale = 0.5
+	size.yscale = 0.5
+
+[State -3, AI ハリセン]
+	type = ChangeState
+	value = 3000
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype != A			;空中以外
+	triggerall = Var(23) = 0
+	triggerall = 1000 <= power	;ゲージチェック
+
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2BodyDist X = [10,70]
+
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = var(2) = 1
+	trigger2 = P2BodyDist X = [10,70]
+
+	trigger3 = (StateNo = [1000,1900])  ;必殺キャンセル
+	trigger3 = var(2) = 1
+	trigger3 = P2BodyDist X = [10,70]
+
+[State -3, AI 岩投げ]
+	type = ChangeState
+	value = IfElse(power < 2000,3100,IfElse(power < 3000,3101,3102))
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	triggerall = 1000 <= power	;ゲージチェック
+	triggerall = statetype != A
+	triggerall = P2BodyDist X = [0,50]
+	triggerall = EnemyNear(Var(40)),StateNo = [5030,5050]
+
+	triggerAll = Random <= Var(59) * 50
+
+	trigger1 = ctrl || StateNo = 21
+
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = var(2) = 1
+
+	trigger3 = (StateNo = [1000,1900])  ;必殺キャンセル
+	trigger3 = var(2) = 1
+
+[State -3, AI ダウン追撃]
+	type = ChangeState
+	value = 1900
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	TriggerAll = statetype != A			;空中以外
+	TriggerAll = EnemyNear(Var(40)),StateType != A
+
+	;ランダム攻撃
+	trigger1 = ctrl || StateNo = 21
+	trigger1 = P2BodyDist X = [0,40]
+	trigger1 = Random <= Var(59) * 100 + 500
+	trigger1 = EnemyNear(Var(40)),Pos Y = 0
+	trigger1 = EnemyNear(Var(40)),StateNo = [5080,5110]
+
+

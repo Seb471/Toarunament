@@ -1,0 +1,188 @@
+;---------------------------------------------------------------------------
+; Jab
+[Statedef 200]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 0                    ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 200                       ;Change animation (Def: no change)
+poweradd = 10                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Knee
+[Statedef 210]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+velset = 0,0
+anim = 210
+sprpriority = 2
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Kick
+[Statedef 220]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+velset = 0,0
+anim = 220
+sprpriority = 2
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = prevstateno = 210
+trigger1 = time = 0
+value = 220
+elem = 4
+;ignorehitpause = 
+;persistent = 
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Low jab
+[Statedef 400]
+type    = C
+movetype= A
+physics = C
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+velset = 0,0
+anim = 400
+sprpriority = 2
+
+[State 400, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl=1
+
+;Low kick
+[Statedef 410]
+type    = C
+movetype= A
+physics = C
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+velset = 0,0
+anim = 410
+sprpriority = 2
+
+[State 400, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl=1
+
+;Sweep
+[Statedef 420]
+type    = C
+movetype= A
+physics = C
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+velset = 0,0
+anim = 420
+sprpriority = 2
+
+[State 400, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl=1
+
+;Air jab
+[Statedef 600]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+anim = 600
+sprpriority = 2
+
+	[State 620,State]
+		Type=VelAdd
+		Trigger1=1
+		y = .45
+
+[State 600,State]
+	Type=ChangeState
+	Trigger1=Pos Y>=0
+	Trigger1=Vel Y >0
+	value=52
+	Ctrl=1
+
+;Air kick
+[Statedef 610]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+anim = 610
+sprpriority = 2
+
+	[State 620,State]
+		Type=VelAdd
+		Trigger1=1
+		y = .45
+
+[State 600,State]
+	Type=ChangeState
+	Trigger1=Pos Y>=0
+	Trigger1=Vel Y >0
+	value=52
+	Ctrl=1
+
+;Air roundhouse kick
+[Statedef 620]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+Poweradd=FVar(11)
+ctrl = 0
+anim = 620
+sprpriority = 2
+
+	[State 620,State]
+		Type=VelAdd
+		Trigger1=1
+		y = .45
+
+[State 600,State]
+	Type=ChangeState
+	Trigger1=Pos Y>=0
+	Trigger1=Vel Y >0
+	value=52
+	Ctrl=1

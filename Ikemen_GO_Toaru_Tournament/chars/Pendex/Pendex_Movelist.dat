@@ -1,0 +1,218 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+Index cannot jump, she has certain moves
+that can enable her to fly instead
+She also doesn't have crouching moves
+
+
+<#f0f000>Normals:</>
+
+Small Shockwave						^LK / ^A
+
+Shockwave  						^MK / ^B
+
+Big Shockwave  						^MK / ^B (Held)
+(Is low)
+
+Explosion						^HK / ^C
+(Wall Bounce)
+
+
+Wing Slap						^LK / ^A (Air)
+
+Wing Shockwave Slap			 		^MK / ^B (Air)
+
+Wind Explosion			 			^HK / ^C (Air)
+(Wall Bounce)
+
+
+
+Sheol Fear				^LP / ^X (Air OK)
+(Can make nearby grounded enemies trip while the
+blue aura is active)
+
+
+Dashes				Dir+ ^MP / Dir +^Y 
+(Air OK)
+
+Wings Jump				_U ^MP / _U ^Y (Ground)
+
+<#00ff00>Lvl-1</>
+Wings Jump Shockwave			_U_U ^MP / _U_U ^Y (Ground)
+
+
+Gauge Charge 						^LK + ^HK / ^A + ^C (Held)
+
+
+Spatial Distortion						^HP / ^Z (On Guard)
+(Air OK)(Pushes away)
+
+Projectile Parry						_B^HP / _B^Z 
+(Air OK)
+
+Physical Parry						_F^HP / _F^Z 
+(Air OK)
+
+<#ffff00>Information about Analyse Install:</>
+Analyse Install is attained when you have done
+7 successful parries (with symbols)
+Depending on which type of parry you did the most,
+the selected parry will be upgraded
+You also get a passive meter gain
+
+Spell Intercept						_B^HP / _B^Z 
+(Air OK)(Projectile Analyse Only)
+
+Sheol Fear Parry					_F^HP / _F^Z 
+(Air OK)(Physical Analyse Only)
+
+Reset Analyse					_D ^LP + ^HP / _D ^X + ^Z 
+(Air OK)(Analyse Install Only)
+
+
+<#ff0000>Specials Supers and Hypers:</>
+
+Short Light Beam		
+_D_DF_F ^LK / _D_DF_F ^A
+(Air OK)
+
+Longer Light Beam		
+_D_DF_F ^MK / _D_DF_F ^B
+(Air OK)
+
+<#00ff00>Lvl-1</>
+Light Beam EX					
+_D_DF_F ^HK / _D_DF_F ^C
+
+
+Pressure Spell						
+_F_D_DF^LK / _F_D_DF^A
+(Overhead)
+
+Strong Pressure Spell						
+_F_D_DF^MK / _F_D_DF^B
+(Overhead)(Hits downed)
+
+<#00ff00>Lvl-1</>				
+Pressure Spell EX					
+_F_D_DF^HK / _F_D_DF^C
+(Overhead)(Hits downed)
+
+
+Swords Summon Quick
+_B_D_DB ^LK / _B_D_DB ^A
+(Air OK)
+(Can be held for up to 3 swords)
+(They hit once)
+
+Swords Summon Longer
+_B_D_DB ^MK / _B_D_DB ^B
+(Air OK)
+(Can be held for up to 3 swords)
+(They hit 3 times)
+
+<#00ff00>Lvl-2</>
+Swords Summon EX
+_B_D_DB ^HK / _B_D_DB ^C
+(Air OK)
+(They hit 5 times)
+
+<#ffff00>Information about Swords:</>
+They will automatically pursue the opponent
+They will automatically dodge incoming attacks
+They can be destroyed if hit while attacking
+A block counts as a hit for the hitcount
+
+
+Short Rooting 						
+_D_D ^LK / _D_D ^A 
+(Command Grab)(Can be jumped over)
+
+Long Rooting					
+_D_D ^MK / _D_D ^B 
+(Command Grab)(Can be jumped over)
+
+<#00ff00>Lvl-1</>
+Rooting EX  					
+_D_D ^HK / _D_D ^C 
+(Command Grab)(Can be jumped over)
+
+
+
+Short Ground Stomp						
+_D_D ^LK / _D_D ^A (Air)
+(Low)
+
+Short Ground Stomp						
+_D ^MP / _D ^Y (Air)
+(Low)
+
+Long Ground Stomp					
+_D_D ^MK / _D_D ^B (Air)
+(Low)(Hits downed)
+
+<#00ff00>Lvl-1</>
+Ground Stomp EX  					
+_D_D ^HK / _D_D ^C (Air)
+(Low)(Hits downed)
+
+
+Dash Attack		~B_F^MP / ~B_F^Y
+
+<#00ff00>Lvl-1</>
+Multiple Wings Stomp 					
+_D_D ^MP / _D_D ^Y (Air)
+(Summons an earthquake that is Low 
+and hits downed)
+
+<#00ff00>Lvl-2</>
+Wings Laser Explosion					
+_U_U ^MP / _U_U ^Y (Air)
+(Ends with no wings)
+
+
+<#00ff00>Lvl-2</>
+Grimoire Poison Hyper					
+_F_DF_D_DB_B ^MK / _F_DF_D_DB_B ^B
+(Analyse Install)
+(Will erase half of the opponent's meter)
+(Can be jumped over)
+
+<#00ff00>Lvl-2</>
+Rain of Fire Arrows					
+_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+(Air OK)
+
+<#00ff00>Lvl-3</>
+Dragon Breath		
+_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C
+(Air OK)
+
+<#00ff00>Lvl-2</>
+    _!Dragon Breath Extension		
+^HK /^C
+(Air OK)(During Dragon Breath)
+
+<#00ff00>Lvl-1</>
+        _!Feathers	
+^HK /^C
+(Air OK)(During Dragon Breath Extension)
+
+
+
+<#00ff00>Lvl-1</>
+    _!Feathers	
+_B^HK /_B^C
+(Air OK)(During Dragon Breath)
+
+
+
+
+
+
+Credits:
+
+Writing : DidiGetsRekt
+
+

@@ -1,0 +1,680 @@
+; KFM's constants and state file.
+; There are comments scattered through this file, so you may like to
+; take a look if would like to learn more about the cns.
+
+[Data]
+;Amount of life to start with
+life = 1000
+power=6000
+;attack power (more is stronger)
+attack = 100
+;defensive power (more is stronger)
+defence = 85
+;Percentage to increase defense everytime player is knocked down
+fall.defence_up = 50
+;Time which player lies down for, before getting up
+liedown.time = 60
+;Number of points for juggling
+airjuggle = 999
+;Default hit spark number for HitDefs
+sparkno = 2
+;Default guard spark number
+guard.sparkno = 40
+;1 to enable echo on KO
+KO.echo = 0
+;Volume offset (negative for softer)
+volume = 0
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 0
+FloatPersistIndex = 0
+
+[Size]
+xscale = 1           ;Horizontal scaling factor.
+yscale = 1           ;Vertical scaling factor.
+ground.back = 15     ;Player width (back, ground)
+ground.front = 16    ;Player width (front, ground)
+air.back = 12        ;Player width (back, air)
+air.front = 12       ;Player width (front, air)
+height = 60          ;Height of player (for opponent to jump over)
+attack.dist = 160    ;Default attack distance
+proj.attack.dist = 90 ;Default attack distance for projectiles
+proj.doscale = 0     ;Set to 1 to scale projectiles too
+head.pos = -5, -90   ;Approximate position of head
+mid.pos = -5, -60    ;Approximate position of midsection
+shadowoffset = 0     ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
+
+[Velocity]
+walk.fwd  = 1.1    ;Walk forward
+walk.back = -1.6    ;Walk backward
+run.fwd  = 6, 0    ;Run forward (x, y)
+run.back = -4.5,-3.8 ;Hop backward (x, y)
+jump.neu = 0,-10.4    ;Neutral jumping velocity (x, y)
+jump.back = -2.78   ;Jump back Speed (x, y)
+jump.fwd = 3       ;Jump forward Speed (x, y)
+runjump.back = -2.55,-8.1 ;Running jump speeds (opt)
+runjump.fwd = 4,-8.1      ;.
+airjump.neu = 0,-8.1      ;.
+airjump.back = -2.55      ;Air jump speeds (opt)
+airjump.fwd = 2.5         ;.
+air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
+air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
+air.gethit.airrecover.add = 0,-4.5    ;Velocity offset for air recovery (x, y) **MUGEN 1.0**
+air.gethit.airrecover.back = -1       ;Extra x-velocity for holding back during air recovery **MUGEN 1.0**
+air.gethit.airrecover.fwd = 0         ;Extra x-velocity for holding forward during air recovery **MUGEN 1.0**
+air.gethit.airrecover.up = -2         ;Extra y-velocity for holding up during air recovery **MUGEN 1.0**
+air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during air recovery **MUGEN 1.0**
+
+[Movement]
+airjump.num = 0       ;Number of air jumps allowed (opt)
+airjump.height = 35   ;Minimum distance from ground before you can air jump (opt)
+yaccel = .52          ;Vertical acceleration
+stand.friction = .85  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching
+stand.friction.threshold = 0.9          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
+crouch.friction.threshold = .05       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
+air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
+air.gethit.groundrecover.ground.threshold = -20 ;Y-position below which falling player can use the recovery command **MUGEN 1.0**
+air.gethit.groundrecover.groundlevel = 10   ;Y-position at which player in the ground recovery state touches the ground **MUGEN 1.0**
+air.gethit.airrecover.threshold = -1  ;Y-velocity above which player may use the air recovery command **MUGEN 1.0**
+air.gethit.airrecover.yaccel = .35    ;Vertical acceleration for player in the air recovery state **MUGEN 1.0**
+air.gethit.trip.groundlevel = 15      ;Y-position at which player in the tripped state touches the ground **MUGEN 1.0**
+down.bounce.offset = 0, 20            ;Offset for player bouncing off the ground (x, y) **MUGEN 1.0**
+down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing off the ground **MUGEN 1.0**
+down.bounce.groundlevel = 12          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
+down.friction.threshold = .05         ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
+
+;Default language victory quotes (optional).  **MUGEN 1.0**
+;If this section is included, the default language victory quotes must be in English.
+[Quotes]
+; Up to 100 victory quotes can be specified per language (victory0 - victory99)
+victory1 = "Is it so bad...for a m-monster to protect someone!?"
+victory2 = "Even if... you don't understand... I'll always be at your side..."
+victory3 = "My body is... made of the power of 2.3 million people..."
+victory4 = "If you touch my friends, I will become your enemy even if it means mutual destruction."
+
+
+
+;---------------------------------------------------------------------------
+; Variable usage:
+; This is a record of the variables that KFM uses. Keeping a record of your
+; variable usage helps you avoid careless mistakes later.
+; var(1)  - Used in kfm.cmd for combo condition (updated every tick)
+; var(2)  - Used in Kung Fu Throw (state 800) to remember if fwd was being
+;           held (remembered from state 800 through state 810).
+
+
+;---------------------------------------------------------------------------
+; Lose by Time Over
+; CNS difficulty: basic
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+
+[State 2000,Voice]
+		Type=playSnd
+		Trigger1=time=0
+		value=170,10+(random%2)
+		channel=0
+		ignorehitpause=1
+		persistent=0
+
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add ;none, add, addalpha, add1, sub
+alpha = cond(time>20,256-(time-20)*2,256),cond(time>20,0+(time-20)*2,0)
+ignorehitpause = 1
+;persistent = 
+
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Win state decider
+; CNS difficulty: basic
+[Statedef 180]
+type = S
+
+[State 180, 1]
+type = ChangeState
+trigger1 = random%2=0
+trigger2=wintime
+value = 181
+
+[State 180, 1]
+type = ChangeState
+trigger1 = random%2=1
+triggerall=!wintime
+value = 182
+
+
+;---------------------------------------------------------------------------
+; Win pose 1 - Pose
+; CNS difficulty: basic
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+[State 2000,Voice]
+		Type=playSnd
+		Trigger1=time=0
+		value=180,0+var(2)=1
+		channel=0
+		ignorehitpause=1
+		persistent=0
+
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 181, 特殊効果] 
+type = AssertSpecial
+trigger1 = Time <=200
+flag = RoundNotOver
+
+
+;------------------------
+
+;Win Pose 2 - Worry
+[Statedef 182]
+type = S
+ctrl = 0
+velset = 0,0
+
+;Turn
+[State 0, 1]
+type = ChangeAnim
+trigger1 = 0;((enemynear(0),pos X)-pos X*facing) <-10
+trigger1=anim!=5 
+value = 5
+persistent=0
+
+[State 0, Turn]
+type = Turn
+;trigger1 = p2bodydist X < 0 
+trigger1= anim = 5 && animelem=2
+;ignorehitpause = 
+;persistent = 
+persistent=0
+
+
+[State 20, 1]
+type = VelSet
+trigger1 = abs(pos X - enemynear(0),pos X)  >20
+x = const(velocity.walk.fwd.x)
+
+[State 20, 3]
+type = ChangeAnim
+triggerall = vel x > 0
+trigger1 = Anim != 20 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 20
+
+[State 20, 1]
+type = VelSet
+trigger1 =abs(pos X - enemynear(0),pos X)  <=20
+x = 0
+
+[State 20, 3]
+type = ChangeAnim
+trigger1 = abs(pos X - enemynear(0),pos X) <=20
+trigger1 = Anim != [10,11]
+value = 10
+persistent=0
+
+[State 20, 3]
+type = ChangeAnim
+trigger1 = anim=10
+trigger1 = animtime=0
+value = 11
+persistent=0
+
+[State 2000,Voice]
+		Type=playSnd
+		Trigger1=anim=11
+		value=182,0
+		channel=0
+		ignorehitpause=1
+		persistent=0
+
+[State 181, 特殊効果] 
+type = AssertSpecial
+trigger1 = Time <=270
+trigger2=anim!=11
+flag = RoundNotOver
+
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Introduction
+; CNS difficulty: basic
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 190
+velset = 0,0
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = RoundState = 0
+value = 190
+
+[State 2000,Voice]
+		Type=playSnd
+		Trigger1=time=0
+		value=190,0+(random%4)
+		channel=0
+		ignorehitpause=1
+		persistent=0
+
+
+[State 191, 2] ;Assert this until you want "round 1, fight" to begin
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = time>=135
+value = 191
+persistent=0
+
+[State 191, 3] ;Change to stand state when done
+type = ChangeState
+trigger1=anim=191
+trigger1 = AnimTime = 0
+value = 0
+
+
+;---------------------------------------------------------------------------
+; Taunt
+; CNS difficulty: easy
+[Statedef 195]
+type = S
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = Time = 40
+value = 1
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+;Gives 1000 at the start of the battle
+[State -2,初期ゲージ設定]
+	Type= PowerSet
+	trigger1 = roundsexisted = 0 && roundstate = 0 && roundno = 1;
+	value = 1000 ; 0〜6000で設定可能 1000単位で1本 デフォルトは1000
+
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 300
+Value = 0.8
+IgnoreHitPause = 1
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 150
+Value = 0.6
+IgnoreHitPause = 1
+
+[State 0, Width]
+type = Width
+trigger1 = stateno!=[2000,3999]
+trigger2=stateno!=775
+edge = 15,0
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+;Install Trigger Activation
+[State -2];ループ
+ 	type = Varset
+	triggerall=var(3)=0
+	triggerall=var(2)=0
+ 	trigger1=!alive
+	trigger1=roundstate>=2
+	trigger1=teammode=single
+	trigger2 = teammode!=single
+	trigger2 = life<lifemax*0.5
+	trigger3 =stateno=170
+ 	var(3)=1
+	ignorehitpause = 1
+
+;Install Changestate
+[State -2];ループ
+ 	type = Changestate
+	triggerall=var(3)=1
+	triggerall=var(2)=0
+	triggerall=stateno!=900
+	triggerall=statetype!=A
+	triggerall=alive
+	triggerall=roundstate=2
+	trigger1= (var(14)>10)
+	trigger1 = (var(14)<80)
+	trigger1 = teammode=single
+	trigger2 = teammode!=single
+	trigger2 = life<lifemax*0.5
+	trigger2=ctrl
+ 	value=900
+	ignorehitpause = 1
+
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = var(2)=1
+trigger1=roundstate<2
+source = 1,1
+dest = 2,palno
+;persistent=0
+
+
+
+
+[State 0, VelSet]
+type = VarSet
+trigger1 = roundstate!=2
+;trigger1= (gametime>(var(14)+60))
+var(14) = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VelSet]
+type = VarAdd
+trigger1 = roundstate=2
+trigger1= var(14)>=0
+trigger1= var(14)<=300
+var(14) = 1
+ignorehitpause = 1
+persistent = 1
+
+
+
+;Air dash count reset
+[State -2];ループ
+ 	type = Varset
+ 	triggerAll = var(17)
+	trigger1 = statetype != A
+	trigger2 = movetype = H
+ 	var(17)=0
+	ignorehitpause = 1
+
+[State -2];Jump Var Reset
+Type= VarSet
+trigger1=statetype!=A
+var(23)=0
+
+[State -2];Jump Var Add
+Type= VarAdd
+trigger1=anim=40
+trigger1=animtime=1
+v=23
+value=1
+
+
+;Var(1) reset
+[State -2]
+	type = Varset
+	triggerall = var(1)
+	trigger1 = movetype = H
+	trigger2 = stateno = [0,160]
+	;trigger2 =  stateno != 2400   
+	;trigger2 = stateno != [1300,1305] 
+	;trigger2 = stateno != [1200,1205] 
+	;trigger2 = stateno != 2200 
+	;trigger2 = stateno != 2500
+	var(1) = 0
+	ignorehitpause = 1
+
+;DBFZ Dash counter reset
+[State -2]
+	type = Varset
+	triggerall = var(9)
+	trigger1 = movetype = H
+	trigger2 = stateno = [0,160]
+	;trigger2 =  stateno != 2400   
+	;trigger2 = stateno != [1300,1305] 
+	;trigger2 = stateno != [1200,1205] 
+	;trigger2 = stateno != 2200 
+	;trigger2 = stateno != 2500
+	var(9) = 0
+	ignorehitpause = 1
+
+;DamageDampening Reset
+[State -2]
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fv = 0
+	value = 1
+	ignorehitpause = 1
+
+
+[State -2];補正
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fv = 10
+	value = 1
+	ignorehitpause = 1
+
+;Cornerpush reset
+[State -2];ヒットバック
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fvar(11)=0
+	ignorehitpause = 1
+
+;Regen Store Life Trigger
+[State -2];補正
+	type = Varset
+	trigger1 = movetype = H
+	trigger1 = stateno !=[120,155]
+	trigger1=fvar(29)<8
+	fv = 29
+	value = ifelse(fvar(29)=0,9,8)  ;0 is var(30), 1 is var(31), 8/9 is reassign
+	ignorehitpause = 1
+
+;Regen Store Life Trigger Stop
+[State -2];補正
+	type = Varset
+	trigger1 = movetype != H
+	trigger1 = stateno !=[120,155]
+	trigger1=fvar(29)>=8
+	fv = 29
+	value = ifelse(fvar(29)=8,0,1)
+	ignorehitpause = 1
+
+
+
+;Regen Store Life
+[State -2];補正
+	type = Varset
+	trigger1 = movetype != H
+	trigger1 = stateno !=[120,155]
+	trigger1=fvar(29)=1
+	trigger2=roundstate=0
+	fv = 30
+	value = life
+	ignorehitpause = 1
+
+;Regen Store Life 2
+[State -2];補正
+	type = Varset
+	trigger1 = movetype != H
+	trigger1 = stateno !=[120,155]
+	trigger1=fvar(29)=0
+	trigger2=roundstate=0
+	fv = 31
+	value = life
+	ignorehitpause = 1
+
+;UIHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(30000) = 0
+	trigger1 = time = 1
+	stateno = 30000
+	ID = 30000
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "gauge"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+
+
+[State 0, NotHitBy]
+type = varset
+trigger1 = var(4)!=0
+trigger1=numhelper(725)=0
+trigger1=numhelper(726)=0
+var(4)=0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = stateno!=700
+id = 700
+;ignorehitpause = 
+;persistent = 
+
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+[Statedef -3]
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = var(4)!=0
+value = ,AP
+;value2 = S,NA
+time = 2
+ignorehitpause = 1
+;persistent = 
+
+
+;Regen
+[State -3];補正
+	type = Lifeadd
+	triggerAll = alive
+	triggerall = movetype != H
+	
+	triggerall = gametime%4=0
+	triggerall=!ishelper
+	trigger1=fvar(29)=0
+	trigger1 = life < fvar(30)
+	trigger2=fvar(29)=1
+	trigger2 = life < fvar(31)
+	value = 1
+	absolute=1
+	ignorehitpause = 1
+	persistent=1
+
+;Gethit sounds
+[State -3, Get Hit Sounds]
+type = PlaySnd
+triggerall = alive && time = 1
+trigger1 = (stateno = 5000 || stateno = 5010 || stateno = 5020 || stateno = 5070 || stateno = 5080)
+trigger1 = enemynear,hitdefattr = SCA,NA,SA,HA
+value = S5000,0+(random%5)
+volume = 200
+channel = 0
+
+;KO Sound
+[State -3, 変数 KOボイス重複スイッチ初期化]
+type = VarSet
+trigger1 = var(43)
+trigger1 = Alive
+var(43) = 0
+ignorehitpause = 1
+
+[State -3, KOボイス]
+type = playsnd
+trigger1 = !Alive
+trigger1 = !Var(43)
+;trigger1 = time = 0
+value = S170,0+(random%(2+var(2)=1))
+channel = 2
+lowpriority = 1
+ignorehitpause = 1
+
+[State -3, 変数 KOボイス重複防止]
+type = VarSet
+trigger1 = !var(43)
+trigger1 = !Alive
+var(43) = 1
+ignorehitpause = 1
+
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = roundstate = 2 && time = 0 && stateno = 0
+channel = 2
+;ignorehitpause = 
+;persistent = 
+
+
+;var(2) is to know if the install is active
+;var(3) is to know if the install is to be activated
+;var(4) is the scales counter
+
+;var(7) is the button mash counter
+;var(8) is the spam counter
+;var(9) is the DBFZ dash counter
+
+;var(13) is the command grab hold var
+

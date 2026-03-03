@@ -1,0 +1,16 @@
+﻿;======================================================================
+; Customizable
+;======================================================================
+[Statedef -3]
+
+[State -3, Refight]                     ;= Option to Re-fight bonus  ==
+type = varset                           ;= Change it here if you want =
+trigger1 = Stateno=5900                 ;===== Current level is =======
+
+var(20) =                                          0
+
+                                               ;0 = No re-fight ._.
+                                               ;1 = RE-FIGHT!
+
+
+;======================================================================

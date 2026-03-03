@@ -1,0 +1,247 @@
+<#f0f000>Movelist :</>
+
+
+<#f0f000>Information :</>
+
+Tsuchimikado is a setup/shoto character
+with multiple installs at his disposal.
+
+In his gameplan, he has to keep track of
+multiple elements :
+_`<#0000ff>Magic</> <#ff0000>Recoil</>
+_`<#00ff77>Origamis</>
+_`<#00ffff>Auto Rebirth</>
+
+When he enters one of the installs at his disposal
+to go all out,
+he uses his magic name of <#00bb00>Fallere825</>
+
+<#ff00ff>About</> <#0000ff>Magic</> <#ff0000>Recoil</> <#ff00ff>:</>
+Tsuchimikado is an esper-magician hybrid, so when 
+he uses <#0000ff>Magic</>, he loses HP.
+It also fills up the <#0000ff>Magic</> <#ff0000>Recoil</> meter, if it reaches 
+the max, he loses HP and also is stunned for a bit.
+The more <#0000ff>Magic</> used in a combo, the faster the 
+<#0000ff>Magic</> <#ff0000>Recoil</> meter will fill up.
+
+All <#0000ff>Magic</> moves have this effect.
+
+<#00ff77>About Origamis :</>
+Tsuchimikado has 4 origamis at his disposal :
+<#000000>_`Genbu (Black, Water)</> 
+<#ffffff>_`Byakko (White, Metal)</>
+<#ff0000>_`Suzaku (Red, Fire)</>
+<#0000ff>_`Seiryu (Blue, Wood)</>
+
+With them he can enhance 4 of his moves in his toolkit.
+Upon activating the enhancement of the moves in question,
+they'll consume the respective origami.
+
+He can also consume all of them for entering in 2 of
+his 3 installs which will be later explained upon.
+
+<#00ffff>About Auto Rebirth :</>
+Tsuchimikado's esper ability is Auto Rebirth
+and is split into 2 passive mechanics :
+_`When he loses HP because of magic, it will slowly
+heal back to where it was before.
+The healing is stopped whenever Tsuchimikado is
+hit, or fills the <#0000ff>Magic</> <#ff0000>Recoil</> bar.
+_`All the time, he heals exponentially faster
+the lower the health he has.
+If he has full health, he is healing slower over time.
+The closer his health is to 0, the faster it heals.
+There is a slight buff if he enters one of the installs
+he has available
+
+
+<#f0f000>Installs :</>
+
+<#ffffff>_`Custom Combo :</> Install where you can combo
+anything into anything.
+You lose the install if you get hit while in it.
+You lose the install automatically after a certain time.
+
+<#0077ff>_`Heat Mode :</> Install which enables you to use
+unlimited supers during a certain time
+and also unlock the nerfed version of the hyper.
+You lose the install automatically after a certain time.
+You also lose the install automatically
+after unleashing the hyper.
+
+<#00ffff>_`Super Heat Mode :</> Install which enables you to
+unlock the true version of the hyper.
+You lose the install automatically if the conditions
+of entering it are no longer met.
+
+<#f0f000>Additional Information about Installs :</>
+
+During any install, Tsuchimikado will regenerate his health
+faster as part of his second <#00ffff>Auto Rebirth</> mechanic.
+For <#ffffff>Custom Combo</> and <#0077ff>Heat Mode</> it'll be 1 notch faster.
+For <#00ffff>Super Heat Mode</> it'll be 2 notches faster.
+The maximum of faster notches is 2.
+
+You can stack 2 installs of different type together.
+So you can't have <#0077ff>Heat Mode</> while in <#00ffff>Super Heat Mode</>
+and vice versa.
+
+While entering into another install, you refill the bar of
+the previous install if it had one.
+
+
+<#f0f000>XYZs :</>
+
+Taunt									^S
+(Is cancellable into dodges, feints,
+supers, setups and Headbutt for feinting)
+
+Throw									_B / _F  _+ ^LP / ^X
+_!Slam									_D
+<#ff7700>Consume :</> <#ffffff>Byakko</>
+<#0000ff>Magic</> effect
+_!Ushi no Koku Mairi					^LP / ^X (hold)
+<#ffffff>(White Ceremony)</>
+
+<#0000ff>Magic</> effect
+Blue Spell								^LP / ^X 
+(Magic Parry)
+<#ff7700>Consume :</> <#0000ff>Seiryu</>
+<#0000ff>Magic</> effect
+_!Blue Spell Extension					^LP / ^X (hold)
+<#0000ff>(Blue Ceremony)</>
+
+<#ff7700>Consume :</> <#000000>Genbu</>_+<#ffffff>Byakko</>_+<#ff0000>Suzaku</>_+<#0000ff>Seiryu</>
+<#ffffff>Custom Combo</>				^LP_+^LK / ^X_+^A
+<#ff7700>Consume :</> <#000000>Genbu</>_+<#ffffff>Byakko</>_+<#ff0000>Suzaku</>_+<#0000ff>Seiryu</>_+<#00ff00>Lvl-1</>
+<#0077ff>Heat Mode</>					^LP_+^HK / ^X_+^C
+<#00ff77>At Hand :</> <#000000>Genbu</>_+<#ffffff>Byakko</>_+<#ff0000>Suzaku</>_+<#0000ff>Seiryu</>_+<#00ff00>Lvl-5</>
+<#00ffff>Super Heat Mode</>				Conditions met
+
+<#000000>Genbu</>						_D_DF_F^LP / _D_DF_F^X
+<#ffffff>Byakko</>						_D_D^LP / _D_D^X
+<#ff0000>Suzaku</>						_D_DB_B^LP / _D_DB_B^X
+<#0000ff>Seiryu</>						_F_D_DF^LP / _F_D_DF^X
+
+Spot Dodge								^MP / ^Y
+Forward Dodge							_F^MP / _F^Y
+
+Dodge Feint								^HP / ^Z
+Ducking Step							_F^HP / _F^Z
+Back Ducking Step						_B^HP / _B^Z
+
+Expelled Breath							^LK / ^A during Feint Series
+Evolved Clever Feet						^MK / ^B during Feint Series
+Go To Sleep								^HK / ^C during Feint Series
+
+About the Feint Series :
+This kind of series of movements and attacks can be
+thought of like the mechanic Thor has in which he has
+moves available only when he is running.
+Here, the same principle applies but only from feints.
+Where Dodge Feint is a sort of spot dodge and Ducking Step
+is a budget Dandy Step Toaru edition, which actually ducks.
+Dodge Feint and Ducking Step don't have invincibility.
+Back Ducking Step has invincibility on startup.
+You can cancel Dodge Feint into Ducking Step
+but not vice versa.
+You can cancel into ^K / ^A, ^B or ^C or actual dodges
+
+Charge up								^LK_+^HK / ^A_+^C
+
+
+<#f0f000>Normals:</>
+
+Jab										^LK / ^A
+Elbow									_B^LK / _B^A
+Headbutt								^MK / ^B
+Clever Feet								_B^MK / _B^B
+Gun 									^HK / ^C
+Backdodge into Crouching Gun			_B^HK / _B^C
+
+Low Kick								^LK / ^A (crouch)
+Low Jab									^MK / ^B (crouch)
+Low Sweep  								^HK / ^C (crouch)
+
+Knee									^LK / ^A (air)
+Front Kick			 					^MK / ^B (air)
+Down Punch		 						^HK / ^C (air)
+Down Gun								_D^HK / _D^C (air)
+(Hits downed)
+
+
+<#f0f000>Specials and Supers :</>
+
+<#0000ff>Magic</> effect
+Orange Spell							_D_DF_F^LK / _D_DF_F^A
+(Fire Card)
+<#0000ff>Magic</> effect
+Black Spell								_D_DF_F^MK / _D_DF_F^B (hold)
+(Water Cannon)
+
+<#ff7700>Consume :</> <#000000>Genbu</>
+<#0000ff>Magic</> effect
+Instant Black Spell						_DF_F_DF_F^MK / _DF_F_DF_F^B 
+<#000000>(Black Ceremony)</>
+
+<#00ff00>Lvl-1</>
+<#0000ff>Magic</> effect
+Black Spell								_D_DF_F^HK / _D_DF_F^C 
+(Water Dragon)
+
+Swift Punch								_D_DB_B^LK / _D_DB_B^A
+<#ff7700>Consume :</> <#ff0000>Suzaku</>
+<#0000ff>Magic</> effect
+_!Magic Explosion						^LK / ^A (hold)
+<#ff0000>(Red Ceremony)</>
+Lunge Punch								_D_DB_B^MK / _D_DB_B^B
+<#ff7700>Consume :</> <#ff0000>Suzaku</>
+<#0000ff>Magic</> effect
+_!Magic Explosion						^MK / ^B (hold)
+<#ff0000>(Red Ceremony)</>
+<#00ff00>Lvl-1</>
+Lunge Punch EX	 						_D_DB_B^HK / _D_DB_B^C
+<#ff7700>Consume :</> <#ff0000>Suzaku</>
+<#0000ff>Magic</> effect
+_!Magic Explosion						^HK / ^C (hold)
+<#ff0000>(Red Ceremony)</>
+
+<#0000ff>Magic</> effect
+Small Water Pillar						_D_D^LK / _D_D^A
+(Hits low)
+<#0000ff>Magic</> effect
+Large Water Pillar						_D_D^MK / _D_D^B
+(Hits low and downed)
+<#00ff00>Lvl-1</>
+<#0000ff>Magic</> effect
+Water Pillar Zone						_D_D^HK / _D_D^C
+(Hits low and downed)
+
+Dive Kick Short							_D_DB_B^LK / _D_DB_B^A (air)
+Dive Kick Long							_D_DB_B^MK / _D_DB_B^B (air)
+<#00ff00>Lvl-1</>
+<#0000ff>Magic</> effect
+Magic Dive								_D_DB_B^HK / _D_DB_B^C (air)
+
+
+<#f0f000>Hypers :</>
+
+During <#0077ff>Heat Mode</>
+<#0000ff>Magic</> effect_+instant <#ff0000>Recoil</>
+Red Spell								_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+(Shikigami Pistol)
+(will end <#0077ff>Heat Mode</>)
+
+During <#00ffff>Super Heat Mode</> or low life
+<#00ff00>Lvl-5</>
+<#0000ff>Magic</> effect_+instant <#ff0000>Recoil</>
+True Red Spell							_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+(Shikigami Pistol)
+
+
+
+Credits:
+
+Writing (movelist) : DidiGetsRekt, Seb368
+Coding : DidiGetsRekt, Seb368
+Spritework : Roa (mainly) sprites reworked

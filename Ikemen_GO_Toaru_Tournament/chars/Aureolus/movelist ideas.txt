@@ -1,0 +1,101 @@
+Will meter : 3 lvls of will
+the higher the lvl of will at disposal the stronger the move (which will now be addressed as W1, W2, W3)
+every time a move utilising this meter is performed, the will meter will decrease between 1 and 0.5.
+this is depending on the difference of health between you and the opponent
+(if you have the same health it'll cost 0.75, if the opponent has a health lead on you it'll go closer to 1, closer to 0.5 for vice versa, half of a health bar difference or higher will be point where it'll get to either 1 or 0.5 depending on the situation)
+you can increase your will by attacking the opponent, your will gets decreased the more damage the opponent inflicts you
+
+5x -> Will needle : restores 1 W in exchange of some minor damage
+22x -> EX Will needle : restores max W in exchange of some minor damage and 1 bar of meter which will be referred from now on as lvl-1)
+
+
+236 series gun and sword
+
+step 1 : conjuring gun
+step 2 : loading the gun
+step 3 : shooting the gun (this step can be canceled into other specials)
+
+a -> bullets (used for damage)
+W1 : 1 bullet
+W2 : 5 bullets
+W3 : 10 bullets
+
+b -> sword (used to overwhelm/camp the opponent)
+W1 -> 1 sword launch
+W2 -> 1 sword launch that comes back around after it goes out of the screen
+W3 -> 5 swords that also come back
+you can also hold up to send the sword diagonally up
+
+lvl-1
+c -> gun and swords
+W1 -> 1 bullet and 1 sword
+W2 -> the 10 bullets into the sword
+W3 -> the sword into the 10 swords
+
+214 series miscellanous types
+
+a -> almost instant but short range
+W1 -> electric field
+W2 -> car that drops directly on top of the opponent
+W3 -> guillotines that drop on all of the screen
+
+b -> takes a while to perform but the range is long and the damage bigger
+W1 -> big electric field
+W2 -> road roller that drops directly on top of the opponent
+W3 -> guillotines that drop on all of the screen (now this is more used as a setup instead)
+
+lvl-1
+c -> random bullshit go !
+W1 -> super electric field
+W2 -> ship container
+W3 -> unlimited guillotines (not unlimited but it'll prolly do 3 volleys or smth)
+
+22 series "command" types
+
+a -> changes aureolus in some way
+W1 -> Let me get to you... : tp's to the opponent after his incantation is fully done (while walking)
+W2 -> Let me get to you ! : tp's to the opponent midway through
+W3 -> You won't touch me... : incatation to be able to stop 1 attack (it coats aureolus with a sort of "armour" and if he gets hit once, he'll get away, be invincible, whatever to escape that move)
+
+b -> changes the opponent
+W1 -> Drop down... : drops the opponent down after incatation is performed (when in range of the command ?)
+W2 -> Drop down ! : drops the opponent down midway through
+W3 -> Choke... : chokes the opponent and puts him in a stun state after incatation
+
+lvl-1
+c -> varies
+W1 -> You won't touch me ! : instant version of you don't touch me
+W2 -> Choke ! : instant version of choke
+W3 -> Fly to the sky and get torn to shreds !
+
+health over 25%
+lvl-5
+W3
+41236c
+Die !
+
+Installs :
+
+lvl-2
+Alchemical Imitation
+5z -> copy that lags behind and copies your every move for 5 seconds
+
+lvl-4
+Perfect Will
+22z -> for 5 seconds you have unlimited will and you can spam your 236 series without going through the steps
+
+
+About alchemical imitation :
+Since it's aureolus dummy, I need to replace the 236 series and 214 series in the shadows so that he'd replicate what he does in OT2
+
+Ideas :
+
+214
+One knife throw, if it connects -> stuns opponent and makes them "bleed" gold
+knife barrage (10 one second) -> used for flurry and stacking damage
+pool of gold (entire screen low ?) -> if hit by a 236 -> would produce a spalsh and pour molten rain that would chip
+golden barrier (circular around dummy) ?
+
+236
+overhead arrow ?
+low arrow ?

@@ -1,0 +1,46 @@
+;--| 基本情報 |---------------------------------------------------------------
+:Ver 1.2.0 LastUpdate 2011/07/02
+
+[Info]
+	Name         = "Suzushina Yuriko"  ;キャラクターの名前（必要な項目なので省略不可）
+	DisplayName  = "Suzushina Yuriko (OldVer)"  ;M.U.G.E.Nで実際に表示される名前（省略可能）
+	VersionDate  = 01,18,2011     ;キャラクターの最終更新日（変えなくてもＯＫ）
+	MugenVersion = 01,18,2011     ;キャラクターが動作出来るM.U.G.E.Nの改訂版
+	Author       = "wolf"     ;キャラクターの作成者（必要な項目なので省略不可）
+	Pal.Defaults = 2,1        ;ＣＰＵで出てきた時のカラーパレットの順番
+
+;--| 必要なファイルの設定 |---------------------------------------------------
+[Files]
+	Cmd     = S_Yuriko.cmd       ;コマンドファイルの登録
+	Cns     = S_Yuriko.cns       ;コンスタンツファイルの登録
+	St      = S_Yuriko.cns       ;ステートファイルの登録・最大１１個まで増やせます
+	St1     = S_Yuriko_config.cns
+	St2     = S_Yuriko_N.cns
+	St3     = S_Yuriko_S.cns
+	St4     = S_Yuriko_H.cns
+	St5     = S_Yuriko_Helper.cns
+	St6     = S_Yuriko_AI.cns
+	St7	= S_Yuriko_AI2.cns
+	St8	= S_Yuriko_TAG.cns
+	Movelist = Yuriko_Movelist.dat
+	                        ;（St,St0,St1,St2,St3,St4,St5,St6,St7,St8,St9）
+	                        ;「St」のみ必要な項目なので省略出来ません
+	StCommon = common.cns  ;コモンステートファイルの登録
+	Sprite  = S_Yuriko.sff       ;複数のＰＣＸ画像をまとめたスプライトファイルの登録
+	Anim    = S_Yuriko.air       ;アニメーションファイルの登録
+	Sound   = S_Yuriko.snd       ;複数のＷＡＶＥ音声をまとめたサウンドファイルの登録
+
+;--| カラーパレットファイル |-------------------------------------------------
+	Pal1 = act/S_Yuriko.act  ;Ａボタンで決定した色が使えます
+	Pal2 = act/AccelPalette.act  ;Ｂ
+	Pal3 = act/UiharuPalette.act  ;Ｃ
+	Pal4 = act/S_Yuriko4.act  ;Ｘ
+	Pal5 = act/S_Yuriko5.act  ;Ｙ
+	Pal6 = act/S_Yuriko6.act  ;Ｚ
+
+	Pal7 = act/S_Yuriko.act  ;Ｓ押しながらＡボタンで決定した色が使えます
+	Pal8 = act/S_Yuriko2.act  ;Ｓ押しながらＢ
+	Pal9 = act/S_Yuriko.act          ;Ｓ押しながらＣ
+	Pal10= act/S_Yuriko2.act          ;Ｓ押しながらＸ
+	Pal11= act/S_Yuriko.act          ;Ｓ押しながらＹ
+	Pal12= act/S_Yuriko2.act          ;Ｓ押しながらＺ

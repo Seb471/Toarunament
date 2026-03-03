@@ -1,0 +1,123 @@
+<#f0f000>Moveset :</>
+
+Run					_F_F
+Air Dash			_F_F (air)
+Back Hop			_B_B
+
+Grab 					_B / _F  _+ ^LP / ^X
+
+Spot Dodge				_. / _D _+ ^MP / ^Y
+Roll forward			_F^MP / _F^Y
+Roll backward			_B^MP / _B^Y
+
+Magnetic Pull Forward			_F^HP / _F^Z (Air)
+Magnetic Pull Backwards			_B^HP / _B^Z (Air OK)
+Fall From Magnetic Pull			^LP or ^MP / ^X or ^Y
+
+Magnetic Parry			_F^HP / _F^Z
+(Projectile Only)
+
+Gauge Charge 			^LK + ^HK / ^A + ^C (Held)
+
+<#f0f000>Normals:</>
+
+Low Kick			^LK / ^A
+Swipe Kick			^MK / ^B
+Chaser				^HK / ^C
+Slide Kick			^HK / ^C (while run)
+
+
+Crouching Punch			^LK / ^A (crouch)
+Crouching Kick			^MK / ^B (crouch)
+Crouching Sweep			^HK / ^C (crouch)
+
+Air Jab				^LK / ^A (air)
+Air Punch			^MK / ^B (air)
+Air Kick			^HK / ^C (air)
+Air Axe Kick			_D^HK / _D^C (air)
+
+<#ff0000>Specials, Supers and Hypers:</>
+
+Electric Ball			
+_D_DF_F^LK / _D_DF_F^A
+
+Lightning Spear		
+_D_DF_F^MK / _D_DF_F^B
+
+<#00ff00>Lvl-1</>
+Electric Ball EX			
+_D_DF_F^HK / _D_DF_F^C
+
+
+Iron Sand Sword Rekka		
+_D_DB_B^LK / _D_DB_B^A
+
+    _!Iron Sand Sword Rekka A Route		
+^LK /  ^A
+(Mid)(Drill link)
+
+    _!Iron Sand Sword Rekka B Route		
+^MK /  ^B
+(Overhead)(DP Link)
+
+    _!Iron Sand Sword Rekka Crossup		
+_F^HK /  _F^C
+
+    _!Iron Sand Wave 		
+_B^HK /  _B^C
+
+Iron Sand Drill			
+_D_DB_B^MK / _D_DB_B^B
+
+    _!Iron Sand Drill Followup	
+^MK /  ^B
+(Overhead)
+
+<#00ff00>Lvl-1</>
+Iron Sand Sword EX			
+_D_DB_B^HK / _D_DB_B^C
+
+
+Shoryuken			
+_F_D_DF^LK / _F_D_DF^A
+
+Vertical Lightning Strike		
+_F_D_DF^MK / _F_D_DF^B
+(Makes air opponents bounce)
+
+<#00ff00>Lvl-1</>
+Lightning Strike EX		
+_F_D_DF^HK / _F_D_DF^C
+(More damage on air opponents)
+
+
+Small Elec Zone						
+_D_D ^LK / _D_D ^A 
+
+Medium Elec Zone					
+_D_D ^MK / _D_D ^B 
+
+<#00ff00>Lvl-2</>
+Elec Zone EX				
+_D_D ^HK / _D_D ^C 
+
+
+Air Electric Ball 		_D_DF_F^LK / _D_DF_F^A (air)
+
+Air Electric Ball Straight 		_D_DF_F^MK / _D_DF_F^B (air)
+
+<#00ff00>Lvl-1</>
+Air Lightning Ball EX		_D_DF_F^HK / _D_DF_F^C (air)
+
+
+
+<#00ff00>Lvl-2</>
+Railgun				_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+
+<#00ff00>Lvl-4</>
+Hyper Railgun			_F_DF_D_DB_B^HK / _F_DF_D_DB_B^C
+
+
+Credits :
+
+Writing : DidiGetsRekt, Seb368

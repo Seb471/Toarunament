@@ -1,0 +1,50 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Hamazura Shiage"        ;Name of character
+displayname = "Hamazura Shiage (WIP)" ;Name of character to display
+versiondate = 11,09,2022    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.1          ;Version of M.U.G.E.N character works on (X.XX)
+author = "DidiGetsRekt (Code), HisoNoKami (Sprites)"         ;Character author name
+pal.defaults = 1,2,3,4      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+localcoord = 320,240        ;Local coordinate space width and height
+
+; Files for the player
+[Files]
+cmd     = Hamazura.cmd           ;Command set
+cns     = Hamazura.cns           ;Constants
+st      = Hamazura.cns      
+st1      = Hamazura_N.cns
+st2      = Hamazura_S.cns
+st3      = Hamazura_H.cns
+st4      = Hamazura_Helper.cns
+st5      = Hamazura_Ex.cns     ;States
+Movelist = Hamazura_Movelist.dat
+stcommon = common.cns      ;Common states (from data/ or motif)
+sprite  = Hamazura.sff           ;Sprite
+anim    = Hamazura.air           ;Animation
+sound   = Hamazura.snd           ;Sound
+ai      = Hamazura.ai            ;AI hints data (not used)
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+a = 1 ;Press button X to select palette 1, etc.
+b = 2
+c = 3
+x = 4
+;y = 5
+;z = 6
+;x2 = 7 ;Hold Start and press button X for palette 7, etc.
+;y2 = 8
+;z2 = 9
+;a2 = 10
+;b2 = 11
+;c2 = 12
+
+; Arcade mode
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

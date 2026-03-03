@@ -1,0 +1,282 @@
+;Programs used: MS-Paint, GIMP, Fighter Factory
+
+;Credits:
+;c2000mc for the Metal Slug mountain rips
+;NeoGouki, Dark Saviour and ELECTR0 for other stage rips
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Russia Snowfield"
+displayname = "Russia Snowfield"
+versiondate = 26,06,2019
+mugenversion = 1.0
+author = "Meldo"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -450
+boundright = 450
+boundhigh = -380
+boundlow = 0
+verticalfollow = .8
+floortension = 60
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70
+p1starty = 0            
+p1facing = 1            
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 20
+color = 97,97,50
+yscale = .2
+fade.range = -80,-20
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Dog_Fight.mp3
+
+;-------------------------------------
+[BGdef]
+spr = Dogfight.sff
+debugbg = 0
+;----------
+[BG Sky]
+type = normal
+spriteno = 5,0
+start = 0, 0
+delta = 0, 0
+mask = 1
+
+[BG Moving Clouds 4]
+type  = normal
+spriteno = 7,0
+start = 0, 25
+delta = 0, .02
+mask = 1
+velocity = -.1, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG Moving Clouds 3]
+type  = normal
+spriteno = 7,1
+start = 0, 25
+delta = 0, .03
+mask = 1
+velocity = -.2, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG Moving Clouds 2]
+type  = normal
+spriteno = 7,2
+start = 0, 30
+delta = 0, .05
+mask = 1
+velocity = -.35, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG Moving Clouds 1]
+type  = normal
+spriteno = 7,3
+start = 0, 30
+delta = 0, .07
+mask = 1
+velocity = -.55, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG Mountains 3]
+type = normal
+spriteno = 1,2
+start = -50, 80
+delta = .1, .1
+mask = 1
+
+[BG Mist 3]
+type = normal
+spriteno = 2, 0
+start = 180, 140
+delta = 0, .1
+mask = 1
+trans = addalpha
+alpha = 256, 256
+tile = 1, 0
+tilespacing = 0, 0
+velocity = -.2, 0
+
+[BG Snow 5]
+type = normal
+spriteno = 3, 2
+start = 0, -30
+delta = .25, .15
+mask = 1
+tile = 1, 1
+tilespacing = 0, 0
+velocity = -5.2, 1
+sin.x = -725, -1990
+
+[BG Mountains 2]
+type = normal
+spriteno = 1,1
+start = 250, 90
+delta = .22, .22
+mask = 1
+
+[BG Mist 2]
+type = normal
+spriteno = 2, 0
+start = 180, 165
+delta = 0, .22
+mask = 1
+trans = addalpha
+alpha = 256, 256
+tile = 1, 0
+tilespacing = 0, 0
+velocity = -.2, 0
+
+[BG Snow 4]
+type = normal
+spriteno = 3, 1
+start = 0, 0
+delta = .5, .2
+mask = 1
+tile = 1, 1
+tilespacing = 0, 0
+velocity = -4, 1
+sin.x = -750, -2000
+
+[BG Mountains 1]
+type = normal
+spriteno = 1, 0
+start = 200, 140
+delta = .45, .4
+mask = 1
+
+[BG Mist 1]
+type = normal
+spriteno = 2, 0
+start = 180, 210
+delta = 0, .4
+mask = 1
+trans = addalpha
+alpha = 256, 256
+tile = 1, 0
+tilespacing = 0, 0
+velocity = -.2, 0
+
+[BG Snow 3]
+type = normal
+spriteno = 3, 0
+start = -25, 50
+delta =.60, .65
+mask = 1
+tile = 1, 1
+tilespacing = 0, 0
+velocity = -7, 1.2
+sin.x = -755, -2050
+
+[BG Snow Edge 2]
+type = normal
+spriteno = 0, 2
+start = 300, 218
+delta = .65, .7
+mask = 1
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG Snow Edge 1]
+type = normal
+spriteno = 0, 1
+start = 180, 224
+delta = .75, .75
+mask = 1
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG floor]
+type  = parallax
+spriteno = 0, 0
+start = 0, 206
+delta = .8, .75
+xscale = .5, .75
+yscalestart = 100
+yscaledelta = 1.2
+tile = 1, 0
+
+[BG Mist floor]
+type = normal
+spriteno = 4, 0
+start = 0, 205
+delta = .8, .75
+mask = 1
+trans = addalpha
+alpha = 100, 256
+tile = 1, 0
+tilespacing = 0, 0
+velocity = -3.5, 0
+layerno = 1
+
+[BG Snow 2]
+type = normal
+spriteno = 3, 0
+start = -50, 100
+delta = 1, 1
+mask = 1
+tile = 1, 1
+tilespacing = 0, 0
+velocity = -6, 1.5
+sin.x = -745, -1995
+
+[BG Snow]
+type = normal
+spriteno = 3, 0
+start = 0, 0
+delta =1, 1
+mask = 1
+tile = 1, 1
+tilespacing = 0, 0
+velocity = -5, 1
+sin.x = -750, -2000
+layerno = 1

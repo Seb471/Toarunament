@@ -1,0 +1,28 @@
+; Definition file for kfm
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Mercedes Benz"
+displayname ="Car"
+versiondate=2015-05-11
+mugenversion=
+author=""
+pal.defaults=1,2,3,4,5
+
+; Files for the player
+[Files]
+cmd     =car.cmd
+cns     =car.cns
+sound   =car.snd
+st      =car.cns
+st2=Car3Customizable.cns ;Re-fight option
+stcommon =car.cns
+sprite  =car.sff
+anim    =car.air
+pal1=car.act
+pal2=car2.act
+st1=Car3Customizable.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,1424 @@
+;Charge
+[Statedef 700]
+type     = S
+movetype = I
+physics  = S
+ctrl     = 0
+velset   = 0,0
+anim     = 700
+sprpriority = 1
+
+[State 700, ????????]
+type = PowerAdd
+trigger1 = 1
+value = 5+time/15
+
+[State 700, 効果音]
+type = PlaySnd
+trigger1 = time = 0
+value = 100, 6
+volume = 100
+channel = 0
+
+[State 700, ボイス]
+type = PlaySnd
+trigger1 = time = 0
+value = 50, 0
+volume = 100
+channel = 1
+
+
+[State 700, エフェクト];「テンプレート.txt」参照
+type = Explod
+trigger1=animelem =1
+trigger1 = NumExplod(130) = 0 ;ＩＤナンバー「130」のExplodが画面中に１枚も出ていない時
+anim = 11300
+facing = -1
+postype = p1
+pos = 5,0
+scale = 1,1
+sprpriority = 3
+ownpal = 1
+removetime = -1 ;「-1」なのでアニメーションが終わらず常に繰り返す
+ID = 130
+removeongethit = 1
+
+[State 1100, Voice]
+type = StopSnd
+trigger1 = command != "hold_a"
+trigger1 = command != "hold_c";「hold_c」のコマンドではない時（Ｃボタンが離されたら）
+trigger2 = Power >= powermax
+trigger3 = RoundState != 2
+channel = 0
+
+[State 700, remove]
+Type=RemoveExplod
+Trigger1 = command != "hold_c"
+Trigger1 = command != "hold_a"
+Trigger2 = Power >= powermax
+trigger3=RoundState != 2
+ID = 130
+
+[State 700, ??????]
+type = ChangeState
+triggerall = stateno = 700
+Trigger1 = command != "hold_c"
+Trigger1 = command != "hold_a" ;?hold_c???????????(C?????????)
+trigger2 = Power >= powermax
+trigger3 = RoundState != 2
+value = 0
+ctrl = 1
+
+
+;---------------------------------------------------------------------------
+;Burst Ground
+[Statedef 730]
+type     = S
+movetype = A
+physics = N
+anim     = 3100
+ctrl     = 0
+velset = 0,0
+facep2=1
+
+[State 6300, ]
+		type = NotHitBy
+		trigger1 = 1
+		value = SCA
+
+		ignorehitpause=1
+
+[State 6300,Hitdef]
+		Type=HitDef
+		Trigger1=!MoveContAct
+		Trigger1=!MoveReversed
+		Trigger1=AnimElemTime(3)>=0	
+		attr = S, NA                     ;???????????(s????n????a??????)
+		ID=2300
+		damage = 0                  ;?????(????????????????)
+		animtype = Light                 ;???????????(light/midium/hard/back)????
+		guardflag =                    ;????????(ma????????????)
+		hitflag = MAF                    ;??????????
+		priority = 3, Hit                ;??????(0?? 4?? 7??
+		pausetime = 0, 0                 ;?????????????(?????????)
+		sparkno = -1                     ;??????????????????(????0)
+		sparkxy = -10, -56               ;???????????????(??????)
+		hitsound =  -1                 ;????????(s*,*???????????)
+		ground.type = High               ;?????????(High:???, Low:?, Trip:???)
+		ground.slidetime = 5             ;??????????
+		ground.hittime  = 12             ;?????????(????????)
+		ground.velocity = -18.4,-5             ;????????????????????(x?y?????)
+		airguard.velocity = -18.9,-.8     ;????????????????????(x?y?????)
+		air.type = High                  ;????????????(????)
+		air.velocity = -18.4,-4           ;????????????????????(x?y?????)
+		air.hittime = 12                 ;????????????
+		fall=1
+		fall.recover=0
+		getpower =0
+		givepower =0
+		ground.cornerpush.veloff = 0
+
+[State 740, 画面振動]
+type = EnvShake
+trigger1 = time = 3
+time = 1
+ampl = -3
+phase = 0
+
+[State 730, エフェクト]
+type = Explod
+trigger1 = Animelem = 3
+Postype = p1
+Pos = 0,0
+ownpal=1
+SprPriority = 1
+anim = 12000
+bindtime = 10
+
+[State 720, エフェクト]
+type = Explod
+trigger1 = Animelem = 3
+Postype = p1
+ownpal=1
+Pos = 0,0
+SprPriority = 1
+anim = 6100
+bindtime = 10
+
+[State 730, 背景変化]
+type = BGPalFX
+trigger1 = AnimElem = 3
+time =  30
+add = 0,0,0
+mul = 130,130,130
+invertall = 0
+color = 256
+
+[State 730, 音を鳴らす]
+type = PlaySnd
+trigger1 = animelemtime(3) = 0
+value = s6,2
+
+
+[State 730, ステート変更]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Burst Air
+[Statedef 740]
+type     = S
+movetype = H
+physics = N
+anim     = 730
+ctrl     = 0
+velset = 0,0
+facep2=1
+
+[State 6300, ]
+		type = NotHitBy
+		trigger1 = 1
+		value = SCA
+
+		ignorehitpause=1
+
+[State 740, 画面振動]
+type = EnvShake
+trigger1 = time = 0
+time = 1
+ampl = -3
+phase = 0
+
+[State 6300,Hitdef]
+		Type=HitDef
+		Trigger1=!MoveContAct
+		Trigger1=!MoveReversed
+		Trigger1=AnimElemTime(1)>=0	
+		attr = S, NA                     ;???????????(s????n????a??????)
+		ID=2300
+		damage = 0                  ;?????(????????????????)
+		animtype = Light                 ;???????????(light/midium/hard/back)????
+		guardflag =                    ;????????(ma????????????)
+		hitflag = MAF                    ;??????????
+		priority = 3, Hit                ;??????(0?? 4?? 7??
+		pausetime = 0, 0                 ;?????????????(?????????)
+		sparkno = -1                     ;??????????????????(????0)
+		sparkxy = -10, -56               ;???????????????(??????)
+		hitsound =  -1                 ;????????(s*,*???????????)
+		ground.type = High               ;?????????(High:???, Low:?, Trip:???)
+		ground.slidetime = 5             ;??????????
+		ground.hittime  = 12             ;?????????(????????)
+		ground.velocity = -18.4,-5             ;????????????????????(x?y?????)
+		airguard.velocity = -18.9,-.8     ;????????????????????(x?y?????)
+		air.type = High                  ;????????????(????)
+		air.velocity = -18.4,-4           ;????????????????????(x?y?????)
+		air.hittime = 12                 ;????????????
+		fall=1
+		fall.recover=0
+		getpower =0
+		givepower =0
+		ground.cornerpush.veloff = 0
+
+[State 740,vel]
+Type = velAdd
+Trigger1 = AnimElemTime(3)>0
+y = 0.44
+
+[State 740, エフェクト]
+type = Explod
+trigger1 = Animelem = 1
+Postype = p1
+ownpal=1
+Pos = 0,0
+SprPriority = 1
+anim = 12000
+bindtime = 10
+
+[State 740, エフェクト]
+type = Explod
+trigger1 = Animelem = 1
+Postype = p1
+ownpal=1
+Pos = 0,0
+SprPriority = 1
+anim = 6100
+bindtime = 10
+
+[State 740, 背景変化]
+type = BGPalFX
+trigger1 = AnimElem = 1
+time =  30
+add = 0,0,0
+mul = 130,130,130
+invertall = 0
+color = 256
+
+[State 740, 音を鳴らす]
+type = PlaySnd
+trigger1 = animelemtime(1) = 0
+value = s6,2
+
+
+[State 600,State]
+		Type=ChangeState
+		Trigger1=Pos Y>=0
+		Trigger1=Vel Y >0
+		value=52
+		Ctrl=1
+;-------------------------------------------------------------
+;Magnetic Parry
+[Statedef 750] 
+type     = U ;前のステートの状態を引き継ぐ
+movetype = I
+physics  = N
+ctrl     = 0
+anim     = 751
+
+
+[State 210,効果音]
+		Type=playSnd
+		Trigger1 = time=0
+		value=20,1
+		channel=2
+
+
+;こちらは相手のHitDef用
+[State 701, 受け止め定義];（※８）
+type = ReversalDef
+trigger1 = Time = 0
+reversal.attr = SCA,AP              ;受け止める相手の攻撃属性を指定
+pausetime     = 0,14
+numhits       = 0
+sparkno       = -1
+sparkxy       = 0,0
+hitsound      = -1,0
+P1StateNo     = 751
+
+;こちらは相手のProjectile用
+[State 701, 食らい上書き];（※９）
+type = HitOverRide
+trigger1 = Time = [0,13]
+time = 1
+attr = SCA,AP              ;上書き出来る相手の攻撃属性を指定
+stateno = 751                  ;上書き先のステート
+IgnoreHitPause = 1
+
+[State 701, 画像の色]
+type = PalFX
+trigger1 = Time = 0
+time = 13
+add =  60, 60,100
+
+[State 701, 軸位置]
+type = PosSet
+trigger1 = StateType != A
+y = 0
+
+[State 701, 移動速度]
+type = VelSet
+trigger1 = StateType != A
+x = 0
+y = 0
+
+[State 701, ステート変更]
+type = ChangeState
+trigger1 = (StateType != A) && (AnimTime = 0)
+value = 0
+ctrl = 1
+
+;Magnetic Parry Success
+[Statedef 751]
+type     = U
+movetype = I
+physics  = N
+ctrl     = 0
+velset   = 0,0
+anim     = 752
+Poweradd=FVar(11)
+
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = numexplod(10000) <1
+trigger1=time =0
+helpertype = normal ;player
+name = "Magnetic Parry"
+ID = 10000
+stateno = 10000
+pos = 35, floor(-77*const(Size.yScale))
+postype = p1    ;p2,front,back,left,right
+facing = 1
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+ignorehitpause = 1
+
+
+[State 3000, 相手の特定の攻撃属性無効]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 10
+
+
+[State 702, 時間停止];自分も相手も制限時間も一時的に止める（ポーズ）
+type = Pause
+trigger1 = Time = 0
+time = 10      ;ポーズする時間（フレーム）
+movetime = 10  ;ポーズ中に動ける時間。timeよりも多いとバグる（デフォルトは０）
+IgnoreHitPause = 1
+
+[State 702, コントロール]
+type = CtrlSet
+trigger1 = Time = 14
+value = 1
+
+[State 702, 画面全体の色]
+type = EnvColor
+trigger1 = Time = 0
+value = 255,255,255 ;画面全体を塗り潰す色合い（赤,緑,青）
+time = 1
+
+[State 702, 軸位置]
+type = PosSet
+trigger1 = StateType != A
+y = 0
+
+
+[State 702, ステート変更]
+type = ChangeState
+trigger1 = (StateType != A) && (AnimTime = 0)
+value = 0
+ctrl = 1
+
+;--------------------------------
+;Parry Explod Helper
+[Statedef 10000]
+anim = 6145
+sprpriority = 4
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = S1,4
+channel = -1
+ignorehitpause = 1
+persistent = 0
+
+
+[State 10220, 傾き]
+type = AngleDraw
+trigger1 = 1
+scale = 0.6,0.6
+
+[State 10220, 傾き]
+type = null;       AngleSet
+trigger1 = 1
+value = -90
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime =0
+trigger2 = numexplod(10000)>1
+ignorehitpause = 1
+;persistent = 
+
+
+;---------------------------------------------------------------------------
+;Throw Attempt
+[Statedef 800]
+type     = S
+movetype = A
+physics  = S
+ctrl     = 0
+anim     = 760
+poweradd = 10
+velset   = 0,0
+
+[State 200,V1=0]
+		Type=VarSet
+		Trigger1=time=0
+		var(1)=0
+
+[State 820,　hitdef]
+type = HitDef
+trigger1 = P2MoveType != H || P2StateNo = [120,159]
+trigger1=p2bodydist x<=ceil(30*const(size.xscale))
+trigger1 = time=0
+attr = S,NT
+hitflag = M-
+guardflag = ;MA
+affectteam = E
+animtype = Light
+air.animtype = Back
+ground.type = low
+sparkno=-1
+p1facing = cond(command="holdback",-1,1)
+p2facing = 1          ;Force p2 to face KFM
+p1stateno = 791
+p2stateno = 820
+ID = 900
+guard.dist = 0
+
+[State 820 , 0に戻る]
+type = ChangeState
+trigger1 = animtime=0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Teched Going Back - attacker state
+[Statedef 805]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 =  time = 0
+channel = -1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, TargetState]; faz o techador entrar no state do tech
+type = TargetState
+trigger1 = time = 0
+value = 806
+
+[State 200, PlaySnd];som de grito(?)
+type = PlaySnd
+trigger1 = time = 0
+value = 0,14
+
+	[State 3501,Hit Explod]
+		Type=Explod
+		Trigger1=time = 0
+		Anim=20026
+		Pos=0,0
+		bindTime=-1
+		PosType=back
+		sprPriority=-1
+		SuperMoveTime=30
+		PauseMoveTime=30
+		Persistent=0
+ 		ignorehitpause = 1
+
+	[State 3000,????]
+		Type=envColor
+		Trigger1= time = 0
+		value=0,0,0
+		Time=13
+		under=1
+		Persistent=0
+ 		ignorehitpause = 1
+
+[State 150, 1];anima?o
+type = ChangeAnim
+trigger1 = 1
+value = 120
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 9
+x = -6
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 14
+x = -3
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 17
+x = -1.5
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 21
+x = 0
+
+[State 0, ChangeState]
+type = selfState
+trigger1 = time = 30
+value = 0
+ctrl = 1
+
+;==================================================================================
+; Throw Escape - victim state
+[Statedef 806]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+poweradd = 0                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 0, ChangeAnim2]
+type = ChangeAnim
+trigger1 = 1
+value = 120
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, PosSet];fique no ch? agora
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 9
+x = -6
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 14
+x = -3
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 17
+x = -1.5
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 21
+x = 0
+
+[State 200, 3]; vai pro state 0 e faz tudo voltar ao normal (n?)
+type = selfState
+trigger1 = time = 33
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;投げ本体
+[Statedef 791]
+type     = S
+movetype = A
+physics  = S
+juggle   = 1
+ctrl     = 0
+anim     = 750
+poweradd = 10
+
+[State 790, ]
+type = TargetBind
+trigger1 = time = 0
+time = 10
+ID = 900
+pos = 37, -13
+
+[State 790, 3]
+type = PlaySnd
+trigger1 = Time = 0
+value = 10, 18
+
+[State 790, 3]
+type = PlaySnd
+trigger1 = Time = 25
+value = 1, 3
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=25
+anim = 6145
+pos = 35, floor(-94*const(Size.yScale))
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 1,1
+sprpriority = 4
+ownpal = 1
+removeongethit = 1
+ignorehitpause =1
+;trans = 
+persistent =0
+;supermove = 0
+;pausemove = 0
+
+
+
+[State 200 ノックバックカウント]
+		type = Varadd
+		trigger1 = time>=27
+		fVar(11) = 2
+		persistent = 0
+ 		ignorehitpause = 1
+
+	[State -1,攻撃補正,上書き]
+		type = Varset
+		Trigger1=time>=27
+		fvar(0)= fvar(0)*0.65
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State 200,V1=1]
+		Type=VarSet
+		Trigger1=time>=27
+		var(1)=1
+		ignorehitpause = 1
+
+[State 0, ChangeState]; confere se o alvo apertou o bot? pra techar, se sim, te leva pro state de tomar o tech
+type = ChangeState
+triggerall = NumTarget;()
+triggerall = time <= 8
+trigger1 = target,AILevel=0
+trigger1 = target, command = "x" && (target, command = "holdfwd" || target,command = "holdback")
+trigger2 = target,AILevel>0
+trigger2 = random <=floor(AILevel*100/1.5)
+value = 805
+ctrl = 0
+
+[State 791,0に戻る]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;投げ相手
+[Statedef 820]
+type     = A
+movetype = H
+physics  = N
+ID = 900
+
+[State 800, ]
+type = LifeAdd
+trigger1 = time = 25
+value = -100
+kill = 1
+absolute = 0;1
+
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = time = 25
+time = 30
+add = 0,0,220
+mul = 256,256,256
+sinadd = 0,0,220,10
+invertall = 1
+color = 0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 800]
+type = ChangeAnim2
+trigger1 = time = 0
+value = 820
+ctrl=0
+
+[State 800, 4]
+type = ChangeAnim
+trigger1 = Time = 20
+value = 5050
+
+[State 803, 移動速度] 
+Type = VelSet
+trigger1 = Time = 25
+x = -3
+y = -5
+
+[State 803, 移動加速度] 
+Type = VelAdd
+trigger1 = Time > 25
+y = 0.48
+
+[State 800, 5]
+type = SelfState
+trigger1 = Pos Y >= 0
+trigger1 = Vel Y > 0
+value = 5100
+
+
+;--------------------------------------------
+; Spot Dodge
+[Statedef 850]
+type = S
+ctrl = 0
+anim = 330
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = -1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,AA,AP
+;value2 = S,NA
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+
+[State 330, 残像]
+type	= AfterImage
+trigger1= time = 0
+time	= 27
+length	= 7
+Framegap = 4
+PalBright = 100,100,170
+PalContrast = 128,128,250
+PalAdd = 0,0,0
+trans = add1
+
+[State 330, ]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;--------------------------------------------------------------------
+;	Roll
+;--------------------------------------------------------------------
+[Statedef 860]
+type	= S
+movetype= I
+physics	= N
+anim	= 450
+ctrl	= 0
+velset	= 0,0
+sprpriority = -2
+
+[State 0, Turn]
+type = Turn
+trigger1 = time = 0
+trigger1 = command = "holdback"
+;ignorehitpause = 
+;persistent = 
+
+
+[State 450, 無敵]
+type = NotHitBy
+trigger1 = time <= 29
+value = ,AA,AP
+
+[State 450, voice]
+type = PlaySnd
+trigger1 = time = 1
+value = s10,22
+
+[State 450, VelSet]
+type = VelSet
+trigger1= AnimElem = 3
+x = 5.5
+
+[State 450, VelSet]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 0
+
+[State 450, PlayerPush]
+type = PlayerPush
+trigger1= time = [3,14]
+value = 0
+
+[State 450, AfterImage]
+type	= AfterImage
+trigger1= time = 3
+time	= 15
+length	= 7
+Framegap = 4
+PalBright = 100,100,170
+PalContrast = 128,128,250
+PalAdd = 0,0,0
+trans = add1
+
+[State 450, ChangeState]
+type	= ChangeState
+trigger1= AnimTime = 0
+value	= 0
+ctrl	= 1
+
+;Go on wall
+[Statedef 930]
+type    = S
+movetype= I
+physics = S
+velset = 0,0
+anim = 930
+ctrl = 0
+sprpriority = 2
+facep2 = 0
+poweradd=-200
+
+[State 1200]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1200]
+type = VarSet
+trigger1 = Time = 0
+var(2) = 0
+
+[State 1200]
+type = VarSet
+trigger1 = Time = 0
+var(8) = 1
+
+[State 1200]
+type = null;Helper
+trigger1 = animelem = 2
+name = "spark"
+stateno = 940
+pos = 5-backedgedist, -170
+postype = p1
+ownpal = 1
+ID = 1207
+ignorehitpause=1
+
+[State 1200, 音を鳴らす]
+type = PlaySnd
+trigger1 = animelem = 3 || animelem = 5
+value = 930, 5
+
+[State 1200, ステート変更]
+type = StateTypeSet
+trigger1 = animelemtime(3) = 0
+statetype = A
+movetype = I
+physics = A
+
+[State 1200, ステート変更]
+type = ChangeState
+trigger1 = time > 36
+trigger1 = backedgedist < 10
+value = 931
+ctrl = 1
+
+[State 1200, ステート変更]
+type = ChangeState
+trigger1 = time >42
+trigger1 = !(backedgedist < 10)
+value = 939
+ctrl = 1
+
+
+[State 1200, ステート変更]
+type = velset
+trigger1 = animelemtime(3) >= 0
+x = -8;ifelse(facing = 1,-ScreenPos X/ifelse(time<36,36-time,1),(ScreenPos X-320)/ifelse(time<36,36-time,1))
+
+[State 1200, ステート変更]
+type = velset
+trigger1 = animelemtime(3) = 0
+y = -10
+
+[State 1200]
+type = explod
+trigger1 = animelemtime(3) >= 0 ;&& animelemtime(9) < 0
+anim = 2800+random%6
+pos = -7, -55
+postype = p1
+facing = 1-random%2*2
+vfacing = 1-random%2*2
+random = 10,10
+scale = .5,.5
+ID = 2800
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+
+;On Wall
+[Statedef 931]
+type    = A
+movetype= A
+physics = A
+poweradd= 0
+anim = 931
+ctrl = 0
+sprpriority = 2
+
+[State 1210]
+type = VarSet
+trigger1 = Time = 0
+var(8) = 1
+
+[State 1210]
+type = playerpush
+trigger1 = 1
+value = 0
+
+
+
+
+[State 1210]
+type = turn
+trigger1 = facing*Pos X > 0
+
+[State 1210]
+type = VarSet
+trigger1 = Time = 5
+var(8) = 2
+
+[State 1210]
+type = velset
+trigger1 = time < 60
+x = -320
+y = 0
+
+[State 1210]
+type = velset
+trigger1 = time = 60
+x = 0
+y = 0
+
+[State 1210, ステート変更]
+type = ChangeState
+trigger1 = time >= 60
+value = 939
+ctrl = 1
+
+
+;Go on wall Air
+[Statedef 933]
+type    = A
+movetype= I
+physics = A
+anim = 930
+ctrl = 0
+velset = 0,0
+sprpriority = 2
+facep2 = 0
+poweradd=-200
+
+[State 1203]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1212, ステート変更]
+type = changeanim
+trigger1 = Time = 0
+value = 930
+elem = 4
+
+[State 1203]
+type = VarSet
+trigger1 = Time = 0
+var(2) = 0
+
+[State 1203]
+type = VarSet
+trigger1 = Time = 0
+var(8) = 1
+
+[State 1203]
+type = null;Helper
+trigger1 = animelem = 2
+name = "spark"
+stateno = 1207
+pos = 5-backedgedist, -30
+postype = p1
+ownpal = 1
+ID = 1207
+ignorehitpause=1
+
+[State 1203, 音を鳴らす]
+type = PlaySnd
+trigger1 = animelem = 3 || animelem = 5
+value = 930, 5
+
+[State 1203, ステート変更]
+type = ChangeState
+trigger1 = backedgedist < 10
+value = 931
+ctrl = 1
+
+[State 1200, ステート変更]
+type = ChangeState
+trigger1 = time >42
+trigger1 = !(backedgedist < 10)
+value = 939
+ctrl = 1
+
+
+[State 1203, ステート変更]
+type = velset
+trigger1 = animelemtime(4) = 0
+x = -8
+y = -1.5
+
+[State 1203, ステート変更]
+type = veladd
+trigger1 = animelemtime(4) >= 0 && animelemtime(8) < 0
+y = -.2
+
+[State 1203]
+type = explod
+trigger1 = animelemtime(4) >= 0; && animelemtime(9) < 0
+anim = 2800+random%6
+pos = 2, -55
+postype = p1
+facing = 1-random%2*2
+vfacing = 1-random%2*2
+random = 10,10
+scale = .5,.5
+ID = 2800
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+
+;Go on other wall
+[Statedef 934]
+type    = A
+movetype= I
+physics = A
+anim = 934
+ctrl = 0
+velset = 0,0
+sprpriority = 2
+poweradd=-200
+
+[State 1212]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[State 1210]
+type = VarAdd
+trigger1 = Time = 0
+var(9) = 1
+
+
+[State 1212]
+type = null;Helper
+trigger1 = Time = 0
+name = "spark"
+stateno = 940
+pos = 300, 0
+postype = p1
+ownpal = 1
+ID = 1207
+ignorehitpause=1
+
+[State 1212, ステート変更]
+type = null;changeanim
+trigger1 = Time = 0
+value = 934
+elem = 3
+
+[State 1212, 音を鳴らす]
+type = PlaySnd
+trigger1 = animelem =1 || animelem = 3
+value = 930, 5
+
+[State 1212, ステート変更]
+type = ChangeState
+trigger1 = frontedgedist < 10
+value = 931
+ctrl = 1
+
+[State 1212]
+type = velset
+trigger1 = animelemtime(1) = 0
+x = 11
+y = -8
+
+[State 1212, ステート変更]
+type = veladd
+trigger1 = animelemtime(1) >= 0
+y = 0.04
+
+[State 1212]
+type = explod
+trigger1 = animelemtime(1) >= 0; && animelemtime(9) < 0
+anim = 2800+random%6
+pos = 0, -55
+postype = p1
+facing = 1-random%2*2
+vfacing = 1-random%2*2
+random = 10,10
+scale = .5,.5
+ID = 2800
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+
+
+;Falling
+[Statedef 939]
+type     = A
+movetype = A
+physics  = N
+anim     = 939
+poweradd=fvar(11)
+ctrl     = 1
+
+[State 0, VelSet]
+type = VelSet
+triggerall=time=0
+trigger1 = prevstateno=930
+trigger2= prevstateno = 933
+
+x = -4
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VelSet]
+type = VelSet
+triggerall=time=0
+trigger1 = prevstateno=934
+
+x = 4
+ignorehitpause = 1
+;persistent = 
+
+
+	[State 600,重力]
+		Type=VelAdd
+		Trigger1=1
+		y = .44
+
+[State 600,State]
+		Type=ChangeState
+		Trigger1=Pos Y>=0
+		Trigger1=Vel Y >0
+		value=52
+		Ctrl=1
+
+
+;Effect Helper 1
+[Statedef 940]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 1207
+sprpriority = 3
+
+[State 1207]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256, 256
+
+[State 1207]
+type = VarSet
+trigger1 = (Parent,ScreenPos X-ScreenPos X)
+fvar(0) = atan((ScreenPos Y-Parent,ScreenPos Y+30)/(Parent,ScreenPos X-ScreenPos X))*180/pi
+
+[State 1207]
+type = VarAdd
+trigger1 = Parent,ScreenPos X-ScreenPos X<0
+fvar(0) = 180
+
+[State 1207]
+type = VarAdd
+trigger1 = facing = -1
+fvar(0) = 180
+
+[State 1207]
+type = AngleDraw
+trigger1 = 1
+value = fvar(0)*facing
+scale = (abs(Parent,ScreenPos X-ScreenPos X)**2+abs(ScreenPos Y-Parent,ScreenPos Y+30)**2)**.5/145,.25 
+
+[State 1207]
+type = DestroySelf
+trigger1 = time >= 24
+trigger2 = parent,movetype = H
+ignorehitpause=1
+
+;Effect Helper 2
+[Statedef 941]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 1207
+sprpriority = 3
+
+[State 1208]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256, 256
+
+[State 1208]
+type = VarSet
+trigger1 = 1
+fvar(0) = atan((ScreenPos Y-Parent,ScreenPos Y)/(Parent,ScreenPos X-ScreenPos X))*180/pi
+
+[State 1208]
+type = VarAdd
+trigger1 = Parent,ScreenPos X-ScreenPos X<0
+fvar(0) = 180
+
+[State 1208]
+type = VarAdd
+trigger1 = facing = -1
+fvar(0) = 180
+
+[State 1208]
+type = AngleDraw
+trigger1 = 1
+value = fvar(0)*facing
+scale = (abs(Parent,ScreenPos X-ScreenPos X)**2+abs(ScreenPos Y-Parent,ScreenPos Y)**2)**.5/145,.25 
+
+[State 1208]
+type = DestroySelf
+trigger1 = time >= 24
+trigger2 = parent,movetype = H
+ignorehitpause=1
+;---------------------------------------------------------------------------
+;Ground Bounce Normals
+;---------------------------------------------------------------------------
+[Statedef 7050,Ground Bounce Normals]
+	type = A
+	movetype = H
+	physics = N
+	velset = 0,0
+	facep2=1
+
+	[State 7050]
+		type = changeanim
+		trigger1 = 1
+		value = 5002
+
+	[State 7050]
+		type = changestate
+		trigger1 = hitshakeover
+		value = 7060
+
+;--------------------------------------
+[Statedef 7060,床に当たるまで吹っ飛び]
+	type = A
+	movetype = H
+	physics = N
+
+	[State 7060]
+		type = playerpush
+		trigger1 = 1
+		value = 0
+
+	[State 7060]
+		type = changeanim
+		trigger1 = Time = 0
+		value = 5050; 吹っ飛び下降
+
+	[State 7060]
+		type = Changestate
+		trigger1 = Vel Y > 0
+		trigger1 = Pos Y >= 0
+		value=7070
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = -7
+y = 10.5
+
+	[State a, error]
+		type = null;SelfState ;ステートを戻す
+		trigger1 = Time >= 600 ;5秒経過・動作が長い場合はもっと長く。短くしすぎないように注意。
+		value = 5050 ;汎用くらい吹っ飛びステートへ
+
+
+;--------------------------------------
+[Statedef 7070,床接地してバウンド]
+	type = A
+	movetype = H
+	physics = N
+
+[State -2,床SE]
+type = PlaySnd
+trigger1 = time = 0
+value = F7, 2
+volume = 255
+
+[State -2,床ぶつかりエフェクト]
+	type = Explod
+	trigger1 = time = 0
+	anim = F61
+	pos = 0, 0
+	postype = p1
+;	bindtime = -1
+	supermovetime = 9999
+	pausemovetime = 9999
+	sprpriority = 9999
+;	scale = .5,.5
+	ontop = 1
+	ownpal = 1
+	facing =-1
+	ignorehitpause = 1
+
+	[State 7070]
+		type = changeanim
+		trigger1 = time = 0
+		value = 5170; 激突後バウンドして仰向けで倒れるまでのアニメ
+
+	[State 7070，床接地]
+		type = PosSet
+		trigger1 = time = 0
+		y = 0
+
+	[State 7070，床接地]
+		type = velSet
+		trigger1 = time = 0
+		x = 0
+		y = 0
+
+	[State 7070]
+		type = playerpush
+		trigger1 = 1
+		value = 1
+
+	[State 7070]
+		type = PosSet
+		trigger1 = time = 1
+		y = -5
+
+	[State 7070]
+		type = velSet
+		trigger1 = time = 1
+		x = -1.35
+		y = -3.95
+
+	[State 7070]
+		type = velAdd
+		trigger1 = time >= 1
+		y = 0.26
+
+	[State 7070]
+		type = Changeanim
+		triggerAll = time >= 1
+		trigger1 = Anim =5170
+		trigger1 = AnimTime =0
+		value = 5050
+
+	[State 7070]
+		type = Selfstate
+		triggerAll = time >= 4
+		trigger1 = Vel Y > 0
+		trigger1 = Pos Y >= 0
+		value = 5100
+
+	[State a, error]
+		type = SelfState ;ステートを戻す
+		trigger1 = Time >= 600 ;5秒経過・動作が長い場合はもっと長く。短くしすぎないように注意。
+		value = 5050 ;汎用くらい吹っ飛びステートへ

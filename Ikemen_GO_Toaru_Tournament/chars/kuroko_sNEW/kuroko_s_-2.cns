@@ -1,0 +1,314 @@
+[Statedef -2]
+
+
+[State 0, Width]
+type = Width
+trigger1 = stateno!=[2000,3999]
+edge = 15,0
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+;Gives 1000 at the start of the battle
+[State -2,初期ゲージ設定]
+	Type= PowerSet
+	trigger1 = roundsexisted = 0 && roundstate = 0 && roundno = 1;
+	value = 1000 ; 0?6000で設定可能 1000単位で1本 デフォルトは1000
+
+
+[State -2,初期ゲージ設定]
+	Type= varset
+	trigger1 = roundstate = 0 
+	var(24)=0 ; 0?6000で設定可能 1000単位で1本 デフォルトは1000
+
+
+
+[State -2];Damage Dampening reset
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fvar(0) = 1
+	ignorehitpause = 1
+
+[State -2];cornerpush reset
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fvar(11)=0
+	ignorehitpause = 1
+
+
+[State -2];Wallsplat reset
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	var(26)=0
+	ignorehitpause = 1
+
+[State -2];Groundsplat reset
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	var(27)=0
+	ignorehitpause = 1
+
+[State -1, ???]
+Type = Explod
+Trigger1 = target,stateno=2162
+trigger1=numexplod(2152)=0
+Anim = 2152
+ID = 2152
+Postype = p2
+Pos      = 0,0
+scale = 1,1
+Ownpal = 1
+SprPriority = 3
+bindtime = 1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+facing =-1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = target,stateno!=2162
+id = 2152
+ignorehitpause = 1
+;persistent = 
+
+[State -1, ???]
+Type = Explod
+Trigger1 = target,stateno=2161
+trigger1=numexplod(2151)=0
+Anim = 2151
+ID = 2151
+Postype = p2
+Pos      = 0,0
+scale = 1,1
+Ownpal = 1
+SprPriority = 3
+bindtime = 1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+facing =-1
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = target,stateno!=2161
+id = 2151
+ignorehitpause = 1
+;persistent = 
+
+
+;Cornerpush reset
+[State -2];ヒットバック
+	type = Varset
+	trigger1 = enemy,movetype != H
+	;trigger2 = enemy,stateno = [120,155]
+	var(7)=0
+	ignorehitpause = 1
+
+;TP Frenzy Reset
+[State 0, VarSet]
+type = VarSet
+trigger1 = roundstate=0
+fvar(8)=0
+ignorehitpause =1
+;persistent = 
+
+;Var(1) reset
+[State -2]
+	type = Varset
+	triggerall = var(1)
+	trigger1 = movetype = H
+	trigger2 = !numtarget 
+	;trigger2 =  stateno != 2400   
+	triggerall = stateno != [1000,1100] 
+	triggerall = stateno != 2100
+	triggerALL = stateno != 2150
+	triggerall = stateno != 2500
+	triggerALL = stateno != 2200 
+	triggerALL = stateno != 2560
+	var(1) = 0
+	ignorehitpause = 1
+
+[State -2, テレポゲージ消費]
+Type     = Varset
+Trigger1 = roundstate=1
+fvar(7)=0
+	
+[State -2, テレポゲージ消費]
+Type     = Varadd
+Trigger1 = fvar(7) > 0
+fvar(7)=-1
+ignorehitpause=1
+
+[State -2, テレポゲージ消費]
+Type     = Varadd
+Trigger1 = fvar(8) > 0
+fvar(8)=-2
+ignorehitpause=1
+
+[State -2, PalFX]
+type = PalFX
+trigger1 = fvar(7) >= 1
+trigger1 = fvar(7) <= 7
+time = 1
+add = 150,150,150
+mul = 200,200,200
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent = 
+
+
+[State -1, VarRandom]
+Type = VarRandom
+TriggerAll = Time = 0
+Trigger1 = StateNo = 5000
+Trigger2 = StateNo = 5010
+Trigger3 = StateNo = 5020
+Trigger4 = StateNo = 5070
+Trigger5 = StateNo = 5120
+
+V = 12
+
+Range = 0,6
+IgnoreHitPause = 1
+
+[State -2, 喰らい1]
+Type = PlaySnd
+TriggerAll = Time = 1
+Trigger1 = StateNo = 5000
+Trigger2 = StateNo = 5010
+Trigger3 = StateNo = 5020
+Trigger4 = StateNo = 5070
+Value = s2,var(12)
+Channel = 0
+volume=75
+
+
+;■　起き上がり音声　■■■■■■■■■■■■■■
+[State -2,起き上がり1]
+type = PlaySnd
+Trigger1 = StateNo = 5120
+Trigger1 =time =1
+Value = s3,4+var(12)
+Channel = 0
+Volume=75
+lowpriority=1
+
+;■■■■■■■■■■■■■■■■■
+[State -3, テレポゲージ増加]
+type = varadd
+trigger1 = GameTime % 5=1
+v = 30
+value = 1
+
+;■■■■■■■■■■■■■■■■■
+[State -3, テレポゲージ上限]
+type = varset
+trigger1 = var(30)>=75
+v = 30
+value = 75
+
+;■■■■■■■■■■■■■■■■■
+[State -3, テレポゲージ下限]
+type = varset
+trigger1 = var(30)<=0
+v = 30
+value = 0
+
+;GaugeHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(30000) = 0
+	trigger1 = time = 1
+	stateno = 30000
+	ID = 30000
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "gauge"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+;■■■■■■■■■■■■■■■■■
+[State -2, テレポゲージ表示]
+Type = null;Explod
+trigger1 = 1
+Anim = 7341
+ID = 7341
+Postype = Left
+Pos = 0,helper(4100),Pos y+185;helper(4100),Pos x,helper(4100),Pos y
+scale = 0.625,0.625
+Ownpal = 1
+SprPriority = 3
+bindtime = 1
+persistent=1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+facing = 1
+persistent =0
+
+;■根性値（防御力変化）■■■■■■■■■■■■■■■■
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 800
+Trigger1 = Life >= 601
+Value = 1
+IgnoreHitPause = 1
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 600
+Trigger1 = Life >= 401
+Value = 1
+IgnoreHitPause = 1
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 400
+Trigger1 = Life >= 201
+Value = 1
+IgnoreHitPause = 1
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 200
+Value = 0.8
+IgnoreHitPause = 1
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 100
+Value = 0.6
+IgnoreHitPause = 1
+
+;■　一度負けたかどうかの判定　■■■■■■■■■■■■■■■■
+;[State -1] 
+;type=varadd
+;trigger1 = var(50)=0
+;trigger1 = lose
+;var(50) = 1
+
+;■debug用■■■■■■■■■■■■
+[State -2, デバック]
+type = DisplayToClipboard
+trigger1 = 1
+text =  "var(11),%f\n"
+params = var(11)
+IgnoreHitPause = 1
+
+[State -2, 距離確認デバック]
+type = AppendToClipboard
+trigger1 = 1
+text =  "P2X:%f,P2Y:%f,Vx%f,Vy%f,Py%f \n"
+params = p2bodydist x, p2bodydist y,vel x,vel y,const(size.head.pos.y)
+IgnoreHitPause = 1

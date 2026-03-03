@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Misaka Mikoto"
+displayname = "Misaka Mikoto"
+versiondate = 14,10,2022
+mugenversion = 1.1
+author = "Bagilu, DidiGetsRekt"
+pal.defaults = 6,3,4,2
+
+[Files]
+sprite = misaka.sff
+anim = misaka.air
+sound = misaka.snd
+cmd = misaka.cmd
+cns = misaka.cns
+stcommon = common.cns
+st = misaka.cns
+st1 = -2.st
+st2 = misaka_N.cns
+st3 = misaka_S.cns
+st4 = misaka_H.cns
+st5 = misaka_Ex.cns
+pal1 = user.act
+movelist = movelist_Mikoto.dat
+

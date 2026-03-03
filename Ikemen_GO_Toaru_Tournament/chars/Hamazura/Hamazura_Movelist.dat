@@ -1,0 +1,172 @@
+
+<#f0f000>Movelist :</>
+
+Run						_F_F
+Back Hop				_B_B
+Back Run (Hold _B after Back Hop)
+
+Throw 					_B / _F  _+ ^LP / ^X
+Reload 					_D^LP / _D^X
+
+Charge up				^LK_+^HK / ^A_+^C
+
+Burst 					^LK_+^MK / ^A_+^B(while being hit)
+
+Luck Change				^MP / ^Y
+(Lvl 3 for <#00ffff>Great Luck</>)
+(Can be cancelled by dodge)
+
+Spot Dodge				_. / _D _+ ^HP / ^Z
+Roll					_B / _F _+ ^HP / ^Z
+Run Roll 				^HP / ^Z (While Run or Back Run)
+Air Roll				^HP / ^Z (air)
+
+<#f0f000>Information :</>
+Bullet system:
+He has a certain amount of bullets in his magazine
+which are used by gun normals and 
+that you have to reload
+Rifle specials will take directly from the reserve
+Supers and Hypers don't cost bullets
+
+<#f0f000>Information :</>
+Ammo Pack System:
+Soemtimes Ammo Packs appear
+on the stage
+You can pick them up by being
+over them
+The blue ones are common and
+the gold ones are rare and give
+more ammo
+The rate and rarity improve along 
+with your luck level
+You can't pick them up while
+getting hit 
+
+
+<#ffff00>Luck System:</>
+He starts in <#0000ff>Hard Luck</>
+If you get hit while attempting to switch 
+to <#ffff00>Good Luck</> you will be Unlucky
+for 15 seconds
+In Unlucky you can't use lvl 2 and 3 and 
+try for <#ffff00>Good Luck</>
+In <#ffff00>Good Luck</> some moves change and
+the opponent can trip
+You can also can link rolls with
+crouching gun
+You also become immune to
+your own grenades
+In <#ffff00>Great Luck</> you have better rates for
+tripping and also you can auto dodge
+throws
+If you win a round in <#ffff00>Great Luck</>,
+you start the next round with <#ffff00>Good Luck</>
+
+
+<#f0f000>Normals:</>
+
+Elbow Jab				^LK / ^A
+
+Baton Hit (Can be held)			^MK / ^B
+Tackle					_B ^MK / _B ^B
+(Instant after a run)
+
+In Unlucky/<#0000ff>Hard Luck</>: 
+Single Gun Shot				^HK / ^C
+In <#ffff00>Good Luck/Great Luck</>:
+Gunshot Combo				^HK / ^C
+
+Front Kick				_F^HK / _F^C
+
+Crouching Jab				^LK / ^A (crouch)
+Crouching Sweep					^MK / ^B (crouch)
+(Better range after a run)
+Crouching Gun Combo				^HK / ^C (crouch)
+(2 in Unlucky/<#0000ff>Hard Luck</>, 4 in <#ffff00>Good Luck/Great Luck</>:)
+
+Air Jab				^LK / ^A (air)
+Air Knee				^MK / ^B (air)
+Air Smash				^HK / ^C (air)
+
+Air Smash				^HK / ^C (air)
+Air Gun				_D^HK / _D^C (air)
+
+
+<#ff0000>Specials, Supers, Hypers:</>
+
+Rifle (10 shots)			_D_DF_F^LK / _D_DF_F^A
+
+Moving Rifle (15 shots)			_D_DF_F^MK / _D_DF_F^B
+(You can hold _F to go faster)
+
+<#00ff00>Lvl-1</>
+EX LMG					_D_DF_F^HK / _D_DF_F^C
+
+
+
+Grenade Straight (can be held)  	
+_D_DB_B^LK / _D_DB_B^A
+(Can damage yourself)
+
+Grenade Up (can be held)		_D_DB_B^MK / _D_DB_B^B
+(Can damage yourself)
+
+<#00ff00>Lvl-1</> 
+EX RPG					_D_DB_B^HK / _D_DB_B^C
+(Can damage yourself)
+
+Mine Set				_D_D^LK / _D_D^A
+
+Mine Throw				_D_D^MK / _D_D^B
+
+<#00ff00>Lvl-1</> 
+EX Triple Mine Throw			_D_D^HK / _D_D^C
+
+Gun Uppercut				_F_D_DF^LK / _F_D_DF^A
+
+Diagonal Rifle (15 shots)		_F_D_DF^MK / _F_D_DF^B
+
+<#00ff00>Lvl-1</> 
+EX Anti-Air Homing Missiles		_F_D_DF^HK / _F_D_DF^C
+
+
+Air Rifle Down 				_D_DF_F^LK / _D_DF_F^A (Air)
+
+Air Rifle Straight			_D_DF_F^MK / _D_DF_F^B (Air)
+
+<#00ff00>Lvl-1</>
+EX Air LMG				_D_DF_F^HK / _D_DF_F^C (Air)
+
+
+
+<#00ff00>Lvl-2</>
+Power Lifter Charge
+_B_DB_D_DF_F^LK / _B_DB_D_DF_F^A
+
+<#00ff00>Lvl-2</>
+Skill Out Baton Strike 
+_B_DB_D_DF_F^MK / _B_DB_D_DF_F^B
+
+<#00ff00>Lvl-3</> 
+<#0000ff>Dragon Rider</>
+_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+
+<#00ff00>Lvl-3</> 
+<#0000ff>Processor Suit</> (Can be held for reversal)
+_F_DF_D_DB_B^HK / _F_DF_D_DB_B^C
+
+<#f0f000>Information :</>
+Powered Suits:
+When in a powered suit you are immune to 
+all normal and special moves
+But your armor will get destroyed 
+and you will take big damage
+if you eat a hyper move
+Processor Suit has a reversal for both
+physical and projectile moves if you hold it
+
+
+Credits :
+
+Writing : DidiGetsRekt

@@ -1,0 +1,1767 @@
+;-------------------------------------------------------------------
+[Info]
+name = "Toaru Scrpk"								;Name of motif
+author = "Jmorphman + Jesuszilla + Duracelleur"						;Motif author name
+versiondate = 11,02,2014											;Version date of motif (MM-DD-YYYY) (new in MUGEN 2009)
+mugenversion = 1.1												;Version of M.U.G.E.N motif is compatible with (new in MUGEN 2009)
+localcoord = 640,480												;Local coordinate space width and height (new in MUGEN 2009)
+
+
+;-------------------------------------------------------------------
+[Glyphs]
+_Q1 = 140,0
+_Q2 = 145,0
+
+
+[Files]
+spr = def+sff+snd/system.sff          										;Filename of sprite data
+snd = def+sff+snd/system.snd	          									;Filename of sound data
+;logo.storyboard = def+sff+snd/logo.def										;Logo storyboard definition
+intro.storyboard = def+sff+snd/intro.def									;Intro storyboard definition
+select = select.def       													;Character and stage selection list
+fight = data/toaru/fight.def
+;fight = data/life_xi_ar/fight.def
+
+font1 = font/qoh_smallbig.fnt										;Title Screen (not-active)
+font2 = font/qoh_bigbig.fnt											;Title Screen (active), Character Name on vs. screen and win quote screen, Team Mode active font
+font3 = font/sfa3big.fnt											;"TEAM MODE" text
+font4 = font/qoh_big.fnt											;Character Name on select screen, continue + yes/no
+font5 = font/qoh_small.fnt											;Team mode non-active font
+font6 = font/mshsmall.fnt											;"YOU FINISHED IT" text
+font7 = font/sfa2name.fnt												;Character names during fight, stage names
+font8 = font/msgothic-tt20.def										;Winquotes
+font9 = f-4x6.def         ;System fonts
+font10 = f-6x9.def         ;System fonts
+font11 = jg.fnt            ;System fonts
+
+
+;-------------------------------------------------------------------
+[Music]
+title.bgm = sound/OPTIONS.mp3
+title.bgm.loop = 1
+select.bgm = sound/SELECT3.mp3
+select.bgm.volume = 100
+select.bgm.loop = 1
+select.bgm.loopstart = 44100
+select.bgm.loopend = 4886000
+vs.bgm = sound/magic_vs_science.wav
+vs.bgm.volume = 100
+vs.bgm.loop = 0
+victory.bgm = sound/WIN.mp3
+victory.bgm.loop = 0
+
+
+;-------------------------------------------------------------------
+[Title Info]
+fadein.time = 20
+fadeout.time = 20
+menu.pos = 318,354
+menu.item.font = 1,0,0
+menu.item.font.scale = 1,1
+menu.item.active.font = 2,0,0
+menu.item.spacing = 0, 30
+
+; Submenu: Arcade
+menu.itemname.menuarcade = "SOLO"                          ;Ikemen feature
+;menu.itemname.menuarcade.arcade = "ARCADE"
+
+menu.itemname.menuarcade.teamarcade = "TEAM ARCADE"
+menu.itemname.menuarcade.freebattle = "CPU VERSUS"
+menu.itemname.menuarcade.survival = "SURVIVAL"
+menu.itemname.menuarcade.bossrush = "BOSS RUSH"
+
+;menu.itemname.menuarcade.timeattack = "TIME ATTACK"         ;Ikemen feature
+menu.itemname.menuarcade.back = "BACK"                       ;Ikemen feature
+;menu.itemname.versus = "VS MODE" ; OLD
+
+menu.itemname.menuversus = "LOCAL"
+menu.itemname.menuversus.teamversus = "TEAM VERSUS
+menu.itemname.menuversus.teamcoop = "TEAM CO-OP"
+menu.itemname.menuversus.survivalcoop = "SURVIVAL CO-OP"
+menu.itemname.menuversus.back = "BACK"  
+
+                   ;Ikemen feature
+
+; Submenu: Story Mode
+menu.itemname.storymode = "STORY MODE"                       ;Ikemen feature
+; story arcs menu items are automatically added before storymode.back
+menu.itemname.storymode.back = "BACK"                        ;Ikemen feature
+
+; Submenu: Network
+menu.itemname.menunetwork = "NETWORK"                        ;Ikemen feature
+menu.itemname.menunetwork.serverhost = "HOST GAME"           ;Ikemen feature
+menu.itemname.menunetwork.serverjoin = "JOIN GAME"           ;Ikemen feature
+menu.itemname.menunetwork.back = "BACK"                      ;Ikemen feature
+
+; known IP addresses show up before serverjoin.back item
+menu.itemname.menunetwork.serverjoin.joinadd = "NEW ADDRESS" ;Ikemen feature
+menu.itemname.menunetwork.serverjoin.back = "BACK"           ;Ikemen feature
+
+; This group is hidden and should not be moved to other menus.
+; It's opened automatically, after synchronization with online player.
+menu.itemname.server.netplayversus = "VERSUS"                ;Ikemen feature
+menu.itemname.server.netplayteamcoop = "ARCADE CO-OP"        ;Ikemen feature (disabled due to problems with P2 controls)
+menu.itemname.server.netplaysurvivalcoop = "SURVIVAL CO-OP"  ;Ikemen feature (disabled due to problems with P2 controls)
+menu.itemname.server.back = "EXIT"                           ;Ikemen feature
+
+; Submenu: Practice
+menu.itemname.menupractice = "PRACTICE"                      ;Ikemen feature
+menu.itemname.menupractice.training = "TRAINING"             ;Ikemen feature
+menu.itemname.menupractice.trials = "TRIALS"             ;Ikemen feature
+menu.itemname.menupractice.back = "BACK"                     ;Ikemen feature
+
+; Submenu: Watch Mode
+menu.itemname.menuwatch = "WATCH MODE"                       ;Ikemen feature
+menu.itemname.menuwatch.watch = "SELECT"
+menu.itemname.menuwatch.randomtest = "RANDOM"                ;Ikemen feature
+menu.itemname.menuwatch.replay = "REPLAY"                    ;Ikemen feature
+menu.itemname.menuwatch.back = "BACK"                        ;Ikemen feature
+menu.itemname.options = "OPTIONS"
+menu.itemname.exit = "EXIT"
+
+menu.window.margins.y = 20,9;12
+menu.window.visibleitems = 4
+menu.boxcursor.visible = 1   
+menu.boxcursor.coords = -115,-21,115,2
+cursor.move.snd = 100,0
+cursor.done.snd = 100,1
+cancel.snd = 100,2
+
+;-------------------------------------------------------------------
+[TitleBGdef]
+bgclearcolor = 0,0,0
+
+[TitleBG 0, Background]
+type  = normal
+spriteno = 0,0
+start = -320, 0
+layerno = 0
+trans = none
+mask = 1
+scalestart = 0.5,0.5
+
+
+
+[TitleBG 2] ; Mikoto
+type  = anim
+actionno = 9001
+start = -325, 150
+layerno = 0
+mask = 1
+scalestart = 0.5,0.5
+
+[Begin Action 9001]
+0,4 ,700,0 ,1 ,,
+0,4 ,650,0 ,1 ,,
+0,4 ,600,0 ,1 ,,
+0,4 ,550,0 ,1 ,,
+0,4 ,500,0 ,1 ,,
+0,4 ,450,0 ,1 ,,
+0,4 ,400,0 ,1 ,,
+0,4 ,350,0 ,1 ,,
+0,4 ,300,0 ,1 ,,
+0,4 ,250,0 ,1 ,,
+0,4 ,200,0 ,1 ,,
+0,4 ,150,0 ,1 ,,
+0,4 ,125,0 ,1 ,,
+0,4 ,100,0 ,1 ,,
+0,4 ,75,0 ,1 ,,
+0,4 ,50,0 ,1 ,,
+0,4 ,25,0 ,1 ,,
+0,4 ,0,0 ,-1 ,,
+
+[TitleBG 3] ; Accel
+type  = anim
+actionno = 9002
+start = 50, 120
+layerno = 0
+mask = 1
+scalestart = 0.3,0.3
+
+[Begin Action 30]
+0,30, 0,0, 13
+0,31, 0,0, 13
+0,32, 0,0, 13
+0,33, 0,0, 13
+0,34, 0,0, 13
+0,35, 0,0, 13
+0,34, 0,0, 13
+0,33, 0,0, 13
+0,32, 0,0, 13
+0,31, 0,0, 13
+
+[Begin Action 9002]
+0,-1 ,-700,0 ,17 ,,
+0,3 ,-700,0 ,1 ,,
+0,3 ,-650,0 ,1 ,,
+0,3 ,-600,0 ,1 ,,
+0,3 ,-550,0 ,1 ,,
+0,3 ,-500,0 ,1 ,,
+0,3 ,-450,0 ,1 ,,
+0,3 ,-400,0 ,1 ,,
+0,3 ,-350,0 ,1 ,,
+0,3 ,-300,0 ,1 ,,
+0,3 ,-250,0 ,1 ,,
+0,3 ,-200,0 ,1 ,,
+0,3 ,-150,0 ,1 ,,
+0,3 ,-125,0 ,1 ,,
+0,3 ,-100,0 ,1 ,,
+0,3 ,-75,0 ,1 ,,
+0,3 ,-50,0 ,1 ,,
+0,3 ,-25,0 ,1 ,,
+0,3 ,0,0 ,-1 ,,
+[TitleBG 4] ; Touma
+type  = anim
+actionno = 9003
+start = -150, 20
+layerno = 0
+mask = 1
+;scalestart = 0.70,0.70
+scalestart = 0.85,0.85
+
+
+[TitleBG 1, Logo]
+type  = normal
+spriteno = 0,1
+layerno = 0
+start = -280, 0;-25
+mask = 1
+scalestart = 0.4,0.4
+
+[Begin Action 9003]
+0,-1 ,0,0 ,34 ,,
+0,2, 0,0, 2, , 
+0,2, 0,0, 6, , A
+0,2, 0,0, 2, , S
+0,2 ,0,0 ,-1 ,,
+
+
+
+[TitleBG 5] ; PB
+type  = anim
+actionno = 400
+start = -164, 270
+layerno = 0
+mask = 1
+
+[Begin Action 400]
+400,0 ,0,0 ,1 ,, AS256D64
+
+[TitleBG 6] ; BG
+type  = normal
+spriteno = 400,1
+start = -164, 270
+layerno = 0
+mask = 1
+
+
+;-------------------------------------------------------------------
+[Select Info]
+fadein.time = 10
+fadeout.time = 10
+rows = 15
+columns = 21
+wrapping = 1
+pos = -182,208
+showemptyboxes = 0
+moveoveremptyboxes = 0    			
+cell.size = 44,42
+cell.spacing = 4
+cell.bg.spr = 150,0
+cell.bg.scale = .8,.7
+cell.random.spr = 151,0
+cell.random.scale = 1.6,1.4
+cell.random.switchtime = 4
+p1.cursor.startcell = 0,10
+p1.cursor.active.anim = 1
+
+p1.cursor.active.offset = 3,2
+p2.cursor.active.offset = 3,2
+
+p1.cursor.active.scale = 1.6,1.4
+p2.cursor.active.scale = 1.6,1.4
+
+p1.cursor.done.spr = 160,0
+
+p1.cursor.done.scale = 1.6,1.4
+p2.cursor.done.scale = 1.6,1.4
+
+p1.cursor.done.offset = 3,2
+p2.cursor.done.offset = 3,2
+
+p1.cursor.move.snd = 100,0
+p1.cursor.done.snd = 100,1
+p1.random.move.snd = 100,0
+p2.cursor.startcell = 2,10
+p2.cursor.active.anim = 2
+p2.cursor.done.spr = 165,0
+p2.cursor.blink = 1       
+p2.cursor.move.snd = 100,0
+p2.cursor.done.snd = 100,1
+p2.random.move.snd = 100,0
+random.move.snd.cancel = 0
+stage.move.snd = 100,0
+stage.done.snd = 100,1
+cancel.snd = 100,2
+portrait.offset = 5,4
+portrait.scale = .8,.7
+title.offset = 159,13
+title.font = -1,-1,-1
+
+;Big portraits
+p1.face2.spr = 9000,1
+;p1.face2.offset = 1,35
+p1.face2.offset = -154,0
+p1.face2.scale = 1,1
+p1.face2.facing = 1
+p1.face2.layerno = -3
+
+p1.face.anim = 0
+p1.face.offset = 204,172
+p1.face.scale = .5,.5
+p1.face.done.anim = 181
+
+p2.face2.spr = 9000,1
+p2.face2.offset = 639,35
+p2.face2.scale = .3,.3
+p2.face2.facing = -1
+p2.face2.layerno = -3
+
+p2.face.anim = 0
+p2.face.offset = 434,172
+p2.face.scale = .5,.5
+p2.face.done.anim = 181
+
+
+;Name
+p1.name.offset = 5,185
+p1.name.font = 4,0,1
+;p1.name.scale = 2,2
+p2.name.offset = 635,185
+p2.name.font = 4,0,-1
+
+;Stage select
+stage.pos = 320,180
+stage.active.font = 7,0,0
+stage.active2.font = 7,0,0
+stage.done.font = 7,0,0
+
+;Team menu                
+teammenu.move.wrapping = 1
+p1.teammenu.pos = 138,86
+p1.teammenu.bg.spr = 0,100
+p1.teammenu.bg.scale = 1,1.1
+p1.teammenu.selftitle.font = 3,0,1
+p1.teammenu.selftitle.text = TEAM MODE
+p1.teammenu.enemytitle.font = 3,0,1
+p1.teammenu.enemytitle.text = TEAM MODE
+p1.teammenu.move.snd = 100,0
+p1.teammenu.value.snd = 100,0
+p1.teammenu.done.snd = 100,1
+p1.teammenu.item.offset = 0,20
+p1.teammenu.item.spacing = 0,15
+p1.teammenu.item.font = 5,0,1
+p1.teammenu.item.active.font = 4,0,1
+p1.teammenu.item.active2.font = 4,0,1
+p1.teammenu.item.cursor.offset = -10, 0
+p1.teammenu.item.cursor.spr = 190,0
+p1.teammenu.value.icon.offset = 60,1
+p1.teammenu.value.icon.spr = 191,0
+p1.teammenu.value.empty.icon.offset = 60,1
+p1.teammenu.value.empty.icon.spr = 192,0
+p1.teammenu.value.spacing = 6,0
+
+p1.teammenu.ratio1.icon.spr = 300, 0       ;Ikemen feature
+p1.teammenu.ratio1.icon.offset = 156, 48  ;Ikemen feature
+p1.teammenu.ratio1.icon.facing = 1         ;Ikemen feature
+p1.teammenu.ratio1.icon.scale = 0.60, 0.60 ;Ikemen feature
+p1.teammenu.ratio2.icon.spr = 300, 1       ;Ikemen feature
+p1.teammenu.ratio2.icon.offset = 156, 48   ;Ikemen feature
+p1.teammenu.ratio2.icon.facing = 1         ;Ikemen feature
+p1.teammenu.ratio2.icon.scale = 0.60, 0.60 ;Ikemen feature
+p1.teammenu.ratio3.icon.spr = 300, 2       ;Ikemen feature
+p1.teammenu.ratio3.icon.offset = 156, 48    ;Ikemen feature
+p1.teammenu.ratio3.icon.facing = 1         ;Ikemen feature
+p1.teammenu.ratio3.icon.scale = 0.60, 0.60 ;Ikemen feature
+p1.teammenu.ratio4.icon.spr = 300, 3       ;Ikemen feature
+p1.teammenu.ratio4.icon.offset = 156, 48  ;Ikemen feature
+p1.teammenu.ratio4.icon.facing = 1         ;Ikemen feature
+p1.teammenu.ratio4.icon.scale = 0.60, 0.60 ;Ikemen feature
+p1.teammenu.ratio5.icon.spr = 300, 4       ;Ikemen feature
+p1.teammenu.ratio5.icon.offset = 156, 48    ;Ikemen feature
+p1.teammenu.ratio5.icon.facing = 1         ;Ikemen feature
+p1.teammenu.ratio5.icon.scale = 0.60, 0.60 ;Ikemen feature
+p1.teammenu.ratio6.icon.spr = 300, 5       ;Ikemen feature
+p1.teammenu.ratio6.icon.offset = 156, 48    ;Ikemen feature
+p1.teammenu.ratio6.icon.facing = 1         ;Ikemen feature
+p1.teammenu.ratio6.icon.scale = 0.60, 0.60 ;Ikemen feature
+p1.teammenu.ratio7.icon.spr = 300, 6       ;Ikemen feature
+p1.teammenu.ratio7.icon.offset = 156, 48   ;Ikemen feature
+p1.teammenu.ratio7.icon.facing = 1         ;Ikemen feature
+p1.teammenu.ratio7.icon.scale = 0.60, 0.60 ;Ikemen feature
+
+;p2 team
+p2.teammenu.pos = 502, 86
+p2.teammenu.bg.spr = 0,200
+p2.teammenu.bg.scale = 1,1.1
+p2.teammenu.selftitle.font = 3,0,-1
+p2.teammenu.selftitle.text = TEAM MODE
+p2.teammenu.enemytitle.font = 3,0,-1
+p2.teammenu.enemytitle.text = TEAM MODE
+p2.teammenu.move.snd = 100,0
+p2.teammenu.value.snd = 100,0
+p2.teammenu.done.snd = 100,1
+p2.teammenu.item.offset = 0,20
+p2.teammenu.item.spacing = 0,15
+p2.teammenu.item.font = 5,0,-1
+p2.teammenu.item.active.font = 4,0,-1
+p2.teammenu.item.active2.font = 4,0,-1
+p2.teammenu.item.cursor.offset = 10, 0
+p2.teammenu.item.cursor.spr = 195,0
+p2.teammenu.value.icon.offset = -60,1
+p2.teammenu.value.icon.spr = 196,0
+p2.teammenu.value.empty.icon.offset = -60,1
+p2.teammenu.value.empty.icon.spr = 192,0
+p2.teammenu.value.spacing = -6,0
+
+p2.teammenu.ratio1.icon.spr = 301, 0       ;Ikemen feature
+p2.teammenu.ratio1.icon.offset = 274, 48  ;Ikemen feature
+p2.teammenu.ratio1.icon.facing = 1         ;Ikemen feature
+p2.teammenu.ratio1.icon.scale = 0.60, 0.60 ;Ikemen feature
+p2.teammenu.ratio2.icon.spr = 301, 1       ;Ikemen feature
+p2.teammenu.ratio2.icon.offset = 274, 48  ;Ikemen feature
+p2.teammenu.ratio2.icon.facing = 1         ;Ikemen feature
+p2.teammenu.ratio2.icon.scale = 0.60, 0.60 ;Ikemen feature
+p2.teammenu.ratio3.icon.spr = 301, 2       ;Ikemen feature
+p2.teammenu.ratio3.icon.offset = 274, 48  ;Ikemen feature
+p2.teammenu.ratio3.icon.facing = 1         ;Ikemen feature
+p2.teammenu.ratio3.icon.scale = 0.60, 0.60 ;Ikemen feature
+p2.teammenu.ratio4.icon.spr = 301, 3       ;Ikemen feature
+p2.teammenu.ratio4.icon.offset = 274, 48  ;Ikemen feature
+p2.teammenu.ratio4.icon.facing = 1         ;Ikemen feature
+p2.teammenu.ratio4.icon.scale = 0.60, 0.60 ;Ikemen feature
+p2.teammenu.ratio5.icon.spr = 301, 4       ;Ikemen feature
+p2.teammenu.ratio5.icon.offset = 274, 48  ;Ikemen feature
+p2.teammenu.ratio5.icon.facing = 1         ;Ikemen feature
+p2.teammenu.ratio5.icon.scale = 0.60, 0.60 ;Ikemen feature
+p2.teammenu.ratio6.icon.spr = 301, 5       ;Ikemen feature
+p2.teammenu.ratio6.icon.offset = 274, 48  ;Ikemen feature
+p2.teammenu.ratio6.icon.facing = 1         ;Ikemen feature
+p2.teammenu.ratio6.icon.scale = 0.60, 0.60 ;Ikemen feature
+p2.teammenu.ratio7.icon.spr = 301, 6       ;Ikemen feature
+p2.teammenu.ratio7.icon.offset = 274, 48  ;Ikemen feature
+p2.teammenu.ratio7.icon.facing = 1         ;Ikemen feature
+p2.teammenu.ratio7.icon.scale = 0.60, 0.60 ;Ikemen feature
+
+teammenu.itemname.single = Single ;Ikemen feature
+teammenu.itemname.tag = Tag       ;Ikemen feature
+teammenu.itemname.simul = Simul   ;Ikemen feature
+teammenu.itemname.turns = Turns   ;Ikemen feature
+teammenu.itemname.ratio = Ratio   ;Ikemen feature
+
+timer.enabled = 0                 ;Ikemen feature
+timer.offset = 9999,9999           ;Ikemen feature
+timer.font = 2, 0, 0              ;Ikemen feature
+timer.font.scale = 1.0, 1.0       ;Ikemen feature
+timer.count = 99                  ;Ikemen feature
+timer.framespercount = 60         ;Ikemen feature
+timer.displaytime = 10            ;Ikemen feature
+
+[Begin action 1]
+160,0,0,0,4
+160,1,0,0,4
+160,2,0,0,4
+160,1,0,0,4
+
+[Begin action 2]
+165,0,0,0,4
+165,1,0,0,4
+165,2,0,0,4
+165,1,0,0,4
+
+
+;-------------------------------------------------------------------
+[SelectBGdef]
+
+
+
+[SelectBG Gradient]
+type  = anim
+actionno = 30
+;trans = normal
+layerno = 0
+start = 0,0
+;tile  = 0,0
+mask = 1
+scalestart = 1,1
+;velocity = 1,1
+;tile = 1,1
+
+;[TitleBG 2] ; Mikoto
+;type  = anim
+;actionno = 9001
+;start = -325, 150
+;layerno = 0
+;mask = 1
+;scalestart = 0.5,0.5
+
+[Begin Action 30]
+0,30, 0,0, 10
+0,31, 0,0, 10
+0,32, 0,0, 10
+0,33, 0,0, 10
+0,34, 0,0, 10
+0,35, 0,0, 10
+0,34, 0,0, 10
+0,33, 0,0, 10
+0,32, 0,0, 10
+0,31, 0,0, 10
+
+
+
+[SelectBG World]
+type  = normal
+spriteno = 2,11
+trans = add
+layerno = 0
+start = -1,-30
+tile  = 0,0
+velocity = 0, 0
+mask = 1
+scalestart = .6,.6
+
+[SelectBG Science]
+type  = normal
+trans = add1
+spriteno = 2,1
+layerno = 0
+start = -150,340
+scalestart = .5,.5
+
+[SelectBG Magic]
+type  = normal
+trans = add1
+spriteno = 2,2
+layerno = 0
+start = 150,340
+scalestart = .5,.5
+
+
+
+
+;[SelectBG Logo]
+;type  = normal
+;trans = add1
+;spriteno = 0,21
+;layerno = 0
+;start = 0,0
+;tile  = 1,1
+;velocity = 1, 1
+;scalestart = 1,1
+
+;;[SelectBG CharacterImageBG]
+;type  = normal
+;trans = add1;
+;spriteno = 900,2
+;layerno = 0
+;start =0,35
+;tile  = 0,0
+;velocity = 0, 0
+
+[SelectBG shadow]
+type  = normal
+trans = add1
+spriteno = 900,4
+layerno = 0
+start =0,132
+tile  = 0,0
+velocity = 0, 0
+scalestart = 1,0.40
+
+[SelectBG chararea]
+type  = anim
+;trans = add1
+actionno = 180
+layerno = 0
+start =-356,-578
+tile  = 0,0
+velocity = 0, 0
+scalestart = 1.08,2.16
+
+[SelectBG Player select]
+type = normal
+spriteno = 2,3
+start = -320,0
+mask = 1
+tile = 1,0
+layerno = 0
+velocity = 3,0
+tilespacing = 10,0
+
+[SelectBG SelectYourCharacter (Top)]
+type  = normal
+spriteno = 900,3
+layerno = 0
+start = 640,449
+tile  = 1,0
+tilespacing = 10,0
+velocity = 2, 0
+mask = 1
+
+;[SelectBG SelectYourCharacter (Bottom)]
+;type  = normal
+;spriteno = 900,3
+;layerno = 1
+;start = 640,449
+;tile  = 1,0
+;tilespacing = 10,0
+;velocity = -2, 0
+;mask = 1
+
+;[SelectBG Player select]
+;type = normal
+;spriteno = 2,3
+;start = -320,456
+;mask = 1
+;tile = 1,0
+;layerno = 1
+;velocity = -3,0
+;tilespacing = 10,0
+
+;-------------------------------------------------------------------
+[VS Screen]
+time =  250
+fadein.time = 90
+p1.pos =  0,110
+p1.spr = 9000, 1
+p1.spr.scale = .5,.5
+p2.pos = 639,110
+p1.name.pos  = 18,412
+p1.name.spacing = 0,24
+p1.name.font = 2,0,1
+
+p2.spr = 9000, 1
+p2.spr.scale = .5,.5
+p2.name.pos  = 622,412
+p2.name.font = 2,0,-1
+p2.name.spacing = 0,24
+
+;-------------------------------------------------------------------
+[VersusBGdef] 
+
+[VersusBG Gradient]
+type  = normal
+spriteno = 2,-1
+trans = add1
+layerno = 0
+start = 0,0
+tile  = 0,0
+velocity = 0, 0
+mask = 1
+scalestart = 0.5,0.5
+
+
+[VersusBG World]
+type  = normal
+spriteno = 2,11
+trans = add
+layerno = 0
+start = 0,0
+tile  = 0,0
+velocity = 0, 0
+mask = 1
+
+[VersusBG Logo]
+type  = normal
+trans = add1
+spriteno = 900,1
+layerno = 0
+start = 0,0
+tile  = 1,1
+velocity = 2, 2
+scalestart = 0.2,0.2
+
+[VersusBG BG]
+type  = normal
+trans = add1
+spriteno = 901,0
+layerno = 0
+start =0,110
+tile  = 0,0
+velocity = 0, 0
+
+[VersusBG Versus Stripe]
+type = anim
+actionno = 3
+start = 0,0
+layerno = 1 
+
+[VersusBG Versus Stripe]
+type = anim
+actionno = 31
+start = 0,0
+layerno = 1 
+
+
+
+[VersusBG PREPARETOFIGHT]
+type  = normal
+spriteno = 901,1
+layerno = 1
+start = 0,5
+tile  = 1,0
+tilespacing = 20,0
+velocity = -3, 0
+mask = 1
+
+[VersusBG GoForBroke]
+type  = normal
+spriteno = 901,2
+layerno = 1
+start = 0,22
+tile  = 1,0
+tilespacing = 10,0
+velocity = -2, 0
+mask = 1
+
+[VersusBG PREPARETOFIGHT]
+type  = normal
+spriteno = 901,1
+layerno = 1
+start = 640,461
+tile  = 1,0
+tilespacing = 20,0
+velocity = 3, 0
+mask = 1
+
+[VersusBG GoForBroke]
+type  = normal
+spriteno = 901,2
+layerno = 1
+start = 640,452
+tile  = 1,0
+tilespacing = 10,0
+velocity = 2, 0
+mask = 1
+
+
+[Begin Action 3]
+3,0, 0,-480, 1
+3,0, 0,-460, 1
+3,0, 0,-440, 1
+3,0, 0,-420, 1
+3,0, 0,-400, 1
+3,0, 0,-380, 1
+3,0, 0,-360, 1
+3,0, 0,-340, 1
+3,0, 0,-320, 1
+3,0, 0,-300, 1
+3,0, 0,-280, 1
+3,0, 0,-260, 1
+3,0, 0,-240, 1
+3,0, 0,-220, 1
+3,0, 0,-200, 1
+3,0, 0,-180, 1
+3,0, 0,-160, 1
+3,0, 0,-140, 1
+3,0, 0,-120, 1
+3,0, 0,-100, 1
+3,0, 0,-80, 1
+3,0, 0,-60, 1
+3,0, 0,-40, 1
+3,0, 0,-20, 1
+3,0, 0,0, -1
+
+[VersusBG Versus Black BG]
+type = anim
+actionno = 20001
+start = -350,0
+layerno = 1
+scalestart = 5,5
+
+[Begin Action 31]
+3,1, 0,-480, 1
+3,1, 0,-460, 1
+3,1, 0,-440, 1
+3,1, 0,-420, 1
+3,1, 0,-400, 1
+3,1, 0,-380, 1
+3,1, 0,-360, 1
+3,1, 0,-340, 1
+3,1, 0,-320, 1
+3,1, 0,-300, 1
+3,1, 0,-280, 1
+3,1, 0,-260, 1
+3,1, 0,-240, 1
+3,1, 0,-220, 1
+3,1, 0,-200, 1
+3,1, 0,-180, 1
+3,1, 0,-160, 1
+3,1, 0,-140, 1
+3,1, 0,-120, 1
+3,1, 0,-100, 1
+3,1, 0,-80, 1
+3,1, 0,-60, 1
+3,1, 0,-40, 1
+3,1, 0,-20, 1
+3,1, 0,0, -1
+
+[Begin Action 20001]
+6,34, 0,0, 257, , 
+0,-1, 0,0, -1, , A
+
+[VersusBG Versus Magic vs Science]
+type = anim
+actionno = 19999
+start = 0,0
+layerno = 1
+scalestart = .7,.7
+
+
+[Begin Action 19999]
+0,-1, 0,0, 30
+19999,0, 0,0, 1
+19999,1, 0,0, 2
+19999,2, 0,0, 2
+19999,3, 0,0, 2
+19999,4, 0,0, 2
+19999,5, 0,0, 2
+19999,6, 0,0, 2
+19999,7, 0,0, 2
+19999,8, 0,0, 2
+19999,9, 0,0, 2
+19999,10, 0,0, 2
+19999,11, 0,0, 2
+19999,12, 0,0, 2
+19999,13, 0,0, 2
+19999,14, 0,0, 2
+19999,15, 0,0, 2
+19999,16, 0,0, 2
+19999,17, 0,0, 2
+19999,18, 0,0, 2
+19999,19, 0,0, 2
+19999,20, 0,0, 2
+19999,21, 0,0, 2
+19999,22, 0,0, 2
+19999,23, 0,0, 2
+19999,24, 0,0, 2
+19999,25, 0,0, 2
+19999,26, 0,0, 2
+19999,27, 0,0, 2
+19999,28, 0,0, 2
+19999,29, 0,0, 2
+19999,30, 0,0, 2
+19999,31, 0,0, 2
+19999,32, 0,0, 2
+19999,33, 0,0, 2
+19999,34, 0,0, 2
+19999,35, 0,0, 2
+19999,36, 0,0, 2
+19999,37, 0,0, 2
+19999,38, 0,0, 2
+19999,39, 0,0, 2
+19999,40, 0,0, 2
+19999,41, 0,0, 2
+19999,42, 0,0, 2
+19999,43, 0,0, 2
+19999,44, 0,0, 2
+19999,45, 0,0, 2
+19999,46, 0,0, 2
+19999,47, 0,0, 2
+19999,48, 0,0, 2
+19999,49, 0,0, 2
+19999,50, 0,0, 2
+19999,51, 0,0, 2
+19999,52, 0,0, 2
+19999,53, 0,0, 2
+19999,54, 0,0, 2
+19999,55, 0,0, 2
+19999,4, 0,0, 2
+19999,3, 0,0, 2
+19999,2, 0,0, 2
+19999,1, 0,0, 2
+19999,0, 0,0, 1
+0,-1, 0,0, -1, , A
+
+
+[VersusBG Versus Glass]
+type = anim
+actionno = 20000
+start = -320,0
+layerno = 1
+scalestart = 2,2
+
+[Begin Action 20000]
+0,-1, 0,0, 172
+20000,40, 0,0, 30, , A
+20000,41, 0,0, 55, , A
+20000,42, 0,0, 3, , A
+20000,43, 0,0, 3, , A
+20000,44, 0,0, 3, , A
+20000,45, 0,0, 2, , A
+20000,46, 0,0, 2, , A
+20000,47, 0,0, 2, , A
+20000,48, 0,0, 2, , A
+20000,49, 0,0, 2, , A
+20000,50, 0,0, 2, , A
+20000,51, 0,0, 2, , A
+20000,52, 0,0, 2, , A
+20000,53, 0,0, -1, , A
+
+
+
+;-------------------------------------------------------------------
+;Demo mode definition
+[Demo Mode]
+enabled = 1               ;Set to 1 to enable demo mode, 0 to disable
+select.enabled = 0        ;Set to 1 to display sct screen, 0 to disable
+vsscreen.enabled = 0      ;Set to 1 to display versus screen, 0 to disable
+title.waittime = 2000      ;Time to wait at title before starting demo mode
+fight.endtime = 1000      ;Time to display the fight before returning to title
+fight.playbgm = 0         ;Set to 1 to enable in-fight BGM, 0 to disable
+fight.bars.display = 0    ;Set to 1 to display lifebar, 0 to disable
+intro.waitcycles = 1      ;Cycles to wait before intro cutscene is played again
+debuginfo = 0             ;Set to 0 to hide debugging info (debug mode only)
+
+;-------------------------------------------------------------------
+;Continue screen definition
+[Continue Screen]
+enabled = 1
+pos = 320,120
+
+;***Known issue*** The display elements below use the fight.def resources
+;instead of the ones defined in this file.
+continue.text = "CONTINUE?"
+continue.font = 3,0,0
+continue.offset = 0,0
+;Inactive and active (selected) YES/NO text
+yes.text = "YES"
+yes.font = 3,3,0,
+yes.offset = -80, 60
+yes.active.text = "YES"
+yes.active.font = 3,0,0
+yes.active.offset = -80, 60
+no.text = "NO"
+no.font = 3,3,0,
+no.offset = 80, 60
+no.active.text = "NO"
+no.active.font = 3,0,0
+no.active.offset = 80, 60
+
+
+;-------------------------------------------------------------------
+[Game Over Screen]
+enabled = 1
+storyboard = def+sff+snd/GameOver.def
+
+
+;-------------------------------------------------------------------
+[Victory Screen]
+enabled = 1
+time = 650                ;Time to show screen
+fadein.time = 20
+fadeout.time = 10
+p1.offset = 202,76
+p1.spr = 9000,2
+p1.facing = 1
+p1.scale = 1,1
+p1.layerno = 0
+p1.window = 0,0,640,357
+;Win quote text
+winquote.text = "Winner" ;Default win quote text to show
+winquote.offset = 115,388
+winquote.font = 8,0,1
+winquote.window = 114,372,563,440
+winquote.textwrap = w     ;Word wrap
+
+
+[VictoryBGdef]
+
+;[VictoryBG Gradient]
+;type  = normal
+;spriteno = 2,-1
+;trans = add1
+;layerno = 0
+;start = 0,0
+;tile  = 0,0
+;velocity = 0, 0
+;mask = 1
+;scalestart = 0.5,0.5
+
+
+;[VictoryBG World]
+;type  = normal
+;spriteno = 2,11
+;trans = add
+;layerno = 0
+;start = 0,0
+;tile  = 0,0
+;velocity = 0, 0
+;mask = 1
+
+;[VictoryBG Logo]
+;type  = normal
+;trans = add1
+;spriteno = 900,1
+;layerno = 0
+;start = 0,0
+;tile  = 1,1
+;velocity = 2, 2
+;scalestart = 0.2,0.2
+
+[VictoryBG  5] ; Black
+type  = anim
+actionno = 180
+start = -320,0
+layerno = 0
+mask = 1
+
+[VictoryBG 6] ; Holder
+type  = normal
+spriteno = 180,1
+start = -320,0
+layerno = 0
+mask = 1
+
+[VictoryBG stage]
+type  = anim
+actionno = 6
+start = 0,0
+layerno = 1
+
+[Begin Action 6]
+6,13,0,0,8
+6,12,0,0,2
+6,11,0,0,2
+6,10,0,0,2
+6,9,0,0,2
+6,8,0,0,2
+6,7,0,0,2
+6,6,0,0,2
+6,5,0,0,2
+6,4,0,0,2
+6,3,0,0,2
+6,2,0,0,2
+6,1,0,0,2
+6,0,0,0,20
+6,14,0,0,2
+6,15,0,0,2
+6,16,0,0,2
+6,17,0,0,2
+6,18,0,0,2
+6,19,0,0,2
+6,20,0,0,2
+6,21,0,0,2
+6,22,0,0,2
+6,23,0,0,2
+6,24,0,0,2
+6,25,0,0,2
+6,13,0,0,8
+6,13, 0,0, 2, , AS256D128
+6,13, 0,0, 2, , AS246D136
+6,13, 0,0, 2, , AS236D144
+6,13, 0,0, 2, , AS226D152
+6,13, 0,0, 2, , AS216D160
+6,13, 0,0, 2, , AS206D168
+6,13, 0,0, 2, , AS196D176
+6,13, 0,0, 2, , AS186D184
+6,13, 0,0, 2, , AS176D192
+6,13, 0,0, 2, , AS166D200
+6,13, 0,0, 2, , AS156D208
+6,13, 0,0, 2, , AS146D216
+6,13, 0,0, 2, , AS136D224
+6,13, 0,0, 2, , AS126D232
+6,13, 0,0, 2, , AS116D240
+6,13, 0,0, 2, , AS96D248
+6,13, 0,0, 2, , AS76D256
+6,13, 0,0, 2, , AS56D256
+6,13, 0,0, 2, , AS16D256
+-1,-1,0,0,-1
+
+[Begin Action 180]
+180,0, 0,0, 1, , AS256D40
+
+
+;-------------------------------------------------------------------
+;Win screen definition
+;This is the screen that is shown when you win in arcade mode.
+;It will not be displayed if the winning character has an ending.
+[Win Screen]
+enabled = 1
+wintext.text = CONGRATULATIONS!
+wintext.font = 6,0,0
+wintext.offset = 318,140
+wintext.displaytime = -1
+wintext.layerno = 2
+fadein.time = 32
+pose.time = 300
+fadeout.time = 64
+
+
+;	font1 =  font/f-4x6.fnt									;System fonts
+;	font2 = font/f-6x9.fnt										;System fonts
+;1	font3 = font/qoh_smallbig.fnt
+;3	font4 = font/sfa3big.fnt
+;4	font5 = font/qoh_big.fnt
+;5	font6 = font/qoh_small.fnt
+;2	font7 = font/qoh_bigbig.fnt
+;6	font8 = font/mshsmall.fnt
+;7	font9 = font/fbi-name.fnt
+
+
+
+;-------------------------------------------------------------------
+[Default Ending]
+enabled = 0
+storyboard =; def+sff+snd/endingcredits.def
+
+
+;-------------------------------------------------------------------
+[End Credits]
+enabled = 0
+storyboard = ;def+sff+snd/GameOver.def
+
+
+;-------------------------------------------------------------------
+[Survival Results Screen]
+enabled = 1
+winstext.text = Rounds Survived: %i
+winstext.font = 6,0,0
+winstext.offset = 320,70
+winstext.displaytime = -1
+winstext.layerno = 2
+fadein.time = 32
+show.time = 300
+fadeout.time = 64
+roundstowin = 5
+
+
+;-------------------------------------------------------------------
+;Options screen definition
+[Option Info]
+cursor.move.snd = 100,0
+cursor.done.snd = 100,1
+cancel.snd = 100,2
+
+;Ikemen feature
+menu.itemname.menuarcade = "Arcade Settings"
+menu.itemname.menuarcade.roundtime = "Time Limit"
+menu.itemname.menuarcade.roundsnumsingle = "Rounds to Win Single"
+menu.itemname.menuarcade.roundsnumteam = "Rounds to Win Simul/Tag"
+menu.itemname.menuarcade.maxdrawgames = "Max Draw Games"
+menu.itemname.menuarcade.difficulty = "Difficulty Level"
+menu.itemname.menuarcade.credits = "Credits"
+menu.itemname.menuarcade.quickcontinue = "Quick Continue"
+menu.itemname.menuarcade.airamping = "AI Ramping"
+menu.itemname.menuarcade.aipalette = "AI Palette"
+menu.itemname.menuarcade.empty = ""
+menu.itemname.menuarcade.back = "Back"
+
+menu.itemname.menuvideo = "Video Settings"
+menu.itemname.menuvideo.resolution = "Resolution" ;reserved submenu
+; Resolution is assigned based on values used in itemname suffix (e.g. 320x240)
+menu.itemname.menuvideo.resolution.320x240 = "320x240    (4:3 QVGA)"
+menu.itemname.menuvideo.resolution.640x480 = "640x480    (4:3 VGA)"
+menu.itemname.menuvideo.resolution.960x720 = "960x720    (4:3 HD)"
+menu.itemname.menuvideo.resolution.1280x960 = "1280x960    (4:3 HD+)"
+menu.itemname.menuvideo.resolution.1600x1200 = "1600x1200    (4:3 FHD)"
+menu.itemname.menuvideo.resolution.empty = ""
+menu.itemname.menuvideo.resolution.customres = "Custom"
+menu.itemname.menuvideo.resolution.back = "Back"
+menu.itemname.menuvideo.fullscreen = "Fullscreen"
+menu.itemname.menuvideo.msaa = "MSAA"
+menu.itemname.menuvideo.shaders = "Shaders" ;reserved submenu
+; This list is populated with shaders existing in 'external/shaders' directory
+menu.itemname.menuvideo.shaders.empty = ""
+menu.itemname.menuvideo.shaders.noshader = "Disable"
+menu.itemname.menuvideo.shaders.back = "Back"
+menu.itemname.menuvideo.empty = ""
+menu.itemname.menuvideo.back = "Back"
+
+menu.itemname.menuaudio = "Audio Settings"
+menu.itemname.menuaudio.mastervolume = "Master Volume"
+menu.itemname.menuaudio.bgmvolume = "BGM Volume"
+menu.itemname.menuaudio.sfxvolume = "SFX Volume"
+menu.itemname.menuaudio.audioducking = "Audio Ducking"
+menu.itemname.menuaudio.empty = ""
+menu.itemname.menuaudio.back = "Back"
+
+menu.itemname.menuinput = "Input Settings"
+menu.itemname.menuinput.keyboard = "Key Config"
+menu.itemname.menuinput.gamepad = "Joystick Config"
+menu.itemname.menuinput.empty = ""
+menu.itemname.menuinput.inputdefault = "Default"
+menu.itemname.menuinput.back = "Back"
+
+menu.itemname.menugameplay = "Gameplay Settings"
+menu.itemname.menugameplay.lifemul = "Life"
+menu.itemname.menugameplay.gamespeed = "Game Speed"
+menu.itemname.menugameplay.autoguard = "Auto-Guard"
+menu.itemname.menugameplay.empty = ""
+menu.itemname.menugameplay.singlevsteamlife = "Single VS Team Life"
+menu.itemname.menugameplay.teamlifeadjustment = "Team Life Adjustment"
+menu.itemname.menugameplay.teampowershare = "Team Power Share"
+menu.itemname.menugameplay.simulloseko = "Simul Player KOed Lose"
+menu.itemname.menugameplay.tagloseko = "Tag Partner KOed Lose"
+menu.itemname.menugameplay.turnsrecoverybase = "Turns Recovery Base"
+menu.itemname.menugameplay.turnsrecoverybonus = "Turns Recovery Bonus"
+menu.itemname.menugameplay.empty = ""
+menu.itemname.menugameplay.menuratio = "Ratio Settings"
+menu.itemname.menugameplay.menuratio.ratio1life = "Ratio 1 Life"
+menu.itemname.menugameplay.menuratio.ratio1attack = "Ratio 1 Damage"
+menu.itemname.menugameplay.menuratio.ratio2life = "Ratio 2 Life"
+menu.itemname.menugameplay.menuratio.ratio2attack = "Ratio 2 Damage"
+menu.itemname.menugameplay.menuratio.ratio3life = "Ratio 3 Life"
+menu.itemname.menugameplay.menuratio.ratio3attack = "Ratio 3 Damage"
+menu.itemname.menugameplay.menuratio.ratio4life = "Ratio 4 Life"
+menu.itemname.menugameplay.menuratio.ratio4attack = "Ratio 4 Damage"
+menu.itemname.menugameplay.menuratio.empty = ""
+menu.itemname.menugameplay.menuratio.back = "Back"
+menu.itemname.menugameplay.menuadvanced = "Advanced Settings"
+menu.itemname.menugameplay.menuadvanced.attackpowermul = "Attack.LifeToPowerMul"
+menu.itemname.menugameplay.menuadvanced.gethitpowermul = "GetHit.LifeToPowerMul"
+menu.itemname.menugameplay.menuadvanced.superdefencemul = "Super.TargetDefenceMul"
+menu.itemname.menugameplay.menuadvanced.empty = ""
+menu.itemname.menugameplay.menuadvanced.minturns = "Min Turns Chars"
+menu.itemname.menugameplay.menuadvanced.maxturns = "Max Turns Chars"
+menu.itemname.menugameplay.menuadvanced.minsimul = "Min Simul Chars"
+menu.itemname.menugameplay.menuadvanced.maxsimul = "Max Simul Chars"
+menu.itemname.menugameplay.menuadvanced.mintag = "Min Tag Chars"
+menu.itemname.menugameplay.menuadvanced.maxtag = "Max Tag Chars"
+menu.itemname.menugameplay.menuadvanced.empty = ""
+menu.itemname.menugameplay.menuadvanced.back = "Back"
+menu.itemname.menugameplay.back = "Back"
+
+menu.itemname.menuengine = "Engine Settings"
+menu.itemname.menuengine.debugkeys = "Debug Keys"
+menu.itemname.menuengine.empty = ""
+menu.itemname.menuengine.helpermax = "HelperMax"
+menu.itemname.menuengine.projectilemax = "PlayerProjectileMax"
+menu.itemname.menuengine.explodmax = "ExplodMax"
+menu.itemname.menuengine.afterimagemax = "AfterImageMax"
+menu.itemname.menuengine.empty = ""
+menu.itemname.menuengine.menupreloading = "Pre-loading"
+menu.itemname.menuengine.menupreloading.preloadingsmall = "Small portraits"
+menu.itemname.menuengine.menupreloading.preloadingbig = "Select portraits"
+menu.itemname.menuengine.menupreloading.preloadingversus = "Versus portraits"
+menu.itemname.menuengine.menupreloading.preloadingstage = "Stage portraits"
+menu.itemname.menuengine.back = "Back"
+
+menu.itemname.empty = ""
+menu.itemname.portchange = "Port Change"
+menu.itemname.default = "Default Values"
+menu.itemname.empty = ""
+menu.itemname.savereturn = "Save and Return"
+menu.itemname.return = "Return Without Saving"
+
+
+;-------------------
+;Options screen background
+[OptionBGdef]
+bgclearcolor = 0,0,0
+
+[OptionBG 0]
+type  = normal
+spriteno = 0,0
+start = -320, 0
+layerno = 0
+trans = none
+mask = 1
+scalestart = 0.5,0.5
+
+[OptionBG 1]
+type  = normal
+spriteno = 1,0
+start = 0, 0
+layerno = 0
+tile= 1,0
+tilespacing = 400,0
+velocity = 1,0
+trans = add
+mask = 1
+scale = 2,2
+[OptionBG 2]
+type  = normal
+spriteno = 1,1
+start = 0, 0
+layerno = 0
+tile= 1,0
+tilespacing = 400,0
+velocity = 1.5,0
+trans = add
+mask = 1
+scale = 2,2
+[OptionBG 3]
+type  = normal
+spriteno = 1,2
+start = 0, 0
+layerno = 0
+tile= 1,0
+tilespacing = 400,0
+velocity = 2,0
+trans = add
+mask = 1
+
+
+; Card Template
+[Begin Action 9000]
+0,2, 0,0, 1, , S
+0,2, 34,0, 1, , A
+9001, 1, 66, 0, 1
+9001, 1, 98, 0, 1
+9001, 1, 126, 0, 1
+9001, 1, 128, 0, 1
+9001, 1, 130, 0, 1
+9001, 1, 131, 0, 1
+9001, 1, 132, 0, 26
+9001, 1, 132, 0, 1, , AS240D20
+9001, 1, 132, 0, 1, , AS215D45
+9001, 1, 132, 0, 1, , AS190D70
+9001, 1, 132, 0, 1, , AS165D95
+9001, 1, 132, 0, 1, , AS140D120
+9001, 1, 132, 0, 1, , AS115D145
+9001, 1, 132, 0, 1, , AS90D170
+9001, 1, 132, 0, 1, , AS65D195
+9001, 1, 132, 0, 1, , AS40D220
+9001, 1, 132, 0, 1, , AS15D245
+-1, 1, 0, 0, -1
+
+[Trials Mode]
+; NOTE: Values provided in this sample meant for `mugen1` screenpack, 1280x720 resolution.
+;
+; GENERAL TRIALS OPTIONS ---------------------------------------------------
+; trialsresetonsuccess: set to "true" to reset character positions after each trial success (except the final one). Can optionally specify fadein and fadeout parameters - will default to shown values.
+; trialslayout: "vertical" or "horizontal" are the only valid values. Defaults to "vertical" if not specified. Affects scrolling logic, as stated above, also enables dynamic step width. Can be changed via the pause menu if screenpack author leaves the option in.
+; --------------------------------------------------------------------------
+trialsresetonsuccess = true
+trialslayout = vertical
+
+; SELSCREENPALFX -----------------------------------------------------------
+; Sets specified palfx color to character portraits WITHOUT trials files in the trials select screen. See definition for palfx for different fields and options.
+; --------------------------------------------------------------------------
+selscreenpalfx.color = 0
+; selscreenpalfx.invertall = 0
+; selscreenpalfx.sinadd = 0, 0, 0, 0
+selscreenpalfx.mul = 100, 100, 100
+; selscreenpalfx.add = 0, 0, 0
+
+; RESETONSUCCESS FADES -----------------------------------------------------
+; Used when "trialsresetonsuccess" is set to "true"
+; --------------------------------------------------------------------------
+; fadein.time = 40
+; fadein.col = {0, 0, 0}
+; fadein.anim = -1
+; fadeout.time = 40
+; fadeout.col = {0, 0, 0}
+; fadeout.anim = -1
+
+; TRIALTITLE OPTIONS -------------------------------------------------------
+; TRAILTITLE options can be specified for both vertical and horizontal layouts simultaneously.
+; TRIALTITLE VERTICAL ------------------------------------------------------
+trialtitle.vertical.pos = 5,140
+trialtitle.vertical.text.offset = 0,-17
+trialtitle.vertical.text.font = 2,0,1, 255, 200, 100
+; trialtitle.vertical.text.text = "Trial: %s"
+; trialtitle.vertical.text.scale = 
+; trialtitle.vertical.text.font.height =
+; trialtitle.vertical.bg.offset = 
+; trialtitle.vertical.bg.spr = 
+; trialtitle.vertical.bg.anim = 
+; trialtitle.vertical.bg.scale = 
+; trialtitle.vertical.bg.facing = 
+; trialtitle.vertical.bg.displaytime = 
+; trialtitle.vertical.front.offset = 
+; trialtitle.vertical.front.spr = 
+; trialtitle.vertical.front.anim = 
+; trialtitle.vertical.front.scale = 
+; trialtitle.vertical.front.facing = 
+; trialtitle.vertical.front.displaytime = 
+; TRIALTITLE HORIZONTAL ----------------------------------------------------
+trialtitle.horizontal.pos = 5,140
+trialtitle.horizontal.text.offset = 0,-17
+trialtitle.horizontal.text.font = 2,0,1, 255, 200, 100
+; trialtitle.horizontal.text.text = "Trial: %s"
+; trialtitle.horizontal.text.scale = 
+; trialtitle.horizontal.text.font.height =
+; trialtitle.horizontal.bg.offset =
+; trialtitle.horizontal.bg.spr = 
+; trialtitle.horizontal.bg.anim =
+; trialtitle.horizontal.bg.scale = 
+; trialtitle.horizontal.bg.facing = 
+; trialtitle.horizontal.bg.displaytime = 
+; trialtitle.horizontal.front.offset = 
+; trialtitle.horizontal.front.spr = 
+; trialtitle.horizontal.front.anim = 
+; trialtitle.horizontal.front.scale = 
+; trialtitle.horizontal.front.facing = 
+; trialtitle.horizontal.front.displaytime = 
+
+; TRIALSTEPS OPTIONS -------------------------------------------------------
+; TRIALSTEPS options can be specified for both vertical and horizontal layouts simultaneously.
+; trialsteps.<layout>.pos: local origin from which trial steps are drawn. Other elements have their own origin specifications.
+; trialsteps.<layout>.spacing: spacing between trial steps. For horizontal layout, the second argument determines the spacing between rows.
+; trialsteps.<layout>.window: X1,Y1,X2,Y2: display window for trials--will create automated scrolling or line returns, depending on the trial layout of choice
+; trialsteps.horizontal.padding: horizontal layouts only - padding between glyphs and edges of the background element along the x (horizontal) axis.
+; trialsteps.<layout>.bg. ...: optional background displayed behind all other trial step text, background elements, etc.
+; TRIALSTEPS VERTICAL ------------------------------------------------------
+trialsteps.vertical.pos = 5,150
+trialsteps.vertical.spacing = 0,25
+trialsteps.vertical.window = 5,175, 635,310;1180,550
+trialsteps.vertical.window.withtextbox = 5,175, 390,310;1180,550
+; trialsteps.vertical.bg.offset = 
+; trialsteps.vertical.bg.spr = 
+; trialsteps.vertical.bg.anim = 
+; trialsteps.vertical.bg.scale = 
+; trialsteps.vertical.bg.facing = 
+; trialsteps.vertical.bg.displaytime =   
+; TRIALSTEPS HORIZONTAL ----------------------------------------------------
+trialsteps.horizontal.pos = 5,175
+trialsteps.horizontal.spacing = 1,40
+trialsteps.horizontal.window = 5,175, 635,310;1180,550
+trialsteps.horizontal.window.withtextbox = 5,175, 390,310;780,550
+trialsteps.horizontal.padding = 10
+; trialsteps.horizontal.bg.offset = 
+; trialsteps.horizontal.bg.spr = 
+; trialsteps.horizontal.bg.anim = 
+; trialsteps.horizontal.bg.scale = 
+; trialsteps.horizontal.bg.facing = 
+; trialsteps.horizontal.bg.displaytime =  
+
+; UPCOMINGSTEP -------------------------------------------------------------
+; UPCOMINGSTEP options can be specified for both vertical and horizontal layouts simultaneously.
+; UPCOMINGSTEP VERTICAL ----------------------------------------------------
+upcomingstep.vertical.text.offset = 0,0
+upcomingstep.vertical.text.font = 2,0,1, 200, 200, 200
+; upcomingstep.vertical.text.scale = 
+; upcomingstep.vertical.bg.offset = 
+; upcomingstep.vertical.bg.anim = 
+; upcomingstep.vertical.bg.spr = 
+; upcomingstep.vertical.bg.scale = 
+; upcomingstep.vertical.bg.facing =
+; upcomingstep.vertical.bg.displaytime = 
+upcomingstep.vertical.bg.palfx.color = 200
+; upcomingstep.vertical.bg.palfx.invertall = 0
+; upcomingstep.vertical.bg.palfx.sinadd = 0, 0, 0, 0
+upcomingstep.vertical.bg.palfx.mul = 200, 200, 200
+; upcomingstep.vertical.bg.palfx.add = 0, 0, 0
+; upcomingstep.vertical.glyphs.palfx.color = 256
+; upcomingstep.vertical.glyphs.palfx.invertall = 0
+; upcomingstep.vertical.glyphs.palfx.sinadd = 0, 0, 0, 0
+; upcomingstep.vertical.glyphs.palfx.mul = 0, 0, 0
+; upcomingstep.vertical.glyphs.palfx.add = 0, 0, 0
+; UPCOMINGSTEP HORIZONTAL --------------------------------------------------
+; upcomingstep.horizontal.bg.offset =
+; upcomingstep.horizontal.bg.anim = 
+; upcomingstep.horizontal.bg.spr =
+; upcomingstep.horizontal.bg.scale = 
+; upcomingstep.horizontal.bg.facing = 
+; upcomingstep.horizontal.bg.displaytime = 
+upcomingstep.horizontal.bg.tail.offset = 0,-14
+; upcomingstep.horizontal.bg.tail.anim = 
+upcomingstep.horizontal.bg.tail.spr = 402,0
+; upcomingstep.horizontal.bg.tail.scale = 
+; upcomingstep.horizontal.bg.tail.facing = 
+; upcomingstep.horizontal.bg.tail.displaytime = 
+; upcomingstep.horizontal.bg.head.offset = 
+; upcomingstep.horizontal.bg.head.anim = 
+; upcomingstep.horizontal.bg.head.spr = 
+; upcomingstep.horizontal.bg.head.scale = 
+; upcomingstep.horizontal.bg.head.facing = 
+; upcomingstep.horizontal.bg.head.displaytime = 
+upcomingstep.horizontal.bg.palfx.color = 200
+; upcomingstep.horizontal.bg.palfx.invertall = 
+; upcomingstep.horizontal.bg.palfx.sinadd = 
+upcomingstep.horizontal.bg.palfx.mul = 200, 200, 200
+; upcomingstep.horizontal.bg.palfx.add =
+upcomingstep.horizontal.glyphs.palfx.color = 200
+; upcomingstep.horizontal.glyphs.palfx.invertall = 
+; upcomingstep.horizontal.glyphs.palfx.sinadd =
+upcomingstep.horizontal.glyphs.palfx.mul = 200, 200, 200
+; upcomingstep.horizontal.glyphs.palfx.add = 
+
+
+; CURRENTSTEP --------------------------------------------------------------
+; CURRENTSTEP options can be specified for both vertical and horizontal layouts simultaneously.
+; CURRENTSTEP VERTICAL -----------------------------------------------------
+currentstep.vertical.text.offset = 0,0
+currentstep.vertical.text.font = 2,0,1
+; currentstep.vertical.text.scale = 
+; currentstep.vertical.text.font.height = 
+; currentstep.vertical.bg.offset = 
+; currentstep.vertical.bg.anim = 
+; currentstep.vertical.bg.spr = 
+; currentstep.vertical.bg.scale = 
+; currentstep.vertical.bg.facing = 
+; currentstep.vertical.bg.displaytime = 
+; currentstep.vertical.bg.displaytime = 
+; currentstep.vertical.bg.palfx.color = 
+; currentstep.vertical.bg.palfx.invertall = 
+; currentstep.vertical.bg.palfx.sinadd = 
+; currentstep.vertical.bg.palfx.mul = 
+; currentstep.vertical.bg.palfx.add = 
+; currentstep.vertical.glyphs.palfx.color = 
+; currentstep.vertical.glyphs.palfx.invertall = 
+; currentstep.vertical.glyphs.palfx.sinadd = 
+; currentstep.vertical.glyphs.palfx.mul = 
+; currentstep.vertical.glyphs.palfx.add = 
+; CURRENTSTEP HORIZONTAL ---------------------------------------------------
+; currentstep.horizontal.bg.offset = 
+; currentstep.horizontal.bg.anim = 
+; currentstep.horizontal.bg.spr = 
+; currentstep.horizontal.bg.scale = 
+; currentstep.horizontal.bg.facing = 
+; currentstep.horizontal.bg.displaytime = 
+currentstep.horizontal.bg.tail.offset = 0,-14
+; currentstep.horizontal.bg.tail.anim = 
+currentstep.horizontal.bg.tail.spr = 402,0
+; currentstep.horizontal.bg.tail.scale = 
+; currentstep.horizontal.bg.tail.facing = 
+; currentstep.horizontal.bg.tail.displaytime = 
+; currentstep.horizontal.bg.head.offset = 
+; currentstep.horizontal.bg.head.anim = 
+; currentstep.horizontal.bg.head.spr = 
+; currentstep.horizontal.bg.head.scale = 
+; currentstep.horizontal.bg.head.facing = 
+; currentstep.horizontal.bg.head.displaytime = 
+currentstep.horizontal.bg.palfx.color = 200
+; currentstep.horizontal.bg.palfx.invertall = 
+; currentstep.horizontal.bg.palfx.sinadd = 
+currentstep.horizontal.bg.palfx.mul = 255, 255, 50
+; currentstep.horizontal.bg.palfx.add = 
+; currentstep.horizontal.glyphs.palfx.color = 
+; currentstep.horizontal.glyphs.palfx.invertall = 
+; currentstep.horizontal.glyphs.palfx.sinadd = 
+; currentstep.horizontal.glyphs.palfx.mul = 
+; currentstep.horizontal.glyphs.palfx.add = 
+
+; COMPLETEDSTEP -------------------------------------------------------------
+; COMPLETEDSTEP options can be specified for both vertical and horizontal layouts simultaneously.
+; COMPLETEDSTEP VERTICAL ----------------------------------------------------
+completedstep.vertical.text.offset = 0,0
+completedstep.vertical.text.font = 2,0,1, 100, 100, 100
+; completedstep.vertical.text.scale = 
+; completedstep.vertical.text.font.height = 
+; completedstep.vertical.bg.offset = 
+; completedstep.vertical.bg.anim = 
+; completedstep.vertical.bg.spr = 
+; completedstep.vertical.bg.scale = 
+; completedstep.vertical.bg.facing =
+; completedstep.vertical.bg.displaytime = 
+; completedstep.vertical.bg.palfx.color = 
+; completedstep.vertical.bg.palfx.invertall = 
+; completedstep.vertical.bg.palfx.sinadd = 
+; completedstep.vertical.bg.palfx.mul = 
+; completedstep.vertical.bg.palfx.add = 
+completedstep.vertical.glyphs.palfx.color = 0
+; completedstep.vertical.glyphs.palfx.invertall = 
+; completedstep.vertical.glyphs.palfx.sinadd = 
+; completedstep.vertical.glyphs.palfx.mul = 
+; completedstep.vertical.glyphs.palfx.add = 
+; COMPLETEDSTEP HORIZONTAL  --------------------------------------------------
+; completedstep.horizontal.bg.offset =
+; completedstep.horizontal.bg.anim = 
+; completedstep.horizontal.bg.spr = 
+; completedstep.horizontal.bg.scale = 
+; completedstep.horizontal.bg.facing = 
+; completedstep.horizontal.bg.displaytime = 
+completedstep.horizontal.bg.tail.offset = 0,-14
+; completedstep.horizontal.bg.tail.anim = 
+completedstep.horizontal.bg.tail.spr = 402,0
+; completedstep.horizontal.bg.tail.scale =
+; completedstep.horizontal.bg.tail.facing = 
+; completedstep.horizontal.bg.tail.displaytime = 
+; completedstep.horizontal.bg.head.offset = 
+; completedstep.horizontal.bg.head.anim = 
+; completedstep.horizontal.bg.head.spr = 
+; completedstep.horizontal.bg.head.scale = 
+; completedstep.horizontal.bg.head.facing = 
+; completedstep.horizontal.bg.head.displaytime = 
+completedstep.horizontal.bg.palfx.color = 0
+; completedstep.horizontal.bg.palfx.invertall = 
+; completedstep.horizontal.bg.palfx.sinadd = 
+completedstep.horizontal.bg.palfx.mul = 100, 100, 100
+; completedstep.horizontal.bg.palfx.add = 
+completedstep.horizontal.glyphs.palfx.color = 0
+; completedstep.horizontal.glyphs.palfx.invertall = 
+; completedstep.horizontal.glyphs.palfx.sinadd =
+completedstep.horizontal.glyphs.palfx.mul = 100, 100, 100
+; completedstep.horizontal.glyphs.palfx.add = 
+
+; GLYPHS -------------------------------------------------------------------
+; GLYPHS options can be specified for both vertical and horizontal layouts simultaneously.
+; glyphs.<layout>.offset: x,y offset from current trialstep position
+; glyphs.<layout>.scale: x,y scale for glyphs
+; glyphs.<layout>.spacing: x,y spacing from one glyph element to another on the same trialstep
+; glyphs.vertical.align: alignment for glyphs (vertical layout only)
+; glyphs.vertical.scalewithtext: true or false; scales glyphs according to font height - ignores scale parameter when set to true.
+; GLYPHS VERTICAL ----------------------------------------------------------
+glyphs.vertical.offset = 200,3;244,3
+glyphs.vertical.scale = 0.3125,0.3125
+glyphs.vertical.spacing = 0,0
+glyphs.vertical.align = -1
+glyphs.vertical.scalewithtext = false
+; GLYPHS HORIZONTAL --------------------------------------------------------
+glyphs.horizontal.offset = 0,-3
+glyphs.horizontal.scale = 0.4, 0.4
+glyphs.horizontal.spacing = 0,0
+
+; TRIALS COUNTER AND TIMERS ------------------------------------------------
+; trialcounter shows the current trial number
+; totaltrialtimer shows the total time for the trial. It is erased if the pause menu is used to skip or rewind.
+; currenttrialtimer shows the time spent on the current trial attempt.
+; --------------------------------------------------------------------------
+trialcounter.pos = 320,70;10,690
+trialcounter.font = 9,0,0,127,63,255
+trialcounter.scale = 2,2
+; trialcounter.font.height	=
+trialcounter.text = "Trial %s of %t"
+trialcounter.allclear.text = "All Trials Clear"
+trialcounter.notrialsdata.text = "No Trials Data Found"
+totaltrialtimer.pos	= 320,60;1270,690
+totaltrialtimer.font = 9,0,0,255,127,63
+totaltrialtimer.scale = 2,2
+; totaltrialtimer.font.height =
+totaltrialtimer.text = "Trial Timer: %s"
+currenttrialtimer.pos = 320,50;1270,710
+currenttrialtimer.font = 9,0,0,63,127,255
+currenttrialtimer.scale = 2,2
+; currenttrialtimer.font.height	=
+currenttrialtimer.text = "Current Trial: %s"
+
+; TRIAL RESET REMINDER AND SWITCH ------------------------------------------
+; trialresetenabled allows the user to reset the player and dummy position to center stage (or specified trials position) when the d and w keys are pressed simultaneously
+; trialresetreminder displays a string that reminds the player they can reset the trial position with the specified key input
+; --------------------------------------------------------------------------
+trialresetenabled = true
+trialresetreminder.pos = 320,475;10,710
+trialresetreminder.font = 4,0,0
+trialresetreminder.scale = 2,2
+; trialresetreminder.font.height	=
+trialresetreminder.text = "Hit d+w to reset position"
+
+; TRIALS TEXT BOX ----------------------------------------------------------
+; A textbox can accompany each trial if it is specified within the trials definition file.
+; The only element defined within the trials definition file is the text to be displayed for that trial.
+; textbox.pos: local origin from which other textbox elements are drawn. 
+; textbox.text.<options>: specify text window, offset, font type, and drawspeed
+; textbox.title.<options>: specify text, offset, font type, scale
+; textbox.overlay.<options>: draw an overlay behind any other bg, text or front element
+; textbox.bg.<options>: optional background displayed behind text but over overlay; standard options for background elements, etc.
+; textbox.front.<options>: optional background displayed in front of text; standard options for background elements, etc.
+; textbox.portrait.<options>: allows a portrait to be drawn with or in the textbox. Sprite can be sourced from the character or the screenpack.
+; --------------------------------------------------------------------------
+textbox.visible = true
+textbox.pos = 395,140;740,120
+textbox.text.window = 0,140,630,310;50,0, 300,50
+textbox.text.offset = 400,10
+textbox.text.font = 4,0,1
+textbox.text.drawspeed = 1
+; textbox.text.font.height = -1
+textbox.text.scale = 1,1
+textbox.title.offset = 0,0
+textbox.title.font = 3,0,1
+textbox.title.text = "Information";%s is  trial number, %n is trial name
+; textbox.title.font.height = -1
+textbox.title.scale = 1,1
+textbox.overlay.visible = true
+textbox.overlay.window = 0,0, -155,30;350,50
+textbox.overlay.col = 0, 0, 0
+textbox.overlay.alpha = 0, 128
+textbox.bg.anim = -1
+textbox.bg.spr = 
+textbox.bg.offset = 0, 0
+textbox.bg.facing = 1
+textbox.bg.scale = 1.0, 1.0
+textbox.bg.displaytime = -1
+textbox.front.anim = -1
+textbox.front.spr = 
+textbox.front.offset = 0, 0
+textbox.front.facing = 1
+textbox.front.scale = 1.0, 1.0
+textbox.front.displaytime = -1
+textbox.portrait.source = "char" ; valid options are "system" or "char"
+textbox.portrait.spr = 9000, 0
+textbox.portrait.offset = 85,-25
+textbox.portrait.window = 0,0,630,310;5,200,150,240;0,0, 40, 40
+textbox.portrait.facing = 1
+textbox.portrait.scale = 0.5, 0.5
+
+; TRIAL SUCCESS BANNER -----------------------------------------------------
+; --------------------------------------------------------------------------
+success.pos	= 320,120;640,360
+success.snd	= 600,0 
+success.text.text = "SUCCESS"
+success.text.offset = 0,0
+success.text.font = 2,0,0, 100, 191, 100
+success.text.displaytime = 70
+success.text.scale = 3,3
+; success.text.font.height =
+; success.bg.offset = 
+; success.bg.anim = 
+; success.bg.scale = 
+; success.bg.spr = 
+; success.bg.displaytime = 
+; success.front.offset = 
+; success.front.anim = 
+; success.front.scale = 
+; success.front.spr = 
+; success.front.displaytime	= 
+
+; TRIALS ALL CLEAR BANNER --------------------------------------------------
+; --------------------------------------------------------------------------
+allclear.pos = 320,120;640,360
+allclear.snd = 900,0
+allclear.text.text = "CLEAR"
+allclear.text.offset = 0,0
+allclear.text.font = 2,0,0, 100, 255, 100
+allclear.text.displaytime	= 70
+allclear.text.scale	= 3,3
+; allclear.text.font.height	=
+; allclear.bg.offset = 
+; allclear.bg.anim = 
+; allclear.bg.scale = 
+; allclear.bg.spr = 
+; allclear.bg.displaytime = 
+; allclear.front.offset = 
+; allclear.front.anim = 
+; allclear.front.scale = 
+; allclear.front.spr = 
+; allclear.front.displaytime = 
+
+[Trials Info]
+; If not overridden, values used for [Menu Info] are shared with this group.
+; Trials specific parameters:
+menu.valuename.trialslist = ""
+menu.valuename.trialdvancement.autoadvance = "Auto-Advance"
+menu.valuename.trialadvancement.repeat = "Repeat"
+menu.valuename.trialresetonsuccess.yes = "Yes"
+menu.valuename.trialresetonsuccess.no = "No"
+menu.valuename.trialslayout.vertical = "Vertical"
+menu.valuename.trialslayout.horizontal = "Horizontal"
+menu.valuename.trialstextboxes.show = "Show"
+menu.valuename.trialstextboxes.hide = "Hide"
+
+; https://github.com/ikemen-engine/Ikemen-GO/wiki/Screenpack-features#submenus
+; If custom menu is not declared, following menu is loaded by default:
+; menu.itemname.back = "Continue"
+; menu.itemname.nexttrial = "Next Trial"
+; menu.itemname.previoustrial = "Previous Trial"
+; menu.itemname.menutrials = "Trials Menu"
+; menu.itemname.menutrials.trialslist = "Trials List"
+; menu.itemname.menutrials.trialadvancement = "Trials Advancement"
+; menu.itemname.menutrials.trialresetonsuccess = "Reset to Center on Success"
+; menu.itemname.menutrials.trialslayout = "Trials Layout"
+; menu.itemname.menutrials.back = "Back"
+; menu.itemname.menuinput = "Button Config"
+; menu.itemname.menuinput.keyboard = "Key Config"
+; menu.itemname.menuinput.gamepad = "Joystick Config"
+; menu.itemname.menuinput.empty = ""
+; menu.itemname.menuinput.inputdefault = "Default"
+; menu.itemname.menuinput.back = "Back"
+; menu.itemname.commandlist = "Command List"
+; menu.itemname.characterchange = "Character Change"
+; menu.itemname.exit = "Exit"
+
+[TrialsBgDef]
+spr 			= ""
+bgclearcolor 	= 0, 0, 0

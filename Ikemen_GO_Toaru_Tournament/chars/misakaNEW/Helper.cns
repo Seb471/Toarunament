@@ -1,0 +1,732 @@
+;---------------------------------------------------------------------------
+;‹ó’†ƒnƒCƒWƒƒƒ“ƒvc‘œƒwƒ‹ƒp[
+[Statedef 855]
+Type = A
+Physics = N
+SprPriority = IfElse(IsHelper(858),1,-9)
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1]
+Type = VarAdd
+Trigger1 = Time >= 1
+V = 7
+Value = 80
+
+[State -1]
+Type = Trans
+Trigger1 = 1
+Trans = AddAlpha
+Alpha = 176-Var(7),96+Var(7)
+
+[State -1]
+Type = VarSet
+Trigger1 = 1
+V = 1
+Value = Parent,Anim
+
+[State -1]
+Type = VarSet
+Trigger1 = 1
+V = 2
+Value = Parent,AnimElemNo(0)
+
+[State -1]
+Type = ChangeAnim
+Trigger1 = 1
+Value = Var(1)
+Elem  = Var(2)
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+
+[State -1]
+Type = DestroySelf
+Trigger1 = Time = 3
+Trigger2 = IsHelper(855)
+Trigger2 = Parent,StateNo != 0 && Parent,StateNo != 50 
+Trigger3 = IsHelper(856)
+Trigger4 = Parent,StateNo != 3000
+Trigger4 = IsHelper(858)
+Trigger5 = Parent,StateNo = 3000 && Parent,AnimElem = 27
+;------------------------------------------------------------------------------
+;電撃ヘルパー
+[Statedef 6131]
+type    = S
+movetype= A
+velset = 0,0                     ;このステートが始まった時に移動するか（0,0で動かない）
+ctrl = 0                         ;このステート中に他のコマンドを受け付けるか(1で受け付ける)
+anim = 6131
+
+[State 6131, NoHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+time = -1
+
+[State 670, 移動速度]
+type = VelSet
+trigger1 = AnimElemTime(1) >= 0
+x = 3
+y = 3
+
+[State 6131 , 4]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S, NP 
+damage = 95 * root,FVar(1),2
+getpower = 55,45
+animtype = Hard
+pausetime = 0,12
+projhitanim = 10950
+projscale = 0.4,0.4
+projhits = 1
+guardflag = MA
+sparkxy = 0,0
+sprpriority = 4
+hitsound = s1,4
+guardsound = s0,5
+ground.type = High
+ground.slidetime = 14
+ground.hittime = 16
+ground.velocity = -1.9
+air.velocity = -1.3,-3
+air.juggle = 4 
+envshake.time = 6
+palfx.time = 30
+palfx.add = 0,0,220
+palfx.sinadd = 0,0,220,10
+palfx.color = 0
+palfx.invertall = 1
+ground.cornerpush.veloff = 0
+
+
+[State 6131, 音を鳴らす]
+type = PlaySnd
+trigger1 =Pos Y>=0
+value = 1, 4
+
+[State 6131];ヒット数計測
+type = Varadd
+trigger1=movehit=1
+v = 14
+value = 1
+ignorehitpause = 0
+
+[State 6131];上を0へ
+type = Varset
+trigger1 = var(14) > 1
+v = 14
+value = 0
+ignorehitpause = 0
+
+
+[State 6131,velset]
+Type = velset
+Trigger1 = AnimElem = 1
+x = 7
+y = 7
+
+[State 6131, エフェクト]
+type = Explod
+trigger1 = Var(14) = 1
+trigger2 =Pos Y>=0
+Postype = p1
+Pos = 0,0
+SprPriority = 4
+anim = 10950
+scale = 0.5,0.5
+bindtime = 10
+
+[State 6131, 5]
+type = Destroyself
+trigger1 = Var(14) = 1
+trigger2 =Pos Y>=0
+
+;------------------------------------------------------------------------------
+;makiage_satetu
+[Statedef 4450]
+type    = S
+movetype= A
+velset = 0,0                     ;このステートが始まった時に移動するか（0,0で動かない）
+ctrl = 0                         ;このステート中に他のコマンドを受け付けるか(1で受け付ける)
+anim = 4500
+
+[State 4450, NoHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+time = -1
+
+[State 4450, hitdef]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NP 
+damage    = 70 * root,FVar(1),5
+animtype = up
+getpower = 50
+givepower = 50,20
+guardflag = MA
+priority = 1 
+pausetime = 10,8
+numhits = 1
+sparkno = s8000
+sparkxy = -10,-20
+hitsound = s1,1
+guardsound = s0,5
+ground.type = high
+ground.slidetime = 3
+ground.hittime  =  15
+ground.velocity = 0,-9.5
+air.velocity = -2,-6.5
+guard.velocity = 3
+fall = 1
+fall.recover = 1
+fall.recovertime = 32
+
+[State 4450, 5]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;---------------------------------------------------------------------------------------
+;railgun
+[StateDef 8201]
+type = A
+movetype= A
+physics = N
+juggle  = 0
+ctrl = 0
+anim = 7650 ;8201
+poweradd = 0
+sprpriority = 2
+
+[State 2000, BGPalFX]
+type = BGPalFX
+Trigger1 = time < 40
+time = 30
+mul = 0,0,0
+
+[State -2 explod]
+type = Explod
+trigger1 = projhit = 1
+trigger2 = movehit
+triggerall = gametime%8 = 0
+anim = 7063
+id = 7063
+sprpriority = 20
+postype = p2
+pos = 0/2,-30/2
+bindtime = 1
+supermove = 999
+pausemove = 999
+ignorehitpause = 1
+persistent = 0
+under = 0
+ontop = 1
+ownpal = 1
+scale = 0.5,0.5
+
+[State 100, 3]
+Type = PlaySnd
+Trigger1 = gameTime%16 = 0
+value = s1,11
+volume=255
+channel = 1
+
+[State 6000, hitdef]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S, NP 
+damage    = 250,35
+animtype = up
+getpower = 0,0
+givepower = 0,0
+guardflag = MA
+hitflag = MAFD
+priority = 1 
+pausetime = 0,50
+numhits = 2
+sparkno = s8000
+sparkxy = -10,-20
+ground.type = high
+ground.slidetime = 3
+ground.hittime  =  20
+ground.velocity = 0,-7
+guard.hittime = 15
+air.hittime  =  20
+air.velocity = 0,-7
+fall.recover = 0
+fall = 1
+palfx.time = 10
+palfx.add = 210,200,210
+palfx.sinadd = -50,-50,-50,-50
+palfx.color = 1
+palfx.invertall = 1
+
+[State 0, EnvShake]
+type = EnvShake
+Trigger1 = time <= 45
+Trigger1 = gametime%2 = 0
+time = 5
+ampl = -25
+freq = 120
+ignorehitpause = 1
+
+[State 1000, DestroySelf]
+type = DestroySelf
+trigger1 = Animtime = 0
+;--------------------------------------------------------------------------------------
+;[Statedef 6000]
+;type    = S
+;movetype= A
+;velset = 0,0                     ;このステートが始まった時に移動するか（0,0で動かない）
+;ctrl = 0                         ;このステート中に他のコマンドを受け付けるか(1で受け付ける)
+;anim = 6000
+
+;[State 6000, NoHitBy]
+;type = NotHitBy
+;trigger1 = Time = 0
+;value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+;time = -1
+
+;[State 6000, hitdef]
+;type = HitDef
+;trigger1 = AnimElem = 2
+;attr = S, NP 
+;damage    = 330* root,FVar(1),40
+;animtype = up
+;getpower = 0,0
+;givepower = 0,0
+;guardflag = MA
+;hitflag = MAFD
+;priority = 1 
+;pausetime = 8,25
+;numhits = 1
+;sparkno = s8000
+;sparkxy = -10,-20
+;ground.type = high
+;ground.slidetime = 3
+;ground.hittime  =  20
+;ground.velocity = -22,-7
+;guard.hittime = 15
+;airguard.velocity = -2
+;air.hittime  =  20
+;air.velocity = -22,-4
+;fall.recover = 0
+;fall = 1
+
+;[State 6000, 5]
+;type = Destroyself
+;trigger1 = AnimTime = 0
+
+;-----------------------------------------------------------------------
+;-----------------------------------------------------------------------
+;--------------------------------------------------------------------------------------
+[Statedef 7800]
+type    = S
+movetype= A
+velset = 0,0                     ;このステートが始まった時に移動するか（0,0で動かない）
+ctrl = 0                         ;このステート中に他のコマンドを受け付けるか(1で受け付け)
+anim = 7800
+
+[State 7800, NoHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+time = -1
+
+[State 7800, hitdef]
+type = HitDef
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 5
+trigger4 = AnimElem = 6
+trigger5 = AnimElem = 7
+trigger6 = AnimElem = 8
+trigger7 = AnimElem = 9
+trigger8 = AnimElem = 10
+trigger9 = AnimElem = 11
+attr = S, NP
+damage    = 40 * root,FVar(1),1
+animtype = up
+getpower = 0,0
+givepower = 20,2
+guardflag = MA
+hitflag = MAF
+priority = 1 
+pausetime = 0,0
+numhits = 1
+guardsound = s0,5
+sparkno = s8000
+sparkxy = -10,-30
+hitsound = s1,1
+ground.type = high
+ground.velocity = 0,0
+air.velocity = 0,0
+envshake.time = 6
+fall.recover = 0
+fall = 1
+ground.cornerpush.veloff = 0
+
+[State 7800, hitdef]
+type = HitDef
+trigger1 = AnimElem = 11
+attr = S, NP
+damage    = 20,1
+animtype = up
+getpower = 0,0
+givepower = 20,2
+guardflag = MA
+hitflag = MAFD
+priority = 1 
+pausetime = 0,0
+numhits = 1
+sparkno = s8000
+sparkxy = -10,-30
+hitsound = s1,1
+ground.type = high
+ground.velocity = -5,-6
+air.velocity = -5,-6
+envshake.time = 6
+fall.recover = 0
+fall = 1
+ground.cornerpush.veloff = 0
+
+[State 7800, 5]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-----------------------------------------------------------------------
+;--------------------------------------------------------------------------
+;--------------------------------------------------------------------------
+;地雷
+[Statedef 7300]
+type    = S
+movetype= A
+velset = 0,0                     ;このステートが始まった時に移動するか（0,0で動かない）
+ctrl = 0                         ;このステート中に他のコマンドを受け付けるか(1で受け付ける)
+anim = 7300
+
+[State 7300, NoHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+time = -1
+
+[State 7300 hitdef]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = C, NP
+damage    = 95,3
+animtype = up
+getpower = 40,25
+givepower = 50,20
+guardflag = MA
+priority = 1 
+pausetime = 10,8
+numhits = 1
+sparkno = s8000
+sparkxy = -10,-20
+hitsound = s1,4
+guardsound = s0,5
+ground.type = high
+ground.slidetime = -4
+air.hittime = 1000
+ground.velocity = 3,-4
+air.velocity = 3,-3
+guard.velocity = 3
+fall.recover = 0
+fall = 1
+
+[State 7300];乗算補正
+type = Varset
+trigger1 = movehit
+fv = 1
+value = fVar(1)*0.8
+persistent = 0
+ignorehitpause = 1
+
+
+[State 7300, 5]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ヘルパーEX
+[Statedef 11100]
+type    = S
+movetype= A
+velset = 0,0                     ;このステートが始まった時に移動するか（0,0で動かない）
+ctrl = 0                         ;このステート中に他のコマンドを受け付けるか(1で受け付ける)
+anim = 11100
+
+[State 11100, NoHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+time = -1
+
+[State 11100, hitdef]
+type = HitDef
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 2
+trigger3 = AnimElem = 3
+trigger4 = AnimElem = 4
+trigger5 = AnimElem = 5
+trigger6 = AnimElem = 6
+trigger7 = AnimElem = 7
+trigger8 = AnimElem = 8
+attr = S, NP
+damage    = 30* root,FVar(1), 5
+animtype = Hard
+projhits = 6
+hitflag = MAFD
+guardflag = MA
+pausetime = 2,1
+sparkno = s8000
+sparkxy = -4, -17
+hitsound = S1, 5
+guardsound = s0,5
+ground.type = Trip
+ground.hittime  = 15
+ground.velocity = -4,-3.5
+air.velocity = -3,-4
+down.velocity = -5,-6
+down.hittime = 24
+fall = 1
+fall.recover = 0
+ground.cornerpush.veloff = 0
+palfx.time = 30
+palfx.add = 0,0,220
+palfx.sinadd = 0,0,220,10
+palfx.color = 0
+palfx.invertall = 1
+
+[State 11100];ヒット数計測
+type = Varadd
+trigger1=movehit=1
+v = 15
+value = 1
+ignorehitpause = 0
+
+[State 11100];上を0へ
+type = Varset
+trigger1 = var(15) > 4
+v = 15
+value = 0
+ignorehitpause = 0
+
+[State 11100,velset]
+Type = velset
+Trigger1 = AnimElem = 1
+x = 4
+y = 4
+
+[State 11100, エフェクト]
+type = Explod
+trigger1 = Var(15) = 4
+Trigger2=Pos Y>=0
+Postype = p1
+Pos = 0,0
+SprPriority = 4
+anim = 10950
+ID = 10950
+scale = 1
+bindtime = 10
+
+[State 11100, 5]
+type = Destroyself
+trigger1 = Var(15) = 4
+Trigger2=Pos Y>=0
+
+[State 11100,位置固定]
+type = TargetBind
+trigger1 = target,Pos Y< 0
+trigger1 = hitcount=1
+time = 1
+pos = 25,50
+
+[State 11100, 音を鳴らす]
+type = PlaySnd
+trigger1 =Pos Y>=0
+value = 1, 5
+
+;--------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;超超電磁砲_あたり判定
+[Statedef 7500]
+type    = S
+movetype= A
+velset = 30,0                     ;このステートが始まった時に移動するか（0,0で動かない）
+ctrl = 0                         ;このステート中に他のコマンドを受け付けるか(1で受け付け)
+anim = 7500
+
+[State 7500, NoHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+time = -1
+
+[State 7500,velset]
+Type = velset
+Trigger1 = AnimElem = 1
+x = 0
+y = 0
+
+[State 7500, hitdef]
+type = HitDef
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 2
+trigger3 = AnimElem = 3
+trigger4 = AnimElem = 4
+trigger5 = AnimElem = 5
+trigger6 = AnimElem = 6
+trigger7 = AnimElem = 7
+trigger8 = AnimElem = 8
+trigger9 = AnimElem = 9
+trigger10 = AnimElem = 10
+trigger11 = AnimElem = 11
+trigger12 = AnimElem = 12
+trigger13 = AnimElem = 13
+trigger14 = AnimElem = 14
+trigger15 = AnimElem = 15
+trigger16 = AnimElem = 16
+trigger17 = AnimElem = 17
+trigger18 = AnimElem = 18
+trigger19 = AnimElem = 19
+attr = A, NP
+damage    = 23,5
+animtype = Heavy
+guardflag = MA
+hitflag = MAFD
+priority = 1 
+pausetime = 0,0
+ground.velocity = 0,-5
+air.velocity = -1,-1
+fall = 1
+fall.recover = 0
+palfx.time = 30
+palfx.add = 0,0,220
+palfx.sinadd = 0,0,220,10
+palfx.color = 0
+palfx.invertall = 1
+
+[State 7500, hitdef]
+type = HitDef
+trigger1 = AnimElem = 20
+attr = A, NP
+damage    = 23
+animtype = Heavy
+guardflag = MA
+hitflag = MAFD
+priority = 1 
+pausetime = 0,0
+ground.velocity = -50,-1
+air.velocity = -50,-1
+fall = 1
+fall.recover = 0
+palfx.time = 30
+palfx.add = 0,0,220
+palfx.sinadd = 0,0,220,10
+palfx.color = 0
+palfx.invertall = 1
+
+[State 7500, 5]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;落雷ヘルパー
+[Statedef 13300]
+type    = S
+movetype= A
+velset = 0,0                     ;このステートが始まった時に移動するか（0,0で動かない）
+ctrl = 0                         ;このステート中に他のコマンドを受け付けるか(1で受け付け)
+anim = 13300
+
+[State 13300, ボイス]
+type = PlaySnd
+trigger1 = AnimElemtime(4) = 0
+value = s9000,14
+volume = 100
+
+[State 13300, NoHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+time = -1
+
+[State 13300, hitdef]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = A, NP
+damage    = 160* root,FVar(1),2
+animtype = up
+guardflag = MA
+hitflag = MAF
+hitsound = s1,5
+guardsound = s0,5
+priority = 1 
+pausetime = 0,20
+ground.velocity = 0,-8
+air.velocity = -1,-1
+fall = 1
+fall.recover = 0
+palfx.time = 30
+palfx.add = 0,0,220
+palfx.sinadd = 0,0,220,10
+palfx.color = 0
+palfx.invertall = 1
+envshake.time = 4
+envshake.ampl = -20
+
+[State 13300, 5]
+type = Destroyself
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------
+; Spark
+[Statedef 85000]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 4506
+sprpriority = 5
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = 0+random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = var(1)
+scale = .5,.5
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0

@@ -1,0 +1,1180 @@
+
+;WingsHelper
+[Statedef 1]
+anim = 7
+sprpriority=-1
+
+[State 0, Turn]
+type = Turn
+trigger1 = facing!=root,facing
+ignorehitpause = 1
+;persistent = 
+
+;----------IDLE----------
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = root,stateno=0
+trigger1=anim!=7
+value = 7
+;elem = 1
+ignorehitpause = 1
+;persistent = 
+
+;----------WALK----------
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = root,anim=25
+trigger1=anim!=27
+value = 27
+;elem = 1
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = root,anim=26
+trigger1=anim!=28
+value = 28
+;elem = 1
+ignorehitpause = 1
+;persistent = 
+
+;----------CROUCH----------
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = root,anim=15
+trigger1=anim!=18
+value = 18
+;elem = 1
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = root,anim=16
+trigger1=anim!=14
+value = 14
+;elem = 1
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = root,anim=17
+trigger1=anim!=19
+value = 19
+;elem = 1
+ignorehitpause = 1
+;persistent = 
+
+;----------DASH----------
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = root,anim=102
+trigger1=anim!=103
+value = 103
+;elem = 1
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ChangeAnim]
+type = null;,ChangeAnim
+trigger1 = root,anim=26
+trigger1=anim!=28
+value = 28
+;elem = 1
+ignorehitpause = 1
+;persistent = 
+
+
+;---------------------------------------
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 2
+facing = 0
+pos = 0,0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = root,stateno!=0
+trigger1=root,anim!=[25,26]
+trigger1=root,anim!=[15,19]
+trigger1=root,anim!=102
+;flag = intro
+flag = invisible
+;flag3 = roundnotover
+ignorehitpause = 1
+;persistent = 
+;-----------------------
+;flag = nobardisplay
+;flag = noBG
+;flag = noFG
+;flag = nostandguard
+;flag = nocrouchguard
+;flag = noairguard
+;flag = noautoturn
+;flag = nojugglecheck
+;flag = nokosnd
+;flag = nokoslow
+;flag = noshadow
+;flag = globalnoshadow
+;flag = nomusic
+;flag = nowalk
+;flag = timerfreeze
+;flag = unguardable
+
+
+;========================================================================
+; Proj Hitspark Helper
+[StateDef 6000]
+type = S
+physics = N
+anim = 6055
+velset = 0,0
+ctrl = 0
+sprpriority = 9
+
+[State 10010, 影なし]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 10010, 透過]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 10010, 伸縮]
+type = AngleDraw
+trigger1 = 1
+scale = 1.5,1.5
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = 10,10,-10
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 50
+ignorehitpause = 1
+;persistent = 
+
+[State 0, Fast Explod]
+type = Explod
+trigger1 = time=0
+anim = 6050
+trans = add
+ID = 6000
+pos = 0,0
+postype = p1
+bindtime = -1
+removetime = -2
+scale = 1.0,1.0
+sprpriority =8
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+persistent = 0
+
+
+
+[State 10010, 傾き]
+type = VarRandom
+trigger1 = time = 0
+v = 43
+range = 0,360
+
+[State 10010, 傾き]
+type = AngleSet
+trigger1 = 1
+value = var(43)
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1 = time = 17
+
+
+; Proj Hitspark Helper Big
+[StateDef 6001]
+type = S
+physics = N
+anim = 6055
+velset = 0,0
+ctrl = 0
+sprpriority = 9
+
+[State 10010, 影なし]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 10010, 透過]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 10010, 伸縮]
+type = AngleDraw
+trigger1 = 1
+scale = 2,2
+ignorehitpause=1
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = 10,10,-10
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 50
+ignorehitpause = 1
+;persistent = 
+
+[State 0, Pause]
+type = Pause
+trigger1 = time=3
+time = 5
+movetime = 0
+;endcmdbuftime = 0
+;pausebg = 1
+;ignorehitpause = 
+persistent = 0
+
+
+[State 0, Fast Explod]
+type = Explod
+trigger1 = time=0
+anim = 6050
+trans = add
+ID = 6000
+pos = 0,0
+postype = p1
+bindtime = -1
+removetime = -2
+scale = 1.7,01.7
+sprpriority =8
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+persistent = 0
+
+[State 10010, 傾き]
+type = VarRandom
+trigger1 = time = 0
+v = 43
+range = 0,360
+
+[State 10010, 傾き]
+type = AngleSet
+trigger1 = 1
+value = var(43)
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1 = time = 17
+
+; Proj Hitspark Helper Big NO PAUSE
+[StateDef 6002]
+type = S
+physics = N
+anim = 6055
+velset = 0,0
+ctrl = 0
+sprpriority = 9
+
+[State 10010, 影なし]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 10010, 透過]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 10010, 伸縮]
+type = AngleDraw
+trigger1 = 1
+scale = 2,2
+ignorehitpause=1
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = 10,10,-10
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 50
+ignorehitpause = 1
+;persistent = 
+
+
+
+[State 0, Fast Explod]
+type = Explod
+trigger1 = time=0
+anim = 6050
+trans = add
+ID = 6000
+pos = 0,0
+postype = p1
+bindtime = -1
+removetime = -2
+scale = 1.7,01.7
+sprpriority =8
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+persistent = 0
+
+[State 10010, 傾き]
+type = VarRandom
+trigger1 = time = 0
+v = 43
+range = 0,360
+
+[State 10010, 傾き]
+type = AngleSet
+trigger1 = 1
+value = var(43)
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1 = time = 17
+
+; Proj Hitspark Helper Cross Slash
+[StateDef 6005]
+type = S
+physics = N
+anim = 6055
+velset = 0,0
+ctrl = 0
+sprpriority = 9
+
+[State 10010, 影なし]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 10010, 透過]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 10010, 伸縮]
+type = AngleDraw
+trigger1 = 1
+scale = 2,2
+ignorehitpause=1
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = 10,10,-10
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 50
+ignorehitpause = 1
+;persistent = 
+
+[State 0, Pause]
+type = Pause
+trigger1 = time=3
+time = 5
+movetime = 0
+;endcmdbuftime = 0
+;pausebg = 1
+;ignorehitpause = 
+persistent = 0
+
+
+[State 0, Fast Explod]
+type = Explod
+trigger1 = time=0
+anim = 6050
+trans = add
+ID = 6000
+pos = 0,0
+postype = p1
+bindtime = -1
+removetime = -2
+scale = 1.7,01.7
+sprpriority =8
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+persistent = 0
+
+[State 0, Fast Explod]
+type = Explod
+trigger1 = time=0
+anim = 6055
+trans = add
+ID = 6055
+pos = 0,0
+postype = p1
+bindtime = -1
+removetime = -2
+scale = 2,2
+sprpriority =8
+ownpal = 0
+angle=90
+removeongethit = 0
+;ignorehitpause =
+persistent = 0
+
+
+[State 10010, 傾き]
+type = AngleSet
+trigger1 = 1
+value = 0;180
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1 = time = 17
+
+
+;=========================================
+
+
+;Scales Helper Appear
+[StateDef 7549]
+type = S
+physics = N
+anim = 7549
+velset = 0,0
+ctrl = 0
+sprpriority =2
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+
+;HP MAX value Set
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+fv = 9    ;fv = 10
+value = 100
+ignorehitpause = 1
+persistent=0
+
+
+;HP value Set
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+fv = 10    ;fv = 10
+value = fvar(9)
+ignorehitpause = 1
+
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = 0,0,0
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 10
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+;value2 = S,NA
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.3,0.3
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, ChangeState]
+type = parentvaradd
+trigger1 = time>=21;animtime=0
+v = 4
+value =1
+;anim =
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = time>=21;animtime=0
+value =7550
+ctrl = 0
+;anim =
+ignorehitpause = 1
+;persistent = 
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = ishelper(725)
+     pos = -20,-40
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = ishelper(726)
+    pos = 20,-90
+     
+
+;Destroy
+[State 6500, ChangeState]
+type = ChangeState
+trigger1 = parent,stateno!=725
+value=7560
+ctrl=0
+ignorehitpause = 1
+;persistent = 
+
+
+
+;Scales Helper Idle
+[StateDef 7550]
+type = S
+physics = N
+anim = 7550
+velset = 0,0
+ctrl = 0
+sprpriority =2
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = 0,0,0
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 10
+ignorehitpause = 1
+;persistent = 
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.3,0.3
+ignorehitpause = 1
+;persistent = 
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = ishelper(726)
+trigger2=ishelper(725)
+trigger2=root,numhelper(726)=0
+trigger3=ishelper(725)
+trigger3=root,numhelper(726)=1
+trigger3=helper(726),stateno=7549
+value = ,AA,AT
+;value2 = S,NA
+time = 2
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1=ishelper(725)
+trigger1=root,numhelper(726)=1
+trigger1=helper(726),stateno!=7549
+value = SCA
+;value2 = S,NA
+time = 2
+ignorehitpause = 1
+;persistent = 
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1=root,stateno=750
+trigger2=root,stateno=760
+value = SCA
+;value2 = S,NA
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = ishelper(725)
+     pos = -20,-40
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = ishelper(726)
+    pos = 20,-90
+     
+     
+  [State 0, Turn]
+    type = null;Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != root,facing
+     
+;Block Proj
+[State 0, HitOverride]
+type = hitoverride
+trigger1 = ishelper(726)
+trigger2=root,numhelper(726)=0
+trigger3=ishelper(725)
+trigger3=root,numhelper(726)=1
+trigger3=helper(726),stateno=7549
+attr = SCA,AP      ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;slot = 0
+stateno = 7555
+time = 10
+;forceair = 0
+ignorehitpause = 1
+;persistent = 
+
+;Destroy
+[State 6500, ChangeState]
+type = ChangeState
+trigger1 = (parent,movetype = H) && (parent,stateno != [120,170])
+trigger2 =  root,numhelper(6500) >1
+value = 7560
+ctrl = 0
+ignorehitpause = 1
+;persistent = 
+
+;-----------------------------------------
+;Scales Block Proj
+[Statedef 7555]
+movetype= I
+velset = 0,0
+anim = 7550
+ctrl = 0
+sprpriority = 2
+
+[State 200,効果音]
+		Type=PlaySnd
+		trigger1 = time=0
+		value=1,15
+		channel=4
+		ignorehitpause=1
+		persistent=0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.3,0.3
+ignorehitpause = 1
+;persistent = 
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NT,ST,HT
+;value2 = S,NA
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = time = 0
+fv = 10 
+value = -gethitvar(damage)
+ignorehitpause = 1
+persistent = 0
+
+
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = time = 0
+time = 2
+;add = 256,256,256
+mul = 200,200,256
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+;Destroy if no HP
+[State 6500, ChangeState]
+type = ChangeState
+trigger1 = fvar(10)<=0
+value = 7560
+ctrl = 0
+ignorehitpause = 1
+;persistent = 
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = ishelper(725)
+     pos = -20,-40
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = ishelper(726)
+    pos = 20,-90
+     
+
+
+[State 1101,End]
+		Type=ChangeState
+		Trigger1=time =1
+		value=7550
+		Ctrl=1
+
+
+;------------------------------------------
+;Scales Helper Destroy
+[StateDef 7560]
+type = S
+physics = N
+anim = 7560
+velset = 0,0
+ctrl = 0
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ChangeState]
+type = parentvaradd
+trigger1 = time=0
+v = 4
+value =-1
+;anim =
+ignorehitpause = 1
+persistent = 0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = 0,0,0
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 10
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+scale = 0.3,0.3
+ignorehitpause = 1
+;persistent = 
+
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = ishelper(725)
+     pos = -20,-40
+
+ [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = ishelper(726)
+    pos = 20,-90
+     
+     
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+ignorehitpause = 1
+;persistent = 
+
+
+;========================================================
+
+;Scales HP Gauges Helper
+[Statedef 30000]
+anim = 29999;
+
+
+;SCALES 1
+
+;Scales Helper HP Bar 1 P1
+[State 30000]
+type = Explod
+;triggerAll = numexplod(11103);Black bar
+trigger1 = numexplod(11100) = 0
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno!=7549
+trigger1 = teamside=1
+anim = 11100
+ID = 11100
+pos = 16, 228
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;Scales Helper HP Bar 1 P2
+[State 30000]
+type = Explod
+;triggerAll = numexplod(11103)
+trigger1 = numexplod(11100) = 0
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno!=7549
+trigger1 = teamside=2
+anim = 11100
+ID = 11100
+pos = 305, 228
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno!=7560
+
+fv = 9    ;fv = 10
+value = helper(725),fvar(9)
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno!=7560;helper(725),stateno!=7560
+fv = 10    ;fv = 10
+value = helper(725),fvar(10)
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno=7560
+
+fv = 9    ;fv = 10
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno=7560
+fv = 10    ;fv = 10
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+
+
+;Scales 1 HP Decrease
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11100) = 1
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno!=7549
+scale = (fvar(10)/fvar(9))*0.35,.45
+ID = 11100
+
+[State 30000];ゲージ光沢
+type = Explod
+triggerAll = numexplod(11210) = 0
+triggerAll = teamside=1
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno!=7549
+anim = 11200
+ID = 11210
+pos = 16, 228
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000];ゲージ光沢2p
+type = Explod
+triggerAll = numexplod(11210) = 0
+triggerAll = teamside=2
+trigger1 = root,numhelper(725)!=0
+trigger1=helper(725),stateno!=7549
+anim = 11200
+ID = 11210
+pos = 305, 228
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11210) = 1
+scale = (fvar(10)/fvar(9))*0.35,.45
+ID = 11210
+ignorehitpause=1
+
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11100)
+trigger1 = root,numhelper(725)=0
+ID = 11100
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11210)
+trigger1 = root,numhelper(725)=0
+ID = 11210
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11212)
+trigger1 = root,numhelper(725)=0
+ID = 11212
+
+
+
+
+;SCALES 2
+
+;Scales Helper HP Bar 2 P1
+[State 30000]
+type = Explod
+;triggerAll = numexplod(11103);Black bar
+trigger1 = numexplod(12100) = 0
+trigger1 = root,numhelper(726)!=0
+trigger1=helper(726),stateno!=7549
+trigger1 = teamside=1
+anim = 11100
+ID = 12100
+pos = 16, 218
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;Scales Helper HP Bar 2 P2
+[State 30000]
+type = Explod
+;triggerAll = numexplod(11103)
+trigger1 = numexplod(12100) = 0
+trigger1 = root,numhelper(726)!=0
+trigger1=helper(726),stateno!=7549
+trigger1 = teamside=2
+anim = 11100
+ID = 12100
+pos = 305, 218
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,numhelper(726)!=0
+trigger1=helper(726),stateno!=7560
+
+fv = 11    ;fv = 10
+value = helper(726),fvar(9)
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,numhelper(726)!=0
+trigger1=helper(726),stateno!=7560
+fv = 12   ;fv = 10
+value = helper(726),fvar(10)
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,numhelper(726)!=0
+trigger1=helper(726),stateno=7560
+
+fv = 11    ;fv = 10
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,numhelper(726)!=0
+trigger1=helper(726),stateno=7560
+fv = 12    ;fv = 10
+value = 0
+ignorehitpause = 1
+;persistent = 
+
+
+
+;Scales 1 HP Decrease
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(12100) = 1
+trigger1 = root,numhelper(726)!=0
+trigger1=helper(726),stateno!=7549
+scale = (fvar(12)/fvar(11))*0.35,.45
+ID = 12100
+
+[State 30000];ゲージ光沢
+type = Explod
+triggerAll = numexplod(12210) = 0
+triggerAll = teamside=1
+trigger1 = root,numhelper(726)!=0
+trigger1=helper(726),stateno!=7549
+anim = 11200
+ID = 12210
+pos = 16, 218
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000];ゲージ光沢2p
+type = Explod
+triggerAll = numexplod(12210) = 0
+triggerAll = teamside=2
+trigger1 = root,numhelper(726)!=0
+trigger1=(helper(726),stateno!=7549)
+anim = 11200
+ID = 12210
+pos = 305, 218
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(12210) = 1
+scale =(fvar(12)/fvar(11))*0.35,.45
+ID = 12210
+ignorehitpause=1
+
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(12100)
+trigger1 = root,numhelper(726)=0
+ID = 12100
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(12210)
+trigger1 = root,numhelper(726)=0
+ID = 12210
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(12212)
+trigger1 = root,numhelper(726)=0
+ID = 12212
+
+
+;;Remove WR bar
+;[State 30000]
+;type = RemoveExplod
+;triggerAll = numexplod(11100)
+;trigger1 = Parent,fvar(6) =0
+;ID = 11100
+
+;;RemoveBarOUT
+;[State 30000] 
+;type = RemoveExplod
+;triggerAll = numexplod(11600)
+;trigger1 = Parent,fvar(6) = 0
+;ID = 11600
+

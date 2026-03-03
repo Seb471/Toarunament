@@ -1,0 +1,51 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Index (John's Pen)"        ;Name of character
+displayname = "Index (John's Pen)" ;Name of character to display
+versiondate = 13,01,2023    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.1          ;Version of M.U.G.E.N character works on (X.XX)
+author = "DidiGetsRekt, SAKURA"         ;Character author name
+pal.defaults = 1,2,3,4      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+localcoord = 320,240        ;Local coordinate space width and height
+
+; Files for the player
+[Files]
+cmd     = Pendex.cmd           ;Command set
+cns     = Pendex.cns           ;Constants
+st      = Pendex.cns 
+st2      = Pendex_N.cns 
+st3      = Pendex_S.cns 
+st4      = Pendex_H.cns 
+st5      = Pendex_Helper.cns  
+st6      = Pendex_Ex.cns          ;States
+stcommon = common.cns      ;Common states (from data/ or motif)
+sprite  = Pendex.sff           ;Sprite
+anim    = Pendex.air           ;Animation
+sound   = Pendex.snd           ;Sound
+ai      = Pendex.ai            ;AI hints data (not used)
+movelist = Pendex_Movelist.dat
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+a = 1
+b = 2
+c = 3
+x = 4 ;Press button X to select palette 1, etc.
+y = 5
+z = 6
+a2 = 7
+b2 = 8
+c2 = 9
+x2 = 10 ;Hold Start and press button X for palette 7, etc.
+y2 = 11
+z2 = 12
+
+
+; Arcade mode
+[Arcade]
+intro.storyboard = 
+ending.storyboard =

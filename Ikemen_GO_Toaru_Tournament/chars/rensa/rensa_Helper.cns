@@ -1,0 +1,710 @@
+;---------------------------------------------------------------------------
+;Esper power visualisation
+[Statedef 24000]
+Type = U
+Physics = N
+Velset = 0,0
+SprPriority = -5
+Anim = 24000
+
+;var(1) -> value that represents the steps of the choices (in mbaacc) goes from 0 to 5, 0 to 2 being the moon stuff, 3 being in between the moons and the handicaps and the rest (4 and 5) being the handicaps and other shit
+;var(2) -> total amount of powers to choose from
+;var(3) -> index
+;var(4) -> previous value of the index (relevant for roundstart)
+;var(5) -> small timer
+;var(6) -> whitening effect
+;var(7) -> addition of whitening effect and sinadd
+
+;helper for palfx values
+;var to keep the active amount of available powers (should fluctuate between 6 and 7)
+;var which would be the index
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "palfx data"
+ID = 24001
+stateno = 24001
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+;main background removal
+[State -1]
+Type = RemoveExplod
+triggerall = roundno = 1 && roundstate = [0,1]
+TriggerAll = var(1) = 0
+Trigger1 = Parent,Command = "up"
+Trigger2 = Parent,Command = "down"
+Trigger3 = Parent,Command = "fwd"
+ID = 24010
+
+;main background removal
+[State -1]
+Type = RemoveExplod
+triggerall = roundno = 1 && roundstate = [0,1]
+TriggerAll = var(1) = 1
+Trigger1 = Parent,Command = "back"
+ID = 24010
+
+;main background removal
+[State -1]
+Type = RemoveExplod
+triggerall = roundstate = 2
+triggerall = parent,var(19) = 1
+trigger1 = parent,command = "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger2 = parent,command != "a" && parent,command = "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger3 = parent,command != "a" && parent,command != "b" && parent,command = "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger4 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command = "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger5 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command = "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger6 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command = "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger7 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && (parent,command = "start" && parent,var(21)>=0)
+ID = 24010
+
+[State -1]
+Type = PlaySnd
+triggerall = roundno = 1 && roundstate = [0,1]
+TriggerAll = var(1) = 0
+Trigger1 = Parent,Command = "up"
+Trigger2 = Parent,Command = "down"
+Value = s24000, 2
+Channel = 1
+
+[State -1]
+Type = PlaySnd
+triggerall = roundstate = 2
+TriggerAll = var(1) = [0,1]
+trigger1 = parent,command = "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger2 = parent,command != "a" && parent,command = "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger3 = parent,command != "a" && parent,command != "b" && parent,command = "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger4 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command = "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger5 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command = "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger6 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command = "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger7 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && (parent,command = "start" && parent,var(21)>=0)
+Value = s24000, 2
+Channel = 1
+
+[State -1]
+Type = PlaySnd
+triggerall = roundstate = 2
+TriggerAll = parent,var(19)=2 && var(1) = 1
+trigger1 = parent,command = "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger2 = parent,command != "a" && parent,command = "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger3 = parent,command != "a" && parent,command != "b" && parent,command = "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger4 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command = "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger5 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command = "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger6 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command = "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger7 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && (parent,command = "start" && parent,var(21)>=0)
+Value = s24000, 0
+Channel = 1
+
+[State -1]
+Type = PlaySnd
+triggerall = roundno = 1 && roundstate = [0,1]
+TriggerAll = Parent,Command = "fwd"
+Trigger1 = var(1) = 1
+Value = s24000, 1
+Channel = 2
+
+[State -1]
+Type = PlaySnd
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = var(1) = 0
+Trigger1 = Parent,Command = "fwd"
+Trigger2 = var(1) = 1
+Trigger2 = Parent,Command = "back"
+Value = s24000, 0
+Channel = 1
+
+[State -1]
+Type = VarSet
+Triggerall = Var(1) = 1
+Trigger1 = Parent,Command = "fwd"
+trigger2 = parent,var(19)=2
+;trigger2 = parent,stateno = [195,196]
+V = 6
+Value = 9
+
+[State -1]
+Type = VarAdd
+Trigger1 = Var(6) > 0
+V = 6
+Value = -1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(7)!= 16*var(6) + (var(1)=2)*ifelse(gametime%256<128,ifelse(gametime%128<64,gametime%64/2,32-gametime%64/2),ifelse(gametime%128<64,-gametime%64/2,-32+gametime%64/2))
+v = 7
+value = 16*var(6) + (var(1)=2)*ifelse(gametime%256<128,ifelse(gametime%128<64,gametime%64/2,32-gametime%64/2),ifelse(gametime%128<64,-gametime%64/2,-32+gametime%64/2))
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = roundstate = 2
+trigger1 = var(1)!=parent,var(19)
+v = 1
+value = parent,var(19)
+;ignorehitpause = 
+;persistent = 
+
+
+;considering to implement a trigger 2
+[State -1]
+Type = VarAdd
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Parent,Command = "fwd"
+Trigger1 = var(1) < 2
+v = 1
+Value = 1
+
+;considering to implement a trigger 2
+[State -1]
+Type = VarAdd
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = var(1) = [1,2]
+Trigger1 = Parent,Command = "back"
+v = 1
+Value = -1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = roundno = 1 && roundstate = [0,1]
+v = 2    
+value = 6+(parent,var(21)!=-1)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 3    
+value = ifelse(roundstate = 0 && roundno = 1, 1, ifelse(parent,var(20)!=[1,6],7,parent,var(20)))
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 4    
+value = var(3)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(3)=var(4) && var(5) = 0
+v = 5    
+value = 1
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = var(3)!=var(4)
+v = 5    
+value = -1
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = var(1) = 0
+Trigger1 = Parent,Command = "up"
+v = 3
+value = ifelse(var(3)+1>var(2),-var(2)+1,1)
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = var(1) = 0
+Trigger1 = Parent,Command = "down"
+v = 3
+value = ifelse(var(3)-1<1,var(2)-1,-1)
+
+[State 0, VarSet]
+type = VarSet
+triggerall = roundstate = 2
+trigger1 = var(3)!=parent,var(20)
+trigger1 = parent,var(26) = -1
+v = 3
+value = ifelse(parent,var(20)!=[1,6],7,parent,var(20))
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = roundstate = 2
+trigger1 = var(3)!=parent,var(26)
+trigger1 = parent,var(26) != -1
+v = 3
+value = ifelse(parent,var(26)!=[1,6],7,parent,var(26))
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = roundstate = 2
+trigger1 = var(4)!=parent,var(20)
+trigger1 = parent,var(25) = -1
+v = 4
+value = ifelse(parent,var(20)!=[1,6],7,parent,var(20))
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = roundstate = 2
+trigger1 = var(4)!=parent,var(25)
+trigger1 = parent,var(25) != -1
+v = 4
+value = ifelse(parent,var(25)!=[1,6],7,parent,var(25))
+;ignorehitpause = 
+;persistent = 
+
+[State -1]
+Type = ParentVarSet
+Triggerall = var(1) = [1,2]
+Trigger1 = Parent,Command = "fwd"
+V = 20
+Value = IfElse(var(3)=7,(parent,var(21)),var(3))
+
+[State -1]
+Type = VarAdd
+Trigger1 = var(1) = 2
+trigger1 = var(11) < 12
+V = 11
+Value = 1
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = helper(24001),var(var(3)*3-2)+var(7),helper(24001),var(var(3)*3-1)+var(7),helper(24001),var(var(3)*3)+var(7)
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent = 
+
+;+ifelse(gametime%256<128,ifelse(gametime%128<64,gametime%64/2,32-gametime%64/2),ifelse(gametime%128<64,-gametime%64/2,-32+gametime%64/2))
+
+;main background phase 1
+[State -1]
+Type = Explod
+Trigger1 = NumExplod(24010) = 0
+Anim = 24010
+PosType = back
+Pos = 23.75, 31
+;Facing = IfElse(TeamSide=1,1,-1)
+scale = 0.5,0.5
+Ownpal = 0
+IgnoreHitPause = 1
+SprPriority = 8
+ID = 24010
+
+[State 0, Helper]
+type = Helper
+triggerall = roundno = 1 && roundstate = [0,1]
+triggerall = var(3)!=var(4)
+TriggerAll = var(1) = 0
+Trigger1 = Parent,Command = "down"
+helpertype = normal ;player
+name = "down"
+ID = 24015
+stateno = 24001
+Pos = 23.75, topedge+31
+size.xscale = 0.5
+size.yscale = 0.5
+postype = back    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, Helper]
+type = Helper
+triggerall = roundno = 1 && roundstate = [0,1]
+triggerall = var(3)!=var(4)
+TriggerAll = var(1) = 0
+Trigger1 = Parent,Command = "up"
+helpertype = normal ;player
+name = "up"
+ID = 24016
+stateno = 24001
+Pos = 30, topedge+30
+size.xscale = 0.5
+size.yscale = 0.5
+postype = back    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, Helper]
+type = Helper
+triggerall = roundstate = 2
+triggerall = var(3)<var(4)
+;triggerall = parent,var(19) = 1
+triggerall = parent,stateno = [195,196]
+trigger1 = parent,command = "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger2 = parent,command != "a" && parent,command = "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger3 = parent,command != "a" && parent,command != "b" && parent,command = "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger4 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command = "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger5 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command = "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger6 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command = "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger7 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && (parent,command = "start" && parent,var(21)>=0)
+helpertype = normal ;player
+name = "down"
+ID = 24015
+stateno = 24001
+Pos = 30, topedge+30
+size.xscale = 0.5
+size.yscale = 0.5
+postype = back    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, Helper]
+type = Helper
+triggerall = roundstate = 2
+triggerall = var(3)>var(4)
+;triggerall = parent,var(19) = 1
+triggerall = parent,stateno = [195,196]
+trigger1 = parent,command = "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger2 = parent,command != "a" && parent,command = "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger3 = parent,command != "a" && parent,command != "b" && parent,command = "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger4 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command = "x" && parent,command != "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger5 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command = "y" && parent,command != "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger6 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command = "z" && !(parent,command = "start" && parent,var(21)>=0)
+trigger7 = parent,command != "a" && parent,command != "b" && parent,command != "c" && parent,command != "x" && parent,command != "y" && parent,command != "z" && (parent,command = "start" && parent,var(21)>=0)
+helpertype = normal ;player
+name = "up"
+ID = 24016
+stateno = 24001
+Pos = 30, topedge+30
+size.xscale = 0.5
+size.yscale = 0.5
+postype = back    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+;timer counting down
+[State -1]
+Type = VarAdd
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Var(10) > 0
+V = 10
+Value = -1
+
+;timer first set
+[State -1]
+Type = VarSet
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Time <= 10
+V = 10
+Value = 999
+
+;setting the step if timer ends
+[State -1]
+Type = VarSet
+triggerall = roundstate = [0,1]
+trigger1 = roundno = 1
+Trigger1 = var(1) <= 1
+Trigger1 = Var(10) = 0
+trigger2 = roundno > 1
+trigger2 = var(1)!=2
+v = 1
+Value = 2
+
+[State -1]
+Type = RemoveExplod
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Var(11) < 11
+ID = 24100
+
+[State -1]
+Type = RemoveExplod
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Var(11) < 11
+ID = 24110
+
+[State -1]
+Type = RemoveExplod
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Var(11) < 11
+ID = 24120
+
+[State -1]
+Type = Explod
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Var(10) >= 300 || Var(10) < 300 && Var(10)%6 = [0,2]
+Trigger1 = Var(11) < 11
+Trigger1 = NumExplod(24100) = 0
+Anim = 24100+Var(10)/100%10
+PosType = back
+Pos = ifelse(teamside=1,30,76.5), 50;22
+Facing = IfElse(TeamSide=1,1,-1)
+Scale = 0.5,0.5
+Ownpal = 1
+IgnoreHitPause = 1
+SprPriority = 7
+ID = 24100
+
+[State -1]
+Type = Explod
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Var(10) >= 300 || Var(10) < 300 && Var(10)%6 = [0,2]
+Trigger1 = Var(11) < 11
+Trigger1 = NumExplod(24110) = 0
+Anim = 24110+Var(10)/10%10
+PosType = back
+Pos = ifelse(teamside=1,57.5,49), 58.5;5
+Facing = IfElse(TeamSide=1,1,-1)
+Scale = 0.5,0.5
+Ownpal = 1
+IgnoreHitPause = 1
+SprPriority = 7
+ID = 24110
+
+[State -1]
+Type = Explod
+triggerall = roundno = 1 && roundstate = [0,1]
+Trigger1 = Var(10) >= 300 || Var(10) < 300 && Var(10)%6 = [0,2]
+Trigger1 = Var(11) < 11
+Trigger1 = NumExplod(24120) = 0
+Anim = 24110+Var(10)%10
+PosType = back
+Pos = ifelse(teamside=1,67.5,39), 58.5;15
+Facing = IfElse(TeamSide=1,1,-1)
+Scale = 0.5,0.5
+Ownpal = 1
+IgnoreHitPause = 1
+SprPriority = 7
+ID = 24120
+
+[State 0, VarSet]
+type = VarSet
+triggerall = roundno = 1 && roundstate = [0,1]
+triggerall = var(5) = 0
+trigger1 = numHelper(24015)>0
+trigger2 = numHelper(24016)>0
+v = 4
+value = var(3)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+triggerall = roundno = 1 && roundstate = [0,1]
+trigger1 = var(11)<11
+flag = intro
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noShadow
+
+
+;---------------------------------------------------------------------------
+;Esper power colours and explods for up and down
+[Statedef 24001]
+Type = U
+Physics = N
+Velset = 0,0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+trigger1 = isHelper(24001)
+value = 24000
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+trigger1 = isHelper(24015)
+value = 24015
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+trigger1 = isHelper(24016)
+value = 24016
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time = 0
+trigger1 = isHelper(24015)
+trigger2 = isHelper(24016)
+v = 30
+value = parent,var(4)
+;ignorehitpause = 
+;persistent = 
+
+
+;Accel RGB = 100,100,100
+;Kakine RGB = 32,96,208
+;Mikoto RGB = 240,144,88
+;Mugino RGB = 160,112,192
+;Misaki RGB = 232,192,64
+;Aihana RGB = 16,160,128 (personal choice to balance the rest)
+;Gunha (used for additional espers) RGB = 136,4,48
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 3
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 4
+value = -68
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 5
+value = -4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 6
+value = 108
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 7
+value = 140
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 8
+value = 44
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 9
+value = -12
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 10
+value = 60
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 11
+value = 12
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 12
+value = 92
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 13
+value = 132
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 14
+value = 92
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 15
+value = -36
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 16
+value = -84
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 17
+value = 60
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 18
+value = 28
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 19
+value = 36
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 20
+value = -96
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 21
+value = -52
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = isHelper(24015)
+trigger2 = isHelper(24016)
+time = 1
+add = var(var(30)*3-2),var(var(30)*3-1),var(var(30)*3)
+;mul = 256,256,256
+;sinadd = 64,64,64,60
+invertall = 0
+color = 256
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = animtime = 0
+trigger1 = isHelper(24015)
+trigger2 = isHelper(24016)
+;ignorehitpause = 
+;persistent = 

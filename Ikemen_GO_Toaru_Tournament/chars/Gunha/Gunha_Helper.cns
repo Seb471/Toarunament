@@ -1,0 +1,1244 @@
+; Amazing Punch Hitspark Helper Small
+ [StateDef 6000]
+type = S
+physics = N
+anim = 6010
+velset = 0,0
+ctrl = 0
+sprpriority = 9
+
+[State 10010, 影なし]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 10010, 透過]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, ChangeAnim]
+type = Turn
+triggerall = facing!=root,facing
+trigger1=time=9
+;elem = 1
+ignorehitpause = 1
+persistent = 0
+
+
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time=0
+trigger1=root,stateno=1300
+trigger2=root,stateno=1350
+trigger3=root,stateno=1400
+trigger4=root,stateno=1850
+trigger5=root,stateno=2300
+trigger6=root,stateno=3100
+value = 6009
+;elem = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeAnim]
+type = Turn
+triggerall = time=0
+trigger1=root,stateno=1400
+;elem = 1
+ignorehitpause = 1
+persistent = 0
+
+
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time=0
+trigger1 = root,stateno!=[1750,1751]
+trigger1=root,stateno!=1900
+trigger1=root,stateno!=1000
+trigger1=root,stateno!=1106
+trigger1=root,stateno!=1350
+trigger1=root,stateno!=3100
+trigger1=root,stateno!=961
+trigger1=!(root,stateno=2000 && root,anim=2000)
+trigger2=root,stateno=1300 && ishelper(6005)
+trigger3=root,stateno=2000 && ishelper(6005)
+fvar(8)=0.8*0.46
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time=0
+trigger1 = root,stateno=[1750,1751]
+trigger2=root,stateno=1900
+trigger3=root,stateno=1000
+trigger4=root,stateno=1250
+trigger5=root,stateno=2000 && root,anim=2000
+trigger6=root,stateno=2300 && ishelper(6005)=0
+trigger7=root,stateno=3100
+triggerall=root,stateno!=1106
+fvar(8)=0.5*0.46
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time=0
+trigger1=root,stateno=1300 && ishelper(6005)=0
+trigger2=root,stateno=961
+
+fvar(8)=0.4*0.46
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, VarSet]
+type = VarSet
+triggerall = time=0
+trigger1=root,stateno=1106
+trigger2=root,stateno=1400
+trigger3=root,stateno=1800
+fvar(8)=1*0.46
+ignorehitpause = 1
+persistent = 0
+
+[State 10010, 伸縮]
+type = AngleSet
+trigger1 = root,stateno=1850
+trigger1=root,stateno=2600
+value=-180
+ignorehitpause=1
+persistent=0
+
+[State , 突進サブ1008]
+type = Explod
+Triggerall = time=0
+trigger1=root,stateno!=2300
+trigger1=root,stateno!=1300
+trigger1=root,stateno!=1400
+triggerall=root,stateno!=1850
+triggerall=root,stateno!=1950
+triggerall=root,stateno!=1820
+triggerall=root,stateno!=2600
+triggerall=root,stateno!=3100
+anim = 6013
+ID = 6000
+postype = P1
+pos = 0,0
+facing = Cond(root,stateno=1010,1,-1)
+vfacing= 1
+scale = fvar(8)*1.2,fvar(8)*1.3
+bindtime = -1
+removetime = -2
+removeongethit = 1
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add   ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+ignorehitpause	= 1 
+persistent= 0
+
+[State , 突進サブ1008]
+type = Explod
+Triggerall = time=0
+trigger1=root,stateno=2300
+trigger2=root,stateno=1300
+triggerall=root,stateno!=1400
+triggerall=root,stateno!=1850
+triggerall=root,stateno!=1950
+triggerall=root,stateno!=1820
+triggerall=root,stateno!=2600
+triggerall=root,stateno!=3100
+anim = 6013
+ID = 6000
+postype = P1
+pos = 0,0
+facing = Cond(root,stateno=1010,1,-1)
+vfacing= 1
+angle=90
+scale = fvar(8)*1.2,fvar(8)*1.3
+bindtime = -1
+removetime = -2
+removeongethit = 1
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add   ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+ignorehitpause	= 1 
+persistent= 0
+
+
+[State , 突進サブ1008]
+type = Explod
+Triggerall = time=0
+trigger1=root,stateno=1400
+triggerall=root,stateno!=1820
+anim = 6013
+ID = 6000
+postype = P1
+pos = -15,-15
+facing = 1
+vfacing=1
+angle=45
+scale = fvar(8)*1.2,fvar(8)*1.3
+bindtime = -1
+removetime = -2
+removeongethit = 1
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add   ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+ignorehitpause	= 1 
+persistent= 0
+
+[State , 突進サブ1008]
+type = Explod
+Triggerall = time=0
+trigger1=root,stateno=1850
+trigger2=root,stateno=1950
+triggerall=root,stateno!=1820
+anim = 6013
+ID = 6000
+postype = P1
+pos = -15,15
+facing = -1
+vfacing=1
+angle=-45
+scale = fvar(8)*1.2,fvar(8)*1.3
+bindtime = -1
+removetime = -2
+removeongethit = 1
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add   ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+ignorehitpause	= 1 
+persistent= 0
+
+[State , 突進サブ1008]
+type = Explod
+Triggerall = time=0
+trigger1=root,stateno=2600
+triggerall=root,stateno!=1820
+anim = 6013
+ID = 6000
+postype = P1
+pos = -15,15
+facing = -1
+vfacing=1
+angle=-45
+scale = fvar(8)*1.5,fvar(8)*1.6
+bindtime = -1
+removetime = -2
+removeongethit = 1
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add   ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+ignorehitpause	= 1 
+persistent= 0
+
+[State , 突進サブ1008]
+type = Explod
+Triggerall = time=0
+trigger1=root,stateno=3100
+triggerall=root,stateno!=1820
+anim = 6013
+ID = 6000
+postype = P1
+pos = -15,0
+facing = -1
+vfacing=1
+angle=45
+scale = fvar(8)*1.5,fvar(8)*1.6
+bindtime = -1
+removetime = -2
+removeongethit = 1
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add   ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+ignorehitpause	= 1 
+persistent= 0
+
+
+[State , 突進サブ1008]
+type = Explod
+Triggerall = time=0
+trigger1=root,stateno=1820
+anim = 6013
+ID = 6000
+postype = P1
+pos = 0,0
+facing = 1
+vfacing= 1
+scale = fvar(8)*1.2,fvar(8)*1.3
+bindtime = -1
+removetime = -2
+removeongethit = 1
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add   ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+ignorehitpause	= 1 
+persistent= 0
+
+[State 10010, 伸縮]
+type = AngleDraw
+trigger1 = 1
+scale = fvar(8),fvar(8)
+ignorehitpause=1
+
+
+[State 10010, 消去]
+type     = DestroySelf
+trigger1 = animtime=0
+
+;Guts Meter Helper
+[Statedef 30000]
+anim = 29999;
+
+
+[State -2, 根性カウント表示]
+type = Explod
+Trigger1 = RoundState >0
+Trigger1 = parent,fvar(8)=0
+
+anim = (7600+Floor(Root,fvar(7)/10))
+ID = 7600
+postype = left
+pos = ifelse(teamside=1,8,288), 197
+facing = 1
+vfacing= 1
+scale = 0.13,0.13
+bindtime = -1
+removetime = 2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add1 ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 1
+
+;Decimal Number
+[State -2, 根性カウント表示]
+type = Explod
+Trigger1 = RoundState >0
+trigger1=root,fvar(7)!=100
+Trigger1 = parent,fvar(8)=0
+anim = (31120+Floor(Root,fvar(7)/10))
+ID = 31120
+postype = left
+pos = ifelse(teamside=1,10,290), 222
+facing = 1
+vfacing= 1
+scale = 0.6,0.6
+bindtime = -1
+removetime = 2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add1 ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 1
+
+;Unit Number
+[State -2, 根性カウント表示]
+type = Explod
+Trigger1 = RoundState >0
+trigger1=root,fvar(7)!=100
+Trigger1 = parent,fvar(8)=0
+;Trigger1 = TeamSide = 1
+anim = (31120+(Root,fvar(7)-Floor(Root,fvar(7)/10)*10))
+ID = 31120
+postype = left
+pos = ifelse(teamside=1,19,299), 222
+facing = 1
+vfacing= 1
+scale = 0.6,0.6
+bindtime = -1
+removetime = 2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add1 ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 1
+
+;------------------------------------
+
+;Hundred Number 100
+[State -2, 根性カウント表示]
+type = Explod
+Trigger1 = RoundState >0
+trigger1=root,fvar(7)=100
+Trigger1 = parent,fvar(8)=0
+anim = 31121
+ID = 31120
+postype = left
+pos = ifelse(teamside=1,1,281), 222
+facing = 1
+vfacing= 1
+scale = 0.6,0.6
+bindtime = -1
+removetime = 2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add1 ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 1
+
+;Decimal Number 100
+[State -2, 根性カウント表示]
+type = Explod
+Trigger1 = RoundState >0
+trigger1=root,fvar(7)=100
+Trigger1 = parent,fvar(8)=0
+anim = 31120
+ID = 31120
+postype = left
+pos = ifelse(teamside=1,10,290), 222
+facing = 1
+vfacing= 1
+scale = 0.6,0.6
+bindtime = -1
+removetime = 2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add1 ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 1
+
+;Unit Number 100
+[State -2, 根性カウント表示]
+type = Explod
+Trigger1 = RoundState >0
+trigger1=root,fvar(7)=100
+Trigger1 = parent,fvar(8)=0
+;Trigger1 = TeamSide = 1
+anim = 31120
+ID = 31120
+postype = left
+pos = ifelse(teamside=1,19,299), 222
+facing = 1
+vfacing= 1
+scale = 0.6,0.6
+bindtime = -1
+removetime = 2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add1 ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 1
+
+;-----------------------------------------------------------
+
+;Percent
+[State -2, 根性カウント表示]
+type = Explod
+Trigger1 = RoundState >0
+Trigger1 = parent,fvar(8)=0
+;Trigger1 = TeamSide = 1
+anim = 31130
+ID = 31130
+postype = left
+pos = ifelse(teamside=1,28,308), 222
+facing = 1
+vfacing= 1
+scale = 0.6,0.6
+bindtime = -1
+removetime = 2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add1 ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 1
+
+;=====================================================================
+
+;Gethit Helper
+[Statedef 30002]
+anim = 29999;
+
+
+;hype Mode Countdown
+[State -2]
+	type=parentVarAdd
+	;triggerall = stateno != 6470
+	;triggerall = stateno != 6471
+	;triggerall = stateno != 6200
+	;triggerall = stateno != 6250
+	trigger1 = parent,fvar(8) > 1
+
+	
+	fv = 8
+	value = -1
+
+;=======================================================================
+
+;Combo Potential Meter 
+[Statedef 30100]
+anim = 29999;
+
+;DoYouWish Bar Out
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11600) = 0
+trigger1=parent,fvar(12)>0
+;trigger1 = Parent,fvar(6) != 0
+anim = 11600
+ID = 11600
+pos = ifelse(teamside=1,4,244), 75
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = .35,.35
+ownpal = 0
+ignorehitpause = 1
+
+[State 0, PalFX]
+type = null;PalFX
+trigger1 = root,var(3)=1
+time = 1
+add = 1,1,0
+mul = 256,256,0
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+
+;BlackBar
+[State 30000];ƒQ[ƒW‰º’n
+type = Explod
+trigger1 = numexplod(11103) = 0
+trigger1=parent,fvar(12)>0
+anim = 11103
+ID = 11103
+pos = ifelse(teamside=1,10,249), 83
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .35,.35
+;ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR bar P1
+[State 30000]
+type = Explod
+triggerAll = numexplod(11103);Black bar
+trigger1 = numexplod(11100) = 0
+;trigger1 = Parent,fvar(6) = 1200
+trigger1 = teamside=1
+anim = 11101
+ID = 11100
+pos = 10, 83
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .35,.35
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR Bar P2
+[State 30000]
+type = Explod
+triggerAll = numexplod(11103)
+trigger1 = numexplod(11100) = 0
+;trigger1 = Parent,fvar(6) = 1200
+trigger1 = teamside=2
+anim = 11101
+ID = 11100
+pos = 249, 83
+postype = left
+bindtime = -1
+removetime = -1
+;facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .35,.35
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR Decrease
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11100) = 1
+scale = ifelse(parent,fvar(12)>=100,0.35,Parent,fvar(12)/100.0*0.35),.35
+ID = 11100
+
+[State 30000];ƒQ[ƒWŒõ‘ò
+type = Explod
+triggerAll = numexplod(11212) = 0
+triggerAll = teamside=1
+trigger1 = Parent,fvar(12)>=100
+anim = 11200
+ID = 11212
+pos = 10, 83
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .35,.35
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000];ƒQ[ƒWŒõ‘ò2p
+type = Explod
+triggerAll = numexplod(11212) = 0
+triggerAll = teamside=2
+trigger1 = Parent,fvar(12)>=100
+anim = 11200
+ID = 11212
+pos = 249, 83
+postype = left
+bindtime = -1
+removetime = -1
+facing = 1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .35,.35
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11212) = 1
+scale = ifelse(parent,fvar(12)>=100,0.35,Parent,fvar(12)/100.0*0.35),.35
+ID = 11212
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11212)
+trigger1 = Parent,fvar(12) <100
+Trigger2 = parent,fvar(8)!=0
+ID = 11212
+
+
+;Remove WR bar
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11100)
+trigger1 = Parent,fvar(12) =0
+Trigger2 = parent,fvar(8)!=0
+ID = 11100
+
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11103)
+trigger1 = Parent,fvar(12) =0
+Trigger2 = parent,fvar(8)!=0
+ID = 11103
+
+;RemoveBarOUT
+[State 30000] 
+type = RemoveExplod
+triggerAll = numexplod(11600)
+trigger1 = Parent,fvar(12) = 0
+Trigger2 = parent,fvar(8)!=0
+ID = 11600
+
+
+;================================================================================
+
+
+;Hype Mode UI
+[Statedef 30200]
+anim = 29999;
+
+[State 3050, ”wŒi•Ï‰»]
+type = BGPalFX
+trigger1 = time%30=0
+time =  30
+add = 0,0,0
+mul = 140,140,140
+sinadd=parent,fvar(9)*1.5,0,0,30
+invertall = 0
+color = 256
+persistent=1
+pausemovetime=99999
+supermovetime=99999
+ignorehitpause=1
+
+;Combo Bar Break P1
+[State 30000]
+type = Explod
+triggerAll = time=0
+trigger1 = numexplod(11300) = 0
+;trigger1 = Parent,fvar(6) = 1200
+trigger1 = teamside=1
+anim = 25500
+ID = 11300
+pos = 10, 83
+postype = left
+bindtime = -1
+removetime = -2
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = 1,1
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;Combo Bar Break P2
+[State 30000]
+type = Explod
+triggerAll = time=0
+trigger1 = numexplod(11300) = 0
+;trigger1 = Parent,fvar(6) = 1200
+trigger1 = teamside=2
+anim = 25500
+ID = 11300
+pos = 249+50, 83
+postype = left
+bindtime = -1
+removetime = -2
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = 1,1
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;-------------------------
+;Konjou 
+
+[State -2, 根性カウント表示]
+type = Explod
+Trigger1 = 1
+
+anim = 7300
+ID = 7300
+postype = left
+pos = ifelse(teamside=1,32,228), 227
+facing = 1
+vfacing= 1
+scale = 0.26,0.26
+bindtime = -1
+removetime = 2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+;Trans = add1 ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 1
+
+
+;-------------------------
+
+;Hype Bar Out
+[State 30000] 
+type = Explod
+triggerAll = numexplod(11700) = 0
+trigger1 = Parent,fvar(8) != 0
+anim = 11600
+ID = 11700
+pos = ifelse(teamside=1,8,205), 197+20
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = .5,.5
+ownpal = 1
+ignorehitpause = 1
+
+;BlackBar
+[State 30000];ƒQ[ƒW‰º’n
+type = Explod
+triggerAll = numexplod(11203) = 0
+trigger1 = Parent,fvar(8) != 0
+anim = 11103
+ID = 11203
+pos = ifelse(teamside=1,16,213), 228
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+;ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR bar P1
+[State 30000]
+type = Explod
+triggerAll = numexplod(11203);Black bar
+trigger1 = numexplod(11200) = 0
+trigger1 = Parent,fvar(8)!=0
+trigger1 = teamside=1
+anim = 11102
+ID = 11200
+pos = 16, 228
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;WR Bar P2
+[State 30000]
+type = Explod
+triggerAll = numexplod(11203)
+trigger1 = numexplod(11200) = 0
+trigger1 = Parent,fvar(8)!=0
+trigger1 = teamside=2
+anim = 11102
+ID = 11200
+pos = 305, 228
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+
+[State 30000];ƒQ[ƒWŒõ‘ò
+type = Explod
+triggerAll = numexplod(11310) = 0
+triggerAll = teamside=1
+trigger1 = Parent,fvar(8)!=0
+anim = 11200
+ID = 11310
+pos = 16, 228
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000];ƒQ[ƒWŒõ‘ò2p
+type = Explod
+triggerAll = numexplod(11310) = 0
+triggerAll = teamside=2
+trigger1 = Parent,fvar(8)!=0
+anim = 11200
+ID = 11310
+pos = 305, 228
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11310) = 1
+scale = Parent,fvar(8)/1800,.5
+ID = 11310
+ignorehitpause=1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11310)
+trigger1 = Parent,fvar(8) =0
+ID = 11310;11210
+ignorehitpause=1
+
+;WR Decrease
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11200) = 1
+scale = Parent,fvar(8)/1800,.5
+ID = 11200
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11203)
+trigger1 = Parent,fvar(8) = 0
+ID = 11203
+
+
+;Remove WR bar
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11200)
+trigger1 = Parent,fvar(8) =0
+ID = 11200
+
+;RemoveBarOUT
+[State 30000] 
+type = RemoveExplod
+triggerAll = numexplod(11700)
+trigger1 = Parent,fvar(8) = 0
+ID = 11700
+
+
+;------------------------------------------------------
+;Hype Mode Text Explods
+
+;RemoveText
+[State 30000] 
+type = RemoveExplod
+triggerAll = numexplod(30200)
+trigger1 = Parent,fvar(8) = 0
+trigger2=parent,fvar(9)=0
+ID = 30200
+
+;HYPER
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 0
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>0
+anim = 30200
+ID = 30200
+pos = 16, 70
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;ECCENTRIC
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) =1
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>4
+anim = 30201
+ID = 30200
+pos = 16+110, 70
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;ULTRA
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 2
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>9
+anim = 30202
+ID = 30200
+pos = 16, 70+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;GREAT
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 3
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>14
+anim = 30203
+ID = 30200
+pos = 16 + 110, 70+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;MEGA
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 4
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>19
+anim = 30204
+ID = 30200
+pos = 16 + 220-5, 70+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;GIGA
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 5
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>29
+anim = 30205
+ID = 30200
+pos = 16, 70+74
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;EXTREME
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 6
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>39
+anim = 30206
+ID = 30200
+pos = 16+ 90, 70+74
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;and
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 7
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>46
+anim = 30207
+ID = 30200
+pos = 16+ 90+150, 70+74
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;one
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 8
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>47
+anim = 30208
+ID = 30200
+pos = 16, 70+74+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;more 
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 9
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>48
+anim = 30209
+ID = 30200
+pos = 16 + 70, 70+74+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;AMA
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) = 10
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>49
+anim = 30210
+ID = 30200
+pos = 16 + 70+90, 70+74+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;A
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) > (10+(parent,fvar(9)-50-1)/5)
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>50 && parent,fvar(9)%5=0
+trigger1=parent,fvar(9)<=75
+anim = 30211
+ID = 30200
+pos = 16 + 70+90 + 41 + 20*((parent,fvar(9)-50)/5), 70+74+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+
+;ZING
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) !=0
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>49
+trigger1=parent,stateno=985
+anim = 30212
+ID = 30200
+pos = 16 , 70+74+37+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+persistent=0
+
+;PUNCH
+[State 30000] 
+type = Explod
+triggerAll = numexplod(30200) !=0
+trigger1 = Parent,fvar(8) != 0
+trigger1=parent,fvar(9)>49
+trigger1=parent,stateno=985
+Trigger1 = parent,animelem=6
+anim = 30213
+ID = 30200
+pos = 16+ 90, 70+74+37+37
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -999
+scale = 0.4,0.4
+ownpal = 0
+ignorehitpause = 1
+persistent=0
+
+
+
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,fvar(8)=0
+ignorehitpause = 1
+;persistent = 
+

@@ -1,0 +1,123 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+
+Yuriko has a battery meter that constantly goes down
+When it reaches zero, she is unable to attack for a certain amount
+of time
+You can charge it back with LO
+
+
+<#f0f000>Normals:</>
+(Pressing _F while using her normals will push the 
+opponent to the ground or wall)
+
+Super Jump 						_D_U
+
+Forward Dash						_F_F
+
+Back Dash						_B_B
+
+
+Finger Poke 						^LK / ^A
+
+Normal Punch						^MK / ^B
+
+Back Kick	 					^HK / ^C
+
+
+Crouching Finger Poke	  				^LK / ^A (Crouching)
+
+Crouching Normal Punch 					^MK / ^B (Crouching)
+
+Crouching Ground Stomp  				^HK / ^C (Crouching)
+(Can hit a downed opponent)
+
+
+Air Kick	 					^LK / ^A (Air)
+
+Air Palm			 			^MK / ^B (Air)
+
+Air Claw		 				^HK / ^C (Air)
+
+
+Reflect Stance 						^LP / ^X
+(Makes battery deplete faster during the stance)
+
+Charge Up 						^MP / ^Y
+
+Battery Charge Up					^HP / ^Z
+
+<#00ff00>Lvl-1</>
+Battery Instant Up					^LK + ^HK / ^A + ^C
+
+<#00ff00>Lvl-1</>
+Attack Multiplier Reset					^MK + ^HK / ^B + ^C
+
+<#00ff00>Lvl-1</>
+??? (I don't know what it does)				^LK + ^MK / ^A + ^B
+
+<#ff0000>Supers and Hypers:</>
+
+Horizontal Steel Beam					_D_DF_F ^LK / _D_DF_F ^A
+
+Vertical Steel Beam 					_D_DF_F ^MK / _D_DF_F ^B
+
+Diagonal Steel Beam 					_D_DF_F ^HK / _D_DF_F ^C
+
+
+Close Vector Lunge 						_D_DB_B ^LK / _D_DB_B ^A 
+
+Mid Vector Lunge 						_D_DB_B ^MK / _D_DB_B ^B 
+
+Far Vector Lunge						_D_DB_B ^HK / _D_DB_B ^C
+
+
+Air Vector Lunge						_D_DB_B ^LK / _D_DB_B ^A (air)
+
+Air Vector Lunge 						_D_DB_B ^MK / _D_DB_B ^B (air)
+
+Air Vector Lunge						_D_DB_B ^HK / _D_DB_B ^C (air)
+
+		
+Short Uppergrab							_F_D_DF ^LK / _F_D_DF ^A
+
+Mid Uppergrab 							_F_D_DF ^MK / _F_D_DF ^B
+(Only hits airborne opponents)
+
+Long Uppergrab							_F_D_DF ^HK / _F_D_DF ^C
+(Only hits airborne opponents)
+		
+
+<#00ff00>Lvl-1</>
+Plasma Ball 							_D_DB_B_D_DB_B ^LK / _D_DB_B_D_DB_B ^A
+
+<#00ff00>Lvl-1</>
+Plasma Ball 							_D_DB_B_D_DB_B ^MK / _D_DB_B_D_DB_B ^B
+
+<#00ff00>Lvl-1</>
+Plasma Ball 							_D_DB_B_D_DB_B ^HK / _D_DB_B_D_DB_B ^C
+
+<#00ff00>Lvl-1</>
+Plasma Air 							^LK / ^A (during Plasma Ball)
+
+<#00ff00>Lvl-1</>
+Plasma Ball Send						^MK / ^B (during Plasma Ball)
+
+
+<#00ff00>Lvl-3</>
+Black Wings 							_B_DB_D_DF_F ^LK / _B_DB_D_DF_F ^A
+(Can work without battery)
+
+<#00ff00>Lvl-3</>
+Black Wings 							_B_DB_D_DF_F ^MK / _B_DB_D_DF_F ^B
+(Can work without battery)
+
+<#00ff00>Lvl-3</>
+Black Wings 							_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C
+(Can work without battery)
+
+
+Credits: DidiGetsRekt
+
+

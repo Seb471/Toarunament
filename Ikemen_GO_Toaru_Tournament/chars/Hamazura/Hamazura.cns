@@ -1,0 +1,759 @@
+; KFM's constants and state file.
+; There are comments scattered through this file, so you may like to
+; take a look if would like to learn more about the cns.
+
+[Data]
+	life              = 1000    ;ライフ（体力ゲージ）最大値
+	power             = 6000   ;パワーゲージ最大値（オプション・デフォルトは3000=Lv.3）
+	attack            = 100    ;攻撃力（デフォルトは１００％）
+	defence           = 100    ;防御力（デフォルトは１００％）
+	fall.defence_up   = 50     ;横に倒れている時に一時的に加える防御力（％）
+	liedown.time      = 60     ;横に倒れている時間（フレーム）
+	airjuggle         = 15     ;ジャグルポイント限界値（「小ネタ.txt」参照）
+	sparkno           = 2      ;デフォルトのヒットスパーク（fightfxから）
+	guard.sparkno     = 40     ;デフォルトのガードスパーク（fightfxから）
+	KO.echo           = 0      ;ＫＯ時の音声（11,0）にエコーを掛けるか否か（0=掛けない,1=掛ける）
+	volume            = 255    ;キャラの標準の音量（最小-255・最大255）
+	IntPersistIndex   = 0     ;次のラウンドへ持ち越せる「Var」のアドレスの範囲を決める
+	FloatPersistIndex = 0     ;次のラウンドへ持ち越せる「FVar」のアドレスの範囲を決める
+
+
+;---------------------------------------------------------------------------
+; サイズ
+;---------------------------------------------------------------------------
+[Size]
+	xscale           = 1       ;キャラの横の大きさ（絶対値・float）
+	yscale           = 1       ;キャラの縦の大きさ（絶対値・float）
+	ground.back      = 17      ;地上にいる時の「後方の物理的な幅」
+	ground.front     = 17      ;地上にいる時の「前方の物理的な幅」
+	air.back         = 12      ;空中にいる時の「後方の物理的な幅」
+	air.front        = 12      ;空中にいる時の「前方の物理的な幅」
+	height           = 60      ;キャラの物理的な高さ（高いほど相手は飛び越しにくくなる）
+	attack.dist      = 160     ;相手がガード態勢に入る最低の距離
+	proj.attack.dist = 90       ;自分の「Projectile」に対して相手がガード態勢に入る最低の距離
+	proj.doscale     = 0       ;xscaleとyscaleを「Projectile」にも影響させるか否か（0=させない・1=させる）
+	head.pos         = 5,-95  ;キャラの標準の頭の座標（Bind系で適用される）
+	mid.pos          = 7,-65  ;キャラの標準の体中心の座標（Bind系で適用される）
+	shadowoffset     = 0       ;影のＹ軸方向の位置座標
+	draw.offset      = 0,0     ;キャラの表示座標（Ｘ軸,Ｙ軸）
+
+;---------------------------------------------------------------------------
+; 移動速度
+;---------------------------------------------------------------------------
+[Velocity]
+	walk.fwd     = 2        ;前進速度（Ｘ軸・[Statedef 20]に適用される）
+	walk.back    = -2.0        ;後退速度（Ｘ軸・[Statedef 20]に適用される）
+	run.fwd      = 6.0         ;前方に走る速度（Ｘ軸,Ｙ軸・[Statedef 100]に適用される）
+	run.back     = -4.5,-3.8   ;後方に走る速度（Ｘ軸,Ｙ軸・[Statedef 105]に適用される）
+
+	jump.neu     = 0,-10.4      ;垂直ジャンプの速度（Ｘ軸,Ｙ軸・[Statedef 40]に適用される）
+	jump.back    = -3.15       ;後方ジャンプの速度（Ｘ軸・[Statedef 40]に適用される）
+	jump.fwd     = 3.75        ;前方ジャンプの速度（Ｘ軸・[Statedef 40]に適用される）
+
+	runjump.back = -2.45,-10.5  ;後方に走ってからのジャンプ速度（Ｘ軸,Ｙ軸・[Statedef 40]に適用される）
+	runjump.fwd  = 3.05,-10.5      ;前方に走ってからのジャンプ速度（Ｘ軸,Ｙ軸・[Statedef 40]に適用される）
+
+	airjump.neu  = 0,-10      ;空中垂直ジャンプ速度（Ｘ軸,Ｙ軸・[Statedef 45]に適用される）
+	airjump.back = -5.0       ;空中後方ジャンプ速度（Ｘ軸・[Statedef 45]に適用される）
+	airjump.fwd  = 5.0         ;空中前方ジャンプ速度（Ｘ軸・[Statedef 45]に適用される）
+
+;---------------------------------------------------------------------------
+; 運動関係
+;---------------------------------------------------------------------------
+[Movement]
+	airjump.num     = 0        ;空中ジャンプが出来る回数
+	airjump.height  = 80       ;空中ジャンプが出来る最低の高度（Ｙ軸）
+	yaccel          = .475      ;Ｙ軸加速度（重力）
+	stand.friction  = .85      ;立っている時の摩擦係数（ステートのPhysicsが「S」の時）
+	crouch.friction = .82      ;しゃがんでいる時の摩擦係数（ステートのPhysicsが「C」の時）
+
+;Default language victory quotes (optional).  **MUGEN 1.0**
+;If this section is included, the default language victory quotes must be in English.
+[Quotes]
+; Up to 100 victory quotes can be specified per language (victory0 - victory99)
+victory1 = "But she said she didn't want a selfish bastard like me to die!!"
+victory2 = "To get back everyone together as ITEM, I’m willing to stake my life on it."
+victory3 = "This is ‘ITEM’. Don’t go forgetting that even if you go to hell!"
+
+
+;Alternate language victory quotes (optional).
+;0 or more alternate language sections may be added, preceded by the
+;ISO 639-1 code followed by a ".", e.g. "[ja.Quotes]".
+;See language setting in mugen.cfg.
+[ja.Quotes]
+victory1 = "カンフー突き手を破らぬ限り、お前に勝ち目はない！"
+victory2 = "十年早いんだぞ"
+victory3 = "お前は見覚えがあるな。テレビにでも…？"
+victory4 = "お前の動きは見破りやすすぎる。　なに、カンフー突き手が覚えたいんだと？　素人には無理だぞ"
+victory5 = "ふー。　いい汗だった"
+victory6 = "もっと強い相手に挑戦したい"
+victory7 = "なんだと！彼女はここにもいないと？"
+
+;---------------------------------------------------------------------------
+; Variable usage:
+; This is a record of the variables that KFM uses. Keeping a record of your
+; variable usage helps you avoid careless mistakes later.
+; var(1)  - Used in kfm.cmd for combo condition (updated every tick)
+; var(45)  - Used in Kung Fu Throw (state 800) to remember if fwd was being
+;           held (remembered from state 800 through state 810).
+
+
+;---------------------------------------------------------------------------
+; Lose by Time Over
+; CNS difficulty: basic
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Win state decider
+; CNS difficulty: basic
+[Statedef 180]
+type = S
+
+
+;Too easy level 5
+[State 180, 1]
+type = ChangeState
+triggerall = Time = 0
+trigger1=enemy,name="Misaka Mikoto"
+trigger2=enemy,name="Mugino Shizuri"
+trigger3=enemy,name="Kakine Teitoku"
+trigger4=enemy,name="Accelerator"
+trigger5=enemy,name="Sogiita Gunha"
+trigger6=enemy,name="Shokuhou Misaki"
+trigger7=enemy,name="Aihana Etsu"
+trigger8=enemy,name="Suzushina Yuriko"
+trigger9=enemy,name="Kakine Teitoku (DM)"
+trigger10=enemy,name="Kakine Teitoku (OT15)"
+value = 181
+
+;Shin no Chikara/Zama Miro
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 0
+value = 182+(random%3=0)
+
+;---------------------------------------------------------------------------
+;Too Easy Level 5
+; CNS difficulty: basic
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+[State 200,効果音]
+		Type=PlaySnd
+		trigger1 = animelem=7
+		value=181,0
+		channel=2
+		persistent=0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time<300
+flag = roundnotover
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+;Zama Miro
+; CNS difficulty: basic
+[Statedef 182]
+type = S
+ctrl = 0
+anim = 182
+velset = 0,0
+
+[State 200,効果音]
+		Type=PlaySnd
+		trigger1 = time=0
+		value=181,1
+		channel=2
+		persistent=0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time<180
+flag = roundnotover
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+;Shin No Chikara
+; CNS difficulty: basic
+[Statedef 183]
+type = S
+ctrl = 0
+anim = 183
+velset = 0,0
+
+[State 200,効果音]
+		Type=PlaySnd
+		trigger1 = time=0
+		value=181,2
+		channel=2
+		persistent=0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time<700
+flag = roundnotover
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Introduction
+; CNS difficulty: basic
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 190
+velset = 0,0
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = RoundState = 0
+value = 190
+
+[State 200,効果音]
+		Type=PlaySnd
+		trigger1 = time=0
+		value=190,0
+		channel=2
+		persistent=0
+
+[State 191, 2] ;Assert this until you want "round 1, fight" to begin
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, 3] ;Change to stand state when done
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+
+
+[State -2, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 300
+Value = 0.7
+IgnoreHitPause = 1
+
+[State -2, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 150
+Value = 0.5
+IgnoreHitPause = 1
+
+[State -2, PowerAdd]
+type = PowerAdd
+trigger1 = 1
+value = 0
+
+[State 0, Width]
+type = Width
+trigger1 = stateno!=[2000,3999]
+edge = 15,0
+;value = 0,0
+ignorehitpause = 1
+;persistent = 
+
+
+;Gives 1000 at the start of the battle
+[State -2,初期ゲージ設定]
+	Type= PowerSet
+	trigger1 = roundsexisted = 0 && roundstate = 0 && roundno = 1;
+	value = 1000 ; 0〜6000で設定可能 1000単位で1本 デフォルトは1000
+
+
+
+;DamageDampening Reset
+[State -2]
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fv = 0
+	value = 1
+	ignorehitpause = 1
+
+
+[State -2];補正
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fv = 10
+	value = 1
+	ignorehitpause = 1
+
+;Cornerpush reset
+[State -2];ヒットバック
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	fvar(11)=0
+	ignorehitpause = 1
+;Air dash count reset
+[State -2];ループ
+ 	type = Varset
+ 	triggerAll = var(17)
+	trigger1 = statetype != A
+	trigger2 = movetype = H
+ 	var(17)=0
+	ignorehitpause = 1
+
+
+
+
+;LuckHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(30000) = 0
+	trigger1 = time = 1
+	stateno = 30000
+	ID = 30000
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "gauge"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+
+;BurstHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(30002) = 0
+	trigger1 = time = 1
+	stateno = 30002
+	ID = 30002
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "burstgauge"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+;Good Luck Trip Helper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(6350) = 0
+	trigger1=var(3)>1
+	stateno = 6350
+	ID = 6350
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "TripHelper"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 0
+	supermovetime = 0
+
+;Gives Unlucky when hit in Good Luck switch
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 = movetype=H
+	trigger1=var(44)
+	trigger1=fvar(6)=0
+	fvar(6)=1200
+	ignorehitpause=1
+
+;Gives Unlucky when hit in Good Luck switch
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 = movetype=H
+	trigger1=var(44)
+	trigger1=var(3)=1
+	var(3)=0
+	ignorehitpause=1
+
+;Unlucky/God Luck Mode Countdown
+[State -2]
+	type=VarAdd
+	trigger1=roundstate=2
+	trigger1 = fvar(6) > 0
+	
+	fv = 6
+	value = -1
+	ignorehitpause=1
+
+;Resets Unlucky Trigger
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 = movetype=H
+	trigger2=stateno!=6300
+	var(44)=0
+	ignorehitpause=1
+
+[State 6300,??????]
+		type = Explod
+		trigger1=var(3)=0
+		trigger1=fvar(6)<=0
+		Trigger1=numexplod(16000)=0
+		trigger1=roundstate=2
+		anim = 16000
+		id=16000
+		pos = 5, -70
+		postype = p1
+		bindtime = -1
+		supermovetime = 9999
+		pausemovetime = 9999
+		scale = 1, 1
+		ontop = 1
+		ownpal = 1
+		removeongethit = 1
+		ignorehitpause=1
+
+;Gives Hard Luck at start of round or when unlucky is over
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 = roundstate <2 && var(45)=0
+	trigger2=var(3)=0
+	trigger2=fvar(6)<=0
+	var(3)=1 
+	ignorehitpause=1
+
+;Gives Good Luck at start of round when last round ended in Great Luck
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 = var(45)=1
+	trigger1=roundstate = 0
+	var(3)=2 
+	ignorehitpause=1
+
+;Gives Good Luck when Great Luck is over
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1=var(3)=3
+	trigger1=fvar(6)<=0
+	var(3)=2
+	ignorehitpause=1
+
+
+;Resets Good Luck Stock
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	triggerall = var(45)!=0
+	trigger1=roundstate =2
+	trigger2=!alive
+	var(45)=0
+	ignorehitpause=1
+
+;Gives Good Luck Stock
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 = var(3)=3
+	trigger1=alive
+	trigger1=roundstate >2
+	var(45)=1
+	ignorehitpause=1
+
+
+;Reset Unlucky Counter
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 =  roundstate = 0
+	fvar(6)=0
+	ignorehitpause=1
+
+;ReserveCountHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(30004) = 0
+	trigger1 = time = 1
+	stateno = 30004
+	ID = 30004
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "ReserveCount"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+;Gives bullets at the start of the round
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 =  roundstate = 0
+	var(4)=60;250 
+	ignorehitpause=1
+
+;Gives grenades at the start of the round
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 =  roundstate = 0
+	var(20)=6
+	ignorehitpause=1
+
+;Gives mines at the start of the round
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 =  roundstate = 0
+	var(21)=3
+	ignorehitpause=1
+
+;Gives bullets in the mag at the start of the round
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 =  roundstate = 0
+	var(5)=14;14 is the max
+	ignorehitpause=1
+
+;Resets Mines and Grenades at start of round
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 =  roundstate = 0
+	var(8)=0
+	ignorehitpause=1
+[State -2,初期ゲージ設定]
+	Type= VarSet
+	trigger1 =  roundstate = 0
+	var(9)=0
+	ignorehitpause=1
+
+
+
+
+;MagazineHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(30003) = 0
+	trigger1 = time = 1
+	stateno = 30003
+	ID = 30003
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "MagazineCount"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+;AmmoSpawnerHelper
+[State -2]
+	type = Helper
+	trigger1 = Numhelper(4550) = 0
+	trigger1 = time = 1
+	stateno = 4550
+	ID =4550
+	pos = 0,0
+	postype = left
+	helpertype = normal
+	name = "MagazineCount"
+	keyctrl = 0
+	ownpal = 1
+	pausemovetime = 9999
+	supermovetime = 9999
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+;trigger1 = var(7)=10
+trigger1=stateno!=1350
+id = 1350
+ignorehitpause = 1
+;persistent = 
+
+[State -2,床吹き飛ばし]
+		type = TargetState
+		trigger1 = numTarget(620)
+		trigger1 = Target(620),statetype = A
+		trigger1 = movehit =1
+		trigger2 = numTarget(630)
+		trigger2 = Target(630),statetype = A
+		trigger2 = movehit =1
+		value = 7050
+		persistent = 0
+
+[State 2201,AfterI]
+		Type=afterImage
+		Trigger1=prevstateno=[3100,3200]
+		trigger1=stateno!=[3100,3200]
+		;trigger1=numhelper(980)=0
+		Time=1
+		trans=add
+		Timegap=1
+		framegap=3
+		length=0
+		palcolor=255
+		palbright=0,0,0
+		palcontrast=0,0,0
+		paladd=0,0,0
+		palmul=1,1,1
+		persistent=0
+
+;Charge Explod Remove
+[State -2, remove]
+Type=RemoveExplod
+Trigger1 = stateno!=700
+ID = 130
+
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+[Statedef -3]
+
+[State 0, VarRandom]
+type = VarSet
+trigger1 = !(enemynear,hitdefattr=SCA,AT)
+trigger2=stateno=6450
+trigger3= P2bodydist X >40
+v = 12
+value =0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarRandom]
+type = VarRandom
+trigger1 = enemynear,hitdefattr=SCA,AT
+trigger1= P2bodydist X <40
+trigger1=var(3)=3
+v = 12
+range = 0,4
+ignorehitpause = 1
+;persistent = 
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = var(12)=1
+value = ,AT
+;value2 = S,NA
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = var(12)=1
+trigger1= stateno!=6450
+trigger1=pos Y = 0
+trigger1 = statetype != A
+value = 6450
+ctrl = 0
+;anim =
+ignorehitpause = 1
+;persistent = 
+
+
+
+
+;This controller plays a sound everytime KFM lands from a jump, or
+;from his back-dash.
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 ;Jump land
+trigger2 = stateno = 106 ;Run-back land
+value = 40, 0
+
+
+;Gethit sounds
+[State -3, Get Hit Sounds]
+type = PlaySnd
+triggerall = alive && time = 1
+trigger1 = (stateno = 5000 || stateno = 5010 || stateno = 5020 || stateno = 5070 || stateno = 5080)
+trigger1 = enemynear,hitdefattr = SCA,NA,SA,HA
+value = S5000,0+(random%5)
+volume = 255
+channel = 0
+
+;KO Sound
+[State -3, 変数 KOボイス重複スイッチ初期化]
+type = VarSet
+trigger1 = var(43)
+trigger1 = Alive
+var(43) = 0
+ignorehitpause = 1
+
+[State -3, KOボイス]
+type = playsnd
+trigger1 = !Alive
+trigger1 = !Var(43)
+;trigger1 = time = 0
+value = S11,4+(roundno>2)
+channel = 2
+;lowpriority = 1
+ignorehitpause = 1
+
+[State -3, 変数 KOボイス重複防止]
+type = VarSet
+trigger1 = !var(43)
+trigger1 = !Alive
+var(43) = 1
+ignorehitpause = 1
+
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = roundstate = 2 && time = 0 && stateno = 0
+channel = 2
+;ignorehitpause = 
+;persistent = 
+
+
+;Var explanations:
+;Var(1) > 0 means you can combo with another move
+
+;Var(3) is the luck state: 0- Unlucky / 1- Hard Luck / 2- Good Luck / 3- God Luck
+;Var(4) is the total ammunition for the round
+;Var(5) is the current ammunition in the magazine
+;Var(7) is the shot counter in multishot normals
+;Var(8) is the grenade counter
+;Var(9) is the mine counter
+;var(12) is for autododge throw
+;Var(14) is for the burst
+;var(17) is the air dash count
+;Var(20) is the grenade ammo
+;Var(21) is the mine ammo
+;var(43) is for the KO sound
+;var(44) is for when you do good luck switch, to trigger unlucky
+;Var(45) is the Good Luck stock variable 
+
+;fvar(0) is for damage dampening (raw)
+;fvar(1) is for damage dampening (modified)
+;Fvar(6) is the Unlucky/God Luck counter
+
+;fvar(10) is the "guaranteed damage" var, it counters damage dampening
+;fvar(11) is the cornerpush veloff var
+;fvar(21) is the burst meter 

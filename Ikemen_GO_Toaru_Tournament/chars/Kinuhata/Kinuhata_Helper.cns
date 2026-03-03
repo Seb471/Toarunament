@@ -1,0 +1,740 @@
+;UI Helper
+[Statedef 30000]
+anim = 29999;
+
+;Nitrogen Bar Out
+[State 30000] 
+type = Explod
+triggerAll = numexplod(11600) = 0
+trigger1 = Parent,fvar(6) != 0
+trigger1 = parent,var(20) = 0
+anim = 11600
+ID = 11600
+pos = ifelse(teamside=1,8,205), 197
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = .5,.5
+ownpal = 0
+ignorehitpause = 1
+
+
+
+;BlackBar
+[State 30000];ƒQ[ƒW‰º’n
+type = Explod
+triggerAll = numexplod(11103) = 0
+trigger1 = Parent,fvar(6) != 0
+anim = 11103
+ID = 11103
+pos = ifelse(teamside=1,16,213), 208
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+;ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;Nitrogen bar P1
+[State 30000]
+type = Explod
+triggerAll = numexplod(11103);Black bar
+trigger1 = numexplod(11100) = 0
+trigger1 = Parent,fvar(6) >0
+trigger1 = teamside=1
+anim = 11100
+ID = 11100
+pos = 16, 208
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;Nitrogen Bar P2
+[State 30000]
+type = Explod
+triggerAll = numexplod(11103)
+trigger1 = numexplod(11100) = 0
+trigger1 = Parent,fvar(6) >0
+trigger1 = teamside=2
+anim = 11100
+ID = 11100
+pos = 305, 208
+postype = left
+bindtime = -1
+removetime = -1
+facing = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 9999
+scale = .5,.5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+;Nitrogen Value Display
+[State 30000]
+type = ModifyExplod
+trigger1 = numexplod(11100) = 1
+scale = Parent,fvar(6)/3600,.5
+ID = 11100
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11103)
+trigger1 = Parent,fvar(6) = 0
+ID = 11103
+
+
+;Remove Nitrogen bar
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11100)
+trigger1 = Parent,fvar(6) =0
+ID = 11100
+
+;RemoveBarOUT
+[State 30000] 
+type = RemoveExplod
+triggerAll = numexplod(11600)
+trigger1 = Parent,fvar(6) = 0
+ID = 11600
+
+
+;Red
+[State 30000, PalFX]
+type = PalFX
+trigger1 = parent,var(20) = 1
+time = 1
+add = 50,0,0
+mul = 200,0,0
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause=1
+;persistent = 
+
+;Blue
+[State 30000, PalFX]
+type = PalFX
+trigger1 = parent,var(20) = 2
+time = 1
+add = 0,40,80
+mul = 0,100,150
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause=1
+;persistent = 
+
+;Nitrogen Bottle UI Helper
+[Statedef 11705]
+anim = 29999
+
+;Nitrogen Bottle 1
+[State 30000] 
+type = Explod
+trigger1 = numexplod(11705) = 0
+trigger1 = Parent,var(3)>=1
+anim = 11705
+ID = 11705
+pos = ifelse(teamside=1,58,205), 30
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = 0.5,0.5
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11705)
+trigger1 = Parent,var(3) = 0
+ID = 11705
+
+;Nitrogen Bottle 2
+[State 30000] 
+type = Explod
+triggerAll = numexplod(11706) = 0
+trigger1 = Parent,var(3)>=2
+anim = 11705
+ID = 11706
+pos = ifelse(teamside=1,78,225), 30
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = .5,.5
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11706)
+trigger1 = Parent,var(3) <2
+ID = 11706
+
+;Nitrogen Bottle 3
+[State 30000] 
+type = Explod
+triggerAll = numexplod(11707) = 0
+trigger1 = Parent,var(3)=3
+anim = 11705
+ID = 11707
+pos = ifelse(teamside=1,98,245), 30
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = .5,.5
+ownpal = 1
+ignorehitpause = 1
+
+[State 30000]
+type = RemoveExplod
+triggerAll = numexplod(11707)
+trigger1 = Parent,var(3) <3
+ID = 11707
+
+;SuperJump Helper
+[Statedef 10040]
+anim = 29999
+
+[State 10040]
+type = parentvaradd
+trigger1 = time = 0
+fv = 6
+value = -200
+
+
+[State 10040]
+type = parentvarset
+trigger1 = time = 0
+v = 5
+value = 1
+
+[State 10040, DestroySelf]
+type = DestroySelf
+trigger1 = parent,var(5) = 1
+;ignorehitpause = 
+;persistent = 
+
+    ;==============================================================================
+    ;--| Super Armor |-------------------------------------------------------------
+    ;==============================================================================
+;SuperArmor Helper
+    [Statedef 850]
+    type    = S
+    movetype= I
+    physics = S
+    velset = 0,0
+     
+    [State 0, AssertSpecial]
+    type = AssertSpecial ;This is so the animation that this helper is using isn't visible. Without this, you'll basically be seeing a fully colored afterimage of your character. 
+    trigger1 = 1
+    flag = invisible
+    flag2 = noshadow
+     
+    [State 0, Turn]
+    type = Turn ;This is to turn the helper when your character turns.
+    trigger1 = facing != root,facing
+     
+    [State 0, ChangeAnim]
+    type = ChangeAnim ;This is so the helpers animation is the exact same as your characters animation.
+	triggerall=!(enemy,Name = "Kamijou Touma") || !(enemy,var(50) = 666) 
+    trigger1 = anim != Root,anim
+    value = Root,animelemno(0)
+    ignorehitpause = 1
+
+	[State 0, ChangeAnim]
+    type = ChangeAnim ;This is so the helpers animation is the exact same as your characters animation.
+	trigger1= (enemy,Name = "Kamijou Touma")&& (enemy,var(50) = 666)
+    value = 29999
+    ignorehitpause = 1
+     
+    [State 0, StateTypeSet]
+    type = StateTypeSet ;This is so your helper is read as S statetype when your character's statetype is S.
+    trigger1 = root,statetype = S
+    statetype = S
+    ignorehitpause = 1
+     
+    [State 0, StateTypeSet]
+    type = StateTypeSet  ;This is so your helper is read as C statetype when your character's statetype is C.
+    trigger1 = root,statetype = C
+    statetype = C
+    ignorehitpause = 1
+     
+    [State 0, StateTypeSet]
+    type = StateTypeSet;This is so your helper is read as A statetype when your character's statetype is A.
+    trigger1 = root,statetype = A
+    statetype = A
+    ignorehitpause = 1
+     
+    [State 0, StateTypeSet]
+    type = StateTypeSet ;This is so your helper is read as L statetype when your character's statetype is L.
+    trigger1 = root,statetype = L
+    statetype = L
+    ignorehitpause = 1
+     
+    ;[State 800, 1]
+    ;type = NotHitBy
+    ;trigger1 = root,stateno = [120,159] ;This is so your character can block, but this super armor is not kind to blocking. It's better to disable guarding.
+    ;value = SCA
+    ;time = 1
+     
+    [State 800, 2]
+    type = BindToParent ;This is so the helper stays on you at all times
+    trigger1 = 1
+    pos = 0,0
+     
+    [State 800, 3]
+    type = ParentVarSet ;This sets the var that will control your health when the helper gets hit later on.
+    trigger1 = time = 0
+    fv = 8
+    value = 0
+     
+    [State 800, 4]
+    type = HitOverride ;This is so when the helper gets hit, it changes to stateno 801.
+    trigger1 = 1
+    attr = SCA, NA, SA, HA, NP, SP, HP
+    stateno = 851
+    time = -1
+
+    [State 800, 4]
+    type = Nothitby 
+    trigger1 = 1
+    value= ,AT
+    time = -1
+    ignorehitpause=1
+     
+     
+    [State 800, 5]
+    type = ChangeState ;This is so when you die or when more than one of these helpers exists, it'll destroy itself. You can add more triggers if you want. For example, a burst mode with super armor that is activated when var(50)=1. The burst mode and super armor deactivate when var(50)=0. You would want to put a "trigger3 = var(50)=0".
+    trigger1 = parent,life = 0
+    trigger2 = parent,numhelper(800) > 1
+	trigger3= parent,var(20)!=2
+    value = 852
+    ;------------------------------------------------------------------------------
+;On Hit
+    [Statedef 851]
+    type    = S
+    movetype= H
+    physics = S
+    ctrl = 0
+    velset = 0,0
+     
+    [State 0, AssertSpecial]
+    type = AssertSpecial
+    trigger1 = 1
+    flag = invisible
+    flag2 = noshadow
+     
+    [State 0, Turn]
+    type = Turn
+    trigger1 = facing != root,facing
+     
+    [State 0, ChangeAnim]
+    type = ChangeAnim
+    trigger1 = anim != Root,anim
+    value = Root,animelemno(0)
+    ignorehitpause = 1
+     
+    [State 801, 0]
+    type = ParentVarSet ;This var will read how much damage you've just taken and how many times you were hit.
+    trigger1 = time = 0
+    fv = 8
+    value = floor(GetHitVar(damage) / GetHitVar(HitCount))
+     
+    [State 801, 1]
+    type = ChangeState ;This will destroy the helper when you die.
+    trigger1 = parent,life = 0
+    value = 852
+     
+    [State 801, 2]
+    type = ChangeState ;This changes the state back to helper 800.
+    trigger1 = Time = 1
+    value = 850
+    ;------------------------------------------------------------------------------
+;Destroys
+    [Statedef 852] ;This is the state that destroys the helper.
+    type    = S
+    movetype= I
+    physics = N
+    poweradd = 0
+    ctrl = 0
+    velset = 0, 0
+    anim = 9999 ;This is my blank animation used for destroying helpers. It's got a time of -1 and no image playing. Completely blank.
+     
+    [state 802, 0]
+    type = destroyself
+    trigger1 = Time = 1
+
+
+
+;Parry Explod Helper
+[Statedef 10000]
+anim = 6050
+sprpriority = 4
+
+[State 10220, ŒX‚«]
+type = AngleDraw
+trigger1 = 1
+scale = 0.5,0.5
+
+[State 10220, ŒX‚«]
+type = AngleSet
+trigger1 = 1
+value = -90
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime =0
+trigger2 = numexplod(10000)>1
+ignorehitpause = 1
+;persistent = 
+
+;Pocket Missile Helper
+[Statedef 2510]
+Type    = S
+MoveType= A
+Physics = N
+anim =2510
+sprpriority = 6
+Ctrl = 0
+
+
+
+
+[State 2510, TargetVelAdd]
+type = VelAdd
+trigger1 = time%4 = 1
+x = 1
+ignorehitpause = 1
+
+
+
+[State 2510, TargetVelAdd]
+type = VelAdd
+trigger1 = time%5 = 1
+y = Cond(random%2 =1,-1*(pos y > -400),1*(pos y < -40))
+
+[State 2510, HitDef]
+type = HitDef
+triggerall = !(enemy,Name = "Kamijou Touma") || !(enemy,var(50) = 666) 
+trigger1=1
+attr = S,HP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAFD        ;HLAFD+-
+guardflag = MA         ;HLA
+;affectteam = E          ;B,E,F
+animtype = Hard         ;light,medium,hard,back,up,diagup
+air.animtype = Hard
+damage = 20*parent,fvar(2),5
+pausetime = 0 ,2
+;guard.pausetime = 0,0
+sparkno = S7001
+guard.sparkno = S10000
+sparkxy = 0,0
+;hitsound = S1,0
+;guardsound = S2,0
+ground.type = High      ;Low,Trip,None
+;air.type = High
+ground.slidetime = 18
+ground.hittime = 1
+air.hittime = 20
+ground.velocity = -1
+air.velocity = -1,-1
+sprpriority = 1
+p1getp2facing = 0
+fall = 0
+fall.yvelocity = -4.5
+fall.recover = 1-(p2movetype = A)
+fall.recovertime = 40
+
+down.bounce = 1
+id = 2510
+
+kill = 1
+guard.kill = 0
+numhits = 1
+
+ignorehitpause = 1
+
+[State 2510, HitDef]
+type = HitDef
+triggerall= (enemy,Name = "Kamijou Touma") 
+trigger1=enemy,var(50) = 666 
+trigger2=enemy,stateno= [6400,6429]
+trigger3=enemy,stateno= [6662,6666]
+attr = SCA,HA        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAFD        ;HLAFD+-
+guardflag = MA         ;HLA
+;affectteam = E          ;B,E,F
+animtype = Hard         ;light,medium,hard,back,up,diagup
+air.animtype = Hard
+damage = 20*parent,fvar(2),5
+pausetime = 0 ,2
+;guard.pausetime = 0,0
+sparkno = S7001
+guard.sparkno = S10000
+sparkxy = 0,0
+;hitsound = S1,0
+;guardsound = S2,0
+ground.type = High      ;Low,Trip,None
+;air.type = High
+ground.slidetime = 18
+ground.hittime = 1
+air.hittime = 20
+ground.velocity = -1
+air.velocity = -1,-1
+sprpriority = 1
+p1getp2facing = 0
+fall = 0
+fall.yvelocity = -4.5
+fall.recover = 1-(p2movetype = A)
+fall.recovertime = 40
+
+down.bounce = 1
+id = 2510
+
+kill = 1
+guard.kill = 0
+numhits = 1
+
+ignorehitpause = 1
+
+;Smoke Explod
+[State 0, Explod]
+type = Explod
+trigger1 = time%5 = 1
+anim = 2512
+ID = 2512
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = random%2
+vfacing = random%2
+bindtime = 0
+ownpal=1
+removetime = -2
+pausemovetime = 0
+scale = 0.3,0.3
+sprpriority = 2
+removeongethit = 0
+ignorehitpause = 1
+
+
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AA,AT,AP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 2511
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+
+
+
+[State 2510, Change To Explosion]
+type = ChangeState
+trigger1 = movecontact
+trigger2 = frontedgedist <=10 ;|| backedgedist <=100
+value = 2511
+ignorehitpause = 1
+
+
+
+
+;Explosion State
+[Statedef 2511]
+Type    = S
+MoveType= A
+Physics = N
+anim =2511
+Ctrl = 0
+[State 0, VelSet]
+type = VelSet
+trigger1 = time= 0
+x = 0
+y = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, HitDef]
+type = HitDef
+triggerall = !(enemy,Name = "Kamijou Touma") || !(enemy,var(50) = 666) 
+trigger1 = animelem = 2
+attr = SCA,HP       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAFD        ;HLAFD+-
+guardflag = MA         ;HLA
+affectteam = E          ;B,E,F
+animtype = Hard          ;light,medium,hard,back,up,diagup
+priority = 6,Hit
+damage = Ceil(parent,fvar(10)*130*parent,fvar(2)),20
+pausetime = 1,2
+guard.pausetime = 1,2
+sparkno = -1
+guard.sparkno = s10000
+sparkxy = 0,0
+;hitsound = S1,0
+;guardsound = S2,0
+ground.type = High      ;Low,Trip,None
+
+ground.slidetime = 25
+guard.slidetime = 23
+ground.hittime = 25
+guard.hittime = 23
+air.hittime = 27
+ground.velocity = -12,-12
+guard.velocity = -15
+air.velocity = -12,-12
+
+ground.cornerpush.veloff = 0
+
+sprpriority = 5
+fall = 1
+;fall.xvelocity = 0
+fall.yvelocity = -4.5
+fall.recover = 1 -(P2MoveType=A)
+fall.recovertime = 50
+fall.damage = 0
+
+down.bounce = 1
+id = 2511
+
+kill = 1
+guard.kill = 1
+fall.kill = 1
+numhits = 10
+palfx.time = 20
+palfx.mul = 150,0,0
+;palfx.add = 
+envshake.time = 20
+envshake.freq = 90
+envshake.ampl = 6
+
+ignorehitpause = 1
+;persistent = 
+
+[State 0, HitDef]
+type = HitDef
+triggerall= (enemy,Name = "Kamijou Touma") 
+trigger1=enemy,var(50) = 666 
+trigger2=enemy,stateno= [6400,6429]
+trigger3=enemy,stateno= [6662,6666]
+triggerall = animelem = 2
+attr = SCA,HA       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAFD        ;HLAFD+-
+guardflag = MA         ;HLA
+affectteam = E          ;B,E,F
+animtype = Hard          ;light,medium,hard,back,up,diagup
+priority = 6,Hit
+damage = Ceil(parent,fvar(10)*130*parent,fvar(2)),20
+pausetime = 1,2
+guard.pausetime = 1,2
+sparkno = -1
+guard.sparkno = s10000
+sparkxy = 0,0
+;hitsound = S1,0
+;guardsound = S2,0
+ground.type = High      ;Low,Trip,None
+
+ground.slidetime = 25
+guard.slidetime = 23
+ground.hittime = 25
+guard.hittime = 23
+air.hittime = 27
+ground.velocity = -12,-12
+guard.velocity = -15
+air.velocity = -12,-12
+
+ground.cornerpush.veloff = 0
+
+sprpriority = 5
+fall = 1
+;fall.xvelocity = 0
+fall.yvelocity = -4.5
+fall.recover = 1 -(P2MoveType=A)
+fall.recovertime = 50
+fall.damage = 0
+
+down.bounce = 1
+id = 2511
+
+kill = 1
+guard.kill = 1
+fall.kill = 1
+numhits = 10
+palfx.time = 20
+palfx.mul = 150,0,0
+;palfx.add = 
+envshake.time = 20
+envshake.freq = 90
+envshake.ampl = 6
+
+ignorehitpause = 1
+;persistent = 
+[State 200,Œø‰Ê‰¹]
+		Type=PlaySnd
+		Trigger1=animelem =1
+		value=1510,0
+		channel=-1
+
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = movehit
+v = 1  
+value = 1
+ignorehitpause = 1
+
+[State -1,UŒ‚•â³]
+		Type=parentVarSet
+		Trigger1=Movehit
+		fv= 0
+		value = parent,fvar(0)*0.90
+		persistent = 0
+ 		ignorehitpause = 1
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 2512
+ctrl = 0
+
+ignorehitpause = 1 
+
+
+;Deletion State
+[Statedef 2512]
+Type    = S
+MoveType= A
+Physics = N
+Ctrl = 0
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time = 0
+ignorehitpause = 1
+

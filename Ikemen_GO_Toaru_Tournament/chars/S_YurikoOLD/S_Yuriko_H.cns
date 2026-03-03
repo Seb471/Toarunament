@@ -1,0 +1,477 @@
+;===========================================================================
+; 超必殺技
+;===========================================================================
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;白翼
+[Statedef 3000,白翼]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3000
+	poweradd = -3000
+
+	[State 3000, 電池消費]
+		type = VarAdd
+		trigger1 = Time = 0
+		var(10) = -100
+
+	[State 3000, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 3000, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 1
+		value = 800, 14
+
+	[State 3000,白翼ヘルパー]
+		type = helper
+		triggerAll = Var(9) = 0
+		trigger1 = numhelper(8300) = 0
+		name = "bw"
+		id = 8300
+		pos =  0,0
+		postype = left
+		stateno = 8300
+		helpertype = normal
+		sprpriority = 1
+		keyctrl = 0
+
+	[State 3000, ステート変更]
+		type = ChangeState
+		trigger1 =  AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;黒翼
+[Statedef 3100,黒翼]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3100
+	poweradd = -3000
+
+	[State 3100, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 0
+		value = 800, 6
+
+	[State 3105, 背景色]
+		type = BGPalFX
+		trigger1 = 1
+		add = 64,64,64
+		mul = 128,128,128
+		time = 1
+		color = 8
+
+	[State 3100, 電池消費]
+		type = VarAdd
+		trigger1 = Time = 0
+		fvar(10) = -100
+
+	[State 3100, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 3100, ステート変更]
+		type = ChangeState
+		trigger1 =var(9)!=0
+		trigger1=time>=30
+		trigger2 =var(9)=0
+		trigger2= time>=120
+
+		value =3105
+
+;--------------------------------------------------------------
+[Statedef 3105,黒翼発動]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3105
+	poweradd = 0
+
+
+	[State 3105,無敵]
+		type = NotHitBy
+		trigger1 = 1
+		value = SCA
+		time = 1
+
+	[State 3105,カットイン]
+		Type = Explod
+		trigger1 = Time = 0
+		Anim = IfElse(TeamSide=1,10000,10001)
+		PosType = Left
+		Pos = 0, 0
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.5,0.5
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = -3
+		ID = 10000
+		persistent=0
+
+	[State 3105,暗転]
+		type = SuperPause
+		trigger1 = time = 0
+		time = 30
+		anim = S10015
+		sound = S1500,2
+		pos = 0,-50
+		movetime = 0
+		darken = 1
+		p2defmul = 1
+		unhittable = 1
+
+	[State 3105, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 3
+		value = 800, 31
+
+	[State 3105,黒翼ヘルパー]
+		type = helper
+		trigger1 = AnimElem = 4
+		name = "bw"
+		id = 8300
+		pos =  0,0
+		postype = left
+		stateno = 8300
+		helpertype = normal
+		sprpriority = 1
+		keyctrl = 0
+		ownpal = 1
+		size.xscale = 0.5
+		size.yscale = 0.5
+
+	[State 3105, 背景色]
+		type = BGPalFX
+		trigger1 = AnimElemNo(0) >= 4
+		add = 64,64,64
+		mul = 128,128,128
+		time = 1
+		color = 8
+
+	[State 3105, ステート変更]
+		type = ChangeState
+		trigger1 =  time >= 400
+		value = 3110
+
+;--------------------------------------------------------------
+[Statedef 3110,黒翼終わり]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3110
+	poweradd = 0
+
+	[State 3110, 背景色]
+		type = BGPalFX
+		trigger1 = AnimElemNo(0) = 1
+		add = 128,128,128
+		mul = 64,64,64
+		time = 1
+		color = 8
+
+	[State 3110, 背景色]
+		type = BGPalFX
+		trigger1 = AnimElemNo(0) = 2
+		add = 160,160,160
+		mul = 32,32,32
+		time = 1
+		color = 8
+
+	[State 3110, 背景色]
+		type = BGPalFX
+		trigger1 = AnimElemNo(0) >= 3
+		add = 256,256,256
+		mul = 0,0,0
+		time = 1
+
+	[State 3110, ステート変更]
+		type = ChangeState
+		trigger1 =  AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;プラズマ
+[Statedef 3200,プラズマ]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3200
+	poweradd = -1000
+
+	[State 3200, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 2
+		value = 4000, 0
+
+	[State 3200, フラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(8) = 0
+
+	[State 3200, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = Time = 0
+		value = 800, 6
+
+	[State 3200, 電池消費]
+		type = VarAdd
+		trigger1 = Time = 0
+		fvar(10) = -100
+
+	[State 3200, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 3200, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = time = 0
+;		channel = 1
+;		lowpriority = 1
+		value = 800, 23
+
+	[State 3200,エフェクト]
+		Type = Explod
+		trigger1 = AnimElem = 2
+		Anim = 3205
+		PosType = P1
+		Pos = 5, 10
+		BindTime = 1
+		RemoveTime = -1
+		removeongethit = 1
+		Ownpal = 1
+		Scale = 1,1
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = 3
+		ID = 3205
+		persistent=0
+		trans = Add
+
+	[State 3200,プラズマヘルパー]
+		type = helper
+		trigger1 = Var(9) = 0
+		trigger1 = Time = 0
+;		trigger1 = numhelper(8200) = 0
+		name = "pzm"
+		id = 8200
+		pos =  0,0
+		postype = left
+		stateno = 8200
+		helpertype = normal
+		sprpriority = 1
+		keyctrl = 0
+		ownpal = 1
+
+	[State 3200, ステート変更]
+		type = ChangeState
+		trigger1 =  Time >= 50
+		trigger1 =  var(8) = 1
+		value = 3210
+
+	[State 3200, ステート変更]
+		type = ChangeState
+		trigger1 =  Time >= 50
+		trigger1 =  var(8) = 2
+		value = 3215
+
+	[State 3200, ステート変更(終わり)]
+		type = ChangeState
+		trigger1 =  Time >= 150
+		value = 3220
+
+;--------------------------------------------------------------
+[Statedef 3210,プラズマ発動]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3210
+	poweradd = -1000
+
+	[State 3210,カットイン]
+		Type = Explod
+		trigger1 = Time = 0
+		Anim = IfElse(TeamSide=1,10000,10001)
+		PosType = Left
+		Pos = 0, 0
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.5,0.5
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = -3
+		ID = 10000
+		persistent=0
+
+	[State 3210,暗転]
+		type = SuperPause
+		trigger1 = time = 0
+		time = 30
+		anim = S10015
+		sound = S1500,2
+		pos = 0,-50
+		movetime = 0
+		darken = 1
+		p2defmul = 1
+		unhittable = 1
+
+	[State 3210, ステート変更]
+		type = ChangeState
+		trigger1 =  Time >= 200
+		value = 3220
+		ctrl = 0
+
+;--------------------------------------------------------------
+[Statedef 3215,プラズマ発動2]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3215
+	poweradd = -1000
+
+	[State 3215,カットイン]
+		Type = Explod
+		trigger1 = Time = 0
+		Anim = IfElse(TeamSide=1,10000,10001)
+		PosType = Left
+		Pos = 0, 0
+		BindTime = 1
+		RemoveTime = -2
+		Ownpal = 1
+		Scale = 0.5,0.5
+		IgnoreHitPause = 1
+		SuperMoveTime = 99999
+		PauseMoveTime = 99999
+		SprPriority = -3
+		ID = 10000
+		persistent=0
+
+	[State 3215,暗転]
+		type = SuperPause
+		trigger1 = time = 0
+		time = 30
+		anim = S10015
+		sound = S1500,2
+		pos = 0,-50
+		movetime = 0
+		darken = 1
+		p2defmul = 1
+		unhittable = 1
+
+	[State 3215, エフェクトけし]
+		type = RemoveExplod
+		trigger1 =  AnimTime = 0
+		ID = 3205
+
+	[State 3215, ステート変更]
+		type = ChangeState
+		trigger1 =  AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;--------------------------------------------------------------
+[Statedef 3220,プラズマ終わり]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3220
+
+	[State 3220, エフェクトけし]
+		type = RemoveExplod
+		trigger1 = time = 0
+		ID = 3205
+
+	[State 3220, ステート変更]
+		type = ChangeState
+		trigger1 =  AnimTime = 0
+		value = 0
+		ctrl = 1
+
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;超鉄筋
+[Statedef 3300,超鉄筋]
+	type    = S
+	movetype= A
+	physics = S
+	juggle  = 0
+	velset = 0,0
+	ctrl = 0
+	anim = 3300
+	poweradd = -1000
+
+	[State 3300, 電池消費]
+		type = VarAdd
+		trigger1 = Time = 0
+		fvar(10) = -100
+
+	[State 3300, キャンセルフラグ初期化]
+		type = VarSet
+		trigger1 = Time = 0
+		var(2) = 0
+
+	[State 3300, 音を鳴らす]
+		type = PlaySnd
+		trigger1 = AnimElem = 1
+		value = 800, 14
+
+	[State 3300,鉄筋ヘルパー]
+		type = helper
+		triggerAll = Var(9) = 0
+		trigger1 = numhelper(8100) = 0
+		name = "tekkinn"
+		id = 8100
+		pos =  0,0
+		postype = left
+		stateno = 8100
+		helpertype = normal
+		sprpriority = 1
+		keyctrl = 0
+
+	[State 3300, ステート変更]
+		type = ChangeState
+		trigger1 =  AnimTime = 0
+		value = 0
+		ctrl = 1
+
+
