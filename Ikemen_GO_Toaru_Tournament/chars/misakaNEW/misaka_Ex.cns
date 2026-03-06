@@ -458,7 +458,7 @@ ground.type = low
 sparkno=-1
 p1facing = cond(command="holdback",-1,1)
 p2facing = 1          ;Force p2 to face KFM
-p1stateno = 791
+p1stateno = 810
 p2stateno = 820
 ID = 900
 guard.dist = 0
@@ -600,7 +600,7 @@ ctrl = 1
 
 ;---------------------------------------------------------------------------
 ;“Š‚°–{‘Ì
-[Statedef 791]
+[Statedef 810]
 type     = S
 movetype = A
 physics  = S

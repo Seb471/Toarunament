@@ -34,7 +34,8 @@
 		"data/mods/attackdata/attackdata-modified.zss",
 		"data/mods/inputdisplay.zss",
 		"data/mods/trials.zss",
-		"data/mods/JustDefend.cns"
+		"data/mods/JustDefend.cns",
+		"data/mods/grab-tech-extend.cns"
 	],
 	"ControllerStickSensitivity": 0.4,
 	"Credits": 10,

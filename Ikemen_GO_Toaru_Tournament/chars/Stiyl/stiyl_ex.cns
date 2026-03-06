@@ -376,7 +376,7 @@ ctrl = 0
 ;Throw Explosion
 [Statedef 800]
 type	 = S
-movetype = A
+movetype = I
 anim	 = 706
 ctrl	 = 0
 velset=0,0
@@ -394,6 +394,13 @@ trigger1 = time=0
 value = 1,6
 channel = -1
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 3
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
+	
 
 [State 0, HitDef]
 type = HitDef
@@ -409,8 +416,8 @@ p1sprpriority = 1     ;Draw p1's sprite in front of p2
 hitsound = 0,2
 p1facing = cond(command="holdback",-1,1)
 p2facing = 1          ;Force p2 to face KFM
-p1stateno=801
-p2stateno=802
+p1stateno=810
+p2stateno=811
 guard.dist = 0        ;This prevents p2 from going into a guard state if close
 fall = 1 
 
@@ -423,8 +430,137 @@ ctrl = 1
 ;ignorehitpause = 
 ;persistent = 
 
+;---------------------------------------------------------------------------
+; Teched Going Back - attacker state
+[Statedef 805]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 =  time = 0
+channel = -1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, TargetState]; faz o techador entrar no state do tech
+type = TargetState
+trigger1 = time = 0
+value = 806
+
+[State 200, PlaySnd];som de grito(?)
+type = PlaySnd
+trigger1 = time = 0
+value = 0,14
+
+	[State 3501,Hit Explod]
+		Type=Explod
+		Trigger1=time = 0
+		Anim=20026
+		Pos=0,0
+		bindTime=-1
+		PosType=back
+		sprPriority=-1
+		SuperMoveTime=30
+		PauseMoveTime=30
+		Persistent=0
+ 		ignorehitpause = 1
+
+	[State 3000,????]
+		Type=envColor
+		Trigger1= time = 0
+		value=0,0,0
+		Time=13
+		under=1
+		Persistent=0
+ 		ignorehitpause = 1
+
+[State 150, 1];anima?o
+type = ChangeAnim
+trigger1 = 1
+value = 120
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 9
+x = -6
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 14
+x = -3
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 17
+x = -1.5
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 21
+x = 0
+
+[State 0, ChangeState]
+type = selfState
+trigger1 = time = 30
+value = 0
+ctrl = 1
+
+;==================================================================================
+; Throw Escape - victim state
+[Statedef 806]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+poweradd = 0                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 0, ChangeAnim2]
+type = ChangeAnim
+trigger1 = 1
+value = 120
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, PosSet];fique no ch? agora
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 9
+x = -6
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 14
+x = -3
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 17
+x = -1.5
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 21
+x = 0
+
+[State 200, 3]; vai pro state 0 e faz tudo voltar ao normal (n?)
+type = selfState
+trigger1 = time = 33
+value = 0
+ctrl = 1
+
 ;Throw success
-[Statedef 801]
+[Statedef 810]
 anim	 = 704
 type	 = S
 movetype = A
@@ -595,7 +731,7 @@ ctrl = 1
 ;persistent = 
 
 ;Grabbed
-[Statedef 802]
+[Statedef 811]
 ;anim	 = 917
 type	 = S
 movetype = H
@@ -625,7 +761,7 @@ SinAdd = 100,30,30,6
 [State 0, SelfState]
 type = ChangeState
 trigger1 = time=30
-value = 803
+value = 812
 ;anim =
 ctrl = 0
 ;ignorehitpause = 0
@@ -642,7 +778,7 @@ ctrl = 1
 ;persistent = 1
 
 ;Thrown
-[Statedef 803]
+[Statedef 812]
 type    = A
 movetype= H
 physics = N
@@ -701,135 +837,6 @@ Value = 5200
 		Trigger1=Vel Y >0
 		value=5100
 		ctrl=0
-
-;---------------------------------------------------------------------------
-; Teched Going Back - attacker state
-[Statedef 805]
-type    = S
-movetype= H
-physics = N
-velset = 0,0
-
-[State 0, StopSnd]
-type = StopSnd
-trigger1 =  time = 0
-channel = -1
-;ignorehitpause = 
-;persistent = 
-
-[State 0, TargetState]; faz o techador entrar no state do tech
-type = TargetState
-trigger1 = time = 0
-value = 806
-
-[State 200, PlaySnd];som de grito(?)
-type = PlaySnd
-trigger1 = time = 0
-value = 0,14
-
-	[State 3501,Hit Explod]
-		Type=Explod
-		Trigger1=time = 0
-		Anim=20026
-		Pos=0,0
-		bindTime=-1
-		PosType=back
-		sprPriority=-1
-		SuperMoveTime=30
-		PauseMoveTime=30
-		Persistent=0
- 		ignorehitpause = 1
-
-	[State 3000,????]
-		Type=envColor
-		Trigger1= time = 0
-		value=0,0,0
-		Time=13
-		under=1
-		Persistent=0
- 		ignorehitpause = 1
-
-[State 150, 1];anima?o
-type = ChangeAnim
-trigger1 = 1
-value = 120
-
-[State 0, VelSet];pushback
-type = VelSet
-trigger1 = time = 9
-x = -6
-
-[State 0, VelSet];pushback
-type = VelSet
-trigger1 = time = 14
-x = -3
-
-[State 0, VelSet];pushback
-type = VelSet
-trigger1 = time = 17
-x = -1.5
-
-[State 0, VelSet];pushback
-type = VelSet
-trigger1 = time = 21
-x = 0
-
-[State 0, ChangeState]
-type = selfState
-trigger1 = time = 30
-value = 0
-ctrl = 1
-
-;==================================================================================
-; Throw Escape - victim state
-[Statedef 806]
-type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
-movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
-physics = S                      ;Physics: S-stand, C-crouch, A-air
-velset = 0,0                     ;Set velocity (x,y) (Def: no change)
-ctrl = 0                         ;Set ctrl (Def: no change)
-poweradd = 0                    ;Power to add (Def: 0)
-sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
-
-[State 0, ChangeAnim2]
-type = ChangeAnim
-trigger1 = 1
-value = 120
-;elem = 1
-;ignorehitpause = 
-;persistent = 
-
-
-[State 0, PosSet];fique no ch? agora
-type = PosSet
-trigger1 = time = 0
-y = 0
-
-[State 0, VelSet];pushback
-type = VelSet
-trigger1 = time = 9
-x = -6
-
-[State 0, VelSet];pushback
-type = VelSet
-trigger1 = time = 14
-x = -3
-
-[State 0, VelSet];pushback
-type = VelSet
-trigger1 = time = 17
-x = -1.5
-
-[State 0, VelSet];pushback
-type = VelSet
-trigger1 = time = 21
-x = 0
-
-[State 200, 3]; vai pro state 0 e faz tudo voltar ao normal (n?)
-type = selfState
-trigger1 = time = 33
-value = 0
-ctrl = 1
 
 ;charge
 [Statedef 850]
