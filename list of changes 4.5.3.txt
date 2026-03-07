@@ -3,7 +3,7 @@
 - Trials mode x
 
 - Itsuwa
-- Frenda
+- Frenda X
 - all jabs have facep2 to not have infinites
 - add another way of grab teching
 - add alternative half circle inputs
@@ -11,10 +11,118 @@
 - changed input/invul data for cancel assault, and it now costs 0.5 instead of 1 bar x
 - changed guard cancel's and pushblock's input to be with x+a x
 - changed the meter cost of guard cancel to be 1 bar instead of 0.5 and added the possibility to combo from it x
-- fix Yuriko's overhead moves (Enhanced 5C, 2B and 2C) x
-- fix yuriko's back grab
-- fix himegami being stuck from tsuchi's go to sleep
-- made the dp inputs of Mikoto like the rest of the case (so, simpler) x
-- nerf kuroko's 236b's hitstun
-- buffed kanzaki's 5c (christian stance) x
-- reduce distance of pushback of kazakiri's grab
+
+
+
+
+
+
+
+
+Put magic stages:
+	Sunset at beach X
+	Queen britannia?
+	Star of bethleem (new one?) X
+
+Put boss rush X
+	Special stages for bosses:
+		Deep Blood: Komoe's appartment X
+		One who purifies: No more world (edit stage to have intro with Othinus) X
+		One Way Road: Experiment room  X
+		Judgement: Vending machine? NO
+
+Add grab tech to boss rush
+
+Maybe put NT Touma as boss -> AI Patch for him X
+	Add usability for his supers
+
+Special icons for bosses
+
+Put win count X
+
+Ass infinite prevention on every character
+
+Make DP inputs more lenient?
+
+Make anti IB also consider air super of Touma
+
+
+Frenda:
+	Fix Frenda being A during normals
+	Make Frenda bomb UI same sprpriority as burst
+
+Kanzaki:
+	Make a small delay before stance switching again Kanzaki
+	Investigate Thor overhead on Kanzaki and Kanzaki boxes 
+	Kanzaki qcf a must be set as air
+	Put inv on Nanasen
+	Set slashes as Phys
+	Add hurtboxes to Kanzaki throw attempt end
+	- buffed kanzaki's 5c (christian stance) x
+
+Junko:
+	Remove chip damage on Junko spam kicks and Touma jab
+	Make Junko chain Lvl3s with each other maybe
+	Adjust timing for QCF B into DP B Junko
+
+
+Toumas:
+	Make Touma OHKOs be HT
+	Change Touma movelist good luck ohko input cause of typo
+
+
+Kuroko:
+	Make Kuroko wall pin not work on block
+	Fix lack of pins on super pin
+	Make Kuroko sweep physical
+	kuroko's command grab stunlocks touma
+	Improve pindown after command grab
+	- nerf kuroko's 236b's hitstun
+
+
+Mugino:
+	Fix Moog balls staying after dash cancelling laser
+	Add guard break effect to moog 6C
+	Make air B hit better on jumpins
+
+Tsuchi:
+	Add more recovery on tsuchi crouch shots
+	Make card not Knock down anymore
+	Less blockstun on standing gun
+	Fix sleep move on Pendex X
+
+Pendex:
+	Check Pendex install HCF B input
+
+Kamisato:
+	Check Kamisato DP B
+
+Gunha:
+	Change Gunha proj slap input
+	Check lvl 3 if it hits too early
+	Add guardbreak effect to lvl 2 Gunha
+
+Kakines:
+	Make Kakine OT15 air normals actually feel good after a dash
+	Make Kakine OT15 OHKO make opp disappear again
+	Kakine charge explod not bound
+	Lvl 2 can be cancelled by ground
+
+
+Kumagawa:
+	Make Kumagawa Accel intro heal Kumagawa even when skipped
+
+Yuriko:
+	- fix Yuriko's overhead moves (Enhanced 5C, 2B and 2C) x
+	- fix yuriko's back grab
+
+Himegami:
+	- fix himegami being stuck from tsuchi's go to sleep
+
+Kazakiri:
+	- reduce distance of pushback of kazakiri's grab
+
+Mikoto
+	- made the dp inputs of Mikoto like the rest of the case (so, simpler) x
+
+

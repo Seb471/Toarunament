@@ -72,7 +72,7 @@
 
 ;Bosses Here
 Accelerator_CAI, order = 8, boss = 1,exclude=1, stages/SFIV_Training.def
-Kamijo_CAI, order = 8, boss = 1,exclude=1,stages/NoMoreWorld.def
+hood_kamijoCAI, order = 8, boss = 1,exclude=1,stages/NoMoreWorld.def
 kuroko_s, order = 8, boss = 1,exclude=1,stages/Underground-Sewer.def
 Himegami_Aisa/DeepBlood, order = 8, boss = 1, stages/room.def,exclude=1
 ;-------
