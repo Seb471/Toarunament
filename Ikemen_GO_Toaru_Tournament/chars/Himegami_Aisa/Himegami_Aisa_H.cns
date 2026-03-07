@@ -303,7 +303,7 @@
 	velset = 0,0
 	ctrl = 0
 	poweradd = -3000
-	anim = 3300
+	anim = ifelse(Name="Deep Blood",3301,3300)
 	sprpriority = 2
 
 	[State 3350,カットイン]
@@ -385,6 +385,7 @@
 		value = 800, 6
 	[State 3350, HitDef]
 		type = HitDef
+		trigger1=Name!="Deep Blood"
 		trigger1 = AnimElem =6
 		attr = S,HP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 		hitflag = MAF        ;HLAFD+-
@@ -392,7 +393,15 @@
 		Damage = 9999
 		kill = 1
 
-
+	[State 3350, HitDef]
+		type = HitDef
+		trigger1=Name="Deep Blood"
+		trigger1 = AnimElem =6
+		attr = S,HP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+		hitflag = MAFD        ;HLAFD+-
+		guardflag =          ;HLA
+		Damage = 9999
+		kill = 1
 
 
 

@@ -1,7 +1,7 @@
 ;1000 Slow Missile
 [Statedef 1000]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 anim = 1000
 Ctrl = 0
@@ -172,6 +172,7 @@ sparkxy = 0,0
 ;guardsound = S2,0
 ground.type = High      ;Low,Trip,None
 ;air.type = High
+guard.dist=0
 ground.slidetime = 18
 ground.hittime = 1
 air.hittime = 20
@@ -207,6 +208,7 @@ animtype = Hard         ;light,medium,hard,back,up,diagup
 air.animtype = Hard
 damage = 10,5
 pausetime = 0 ,2
+guard.dist=0
 ;guard.pausetime = 0,0
 sparkno = S7011
 guard.sparkno = S10000
@@ -574,7 +576,7 @@ ignorehitpause = 1
 ;1100 Slow Two Missiles
 [Statedef 1100]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 anim = 1100
 Ctrl = 0
@@ -655,7 +657,7 @@ Ctrl = 1
 ;1200 Small Bombs
 [Statedef 1200]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = N
 anim = 1200
 Ctrl = 0
@@ -905,7 +907,7 @@ Ctrl = 1
 ;Small Bombs Helper
 [Statedef 1220]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = N
 anim =1210
 sprpriority = 6
@@ -1243,7 +1245,7 @@ ignorehitpause = 1
 ;1250 Dodge Back Missile
 [Statedef 1250]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = N
 anim = 1250
 Ctrl = 0
@@ -1380,7 +1382,7 @@ Ctrl = 1
 ;1300 Bomb Setup
 [Statedef 1300]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 anim = 1300
 Ctrl = 0
@@ -2248,7 +2250,7 @@ ignorehitpause = 1
 ;1350 Bomb Throw
 [Statedef 1350]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 anim = 1350
 Ctrl = 0
@@ -2484,7 +2486,7 @@ ignorehitpause = 1
 ;1500 Anti Air DP
 [Statedef 1500]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 anim = 1500
 Ctrl = 0
@@ -2555,7 +2557,7 @@ Ctrl = 1
 ;1600 Ignite
 [Statedef 1600]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 anim = 1600
 Ctrl = 0
@@ -2631,7 +2633,7 @@ Ctrl = 1
 ;1700 Dodge Back Setup
 [Statedef 1700]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = N
 anim = 1700
 Ctrl = 0
@@ -2813,7 +2815,7 @@ Ctrl = 1
 ;1750 Dodge Back Setup Twice
 [Statedef 1750]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = N
 anim = 1700
 Ctrl = 0
@@ -3069,7 +3071,7 @@ persistent=0
 ;Air Small Bombs Helper
 [Statedef 1820]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = N
 anim =1810
 sprpriority = 6

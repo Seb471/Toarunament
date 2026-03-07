@@ -4,7 +4,7 @@
       "playtime": 0
     },
     "versus": {
-      "playtime": 0
+      "playtime": 300.57
     },
     "trials": {
       "playtime": 0
@@ -30,7 +30,35 @@
           "consecutive": 8
         }
       ]
+    },
+    "bossrush": {
+      "playtime": 139.55,
+      "clear": 1,
+      "clearcount": {
+        "kazakiri": 1
+      },
+      "ranking": [
+        {
+          "score": 510000,
+          "time": 0.1,
+          "name": "",
+          "chars": [
+            "kazakiri"
+          ],
+          "tmode": 0,
+          "ailevel": 5,
+          "win": 3,
+          "lose": 0,
+          "consecutive": 3
+        }
+      ]
+    },
+    "test_story": {
+      "playtime": 0
+    },
+    "test_story2": {
+      "playtime": 0
     }
   },
-  "playtime": 2264.73
+  "playtime": 2704.85
 }

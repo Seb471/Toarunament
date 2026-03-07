@@ -4477,3 +4477,27 @@ p2.level4.scale = 0.5, 0.5
 
 [Begin Action 7] ;powerbar top
 0,6, 0,0, -1
+
+
+;==================================
+
+[WinCount]
+p1.pos = 295,58
+;p1.bg.spr = 
+p1.text.font = 4,0, -1
+p1.text.text = WINS %s
+p1.text.scale = 0.15,0.15
+
+p2.pos = 348,58
+;p2.bg.spr = 
+p2.text.font = 4,0, 1
+p2.text.text = WINS %s
+p2.text.scale = 0.15,0.15
+
+p1.enabled.netplayversus = 1
+p1.enabled.versus = 1
+p1.enabled.versuscoop = 1
+
+p2.enabled.netplayversus = 1
+p2.enabled.versus = 1
+p2.enabled.versuscoop = 1

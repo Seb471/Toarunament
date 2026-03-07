@@ -1,0 +1,2817 @@
+[Command]
+name = "AI0"
+command = a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a
+time = 0
+[Command]
+name = "AI1"
+command = b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b
+time = 0
+[Command]
+name = "AI2"
+command = c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c
+time = 0
+[Command]
+name = "AI3"
+command = x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x
+time = 0
+[Command]
+name = "AI4"
+command = y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y
+time = 0
+[Command]
+name = "AI5"
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z
+time = 0
+[Command]
+name = "AI6"
+command = s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s
+time = 0
+[Command]
+name = "AI7"
+command = F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+time = 0
+[Command]
+name = "AI8"
+command = D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
+time = 0
+[Command]
+name = "AI9"
+command = B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+time = 0
+[Command]
+name = "AI10"
+command = U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U
+time = 0
+[Command]
+name = "AI11"
+command = a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a
+time = 0
+[Command]
+name = "AI12"
+command = c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c
+time = 0
+[Command]
+name = "AI13"
+command = x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x
+time = 0
+[Command]
+name = "AI14"
+command = y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y
+time = 0
+[Command]
+name = "AI15"
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z
+time = 0
+[Command]
+name = "AI16"
+command = s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s
+time = 0
+[Command]
+name = "AI17"
+command = a,B,c,x,y,z,s,B,D,F,U,a,b,c,x,y,z,s,s
+time = 0
+[Command]
+name = "AI18"
+command = a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a
+time = 0
+[Command]
+name = "AI19"
+command = b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b
+time = 0
+[Command]
+name = "AI20"
+command = c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c
+time = 0
+[Command]
+name = "AI21"
+command = x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x
+time = 0
+[Command]
+name = "AI22"
+command = y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y
+time = 0
+[Command]
+name = "AI23"
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z
+time = 0
+[Command]
+name = "AI24"
+command = s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s
+time = 0
+[Command]
+name = "AI25"
+command = F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+time = 0
+[Command]
+name = "AI26"
+command = D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
+time = 0
+[Command]
+name = "AI27"
+command = B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B
+time = 0
+[Command]
+name = "AI28"
+command = U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U
+time = 0
+[Command]
+name = "AI29"
+command = a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a
+time = 0
+[Command]
+name = "AI30"
+command = c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c
+time = 0
+;==============================================================================
+; Win版専用パート
+;==============================================================================
+;------------------------------------------------------------------------------
+; ここはWin版から（正確にはLinux版から）追加された要素の二つ。
+; コマンド関連の初期設定を任意に指定出来るようになった(`・ω・´)
+;
+;『ボタンリマップ』はボタン配置変更用の項目。
+; 定義パートでいちいち変更しなくても良いようになっちゃった。
+; 面倒臭い人用かな！（ﾏﾃｺﾗ
+;
+;『デフォルト設定』では各[Command]で省略した場合の
+; 入力受付時間と入力記憶時間を予め決めておく項目。
+;
+;
+; この２項目は省略可能。
+;------------------------------------------------------------------------------
+;-| ボタンリマップ（ボタンコンフィグ）|----------------------------------------
+[Remap]
+x = x      ;Ｘボタンの入力判定を実際に押すボタンに割り当てる。
+y = y      ;Ｙボタン　　　　　　　　　〃
+z = z      ;Ｚボタン　　　　　　　　　〃
+a = a      ;Ａボタン　　　　　　　　　〃
+b = b      ;Ｂボタン　　　　　　　　　〃
+c = c      ;Ｃボタン　　　　　　　　　〃
+s = s      ;スタートボタン　　　　　　〃
+
+;-| デフォルト設定 |-----------------------------------------------------------
+[Defaults]
+command.time = 15
+
+command.buffer.time = 1
+
+
+
+;-| 超必殺技 |-----------------------------------------------------------------
+[Command]
+name = "血流操作"
+command = ~B, DB, D, DF, F, a
+time = 20
+buffer.Time=10
+
+[Command]
+name = "空気圧縮"
+command = ~B, DB, D, DF, F, b
+time = 20
+buffer.Time=10
+
+[Command]
+name = "超空気圧縮"
+command = ~B, DB, D, DF, F, c
+time = 20
+buffer.Time=10
+
+[Command]
+name = "黒翼"
+command = ~B, DB, D, DF, F, x
+time = 20
+buffer.Time=10
+
+[Command]
+name = "竜巻EX"
+command =  ~F, D, DF, c
+time = 20
+buffer.Time=10
+
+[Command]
+name = "風巻上げEX"
+command =  ~D, DF, F , c
+time = 20
+buffer.Time=10
+
+[Command]
+name = "血液逆流EX"
+command=~D,DB,B,c
+time = 20
+buffer.Time=10
+
+[Command]
+name = "ベクトルキックEX"
+command=~D,DB,B,c
+time = 20
+buffer.Time=10
+
+[Command]
+name = "地面砕きEX"
+command =  ~D, D, b
+time = 20
+buffer.Time=10
+
+[Command]
+name = "粉塵爆発"
+command =  ~D, D, c
+time = 20
+buffer.Time=10
+
+;-| 必殺技 |-------------------------------------------------------------------
+[Command]
+name = "竜巻A"
+command = F, D, DF, a
+time = 20
+buffer.Time=10
+
+[Command]
+name = "竜巻B"
+command = F, D, DF, b
+time = 20
+buffer.Time=10
+
+;---------------------------
+[Command]
+name = "風巻上げA"
+command = D, DF, F , a
+time = 20
+buffer.Time=10
+
+[Command]
+name = "風巻上げB"
+command = D, DF, F , b
+time = 20
+buffer.Time=10
+
+;---------------------------
+[Command]
+name = "血液逆流A"
+command=~D,DB,B,a
+;command = B, DB, D, DF, F, a
+time = 20
+buffer.Time=10
+
+[Command]
+name = "血液逆流B"
+command=~D,DB,B,b
+;command = B, DB, D, DF, F, b
+time = 20
+buffer.Time=10
+
+;---------------------------
+[Command]
+name="ベクトルキックA"
+command=~D,DB,B,a
+time = 20
+buffer.Time=10
+
+[Command]
+name="ベクトルキックB"
+command=~D,DB,B,b
+time = 20
+buffer.Time=10
+
+;---------------------------
+[Command]
+name = "地面砕き"
+command = D, D, a
+time = 20
+buffer.Time=10
+
+;-| 特殊 |-------------------------------------------------------------------
+[Command]
+name = "飛び道具反射"
+command = D, D,y
+time = 20
+buffer.Time=10
+
+[Command]
+name = "打撃反射"
+command = y,y
+time = 20
+buffer.Time=10
+
+[Command]
+name = "ブーストダッシュ"
+command = D, DF, F , y
+time = 20
+buffer.Time=10
+
+[Command]
+name = "ブーストバック"
+command=~D,DB,B,y
+time = 20
+buffer.Time=10
+
+[Command]
+name = "緊急回避"
+command = a+b
+time = 10
+;------------------------------------------------------------------------------
+;-| キー２回連続入力 |---------------------------------------------------------
+[Command]
+name = "FF"       ;必須コマンド名
+command = F, F
+time = 10
+
+[Command]
+name = "BB"       ;必須コマンド名
+command = B, B
+time = 10
+
+;------------------------------------------------------------------------------
+;-| 同時押し |-----------------------------------------------------------------
+
+[Command]
+name = "recovery" ;必須コマンド名
+command = x+y
+time = 1
+
+;------------------------------------------------------------------------------
+;-| 方向キー＋ボタン |---------------------------------------------------------
+
+[Command]
+name = "down_a"
+command = /$D,a
+time = 1
+
+[Command]
+name = "down_b"
+command = /$D,b
+time = 1
+
+;------------------------------------------------------------------------------
+;-| ボタン単発 |---------------------------------------------------------------
+
+[Command]
+name = "a"
+command = a
+time = 1
+
+[Command]
+name = "b"
+command = b
+time = 1
+
+[Command]
+name = "c"
+command = c
+time = 1
+
+[Command]
+name = "x"
+command = x
+time = 1
+
+[Command]
+name = "y"
+command = y
+time = 1
+
+[Command]
+name = "z"
+command = z
+time = 1
+
+[Command]
+name = "start"
+command = s
+time = 1
+
+;---------------------------
+[Command]
+name = "hold_a"
+command = /a
+time = 1
+
+[Command]
+name = "hold_b"
+command = /b
+time = 1
+
+[Command]
+name = "hold_c"
+command = /c
+time = 1
+
+[Command]
+name = "hold_x"
+command = /x
+time = 1
+
+[Command]
+name = "hold_y"
+command = /y
+time = 1
+
+;------------------------------------------------------------------------------
+;-| 方向キー |-----------------------------------------------------------------
+
+[Command]
+name = "holdfwd"   ;必須コマンド名
+command = /$F
+time = 1
+
+[Command]
+name = "holdback"  ;必須コマンド名
+command = /$B
+time = 1
+
+[Command]
+name = "holdup"    ;必須コマンド名
+command = /$U
+time = 1
+
+[Command]
+name = "holddown"  ;必須コマンド名
+command = /$D
+time = 1
+
+[statedef 21]
+type    = S
+physics = S
+sprpriority = 0
+
+[State 21, 移動速度] ;前進する速度
+type = VelSet
+trigger1 = var(59)||fvar(39)
+x = const(velocity.walk.fwd.x) ;定数で設定した速度
+
+[State 21, アニメ変更] ;前進するアニメに変更
+type = ChangeAnim
+triggerall = vel x > 0
+trigger1 = Anim != 20 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 20
+
+
+[Statedef 22]
+type    = S
+physics = S
+sprpriority = 0
+
+[State 22, 移動速度] ;後退する速度
+type = VelSet
+trigger1 = var(59)||fvar(39)
+x = const(velocity.walk.back.x) ;定数で設定した速度
+
+[State 22, アニメ変更] ;後退するアニメに変更
+type = ChangeAnim
+triggerall = vel x < 0
+trigger1 = Anim != 21 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 21
+
+;==============================================================================
+; 準常時監視ステート
+;==============================================================================
+[Statedef -1]
+;==============================================================================
+; 超必殺技
+;==============================================================================
+;-----------------------------------5ゲージ-------------------------------------
+
+
+;-----------------------------------4ゲージ-------------------------------------
+[State -1, 黒翼]
+	type = ChangeState
+	value = 2800
+	triggerall=!var(59)
+	triggerall = command = "黒翼"
+	triggerAll = statetype != A
+	TriggerAll = Power>3999
+	triggerAll = var(3)<=500 || var(18)
+	TriggerAll=Life < 0.3*LifeMax || PalNo >= 9
+	trigger1 = ctrl
+	trigger2 = stateno = 1000 && var(1);風巻上げAキャンセル
+	trigger3 = stateno = 1101 && var(1);竜巻A派生キャンセル
+	trigger4 = stateno = 1205 && var(1);血液逆流Aキャンセル
+	trigger5 = stateno = 2000 && var(1);風巻上げEXキャンセル
+
+[State -1, 空気.zip（超電磁版）]
+	type = ChangeState
+	value = 2700
+	triggerall=!var(59)
+	triggerall = command = "超空気圧縮"
+	triggerAll = statetype != A
+	TriggerAll=Power>3999
+	triggerAll = var(3)<=700 || var(18)
+	trigger1 = ctrl
+	trigger2 = stateno = 2100 && var(1);竜巻EXキャンセル
+	trigger3 = stateno = 2500 && var(1);竜巻EXキャンセル
+	Trigger4 = StateNo = 6100 && var(1)
+;-----------------------------------3ゲージ-------------------------------------
+[State -1, 空気.zip]
+	type = ChangeState
+	value = 2600
+	triggerall=!var(59)
+	triggerall = command = "空気圧縮"
+	triggerAll = statetype != A
+	TriggerAll=Power>2999
+	trigger1 = ctrl
+	trigger2 = stateno = 1205 && var(1);血液逆流Aキャンセル
+	trigger3 = stateno = 1390 && var(1);ベクトルキック着地キャンセル
+	trigger4 = stateno = 2000 && var(1);風巻上げEXキャンセル
+	trigger5 = stateno = 2100 && var(1);竜巻EXキャンセル	
+	trigger6 = stateno = 2410 && var(1);血液操作キャンセル
+;-----------------------------------2ゲージ-------------------------------------
+[State -1, 血流操作]
+	type = ChangeState
+	value = 2400
+	triggerall=!var(59)
+	triggerall = command = "血流操作"
+	triggerAll = statetype != A
+	TriggerAll=Power>1999
+	trigger1 = ctrl
+	trigger2 = (stateno = [200,599]) && var(1);地上通常攻撃キャンセル
+	trigger3 = stateno = 1205 && var(1);血液逆流Aキャンセル
+	trigger4 = stateno = 1215 && var(1);血液逆流Bキャンセル
+
+[State -1, 粉塵爆発]
+	type = ChangeState
+	value = 2500
+	triggerall=!var(59)
+	triggerall = command = "粉塵爆発"
+	triggerAll = statetype != A
+	TriggerAll=Power>1999
+	trigger1 = ctrl
+	trigger2 = (stateno = [200,599]) && var(1);地上通常攻撃キャンセル
+	trigger3 = stateno = 1000 && var(1);風巻上げAキャンセル
+	trigger4 = stateno = 2000 && var(1);風巻上げEXキャンセル
+	trigger5 = stateno = 2100 && var(1);竜巻EXキャンセル
+
+;-----------------------------------1ゲージ-------------------------------------
+[State -1, 竜巻EX]
+	type = ChangeState
+	value = 2100
+	triggerall=!var(59)
+	triggerall = command = "竜巻EX"
+	triggerAll = statetype != A
+	TriggerAll=Power>999
+	trigger1 = ctrl
+	trigger2 = stateno =  220 && var(1);5b（タメ含む）キャンセル
+	trigger3 = stateno = 2000 && var(1);風巻上げEXキャンセル
+
+[State -1, 風巻上げEX]
+	type = ChangeState
+	value = 2000
+	triggerall=!var(59)
+	triggerall = command = "風巻上げEX"
+	triggerAll = statetype != A
+	TriggerAll=Power>999
+	trigger1 = ctrl
+	trigger2 = (stateno = [200,599]) && var(1);地上通常攻撃キャンセル
+	trigger3 = stateno = 1000 && var(1);風巻上げAキャンセル
+
+[State -1, 血液逆流EX]
+	type = ChangeState
+	value = 2200
+	triggerall=!var(59)
+	triggerall = command = "血液逆流EX"
+	triggerAll = statetype != A
+	TriggerAll=Power>999
+	trigger1 = ctrl
+	trigger2 = stateno =  220 && var(1);5b（タメ含む）キャンセル
+	trigger3 = stateno =  240 && var(1);5c（ショットガン）キャンセル
+	trigger4 = stateno = 1000 && var(1);風巻上げAキャンセル
+	trigger5 = stateno = 1100 && var(1);竜巻Aキャンセル
+	trigger6 = stateno = 1205 && var(1);血液逆流A成功キャンセル
+	trigger7 = stateno = 1390 && var(1);ベクトルキック着地キャンセル
+	trigger8 = stateno = 2000 && var(1);風巻上げEXキャンセル
+	trigger9 = stateno = 2100 && var(1);竜巻EXキャンセル
+
+[State -1, 地面砕きEX]
+	type = ChangeState
+	value = 2300
+	triggerall=!var(59)
+	triggerall = command = "地面砕きEX"
+	triggerAll = statetype != A
+	TriggerAll=Power>999
+	trigger1 = ctrl
+	trigger2 = stateno = 1000 && var(1);風巻上げAキャンセル
+
+[State -1, ベクトルキックEX]
+	type = ChangeState
+	value = 2350
+	triggerall=!var(59)
+	triggerall = command = "ベクトルキックEX"
+	triggerAll = statetype = A
+	TriggerAll = Power>999
+	TriggerAll = pos Y<=-50
+	trigger1 = ctrl
+	Trigger2 = StateNo = 620 && var(1);
+	trigger3 = stateno = 1020 && var(1);空中風巻上げA
+	trigger4 = stateno = 1350 && var(1);ベクトルキックヒットキャンセル
+
+;==============================================================================
+; 必殺技
+;==============================================================================
+;竜巻
+[State -1, 竜巻A]
+	type = ChangeState
+	value = 1100
+	triggerall=!var(59)
+	triggerall = command = "竜巻A"
+	triggerAll = statetype != A
+	trigger1 = ctrl
+	trigger2 = stateno = [200,599]
+	trigger2 = var(1)
+
+[State -1, 竜巻A追加入力]
+	type = ChangeState
+	value = 1101
+	triggerall=!var(59)
+	triggerall = command = "竜巻B"
+	triggerAll = statetype != A
+	trigger1 = stateno = 1100
+	trigger1 = var(1)
+
+[State -1, 竜巻B]
+	type = ChangeState
+	value = 1110
+	triggerall=!var(59)
+	triggerall = command = "竜巻B"
+	triggerAll = statetype != A
+	trigger1 = ctrl
+	trigger2 = stateno = [200,599]
+	trigger2 = var(1)
+	trigger3 = stateno = 1390 && var(1);ベクトルキック着地キャンセル
+
+;------------------------------------------------------------------------------
+[State -1, 血液逆流A]
+	type = ChangeState
+	value = 1200
+	triggerall=!var(59)
+	triggerall = command = "血液逆流A"
+	triggerAll = statetype != A
+	trigger1 = ctrl
+	trigger2 = stateno =  220 && var(1);5b（タメ含む）キャンセル
+	trigger3 =(stateno = [400,599]) && var(1);キャンセル
+	trigger4 = stateno =  1101 && var(1);
+
+[State -1, 血液逆流B]
+	type = ChangeState
+	value = 1210
+	triggerall=!var(59)
+	triggerall = command = "血液逆流B"
+	triggerAll = statetype != A
+	trigger1 = ctrl
+	trigger2 = stateno = [200,599]
+	trigger2 = var(1)
+
+;------------------------------------------------------------------------------
+[State -1, 風巻上げA]
+	type = ChangeState
+	value = 1000
+	triggerall=!var(59)
+	triggerall = command = "風巻上げA"
+	triggerAll = statetype != A
+	trigger1 = ctrl
+	trigger2 = stateno = [200,599]
+	trigger2 = var(1)
+
+[State -1, 風巻上げB]
+	type = ChangeState
+	value = 1010
+	triggerall=!var(59)
+	triggerall = command = "風巻上げB"
+	triggerAll = statetype != A
+	trigger1 = ctrl
+	trigger2 = stateno = [200,599]
+	trigger2 = var(1)
+
+[State -1, 空中風巻上げA]
+	type = ChangeState
+	value = 1020
+	triggerall=!var(59)
+	triggerall = command = "風巻上げA"
+	triggerAll = statetype = A
+	TriggerAll = pos Y<=-15
+	trigger1 = ctrl
+	trigger2 = stateno = [600,799]
+	trigger2 = var(1)
+
+[State -1, 空中風巻上げB]
+	type = ChangeState
+	value = 1030
+	triggerall=!var(59)
+	triggerall = command = "風巻上げB"
+	triggerAll = statetype = A
+	TriggerAll = pos Y<=-15
+	trigger1 = ctrl
+	trigger2 = stateno = [600,799]
+	trigger2 = var(1)
+
+
+;------------------------------------------------------------------------------
+[State -1,ベクトルキックA]
+	Type=SelfState
+	value=1300
+	triggerall=!var(59)
+	TriggerAll = command = "ベクトルキックA"
+	TriggerAll = StateType=A
+	TriggerAll = pos Y<=-15
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = [600,799]
+	Trigger2 = var(1)	
+
+[State -1,ベクトルキックB]
+	Type=SelfState
+	value=1310
+	triggerall=!var(59)
+	TriggerAll = command = "ベクトルキックB"
+	TriggerAll = StateType=A
+	TriggerAll = pos Y<=-15
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = [600,799]
+	Trigger2 = var(1)	
+
+;------------------------------------------------------------------------------
+;地面砕き
+[State -1, 地面砕き]
+	type = ChangeState
+	value = 1500
+	triggerall=!var(59)
+	triggerall = command = "地面砕き"
+	triggerAll = statetype != A
+	trigger1 = ctrl
+	trigger2 = stateno = [200,599]
+	trigger2 = var(1)
+
+
+;==============================================================================
+; 移動関連
+;==============================================================================
+;------------------------------------------------------------------------------
+[State -1,JumpC];ジャンプキャンセル
+	Type=ChangeState
+	value=40
+	triggerall=!var(59)
+	TriggerAll = StateType != A
+	TriggerAll = command = "holdup"
+	Trigger1 = StateNo =  100 && animelemtime(4)>=0
+	Trigger2 = StateNo = 1500 && var(1)
+	Trigger3 = StateNo = 2300 && var(1)
+	trigger4 = stateno = 53
+	Trigger4 = (!var(1) && time >= 3) ||(var(1) && time >= 9)
+	Trigger5 = StateNo = 1101 && var(1)
+
+[State -1, 走る]
+	type = ChangeState
+	value = 100
+	triggerall=!var(59)
+	TriggerAll = command = "FF"
+	TriggerAll = statetype != A
+	trigger1 = ctrl
+
+[State -1, バックステップ]
+	type = ChangeState
+	value = 105
+	triggerall=!var(59)
+	TriggerAll = command = "BB"
+	TriggerAll = statetype != A
+	trigger1 = ctrl
+
+[State -1,空中ダッシュ]
+	Type=ChangeState
+	value=110
+	triggerall=!var(59)
+	TriggerAll = Alive
+	TriggerAll = command="FF"
+	TriggerAll = StateType=A
+	TriggerAll = pos Y<=-30+(vel y>0)*20
+	TriggerAll = anim != 110
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 620 && var(1)
+	Trigger3 = StateNo = 1020 && time >= 14
+
+[State -1,空中バックダッシュ];
+	Type=ChangeState
+	value=115
+	triggerall=!var(59)
+	TriggerAll = Alive
+	TriggerAll = command="BB"
+	TriggerAll = StateType=A
+	TriggerAll = pos Y<=-30+(vel y>0)*20
+	TriggerAll = anim!=115
+	Trigger1 = Ctrl
+
+[State -1];サキスパ
+	type = ChangeState
+	value = ifelse(statetype!=A,6300,6350)
+	triggerall=!var(59)
+	TriggerAll = Alive
+	triggerall = command =  "緊急回避"
+	triggerall = MoveType = H
+	TriggerAll = Power>1999
+	TriggerAll = !var(4)
+	trigger1 = stateno = 5000 && time > 0
+	trigger2 = stateno = 5010 && time > 0
+	trigger3 = stateno = 5020 && time > 0
+	trigger4 = stateno = 5070 && time > 0
+	trigger5 = stateno != 5000 && stateno != 5010 && stateno != 5020 && stateno != 5070
+	trigger5 = stateno = [5001,5099]
+
+;==============================================================================
+; 反射
+;==============================================================================
+[State -1,充電]
+	Type=ChangeState
+	value=6020
+	triggerall=!var(59)
+	triggerAll = !var(18)
+	TriggerAll=Alive
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	TriggerAll=var(3)!=100
+	TriggerAll=command="hold_x"
+	TriggerAll=command="hold_y"
+	Trigger1=Ctrl
+	trigger2 = stateno = 6500
+	trigger2 = time > 10
+		
+[State -1,急速充電]
+	Type=ChangeState
+	value=6030
+	triggerall=!var(59)
+;	triggerAll = !var(18)
+	triggerall = var(15) < 3
+	TriggerAll = Alive
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	TriggerAll = Power>1499
+;	TriggerAll = var(3)!=100
+	triggerAll = stateno != 6030
+	TriggerAll = command="y"
+	TriggerAll = command="c"
+	Trigger1 = Ctrl
+	trigger2 = stateno = 6500
+	trigger2 = time > 10
+	trigger3 = var(1)	
+
+[State -1, ブーストダッシュ]
+	type = ChangeState
+	value = 6100
+	triggerall=!var(59)
+	TriggerAll = command = "ブーストダッシュ"
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	triggerAll = stateno != 6100
+	triggerAll = stateno != 2500
+	triggerAll = !ctrl
+	trigger1 = var(1)
+
+
+[State -1, ブーストダッシュ]
+	type = ChangeState
+	value = 6101
+	triggerall=!var(59)
+	TriggerAll = command = "ブーストダッシュ"
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	triggerAll = stateno != 6101
+	triggerAll = stateno != 2500
+	triggerAll = !var(1)
+	trigger1 = ctrl
+	trigger2 = stateno = 6500
+	trigger2 = time > 10	
+
+[State -1, ブーストバック]
+	type = ChangeState
+	value = 6105
+	triggerall=!var(59)
+	TriggerAll = command = "ブーストバック"
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	triggerAll = stateno != 6105
+	trigger1 = ctrl
+	trigger2 = stateno = 6500
+	trigger2 = time > 10
+	trigger3 = var(1)	
+
+[State -1,打撃反射]
+	Type=ChangeState
+	value=6400
+	triggerall=!var(59)
+	TriggerAll = Alive
+	TriggerAll = command != "holddown"
+	TriggerAll = command != "x"
+	TriggerAll = command != "c"	
+	TriggerAll = StateType != A
+	TriggerAll = command = "打撃反射"
+	Trigger1 = Ctrl
+
+[State -1,飛び道具反射]
+	Type=ChangeState
+	value=6420;20;00;800
+	triggerall=!var(59)
+	TriggerAll = Alive!=0
+	TriggerAll = StateType != A
+	TriggerAll = command="飛び道具反射"
+	Trigger1 = Ctrl
+
+[State -1,アドバンシングガード]
+	Type=ChangeState
+	value=6500;20;00;800
+	triggerall=!var(59)
+	triggerall = stateno = 150 ||stateno = 152
+	triggerall = NumHelper(6510) = 0
+	Trigger1=command="y"
+
+;==============================================================================
+; 特殊
+;==============================================================================
+[State -1,ゲージ貯め]
+	Type=ChangeState
+	value=6600
+	triggerall=!var(59)
+	TriggerAll=Alive
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	TriggerAll = Power < PowerMAX
+	TriggerAll=command="hold_a"
+	TriggerAll=command="hold_c"
+	Trigger1=Ctrl
+	trigger2 = stateno = 6500
+	trigger2 = time > 10
+
+
+[State -1,S_k];投げ
+	Type=ChangeState
+	value=800
+	triggerall=!var(59)
+	TriggerAll=Alive!=0
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	TriggerAll = command != "y"
+	TriggerAll=Ctrl
+	Trigger1=command="x"
+
+;==============================================================================
+; 通常攻撃
+;==============================================================================
+;------------------------------------------------------------------------------
+[State -1, 6a]
+	Type=ChangeState
+	value=210
+	triggerall=!var(59)
+	TriggerAll = command = "a" && command = "holdfwd"
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 200 && var(1)
+
+[State -1, 5a]
+	Type=ChangeState
+	value=200
+	triggerall=!var(59)
+	TriggerAll = command = "a"
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 200 && (var(1) || animelemtime(5)>=0)
+	Trigger3 = StateNo =  53 && var(1)
+	Trigger4 = StateNo =  100 && animelemtime(3)>=0
+	Trigger5 = StateNo = 6100 && var(1)
+
+[State -1,5b]
+	Type=ChangeState
+	value=220
+	triggerall=!var(59)
+	TriggerAll = command = "b"
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 200 && var(1)
+	Trigger3 = StateNo = 210 && var(1)
+	Trigger4 = StateNo = 100 && animelemtime(3)>=0
+	Trigger5 = StateNo =  53 && var(1)
+	Trigger6 = StateNo = 6100 && var(1)
+
+[State -1, 6c]
+	Type=ChangeState
+	value=230
+	triggerall=!var(59)
+	TriggerAll = command = "c" && command = "holdfwd"
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 200 && var(1)
+	Trigger3 = StateNo = 210 && var(1)
+	Trigger4 = StateNo = 220 && var(1)
+;	Trigger5 = StateNo = 420 && var(1)
+
+[State -1, 5c]
+	type = ChangeState
+	value = 240
+	triggerall=!var(59)
+	TriggerAll = command = "c"
+	TriggerAll = command != "holddown"
+	TriggerAll = StateType != A
+	trigger1 = ctrl
+	Trigger2 = StateNo = 200 && var(1)
+	Trigger3 = StateNo = 210 && var(1)
+	Trigger4 = StateNo = 220 && var(1)
+
+;------------------------------------------------------------------------------
+[State -1,2a]
+	Type=ChangeState
+	value=400
+	triggerall=!var(59)
+	TriggerAll = command = "a"
+	TriggerAll = command = "holddown"
+	TriggerAll = StateType != A
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 400 && (var(1) || animelemtime(6)>=0)
+	Trigger3 = StateNo =  53 && var(1)
+	Trigger4 = StateNo =  100 && animelemtime(5)>=0
+	Trigger5 = StateNo = 6100 && var(1)
+
+[State -1,2b]
+	Type=ChangeState
+	value=410
+	triggerall=!var(59)
+	TriggerAll = command = "b"
+	TriggerAll = command = "holddown"
+	TriggerAll = StateType != A
+	Trigger1 = Ctrl
+	Trigger2  = StateNo = 400 && var(1)
+
+[State -1,2c]
+	Type=ChangeState
+	value=420
+	triggerall=!var(59)
+	TriggerAll = command = "c"
+	TriggerAll = command = "holddown"
+	TriggerAll = StateType != A
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 400 && var(1)
+	Trigger3 = StateNo = 410 && var(1)
+
+;------------------------------------------------------------------------------
+[State -1,ja]
+	Type=ChangeState
+	value=600
+	triggerall=!var(59)
+	TriggerAll=command="a"
+	TriggerAll = StateType = A
+	Trigger1 = Ctrl
+
+[State -1,jb]
+	Type=ChangeState
+	value=610
+	triggerall=!var(59)
+	TriggerAll=command="b"
+	TriggerAll = StateType = A
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 600 && var(1)
+
+[State -1,jc]
+	Type=ChangeState
+	value=620
+	triggerall=!var(59)
+	TriggerAll=command="c"
+	TriggerAll = StateType = A
+	Trigger1 = Ctrl
+	Trigger2 = StateNo = 600 && var(1)
+	Trigger3 = StateNo = 610 && var(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;-------------------------------------------------------------
+;ここからAI
+
+[State -1, AITurnOn]
+type = VarSet
+triggerall = var(59) = 0 && roundstate = 2
+trigger1 = Command = "AI0"
+trigger2 = Command = "AI1"
+trigger3 = Command = "AI2"
+trigger4 = Command = "AI3"
+trigger5 = Command = "AI4"
+trigger6 = Command = "AI5"
+trigger7 = Command = "AI6"
+trigger8 = Command = "AI7"
+trigger9 = Command = "AI8"
+trigger10 = Command = "AI9"
+trigger11 = Command = "AI10"
+trigger12 = Command = "AI11"
+trigger13 = Command = "AI12"
+trigger14 = Command = "AI13"
+trigger15 = Command = "AI14"
+trigger16 = Command = "AI15"
+trigger17 = Command = "AI16"
+trigger18 = Command = "AI17"
+trigger19 = Command = "AI18"
+trigger20 = Command = "AI19"
+trigger21 = Command = "AI20"
+trigger22 = Command = "AI21"
+trigger23 = Command = "AI22"
+trigger24 = Command = "AI23"
+trigger25 = Command = "AI24"
+trigger26 = Command = "AI25"
+trigger27 = Command = "AI26"
+trigger28 = Command = "AI27"
+trigger29 = Command = "AI28"
+trigger30 = Command = "AI29"
+trigger31 = Command = "AI30"
+trigger32=helper(40010),var(1)
+var(59)=helper(40010),var(2)
+ignorehitpause = 1
+
+[state ,コンボ確認変数]
+type=varset
+trigger1=1
+fvar(39)=0
+
+[State ];デバッグ表示
+type=DisplayToClipboard
+trigger1=1
+text="var(59)=%d,var(3)=%d,var(10)=%d,var(44)=%d,hvar(45)=%d\n"
+params=var(59),var(3),var(10),helper(40010),var(44),helper(40010),var(45)
+ignorehitpause=1
+
+[State ];デバッグ表示
+type=AppendToClipboard
+trigger1=1
+text="p2x=%0.1f,p2y=%f,velx=%0.1f,pos y=%f,p2stateno=%d"
+params=p2bodydist x,p2bodydist y,vel x,pos y,p2stateno
+ignorehitpause=1
+
+[state ,タッグ確認]
+type=varset
+trigger1=numenemy=1
+var(58)=0
+
+[state ,タッグ確認]
+type=varset
+trigger1=numenemy>1
+var(58)=ifelse(enemynear,alive,0,1)
+
+
+;-----------------------------------4ゲージ-------------------------------------
+[State -1, 黒翼];18 完全無敵
+	type = ChangeState
+	value = 2800
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	TriggerAll=Power>3999
+	triggerAll=var(3)<=500||var(18)
+	TriggerAll=Life<0.3*LifeMax||palno=9
+	;黒翼コンボ
+	trigger1=stateno=1205&&var(1)
+	trigger1=var(59)>=9||fvar(39)
+	;黒翼切り返し
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=enemynear(var(58)),movetype=A
+	trigger2=enemynear(var(58)),hitdefattr=SCA,AA,AP,AT||(inguarddist&&(enemynear(var(58)),movetype=A&&(enemynear(var(58)),numproj>helper(40010),var(48)||enemynear(var(58)),numhelper>helper(40010),var(49))))
+	trigger2=enemynear(var(58)),animtime<=-18||var(59)<7
+	trigger2=enemynear(var(58)),time>=30||(!time&&var(59)>9)||var(59)>10
+	trigger2=(enemynear(var(58)),time>=50||var(59)>10)||(prevstateno=[120,159])||(prevstateno=[5000,5270])
+	trigger2=p2bodydist x-helper(40010),fvar(39)*18*helper(40010),var(58)=[-40,40]
+	trigger2=!p2bodydist y||p2bodydist y+helper(40000),fvar(18)=[-80,-1]
+	trigger2=random<=var(59)*100
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = 1000 && var(1);風巻上げAキャンセル
+;	trigger3 = stateno = 1101 && var(1);竜巻A派生キャンセル
+;	trigger4 = stateno = 1205 && var(1);血液逆流Aキャンセル
+;	trigger5 = stateno = 2000 && var(1);風巻上げEXキャンセル
+
+[State -1, 空気.zip（超電磁版）]
+	type = ChangeState
+	value = 2700
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	TriggerAll=Power>3999
+	triggerAll=var(3)<=700||var(18)
+	triggerall=var(3)>=300||var(18)
+	;空気.zip（超電磁版）ぶっぱ
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=H
+	trigger1=p2bodydist x-helper(40010),fvar(39)*6*helper(40010),var(58)=[-40,40]
+	trigger1=!p2bodydist y||p2bodydist y+helper(40000),fvar(6)=[-100,-1]
+	trigger1=random<=100
+	trigger1=var(59)=[1,9]
+	;空気.zip（超電磁版）切り返し
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=enemynear(var(58)),movetype=A
+	trigger2=enemynear(var(58)),hitdefattr=SCA,AA,AP,AT||(inguarddist&&(enemynear(var(58)),movetype=A&&(enemynear(var(58)),numproj>helper(40010),var(48)||enemynear(var(58)),numhelper>helper(40010),var(49))))
+	trigger2=enemynear(var(58)),animtime<=-6||var(59)<7
+	trigger2=enemynear(var(58)),time>=30||(!time&&var(59)>9)||var(59)>10
+	trigger2=(enemynear(var(58)),time>=50||var(59)>10)||(prevstateno=[120,159])||(prevstateno=[5000,5270])
+	trigger2=p2bodydist x-helper(40010),fvar(39)*6*helper(40010),var(58)=[-40,40]
+	trigger2=!p2bodydist y||p2bodydist y+helper(40000),fvar(6)=[-100,-1]
+	trigger2=random<=var(59)*100
+	;空気.zip（超電磁版）目押し
+	trigger3=ctrl||stateno=21||stateno=22||(stateno=6100&&var(1))
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno!=[120,159]
+	trigger3=p2bodydist x-helper(40010),fvar(39)*6*helper(40010),var(58)=[-40,40]
+	trigger3=(!p2bodydist y&&enemynear(var(58)),gethitvar(hittime)>=6&&!var(18))||p2bodydist y+helper(40000),fvar(6)=[-100,-1]
+	trigger3=random<=var(59)*100||fvar(39)
+	trigger3=!var(57)||(var(57)&&!helper(40010),var(9))
+	;空気.zip（超電磁版）目押し打撃反射用
+	trigger4=ctrl||stateno=21||stateno=22||(stateno=6100&&var(1))
+	trigger4=enemynear(var(58)),statetype!=L
+	trigger4=enemynear(var(58)),movetype=H
+	trigger4=enemynear(var(58)),stateno=7091
+	trigger4=p2bodydist x=[-40,40]
+	trigger4=p2bodydist y>=-100
+	trigger4=random<=var(59)*100||fvar(39)
+
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = 2100 && var(1);竜巻EXキャンセル
+;	Trigger3 = StateNo = 6100 && var(1)
+;-----------------------------------3ゲージ-------------------------------------
+[State -1, 空気.zip];14
+	type = ChangeState
+	value = 2600
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	TriggerAll=Power>2999
+	triggerall=var(3)>=200||var(18)
+	;空気.zipぶっぱ
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=H
+	trigger1=p2bodydist x>=-10
+	trigger1=!p2bodydist y||p2bodydist y+helper(40000),fvar(14)=[-200,-1]
+	trigger1=random<=100
+	trigger1=var(59)=[1,9]
+	;空気.zipコンボ
+	trigger2=(stateno=1390||stateno=2410)&&var(1)
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=p2bodydist x>=-10
+	trigger2=(!p2bodydist y&&enemynear(var(58)),gethitvar(hittime)>=14)||p2bodydist y+helper(40000),fvar(14)=[-200,-1]
+	trigger2=random<=var(59)*100||fvar(39)
+	
+	trigger3=power<5000
+	trigger3=stateno=1205&&var(1)
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno!=[120,159]
+	trigger3=p2bodydist x>=-10
+	trigger3=(!p2bodydist y&&enemynear(var(58)),gethitvar(hittime)>=14)||p2bodydist y+helper(40000),fvar(14)=[-200,-1]
+	trigger3=random<=var(59)*100||fvar(39)
+	;空気.zip切り返し
+	trigger4=ctrl||stateno=21||stateno=22
+	trigger4=enemynear(var(58)),movetype=A
+	trigger4=!inguarddist
+	trigger4=enemynear(var(58)),animtime<=-6||var(59)<7
+	trigger4=enemynear(var(58)),time>=30||(!time&&var(59)>9)||var(59)>10
+	trigger4=(enemynear(var(58)),time>=50||var(59)>10)||(prevstateno=[120,159])||(prevstateno=[5000,5270])
+	trigger4=p2bodydist x>=-10
+	trigger4=!p2bodydist y||p2bodydist y+helper(40000),fvar(6)=[-200,-1]
+	trigger4=random<=var(59)*100
+	trigger4=0
+	;空気.zip目押し
+	trigger5=ctrl||stateno=21||stateno=22
+	trigger5=enemynear(var(58)),statetype!=L
+	trigger5=enemynear(var(58)),movetype=H
+	trigger5=enemynear(var(58)),stateno=7091
+	trigger5=p2bodydist x>=-10
+	trigger5=p2bodydist y>=-200
+	trigger5=random<=var(59)*100||fvar(39)
+
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = 1205 && var(1);血液逆流Aキャンセル
+;	trigger3 = stateno = 1390 && var(1);ベクトルキック着地キャンセル
+;	trigger4 = stateno = 2000 && var(1);風巻上げEXキャンセル
+;	trigger5 = stateno = 2100 && var(1);竜巻EXキャンセル	
+;	trigger6 = stateno = 2410 && var(1);血液操作キャンセル
+;-----------------------------------2ゲージ-------------------------------------
+[State -1, 血流操作]
+	type = ChangeState
+	value = 2400
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	TriggerAll=Power>1999
+	triggerall=var(3)>=100||var(18)
+	triggerall=!helper(40010),var(9)||(helper(40010),var(9)&&!var(57))
+	;血流操作ぶっぱ
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=H
+	trigger1=p2bodydist x=[-10,80]
+	trigger1=(p2bodydist y+helper(40000),fvar(15)=[-60,-1])||!p2bodydist y
+	trigger1=random<=100
+	trigger1=var(59)=[1,9]
+	;血流操作コンボ
+	trigger2=(stateno=1215||stateno=1205)&&var(1)
+	trigger2=var(59)>=7||fvar(39)
+	trigger2=!helper(40010),var(42)
+	;血流操作目押し
+	trigger3=ctrl||stateno=21||stateno=22
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno=7091
+	trigger3=!inguarddist
+	trigger3=p2bodydist x=[-10,70]
+	trigger3=p2bodydist y>=-50
+	trigger3=random<=var(59)*100
+
+
+;	trigger1 = ctrl
+;	trigger2 = (stateno = [200,599]) && var(1);地上通常攻撃キャンセル
+;	trigger3 = stateno = 1205 && var(1);血液逆流Aキャンセル
+;	trigger4 = stateno = 1215 && var(1);血液逆流Bキャンセル
+
+[State -1, 粉塵爆発]
+	type = ChangeState
+	value = 2500
+	triggerall=var(59)&&roundstate=2
+	triggerAll=statetype!=A
+	TriggerAll=Power>1999
+	triggerall=var(3)>=150||var(18)
+	triggerall=!helper(40010),var(9)||(helper(40010),var(9)&&!var(57))
+	;粉塵爆発切り返し
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),movetype=A
+	trigger1=enemynear(var(58)),hitdefattr=SCA,AA,AP,AT||(inguarddist&&(enemynear(var(58)),movetype=A&&(enemynear(var(58)),numproj>helper(40010),var(48)||enemynear(var(58)),numhelper>helper(40010),var(49))))
+	trigger1=enemynear(var(58)),animtime<=-9||var(59)<7
+	trigger1=enemynear(var(58)),time>=30||(!time&&var(59)>9)||var(59)>10
+	trigger1=(enemynear(var(58)),time>=50||var(59)>10)||(prevstateno=[120,159])||(prevstateno=[5000,5270])
+	trigger1=p2bodydist x-helper(40010),fvar(39)*9*helper(40010),var(58)=[-70,70]
+	trigger1=p2bodydist y+helper(40000),fvar(9)>=-200||!p2bodydist y
+	trigger1=random<=var(59)*100
+	trigger1=!(p2bodydist x=[-30,40])
+	;粉塵爆発ぶっぱ
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype!=H
+	trigger2=p2bodydist x-helper(40010),fvar(39)*9*helper(40010),var(58)=[-140,140]
+	trigger2=p2bodydist y+helper(40000),fvar(9)>=-200||!p2bodydist y
+	trigger2=random<=100
+	trigger2=var(59)=[1,9]
+
+
+;	trigger1 = ctrl
+;	trigger2 = (stateno = [200,599]) && var(1);地上通常攻撃キャンセル
+;	trigger3 = stateno = 1000 && var(1);風巻上げAキャンセル
+;	trigger4 = stateno = 2000 && var(1);風巻上げEXキャンセル
+;	trigger5 = stateno = 2100 && var(1);竜巻EXキャンセル
+
+;-----------------------------------1ゲージ-------------------------------------
+[State -1, 竜巻EX]
+	type = ChangeState
+	value = 2100
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	TriggerAll=Power>999
+	triggerall=var(3)>=100||var(18)
+	triggerall=!helper(40010),var(9)||(helper(40010),var(9)&&!var(57))
+	;竜巻EX切り返し
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),movetype=A
+	trigger1=enemynear(var(58)),hitdefattr=SCA,AA,AP,AT||(inguarddist&&(enemynear(var(58)),movetype=A&&(enemynear(var(58)),numproj>helper(40010),var(48)||enemynear(var(58)),numhelper>helper(40010),var(49))))
+	trigger1=enemynear(var(58)),animtime<=-9||var(59)<7
+	trigger1=enemynear(var(58)),time>=30||(!time&&var(59)>9)||var(59)>10
+	trigger1=(enemynear(var(58)),time>=50||var(59)>10)||(prevstateno=[120,159])||(prevstateno=[5000,5270])
+	trigger1=p2bodydist x-helper(40010),fvar(39)*11*helper(40010),var(58)=[-10,20]
+	trigger1=p2bodydist y+helper(40000),fvar(11)>=-130||!p2bodydist y
+	trigger1=random<=var(59)*10
+	;竜巻EXぶっぱ
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype!=H
+	trigger2=p2bodydist x=[-10,20]
+	trigger2=p2bodydist y>=-130
+	trigger2=random<=100
+	trigger2=var(59)=[1,9]
+
+
+;	trigger1 = ctrl
+;	trigger2 = stateno =  220 && var(1);6b（タメ含む）キャンセル
+;	trigger3 = stateno = 2000 && var(1);風巻上げEXキャンセル
+
+[State -1, 風巻上げEX]
+	type = ChangeState
+	value = 2000
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	TriggerAll=Power>999
+	triggerall=var(3)>=100||var(18)
+	triggerall=!helper(40010),var(9)||(helper(40010),var(9)&&!var(57))
+	;風巻き上げEXぶっぱ
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=H
+	trigger1=p2bodydist x=[-10,100]
+	trigger1=!p2bodydist y
+	trigger1=random<=100
+	trigger1=var(59)=[1,9]
+	;風巻き上げEXコンボ
+	trigger2=stateno=1000&&var(1)
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=!inguarddist
+	trigger2=p2bodydist x=[-10,100]
+;	trigger2=(var(3)<=300&&!helper(40010),var(8)&&helper(40010),var(5))||(!helper(40010),var(5)&&!helper(40010),var(8))
+;	trigger2=(var(18)&&!helper(40010),var(8))||(!helper(40010),var(5)&&!helper(40010),var(8))
+	trigger2=!helper(40010),var(42)
+	trigger2=!helper(40010),var(47)
+
+
+;	trigger1 = ctrl||stateno=21||stateno=22
+;	trigger2 = (stateno = [200,599]) && var(1);地上通常攻撃キャンセル
+;	trigger3 = stateno = 1000 && var(1);風巻上げAキャンセル
+
+[State -1, 血液逆流EX]
+	type = ChangeState
+	value = 2200
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	TriggerAll=Power>999
+	triggerall=var(3)>=100||var(18)
+	triggerall=!helper(40010),var(9)||(helper(40010),var(9)&&!var(57))
+	;血液逆流EXぶっぱ
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=H
+	trigger1=p2bodydist x=[0,260]
+	trigger1=random<=100
+	trigger1=var(59)=[1,9]
+	;血液逆流EX目押し
+	trigger2=(stateno=1390&&var(1))
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=!inguarddist
+	trigger2=p2bodydist x-helper(40010),fvar(39)*helper(40010),var(43)*helper(40010),var(58)=[0,260]
+	trigger2=p2bodydist y+helper(40000),fvar(helper(40010),var(43))=[-70,-1]
+	trigger2=random<=var(59)*100||fvar(39)
+	
+	trigger3=stateno=1205&&var(1)
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno!=[120,159]
+	trigger3=!inguarddist
+	trigger3=p2bodydist x-helper(40010),fvar(39)*helper(40010),var(43)*helper(40010),var(58)=[0,260]
+	trigger3=p2bodydist y+helper(40000),fvar(helper(40010),var(43))=[-70,-1]
+	trigger3=random<=var(59)*100||fvar(39)
+	trigger3=helper(40010),var(10)=1
+
+
+;	trigger1 = ctrl
+;	trigger2 = stateno =  220 && var(1);6b（タメ含む）キャンセル
+;	trigger3 = stateno =  240 && var(1);5c（ショットガン）キャンセル
+;	trigger4 = stateno = 1000 && var(1);風巻上げAキャンセル
+;	trigger5 = stateno = 1100 && var(1);竜巻Aキャンセル
+;	trigger6 = stateno = 1205 && var(1);血液逆流A成功キャンセル
+;	trigger7 = stateno = 1390 && var(1);ベクトルキック着地キャンセル
+;	trigger8 = stateno = 2000 && var(1);風巻上げEXキャンセル
+;	trigger9 = stateno = 2100 && var(1);竜巻EXキャンセル
+
+[State -1, 地面砕きEX]
+	type = ChangeState
+	value = 2300
+	triggerall=var(59)&&roundstate=2
+	triggerAll=statetype!=A
+	TriggerAll=Power>999
+	triggerall=var(3)>=100||var(18)
+	triggerall=!helper(40010),var(9)||(helper(40010),var(9)&&!var(57))
+	;地面砕きEXぶっぱ
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=H
+	trigger1=enemynear(var(58)),statetype!=A
+	trigger1=p2bodydist x>=200
+	trigger1=random<=100
+	trigger1=var(59)=[1,9]
+	;地面砕きEX隙突き
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=I
+	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=enemynear(var(58)),animtime<=-20
+	trigger2=enemynear(var(58)),stateno=[200,699]
+	trigger2=p2bodydist x>=50
+	trigger2=random<=var(59)*100
+	;地面砕きコンボ
+	trigger3=ctrl||stateno=21||stateno=22||stateno=1000&&var(1);風巻上げAキャンセル
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=!inguarddist
+	trigger3=enemynear(var(58)),statetype!=A
+	trigger3=enemynear(var(58)),stateno=[120,159]
+
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = 1000 && var(1);風巻上げAキャンセル
+
+[State -1, ベクトルキックEX]
+	type = ChangeState
+	value = 2350
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype=A
+	TriggerAll=Power>999
+	TriggerAll=pos Y<=-50
+	triggerall=var(3)>=100||var(18)
+	triggerall=!helper(40010),var(9)||(helper(40010),var(9)&&!var(57))
+	;ベクトルキックEXぶっぱ
+	trigger1=ctrl
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=H
+	trigger1=p2bodydist x>=50
+	trigger1=p2bodydist y=[p2bodydist x-60,p2bodydist x+20]
+	trigger1=random<=100
+	trigger1=(var(59)=[1,9])
+	;ベクトルキックEXコンボ
+	trigger2=stateno=620&&var(1)&&movehit
+	trigger2=!inguarddist
+	trigger2=(var(59)=[1,8])
+	
+	trigger3=stateno=1350&&var(1)
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno!=[120,159]
+	trigger3=!inguarddist
+	trigger3=p2bodydist y>10
+	trigger3=power<3000
+	trigger3=random<=100
+
+
+;	trigger1 = ctrl
+;	Trigger2=StateNo=620&& var(1);ベクトルキックヒットキャンセル
+;	trigger3 = stateno = 1350 && var(1);ベクトルキックヒットキャンセル
+
+;==============================================================================
+; 必殺技
+;==============================================================================
+;竜巻
+[State -1, 竜巻A]
+	type = ChangeState
+	value = 1100
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	;竜巻A切り返し
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),movetype=A
+	trigger1=enemynear(var(58)),hitdefattr=SCA,AA,AP,AT||(inguarddist&&(enemynear(var(58)),movetype=A&&(enemynear(var(58)),numproj>helper(40010),var(48)||enemynear(var(58)),numhelper>helper(40010),var(49))))
+	trigger1=enemynear(var(58)),animtime<=-12||var(59)<7
+	trigger1=enemynear(var(58)),time>=30||(!time&&var(59)>9)||var(59)>10
+	trigger1=(enemynear(var(58)),time>=50||var(59)>10)||(prevstateno=[120,159])||(prevstateno=[5000,5270])
+	trigger1=p2bodydist x-helper(40010),fvar(39)*11*helper(40010),var(58)=[-10,30]
+	trigger1=p2bodydist y+helper(40000),fvar(11)>=-130
+	trigger1=random<=var(59)*100
+	;竜巻Aコンボ
+	trigger2=stateno=420&&var(1)&&movehit
+	trigger2=!inguarddist
+	trigger2=power>=4000
+	trigger2=!var(57)||(var(57)&&!helper(40010),var(9))
+	;竜巻A目押し反射
+	trigger3=ctrl||stateno=21||stateno=22
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno=7091
+	trigger3=!inguarddist
+	trigger3=p2bodydist x=[-10,30]
+	trigger3=p2bodydist y=[-120,-30]
+	trigger3=random<=var(59)*100||fvar(39)
+	;竜巻Aコンボ
+	trigger4=(stateno=400||stateno=210||stateno=220)&&var(1)&&movehit
+	trigger4=p2bodydist x<30
+	trigger4=!inguarddist
+	trigger4=var(3)<=100
+	trigger4=(var(59)<=9&&!fvar(39))||(!helper(40010),var(8)&&helper(40010),var(9)&&var(57))
+	trigger4=!helper(40010),var(42)
+	trigger4=0
+	;竜巻Aコンボ
+	trigger5=stateno=400&&var(1)&&movehit
+	trigger5=p2bodydist x<30
+	trigger5=power>=4000&&helper(40010),var(10)=4
+	trigger5=!inguarddist
+	trigger5=(var(3)=[350,700])||var(18)
+	trigger5=!var(57)||(!helper(40010),var(9)&&var(57))
+	trigger5=!helper(40010),var(42)
+	;竜巻Aコンボ画面端
+	trigger6=stateno=400&&var(1)&&movehit
+;	trigger6=p2bodydist x<30
+	trigger6=enemynear(var(58)),statetype=a
+	trigger6=enemynear(var(58)),backedgebodydist=0
+	trigger6=!inguarddist
+
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = [200,599]
+;	trigger2 = var(1)
+
+[State -1, 竜巻A追加入力]
+	type = ChangeState
+	value = 1101
+	triggerall=var(59)&&roundstate=2
+	triggerAll=statetype!=A
+	triggerall=stateno=1100
+	triggerall=var(1)
+	trigger1=random<=(10-var(59))*100
+	trigger1=var(59)=[1,9]
+	trigger2=var(3)<=100&&!var(18)
+
+;	trigger1 = stateno = 1100
+	;trigger1 = animelemtime(13) > 0
+;	trigger1 = var(1)
+
+[State -1, 竜巻B]
+	type = ChangeState
+	value = 1110
+	triggerall=var(59)&&roundstate=2
+	triggerAll=statetype!=A
+	;竜巻B牽制兼ぶっぱ
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*24*helper(40010),var(58)>=200
+	trigger1=random<=50
+	;竜巻B隙突き
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=I
+	trigger2=enemynear(var(58)),animtime<=-24
+	trigger2=(enemynear(var(58)),ctrl&&enemynear(var(58)),statetype=A)||enemynear(var(58)),stateno=[200,699]
+	trigger2=!inguarddist
+	trigger2=random<=var(59)*100
+	;竜巻Bコンボ
+	trigger3=stateno=1390&&var(1)
+	trigger3=!inguarddist
+	trigger3=enemynear(var(58)),movetype=H
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = [200,599]
+;	trigger2 = var(1)
+;	trigger3 = stateno = 1390 && var(1);ベクトルキック着地キャンセル
+
+;------------------------------------------------------------------------------
+[State -1, 血液逆流A]
+	type = ChangeState
+	value = 1200
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	;血液逆流A目押し
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=H
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*9*helper(40010),var(58)=[-10,20]
+	trigger1=p2bodydist y+helper(40000),fvar(9)=[-30,-1]
+	trigger1=enemynear(var(58)),stateno!=7070||helper(40010),var(42)
+	trigger1=random<=var(59)*100||fvar(39)
+	;血液逆流Aコンボ
+	trigger2=stateno=420&&var(1)&&movehit
+	trigger2=(helper(40010),var(10)<=2&&power>=2000)||(helper(40010),var(10)=3&&power>=3000)
+	trigger2=!inguarddist
+	trigger2=var(59)>5||fvar(39)
+	trigger2=!var(57)||(var(57)&&helper(40010),var(9)&&helper(40010),var(42))
+	;血液逆流Aコンボ黒翼用
+	trigger3=(stateno=200||(stateno=[400,420]))&&var(1)&&movehit
+	trigger3=!inguarddist
+	trigger3=var(59)>=9||fvar(39)
+	Trigger3=helper(40010),var(42)
+	;血液逆流A目押し反射
+	trigger4=ctrl||stateno=21||stateno=22
+	trigger4=enemynear(var(58)),statetype!=L
+	trigger4=enemynear(var(58)),movetype=H
+	trigger4=enemynear(var(58)),stateno=7091
+	trigger4=!inguarddist
+	trigger4=p2bodydist x=[-10,60]
+	trigger4=p2bodydist y>=-50
+	trigger4=random<=var(59)*100||fvar(39)
+	trigger4=helper(40010),var(10)=1
+	;血液逆流Aコンボ
+	trigger5=stateno=410&&var(1)&&movehit
+	trigger5=(helper(40010),var(10)<=2&&power>=2000)||(helper(40010),var(10)=3&&power>=3000)
+	trigger5=!inguarddist
+	trigger5=var(59)>5||fvar(39)
+	trigger5=!var(57)||(var(57)&&!helper(40010),var(9))
+	;血液逆流Aコンボ
+	trigger6=stateno=1101&&var(1)
+	trigger6=!inguarddist
+	trigger6=enemynear(var(58)),movetype=h
+	trigger6=p2bodydist x=[-10,30]
+
+;	trigger1 = ctrl
+;	trigger2 = stateno =  220 && var(1);5b（タメ含む）キャンセル
+;	trigger3 =(stateno = [400,599]) && var(1);キャンセル
+;	trigger4 = stateno =  1101 && var(1);
+
+[State -1, 血液逆流B]
+	type = ChangeState
+	value = 1210
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	;ダウン追い打ち
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),movetype=H
+	trigger1=enemynear(var(58)),stateno!=5110
+	trigger1=enemynear(var(58)),stateno!=7091
+	trigger1=enemynear(var(58)),stateno!=[120,159]
+	trigger1=!inguarddist
+	trigger1=p2bodydist x=[-10,50]
+	trigger1=p2bodydist y+helper(40010),fvar(26)=[-20,-1]
+	trigger1=random<=var(59)*100||fvar(39)
+	trigger1=!helper(40010),var(44)
+	trigger1=helper(40010),var(42)
+	;コンボ締め
+	trigger2=stateno=230&&var(1)
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=!inguarddist
+	trigger2=var(59)=[1,5]
+	;コンボ
+	trigger3=stateno=220&&var(1)&&moveguarded
+	trigger3=!inguarddist
+	trigger3=backedgebodydist<=30
+	
+	trigger4=stateno=420&&var(1)&&moveguarded
+	trigger4=!inguarddist
+
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = [200,599]
+;	trigger2 = var(1)
+
+;------------------------------------------------------------------------------
+[State -1, 風巻上げA]
+	type = ChangeState
+	value = 1000
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	;風巻き上げA牽制
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=200
+	trigger1=!p2bodydist y
+	trigger1=random<=100
+	;風巻き上げAコンボ
+	trigger2=(power>=1000&&var(3)>=200&&!helper(40010),var(47))||(var(3)>=150||var(18))
+	trigger2=(stateno=230||(stateno=220&&(p2bodydist x>=25||helper(40010),var(47)))&&var(1))
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=!inguarddist
+	trigger2=(var(3)>=150&&!var(18))&&var(59)<9
+	trigger2=!helper(40010),var(9)||(helper(40010),var(9)&&!var(57))
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = [200,599]
+;	trigger2 = var(1)
+
+[State -1, 風巻上げB]
+	type = ChangeState
+	value = 1010
+	triggerall=var(59)&&roundstate=2
+	triggerAll=statetype!=A
+	trigger1 = ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=100
+	trigger1=!p2bodydist y
+	trigger1=random<=100
+	
+	trigger2=(stateno=[200,599])&&var(1)&&moveguarded
+	trigger2=!inguarddist
+	trigger2=backedgebodydist>30
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = [200,599]
+;	trigger2 = var(1)
+
+[State -1, 空中風巻上げA]
+	type = ChangeState
+	value = 1020
+	triggerall=var(59)&&roundstate=2
+	triggerAll=statetype=A
+	TriggerAll=pos Y<=-15
+	;空中風巻き上げA牽制
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=50
+	trigger1=p2bodydist y=[p2bodydist x-50,p2bodydist x+50]
+	trigger1=random<=var(59)*20
+	;空中風巻き上げAコンボ
+	trigger2=stateno=[600,799]
+	trigger2=var(1)
+	trigger2=movehit
+	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=!inguarddist
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = [600,799]
+;	trigger2 = var(1)
+
+[State -1, 空中風巻上げB]
+	type = ChangeState
+	value = 1030
+	triggerall=var(59)&&roundstate=2
+	triggerAll=statetype=A
+	TriggerAll=pos Y<=-15
+	;空中風巻き上げB牽制
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=50
+	trigger1=p2bodydist y=[p2bodydist x-50,p2bodydist x+50]
+	trigger1=random<=var(59)*20
+	;空中風巻き上げB繋ぎ
+	trigger2=(stateno=[600,620])&&var(1)&&moveguarded
+	trigger2=!inguarddist
+	trigger2=backedgebodydist>30
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = [600,799]
+;	trigger2 = var(1)
+
+
+;------------------------------------------------------------------------------
+[State -1,ベクトルキックA]
+	Type=SelfState
+	value=1300
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType=A
+	TriggerAll=pos Y<=-15
+	;ベクトルキック牽制
+	trigger1=ctrl
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=50
+	trigger1=p2bodydist y=[p2bodydist x-30,p2bodydist x+30]
+	trigger1=random<=var(59)*20||fvar(39)
+
+;	Trigger1=Ctrl
+;	Trigger2=StateNo=[600,799]
+;	Trigger2=var(1)	
+
+[State -1,ベクトルキックB]
+	Type=SelfState
+	value=1310
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType=A
+	TriggerAll=pos Y<=-15
+	trigger1=stateno=620&&var(1)&&movecontact
+	trigger1=enemynear(var(58)),movetype=H
+	trigger1=!inguarddist
+	trigger1=helper(40010),var(10)=1
+
+;	Trigger1=Ctrl
+;	Trigger2=StateNo=[600,799]
+;	Trigger2=var(1)	
+
+;------------------------------------------------------------------------------
+;地面砕き
+[State -1, 地面砕き]
+	type = ChangeState
+	value = 1500
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll=statetype!=A
+	;地面砕き対空
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*18*helper(40010),var(58)=[-10,50]
+	trigger1=p2bodydist y+helper(40000),fvar(18)=[-90,-1]
+	trigger1=random<=var(59)*10
+	;地面砕きコンボ
+	trigger2=stateno=230&&var(1)
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=!inguarddist
+	
+	trigger3=(stateno=200||stateno=420||stateno=410)&&var(1)&&movehit
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),statetype=A
+	trigger3=!inguarddist
+	;地面砕き目押し
+	trigger4=ctrl||stateno=21||stateno=22
+	trigger4=enemynear(var(58)),statetype!=L
+	trigger4=enemynear(var(58)),movetype=H
+	trigger4=!inguarddist
+	trigger4=enemynear(var(58)),stateno=7030
+	trigger4=p2bodydist x=[-100,100]
+	trigger4=p2bodydist y+helper(40000),fvar(18)=[-90,-1]
+	trigger4=random<=var(59)*100||fvar(39)
+
+	trigger5=ctrl||stateno=21||stateno=22
+	trigger5=enemynear(var(58)),statetype!=L
+	trigger5=enemynear(var(58)),movetype=H
+	trigger5=!inguarddist
+	trigger5=enemynear(var(58)),stateno=7091
+	trigger5=p2bodydist x=[-10,50]
+	trigger5=p2bodydist y>=-90
+	trigger5=random<=var(59)*100||fvar(39)
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = [200,599]
+;	trigger2 = var(1)
+
+
+;==============================================================================
+; 移動関連
+;==============================================================================
+;------------------------------------------------------------------------------
+[State -1,JumpC];ジャンプキャンセル
+	Type=ChangeState
+	value=40
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;jumpc目押し
+	Trigger1=StateNo=100&&animelemtime(4)>=0
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=H
+	trigger1=enemynear(var(58)),stateno!=[120,159]
+	trigger1=!inguarddist
+	trigger1=p2bodydist x=[10,70]
+	trigger1=p2bodydist y+helper(40000),fvar(12)=[-120,-30]
+	trigger1=random<=var(59)*100||fvar(39)
+	;jumpcコンボ
+	trigger2=(stateno=1500||stateno=2300)&&var(1)
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=!inguarddist
+	trigger2=p2bodydist x=[-10,100]
+	;ジャンプキャンセルコンボ
+	trigger3=stateno=1101&&var(1)
+	trigger3=!inguarddist
+	trigger3=enemynear(var(58)),movetype=h
+	trigger3=p2bodydist x=[-10,60]
+
+;	Trigger1 = StateNo =  100 && animelemtime(4)>=0
+;	Trigger2 = StateNo = 1500 && var(1)
+;	Trigger3 = StateNo = 2300 && var(1)
+;	trigger4 = stateno = 53
+;	Trigger4 = (!var(1) && time >= 3) ||(var(1) && time >= 9)
+;	Trigger5 = StateNo = 1101 && var(1)
+
+[State -1, 走る]
+	type = ChangeState
+	value = 100
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=statetype!=A
+	triggerall=pos y>=0
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=200
+	trigger1=p2bodydist y<=-100
+	trigger1=random<=100
+	;目押し走る
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=var(59)*100
+	trigger2=enemynear(var(58)),statetype!=l
+	trigger2=enemynear(var(58)),movetype=h
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=!inguarddist
+	trigger2=p2bodydist x=[20,100]
+
+;	trigger1 = ctrl
+
+[State -1, バックステップ]
+	type = ChangeState
+	value = 105
+	triggerall=var(59)&&roundstate=2
+	TriggerAll=statetype!=A
+	triggerall=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype=L
+	trigger1=!inguarddist
+	trigger1=backedgebodydist>30
+	trigger1=p2bodydist x<40
+	trigger1=random<=var(59)*100
+	trigger2=enemynear(var(58)),movetype=A
+	trigger2=enemynear(var(58)),hitdefattr=SCA,AT
+	trigger2=backedgebodydist>30
+	trigger2=random<=var(59)*100
+
+;	trigger1 = ctrl
+
+[State -1,空中ダッシュ]
+	Type=ChangeState
+	value=110
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=Alive
+	TriggerAll=StateType=A
+	TriggerAll=pos Y<=-30+(vel y>0)*20
+	TriggerAll=anim!=110
+	Trigger1=Ctrl
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=150
+	trigger1=random<=100
+	trigger1=var(59)
+	
+	Trigger2=StateNo=620&&var(1)&&movecontact
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=!inguarddist
+	trigger2=helper(40010),var(10)>1;pos y<=-70
+	
+	trigger3=ctrl
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=!inguarddist
+	trigger3=p2bodydist x-helper(40010),fvar(39)*helper(40010),fvar(38)*19*helper(40010),var(58)>100
+	trigger3=p2bodydist y+helper(40000),fvar(19)=[-30,30]
+
+;	Trigger1=Ctrl
+;	Trigger2 = StateNo = 620 && var(1)
+;	Trigger3 = StateNo = 1020 && time >= 14
+
+[State -1,空中バックダッシュ];
+	Type=ChangeState
+	value=115
+	triggerall=var(59)&&roundstate=2
+	TriggerAll=Alive
+	TriggerAll=StateType=A
+	TriggerAll=pos Y<=-30+(vel y>0)*20
+	TriggerAll=anim!=115
+	Trigger1=Ctrl
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=random<=10
+
+;	Trigger1=Ctrl
+
+[State -1];サキスパ
+	type = ChangeState
+	value = ifelse(statetype!=A,6300,6350)
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=Alive
+	triggerall=MoveType=H
+	TriggerAll=Power>1999
+	TriggerAll=Power>1999&&(var(3)>=300||helper(40010),var(5))
+	triggerall=time=1
+	triggerall=random<=helper(40010),var(3)*100
+	trigger1 = stateno = 5000 && time > 0
+	trigger2 = stateno = 5010 && time > 0
+	trigger3 = stateno = 5020 && time > 0
+	trigger4 = stateno = 5070 && time > 0
+	trigger5 = stateno != 5000 && stateno != 5010 && stateno != 5020 && stateno != 5070
+	trigger5 = stateno = [5001,5099]
+
+;==============================================================================
+; 反射
+;==============================================================================
+[State -1,充電]
+	Type=ChangeState
+	value=6020
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerAll = !var(18)
+	TriggerAll=Alive
+	TriggerAll = StateType != A
+	TriggerAll=var(3)!=100
+	triggerall=var(3)<500
+	triggerall=!helper(40010),var(5)
+	triggerall=power<1500
+	trigger1=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger1=enemynear(var(58)),statetype=L
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=150
+	trigger1=random<=var(59)*100
+
+;	Trigger1=Ctrl
+;	trigger2 = stateno = 6500
+;	trigger2 = time > 10
+		
+[State -1,急速充電];4 無敵
+	Type=ChangeState
+	value=6030
+	triggerall=var(59)&&roundstate=2||fvar(39)
+;	triggerAll = !var(18)
+	triggerall=var(15)<3
+	TriggerAll=Alive
+	TriggerAll=StateType!=A
+	TriggerAll=Power>1499
+;	TriggerAll=var(3)!=100
+	triggerall=!helper(40010),var(5)
+	trigger1=!var(18)
+	Trigger1=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger1=power>=1500&&var(3)<=300
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=A
+	trigger1=!inguarddist
+	trigger1=p2bodydist x>=150
+	trigger1=random<=var(59)*30
+	trigger2=!var(18)
+	trigger2=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger2=enemynear(var(58)),statetype=L
+	trigger2=!inguarddist
+	trigger2=random<=var(59)*100
+	trigger2=power>=1500&&var(3)<=300
+
+	trigger3=!var(18)
+	trigger3=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno=7091
+	trigger3=var(3)<300
+	trigger3=!inguarddist
+	trigger3=random<=var(59)*100
+	
+	trigger4=!var(18)
+	trigger4=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger4=enemynear(var(58)),movetype=I
+	trigger4=p2bodydist x>=150
+	trigger4=var(3)<300
+	trigger4=!inguarddist
+	trigger4=random<=var(59)*100
+
+	trigger5=!var(18)
+	trigger5=(stateno=6500&&time>10)
+	trigger5=enemynear(var(58)),movetype=A
+	trigger5=enemynear(var(58)),hitdefattr=SCA,AA
+	trigger5=enemynear(var(58)),animtime<=-26
+	trigger5=var(3)<300
+	trigger5=random<=var(59)*100
+	;急速充電切り返し
+	trigger6=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger6=enemynear(var(58)),movetype=A
+	trigger6=enemynear(var(58)),hitdefattr=sca,aa,ap,at
+	trigger6=enemynear(var(58)),animtime<=-4
+	trigger6=enemynear(var(58)),time>=30||(!time&&var(59)>9)||var(59)>10
+	trigger6=(enemynear(var(58)),time>=50||var(59)>10)||(prevstateno=[120,159])||(prevstateno=[5000,5270])
+	trigger6=p2bodydist x=[-30,40]
+	trigger6=!p2bodydist y||p2bodydist y+helper(40000),fvar(4)=[-80,-1]
+	trigger6=random<=var(59)*100
+;	急速充電コンボ
+	trigger7=helper(40010),var(8)
+	trigger7=(stateno=200||stateno=400||stateno=410)&&var(1)&&movehit
+	trigger7=(!var(18)&&var(3)<150)||(var(18)&&enemynear(var(58)),statetype=a&&helper(40010),var(40)>=30)
+
+;	Trigger1=Ctrl
+;	trigger2 = stateno = 6500
+;	trigger2 = time > 10	
+;	trigger3 = var(1)
+
+[State -1,飛び道具反射]
+	Type=ChangeState
+	value=6420;20;00;800
+	triggerall=var(59)&&roundstate=2
+	TriggerAll=Alive!=0
+	TriggerAll=StateType!=A
+	Triggerall=ctrl||stateno=21||stateno=22
+	triggerall=var(3)>=150||var(18)
+	triggerall=random<=helper(40010),var(7)*100||helper(40010),var(7)>9
+;	trigger1=enemynear(var(58)),hitdefattr!=SCA,AT,AA
+	trigger1=inguarddist&&(enemynear(var(58)),movetype=A&&(enemynear(var(58)),numproj>helper(40010),var(48)||enemynear(var(58)),numhelper>helper(40010),var(49)))
+;	trigger1=(enemynear(var(58)),time>=50||var(59)>10||fvar(39))
+
+;	Trigger1=Ctrl
+
+[State -1, ブーストダッシュ]
+	type = ChangeState
+	value = 6100
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll = StateType != A
+	triggerAll = stateno != 6100
+	triggerAll = stateno != 2500
+	triggerAll = !ctrl
+	triggerall=var(3)>=150||var(18)
+	triggerall=var(1)
+	;必殺技から追撃
+	trigger1=((stateno!=[1205,1215])||((stateno=[1205,1215])&&time>=40))
+	trigger1=(enemynear(var(58)),stateno=[7020,7030])||enemynear(var(58)),stateno=1290
+	trigger1=enemynear(var(58)),movetype=H
+	trigger1=!helper(40010),var(45)
+	trigger1=stateno!=6030
+	;必殺技から追撃2
+	trigger2=stateno=1000
+	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),stateno!=[120,159]
+	trigger2=!helper(40010),var(45)
+	;カバー
+	trigger3=(enemynear(var(58)),stateno=[7010,7030])
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=!helper(40010),var(45)
+	trigger3=stateno!=6030
+	trigger3=p2bodydist y+helper(40000),fvar(15)<=-1
+
+;	trigger1 = var(1)
+
+[State -1, ブーストダッシュ];裏周り 27
+	type = ChangeState
+	value = 6101
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll = StateType != A
+	triggerAll = stateno != 6101
+	triggerAll = stateno != 2500
+	triggerAll = !var(1)
+	triggerall=var(3)>=150||var(18)
+	;BD目押し
+	trigger1=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=H
+	trigger1=p2bodydist x-helper(40010),fvar(39)*30*helper(40010),var(58)=[200,300]
+	trigger1=p2bodydist y+helper(40000),fvar(30)<=-1
+	trigger1=random<=var(59)*100||fvar(39)
+	
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=A
+	trigger2=enemynear(var(58)),animtime<=-32
+	trigger2=p2bodydist x>=40
+	trigger2=!p2bodydist y
+	trigger2=random<=var(59)*100
+	trigger2=!var(10)
+	;カバー
+	trigger3=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger3=(enemynear(var(58)),stateno=[7010,7030])
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=!helper(40010),var(45)
+	trigger3=stateno!=6030
+	trigger3=p2bodydist y+helper(40000),fvar(15)<=-1
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = 6500
+;	trigger2 = time > 10	
+
+[State -1, ブーストバック]
+	type = ChangeState
+	value = 6105
+	triggerall=var(59)&&roundstate=2
+	TriggerAll=StateType!=A
+	triggerall=var(3)>=400||var(18)
+	trigger1=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype!=H
+	trigger1=backedgebodydist>50
+	trigger1=random<=50
+	trigger1=!var(10)
+	trigger1=var(59)=[1,9]
+
+;	trigger1 = ctrl
+;	trigger2 = stateno = 6500
+;	trigger2 = time > 10	
+
+[State -1,打撃反射]
+	Type=ChangeState
+	value=6400
+	triggerall=var(59)&&roundstate=2
+	TriggerAll=Alive
+	TriggerAll=StateType!=A
+	TriggerAll=ctrl||stateno=21||stateno=22
+	triggerall=(numpartner&&!partner,alive)||!numpartner
+	triggerall=var(3)>=150||var(18)
+	triggerall=random<=helper(40010),var(6)*100||helper(40010),var(6)>9
+	;打撃反射切り返し
+;	trigger1=enemynear(var(58)),time>=30||(!time&&var(59)>9)||var(59)>10
+	trigger1=enemynear(var(58)),movetype=A
+	trigger1=enemynear(var(58)),hitdefattr=SCA,AA
+;	trigger1=(enemynear(var(58)),time>=50||var(59)>10||fvar(39))||(prevstateno=[120,159])||(prevstateno=[5000,5270])
+	trigger1=enemynear(var(58)),stateno!=helper(40010),var(50)
+	trigger1=random<=var(59)*100
+	trigger1=var(3)>=500||(var(3)<500&&p2bodydist x=[-10,30])||var(18)
+	;打撃反射ぶっぱ
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=I
+	trigger2=p2bodydist x<=50
+	trigger2=random<=100
+	trigger2=var(59)=[1,9]
+
+;	Trigger1=command="打撃反射"
+	
+[State -1,アドバンシングガード]
+	Type=ChangeState
+	value=6500;20;00;800
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	triggerall=stateno=150||stateno=152
+	triggerall=NumHelper(6510)=0
+	triggerall=helper(40010),var(4)
+	triggerall=time=1||helper(40010),var(4)>9
+	trigger1=enemynear(var(58)),hitdefattr=SCA,AA
+	Trigger1=random<=helper(40010),var(4)*100
+
+;	Trigger1=command="y"
+
+;==============================================================================
+; 特殊
+;==============================================================================
+[State -1,ゲージ貯め]
+	Type=ChangeState
+	value=6600
+	triggerall=var(59)&&roundstate=2
+	TriggerAll=Alive
+	TriggerAll=StateType!=A
+	TriggerAll=Power<PowerMAX
+	Triggerall=ctrl||stateno=21||stateno=22||(stateno=6500&&time>10)
+	trigger1=enemynear(var(58)),statetype=L
+	trigger1=p2bodydist x>60
+	trigger1=!inguarddist
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=!inguarddist
+	trigger2=p2bodydist x>100
+	trigger2=random<=var(59)*100
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=!inguarddist
+	trigger3=enemynear(var(58)),stateno=7091||enemynear(var(58)),stateno=1290
+	trigger3=random<=var(59)*100
+	trigger4=enemynear(var(58)),movetype=I
+	trigger4=!inguarddist
+	trigger4=p2bodydist x>90
+	trigger4=random<=var(59)*20||var(59)>10
+
+;	Trigger1=Ctrl
+;	trigger2 = stateno = 6500
+;	trigger2 = time > 10
+
+
+[State -1,S_k];投げ
+	Type=ChangeState
+	value=800
+	triggerall=var(59)&&roundstate=2
+	TriggerAll=Alive!=0
+	TriggerAll=StateType!=A
+	TriggerAll=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=enemynear(var(58)),statetype!=A
+	trigger1=p2bodydist x=[-10,20]
+	trigger1=random<=200
+	trigger1=var(59)<10
+
+;	Trigger1=command="x"
+
+;==============================================================================
+; 通常攻撃
+;==============================================================================
+;------------------------------------------------------------------------------
+[State -1, 6a]
+	Type=ChangeState
+	value=210
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;6a牽制
+	Trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=enemynear(var(58)),statetype=S
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*5*helper(40010),var(58)=[-10,40]
+	trigger1=random<=var(59)*20
+	;6a隙突き
+	trigger2=ctrl||stateno=21||stateno=22
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=I
+	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=enemynear(var(58)),stateno=[200,699]
+	trigger2=!inguarddist
+	trigger2=p2bodydist x-helper(40010),fvar(39)*5*helper(40010),var(58)=[-10,40]
+	trigger2=random<=var(59)*100
+	;6aコンボ
+	trigger3=stateno=200&&var(1)&&movehit
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),statetype!=A
+	trigger3=!inguarddist
+	trigger3=p2bodydist x=[-10,20]
+
+;	Trigger1 = Ctrl
+;	Trigger2 = StateNo = 200 && var(1)
+
+[State -1, 5a]
+	Type=ChangeState
+	value=200
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;5a牽制
+	Trigger1=ctrl||stateno=21||stateno=22||(stateno=100&&animelemtime(5)>=0)
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*4*helper(40010),var(58)=[-10,40]
+	trigger1=!p2bodydist y||p2bodydist y+helper(40000),fvar(4)=[-60,-1]
+	trigger1=random<=var(59)*30
+	5a隙突き
+	trigger2=ctrl||stateno=21||stateno=22||(stateno=100&&animelemtime(5)>=0)
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=I
+	trigger2=(!enemynear(var(58)),ctrl&&enemynear(var(58)),statetype=A)||enemynear(var(58)),stateno=[200,699]
+	trigger2=!inguarddist
+	trigger2=p2bodydist x-helper(40010),fvar(39)*4*helper(40010),var(58)=[-10,40]
+	trigger2=!p2bodydist y||p2bodydist y+helper(40000),fvar(4)=[-30,-1]
+	trigger2=random<=var(59)*100
+	;5a目押し
+	trigger3=ctrl||stateno=21||stateno=22||(stateno=100&&animelemtime(5)>=0)||((stateno=53||stateno=6100)&&var(1))
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),statetype!=A
+	trigger3=enemynear(var(58)),gethitvar(hittime)>=4||(enemynear(var(58)),stateno=[7010,7030])||enemynear(var(58)),stateno=1290
+	trigger3=!inguarddist
+	trigger3=(p2bodydist x-helper(40010),fvar(39)*4*helper(40010),var(58)=[-10,40])||(enemynear(var(58)),stateno=7030);||enemynear(var(58)),stateno=1290;&&p2bodydist x=[-40,40])
+	trigger3=!p2bodydist y||p2bodydist y+helper(40000),fvar(4)=[-40,-1]
+	trigger3=random<=var(59)*100||fvar(39)
+	;5aコンボ
+	trigger4=stateno=200&&var(1)&&moveguarded
+;	trigger4=enemynear(var(58)),statetype=A
+	trigger4=enemynear(var(58)),movetype=H
+	trigger4=!inguarddist
+	;5a切り返し
+	trigger5=ctrl||stateno=21||stateno=22||(stateno=100&&animelemtime(5)>=0)||((stateno=53||stateno=6100)&&var(1))
+	trigger5=enemynear(var(58)),movetype=A
+	trigger5=enemynear(var(58)),animtime<=-6
+	trigger5=p2bodydist x-helper(40010),fvar(39)*4*helper(40010),var(58)=[-10,40]
+	trigger5=!p2bodydist y||p2bodydist y+helper(40000),fvar(4)=[-30,-1]
+	trigger5=prevstateno=6500||prevstateno=6100
+	trigger5=random<=var(59)*100||fvar(39)
+
+;	Trigger1 = Ctrl
+;	Trigger2 = StateNo = 200 && (var(1) || animelemtime(5)>=0)
+;	Trigger3 = StateNo =  53 && var(1)
+;	Trigger4 = StateNo =  100 && animelemtime(5)>=0
+;	Trigger5 = StateNo = 6100 && var(1)
+
+[State -1,5b]
+	Type=ChangeState
+	value=220
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;ガード崩し狙い
+	Trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),stateno=[120,159]
+	trigger1=!inguarddist
+	trigger1=p2bodydist x=[0,90]
+	trigger1=random<=(10-var(59))*100
+	trigger1=var(59)=[1,9]
+	;5bコンボ
+	trigger2=(stateno=200||stateno=210)&&var(1)&&movecontact
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=!inguarddist
+
+;	Trigger1 = Ctrl
+;	Trigger2 = StateNo = 200 && var(1)
+;	Trigger3 = StateNo = 210 && var(1)
+;	Trigger4 = StateNo = 100 && animelemtime(3)>=0
+;	Trigger5 = StateNo =  53 && var(1)
+;	Trigger6 = StateNo = 6100 && var(1)
+
+[State -1, 6c]
+	Type=ChangeState
+	value=230
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;6cダウン追い打ち
+	Trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype=L
+	trigger1=enemynear(var(58)),stateno=[5100,5110]
+	trigger1=!inguarddist
+	trigger1=p2bodydist x=[-10,20]
+	trigger1=random<=var(59)*100
+	6cコンボ
+	trigger2=stateno=220&&var(1)&&movehit
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=!inguarddist
+	trigger2=p2bodydist x=[-10,25]
+;	trigger2=power>=1500||helper(40010),var(5)
+	trigger2=random<=var(59)*30||var(59)>9||fvar(39)
+;	trigger2=!helper(40010),var(8)||(helper(40010),var(8)&&(var(3)>=150||var(18)))
+	6cぶっぱ
+	trigger3=ctrl||stateno=21||stateno=22
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),statetype!=A
+	trigger3=p2bodydist x=[-10,20]
+	trigger3=random<=(10-var(59))*30
+	trigger3=var(59)=[1,9]
+
+;	Trigger1 = Ctrl
+;	Trigger2 = StateNo = 200 && var(1)
+;	Trigger3 = StateNo = 210 && var(1)
+;	Trigger4 = StateNo = 220 && var(1)
+;;	Trigger5 = StateNo = 420 && var(1);←元から
+
+[State -1, 5c]
+	type = ChangeState
+	value = 240
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;5cぶっぱ牽制
+	trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x=[110,140]
+	trigger1=!p2bodydist y
+	trigger1=random<=(10-var(59))*30
+	trigger1=var(59)=[1,9]
+	;5cコンボ
+	trigger2=stateno=220&&var(1)&&movehit
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=!inguarddist
+
+;	trigger1 = ctrl
+;	Trigger2 = StateNo = 200 && var(1)
+;	Trigger3 = StateNo = 210 && var(1)
+;	Trigger4 = StateNo = 220 && var(1)
+
+;------------------------------------------------------------------------------
+[State -1,2a]
+	Type=ChangeState
+	value=400
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;2a牽制
+	Trigger1=ctrl||stateno=21||stateno=22||(stateno=100&&animelemtime(5)>=0)||((stateno=53||stateno=6100)&&var(1))
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=enemynear(var(58)),statetype!=A
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*4*helper(40010),var(58)=[-10,20]
+	trigger1=random<=var(59)*30&&!fvar(39)
+
+	;2a目押し
+	trigger2=ctrl||stateno=21||stateno=22||(stateno=100&&animelemtime(5)>=0)||((stateno=53||stateno=6100)&&var(1))
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=enemynear(var(58)),statetype=A;enemynear(var(58)),stateno=7030||enemynear(var(58)),stateno=1290
+	trigger2=!inguarddist
+	trigger2=p2bodydist y+helper(40000),fvar(4)>=-1;[-20,-1]
+	trigger2=random<=var(59)*100||fvar(39)
+	trigger2=!helper(40010),var(39)||(helper(40010),var(39)&&(p2bodydist x=[-20,20]))
+
+;	Trigger1 = Ctrl
+;	Trigger2 = StateNo = 400 && (var(1) || animelemtime(6)>=0)
+;	Trigger3 = StateNo =  53 && var(1)
+;	Trigger4 = StateNo =  100 && animelemtime(5)>=0
+;	Trigger5 = StateNo = 6100 && var(1)
+
+[State -1,2b];6
+	Type=ChangeState
+	value=410
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;2bぶっぱ
+	Trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x=[-10,30]
+	trigger1=!p2bodydist y
+	trigger1=random<=(10-var(59))*30
+	trigger1=var(59)=[1,9]
+	;2bコンボ
+	Trigger2=StateNo=400&&var(1)&&movecontact
+	trigger2=enemynear(var(58)),movetype=H
+;	trigger2=enemynear(var(58)),statetype!=A
+	trigger2=!inguarddist
+	trigger2=p2bodydist x=[-10,20]
+	;2b目押し
+	Trigger3=ctrl||stateno=21||stateno=22
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=!inguarddist
+	trigger3=p2bodydist x=[-30,40]
+	trigger3=p2bodydist y+helper(40000),fvar(6)=[-20,-1]
+	trigger3=random<=var(59)*100||fvar(39)
+	
+;	Trigger1 = Ctrl
+;	Trigger2  = StateNo = 400 && var(1)
+
+[State -1,2c]
+	Type=ChangeState
+	value=420
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType!=A
+	;2cぶっぱ
+	Trigger1=ctrl||stateno=21||stateno=22
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x=[-10,30]
+	trigger1=!p2bodydist y
+	trigger1=random<=(10-var(59))*30
+	trigger1=var(59)<10
+	trigger1=!fvar(39)
+	;2cコンボ
+	trigger2=((stateno=400&&(p2bodydist x>=20&&enemynear(var(58)),statetype!=A||enemynear(var(58)),statetype=A))||stateno=410)&&var(1)&&movecontact
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=!inguarddist
+
+;	Trigger1 = Ctrl
+;	Trigger2 = StateNo = 400 && var(1)
+;	Trigger3 = StateNo = 410 && var(1)
+
+;------------------------------------------------------------------------------
+[State -1,ja]
+	Type=ChangeState
+	value=600
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType=A
+	;ja牽制
+	Trigger1=Ctrl
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*helper(40010),fvar(38)*5*helper(40010),var(58)=[-20,50]
+	trigger1=p2bodydist y+helper(40000),fvar(5)=[-40,40]
+	trigger1=random<=var(59)*100||fvar(39)
+	;ja隙突き
+	Trigger2=Ctrl
+	trigger2=enemynear(var(58)),statetype!=L
+	trigger2=enemynear(var(58)),movetype=I
+	trigger2=(!enemynear(var(58)),ctrl&&enemynear(var(58)),statetype=A)||enemynear(var(58)),stateno=[200,699]
+	trigger2=!inguarddist
+	trigger2=p2bodydist x-helper(40010),fvar(39)*helper(40010),fvar(38)*5*helper(40010),var(58)=[-20,50]
+	trigger2=p2bodydist y+helper(40000),fvar(5)=[-40,40]
+	trigger2=random<=var(59)*100
+	;ja目押し
+	Trigger3=Ctrl
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno!=[120,159]
+	trigger3=enemynear(var(58)),stateno!=7091
+	trigger3=enemynear(var(58)),stateno!=7070
+	trigger3=!inguarddist
+	trigger3=p2bodydist x-helper(40010),fvar(39)*helper(40010),fvar(38)*5*helper(40010),var(58)=[-20,50]
+	trigger3=p2bodydist y+helper(40000),fvar(5)=[-30,30]
+	trigger3=random<=var(59)*100||fvar(39)
+
+;	Trigger1 = Ctrl
+
+[State -1,jb]
+	Type=ChangeState
+	value=610
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType=A
+	;jbぶっぱ
+	Trigger1=Ctrl
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*helper(40010),fvar(38)*9*helper(40010),var(58)=[-10,50]
+	trigger1=p2bodydist y+helper(40010),fvar(9)=[-60,60]
+	trigger1=random<=var(59)*100||fvar(39)
+	;jbコンボ
+	Trigger2=StateNo=600&&var(1)&&movecontact
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=!inguarddist
+	trigger2=p2bodydist x>=-10
+	;jb目押し
+	Trigger3=Ctrl
+	trigger3=enemynear(var(58)),statetype!=L
+	trigger3=enemynear(var(58)),movetype=H
+	trigger3=enemynear(var(58)),stateno=7070;7091
+	trigger3=!inguarddist
+	trigger3=p2bodydist x=[-10,40]
+	trigger3=p2bodydist y+helper(40010),fvar(9)=[-60,60]
+	trigger3=random<=var(59)*100||fvar(39)
+	trigger3=helper(40010),var(41)<1;空ダ回数
+
+;	Trigger1 = Ctrl
+;	Trigger2 = StateNo = 600 && var(1)
+
+[State -1,jc]
+	Type=ChangeState
+	value=620
+	triggerall=var(59)&&roundstate=2||fvar(39)
+	TriggerAll=StateType=A
+	;jcぶっぱ
+	Trigger1=Ctrl
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=enemynear(var(58)),movetype=I
+	trigger1=!inguarddist
+	trigger1=p2bodydist x-helper(40010),fvar(39)*helper(40010),fvar(38)*22*helper(40010),var(58)=[-50,50]
+	trigger1=p2bodydist y+helper(40010),fvar(22)=[-60,60]
+	trigger1=random<=(10-var(59))*20
+	trigger1=var(59)=[1,9]
+	;jcコンボ
+	trigger2=stateno=610&&var(1)&&movecontact
+	trigger2=pos y<=-60
+	trigger2=enemynear(var(58)),movetype=H
+	trigger2=!inguarddist
+	
+;	Trigger1 = Ctrl
+;	Trigger2 = StateNo = 600 && var(1)
+;	Trigger3 = StateNo = 610 && var(1)
+
+[state ]
+type=changestate
+ctrl=0
+value=ifelse(p2bodydist x<10,22,21)
+triggerall=var(59)&&roundstate=2
+triggerall=ctrl
+trigger1=enemynear(var(58)),statetype!=L
+trigger1=enemynear(var(58)),movetype!=a
+trigger1=statetype!=A
+trigger1=!inguarddist
+trigger1=p2bodydist x>10
+
+trigger2=enemynear(var(58)),statetype=l
+trigger2=!inguarddist
+trigger2=p2bodydist x>10
+
+;trigger1=prevstateno=[21,22]
+
+[state ]
+type=changestate
+value=0
+triggerall=var(59)&&roundstate=2
+triggerall=stateno=21
+trigger1=p2bodydist x<-20
+
+[state ]
+type=changestate
+value=40
+triggerall=var(59)&&roundstate=2
+triggerall=ctrl||stateno=21||stateno=22
+triggerall=statetype!=A
+trigger1=enemynear(var(58)),statetype!=L
+trigger1=enemynear(var(58)),movetype=I
+trigger1=p2bodydist x>=0
+trigger1=!inguarddist
+trigger1=random<=var(59)*30
+trigger1=var(59)=[1,9]
+trigger2=enemynear(var(58)),statetype!=L
+trigger2=enemynear(var(58)),movetype=H
+trigger2=enemynear(var(58)),stateno=7091
+trigger2=!inguarddist
+trigger2=p2bodydist x=[-10,60]
+trigger2=p2bodydist y=[-120,-80]
+trigger2=random<=var(59)*100||fvar(39)
+trigger2=0
+
+
+[State -1,立ちガード]
+Type = ChangeState
+Value = 120
+TriggerAll=var(59)>0&&roundstate=2
+TriggerAll=StateNo!=[120,155]
+triggerall=ctrl||stateno=21||stateno=22
+TriggerAll=inguarddist||helper(40020),inguarddist||helper(40030),inguarddist
+Trigger1=Random<=var(59)*60||var(59)>9
+Trigger2=P2BodyDist X>90||EnemyNear(var(58)),Time>50
+Trigger2=Random<=var(59)*150
+
+[state ,電池切れ用]
+type=null;changestate
+value=6010
+trigger1=roundstate=2
+trigger1=var(3)=0
+trigger1=var(4)
+trigger1=movetype!=H
+trigger1=statetype!=L
+trigger1=stateno!=6010&&stateno!=6012&&stateno!=6000
+
+[State -1, NoMove];AI記述ステートの最後に加える
+Type = ChangeState
+Value = 0 ;強制立ち
+triggerall=var(59)>0&&roundstate=2
+triggerAll=PrevStateNo=[0,20]                                                     ;直前が立ちステート。
+TriggerAll=(StateType=S||StateType=C)&&Ctrl&&!Time                    ;地上+Ctrl+Time=0
+;triggerall=p2bodydist X>=20
+Trigger1=StateNo=40                                                           ;左右(歩き)
+Trigger2=StateNo=11                                                           ;上(ジャンプ)
+trigger3=stateno=20
+trigger4=stateno=10
+trigger5=stateno=12
+
+
+
+
+
+[state ]
+type=varset
+trigger1=win
+var(57)=1
+
+
+
+
+

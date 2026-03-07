@@ -215,6 +215,80 @@ ownpal = 0
 ontop=1
 ignorehitpause = 1
 
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 2
+add = 100,130,-50
+;sinadd = 0,0,0,10
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
+
+
+
+;-------------------------------------
+;Bomb count
+
+;Unitremove
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(4201)=1
+id = 4201
+ignorehitpause = 1
+;persistent = 
+
+;Unit
+[State 30000] 
+type = Explod
+;triggerall=root,var(3)=0
+trigger1 = numexplod(4201)=0
+trigger1=root,var(4)>0
+anim = 7000+(root,var(4)%10)
+ID = 4201
+pos = ifelse(teamside=1,10,260), 50
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = 0.77,0.77
+ownpal = 1
+ontop=1
+ignorehitpause = 1
+
+;Dixaine remove
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(4301)=1
+
+id = 4301
+ignorehitpause = 1
+;persistent = 
+
+;Dixaine
+[State 30000] 
+type = Explod
+;triggerall=root,var(3)=0
+trigger1= !(((root,var(4)/10)%10)=0)
+trigger1 = numexplod(4301)=0
+anim = 7000+((root,var(4)/10)%10)
+ID = 4301
+pos = ifelse(teamside=1,5,255), 50
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = 0.77,0.77
+ownpal = 1
+ontop=1
+ignorehitpause = 1
+
 ;==========================================
 
 [Statedef 30002, Burst Helper]

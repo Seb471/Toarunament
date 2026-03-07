@@ -851,6 +851,14 @@ movetype= H
 physics = N
 velset = 0,0
 
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+
 [State 0, StopSnd]
 type = StopSnd
 trigger1 =  time = 0
@@ -937,6 +945,12 @@ type = ChangeAnim
 trigger1 = 1
 value = 120
 ;elem = 1
+;ignorehitpause = 
+;persistent = 
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
 ;ignorehitpause = 
 ;persistent = 
 

@@ -70,6 +70,13 @@
  ;
  ;Insert your characters below.
 
+;Bosses Here
+Accelerator_CAI, order = 8, boss = 1,exclude=1, stages/SFIV_Training.def
+Kamijo_CAI, order = 8, boss = 1,exclude=1,stages/NoMoreWorld.def
+kuroko_s, order = 8, boss = 1,exclude=1,stages/Underground-Sewer.def
+Himegami_Aisa/DeepBlood, order = 8, boss = 1, stages/room.def,exclude=1
+;-------
+
 empty 
 empty
 empty
@@ -302,12 +309,12 @@ stages/rb2-mary.def
 stages/School-3.def 
 stages/LUMINANCE_CITY.def ;Railgun Level Upper
 
-stages/room.def ;OT1 
+;stages/room.def ;OT1 
 
 stages/KOF94_Korea_Stage.def ;OT2
 stages/aof01.def ;OT2
 
-stages/SFIV_Training.def ;OT3 
+;stages/SFIV_Training.def ;OT3 
 stages/KOF99_ChinaTown2.def ;OT3
 stages/daemonbride9.def ;Railgun Sisters
 stages/IF_academy_city.def ;OT3 
@@ -334,7 +341,7 @@ stages/Zero City Rooftop.def ;Railgun Daihaseisai
 stages/rio.def		;Railgun Daihaseisai
 ;stages/Train.def  ;Railgun Daihaseisai TO CHANGE
 
-stages/Underground-Sewer.def ;Railgun Daihaseisai 
+;stages/Underground-Sewer.def ;Railgun Daihaseisai 
 stages/AW-Build-D.def ;Railgun Daihaseisai
 
 
@@ -355,6 +362,7 @@ stages/SB2-snowy_aurora_borealis.def ;IndexIII OP2
 stages/Dogfight.def ;OT20
 stages/Dusk Mountains.def ;OT21
 stages/Academy.def ;OT22 
+stages/igniz1bg.def ;OT22
 
 stages/NaturalSelector.def ;NT4 
 
@@ -362,7 +370,7 @@ stages/XX'DB'BRIDGE'RUINS'XX.def ;NT6
 stages/warehouse-In.def ;NT6 
 
 
-stages/NoMoreWorld.def  ;NT9 
+  ;NT9 
 stages/tuyokisu_schoolyard2.def ;NT9 
 
 stages/NewNight.def ;NT14 

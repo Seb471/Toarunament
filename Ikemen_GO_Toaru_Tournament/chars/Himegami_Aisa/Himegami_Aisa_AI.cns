@@ -72,6 +72,28 @@
 
 
 ;---------------------------------------------------------------------------------------------
+
+[State -3,AI DeepBloodOHKO]
+	type = ChangeState
+	value = 3350
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	;triggerall = 3000 <= power	;ゲージチェック
+	triggerall = statetype != A
+	;triggerall = !inguarddist
+	TriggerAll = P2BodyDist X <= 80
+	;triggerAll = Random <= Var(59) * 50 + 100
+	;TriggerAll = var(10) = 1 || var(11) = 1
+	triggerall= life <lifemax*0.25
+	triggerall = power >2999	
+	trigger1 = ctrl || StateNo = 21
+	trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	trigger2 = var(2) = 1
+	trigger3 = (StateNo = [1000,1900])  ;必殺キャンセル
+	trigger3 = var(2) = 1
+
+
 ;カウンター
 [State -3,AI ブロー]
 	type = ChangeState
@@ -233,6 +255,7 @@
 	trigger2 = var(2) = 1
 	trigger3 = (StateNo = [1000,1900])  ;必殺キャンセル
 	trigger3 = var(2) = 1
+
 
 ;---------------------------------------------------------------------------------------------
 ;
@@ -652,3 +675,22 @@
 	trigger1 = EnemyNear(Var(40)),StateNo = [5080,5110]
 
 
+[State -3,AI DeepBloodOHKO]
+	type = ChangeState
+	value = 3350
+	TriggerAll = Alive = 1				;生きている
+	TriggerAll = RoundState = 2			;戦闘中
+	TriggerAll = Var(59) > 0			;AI起動
+	;triggerall = 3000 <= power	;ゲージチェック
+	triggerall = statetype != A
+	;triggerall = !inguarddist
+	TriggerAll = P2BodyDist X <= 80
+	;triggerAll = Random <= Var(59) * 50 + 100
+	;TriggerAll = var(10) = 1 || var(11) = 1
+	triggerall= life <lifemax*0.25
+	triggerall = power >2999	
+	trigger1 = ctrl || StateNo = 21
+	;trigger2 = (StateNo = [200,699])    ;通常キャンセル
+	;trigger2 = var(2) = 1
+	;trigger3 = (StateNo = [1000,1900])  ;必殺キャンセル
+	;trigger3 = var(2) = 1

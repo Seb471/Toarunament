@@ -1,0 +1,92 @@
+[Info]
+name = "Komoe's Appartment"	;‰´‚Ì•”‰®
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = 0
+boundright = 0
+boundhigh = 0
+boundlow = 0
+verticalfollow = .2
+tension = 0
+floortension = 0
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 61
+
+[StageInfo]
+zoffset = 205
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+intensity = 64
+color = 0,0,0
+yscale = 0.4
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/VSPENDEX.mp3
+bgvolume = 255
+
+[BGdef]
+spr = room.sff
+debugbg = 1
+
+[BG 0]
+type  = normal
+spriteno = 0, 0
+layerno = 0                
+start = 0, 0
+delta = .0,.0
+trans = none
+mask  = 0
+tilespacing = 0,0
+window = 0,0, 319, 239
+windowdelta = 0,0
+
+[BG Floor]
+type  = parallax
+spriteno = 0,0
+start = 0, 181
+delta = .78, .75
+xscale = 1, 1.75
+yscalestart = 100
+yscaledelta = 1.2
+
+[BG Wall]
+type  = normal
+spriteno = 0,0
+start = 0, 15
+delta = .8, .75
+mask = 0

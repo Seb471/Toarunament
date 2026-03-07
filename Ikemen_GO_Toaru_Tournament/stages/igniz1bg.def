@@ -1,0 +1,240 @@
+;riginal Zero's Base , ripado por DonRamon  
+;do jogo The King of Fighters 2001
+;Utilizando o emulador NeorageX 0.7 (hack version)
+
+[Info]
+name = "Star Of Bethlehem"
+author = "DonRamon" 
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -216
+boundright = 216
+boundhigh = -8
+boundlow = 0
+verticalfollow = .5
+tension = 50
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 215
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 30,30,30
+yscale = .2
+reflect = 0
+
+[Music]
+bgmusic  = sound/EXTRAORDINARY.mp3
+bgvolume = 200
+
+[BGdef]
+spr = stages/igniz1bg.sff
+debugbg = 1
+
+[BG céu]
+type = normal
+spriteno = 0,1
+start = -328,-8
+delta = 1,1
+tile = 1,0
+velocity = -.3
+mask = 1
+
+[BG raio]
+type = anim
+actionno = 10
+start = -328,30
+delta = 1,1
+tile = 1,0
+velocity = -.3
+tilespacing = 656
+
+[BG fundo]
+type = normal
+spriteno = 0,0
+start = -376,-8
+delta = 1,1
+mask = 1
+
+[BG luz]
+type = anim
+actionno = 2
+start = -72,62
+delta = 1,1
+
+[BG luz2]
+type = anim
+actionno = 3
+start = -76,77
+delta = 1,1
+
+[BG luz3]
+type = anim
+actionno = 4
+start = -231,16
+delta = 1,1
+
+[BG luz4]
+type = anim
+actionno = 5
+start = 230,16
+delta = 1,1
+
+[BG luz5]
+type = anim
+start = -49,146
+actionno = 6
+delta = 1,1
+
+[BG luz6]
+type = anim
+start = -52,189
+actionno = 7
+delta = 1,1
+
+[BG caveira]
+type = anim
+actionno = 1
+start = -38,16
+delta = 1,1
+
+[BG corrimão]
+type = anim
+actionno = 8
+start = -376,143
+delta = 1,1
+
+[BG corrimão2]
+type = anim
+actionno = 9
+start = 375,143
+delta = 1,1
+
+[Begin Action 1]
+1,0, 0,0, 8
+1,1, 0,0, 8
+1,2, 0,0, 8
+1,3, 0,0, 8
+1,4, 0,0, 8
+1,5, 0,0, 8
+1,6, 0,0, 8
+1,7, 0,0, 8
+
+[Begin Action 2]
+2,0, 0,0, 8
+2,1, 0,0, 8
+2,2, 0,0, 8
+2,3, 0,0, 8
+2,4, 0,0, 8
+2,5, 0,0, 8
+2,6, 0,0, 8
+2,7, 0,0, 8
+
+[Begin Action 3]
+3,0, 0,0, 8
+3,1, 0,0, 8
+3,2, 0,0, 8
+3,3, 0,0, 8
+3,4, 0,0, 8
+3,5, 0,0, 8
+3,6, 0,0, 8
+3,7, 0,0, 8
+
+[Begin Action 4]
+4,0, 0,0, 8
+4,1, 0,0, 8
+4,2, 0,0, 8
+4,3, 0,0, 8
+4,4, 0,0, 8
+4,5, 0,0, 8
+4,6, 0,0, 8
+4,7, 0,0, 8
+
+[Begin Action 5]
+4,0, 0,0, 8,H
+4,1, 0,0, 8,H
+4,2, 0,0, 8,H
+4,3, 0,0, 8,H
+4,4, 0,0, 8,H
+4,5, 0,0, 8,H
+4,6, 0,0, 8,H
+4,7, 0,0, 8,H
+
+[Begin Action 6]
+6,0, 0,0, 8
+6,1, 0,0, 8
+6,2, 0,0, 8
+6,3, 0,0, 8
+6,4, 0,0, 8
+6,5, 0,0, 8
+6,6, 0,0, 8
+6,7, 0,0, 8
+
+[Begin Action 7]
+7,0, 0,0, 8
+7,1, 0,0, 8
+7,2, 0,0, 8
+7,3, 0,0, 8
+7,4, 0,0, 8
+7,5, 0,0, 8
+7,6, 0,0, 8
+7,7, 0,0, 8
+
+[Begin Action 8]
+8,0, 0,0, 8
+8,1, 0,0, 8
+8,2, 0,0, 8
+8,3, 0,0, 8
+8,4, 0,0, 8
+8,5, 0,0, 8
+8,6, 0,0, 8
+8,7, 0,0, 8
+
+[Begin Action 9]
+8,0, 0,0, 8,H
+8,1, 0,0, 8,H
+8,2, 0,0, 8,H
+8,3, 0,0, 8,H
+8,4, 0,0, 8,H
+8,5, 0,0, 8,H
+8,6, 0,0, 8,H
+8,7, 0,0, 8,H
+
+[Begin Action 10]
+10,0, 0,0, 8
+10,1, 0,0, 8
+10,2, 0,0, 8
+10,3, 0,0, 8
+11,0, 43,53, 8
+11,1, 43,53, 8
+11,2, 43,53, 8
+11,3, 43,53, 16

@@ -1,0 +1,109 @@
+; BackGround - SB2 Snow Storm 2
+
+; Creator: Chrono_Strife
+; E-Mail: chronostrifeff7h@hotmail.com
+; Updated: January 2010
+
+; Web: FFFury 3.0 - http://members.lycos.co.uk/cstrife
+; Ripped: Super Butouden 2, Particle Illusion
+
+;Thanks to RaiTei, Neocide, and ~Sakamoto Miyu-tan~ for ideas.
+;Thanks to NemesisTheory for the sweet Ice Cap remix.
+;--------------------------------------------------------
+[Info]
+;Name of the stage.
+name = "No More World"
+displayname = "No More World"
+versiondate = 08.02.2010
+mugenversion = 1.1
+author = "DidiGetsRekt"
+
+[Camera]
+startx = 0
+starty = 0
+
+boundleft =  -1000
+boundright = 1000
+boundhigh = -375
+boundlow = 0
+
+tension = 50
+tensionhigh = 60
+tensionlow = 40
+
+zoomout = 0.5
+zoomin = 1
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1400
+rightbound =  1400
+topbound  =  0
+botbound  =  0
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset   = 215
+autoturn  = 1
+HIres = 1
+
+;--------------------------------------------------------
+[Reflection]
+intensity 	= 75 
+
+
+[Shadow]
+color = 0,0,0
+yscale = 0
+intensity = 0
+
+
+;--------------------------------------------------------
+[Music]
+ bgmusic = sound\NOMOREWORLD.mp3
+ bgvolume = 255
+
+;========================================================
+
+; Main background definition
+[BGdef]
+spr = NoMoreWorld.sff
+
+[BG image]
+type  		= normal
+spriteno 	= 3,1
+start 		= -3000,-1000
+delta 		= 2,2
+scalestart = 3,3
+tile = 1000,100
+tilespacing = 0,0
+
+

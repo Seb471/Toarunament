@@ -1,0 +1,72 @@
+<#f0f000>Titbits :</>
+
+Kuroko has a 3 bar meter at the bottom corner
+which is her teleportation gauge.
+Each time she teleports, one of the bars gets used
+and then it will replenish itself.
+Charging up will charge up the gauge faster.
+
+<#f0f000>Movelist :</>
+
+(air OK means it's doable in the air)
+
+Dash				_F_F
+Back Jump			_B_B
+High Jump			_F_UF / _F_F_U
+
+Teleport			_F^LP / _F^X or _B^LP / _B^X
+<#00ff00>Lvl-0.5</>
+Mikoto Summon			^MP / ^Y
+Charge up			^HP / ^Z
+
+
+Punch				^LK / ^A
+(extends to
+_! Second Punch _- Sternum Punch _- Straight
+(^LK^LK^LK / ^A^A^A))
+High Kick			^MK / ^B
+(extends to Low Punch (^MK / ^B))
+Jump Kick			^HK / ^C
+Teleport Upsidedown		^HK / ^C (close to opponent)
+
+Air Kick			^LK / ^A (air)
+Air Palm			^MK / ^B (air)
+(extendable to Air Slap (^MK / ^B))
+Air Thrust Kick			^HK / ^C (air)
+
+Low Palm			^LK / ^A (crouch)
+Low Thrust Palm			^MK / ^B (crouch)
+Low Kick			^HK / ^C (crouch)
+(makes opponent fall)
+
+Teleport Kick			_D_DF_F^K / _D_DF_F^A, ^B or ^C
+Needles				_D_DB_B^K / _D_DB_B^A, ^B or ^C (air OK)
+
+<#00ff00>Lvl-2</>
+EX Teleport Kick		_B_DB_D_DF_F^K / _B_DB_D_DF_F^A, ^B or ^C
+<#00ff00>Lvl-1</>
+EX Needles			_D_DB_B_D_DB_B^K / _D_DB_B_D_DB_B^A, ^B or ^C
+
+<#00ff00>Lvl-3</>
+Railgun				_B_DB_D_DF_F^MP / _B_DB_D_DF_F^Y (air OK)
+<#00ff00>Lvl-4</>
+Railpunch			_F_DF_D_DB_B^MP / _F_DF_D_DB_B^Y (air OK)
+
+10 hit combo v1
+^LK^LK^LK^LK^MK^MK^HK^MK^MK^HK /
+^A^A^A^A^B^B^C^B^B^C
+10 hit combo v2
+^LK^LK^LK^LK^MK^MK^HK^MK^MK_D_DB_B^K /
+^A^A^A^A^B^B^C^B^B_D_DB_B^A, ^B or ^C
+11 hit combo
+^LK^LK^LK^LK^MK^MK^HK^MK^MK^HK_D_DF_F^K /
+^A^A^A^A^B^B^C^B^B^C_D_DF_F^A, ^B or ^C
+
+Credits :
+
+Writting : Seb368
+Patches : Seb368
+
+<#ff1694>PS : If Kuroko gets hit during the Mikoto Summon,
+she gets really excited!
+Also she regens a little bit of health from her Onee-sama!!!</>

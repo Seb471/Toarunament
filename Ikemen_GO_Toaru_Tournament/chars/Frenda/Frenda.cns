@@ -522,14 +522,14 @@ ignorehitpause = 1
 ;Set Bomb mode to remote controlled
 [State -2,初期ゲージ設定]
 	Type= Varset
-	trigger1 = roundsexisted = 0 && roundstate = 0 && roundno = 1;
+	trigger1 = roundsexisted = 0 && roundstate = 0
 	var(3)=1 ; 0〜6000で設定可能 1000単位で1本 デフォルトは1000
 
 
 ;Set Timer to 6 seconds
 [State -2,初期ゲージ設定]
 	Type= Varset
-	trigger1 = roundsexisted = 0 && roundstate = 0 && roundno = 1;
+	trigger1 = roundsexisted = 0 && roundstate = 0
 	var(5)=6 ; 0〜6000で設定可能 1000単位で1本 デフォルトは1000
 
 ;;Coat Protection from everything

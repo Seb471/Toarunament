@@ -3,7 +3,7 @@
 ;EX Missiles Lvl 1
 [Statedef 2000]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 Ctrl = 0
 VelSet = 0,0
@@ -366,6 +366,7 @@ pausetime = 0 ,2
 sparkno = S7011
 guard.sparkno = S10000
 sparkxy = 0,0
+guard.dist=0
 ;hitsound = S1,0
 ;guardsound = S2,0
 ground.type = High      ;Low,Trip,None
@@ -404,6 +405,7 @@ guardflag = MA         ;HLA
 animtype = Hard         ;light,medium,hard,back,up,diagup
 air.animtype = Hard
 damage = 10,5
+guard.dist=0
 pausetime = 0 ,2
 ;guard.pausetime = 0,0
 sparkno = S7011
@@ -779,7 +781,7 @@ ignorehitpause = 1
 ;EX Missiles Lvl 1
 [Statedef 2100]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = N
 Ctrl = 0
 VelSet = 0,0
@@ -1222,9 +1224,11 @@ persistent=0
 
 [State ]
 Type = StateTypeSet
+triggerall=anim=2200
 Trigger1 = AnimElem = 2, = 1
 StateType = A
 Physics = N
+persistent=0
 
 [State 200,???]
 		Type=PlaySnd
@@ -1299,6 +1303,16 @@ Trigger1=Vel Y >0
 x=0
 y = 0
 
+[State ]
+Type = StateTypeSet
+trigger1=anim!=2200
+Trigger1=Pos Y>=0
+Trigger1=Vel Y >=0
+StateType = S
+Physics = N
+ignorehitpause=1
+
+
 [State 200,???]
 		Type=PlaySnd
 		Trigger1=AnimElem=4
@@ -1335,7 +1349,7 @@ Ctrl = 1
 ;2300 Explode All
 [Statedef 2300]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 anim = 2300
 Ctrl = 0
@@ -1704,7 +1718,7 @@ persistent=0
 ;2600 Ignis Setup Lv2 
 [Statedef 2600]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 Ctrl = 0
 VelSet = 0,0
@@ -2393,7 +2407,7 @@ ignorehitpause = 1
 ;2800 Lots of Missiles Lvl2
 [Statedef 2800]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 Ctrl = 0
 VelSet = 0,0

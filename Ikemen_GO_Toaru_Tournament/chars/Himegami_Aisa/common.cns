@@ -1927,7 +1927,7 @@ x = 0
 
 [State 5120, 3]
 type = NotHitBy
-trigger1 = 1
+trigger1 = time>=20
 value = SCA
 time = 1
 

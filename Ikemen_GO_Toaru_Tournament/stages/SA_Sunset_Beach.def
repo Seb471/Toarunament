@@ -1,0 +1,190 @@
+;----------------------------------------------------------------------
+[Info]
+name 		= "Sunset At The Beach"
+fullname 	= "Sunset At The Beach"
+related chars 	= Asterion & Moses
+
+author 		= "Sanctuary Soldiers"
+sprites		= MÅE& McCready 
+code 		= MÅE& HDP
+
+versiondate 	= 25,10,2013
+mugenversion 	= 1.1
+notes 		= First release 10,01,2009
+
+www.sanctuarysoldiers.com
+Do not use without authorization.
+;----------------------------------------------------------------------
+
+[Camera]
+startx 		= 0
+starty 		= 0
+boundleft 	= -386
+boundright 	= 386
+boundhigh 	= -38
+boundlow 	= 0
+verticalfollow 	= 0.6
+floortenstion 	= 10
+tensionhigh 	= 120
+tensionlow 	= 0
+tension 	= 50
+overdrawhigh 	= 0
+overdrawlow 	= 0
+startzoom 	= 1
+zoomout 	= 0.75
+zoomin 		= 1
+
+[PlayerInfo]
+p1startx 	= -70
+p1starty 	= 0
+p1facing 	= 1
+p2startx 	= 70
+p2starty 	= 0
+p2facing 	= -1
+leftbound  	= -1000
+rightbound 	=  1000
+
+[Bound]
+screenleft 	= 15
+screenright 	= 15
+ 
+[StageInfo]
+zoffset 	= 222
+autoturn 	= 1
+resetBG 	= 1
+localcoord 	= 320, 240
+xscale 		= 1
+yscale 		= 1
+
+[Shadow]
+intensity 	= 200
+color 		= 100,50,50
+yscale 		= 0.5
+
+[Music]
+bgmusic 	= sound/BOUSOU.mp3
+bgvolume 	= 255
+
+[BGdef]
+spr 		= stages/SA_Sunset_Beach.sff
+debugbg 	= 0
+
+[BG Sky]
+type  		= normal
+spriteno 	= 0,1
+start 		= 588,-112
+delta 		= .65,1
+mask 		= 0
+tile 		= 1,0
+velocity 	= -.1,0
+
+[BG Beach]
+type  		= anim
+actionno 	= 1
+start 		= -600,165
+delta 		= 1,1
+mask 		= 1
+[Begin Action 1]
+1,0, 0,0, 15
+1,1, 0,0, 15
+1,2, 0,0, 15
+1,3, 0,0, 20
+1,4, 0,0, 20
+1,5, 0,0, 20
+
+[BG Sun]
+type  		= normal
+spriteno 	= 2,0
+start 		= -80,47
+delta 		= .6,1
+trans 		= add
+mask 		= 1
+
+[BG Cloud]
+type  		= normal
+spriteno 	= 4,0
+start 		= 0,89
+delta 		= .7,1
+tile 		= 1,0
+velocity	= -.12,0
+mask 		= 1
+
+[BG Sun Reflects]
+type  		= normal
+spriteno 	= 3,0
+start 		= -80,47
+delta 		= .6,1
+trans 		= add
+mask 		= 1
+
+[BG Cloud Reflects]
+type  		= normal
+spriteno 	= 5,0
+start 		= 0,165
+delta 		= .7,1
+trans 		= add
+tile 		= 1,0
+velocity 	= -.12,0
+mask 		= 1
+
+[BG Cross Shadow]
+type  		= normal
+spriteno 	= 8,0
+start 		= -231,178
+delta 		= .9,1
+trans 		= sub
+mask 		= 1
+
+[BG Cross]
+type  		= anim
+actionno 	= 6
+start 		= -170,143
+delta 		= .9,1
+mask 		= 1
+[Begin Action 6] 
+6,0, 0, 0,28,H
+6,1, 0, 0,15,H
+6,2, 0, 0,20,H
+6,1, 0, 0,15,H
+6,0, 0, 0,34,H
+6,1, 0, 0,15,H
+6,2, 0, 0,20,H
+6,1, 0, 0,15,H
+6,0, 0, 0,20,H
+6,1, 0, 0,15,H
+6,2, 0, 0,20,H
+6,1, 0, 0,15,H
+6,0, 0, 0,25,H
+6,1, 0, 0,15,H
+6,3, 0, 0,18,H
+6,1, 0, 0,15,H
+
+[BG Cross Light]
+type  		= normal
+spriteno 	= 7,0
+start 		= -199,141
+delta 		= .9,1
+trans 		= add
+mask 		= 1
+
+[BG Filter0]
+type 		= normal
+spriteno 	= 9,0
+start 		= 0,0
+trans 		= add
+layerno 	= 0
+mask 		= 1
+tile 		= 1,1
+
+[BG Filter1]
+type 		= normal
+spriteno 	= 9,0
+start 		= 0,0
+trans 		= sub
+layerno 	= 1
+mask 		= 1
+tile 		= 1,1
+
+www.sanctuarysoldiers.com
+Do not use without authorization.
+;--------------------------------------------------------

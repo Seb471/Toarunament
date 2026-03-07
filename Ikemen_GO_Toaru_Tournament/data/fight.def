@@ -1171,14 +1171,14 @@ p2.perfect.scale = 0.5,0.5
 useiconupto = 4
 
 ;-----------------------------------------------------------
-; Ikemen feature
+
 [WinCount]
-p1.pos = 141,8
+p1.pos = 141,58
 ;p1.bg.spr = 
 p1.text.font = 3,0, -1
 p1.text.text = WINS %s
 
-p2.pos = 178,8
+p2.pos = 178,58
 ;p2.bg.spr = 
 p2.text.font = 3,0, 1
 p2.text.text = WINS %s
