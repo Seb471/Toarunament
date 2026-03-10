@@ -511,7 +511,7 @@ var(22) = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 3
+trigger1 = animelem = 5
 trigger1 = var(21) = 1
 helpertype = normal ;player
 name = "fire"
@@ -527,7 +527,7 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 3
+trigger1 = animelem = 5
 trigger1 = var(21) = 2
 helpertype = normal ;player
 name = "water"
@@ -1330,7 +1330,7 @@ var(1)=0
 		Guard.cornerpush.veloff=-10
 		Air.cornerpush.veloff=0
 		AirGuard.cornerpush.veloff=0
-		Yaccel=0.45
+		Yaccel=0.5
 		fall=1
 		fall.recover=0
 

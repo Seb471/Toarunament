@@ -73,7 +73,7 @@ ignorehitpause if !isHelper {
 				id: 1296512517;
 				anim: F 1296512517;
 				postype: left;
-				pos: (gameWidth/2),5;
+				pos: (screenWidth/2),5;
 				facing: -1;
 				scale: 0.0625,0.0625;
 				ownpal: 1;
@@ -86,7 +86,7 @@ ignorehitpause if !isHelper {
 				id: 1296512514;
 				anim: F 1296512514;
 				postype: left;
-				pos: (gameWidth/2)-18.625,4;
+				pos: (screenWidth/2)-18.625,4;
 				ownpal: 1;
 			}	
 		}
@@ -105,7 +105,7 @@ ignorehitpause if !isHelper {
 				id: 1296512515;
 				anim: F 1296512515;
 				postype: left;
-				pos: (gameWidth/2)+18.625,4;
+				pos: (screenWidth/2)+18.625,4;
 				facing: -1;
 				ownpal: 1;
 			}	
@@ -125,7 +125,7 @@ ignorehitpause if !isHelper {
 				id: 1296512516;
 				anim: F 1296512516;
 				postype: left;
-				pos: (gameWidth/2),5;
+				pos: (screenWidth/2),5;
 				facing: -1;
 				scale: 0.5,0.5;
 				ownpal: 1;
@@ -137,7 +137,7 @@ ignorehitpause if !isHelper {
 			modifyExplod{
 				id: 1296512517;
 				postype: left;
-				pos: (gameWidth/2)+(map(lifeLeadP1)-1)*18.625,5;
+				pos: (screenWidth/2)+(map(lifeLeadP1)-1)*18.625,5;
 			}
 		}
 	}
