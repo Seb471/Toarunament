@@ -104,7 +104,7 @@ volumescale = 50
 
 [State 0, Explod]
 type = Explod
-triggerall = !movereversed
+triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 anim = 1606
 ID = 1606
@@ -404,7 +404,7 @@ value = 2626
 
 [State 0, PalFX]
 type = PalFX
-trigger1 = anim=221
+trigger1 = anim=2626
 time = 1
 ;add = 0,0,0
 mul = 256,200,180
@@ -440,67 +440,52 @@ pos = -facing *(enemynear,pos x - root,pos x),root,pos y + enemynear, pos y-60
 		ignorehitpause=1
 
 
-[State 200, 1]
-type = null
-trigger1 = !movecontact
-trigger1 = !movereversed
-attr = S, NP                     ;Attribute: Standing, Normal Attack
-damage = Ceil(65*parent,fvar(0)), 0                   ;Damage that move inflicts, guard damage
-animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
-guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAF                    ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
-pausetime = 8, 4                 ;Time attacker pauses, time opponent shakes
-sparkno = -1                   ;Spark anim no (Def: set above)
-Guard.SparkNo=S6100
-Sparkxy=-20,floor(-20*const(Size.yScale))
-;Y-offset for the spark rel. to p1
-HitSound=S1,12               ;Sound to play on hit
-GuardSound=S1,0                ;Sound to play on guard
-Ground.Type=High
-		Ground.SlideTime=12
-		Ground.HitTime=10
-		Guard.SlideTime=11
-		Guard.HitTime=10
-		Air.HitTime=10
-		Ground.velocity=-3.25
-		AirGuard.velocity=-3.25,.8
-		Air.Type=High
-		Air.velocity=-1.9,-3 ;X-velocity at which opponent is pushed,
-Fall.RecoverTime=8+10
-;Y-velocity at which opponent is pushed
-air.hittime = 15                 ;Time before opponent regains control in air
-getpower = 20,10
-GivePower = 20,10
-ground.cornerpush.veloff = 0
-Air.cornerpush.veloff= 0
-EnvShake.Time = 16
-EnvShake.Ampl = 3
-EnvShake.Freq = 90
+
+
+[State 210, 2]
+type = HitDef
+triggerall = ishelper(2625)
+triggerall=!movecontact && !movereversed
+trigger1 = time = 0
+attr = A, NP
+animtype  = Hard
+damage    = Ceil(60*root,fvar(0)),6
+guardflag = MA
+pausetime = 2,3
+sparkno = -1
+guard.sparkno=-1
+sparkxy = -10,-70
+hitsound   = -1;S20,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 19
+ground.hittime  = 22
+guard.slidetime = 15+8*(time<15)
+guard.hittime  = 16+8*(time<15)
+ground.velocity = -5.5
+air.velocity = -2.5,-3.5
+air.fall=1
+fall.recover=1
+fall.recovertime=45
 palfx.time = 60
 Palfx.Mul =  255,255,255
-Palfx.Add = -30,-130,-130
-Palfx.SinAdd = 100,30,30,6
-fall=1
-sprpriority=4
+Palfx.Add = -30,-30,-30
+Palfx.SinAdd = 100,100,100,6
+ground.cornerpush.veloff = 0
+yaccel =.40+parent,fvar(11)*.00066
+GetPower=15,11
+GivePower=9,6
+id=5600
 
-;GuardSpark
-[State 200, 線形ヒットエフェ]
-		type = null
-		trigger1 = moveguarded =1
-		trigger1=!movereversed
-		stateno=6035
-		id=6035
-		postype = p2
-		Pos = 30,floor(-50*const(Size.yScale))
-		pausemovetime = 999
-		supermovetime = 999
-		ownpal = 1
-		;scale = 0.5,0.5
-		sprpriority = 9
-		;persistent = 0
-		ignorehitpause = 1
+
+[State 1450]
+type = targetstate
+trigger1 = numtarget(5600)=1
+trigger1 = movehit
+trigger1 = enemy, stateno!=[5599,5603]
+value = 5599
+IgnoreHitPause = 1
+Persistent = 1
 
 [State -2,壁吹き飛ばし]
 	type = null
@@ -1692,9 +1677,8 @@ trigger1 = time=30
 [Statedef 24011]
 type	 = A
 movetype = A
-anim	 = 24011
+anim	 = 240110+ishelper(240111)
 sprpriority = 3
-
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1705,13 +1689,15 @@ ignorehitpause = 1
 
 [State 240]
 type = HitDef
-Trigger1 =  1
+triggerall=!movecontact && !movereversed
+trigger1 = time = 0
 attr = S, SP 
 AnimType  = Hard
-Damage    = Ceil(75*root,fvar(0)), 5   
+Damage    = Ceil((75+5*ishelper(240111))*root,fvar(0)), 7+ishelper(240111)   
 HitFlag = MAF
 GuardFlag = HA
 PauseTime = 5,10
+guard.PauseTime = 5,15
 sparkno = -1
 guard.sparkno = -1
 hitsound = -1
@@ -1791,7 +1777,8 @@ trigger1 = animtime = 0
 [Statedef 24012]
 type	 = C
 movetype = A
-anim	 = 24012
+anim	 = 240120+ishelper(240121)
+sprpriority = 3
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1805,11 +1792,12 @@ type = HitDef
 triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = C, SP
-damage    = Ceil(75*root,fvar(0)), 5
+Damage    = Ceil((75+5*ishelper(240121))*root,fvar(0)), 7+ishelper(240121)  
 animtype = Hard
 hitflag = MAF;MAFD
 guardflag = LA
 pausetime = 5,10
+guard.PauseTime = 5,15
 sparkno = -1
 guard.sparkno = -1
 hitsound = -1
@@ -1925,7 +1913,7 @@ trigger1 = parent,stateno!=[1000,1500]
 [Statedef 24014]
 type	 = A
 movetype = A
-anim	 = 24014
+anim	 = 240140+ishelper(240141)
 sprpriority = 3
 
 [State 0, PlaySnd]
@@ -1934,7 +1922,6 @@ trigger1=time=0
 value = 24000,4
 ignorehitpause = 1
 ;persistent = 
-y = 0
 
 [State 6131, NoHitBy]
 type = NotHitBy
@@ -1955,12 +1942,14 @@ ignorehitpause = 1
 
 [State 6131 , 4]
 type = HitDef
-trigger1 = time=0
+triggerall=!movecontact && !movereversed
+trigger1 = time = 0
 attr = A, SP 
-damage    = Ceil(75*root,fvar(0)), 5
+Damage    = Ceil((75+5*ishelper(240141))*root,fvar(0)), 7+ishelper(240141)  
 ;getpower = 110,45
 animtype = Hard
 pausetime = 5,10
+guard.PauseTime = 5,15
 hitflag		  = MAF
 guardflag = MA
 sparkno=-1
@@ -1996,14 +1985,14 @@ y = 0
 type = VelSet
 triggerall = time = 0
 trigger1 = parent,stateno=[1200,1299]
-x = 2
+x = 1.5
 y = 0
 
 [State 670, 移動速度]
 type = VelSet
 triggerall = time = 0
 trigger1 = parent,stateno=[1300,1399]
-x = 10
+x = 10.5
 y = 0
 
 [State 670, 移動速度]
@@ -2011,6 +2000,7 @@ type = VelSet
 triggerall = time = 0
 trigger1 = parent,stateno=[1400,1499]
 x = 6
+y = 0
 
 [State 0, ParentVarAdd]
 type = ParentVarSet
@@ -2045,7 +2035,7 @@ trigger3 = movereversed
 [Statedef 24015]
 type	 = A
 movetype = A
-anim	 = 24015
+anim	 = 240150+ishelper(240141)
 sprpriority = 3
 velset = 0,0
 

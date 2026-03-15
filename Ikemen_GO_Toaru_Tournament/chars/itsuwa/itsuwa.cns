@@ -265,16 +265,19 @@ value = 1.+0.25*(var(20)=3 || (var(20)=0 && var(21)=3))+0.25*(numhelper(24013)>0
 type = VarSet
 trigger1 = stateno=[5000,5999]
 trigger1 = var(22) = 1
-var(20) = 0    ;fv = 10
+v = 20
+value = 0    ;fv = 10
 ;ignorehitpause = 
 ;persistent = 
-;Reset to current sigil
 
+;Reset to current sigil
 [State 0, VarSet]
 type = VarSet
+triggerall = var(22)!=0
 trigger1 = stateno!=[1000,1500]
-trigger1 = var(22)!=0
-var(22) = 0    ;fv = 10
+trigger1 = stateno!=[2000,2500]
+v = 22
+value = 0    ;fv = 10
 ;ignorehitpause = 
 ;persistent = 
 
@@ -282,7 +285,8 @@ var(22) = 0    ;fv = 10
 [State 0, VarSet]
 type = VarSet
 trigger1 = stateno=[5000,5999]
-var(21) = var(20)    ;fv = 10
+v = 21
+value = var(20)    ;fv = 10
 ;ignorehitpause = 
 ;persistent = 
 
@@ -404,10 +408,14 @@ sysvar(4) = 0
 ;‰¡‚Á”ò‚ÑŒƒ“Ëƒ{ƒCƒX
 [State -2]
 Type = Helper
-Trigger1 = helper(1605),NumHelper(5605) = 0
-Trigger1 = helper(1605),NumTarget(5600) > 0
-Trigger1 = helper(1605),Target(5600),Time = 1
-Trigger1 = helper(1605),Target(5600),StateNo = 5602 || helper(1605),Target(5600),StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
+Trigger1 = NumHelper(5605) = 0
+Trigger1 = NumTarget(5600) > 0
+Trigger1 = Target(5600),Time = 1
+Trigger1 = Target(5600),StateNo = 5602 || Target(5600),StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
+Trigger2 = helper(1605),NumHelper(5605) = 0
+Trigger2 = helper(1605),NumTarget(5600) > 0
+Trigger2 = helper(1605),Target(5600),Time = 1
+Trigger2 = helper(1605),Target(5600),StateNo = 5602 || helper(1605),Target(5600),StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
 StateNo = 5605
 PosType = P1
 Pos = 0, 0
@@ -416,11 +424,16 @@ ID = 5605
 
 [State -2]
 Type = Explod
-Trigger1 = helper(1605),NumTarget(5600) > 0
-Trigger1 = helper(1605),Target(5600),Time >= 4
-Trigger1 = helper(1605),Target(5600),Time%6 = 4
-Trigger1 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
-Trigger1 =helper(1605), Target(5600),Pos Y >= -45
+Trigger1 = NumTarget(5600) > 0
+Trigger1 = Target(5600),Time >= 4
+Trigger1 = Target(5600),Time%6 = 4
+Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
+Trigger1 = Target(5600),Pos Y >= -45
+Trigger2 = helper(1605),NumTarget(5600) > 0
+Trigger2 = helper(1605),Target(5600),Time >= 4
+Trigger2 = helper(1605),Target(5600),Time%6 = 4
+Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
+Trigger2 = helper(1605), Target(5600),Pos Y >= -45
 Anim = 15602
 ID = 15602
 Postype = P2
@@ -435,11 +448,16 @@ PauseMoveTime = 9999
 
 [State -2]
 Type = Explod
-Trigger1 = helper(1605),NumTarget(5600) > 0
-Trigger1 = helper(1605),Target(5600),Time >= 4
-Trigger1 = helper(1605),Target(5600),Time%6 = 4
-Trigger1 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
-Trigger1 = helper(1605),Target(5600),Pos Y >= -45
+Trigger1 = NumTarget(5600) > 0
+Trigger1 = Target(5600),Time >= 4
+Trigger1 = Target(5600),Time%6 = 4
+Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
+Trigger1 = Target(5600),Pos Y >= -45
+Trigger2 = helper(1605),NumTarget(5600) > 0
+Trigger2 = helper(1605),Target(5600),Time >= 4
+Trigger2 = helper(1605),Target(5600),Time%6 = 4
+Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
+Trigger2 = helper(1605), Target(5600),Pos Y >= -45
 Anim = 15600
 ID = 15600
 Postype = P2
@@ -455,11 +473,15 @@ PauseMoveTime = 9999
 [State -2]
 Type = Explod
 Trigger1 = NumTarget(5600) > 0
-Trigger1 = Var(44) = 0
 Trigger1 = Target(5600),Time >= 4
 Trigger1 = Target(5600),Time%6 = 4
 Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
 Trigger1 = Target(5600),Pos Y >= -45
+Trigger2 = helper(1605),NumTarget(5600) > 0
+Trigger2 = helper(1605),Target(5600),Time >= 4
+Trigger2 = helper(1605),Target(5600),Time%6 = 4
+Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
+Trigger2 = helper(1605), Target(5600),Pos Y >= -45
 Anim = 15601
 ID = 15601
 Postype = P2
@@ -495,3 +517,4 @@ value = 105, 0
 ;var(20) is the current sigil
 ;var(21) is the sigil to launch
 ;var(22) is the sigil hurt blocker
+;var(23) is jump variable

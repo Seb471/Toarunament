@@ -739,6 +739,23 @@ sprPriority=1
 velset=0,0
 Ctrl=0
 
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1300
+v = 20    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1300
+v = 21    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+
 [State -1,使用制限]
 Type=Varadd
 Trigger1=time=0
@@ -809,6 +826,22 @@ Anim=115
 sprPriority=1
 velset=0,0
 Ctrl=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1300
+v = 20    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1300
+v = 21    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
 
 [State -1,使用制限]
 Type=Varadd

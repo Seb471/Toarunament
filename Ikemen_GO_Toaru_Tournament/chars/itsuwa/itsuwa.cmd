@@ -456,7 +456,40 @@ trigger2 = stateno = [0,160]
 var(1) = 0
 ignorehitpause=1
 
-[State -1,214c]
+[State -1,623_c]
+type = Changestate
+value = 2320
+triggerall = command = "623_c"
+triggerall=stateno!=3000
+triggerall=stateno!=2320
+;triggerall=power>=2000
+triggerall = statetype!=A
+trigger1=ctrl
+trigger2=var(1)
+
+[State -1,236_c]
+type = Changestate
+value = 2120
+triggerall = command = "236_c"
+triggerall=stateno!=3000
+triggerall=stateno!=2120
+;triggerall=power>=2000
+triggerall = statetype!=A
+trigger1=ctrl
+trigger2=var(1)
+
+[State -1,236_c (air)]
+type = Changestate
+value = 2220
+triggerall = command = "236_c"
+triggerall=stateno!=3000
+triggerall=stateno!=2220
+;triggerall=power>=2000
+triggerall = statetype=A
+trigger1=ctrl
+trigger2=var(1)
+
+[State -1,214_c]
 type = Changestate
 value = 2020
 triggerall = command = "214_c"
@@ -501,7 +534,7 @@ trigger1 = ctrl
 trigger2 = var(1) && stateno=[200,499]
 anim = 1500+(command="22_b")+2*(command="22_c")
 
-[State -1, 623_a]
+[State -1, aab]
 type = ChangeState
 value = 1400
 triggerall = command = "aab"

@@ -808,6 +808,106 @@ type = SelfState
 trigger1 = pos y > -vel y
 value = 5100
 
+;---Hit Pause---
+[StateDef 2240]
+type = A
+movetype = H
+physics = N
+sprpriority=1
+
+[State 1230, ChangeAnim2]
+type = Changeanim2
+trigger1 = !SelfAnimExist(5012)
+value = 5012
+
+[State 1230, ChangeAnim]
+type = ChangeAnim
+trigger1 = SelfAnimExist(5012)
+value = 5012
+
+[State 1230, ChangeAnim]
+type = ChangeAnim
+trigger1 = 1
+value = anim
+
+[State 1230, PosFreeze]
+type = PosFreeze
+trigger1 = HitShakeOver=0
+value = 1
+
+[State 1230, VelSet]
+type = VelSet
+trigger1 = 1
+x = -1.5
+y = 15
+
+[State 1230, ChangeState]
+type = ChangeState
+trigger1 = pos y > -vel y && HitShakeOver = 1
+value = 2241
+
+[StateDef 2241]
+type = A
+movetype = H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State 1231]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1231, EnvShake]
+type = EnvShake
+trigger1 = !time
+time = 14
+ampl = 6
+ignorehitpause =1
+
+[State 1231, VelSet]
+type = VelSet
+trigger1 = time = 4
+x = -1.5
+y = -10.5
+
+[State 1231, VelAdd]
+type = Veladd
+trigger1 = Time > 3
+y = 0.58
+
+[State 1231, ChangeAnim2]
+type = Changeanim2
+trigger1 =! SelfAnimExist(5100) && !Time
+value = 5100
+
+[State 1231, ChangeAnim]
+type = Changeanim
+trigger1 = SelfAnimExist(5100) && !Time
+value = 5100
+
+[State 1231, ChangeAnim2]
+type = Changeanim2
+trigger1 =! SelfAnimExist(5035) && Time = 4
+value = 5035
+
+[State 1231, ChangeAnim]
+type = Changeanim
+trigger1 = SelfAnimExist(5035) && Time = 4
+value = 5035
+
+[State 1231, 1] ;Change anim when done with transition
+type = ChangeAnim
+trigger1 = AnimTime = 0
+trigger1 = Anim = 5035
+trigger1 = SelfAnimExist(5050)
+value = 5050
+
+[State 1231, SelfState]
+type = SelfState
+trigger1 = pos y > -vel y
+value = 5100
+
 ;---------------------------------------------------------------------------
 ;Ground Bounce Normals
 ;---------------------------------------------------------------------------

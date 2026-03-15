@@ -1,13 +1,14 @@
 - Training mode attack data x
 - Training mode input display x
 - Trials mode x
+- Palette selector ?
 
 - Itsuwa
 - Frenda X
 - all jabs have facep2 to not have infinites
 - add another way of grab teching
 - add alternative half circle inputs
-- added just defend (only gains meter, no hp)
+- added just defend (only gains meter, no hp) x
 - changed input/invul data for cancel assault, and it now costs 0.5 instead of 1 bar x
 - changed guard cancel's and pushblock's input to be with x+a x
 - changed the meter cost of guard cancel to be 1 bar instead of 0.5 and added the possibility to combo from it x

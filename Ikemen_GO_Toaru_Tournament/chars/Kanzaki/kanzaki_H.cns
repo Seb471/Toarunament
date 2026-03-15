@@ -177,7 +177,7 @@ absolute = 0
 type = SuperPause
 trigger1 = animelem=1
 time = 50
-movetime = 8
+movetime = 11
 anim = -1
 sound = -1
 pos = 0,0
@@ -207,6 +207,16 @@ PosType = P1
 Ownpal = 1
 SuperMoveTime = 9999
 PauseMoveTime = 9999
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelemtime(4)=0
+value = SCA
+;value2 = S,NA
+time = 10
+;ignorehitpause = 
+;persistent = 
+
 
 
 [State 230,V1=0]
