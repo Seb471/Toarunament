@@ -5,7 +5,7 @@
 	Name         = "Himegami Aisa"  ;キャラクターの名前（必要な項目なので省略不可）
 	DisplayName  = "Himegami Aisa"  ;M.U.G.E.Nで実際に表示される名前（省略可能）
 	VersionDate  = 05,05,2021    ;キャラクターの最終更新日（変えなくてもＯＫ）
-	MugenVersion = 09,26,2010     ;キャラクターが動作出来るM.U.G.E.Nの改訂版
+	MugenVersion = 1.1     ;キャラクターが動作出来るM.U.G.E.Nの改訂版
 	Author       = "wolf, DidiGetsRekt"     ;キャラクターの作成者（必要な項目なので省略不可）
 	Pal.Defaults = 2,3,4,5        ;ＣＰＵで出てきた時のカラーパレットの順番
 

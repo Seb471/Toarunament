@@ -459,13 +459,16 @@ teammenu.itemname.simul = Simul   ;Ikemen feature
 teammenu.itemname.turns = Turns   ;Ikemen feature
 teammenu.itemname.ratio = Ratio   ;Ikemen feature
 
-timer.enabled = 0                 ;Ikemen feature
-timer.offset = 9999,9999           ;Ikemen feature
-timer.font = 2, 0, 0              ;Ikemen feature
-timer.font.scale = 1.0, 1.0       ;Ikemen feature
-timer.count = 99                  ;Ikemen feature
+timer.enabled = 1                 ;Ikemen feature
+timer.offset = 320,50           ;Ikemen feature
+timer.font = 10, 0, 0              ;Ikemen feature
+timer.font.scale = 2.0, 2.0       ;Ikemen feature
+timer.font.text = "%i"
+timer.count = 999                  ;Ikemen feature
 timer.framespercount = 60         ;Ikemen feature
 timer.displaytime = 10            ;Ikemen feature
+
+
 
 [Begin action 1]
 160,0,0,0,4

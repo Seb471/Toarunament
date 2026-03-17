@@ -5,7 +5,7 @@
 	Name         = "Suzushina Yuriko"  ;キャラクターの名前（必要な項目なので省略不可）
 	DisplayName  = "Suzushina Yuriko"  ;M.U.G.E.Nで実際に表示される名前（省略可能）
 	VersionDate  = 01,18,2011     ;キャラクターの最終更新日（変えなくてもＯＫ）
-	MugenVersion = 01,18,2011     ;キャラクターが動作出来るM.U.G.E.Nの改訂版
+	MugenVersion = 1.1     ;キャラクターが動作出来るM.U.G.E.Nの改訂版
 	Author       = "wolf"     ;キャラクターの作成者（必要な項目なので省略不可）
 	Pal.Defaults = 2,1        ;ＣＰＵで出てきた時のカラーパレットの順番
 

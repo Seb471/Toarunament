@@ -159,10 +159,7 @@ empty
 Hamazura,order=4
 empty ;Saten
 empty
- slot = {
-S_Yuriko,previous = d, next = w,  order = 7
-S_YurikoOLD,previous = d, next = w,  order = 7
-}
+S_Yuriko,order = 7
 
 
 Kamisato, order = 2

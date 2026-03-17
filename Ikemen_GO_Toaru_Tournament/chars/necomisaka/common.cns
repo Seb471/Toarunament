@@ -2792,6 +2792,12 @@ type = VarRangeSet
 trigger1 = roundsexisted = 0
 fvalue = 0
 
+[State 5900, 3] ;Change palette
+type = RemapPal
+trigger1 = 1
+source = 1,1
+dest = 1,palno
+
 [State 5900, 3] ;Intro for round 1
 type = ChangeState
 trigger1 = roundno = 1
