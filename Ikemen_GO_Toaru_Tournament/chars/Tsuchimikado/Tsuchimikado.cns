@@ -1091,7 +1091,7 @@ value = S5000,0+(random%5)
 volume = 255
 channel = 0
 
-;aura ?
+;aura
 [State -3]
 Type = Helper
 Triggerall = NumHelper(999) <= 8
@@ -1100,6 +1100,7 @@ trigger2 = stateno = [3000,3010]
 trigger3 = var(20)
 StateNo = 999
 ID = 999
+name = "aura"
 Ownpal = 1
 Keyctrl = 0
 SprPriority = -5

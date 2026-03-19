@@ -856,7 +856,7 @@ Pos = 0,0
 type = AngleDraw
 trigger1 = 1
 ;value = 1
-scale = 1+time*0.0078125, 1+time*0.0078125
+scale = 1+time*(0.0078125*(1+(root,var(28)=1))), 1+time*(0.0078125*(1+(root,var(28)=1)))
 ;ignorehitpause = 
 ;persistent = 
 ;+0.125*(sin((gametime%600)/600*2*pi)+1)
@@ -871,29 +871,33 @@ Alpha = 256-time*32,time*32
 
 [State -1]
 Type = palfx
-Trigger1 = parent,var(20)=1
-trigger2 = parent,var(20)=0 && parent,var(21)=1
+Trigger1 = root,var(27)=1
+Trigger2 = root,var(27)=5
+Trigger2 = gametime%4=0
 Time = 1
 Add = 256,0,0
 
 [State -1]
 Type = palfx
-Trigger1 = parent,var(20)=2
-trigger2 = parent,var(20)=0 && parent,var(21)=2
+Trigger1 = root,var(27)=2
+Trigger2 = root,var(27)=5
+Trigger2 = gametime%4=1
 Time = 1
 Add = 0,0,256
 
 [State -1]
 Type = palfx
-Trigger1 = parent,var(20)=3
-trigger2 = parent,var(20)=0 && parent,var(21)=3
+Trigger1 = root,var(27)=3
+Trigger2 = root,var(27)=5
+Trigger2 = gametime%4=2
 Time = 1
 Add = 0,256,0
 
 [State -1]
 Type = palfx
-Trigger1 = parent,var(20)=4
-trigger2 = parent,var(20)=0 && parent,var(21)=4
+Trigger1 = root,var(27)=4
+Trigger2 = root,var(27)=5
+Trigger2 = gametime%4=3
 Time = 1
 Add = 128,128,0
 
@@ -1563,7 +1567,7 @@ ignorehitpause = 1
 [State 30000] 
 type = Explod
 trigger1 = numexplod(24000) = 0
-anim = 24000+ifelse(parent,var(20)>0,parent,var(20),parent,var(21))
+anim = 24000+cond(root,var(27)!=5,root,var(27),((time%4+1)));/4)+1)
 ID = 24000
 pos = ifelse(teamside=1,37.5,320-37.5), 37.5
 postype = left
@@ -1575,12 +1579,52 @@ sprpriority = 5
 scale = 0.5,0.5
 ownpal = 1
 ignorehitpause = 1
+vfacing = -1
+facing = 1-(teamside=2)*2
+
+;super sigil remove
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = numexplod(24001)=1
+trigger1 = !root,var(28)
+id = 24001
+ignorehitpause = 1
+;persistent = 
+
+;super sigil modify
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = numexplod(24001)=1
+ID = 24001
+anim = 24000+cond(root,var(27)!=5,root,var(27),((time%4+1)))
+
+;super sigil thing
+[State 30000] 
+type = Explod
+trigger1 = numexplod(24001) = 0
+trigger1 = root,var(28)
+anim = 24000+cond(root,var(27)!=5,root,var(27),((time%4+1)));/4)+1)
+ID = 24001
+pos = ifelse(teamside=1,37.5,320-37.5), 37.5
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5
+scale = 0.5625,0.5625
+ownpal = 1
+ignorehitpause = 1
+vfacing = -1
+facing = 1-(teamside=2)*2
 
 ;Pentagram
-[Statedef 24005]
-anim = 24005
+[Statedef 24006]
+anim = 24006
 type = U
 sprpriority = 5
+
+
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1610,10 +1654,19 @@ alpha = 256-ceil(time*256/30),ceil(time*256/30)
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = time=0
+v =  20   ;fv = 
+value = ishelper(24001)+2*ishelper(24002)+3*ishelper(24003)+4*ishelper(24004)+5*ishelper(24005)
+;ignorehitpause = 
+;persistent = 
+
 [State 0, PalFX]
 type = PalFX
-triggerall = time=0
-trigger1 = numhelper(24001)
+trigger1 = ishelper(24001)
+trigger2 = ishelper(24005)
+trigger2 = gametime%4 = 0
 time = 30
 add = 256,0,0
 mul = 256,256,256
@@ -1625,8 +1678,9 @@ color = 256
 
 [State 0, PalFX]
 type = PalFX
-triggerall = time=0
-trigger1 = numhelper(24002)
+trigger1 = ishelper(24002)
+trigger2 = ishelper(24005)
+trigger2 = gametime%4 = 1
 time = 30
 add = 0,0,256
 mul = 256,256,256
@@ -1638,8 +1692,9 @@ color = 256
 
 [State 0, PalFX]
 type = PalFX
-triggerall = time=0
-trigger1 = numhelper(24003)
+trigger1 = ishelper(24003)
+trigger2 = ishelper(24005)
+trigger2 = gametime%4 = 2
 time = 30
 add = 0,256,0
 mul = 256,256,256
@@ -1651,8 +1706,9 @@ color = 256
 
 [State 0, PalFX]
 type = PalFX
-triggerall = time=0
-trigger1 = numhelper(24004)
+trigger1 = ishelper(24004)
+trigger2 = ishelper(24005)
+trigger2 = gametime%4 = 3
 time = 30
 add = 256,256,0
 mul = 256,256,256
@@ -1665,7 +1721,13 @@ color = 256
 [State 0, ParentVarSet]
 type = ParentVarSet
 trigger1 = time = 0
-var(22) = 0
+v = 22
+value = 0
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
 
 [State 0, DestroySelf]
 type = DestroySelf
@@ -1677,7 +1739,7 @@ trigger1 = time=30
 [Statedef 24011]
 type	 = A
 movetype = A
-anim	 = 240110+ishelper(240111)
+anim	 = 240110+ishelper(240111)+2*ishelper(240112)
 sprpriority = 3
 
 [State 0, PlaySnd]
@@ -1777,7 +1839,7 @@ trigger1 = animtime = 0
 [Statedef 24012]
 type	 = C
 movetype = A
-anim	 = 240120+ishelper(240121)
+anim	 = 240120+ishelper(240121)+2*ishelper(240122)
 sprpriority = 3
 
 [State 0, PlaySnd]
@@ -1907,13 +1969,14 @@ Flag = Noshadow
 
 [State -1]
 Type = DestroySelf
-trigger1 = parent,stateno!=[1000,1500]
+trigger1 = root,stateno!=[1000,1500]
+trigger1 = root,stateno!=[2000,2500]
 
 ;Atmosphere
 [Statedef 24014]
 type	 = A
 movetype = A
-anim	 = 240140+ishelper(240141)
+anim	 = 240140+ishelper(240141)+2*ishelper(240142)
 sprpriority = 3
 
 [State 0, PlaySnd]
@@ -1970,35 +2033,40 @@ p1stateno = 24015
 [State 670, 移動速度]
 type = VelSet
 triggerall = time = 0
-trigger1 = parent,stateno=[1000,1099]
+trigger1 = root,stateno=[1000,1099]
+trigger2 = root,stateno=[2000,2099]
 x = 7
 y = 0
 
 [State 670, 移動速度]
 type = VelSet
 triggerall = time = 0
-trigger1 = parent,stateno=[1100,1199]
+trigger1 = root,stateno=[1100,1199]
+trigger2 = root,stateno=[2100,2199]
 x = 5
 y = 0
 
 [State 670, 移動速度]
 type = VelSet
 triggerall = time = 0
-trigger1 = parent,stateno=[1200,1299]
+trigger1 = root,stateno=[1200,1299]
+trigger2 = root,stateno=[2200,2299]
 x = 1.5
 y = 0
 
 [State 670, 移動速度]
 type = VelSet
 triggerall = time = 0
-trigger1 = parent,stateno=[1300,1399]
+trigger1 = root,stateno=[1300,1399]
+trigger2 = root,stateno=[2300,2399]
 x = 10.5
 y = 0
 
 [State 670, 移動速度]
 type = VelSet
 triggerall = time = 0
-trigger1 = parent,stateno=[1400,1499]
+trigger1 = root,stateno=[1400,1499]
+trigger2 = root,stateno=[2400,2499]
 x = 6
 y = 0
 
@@ -2035,7 +2103,7 @@ trigger3 = movereversed
 [Statedef 24015]
 type	 = A
 movetype = A
-anim	 = 240150+ishelper(240141)
+anim	 = 240150+ishelper(240141)+2*ishelper(240142)
 sprpriority = 3
 velset = 0,0
 

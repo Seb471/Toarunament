@@ -132,12 +132,12 @@ sprpriority = 0
 [State 20, 1]
 type = VelSet
 trigger1 = command = "holdfwd"
-x = const(velocity.walk.fwd.x)*(1+0.25*(var(20)=1 || (var(20)=0 && var(21)=1)))
+x = const(velocity.walk.fwd.x)*(1+(0.125*(var(27)=1 || var(27)=5)*(1+(var(28)=1))))
 
 [State 20, 2]
 type = VelSet
 trigger1 = command = "holdback"
-x = const(velocity.walk.back.x)*(1+0.25*(var(20)=1 || (var(20)=0 && var(21)=1)))
+x = const(velocity.walk.back.x)*(1+(0.125*(var(27)=1 || var(27)=5)*(1+(var(28)=1))))
 
 [State 20, 3]
 type = ChangeAnim
@@ -199,18 +199,15 @@ value = 10
 [State 40, 4]
 type = VelSet
 trigger1 = AnimTime = 0
-x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))*(1+0.25*(var(20)=1 || (var(20)=0 && var(21)=1)))
-y = const(velocity.jump.y)*(1+0.25*(var(20)=4 || (var(20)=0 && var(21)=4)))
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))*(1+(0.125*(var(27)=1 || var(27)=5)*(1+(var(28)=1))))
+y = const(velocity.jump.y)*(1+(0.125*(var(27)=4 || var(27)=5)*(1+(var(28)=1))))
 
 [State 40, 4]
 type = Veladd
-trigger1 = AnimTime = 0
-x = ifelse(prevstateno =100,2.5*(1+0.25*(var(20)=1 || (var(20)=0 && var(21)=1))),0)
-
-[State 40, 4]
-type = Veladd
-trigger1 = AnimTime = 0
-x = ifelse(prevstateno =108,2.8*(1+0.25*(var(20)=1 || (var(20)=0 && var(21)=1))),0)
+triggerall = AnimTime = 0
+trigger1 = prevstateno = 100
+trigger2 = prevstateno = 108
+x = 1+(0.125*(var(27)=1 || var(27)=5)*(1+(var(28)=1)))
 
 [State 40, 5];前ハイジャンプ時
 type = VelSet
@@ -226,7 +223,7 @@ trigger1 = sysvar(1) = 0
 trigger1 = var(16) = 2
 trigger1 = AnimTime = 0
 x = 0
-y = const(velocity.jump.y)*(1+0.5*(var(20)=4 || (var(20)=0 && var(21)=4)))
+y = const(velocity.jump.y)*(1+0.5*(var(27)=4 || var(27)=5))
 
 [State -1]
 Type = Explod
@@ -377,8 +374,8 @@ sysvar(1) = -1
 [State 45, 6]
 type = VelSet
 trigger1 = Time = 2
-x = ifelse(sysvar(1)=0, const(velocity.airjump.neu.x), ifelse(sysvar(1)=1, const(velocity.airjump.fwd.x), const(velocity.airjump.back.x)))*(1+0.25*(var(20)=1 || (var(20)=0 && var(21)=1)))
-y = const(velocity.airjump.y)*(1+0.25*(var(20)=4 || (var(20)=0 && var(21)=4)))
+x = ifelse(sysvar(1)=0, const(velocity.airjump.neu.x), ifelse(sysvar(1)=1, const(velocity.airjump.fwd.x), const(velocity.airjump.back.x)))*(1+(0.125*(var(27)=1 || var(27)=5)*(1+(var(28)=1))))
+y = const(velocity.airjump.y)*(1+(0.125*(var(27)=4 || var(27)=5)*(1+(var(28)=1))))
 
 [State 45, 7]
 type = ChangeState
@@ -512,7 +509,7 @@ sprpriority = 1
 [State 100, 1]
 type = VelSet
 trigger1 = 1
-x = const(velocity.run.fwd.x)*(1+0.25*(var(20)=1 || (var(20)=0 && var(21)=1)))
+x = const(velocity.run.fwd.x)*(1+(0.125*(var(27)=1 || var(27)=5)*(1+(var(28)=1))))
 
 [State 100, 2] ;Prevent run from canceling into walk
 type = AssertSpecial
@@ -559,8 +556,8 @@ var(23) = 2
 [State 105, 1]
 type = VelSet
 trigger1 = Time = 0
-x = const(velocity.run.back.x)*(1+0.25*(var(20)=1 || (var(20)=0 && var(21)=1)))
-y = const(velocity.run.back.y)*(1+0.25*(var(20)=4 || (var(20)=0 && var(21)=4)))
+x = const(velocity.run.back.x)*(1+(0.125*(var(27)=1 || var(27)=5)*(1+(var(28)=1))))
+y = const(velocity.run.back.y)*(1+(0.125*(var(27)=4 || var(27)=5)*(1+(var(28)=1))))
 
 [State 105, 2]
 type = CtrlSet
@@ -750,7 +747,23 @@ value = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = prevstateno = 1300
+v = 25    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1300
 v = 21    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1300
+v = 26    ;fv = 10
 value = 0
 ;ignorehitpause = 
 ;persistent = 
@@ -838,7 +851,23 @@ value = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = prevstateno = 1300
+v = 25    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1300
 v = 21    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1300
+v = 26    ;fv = 10
 value = 0
 ;ignorehitpause = 
 ;persistent = 

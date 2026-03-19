@@ -22,13 +22,18 @@ time = 1
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 20
+value = 0
+;ignorehitpause = 
+;persistent = 
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = pos y > 0
-trigger1 = vel y > 0
-trigger1 = animelemtime(3)>0
-v = 20
+trigger1 = time = 0
+v = 25
 value = 0
 ;ignorehitpause = 
 ;persistent = 
@@ -158,9 +163,17 @@ time = 1
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = animelem = 3
+trigger1 = time = 0
 v = 20
-value = 1
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 25
+value = 0
 ;ignorehitpause = 
 ;persistent = 
 
@@ -178,7 +191,7 @@ trigger1 = animelem = 3
 helpertype = normal ;player
 name = "pentagram"
 ID = 24001
-stateno = 24005
+stateno = 24006
 pos = 0,-62.5
 postype = p1    ;p2,front,back,left,right
 facing = 1
@@ -413,7 +426,16 @@ velSet = 0,0
 [State 0, VarSet]
 type = VarSet
 trigger1 = animtime = 0
-var(21) = var(20)
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -487,7 +509,7 @@ sparkxy = -10,-20
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = animtime = 0
+trigger1 = time = 0
 v = 20
 value = 0
 ;ignorehitpause = 
@@ -495,8 +517,25 @@ value = 0
 
 [State 0, VarSet]
 type = VarSet
+trigger1 = time = 0
+v = 25
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = animtime = 0
-var(21) = var(20)
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -642,16 +681,33 @@ persistent = 0
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = animelem = 3
+trigger1 = time = 0
 v = 20
-value = 2
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 25
+value = 0
 ;ignorehitpause = 
 ;persistent = 
 
 [State 0, VarSet]
 type = VarSet
 trigger1 = animtime = 0
-var(21) = var(20)
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -669,7 +725,7 @@ trigger1 = animelem = 3
 helpertype = normal ;player
 name = "pentagram"
 ID = 24002
-stateno = 24005
+stateno = 24006
 pos = 0,-62.5
 postype = p1    ;p2,front,back,left,right
 facing = 1
@@ -834,6 +890,22 @@ ID=1200
 value=1240
 ignorehitpause=1
 persistent=0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 20
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 25
+value = 0
+;ignorehitpause = 
+;persistent = 
 
 [State 0, VarSet]
 type = VarSet
@@ -1014,6 +1086,22 @@ persistent=0
 
 [State 0, VarSet]
 type = VarSet
+trigger1 = time = 0
+v = 20
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 25
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = time=0
 v = 22
 value = 1
@@ -1104,15 +1192,16 @@ pausemovetime = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = animtime = 0
-v = 20
-value = 0
+v = 21
+value = var(20)
 ;ignorehitpause = 
 ;persistent = 
 
 [State 0, VarSet]
 type = VarSet
 trigger1 = animtime = 0
-var(21) = var(20)
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -1150,15 +1239,24 @@ velSet = 0,0
 [State 0, VarSet]
 type = VarSet
 trigger1 = animelem = 6
-v = 20
-value = 3
+v = 25
+value = 0
 ;ignorehitpause = 
 ;persistent = 
 
 [State 0, VarSet]
 type = VarSet
 trigger1 = animtime = 0
-var(21) = var(20)
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -1168,7 +1266,7 @@ trigger1 = animelem = 6
 helpertype = normal ;player
 name = "pentagram"
 ID = 24003
-stateno = 24005
+stateno = 24006
 pos = 0,-62.5
 postype = p1    ;p2,front,back,left,right
 facing = 1
@@ -1363,9 +1461,16 @@ var(1)=0
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = pos y > 0
-trigger1 = vel y > 0
+trigger1 = time = 0
 v = 20
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 25
 value = 0
 ;ignorehitpause = 
 ;persistent = 
@@ -1374,7 +1479,17 @@ value = 0
 type = VarSet
 trigger1 = pos y > 0
 trigger1 = vel y > 0
-var(21) = var(20)
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = pos y > 0
+trigger1 = vel y > 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -1669,9 +1784,9 @@ fall = 1
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = animelem = 10
-v = 20
-value = 4
+trigger1 = time = 0
+v = 25
+value = 0
 ;ignorehitpause = 
 ;persistent = 
 
@@ -1679,9 +1794,19 @@ value = 4
 type = VarSet
 trigger1 = pos y > 0
 trigger1 = vel y > 0
-var(21) = var(20)
+v = 21
+value = var(20)
 ;ignorehitpause = 
 ;persistent =
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = pos y > 0
+trigger1 = vel y > 0
+v = 26
+value = var(25)
+;ignorehitpause = 
+;persistent = 
 
 [State 0, VarSet]
 type = VarSet
@@ -1697,7 +1822,7 @@ trigger1 = animelem = 10
 helpertype = normal ;player
 name = "pentagram"
 ID = 24004
-stateno = 24005
+stateno = 24006
 pos = 0,-62.5
 postype = p1    ;p2,front,back,left,right
 facing = 1
@@ -1768,8 +1893,6 @@ keyctrl = 0
 ownpal = 1
 supermovetime = 0
 pausemovetime = 0
-size.xscale = 1.25
-size.yscale = 1.25
 
 	[State 1500,vel]
 		Type=velSet
@@ -1837,7 +1960,7 @@ trigger1 = vel y > 0
 value = 52
 ctrl = 0
 
-;Special strike
+;Magic Amplificator
 [Statedef 1400]
 type    = S
 movetype= A
@@ -1878,7 +2001,16 @@ value = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = animtime = 0
-var(21) = var(20)
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -2112,7 +2244,16 @@ value = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = animtime = 0
-var(21) = var(20)
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 

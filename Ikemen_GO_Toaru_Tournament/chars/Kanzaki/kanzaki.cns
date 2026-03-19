@@ -1150,7 +1150,7 @@ trigger4=stateno=2001
 trigger4=prevstateno=2201
 value = 105, 0
 
-;aura ?
+;aura
 [State -3]
 Type = Helper
 Trigger1 = gametime
@@ -1159,6 +1159,7 @@ Trigger1 = var(20) = -1 || var(21) = 1
 trigger1 = stateno != 3021
 StateNo = 999
 ID = 999
+name = "aura"
 Ownpal = 1
 Keyctrl = 0
 SprPriority = -5

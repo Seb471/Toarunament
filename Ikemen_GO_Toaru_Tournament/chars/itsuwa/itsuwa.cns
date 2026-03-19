@@ -223,7 +223,7 @@ value = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "fvar(10) = %f, fvar(0)=%f, facing = %d, life = %d, vel x = %f"
-params = fvar(10),fvar(0),playerno,sysvar(1), 1.+0.5*(var(20)=3 || (var(20)=0 && var(21)=3))+0.5*(numhelper(24013)>0)
+params = fvar(10),fvar(0),var(27),sysvar(1), 1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
 ;ignorehitpause = 
 ;persistent = 
 
@@ -237,30 +237,30 @@ id = 10850
 [State 0, DefenceMulSet]
 type = DefenceMulSet
 trigger1 = 1
-value = ifelse(var(20)=2 || (var(20)=0 && var(21)=2),0.75,1)
+value = 1-(0.125*(var(20)=2 || var(20)=5 || (var(20)!=2 && var(21)=2) || (var(20)!=5 && var(21)=5))*(1+(var(26)=1)))
 ;ignorehitpause = 
 ;persistent = 
 
 [State -2, DefenceMulSet]
 Type = DefenceMulSet
 Trigger1 = Life <= 300
-Value = 0.7*ifelse(var(20)=2 || (var(20)=0 && var(21)=2),0.75,1)
+Value = 0.7*(1-(0.125*(var(20)=2 || var(20)=5 || (var(20)!=2 && var(21)=2) || (var(20)!=5 && var(21)=5))*(1+(var(26)=1))))
 IgnoreHitPause = 1
 
 [State -2, DefenceMulSet]
 Type = DefenceMulSet
 Trigger1 = Life <= 150
-Value = 0.5*ifelse(var(20)=2 || (var(20)=0 && var(21)=2),0.75,1)
+Value = 0.5*(1-(0.125*(var(20)=2 || var(20)=5 || (var(20)!=2 && var(21)=2) || (var(20)!=5 && var(21)=5))*(1+(var(26)=1))))
 IgnoreHitPause = 1
 
 [State 0, AttackMulSet]
 type = AttackMulSet
 trigger1 = 1
-value = 1.+0.25*(var(20)=3 || (var(20)=0 && var(21)=3))+0.25*(numhelper(24013)>0)
+value = 1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
 ;ignorehitpause = 
 ;persistent = 
 
-;Reset to current sigil
+;Losing sigil while performing a sigil dependant move when being hit (more of a "making sure" now)
 [State 0, VarSet]
 type = VarSet
 trigger1 = stateno=[5000,5999]
@@ -270,7 +270,34 @@ value = 0    ;fv = 10
 ;ignorehitpause = 
 ;persistent = 
 
-;Reset to current sigil
+[State 0, Helper]
+type = Helper
+trigger1 = command = "start"
+helpertype = normal ;player
+name = "pentagram"
+ID = 24005
+stateno = 24006
+pos = 0,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.5
+size.yscale = 0.5
+
+;Losing super sigil boolean while performing a sigil dependant move when being hit (more of a "making sure" now)
+[State 0, VarSet]
+type = VarSet
+trigger1 = stateno=[5000,5999]
+trigger1 = var(22) = 1
+v = 25
+value = 0    ;fv = 10
+;ignorehitpause = 
+;persistent = 
+
+;Reset capacity to lose sigil
 [State 0, VarSet]
 type = VarSet
 triggerall = var(22)!=0
@@ -281,7 +308,7 @@ value = 0    ;fv = 10
 ;ignorehitpause = 
 ;persistent = 
 
-;Reset to current sigil
+;Setting sigil to launch when being hit
 [State 0, VarSet]
 type = VarSet
 trigger1 = stateno=[5000,5999]
@@ -289,6 +316,34 @@ v = 21
 value = var(20)    ;fv = 10
 ;ignorehitpause = 
 ;persistent = 
+
+;Setting super sigil boolean to launch when being hit
+[State 0, VarSet]
+type = VarSet
+trigger1 = stateno=[5000,5999]
+v = 26
+value = var(25)    ;fv = 10
+;ignorehitpause = 
+;persistent = 
+
+;current powered sigil
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 27    ;fv = 10
+value = var(20+!var(20))
+;ignorehitpause = 
+;persistent = 
+
+;current powered super sigil boolean
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 28    ;fv = 10
+value = var(25+!var(25))
+;ignorehitpause = 
+;persistent = 
+
 
 [State -2, air jump - reset]
 type = VarSet
@@ -345,10 +400,11 @@ var(16) = 0
 [State -3]
 Type = Helper
 Triggerall = NumHelper(999) <= 1
-trigger1 = var(20)>0
-trigger2 = var(20)=0 && var(21)>0
+trigger1 = var(27)>0
+trigger1 = var(27)!=5
 StateNo = 999
 ID = 999
+name = "lancecover"
 ;Ownpal = 0
 Keyctrl = 0
 IgnoreHitPause = 1
@@ -359,10 +415,10 @@ PauseMoveTime = 9999
 [State -3]
 Type = Helper
 Triggerall = NumHelper(998) <= 8
-trigger1 = var(20)>0
-trigger2 = var(20)=0 && var(21)>0
+trigger1 = var(27)>0
 StateNo = 998
 ID = 998
+name = "lanceheat"
 Ownpal = 1
 Keyctrl = 0
 IgnoreHitPause = 1
@@ -412,6 +468,7 @@ Trigger1 = NumHelper(5605) = 0
 Trigger1 = NumTarget(5600) > 0
 Trigger1 = Target(5600),Time = 1
 Trigger1 = Target(5600),StateNo = 5602 || Target(5600),StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
+Trigger2 = numhelper(1605) > 0
 Trigger2 = helper(1605),NumHelper(5605) = 0
 Trigger2 = helper(1605),NumTarget(5600) > 0
 Trigger2 = helper(1605),Target(5600),Time = 1
@@ -429,11 +486,18 @@ Trigger1 = Target(5600),Time >= 4
 Trigger1 = Target(5600),Time%6 = 4
 Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
 Trigger1 = Target(5600),Pos Y >= -45
+Trigger2 = numhelper(1605) > 0
 Trigger2 = helper(1605),NumTarget(5600) > 0
 Trigger2 = helper(1605),Target(5600),Time >= 4
 Trigger2 = helper(1605),Target(5600),Time%6 = 4
 Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
 Trigger2 = helper(1605), Target(5600),Pos Y >= -45
+Trigger3 = numhelper(2625) > 0
+Trigger3 = helper(2625),NumTarget(5600) > 0
+Trigger3 = helper(2625),Target(5600),Time >= 4
+Trigger3 = helper(2625),Target(5600),Time%6 = 4
+Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
+Trigger3 = helper(2625), Target(5600),Pos Y >= -45
 Anim = 15602
 ID = 15602
 Postype = P2
@@ -453,11 +517,18 @@ Trigger1 = Target(5600),Time >= 4
 Trigger1 = Target(5600),Time%6 = 4
 Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
 Trigger1 = Target(5600),Pos Y >= -45
+Trigger2 = numhelper(1605) > 0
 Trigger2 = helper(1605),NumTarget(5600) > 0
 Trigger2 = helper(1605),Target(5600),Time >= 4
 Trigger2 = helper(1605),Target(5600),Time%6 = 4
 Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
 Trigger2 = helper(1605), Target(5600),Pos Y >= -45
+Trigger3 = numhelper(2625) > 0
+Trigger3 = helper(2625),NumTarget(5600) > 0
+Trigger3 = helper(2625),Target(5600),Time >= 4
+Trigger3 = helper(2625),Target(5600),Time%6 = 4
+Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
+Trigger3 = helper(2625), Target(5600),Pos Y >= -45
 Anim = 15600
 ID = 15600
 Postype = P2
@@ -477,11 +548,18 @@ Trigger1 = Target(5600),Time >= 4
 Trigger1 = Target(5600),Time%6 = 4
 Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
 Trigger1 = Target(5600),Pos Y >= -45
+Trigger2 = numhelper(1605) > 0
 Trigger2 = helper(1605),NumTarget(5600) > 0
 Trigger2 = helper(1605),Target(5600),Time >= 4
 Trigger2 = helper(1605),Target(5600),Time%6 = 4
 Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
 Trigger2 = helper(1605), Target(5600),Pos Y >= -45
+Trigger3 = numhelper(2625) > 0
+Trigger3 = helper(2625),NumTarget(5600) > 0
+Trigger3 = helper(2625),Target(5600),Time >= 4
+Trigger3 = helper(2625),Target(5600),Time%6 = 4
+Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
+Trigger3 = helper(2625), Target(5600),Pos Y >= -45
 Anim = 15601
 ID = 15601
 Postype = P2
@@ -518,3 +596,7 @@ value = 105, 0
 ;var(21) is the sigil to launch
 ;var(22) is the sigil hurt blocker
 ;var(23) is jump variable
+;var(25) is the current super sigil boolean
+;var(26) is the super sigil boolean to launch
+;var(27) is the current powered sigil
+;var(28) is the current powered super sigil booleazn

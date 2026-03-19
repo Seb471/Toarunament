@@ -11,18 +11,19 @@ c different
 Special mechanic :
 special a : fastest
 special b : slowest but gives sigil
-special c : fastest and gives sigil (with reinforced sigil usage)
+special c : fastest and gives super sigil
 
 implementing the dodge mechanic ? done
 
 all of them can do the thing
 
 214 -> fire lunge
-236 -> water wall splat
+236 -> water slash
 623 -> atmosphere dp
-236 air -> earth crash
+236 air -> earth strike
 
-aab -> special strike with pull-in (uses wires), releases sigil
+aab -> magic amplification with pull-in (uses wires), releases amped sigil
+aac -> super magic amplification lvl-2, releases super amped sigil
 -----------
 22 -> wires
 
@@ -35,6 +36,10 @@ aab -> special strike with pull-in (uses wires), releases sigil
 
 41236c -> magic combination lvl-3 + saint destroyer lvl-2 extension
 (water wall bounce -> fire lunge wires -> earth crash earthquake -> atmosphere dp -> saint destroyer)
-more effective against kanzaki
-even more effective against acqua
+saint destroyer gives an all-around sigil
+400 dmg + 1/4th health of opponent when saint destroyer (so 250 in general)
+deadly rave mechanic  where each successive input gives +25 dmg
+when all are successfull, gives super sigil as a reward
+more effective against kanzaki (saint destroyer x2)
+even more effective against acqua (saint destroyer x4)
 effectiveness shown via saber's excalibur animation

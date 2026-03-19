@@ -181,8 +181,8 @@ sysvar(1) = -1
 [State 40, 4]
 type = VelSet
 trigger1 = AnimTime = 0
-x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)*ifelse((var(21)=0),1,1.125), const(velocity.jump.back.x)*ifelse((var(21)=0),1,1.125)))
-y = const(velocity.jump.y)*ifelse((var(21)=0),1,1.125)
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)*ifelse((var(21)=0),1,1.25), const(velocity.jump.back.x)*ifelse((var(21)=0),1,1.25)))
+y = const(velocity.jump.y)*ifelse((var(21)=0),1,1.25)
 
 [State 40, 5]
 type = VelSet

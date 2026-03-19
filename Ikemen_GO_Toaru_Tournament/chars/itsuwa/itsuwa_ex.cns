@@ -20,9 +20,29 @@ value = 0
 
 [State 0, VarSet]
 type = VarSet
+triggerall = time = 0
+trigger1 = prevstateno = 1260
+trigger2 = prevstateno = 1310
+trigger3 = prevstateno = 1010
+trigger4 = prevstateno = 1110
+v = 25
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = time = 0
 v = 21
 value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -127,9 +147,29 @@ value = 0
 
 [State 0, VarSet]
 type = VarSet
+triggerall = time = 0
+trigger1 = prevstateno = 1260
+trigger2 = prevstateno = 1310
+trigger3 = prevstateno = 1010
+trigger4 = prevstateno = 1110
+v = 25
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = time = 0
 v = 21
 value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -231,9 +271,29 @@ value = 0
 
 [State 0, VarSet]
 type = VarSet
+triggerall = time = 0
+trigger1 = prevstateno = 1260
+trigger2 = prevstateno = 1310
+trigger3 = prevstateno = 1010
+trigger4 = prevstateno = 1110
+v = 25
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = time = 0
 v = 21
 value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 26
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -869,7 +929,7 @@ ignorehitpause =1
 type = VelSet
 trigger1 = time = 4
 x = -1.5
-y = -10.5
+y = -15
 
 [State 1231, VelAdd]
 type = Veladd

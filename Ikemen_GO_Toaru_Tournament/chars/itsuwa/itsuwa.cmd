@@ -462,7 +462,7 @@ value = 2320
 triggerall = command = "623_c"
 triggerall=stateno!=3000
 triggerall=stateno!=2320
-;triggerall=power>=2000
+triggerall=power>=1000
 triggerall = statetype!=A
 trigger1=ctrl
 trigger2=var(1)
@@ -473,7 +473,7 @@ value = 2120
 triggerall = command = "236_c"
 triggerall=stateno!=3000
 triggerall=stateno!=2120
-;triggerall=power>=2000
+triggerall=power>=1000
 triggerall = statetype!=A
 trigger1=ctrl
 trigger2=var(1)
@@ -484,7 +484,7 @@ value = 2220
 triggerall = command = "236_c"
 triggerall=stateno!=3000
 triggerall=stateno!=2220
-;triggerall=power>=2000
+triggerall=power>=1000
 triggerall = statetype=A
 trigger1=ctrl
 trigger2=var(1)
@@ -495,7 +495,7 @@ value = 2020
 triggerall = command = "214_c"
 triggerall=stateno!=3000
 triggerall=stateno!=2020
-;triggerall=power>=2000
+triggerall=power>=1000
 triggerall = statetype!=A
 trigger1=ctrl
 trigger2=var(1)
@@ -630,7 +630,7 @@ Type = ChangeState
 Value = 41
 Trigger1 = Command = "jump" && SysVar(4) = [0,10]
 Trigger1 = StateType != A
-trigger1 = var(20)=1 || (var(20)=0 && var(21)=1)
+trigger1 = var(27)=1 || var(27)=5
 Trigger1 = Ctrl
 
 ;---------------------------------------------------------------------------
@@ -639,7 +639,7 @@ Type = ChangeState
 Value = 42
 Trigger1 = Command = "jump2" && SysVar(4) = [0,10]
 Trigger1 = StateType != A
-trigger1 = var(20)=4 || (var(20)=0 && var(21)=4)
+trigger1 = var(27)=4 || var(27)=5
 Trigger1 = Ctrl
 
 [State -1, Dodges]
@@ -668,7 +668,7 @@ Type = ChangeState
 Value = 108
 TriggerAll = Command = "FBF"
 TriggerAll = StateType != A
-trigger1 = var(20)=1 || (var(20)=0 && var(21)=1)
+trigger1 = var(27)=1 || var(27)=5
 Trigger1 = Ctrl
 
 ;---------------------------------------------------------------------------
@@ -697,7 +697,7 @@ trigger1 = ctrl
 	TriggerAll = pos Y<=-30+(vel y>0)*20
 	TriggerAll = var(17) < 1
 	TriggerAll = anim!=110
-	triggerall = var(20)=1 || var(20)=0 && var(21)=1
+	triggerall = var(27)=1 || var(27)=5
 	Trigger1 = Ctrl
 	trigger2 = var(1)
 
@@ -710,7 +710,7 @@ trigger1 = ctrl
 	TriggerAll = pos Y<=-30+(vel y>0)*20
 	TriggerAll = var(17) < 1
 	TriggerAll = anim!=115
-	triggerall = var(20)=1 || var(20)=0 && var(21)=1
+	triggerall = var(27)=1 || var(27)=5
 	Trigger1 = Ctrl
 	trigger2 = var(1)
 
@@ -719,7 +719,7 @@ type = ChangeState
 value = 45
 triggerall = statetype = A
 triggerall = command = "holdup"
-triggerall = var(23) = 0 || (var(23)=2 && (var(20)=4 || var(20)=0 && var(21)=4)) ;var(23) has to be pair to be considered "not holding up"
+triggerall = var(23) = 0 || (var(23)=2 && (var(27)=4 || var(27)=5)) ;var(23) has to be pair to be considered "not holding up"
 trigger1 = ctrl
 
 [State -1]
