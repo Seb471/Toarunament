@@ -195,18 +195,27 @@ flag = Intro
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = time>60 && numhelper(1910) = 0
-value = 192
+trigger1 = time>60
+trigger1 = numhelper(1910) = 0
+value = 1920
 persistent = 0
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1= anim!=192
+trigger1= anim!=[1920,1921]
 flag = invisible
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = anim = 1920
+trigger1 = animtime = 0
+value = 1921
+persistent = 0
 
 [State 190, 4]
 type = ChangeState
-trigger1 = anim = 192 && AnimTime = 0
+trigger1 = anim = 1921
+trigger1 = animTime = 0
 value = 0
 
 ;---------------------------------------------------------------------------
@@ -223,7 +232,7 @@ value = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "fvar(10) = %f, fvar(0)=%f, facing = %d, life = %d, vel x = %f"
-params = fvar(10),fvar(0),var(27),sysvar(1), 1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
+params = pos x,frontedgedist,var(1),sysvar(1), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
 ;ignorehitpause = 
 ;persistent = 
 
@@ -600,3 +609,4 @@ value = 105, 0
 ;var(26) is the super sigil boolean to launch
 ;var(27) is the current powered sigil
 ;var(28) is the current powered super sigil booleazn
+;var(29) is magic rave counter

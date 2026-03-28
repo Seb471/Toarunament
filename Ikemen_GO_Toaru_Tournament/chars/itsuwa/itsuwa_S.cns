@@ -1835,13 +1835,13 @@ size.yscale = 0.5
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 14
+trigger1 = animelem = 1
 trigger1 = var(21) = 1
 helpertype = normal ;player
 name = "fire"
 ID = 240111
 stateno = 24011
-pos = 50,-150
+pos = ifelse(p2dist x <= 100, p2dist x, 100),-enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -1992,8 +1992,16 @@ var(1)=0
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = animtime = 0
+trigger1 = time = 0
 v = 20
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 25
 value = 0
 ;ignorehitpause = 
 ;persistent = 
@@ -2232,14 +2240,6 @@ removeongethit = 0
 ;persistent =
 ;supermove = 0
 ;pausemove = 0
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = animtime = 0
-v = 20
-value = 0
-;ignorehitpause = 
-;persistent = 
 
 [State 0, VarSet]
 type = VarSet

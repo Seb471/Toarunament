@@ -5135,9 +5135,31 @@ physics  = N
 velset   = 0,0
 ctrl     = 0
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = selfanimexist(5060)
+value = 5060
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = !selfanimexist(5060)
+trigger1 = selfanimexist(5050)
+value = 5050
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+
 [State 830, 0]
 type = ChangeAnim2
-trigger1 = 1
+triggerall = time = 0
+trigger1 = !selfanimexist(5060)
+trigger1 = !selfanimexist(5050)
 value = 840
 
 ;‹ó’†“Š‚°_‘ŠŽè2
@@ -6268,7 +6290,8 @@ Time = 1
 
 [State 2500,Explod]
 		Type=Explod
-		Trigger1=Time=28 && isHelper(10003)
+		Trigger1=Time=30
+		trigger1 = isHelper(10003)
 		Anim=4120
 		Pos=floor(0*const(Size.xScale)),floor(-55*const(Size.yScale))
 		postype=p1

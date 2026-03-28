@@ -256,8 +256,20 @@ time = 20
 buffer.Time=10
 
 [Command]
+name = "2236_c"
+command = ~D, D, DF, F, c
+time = 20
+buffer.Time=10
+
+[Command]
 name = "aab"
 command = a, a, b
+time = 20
+buffer.Time=10
+
+[Command]
+name = "aac"
+command = a, a, c
 time = 20
 buffer.Time=10
 
@@ -456,11 +468,31 @@ trigger2 = stateno = [0,160]
 var(1) = 0
 ignorehitpause=1
 
+[State -1, 2236_c]
+type = Changestate
+value = 2600
+triggerall = power >= 2000
+triggerall = command = "2236_c" && statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+[State -1, aac]
+type = ChangeState
+value = 2420
+triggerall = command = "aac"
+triggerall=stateno!=3000
+triggerall=stateno!=2420
+triggerall=power>=2000
+triggerall = statetype != A
+trigger1=ctrl
+trigger2=var(1)
+
 [State -1,623_c]
 type = Changestate
 value = 2320
 triggerall = command = "623_c"
 triggerall=stateno!=3000
+triggerall=stateno!=2420
 triggerall=stateno!=2320
 triggerall=power>=1000
 triggerall = statetype!=A
@@ -472,6 +504,7 @@ type = Changestate
 value = 2120
 triggerall = command = "236_c"
 triggerall=stateno!=3000
+triggerall=stateno!=2420
 triggerall=stateno!=2120
 triggerall=power>=1000
 triggerall = statetype!=A
@@ -483,6 +516,7 @@ type = Changestate
 value = 2220
 triggerall = command = "236_c"
 triggerall=stateno!=3000
+triggerall=stateno!=2420
 triggerall=stateno!=2220
 triggerall=power>=1000
 triggerall = statetype=A
@@ -494,6 +528,7 @@ type = Changestate
 value = 2020
 triggerall = command = "214_c"
 triggerall=stateno!=3000
+triggerall=stateno!=2420
 triggerall=stateno!=2020
 triggerall=power>=1000
 triggerall = statetype!=A
@@ -506,6 +541,7 @@ type = ChangeState
 value = 2620
 triggerall = command = "[4]]6[_c"
 triggerall=stateno!=3000
+triggerall=stateno!=2420
 triggerall=stateno!=2620
 triggerall=power>=1000
 triggerall = statetype!=A
@@ -695,7 +731,7 @@ trigger1 = ctrl
 	TriggerAll = command="FF" || (command = "holdfwd" && command = "y")
 	TriggerAll = StateType=A
 	TriggerAll = pos Y<=-30+(vel y>0)*20
-	TriggerAll = var(17) < 1
+	TriggerAll = var(17) < 1+(var(28)=1)
 	TriggerAll = anim!=110
 	triggerall = var(27)=1 || var(27)=5
 	Trigger1 = Ctrl
@@ -708,7 +744,7 @@ trigger1 = ctrl
 	TriggerAll = command="BB" || (command = "holdback" && command = "y")
 	TriggerAll = StateType=A
 	TriggerAll = pos Y<=-30+(vel y>0)*20
-	TriggerAll = var(17) < 1
+	TriggerAll = var(17) < 1+(var(28)=1)
 	TriggerAll = anim!=115
 	triggerall = var(27)=1 || var(27)=5
 	Trigger1 = Ctrl
@@ -719,7 +755,7 @@ type = ChangeState
 value = 45
 triggerall = statetype = A
 triggerall = command = "holdup"
-triggerall = var(23) = 0 || (var(23)=2 && (var(27)=4 || var(27)=5)) ;var(23) has to be pair to be considered "not holding up"
+triggerall = var(23) = 0 || (var(23)=2 && (var(27)=4 || var(27)=5)) || (var(23)=4 && (var(27)=4 || var(27)=5) && var(28)=1) ;var(23) has to be pair to be considered "not holding up"
 trigger1 = ctrl
 
 [State -1]

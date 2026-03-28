@@ -968,6 +968,177 @@ type = SelfState
 trigger1 = pos y > -vel y
 value = 5100
 
+;---S. Wild Strike Hit Pause---
+[Statedef 2425]
+type = S
+movetype = H
+physics = N
+
+[State 3060, Anim]
+type = ChangeAnim
+Trigger1 = 1
+value = 5012
+persistent = 1
+ignorehitpause = 1
+elem = 1
+
+[State 3060]
+type = Hitfallset
+Trigger1 = 1
+value = 0
+
+[State 3060]
+type = velset
+Trigger1 = time = 0
+x = 0
+
+[State 5405]
+type = velset
+Trigger1 = time >= 0
+y = 0
+
+[State 3060]
+type = Posset
+Trigger1 = time >= 0
+y = 0
+
+[State 3060]
+type = velset
+Trigger1 = Gethitvar(hitshaketime) = 1
+Trigger1 = facing = 1
+x = Gethitvar(xvel)
+
+[State 3060]
+type = velset
+Trigger1 = Gethitvar(hitshaketime) = 1
+Trigger1 = facing = -1
+x = -Gethitvar(xvel)
+
+[State 3060]
+type = ChangeState
+Trigger1 = HitShakeOver
+value = 2426
+
+[State 3060]
+type = SelfState
+Trigger1 = alive = 0
+value = 5000
+
+[Statedef 2426]
+type = S
+movetype = H
+physics = N
+
+[State 3061, Anim]
+type = ChangeAnim
+Trigger1 = time = 0
+value = 5017
+
+[State 3061]
+type = velmul
+Trigger1 = 1
+x = 0.88
+
+[State 3061]
+type = SelfState
+Trigger1 = Gethitvar(hittime) = 0
+value = 0
+ctrl = 1
+
+[State 3061]
+type = SelfState
+Trigger1 = alive = 0
+value = 5000
+
+;Hit up from White Explosion
+[Statedef 2626]
+type    = A
+movetype= H
+physics = N
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+y = -7.5
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Gravity]
+type = Gravity
+trigger1 = 1
+;ignorehitpause = 
+;persistent = 
+
+
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = selfanimexist(5051)
+value = 5051
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = !selfanimexist(5051)
+trigger1 = selfanimexist(5030)
+value = 5030
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = anim = 5030
+trigger1 = animtime = 0
+trigger1 = selfanimexist(5035)
+value = 5035
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = vel y >= 0
+trigger1 = anim = 5051
+trigger1 = selfanimexist(5061)
+value = 5061
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = vel y >= 0
+triggerall = selfanimexist(5050)
+trigger1 = anim = 5051
+trigger1 = !selfanimexist(5061)
+trigger2 = anim = [5030,5035]
+value = 5050
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = enemyNear,stateno=2621
+value = 2622
+ctrl = 0
+;anim =
+;ignorehitpause = 
+;persistent = 
+
+
+[State -1]
+Type = SelfState
+Trigger1 = (Vel Y > 0) && (Pos Y >= 0)
+Value = 5100
+
+
+
 ;---------------------------------------------------------------------------
 ;Ground Bounce Normals
 ;---------------------------------------------------------------------------

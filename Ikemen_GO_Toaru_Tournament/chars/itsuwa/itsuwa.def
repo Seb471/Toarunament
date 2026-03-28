@@ -8,7 +8,7 @@ displayname = "Itsuwa" ;Name of character to display
 versiondate = 08,07,2022    ;Version date of character (MM-DD-YYYY or X.XX)
 mugenversion = 1.1          ;Version of M.U.G.E.N character works on (X.XX)
 ikemenversion = 1
-author = "Seb368,ebora,DidiGetsRekt"         ;Character author name
+author = "Seb368"         ;Character author name
 pal.defaults = 1,2,3,4,5,6      ;Default palettes in order of preference (up to 4)
                             ;Numbering starts from 1
 localcoord = 320,240        ;Local coordinate space width and height
