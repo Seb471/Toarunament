@@ -231,8 +231,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "fvar(10) = %f, fvar(0)=%f, facing = %d, life = %d, vel x = %f"
-params = pos x,frontedgedist,var(1),sysvar(1), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
+text = "fvar(10) = %f, fvar(0)=%f, var(20) = %d, var(21) = %d, vel x = %f"
+params = pos x,frontedgedist,var(20),var(21), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
 ;ignorehitpause = 
 ;persistent = 
 
@@ -310,26 +310,32 @@ value = 0    ;fv = 10
 [State 0, VarSet]
 type = VarSet
 triggerall = var(22)!=0
-trigger1 = stateno!=[1000,1500]
-trigger1 = stateno!=[2000,2500]
+trigger1 = stateno!=[1000,1499]
+trigger1 = stateno!=[2000,2600]
 v = 22
 value = 0    ;fv = 10
 ;ignorehitpause = 
 ;persistent = 
 
-;Setting sigil to launch when being hit
+;Setting sigil to launch when not in the sigil moves
 [State 0, VarSet]
 type = VarSet
-trigger1 = stateno=[5000,5999]
+;trigger1 = stateno=[5000,5999]
+trigger1 = stateno!=[1000,1499]
+trigger1 = stateno!=[2000,2600]
+trigger2 = var(20)=5
+trigger2 = var(21)!=5
 v = 21
 value = var(20)    ;fv = 10
 ;ignorehitpause = 
 ;persistent = 
 
-;Setting super sigil boolean to launch when being hit
+;Setting super sigil boolean to launch when not in the sigil moves
 [State 0, VarSet]
 type = VarSet
-trigger1 = stateno=[5000,5999]
+;trigger1 = stateno=[5000,5999]
+trigger1 = stateno!=[1000,1499]
+trigger1 = stateno!=[2000,2600]
 v = 26
 value = var(25)    ;fv = 10
 ;ignorehitpause = 
@@ -609,4 +615,5 @@ value = 105, 0
 ;var(26) is the super sigil boolean to launch
 ;var(27) is the current powered sigil
 ;var(28) is the current powered super sigil booleazn
-;var(29) is magic rave counter
+;var(29) is the "is previous state lunge ? or fire lunge ?"
+;var(30) is magic rave counter

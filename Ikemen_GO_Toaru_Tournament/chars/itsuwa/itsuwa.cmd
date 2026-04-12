@@ -494,6 +494,7 @@ triggerall = command = "623_c"
 triggerall=stateno!=3000
 triggerall=stateno!=2420
 triggerall=stateno!=2320
+triggerall=stateno!=2621
 triggerall=power>=1000
 triggerall = statetype!=A
 trigger1=ctrl
@@ -506,6 +507,7 @@ triggerall = command = "236_c"
 triggerall=stateno!=3000
 triggerall=stateno!=2420
 triggerall=stateno!=2120
+triggerall=stateno!=2621
 triggerall=power>=1000
 triggerall = statetype!=A
 trigger1=ctrl
@@ -518,6 +520,7 @@ triggerall = command = "236_c"
 triggerall=stateno!=3000
 triggerall=stateno!=2420
 triggerall=stateno!=2220
+triggerall=stateno!=2621
 triggerall=power>=1000
 triggerall = statetype=A
 trigger1=ctrl
@@ -530,6 +533,7 @@ triggerall = command = "214_c"
 triggerall=stateno!=3000
 triggerall=stateno!=2420
 triggerall=stateno!=2020
+triggerall=stateno!=2621
 triggerall=power>=1000
 triggerall = statetype!=A
 trigger1=ctrl

@@ -739,6 +739,8 @@ Ctrl=0
 [State 0, VarSet]
 type = VarSet
 trigger1 = prevstateno = 1300
+trigger2 = prevstateno = 1050
+trigger2 = var(29)!=1
 v = 20    ;fv = 10
 value = 0
 ;ignorehitpause = 
@@ -747,6 +749,8 @@ value = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = prevstateno = 1300
+trigger2 = prevstateno = 1050
+trigger2 = var(29)!=1
 v = 25    ;fv = 10
 value = 0
 ;ignorehitpause = 
@@ -755,6 +759,8 @@ value = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = prevstateno = 1300
+trigger2 = prevstateno = 1050
+trigger2 = var(29)!=1
 v = 21    ;fv = 10
 value = 0
 ;ignorehitpause = 
@@ -762,9 +768,29 @@ value = 0
 
 [State 0, VarSet]
 type = VarSet
+trigger1 = prevstateno = 1050
+trigger1 = var(29)=1
+v = 21    ;fv = 10
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = prevstateno = 1300
+trigger2 = prevstateno = 1050
+trigger2 = var(29)!=1
 v = 26    ;fv = 10
 value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1050
+trigger1 = var(29)=1
+v = 26    ;fv = 10
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 
@@ -843,6 +869,8 @@ Ctrl=0
 [State 0, VarSet]
 type = VarSet
 trigger1 = prevstateno = 1300
+trigger2 = prevstateno = 1050
+trigger2 = var(29)!=1
 v = 20    ;fv = 10
 value = 0
 ;ignorehitpause = 
@@ -851,6 +879,8 @@ value = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = prevstateno = 1300
+trigger2 = prevstateno = 1050
+trigger2 = var(29)!=1
 v = 25    ;fv = 10
 value = 0
 ;ignorehitpause = 
@@ -859,6 +889,8 @@ value = 0
 [State 0, VarSet]
 type = VarSet
 trigger1 = prevstateno = 1300
+trigger2 = prevstateno = 1050
+trigger2 = var(29)!=1
 v = 21    ;fv = 10
 value = 0
 ;ignorehitpause = 
@@ -866,9 +898,29 @@ value = 0
 
 [State 0, VarSet]
 type = VarSet
+trigger1 = prevstateno = 1050
+trigger1 = var(29)=1
+v = 21    ;fv = 10
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = prevstateno = 1300
+trigger2 = prevstateno = 1050
+trigger2 = var(29)!=1
 v = 26    ;fv = 10
 value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno = 1050
+trigger1 = var(29)=1
+v = 26    ;fv = 10
+value = var(25)
 ;ignorehitpause = 
 ;persistent = 
 

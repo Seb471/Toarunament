@@ -35,33 +35,25 @@ Alpha = 256-time*32,time*32
 
 [State -1]
 Type = palfx
-Trigger1 = root,var(27)=1
-Trigger2 = root,var(27)=5
-Trigger2 = gametime%4=0
+Trigger1 = helper(24000),var(0)=1
 Time = 1
 Add = 256,0,0
 
 [State -1]
 Type = palfx
-Trigger1 = root,var(27)=2
-Trigger2 = root,var(27)=5
-Trigger2 = gametime%4=1
+Trigger1 = helper(24000),var(0)=2
 Time = 1
 Add = 0,0,256
 
 [State -1]
 Type = palfx
-Trigger1 = root,var(27)=3
-Trigger2 = root,var(27)=5
-Trigger2 = gametime%4=2
+Trigger1 = helper(24000),var(0)=3
 Time = 1
 Add = 0,256,0
 
 [State -1]
 Type = palfx
-Trigger1 = root,var(27)=4
-Trigger2 = root,var(27)=5
-Trigger2 = gametime%4=3
+Trigger1 = helper(24000),var(0)=4
 Time = 1
 Add = 128,128,0
 
@@ -842,7 +834,7 @@ triggerall = ishelper(2626)
 triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = S, HA
-hitFlag = MAF
+hitFlag = MAFD
 guardFlag = MA
 priority = 4, Hit
 damage = ceil(70*root,fvar(0)), 7
@@ -1986,6 +1978,14 @@ Trigger1 = Time = 31
 type = U
 anim = 9999
 
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 0    ;fv = 10
+value = ifelse(root,var(27)!=5,root,var(27),(gametime%4)+1)
+ignorehitpause = 1
+;persistent = 
+
 ;sigil remove
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -1998,7 +1998,7 @@ ignorehitpause = 1
 [State 30000] 
 type = Explod
 trigger1 = numexplod(24000) = 0
-anim = 24000+cond(root,var(27)!=5,root,var(27),(gametime%4)+1);/4)+1)
+anim = 24000+cond(root,var(27)!=5,root,var(27),((gametime-1)%4)+1);/4)+1)
 ID = 24000
 pos = ifelse(teamside=1,37.5,320-37.5), 37.5
 postype = left
@@ -2012,6 +2012,30 @@ ownpal = 1
 ignorehitpause = 1
 vfacing = -1
 facing = 1-(teamside=2)*2
+
+[State -1]
+Type = palfx
+Trigger1 = var(0)=1
+Time = 1
+Add = 256,0,0
+
+[State -1]
+Type = palfx
+Trigger1 = var(0)=2
+Time = 1
+Add = 0,0,256
+
+[State -1]
+Type = palfx
+Trigger1 = var(0)=3
+Time = 1
+Add = 0,256,0
+
+[State -1]
+Type = palfx
+Trigger1 = var(0)=4
+Time = 1
+Add = 128,128,0
 
 ;super sigil remove
 [State 0, RemoveExplod]
@@ -2027,14 +2051,14 @@ ignorehitpause = 1
 type = ModifyExplod
 trigger1 = numexplod(24001)=1
 ID = 24001
-anim = 24000+cond(root,var(27)!=5,root,var(27),((time%4+1)))
+anim = 24000+var(0);cond(root,var(27)!=5,root,var(27),((time%4+1)))
 
 ;super sigil thing
 [State 30000] 
 type = Explod
 trigger1 = numexplod(24001) = 0
 trigger1 = root,var(28)
-anim = 24000+cond(root,var(27)!=5,root,var(27),((time%4+1)));/4)+1)
+anim = 24000+cond(root,var(27)!=5,root,var(27),(((gametime-1)%4+1)));/4)+1)
 ID = 24001
 pos = ifelse(teamside=1,37.5,320-37.5), 37.5
 postype = left
@@ -2044,7 +2068,7 @@ supermovetime = 9999
 pausemovetime = 9999
 sprpriority = 5
 scale = 0.5625,0.5625
-ownpal = 1
+ownpal = 0
 ignorehitpause = 1
 vfacing = -1
 facing = 1-(teamside=2)*2
@@ -2229,7 +2253,7 @@ triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = S, SP 
 AnimType  = Hard
-Damage    = Ceil((75+5*ishelper(240111))*root,fvar(0)), 7+ishelper(240111)   
+Damage    = Ceil((75+5*(anim-240110))*root,fvar(0)), 7+(anim-240110)  
 HitFlag = MAF
 GuardFlag = HA
 PauseTime = 5,10
@@ -2303,6 +2327,11 @@ persistent = 0
 		persistent = 0
  		ignorehitpause = 1
 
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = animtime = 0
@@ -2328,7 +2357,7 @@ type = HitDef
 triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = C, SP
-Damage    = Ceil((75+5*ishelper(240121))*root,fvar(0)), 7+ishelper(240121)  
+Damage    = Ceil((75+5*(anim-240120))*root,fvar(0)), 7+(anim-240120) 
 animtype = Hard
 hitflag = MAF;MAFD
 guardflag = LA
@@ -2370,6 +2399,11 @@ persistent = 0
 		fVar(11) = 3
 		persistent = 0
  		ignorehitpause = 1
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
 
 [State 0, DestroySelf]
 type = DestroySelf
@@ -2457,15 +2491,17 @@ Flag = Noshadow
 
 [State -1]
 Type = DestroySelf
-trigger1 = root,stateno!=[1000,1500]
-trigger1 = root,stateno!=[2000,2500]
+trigger1 = root,stateno!=[1000,1499]
+trigger1 = root,stateno!=[2000,2600]
 trigger2 = root,var(21)!=3
+trigger2 = root,var(21)!=5
 
 ;Atmosphere
 [Statedef 24014]
-type	 = A
+type	 = U
 movetype = A
-anim	 = 240140+ishelper(240141)+2*ishelper(240142)
+physics = U
+anim	 = 240140+ishelper(240141)+2*ishelper(240142)+3*ishelper(240143)+4*ishelper(240144)
 sprpriority = 3
 
 [State 0, PlaySnd]
@@ -2475,38 +2511,38 @@ value = 24000,4
 ignorehitpause = 1
 ;persistent = 
 
-[State 6131, NoHitBy]
-type = NotHitBy
-trigger1 = Time = 0
-value = , NT, ST, HT ,NA, SA, HA,NP
-time = -1
 
-[State 0, HitOverride]
-type = HitOverride
-trigger1 = 1
-attr = SCA,SP,HP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
-stateno = 24015
-time = 2
-forceair = 0
-ignorehitpause = 1
-;persistent = 
+
+
+	[State 1005, 飛び道具以外無敵]
+		type = NotHitBy
+		trigger1 = 1
+		value = ,AA,AT
+		time = 1
+
+	[State 1005, 飛び道具相殺]
+		type = HitOverride
+		trigger1 = 1
+		attr = SCA,AP
+		stateno = 24015
+		time = 1
 
 [State 6131 , 4]
 type = HitDef
+triggerall=anim=[240140,240142]
 triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = A, SP 
-Damage    = Ceil((75+5*ishelper(240141))*root,fvar(0)), 7+ishelper(240141)  
+Damage    = Ceil((75+5*(anim-240140))*root,fvar(0)), 7+(anim-240140) 
 ;getpower = 110,45
 animtype = Hard
-pausetime = 5,10
-guard.PauseTime = 5,15
+pausetime = 0,5
+guard.PauseTime = 0,0
 hitflag		  = MAF
 guardflag = MA
 sparkno=-1
 sparkxy = 0,0
-HitSound= -1                  ;Sound to play on hit
+HitSound= s20,0                  ;Sound to play on hit
 GuardSound=s120,0               ;Sound to play on guard
 ground.type = High
 ground.slidetime = 20
@@ -2519,13 +2555,78 @@ envshake.time = 3
 ground.cornerpush.veloff = 0
 p1stateno = 24015
 
+	[State 1005, 判定]
+		type = HitDef
+		triggerall=anim=240143
+		triggerall=!movecontact && !movereversed
+		trigger1 = Time = 0
+		attr = C, SP
+		damage = Ceil(85*root,fvar(0)),10
+		getpower = 0
+		animtype = Light
+		pausetime = 0,5
+		guard.pausetime = 0,0
+		guardflag = L
+		hitflag = MAF
+		priority = 2
+		sparkno = -1
+		;guard.sparkno = S10000
+		sparkxy = 0,0;-30
+		HitSound= s20,0                  ;Sound to play on hit
+		GuardSound=s120,0               ;Sound to play on guard
+		ground.type = Low
+		ground.slidetime = 30
+		guard.slidetime = 17
+		ground.hittime  = 30
+		guard.hittime  = 15
+		guard.ctrltime = 15
+		ground.velocity =-5,0
+		air.velocity = -5,0
+;		getpower = 80,5
+;		givepower =60,5
+		fall = 0
+		ground.cornerpush.veloff = 0
+		p1stateno = 24015
+
+	[State 1015, 判定]
+		type = HitDef
+		triggerall=anim=240144
+		triggerall=!movecontact && !movereversed
+		trigger1 = Time = 0
+		attr = A, SP
+		damage = Ceil(95*root,fvar(0)),10
+		getpower = 0
+		animtype = Light
+		pausetime = 0,5
+		guard.pausetime = 0,0
+		guardflag = HA
+		hitflag = MAF
+		priority = 2
+		sparkno = -1
+		;guard.sparkno = S10000
+		sparkxy = 0,0;-30
+		HitSound= s20,0                  ;Sound to play on hit
+		GuardSound=s120,0               ;Sound to play on guard
+		ground.type = High
+		ground.slidetime = 17
+		guard.slidetime = 15
+		ground.hittime  = 17
+		guard.hittime  = 15
+		guard.ctrltime = 15
+		ground.velocity = -4
+		air.velocity = -4
+		ground.cornerpush.veloff = 0
+		air.cornerpush.veloff = 0
+;		getpower = 80,5
+;		givepower =60,5
+		p1stateno = 24015
+
 [State 670, 移動速度]
 type = VelSet
 triggerall = time = 0
 trigger1 = root,stateno=[1000,1099]
 trigger2 = root,stateno=[2000,2099]
 x = 7
-y = 0
 
 [State 670, 移動速度]
 type = VelSet
@@ -2533,7 +2634,6 @@ triggerall = time = 0
 trigger1 = root,stateno=[1100,1199]
 trigger2 = root,stateno=[2100,2199]
 x = 5
-y = 0
 
 [State 670, 移動速度]
 type = VelSet
@@ -2541,7 +2641,6 @@ triggerall = time = 0
 trigger1 = root,stateno=[1200,1299]
 trigger2 = root,stateno=[2200,2299]
 x = 1.5
-y = 0
 
 [State 670, 移動速度]
 type = VelSet
@@ -2549,7 +2648,6 @@ triggerall = time = 0
 trigger1 = root,stateno=[1300,1399]
 trigger2 = root,stateno=[2300,2399]
 x = 10.5
-y = 0
 
 [State 670, 移動速度]
 type = VelSet
@@ -2557,7 +2655,32 @@ triggerall = time = 0
 trigger1 = root,stateno=[1400,1499]
 trigger2 = root,stateno=[2400,2499]
 x = 6
+
+[State 0, VelSet]
+type = VelSet
+triggerall = anim = 240144
+trigger1 = time = 0 
+y = vel x
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = pos y > 0
+trigger1 = vel y > 0
 y = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = anim = 240143
+trigger1 = time = 0
+trigger2 = pos y > 0
+y = 0
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, ParentVarAdd]
 type = ParentVarSet
@@ -2571,7 +2694,7 @@ persistent = 0
 	[State -1,攻撃補正,上書き,カウンター]
 		type = ParentVarset
 		Trigger1=MoveHit=1
-		fvar(0)= parent,fvar(0)*0.80
+		fvar(0)= root,fvar(0)*0.65
 		persistent = 0
  		ignorehitpause = 1
 
@@ -2582,25 +2705,44 @@ persistent = 0
 		persistent = 0
  		ignorehitpause = 1
 
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "vel x = %f vel y = %f"
+params = vel x,vel y
+;ignorehitpause = 
+;persistent = 
+
+
 [State 6131, 5]
 type = Destroyself
-trigger1 = backedgedist<=-50
-trigger2 = frontedgedist<-50
-trigger3 = movereversed
+trigger1 = backedgedist<=-60
+trigger2 = frontedgedist<-60
+
+	[State 1005, 消滅移行]
+		type = ChangeState
+		trigger1 = MoveContact 
+		trigger2 = MoveReversed
+		value = 24015
 
 ;Atmosphere end
 [Statedef 24015]
 type	 = A
 movetype = A
-anim	 = 240150+ishelper(240141)+2*ishelper(240142)
+anim	 = 240150+ishelper(240141)+2*ishelper(240142)+3*ishelper(240143)+4*ishelper(240144)
 sprpriority = 3
 velset = 0,0
 
-[State 6131, 音を鳴らす]
-type = PlaySnd
-trigger1 = !moveguarded
-trigger1 =time=0
-value = 20, 0
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+
 
 [State 0, DestroySelf]
 type = DestroySelf
@@ -2621,16 +2763,3 @@ trigger1 = helper(240210),animtime = 0
 trigger1 = helper(240211),animtime = 0
 ;ignorehitpause = 
 ;persistent = 
-
-;Atmosphere
-[Statedef 24040]
-type	 = A
-movetype = A
-anim	 = 24040+ishelper(24041)
-sprpriority = 3
-
-[State 6131, 5]
-type = Destroyself
-trigger1 = backedgedist<=-50
-trigger2 = frontedgedist<-50
-trigger3 = movereversed

@@ -1,3 +1,140 @@
+<#f0f000>Movelist :</>
+
+
+<#f0f000>Information :</>
+Itsuwa is a sort of install and shoto character
+She has a sigil system that has both
+passive and active effects on her gameplan.
+
+<#00ff77>About Sigils :</>
+
+Itsuwa can have one sigil at a time.
+You have passives when a sigil is active.
+You consume a sigil on (sigil) specials and throw the active ability
+
+There are 5 kinds of sigils:
+<#ff0000>_`Ryousen (Fire)</>
+Passively increases speed and gives airdash(es)
+Actively creates an overhead fire attack on sigil specials
+<#0000ff>_`Hasen (Water)</>
+Passively increases defense
+Actively creates a low water attack on sigil specials
+<#00ff00>_`Chisen (Earth)</>
+Passively increases attack
+Actively increases the attack further on sigil specials
+<#ffff00>_`Kuusen (Atmosphere)</>
+Passively increases air mobility and gives air jump(s)
+Actively creates air projectile(s) on sigil specials
+_`Zensen (All-around)
+Passively combines all the passives
+Actively launches all the actives
+
+The logic of sigil specials is in general :
+special a : fast
+special b : slow and gives sigil
+<#00ff00>Lvl-1</>
+special c : fast and gives super sigil
+
+All versions consume sigils
+
+While not being the only way she can fight,
+this system is central to her kit
+
+<#f0f000>XYZs :</>
+
+<#f0f000>Normals :</>
+
+Thrust									^LK / ^A
+Low Kick								_F^LK / _F^A
+Swing									^MK / ^B
+Overslash								^HK / ^C
+
+Low Thrust								^LK / ^A (crouch)
+Low Swing								^MK / ^B (crouch)
+Low Sweep  								^HK / ^C (crouch)
+
+Air Thrust								^LK / ^A (air)
+Air Swing			 					^MK / ^B (air)
+Air Sweep		 						^HK / ^C (air)
+
+<#f0f000>Specials and Supers :</>
+
+Sigil :
+
+Lunge									_D_DB_B^LK / _D_DB_B^A
+Ryousen Lunge							_D_DB_B^MK / _D_DB_B^B
+<#00ff00>Lvl-1</>
+Ryousen Lunge EX 						_D_DB_B^HK / _D_DB_B^C
+
+Slash									_D_DF_F^LK / _D_DF_F^A
+Hasen Slash								_D_DF_F^MK / _D_DF_F^B
+<#00ff00>Lvl-1</>
+Hasen Slash EX 							_D_DF_F^HK / _D_DF_F^C
+
+Strike									_D_DF_F^LK / _D_DF_F^A (air)
+Chisen Strike							_D_DF_F^MK / _D_DF_F^B (air)
+<#00ff00>Lvl-1</>
+Chisen Strike EX						_D_DF_F^HK / _D_DF_F^C (air)
+
+Upperslash								_F_D_DF^LK / _F_D_DF^A
+Kuusen Upperslash						_F_D_DF^MK / _F_D_DF^B
+<#00ff00>Lvl-1</>
+Kuusen Upperslash EX 					_F_D_DF^HK / _F_D_DF^C
+
+Magic Amplificator						^LK^LK^MK / ^A^A^B
+_!Pull in								^K / ^A/^B/^C
+<#00ff00>Lvl-2</>
+Super Magic Amplificator				^LK^LK^HK / ^A^A^C
+
+<#00ff00>Lvl-2</>
+Shichikou Shichijin						_D_D_DF_F^HK /_D_D_DF_F^C
+(Amplifies like Magic Amplificator)
+
+Non-Sigil :
+
+Wires									_D_D^K / _D_D^A/^B/^C
+(strength level changes distance)
+
+Icy Night Wind							~B_F^LK / ~B_F^A
+<#00ff00>Lvl-1</>
+White Explosion							~B_F^HK / ~B_F^C
+<#00ff00>Lvl-1</>
+_!St Andrew's Lightning spell			^HK / ^C (hold)
+
+Slow down zone							~F_B^MK / ~F_B^B
+<#00ff00>Lvl-2</>
+Punishment for murder					~F_B^HK / ~F_B^C
+
+<#f0f000>Hypers :</>
+
+<#00ff00>Lvl-3</>
+Magic combination						_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+<#00ff00>Lvl-2</>
+_!Saint Destroyer						^HK / ^C (hold)
+
+About Magic combination :
+You obtain automatically the sigils during the move.
+Water -> Fire -> Earth -> Atmosphere.
+Thus, you obtain the last one at the end of the move.
+There is also a "deadly rave" system, that increases the damage
+of each hit if the command is successfully inputed.
+A successful input is shown with a pentagram
+(like in normal sigil obtention)
+The input windows are when Itsuwa is readying up her hit.
+The inputs are the following:
+Water									_D_DF_F^HK / _D_DF_F^C
+Fire									_D_DB_B^HK / _D_DB_B^C
+Earth									_D_DF_F_UF^HK / _D_DF_F_UF^C
+Atmosphere								_F_D_DF^HK / _F_D_DF^C
+
+About Saint Destroyer :
+You obtain Zensen while performing Saint Destroyer.
+If you've inputed every input of the "deadly rave" succesfully
+you get:
+_`super sigil version of Zensen
+_`increased damage on Saint Destroyer.
+
+
 Movelist :
 
 a,b,c's of yukina are ok

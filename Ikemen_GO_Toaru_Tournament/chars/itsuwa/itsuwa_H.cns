@@ -86,6 +86,14 @@ value = var(20)
 [State 0, VarSet]
 type = VarSet
 trigger1 = time = 0
+v = 26
+value = var(25)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
 v = 25
 value = 1
 ;ignorehitpause = 
@@ -118,13 +126,15 @@ size.yscale = 0.5
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 6
-trigger1 = var(21) = 1
+triggerall = animelem = 6
+triggerall = var(26) = 1
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
 helpertype = normal ;player
-name = "fire"
-ID = 240112
-stateno = 24011
-pos = ifelse(p2dist x >= 100 && p2dist x <= 300, p2dist x, 200),-enemyNear,const(size.height)
+name = "super atmosphere high"
+ID = 240144
+stateno = 24014
+pos = 25,0
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -134,8 +144,58 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 6
+triggerall = animelem = 6
+triggerall = var(26) = 1
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere low"
+ID = 240143
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 6
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "atmosphere"
+ID = 240142
+stateno = 24014
+pos = 50,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = time = 0
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "earth"
+ID = 24013
+stateno = 24013
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 6
 trigger1 = var(21) = 2
+trigger2 = var(21) = 5
 helpertype = normal ;player
 name = "water"
 ID = 240122
@@ -150,26 +210,14 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 0
-trigger1 = var(21) = 3
+triggerall = animelem = 6
+trigger1 = var(21) = 1
+trigger2 = var(21) = 5
 helpertype = normal ;player
-name = "earth"
-ID = 24013
-stateno = 24013
-keyctrl = 0
-ownpal = 1
-SuperMoveTime = 9999
-PauseMoveTime = 9999
-
-[State 0, Helper]
-type = Helper
-trigger1 = animelem = 6
-trigger1 = var(21) = 4
-helpertype = normal ;player
-name = "atmosphere"
-ID = 240142
-stateno = 24014
-pos = 50,-62.5
+name = "fire"
+ID = 240112
+stateno = 24011
+pos = ifelse(p2dist x >= 100 && p2dist x <= 300, p2dist x, 200),-enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -432,6 +480,14 @@ value = var(20)
 [State 0, VarSet]
 type = VarSet
 trigger1 = time = 0
+v = 26
+value = var(25)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
 v = 25
 value = 1
 ;ignorehitpause = 
@@ -480,13 +536,15 @@ size.yscale = 0.5
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 8
-trigger1 = var(21) = 1
+triggerall = animelem = 8
+triggerall = var(26) = 1
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
 helpertype = normal ;player
-name = "fire"
-ID = 240112
-stateno = 24011
-pos = ifelse(p2dist x <= 200, p2dist x, 100),-enemyNear,const(size.height)
+name = "super atmosphere high"
+ID = 240144
+stateno = 24014
+pos = 25,0
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -496,8 +554,58 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 8
+triggerall = animelem = 8
+triggerall = var(26) = 1
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere low"
+ID = 240143
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 8
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "atmosphere"
+ID = 240142
+stateno = 24014
+pos = 25,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = time = 0
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "earth"
+ID = 24013
+stateno = 24013
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 8
 trigger1 = var(21) = 2
+trigger2 = var(21) = 5
 helpertype = normal ;player
 name = "water"
 ID = 240122
@@ -512,26 +620,14 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 0
-trigger1 = var(21) = 3
+triggerall = animelem = 8
+trigger1 = var(21) = 1
+trigger2 = var(21) = 5
 helpertype = normal ;player
-name = "earth"
-ID = 24013
-stateno = 24013
-keyctrl = 0
-ownpal = 1
-SuperMoveTime = 9999
-PauseMoveTime = 9999
-
-[State 0, Helper]
-type = Helper
-trigger1 = animelem = 8
-trigger1 = var(21) = 4
-helpertype = normal ;player
-name = "atmosphere"
-ID = 240142
-stateno = 24014
-pos = 25,-62.5
+name = "fire"
+ID = 240112
+stateno = 24011
+pos = ifelse(p2dist x <= 200, p2dist x, 100),-enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -684,6 +780,14 @@ value = var(20)
 
 [State 0, VarSet]
 type = VarSet
+trigger1 = time = 0
+v = 26
+value = var(25)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = animelem = 3
 v = 25
 value = 1
@@ -717,8 +821,76 @@ size.yscale = 0.5
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 12
+triggerall = animelem = 12
+triggerall = var(26) = 1
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere high"
+ID = 240144
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 12
+triggerall = var(26) = 1
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere low"
+ID = 240143
+stateno = 24014
+pos = 25,pos y
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 12
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "atmosphere"
+ID = 240142
+stateno = 24014
+pos = 25,-25
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = time = 0
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "earth"
+ID = 24013
+stateno = 24013
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 12
 trigger1 = var(21) = 2
+trigger2 = var(21) = 5
 helpertype = normal ;player
 name = "water"
 ID = 240122
@@ -730,35 +902,6 @@ keyctrl = 0
 ownpal = 1
 supermovetime = 0
 pausemovetime = 0
-
-[State 0, Helper]
-type = Helper
-trigger1 = animelem = 12
-trigger1 = var(21) = 4
-helpertype = normal ;player
-name = "atmosphere"
-ID = 240142
-stateno = 24014
-pos = 50,-25
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 1
-supermovetime = 0
-pausemovetime = 0
-
-[State 0, Helper]
-type = Helper
-trigger1 = time = 0
-trigger1 = var(21) = 3
-helpertype = normal ;player
-name = "earth"
-ID = 24013
-stateno = 24013
-keyctrl = 0
-ownpal = 1
-SuperMoveTime = 9999
-PauseMoveTime = 9999
 
 [State 1400, Vel]
 type = velset
@@ -894,8 +1037,9 @@ persistent=0
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 2
+triggerall = animelem = 2
 trigger1 = var(21) = 1
+trigger2 = var(21) = 5
 helpertype = normal ;player
 name = "fire"
 ID = 240112
@@ -1105,6 +1249,14 @@ value = var(20)
 [State 0, VarSet]
 type = VarSet
 trigger1 = time = 0
+v = 26
+value = var(25)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
 v = 25
 value = 1
 ;ignorehitpause = 
@@ -1112,7 +1264,8 @@ value = 1
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = animtime = 0
+trigger1 = pos y > 0
+trigger1 = vel y > 0
 v = 21
 value = var(20)
 ;ignorehitpause = 
@@ -1120,7 +1273,8 @@ value = var(20)
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = animtime = 0
+trigger1 = pos y > 0
+trigger1 = vel y > 0
 v = 26
 value = var(25)
 ;ignorehitpause = 
@@ -1153,13 +1307,15 @@ size.yscale = 0.5
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 11
-trigger1 = var(21) = 1
+triggerall = animelem = 27
+triggerall = var(26) = 1
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
 helpertype = normal ;player
-name = "fire"
-ID = 240112
-stateno = 24011
-pos = ifelse(p2dist x <= 100, p2dist x, 100),-enemyNear,const(size.height)
+name = "super atmosphere high"
+ID = 240144
+stateno = 24014
+pos = 25,0
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -1169,8 +1325,58 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 11
+triggerall = animelem = 19
+triggerall = var(26) = 1
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere low"
+ID = 240143
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 13
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "atmosphere"
+ID = 240142
+stateno = 24014
+pos = 25,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = time = 0
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "earth"
+ID = 24013
+stateno = 24013
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 11
 trigger1 = var(21) = 2
+trigger2 = var(21) = 5
 helpertype = normal ;player
 name = "water"
 ID = 240122
@@ -1185,26 +1391,14 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 0
-trigger1 = var(21) = 3
+triggerall = animelem = 26;11
+trigger1 = var(21) = 1
+trigger2 = var(21) = 5
 helpertype = normal ;player
-name = "earth"
-ID = 24013
-stateno = 24013
-keyctrl = 0
-ownpal = 1
-SuperMoveTime = 9999
-PauseMoveTime = 9999
-
-[State 0, Helper]
-type = Helper
-trigger1 = animelem = 13
-trigger1 = var(21) = 4
-helpertype = normal ;player
-name = "atmosphere"
-ID = 240142
-stateno = 24014
-pos = 25,-62.5
+name = "fire"
+ID = 240112
+stateno = 24011
+pos = 50,-100;ifelse(p2dist x <= 100, p2dist x, 100),-enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -1530,6 +1724,57 @@ HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guardenvShake.time = 14
 envShake.ampl = 4
 envShake.freq = 120
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 21
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere high"
+ID = 240144
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 21
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere low"
+ID = 240143
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 21
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "atmosphere"
+ID = 240142
+stateno = 24014
+pos = 25,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
 
 [State 1211, End]
 type = ChangeState
