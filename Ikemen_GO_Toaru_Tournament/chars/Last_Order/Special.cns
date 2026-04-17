@@ -1062,7 +1062,7 @@ trigger1 = 1
 value = 5*(Time%360)
 
 ;-------------------------------------------------------------------------------
-[Statedef 1250, 214b,421b]
+[Statedef 1250, 421a]
 type     = S
 movetype = A
 physics  = S
@@ -1341,7 +1341,7 @@ type = DestroySelf
 trigger1 = AnimTime = 0
 
 ;-------------------------------------------------------------------------------
-[Statedef 1600, 421a]
+[Statedef 1600, 214b]
 type     = S
 movetype = A
 physics  = S
@@ -1371,7 +1371,7 @@ value = 0,0
 [State 1600, 2]
 type = Helper
 trigger1 = numhelper(1200999) = 0
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 5
 helpertype = normal
 name = "421a"
 ID = 1200999
@@ -1413,7 +1413,7 @@ value = 0,0
 [State 1650, 2]
 type = Helper
 trigger1 = numhelper(1250999) = 0
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 5
 helpertype = normal
 name = "421b"
 ID = 1250999

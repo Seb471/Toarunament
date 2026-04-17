@@ -233,7 +233,10 @@ time = 20
 buffer.time = 10
 
 
-
+[Command]
+	name = "Burst"
+	command = a+b
+	time = 1
 ;---------------------------------------------------------------------------
 ;======================= Double Tap ======================================
 ;---------------------------------------------------------------------------
@@ -364,14 +367,12 @@ command = /$D
 time = 1
 
 [Command]
-name = "holdx";Required (do not remove)
-command = /$x
-time = 1
+	name="hold_a"
+	command=/a
 
 [Command]
-name = "holda";Required (do not remove)
-command = /$a
-time = 1
+	name="hold_c"
+	command=/c
 
 [Command]
 name = "longjump"
@@ -947,7 +948,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 100
 triggerall = !var(59)
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "holdfwd" && command = "y")
 trigger1 = statetype = S
 trigger1 = ctrl
 
@@ -960,7 +961,7 @@ triggerall = anim != 105
 triggerall = anim != 110
 triggerall = anim != 111
 triggerall = anim != 113
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "holdfwd" && command = "y")
 trigger1 = statetype = A
 trigger1 = ctrl
 
@@ -970,7 +971,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 105
 triggerall = !var(59)
-trigger1 = command = "BB"
+trigger1 = command = "BB" || (command = "holdback" && command = "y")
 trigger1 = statetype = S
 trigger1 = ctrl
 
@@ -983,7 +984,7 @@ triggerall = anim != 105
 triggerall = anim != 110
 ;triggerall = anim != 111
 ;triggerall = anim != 113
-trigger1 = command = "BB"
+trigger1 = command = "BB" || (command = "holdback" && command = "y")
 trigger1 = statetype = A
 trigger1 = ctrl
 
@@ -1021,9 +1022,10 @@ type = ChangeState
 value = 4500
 ;triggerall = !var(59)
 triggerall = statetype = S
-triggerall = Power < 6000
+triggerall = Power < powermax
 triggerall = ctrl = 1
-trigger1 = command = "holdx"
+trigger1 = command = "hold_a"
+trigger1 = command = "hold_c"
 
 ;---------------------------------------------------------------------------
 [State -1, Burst]
@@ -1031,7 +1033,7 @@ type = ChangeState
 value = 930
 triggerall = !var(59)
 TriggerAll = Alive
-triggerall = command =  "recovery"
+triggerall = command =  "Burst"
 triggerall = MoveType = H
 triggerall = var(28) >= 100
 trigger1 = stateno = 5000 && time > 0

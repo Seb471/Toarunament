@@ -2342,7 +2342,7 @@ trigger1 = animtime = 0
 [Statedef 24012]
 type	 = C
 movetype = A
-anim	 = 240120+ishelper(240121)+2*ishelper(240122)
+anim	 = 240120+ishelper(240121)+2*ishelper(240122)+3*ishelper(240123)+4*ishelper(240124)
 sprpriority = 3
 
 [State 0, PlaySnd]
@@ -2354,6 +2354,7 @@ ignorehitpause = 1
 
 [State 370, hitdef]
 type = HitDef
+triggerall=anim=[240120,240122]
 triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = C, SP
@@ -2376,6 +2377,187 @@ down.hittime = 30
 fall = 1
 fall.recover = 0
 ground.cornerpush.veloff = 0
+
+[State 0, Explod]
+type = Explod
+triggerall=anim=240123
+trigger1 = time = 0
+anim = 240125
+ID = 240123
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 0.6,0.6
+sprpriority = 5
+ownpal = 1
+
+[State 0, HitDef]
+type = HitDef
+triggerall=anim=240123
+trigger1 = !movehit
+trigger1 = !movereversed
+trigger1 = !moveguarded
+attr = S,SP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAFD        ;HLAFD+-
+guardflag = LA         ;HLA
+;affectteam = E          ;B,E,F
+animtype = Hard        ;light,medium,hard,back,up,diagup
+air.animtype = hard
+;fall.animtype = Back
+priority = 5,Hit
+damage = Ceil(100*parent,fvar(10)),10
+pausetime = 10 ,10
+guard.pausetime = 9,9
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 0,0
+hitsound = -1
+guardsound = S2,0
+ground.type = Low      ;Low,Trip,None
+;air.type = High
+ground.slidetime = 18
+guard.slidetime = 18
+ground.hittime = 18
+guard.hittime = 18
+air.hittime = 22
+ground.velocity = -1,-15
+;guard.velocity = 0
+air.velocity = -2,-13
+down.velocity = -1,-12.5
+yaccel=.45+parent,fvar(11)*.00066
+;airguard.velocity = 0,0
+;ground.cornerpush.veloff = 0
+;air.cornerpush.veloff = 0
+;down.cornerpush.veloff = 0
+;guard.cornerpush.veloff = 0
+;airguard.cornerpush.veloff = 0
+;airguard.ctrltime = 0
+;air.juggle = 0
+;mindist = 0,0
+;maxdist = 0,0
+;snap = 0,0
+sprpriority = 1
+;p1facing = 
+p1getp2facing = 0
+;p2facing = 
+;p1stateno = 
+;p2stateno = 
+;p2getp1state = 1
+;forcestand = 0
+fall = 1
+;fall.xvelocity = 0
+fall.yvelocity = -6
+fall.recover = 0
+fall.recovertime = 50
+fall.damage = 0
+;air.fall = 0
+;down.velocity = 0,0
+;down.hittime = 0
+down.bounce = 0
+id = 1400
+hitonce = 1
+kill = 1
+guard.kill = 0
+numhits = 1
+EnvShake.Time = 6
+EnvShake.Ampl = 3
+EnvShake.Freq = 90
+
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+triggerall=anim=240124
+trigger1 = time = 0
+anim = 240125
+ID = 240124
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 0.8,0.8
+sprpriority = 5
+ownpal = 1
+
+[State 0, HitDef]
+type = HitDef
+triggerall=anim=240124
+trigger1 = !movehit
+trigger1 = !movereversed
+trigger1 = !moveguarded
+attr = S,HP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAFD        ;HLAFD+-
+guardflag = LA         ;HLA
+;affectteam = E          ;B,E,F
+animtype = Hard        ;light,medium,hard,back,up,diagup
+air.animtype = hard
+;fall.animtype = Back
+priority = 5,Hit
+damage = Ceil(parent,fvar(10)*150),15
+pausetime = 10 ,10
+guard.pausetime = 9,9
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 0,0
+hitsound = -1
+guardsound = S2,0
+ground.type = Low      ;Low,Trip,None
+;air.type = High
+ground.slidetime = 23
+guard.slidetime = 23
+ground.hittime = 23
+guard.hittime = 23
+air.hittime = 32
+ground.velocity = -1,-16
+;guard.velocity = 0
+air.velocity = -1,-14
+down.velocity = -0.5,-13.5
+yaccel = 0.5
+;airguard.velocity = 0,0
+;ground.cornerpush.veloff = 0
+;air.cornerpush.veloff = 0
+;down.cornerpush.veloff = 0
+;guard.cornerpush.veloff = 0
+;airguard.cornerpush.veloff = 0
+;airguard.ctrltime = 0
+;air.juggle = 0
+;mindist = 0,0
+;maxdist = 0,0
+;snap = 0,0
+sprpriority = 1
+;p1facing = 
+p1getp2facing = 0
+;p2facing = 
+;p1stateno = 
+;p2stateno = 
+;p2getp1state = 1
+;forcestand = 0
+fall = 1
+;fall.xvelocity = 0
+fall.yvelocity = -6
+fall.recover = 0
+fall.damage = 0
+;air.fall = 0
+;down.velocity = 0,0
+;down.hittime = 0
+down.bounce = 0
+id = 2250
+hitonce = 1
+kill = 1
+guard.kill = 1
+numhits = 1
+EnvShake.Time = 12
+EnvShake.Ampl = 5
+EnvShake.Freq = 90
+
+;ignorehitpause = 
+;persistent = 
 
 [State 0, ParentVarAdd]
 type = ParentVarSet

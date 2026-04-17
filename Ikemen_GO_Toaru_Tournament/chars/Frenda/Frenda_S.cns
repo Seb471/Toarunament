@@ -3212,7 +3212,7 @@ ground.type = High      ;Low,Trip,None
 ground.slidetime = 25
 guard.slidetime = 23
 ground.hittime = 25
-guard.hittime = 23
+guard.hittime = 15
 air.hittime = 27
 ground.velocity = -4,4
 guard.velocity = cond(var(10)=1,12,-12)

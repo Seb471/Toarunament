@@ -1076,7 +1076,7 @@ pan = 1
 type = ChangeState
 trigger1 = power >= 6000
 trigger2 = var(59) = 0
-trigger2 = command != "holdx"
+trigger2 = command != "hold_a" && command !="hold_c"
 value = 4501
 ctrl = 1
 

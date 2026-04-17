@@ -481,10 +481,7 @@ time = 1
 name = "hold_c"
 command = /c
 time = 1
-[Command]
-name = "hold_y"
-command = /y
-time = 1
+
 [Command]
 name = "hold_z"
 command = /z
@@ -819,7 +816,7 @@ trigger1 = ctrl
 	TriggerAll = command != "holddown"
 	TriggerAll = StateType != A
 	TriggerAll = Power < PowerMAX
-	TriggerAll=command="hold_y" ||( command="hold_a" && command="hold_c")
+	TriggerAll=command="hold_a" && command="hold_c"
 	Trigger1=Ctrl
 ;===========================================================================
 ;---------------------------------------------------------------------------
@@ -827,7 +824,7 @@ trigger1 = ctrl
 [State -1, Run Fwd]
 type = ChangeState
 value = 100
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "holdfwd" && command = "y")
 trigger1 = statetype !=A
 trigger1 = ctrl
 trigger1 = stateno!=100
@@ -835,7 +832,7 @@ trigger1 = stateno!=100
 [State -1,AirDash];‹ó’†ƒ_ƒbƒVƒ…
 	Type=ChangeState
 	value=110
-	TriggerAll = command = "FF"
+	TriggerAll = command = "FF" || (command = "holdfwd" && command = "y")
 	TriggerAll = StateType = A
 	triggerall = ishelper = 0
 	TriggerAll = pos Y <= -4 + (vel y > 0) * 5
@@ -849,7 +846,7 @@ trigger1 = stateno!=100
 [State -1, Run Back]
 type = ChangeState
 value = 105
-trigger1 = command = "BB"
+trigger1 = command = "BB" || (command = "holdback" && command = "y")
 trigger1 = statetype !=A
 trigger1 = ctrl
 
@@ -858,13 +855,12 @@ trigger1 = ctrl
 	Type=ChangeState
 	value=115
 	TriggerAll = Alive
-	TriggerAll = command="BB"
+	TriggerAll = command="BB" || (command = "holdback" && command = "y")
 	TriggerAll = StateType=A
 	triggerall = ishelper = 0
 	TriggerAll = pos Y <= -4 + (vel y > 0) * 5
 	TriggerAll = var(17) < 2
 	TriggerAll = anim!=115
-	triggerall=stateno!=105
 	Trigger1 = Ctrl
 	trigger2 = var(1)
 
@@ -1009,7 +1005,7 @@ anim=ifelse((stateno = [210,499]),5,1)
 
 
 
-[State -1, 6x]
+[State -1, grab]
 Type = ChangeState
 value = 800
 triggerall = command = "x"

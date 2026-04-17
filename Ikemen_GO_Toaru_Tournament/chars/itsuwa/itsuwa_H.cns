@@ -603,7 +603,26 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
+triggerall = animelem = 10
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240124
+stateno = 24012
+pos = ifelse(p2dist x <= 200, p2dist x, 100),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
 triggerall = animelem = 8
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1728,6 +1747,7 @@ envShake.freq = 120
 [State 0, Helper]
 type = Helper
 triggerall = animelem = 21
+triggerall = var(26) = 1
 trigger1 = var(21) = 4
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1745,6 +1765,7 @@ pausemovetime = 0
 [State 0, Helper]
 type = Helper
 triggerall = animelem = 21
+triggerall = var(26) = 1
 trigger1 = var(21) = 4
 trigger2 = var(21) = 5
 helpertype = normal ;player

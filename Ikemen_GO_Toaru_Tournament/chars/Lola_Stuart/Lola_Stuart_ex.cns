@@ -361,12 +361,11 @@ value = 5050
 	[State 6500, ステート変更]
 		type = ChangeState
 		triggerall= animtime=0 
-		trigger1= command ="hold_y"
-		trigger2= command ="hold_a" && command = "hold_c"
+		trigger1= command ="hold_a" && command = "hold_c"
 		value = 6500
 	[State 6500, ステート変更]
 		type = ChangeState
-		trigger1 = command != "hold_y" && command !="hold_a" && command != "hold_c"
+		trigger1 = command !="hold_a" && command != "hold_c"
 		trigger2 = Power >= powerMax
 		value = 6501
 ;Charge up
@@ -416,13 +415,13 @@ ignorehitpause = 1
 		
 	[State 6500, エフェクト消し]
 		Type=RemoveExplod
-		trigger1 = command != "hold_y" && command !="hold_a" && command != "hold_c"
+		trigger1 = command !="hold_a" && command != "hold_c"
 		Trigger2 = Power >= PowerMAX
 		ID = 13370
 
 	[State 6500, エフェクト]
 		Type=Explod
-		trigger1 = command != "hold_y" && command !="hold_a" && command != "hold_c"
+		trigger1 = command !="hold_a" && command != "hold_c"
 		Trigger2 = Power >= PowerMAX
 		anim = 13271
 		postype = p1
@@ -435,7 +434,7 @@ ignorehitpause = 1
 
 	[State 6500, ステート変更]
 		type = ChangeState
-		trigger1 = command != "hold_y" && command !="hold_a" && command != "hold_c"
+		trigger1 = command !="hold_a" && command != "hold_c"
 		trigger2 = Power >= 6000
 		value = 0
 		ctrl=1
