@@ -162,7 +162,10 @@ empty
 S_Yuriko,order = 7
 
 
-Kamisato, order = 2
+ slot = {
+KamisatoBoxer,previous=d, next=w, order = 3
+Kamisato,previous=d, next=w, order = 2
+}
 
 kanzaki,order=4;
 itsuwa ;empty

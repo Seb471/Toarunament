@@ -1,0 +1,155 @@
+<#f0f000>Movelist :</>
+
+<#f0f000>Information:</>
+Kamisato can forward air dash
+
+<#f0f000>Normals:</>
+
+Standing Jab						^LK / ^A
+
+Elbow Tackle 						^MK / ^B
+Baton Followup						^MK / ^B 
+
+Baton Grab						_F^MK / _F^B
+
+Heavy Punch						^HK / ^C
+_! Elbow Followup						^HK / ^C
+    _! Heavy Gut Punch Followup				^LK / ^A
+    _! Uppercut Followup					_B ^LK / _B ^A 
+
+Front Kick 						_F^HK / _F^C
+
+
+Crouching Jab						^LK / ^A (Crouching)
+
+Crouching Low Kick 					^MK / ^B (Crouching)
+
+Crouching Sweep  					^HK / ^C (Crouching)
+
+
+Air Jab							^LK / ^A (Air)
+
+Air Knee			 			^MK / ^B (Air)
+
+Air Front Kick			 			^HK / ^C (Air)
+
+Air Down Kick						_D^HK / _D^C (Air)
+
+
+Do You Wish For A New World?				^MP / ^Y 
+(Gives Do You Wish mode)
+
+<#00ff00>Lvl-1</>
+Instant Do You Wish					_D_D^MP / _D_D^Y 
+(Gives Do You Wish mode)
+
+<#ff00ff>Information about Do You Wish mode:</>
+World Rejecter moves can only be used in 
+Do You Wish mode
+Successful uses of World Rejecter will refill
+the Do You Wish meter
+
+(Only in Do You Wish Mode)
+World Rejecter Swing 					^LP / ^X 
+World Rejecter Counter (After a succesful swing) 	
+^LP /  ^X 
+
+(Only in Do You Wish Mode)
+Air World Rejecter Swing 				^LP / ^X (Air)
+
+Kick Throw 					_B / _F  _+ ^LP / ^X
+
+
+Spot Dodge						^LK + ^MK / ^A + ^B 
+
+Slide Dodge						^LK + ^MK / ^A + ^B (in run)
+
+Gauge Charge 						^LK + ^HK / ^A + ^C (Held)
+
+Burst 							^LK + ^MK + ^HK / ^A + ^B + ^C
+
+
+Neck Crack 					 	^S
+(May give 3 meters once per round maximum)
+
+
+<#00ff00>Lvl-1</> <#ff00ff>Lvl-0.5 in Do You Wish</>
+Roman Cancel						^HP / ^Z 
+
+
+<#ff0000>Supers and Hypers:</>
+
+Heavy Gut Punch (Can be held) (Held is Unblockable)		
+_D_DF_F ^LK / _D_DF_F ^A
+
+Lunge Punch (Do You Wish mode has projectile invincibility)		
+_D_DF_F ^MK / _D_DF_F ^B
+
+
+Uppercut 						
+_D_DB_B ^LK / _D_DB_B ^A 
+
+Lunge Baton Overhead						
+_D_DB_B ^MK / _D_DB_B ^B 
+
+High Kick (Overhead) 					
+_D_DB_B ^HK / _D_DB_B ^C
+
+
+Fast Upperkick 						
+_F_D_DF ^LK / _F_D_DF ^A 
+
+Long Upperkick						
+_F_D_DF ^MK / _F_D_DF ^B
+
+<#00ff00>Lvl-1</>
+Upperkick EX						
+_F_D_DF ^HK / _F_D_DF ^C
+
+
+<#00ff00>Lvl-1</>
+Baton Combo EX						
+_B_DB_D_DF_F ^MK / _B_DB_D_DF_F ^B
+
+
+<#00ff00>Lvl-1</>
+Ultra Kick						
+_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+
+
+<#00ff00>Lvl-3</>
+ATeNo Punch (Gives Do You Wish mode on hit)		
+_B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C
+
+
+<#00ff00>Lvl-1</>
+Slide Counter 	(Gives half of Do You Wish meter)(Doesn't work on supers)
+_D_D ^MP / _D_D ^X
+
+(Only in Do You Wish mode)
+<#00ff00>Lvl-1</>
+World Rejecter Shadow Attack		 		
+_D_DF_F ^LP / _D_DF_F ^X
+
+(Only in Do You Wish mode)
+<#00ff00>Lvl-1</>
+Air World Rejecter Shadow Attack		 	
+_D_DF_F ^LP / _D_DF_F ^X (Air)
+
+(Only in Do You Wish mode)
+<#00ff00>Lvl-1</>
+World Rejecter Shadow Defense	 		
+_D_DB_B ^LP / _D_DB_B ^X
+(Will erase all projectiles that come in contact)
+
+(Only in Do You Wish mode)
+<#00ff00>Lvl-6.5</> <#ff0000>Low HP</>
+True World Rejecter (OHKO)		 	
+_F_DF_D_DB_B ^LP / _F_DF_D_DB_B ^X 
+
+
+Credits:
+
+Writing : DidiGetsRekt
+
+
