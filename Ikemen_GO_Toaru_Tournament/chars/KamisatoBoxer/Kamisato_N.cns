@@ -1184,6 +1184,32 @@ value = S200,0
 
 channel = 0
 
+[State 1125,NotHit]
+		Type=notHitBy
+		Trigger1=fvar(6)!=0
+		value=,AP
+		Time=1
+		ignorehitpause=1
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = fvar(6)!=0
+helpertype = normal ;player
+name = "WR Helper"
+ID = 1126
+stateno = 1126
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+ignorehitpause = 1
+persistent = 0
+
+
 [State 210,Œø‰Ê‰¹]
 		Type=playSnd
 		Trigger1=AnimElemTime(3)=0

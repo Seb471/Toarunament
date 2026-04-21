@@ -164,6 +164,175 @@ command.buffer.time = 1
 
 
 
+[Command]
+name = "QCBHCF_c"  
+command = ~D, DB, B, DB, F, c
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_c"  
+command = ~D, DB, DF, F, c
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_c"  
+command = ~D, DB, B, DB, DF, c
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_c"  
+command = ~D, DB, B, DB, D, DF, F, c
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_c"  
+command = ~D, B, D, F, c
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_c"  
+command = ~B, DB, B, D, F, c
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_c"  
+command = ~B, DB, B, DB, D, DF, F, c
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_c"  
+command = ~D, DB, DB, D, DF, F, c
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_c"  
+command = ~D, DB, D, DF,F, c
+time = 20
+buffer.Time=10
+
+;--
+[Command]
+name = "QCBHCF_b"  
+command = ~D, DB, B, DB, F, b
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_b"  
+command = ~D, DB, DF, F, b
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_b"  
+command = ~D, DB, B, DB, DF, b
+time = 40
+buffer.Time=20
+
+
+[Command]
+name = "QCBHCF_b"  
+command = ~D, DB, B, DB, D, DF, F, b
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_b"  
+command = ~D, B, D, F, b
+time = 40
+buffer.Time=20
+
+
+[Command]
+name = "QCBHCF_b"  
+command = ~D, DB, D, DF,F, b
+time = 20
+buffer.Time=10
+
+
+[Command]
+name = "QCBHCF_b"  
+command = ~B, DB, B, D, F, b
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_b"  
+command = ~B, DB, B, DB, D, DF, F, b
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_b"  
+command = ~D, DB, DB, D, DF, F, b
+time = 40
+buffer.Time=20
+
+;-- 
+[Command]
+name = "QCBHCF_a"  
+command = ~D, DB, B, DB, F, a
+time = 40
+buffer.Time=20
+
+
+[Command]
+name = "QCBHCF_a"  
+command = ~D, DB, DF, F, a
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_a"  
+command = ~D, DB, B, DB, DF, a
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_a"  
+command = ~D, DB, D, DF,F, a
+time = 20
+buffer.Time=10
+
+
+[Command]
+name = "QCBHCF_a"  
+command = ~D, DB, B, DB, D, DF, F, a
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_a"  
+command = ~D, B, D, F, a
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_a"  
+command = ~B, DB, B, D, F, a
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_a"  
+command = ~B, DB, B, DB, D, DF, F, a
+time = 40
+buffer.Time=20
+
+[Command]
+name = "QCBHCF_a"  
+command = ~D, DB, DB, D, DF, F, a
+time = 40
+buffer.Time=20
+
 
 
 [Command]
@@ -758,6 +927,20 @@ time = 1
 ;trigger2 = stateno != [3000,3050)
 ;trigger2 = movecontact
 ;trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
+
+;Tackle Grab  EX
+[State -1, Upkick_1]
+type = ChangeState
+value = 2400
+triggerall = command = "QCBHCF_c"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 =var(1)
+trigger3= stateno=1001 ||stateno=1020
+trigger4= stateno=1003 && time>=10
+trigger5= stateno=1000 && time>=4
+;trigger3=stateno=6470 && var(1)
+
 [State -1,WROHKO]
 	Type=ChangeState
 	value=6420
@@ -770,6 +953,9 @@ time = 1
 	triggerall = fvar(6)>0
 	Trigger1=Ctrl
 	Trigger2=var(1)
+	trigger3= stateno=1001 ||stateno=1020
+	trigger4= stateno=1003 && time>=10
+	trigger5= stateno=1000 && time>=4
 
 [State -1,NT14Punch]
 	Type=ChangeState
@@ -781,12 +967,15 @@ time = 1
 	TriggerAll = stateno != 3001
 	Trigger1 = Ctrl
 	Trigger2 = var(1)
+	trigger3= stateno=1001 ||stateno=1020
+	trigger4= stateno=1003 && time>=10
+	trigger5= stateno=1000 && time>=4
 
 ;Tackle Grab  EX
 [State -1, Upkick_1]
 type = ChangeState
 value = 2400
-triggerall = command = "HCBF_c"
+triggerall = command = "QCBHCF_c"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 =var(1)
@@ -838,12 +1027,16 @@ trigger5= stateno=1000 && time>=4
 	value=6430
 	TriggerAll=Alive!=0
 	TriggerAll=command="WRAttackEX"
+	triggerall = stateno != 2320
 	TriggerAll=StateType!=A
 	triggerall = stateno != 6470
 	TriggerAll=Power>999
 	triggerall = fvar(6)>0
 	Trigger1=Ctrl
 	Trigger2=var(1)
+	trigger3= stateno=1001 ||stateno=1020
+	trigger4= stateno=1003 && time>=10
+	trigger5= stateno=1000 && time>=4
 
 [State -1,WRShieldEX]
 	Type=ChangeState
@@ -857,6 +1050,9 @@ trigger5= stateno=1000 && time>=4
 	triggerall = fvar(6)>0
 	Trigger1=Ctrl
 	Trigger2=var(1)
+	trigger3= stateno=1001 ||stateno=1020
+	trigger4= stateno=1003 && time>=10
+	trigger5= stateno=1000 && time>=4
 
 [State -1,WRAirAttackEX]
 	Type=ChangeState
@@ -876,6 +1072,7 @@ trigger5= stateno=1000 && time>=4
 	value=2000
 	TriggerAll=Alive!=0
 	TriggerAll=command="Upkick_EX"
+	triggerall = stateno != 2320
 	TriggerAll=StateType!=A
 	triggerall = stateno != 6470
 	triggerall=stateno !=1003
@@ -892,7 +1089,7 @@ trigger5= stateno=1000 && time>=4
 	TriggerAll=command="QCF_c"
 	TriggerAll=StateType!=A
 	
-	TriggerAll=Power>999
+	TriggerAll=Power>1999
 	Trigger1=Ctrl
 	Trigger2=var(1)
 	trigger3= stateno=1001||stateno=1020
@@ -906,6 +1103,7 @@ trigger5= stateno=1000 && time>=4
 	value=2100
 	TriggerAll=Alive!=0
 	triggerall = stateno != 6470
+	triggerall = stateno != 2320
 	TriggerAll=command="UltraKick_EX"
 	TriggerAll=StateType!=A
 	
@@ -943,11 +1141,11 @@ ignorehitpause=1
 [State -1, Upkick_1]
 type = ChangeState
 value = 1300
-triggerall = command = "HCBF_a"
+triggerall = command = "QCBHCF_a"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 =(StateNo=[200,499])  && stateno != 211 &&var(1)
-trigger3= stateno=1001 ||stateno=1020
+trigger3= stateno=1001 || stateno=1020
 trigger4= stateno=1003 && time>=10
 trigger5= stateno=1000 && time>=4
 trigger6= stateno=1021 && var(1)
@@ -957,11 +1155,11 @@ trigger6= stateno=1021 && var(1)
 [State -1, Upkick_1]
 type = ChangeState
 value = 1350
-triggerall = command = "HCBF_b"
+triggerall = command = "QCBHCF_b"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 =(StateNo=[200,499])  && stateno != 211 &&var(1)
-trigger3= stateno=1001 ||stateno=1020
+trigger3= stateno=1001 || stateno=1020
 trigger4= stateno=1003 && time>=10
 trigger5= stateno=1000 && time>=4
 trigger6= stateno=1021 && var(1)
@@ -988,8 +1186,8 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 1020 && var(1);Use combo condition (above)
 trigger3 =(StateNo=[200,499])  && stateno != 211 &&var(1)
-trigger3=stateno=6470 && var(1)
-trigger4=stateno=1013 && var(1)
+trigger4=stateno=6470 && var(1)
+trigger5=stateno=1013 && var(1)
 
 ;---------------------------------------------------------------------------
 ;Fast Kung Fu Knee (1/3 super bar)
@@ -1079,6 +1277,7 @@ triggerall = command = "QCB_a"
 trigger1 = ctrl
 trigger2 = (StateNo=[200,499]) && var(1)
 trigger3 = StateNo=1023 && var(1)
+trigger4=stateno=1310 && var(1)
 
 ;Lunge Punch Into Stance
 [State -1, Lunge Punch Into Stance]
@@ -1090,6 +1289,7 @@ triggerall = command = "QCB_b"
 trigger1 = ctrl
 trigger2 = (StateNo=[200,499]) && var(1)
 trigger3 = StateNo=1023 && var(1)
+trigger4=stateno=1310 && var(1) && var(13)<3
 
 
 
@@ -1112,7 +1312,7 @@ TriggerAll = StateType != A
 triggerall = (command = "spot_dodge") || (command = "x")
 triggerall=(command!="holddown")
 trigger1 = stateno=1001
-trigger2= stateno=1000 && time>=4
+trigger2= stateno=1000
 
 
 ;Stance Crouch BodyBlow
@@ -1245,8 +1445,9 @@ triggerall=command="DP"
 trigger2=stateno=[1010,1013] && var(4) && !movecontact
 trigger3=stateno=1011 && var(1) && (var(9)<2)
 trigger4= stateno=1000 && time>=4
-trigger5=stateno=2320 && var(1) && target,stateno=[8055,8056]
+trigger5=stateno=2320 && var(1) ;&& target,stateno=[8055,8056]
 trigger6=stateno=1310 && var(1) && target,stateno=[8055,8056]
+trigger7=stateno=6481
 
 ;Lunge Into Stance
 [State -1, Lunge Into Stance]
@@ -1254,9 +1455,11 @@ type = ChangeState
 value = 1003
 triggerall = statetype != A
 triggerall=command="holdfwd"
-
-trigger1=stateno=2320 && var(1) && target,stateno=[8055,8056]
-trigger2=stateno=1310 && var(1) && target,stateno=[8055,8056]
+trigger1=stateno=[1010,1013] && var(4) && !movecontact
+trigger2=stateno=1011 && var(1) && (var(9)<1)
+trigger3=stateno=2320 && var(1) ;&& target,stateno=[8055,8056]
+trigger4=stateno=1310 && var(1) && target,stateno=[8055,8056]
+trigger5=stateno=6481
 
 ;Weaving Dodge Into Stance
 [State -1, Weaving Dodge Into Stance]

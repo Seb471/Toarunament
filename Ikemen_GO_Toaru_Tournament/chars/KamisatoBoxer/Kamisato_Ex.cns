@@ -619,7 +619,7 @@ persistent=0
 
 [State 6400, ];(?8)
 type = ReversalDef
-trigger1 = animelem = 2
+trigger1 = 1;animelem = 2
 reversal.attr = SCA, AA, AP            ;???????????????
 pausetime     = 0,14
 numhits       = 0
@@ -654,7 +654,7 @@ movetype = A
 physics  = N
 ctrl     = 0
 velset   = 0,0
-Poweradd = 120
+Poweradd = 240
 anim = cond(var(2)=1,6402,6403)
 
 [State 0, EnvShake]
@@ -2962,7 +2962,7 @@ trigger1 = pos Y >=0
 trigger1=time>=8
 value = 5100
 ;anim =
-;ctrl =
+ctrl =0
 ignorehitpause = 1
 ;persistent = 1
 
@@ -3303,7 +3303,7 @@ MoveType= I
 Physics = S
 Ctrl = 0
 Anim = 6481
-poweradd = 20
+poweradd = 200
 SprPriority = 2
 Facep2 = 1
 

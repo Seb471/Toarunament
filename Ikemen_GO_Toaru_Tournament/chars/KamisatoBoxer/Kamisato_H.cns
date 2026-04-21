@@ -1291,7 +1291,7 @@ velset=0,0
 Ctrl = 0
 Anim = 2300
 SprPriority = 2
-Poweradd=-1000;*(fvar(7)=0)
+Poweradd=-2000;*(fvar(7)=0)
 Facep2 = 1
 
 [State 2000,V1=0]
@@ -1309,8 +1309,8 @@ Facep2 = 1
 	[State -1,ç≈í·çUåÇï€è·]
 		type = Varset
 		Trigger1=Time=0
-		Trigger1=fvar(0)<=0.35
-		fvar(10)= 0.35
+		Trigger1=fvar(0)<=0.45
+		fvar(10)= 0.45
 		persistent = 0
  		ignorehitpause = 1
 
@@ -1397,21 +1397,31 @@ Facep2 = 1
 ;		Persistent=0
 ;		SuperMoveTime=9999
 ;		PauseMoveTime=9999
-[State -1,????????]
+[State 2500,Explod]
 		Type=Explod
-		Trigger1= AnimElemNo(0) = 1
-		Anim=4300
-		postype =p1
-		Pos=floor(0*const(Size.xScale)),floor(-50*const(Size.yScale))
-		sprPriority=4
+		Trigger1=Time=1
+		Anim=4110
+		Pos=floor(0*const(Size.xScale)),floor(-55*const(Size.yScale))
+		postype=p1
+		SuperMove=1
+		sprPriority=-3
 		Ownpal=1
 		RemoveonGetHit=1
 		IgnoreHitPause=1
-		persistent = 0
 		Scale=const(Size.xScale),const(Size.yScale)
-		SuperMoveTime=9999
-		PauseMoveTime=9999
 
+	[State 2500,Explod]
+		Type=Explod
+		Trigger1=Time=1
+		Anim=4120
+		Pos=floor(0*const(Size.xScale)),floor(-55*const(Size.yScale))
+		postype=p1
+		SuperMove=1
+		sprPriority=-4
+		Ownpal=1
+		RemoveonGetHit=1
+		IgnoreHitPause=1
+		Scale=const(Size.xScale),const(Size.yScale)
 [State ]
 Type = Width
 trigger1=1
@@ -1510,6 +1520,7 @@ GivePower = 20,10
 		type = TargetFacing
 		;trigger1= var(6)<=2 ;ComboLimiter
 		trigger1 = numTarget(2000)
+		triggerall=target,ishelper=0
 		;trigger1 = Target(1150),statetype = A
 		trigger1 = movehit =1
 		ignorehitpause=1
@@ -1518,6 +1529,7 @@ GivePower = 20,10
 		type = TargetState
 			;trigger1= var(6)<=2 ;ComboLimiter
 		trigger1 = numTarget(2000)
+		triggerall=target,ishelper=0
 		;trigger1 = Target(1150),statetype = A
 		trigger1 = movehit =1
 		value = 2310
@@ -1527,6 +1539,7 @@ GivePower = 20,10
 [State 2200,???????]
 		type = Targetstate
 		Trigger1=movehit 
+		triggerall=target,ishelper=0
 		value = 2310
 		ID = 2000
 
@@ -1653,8 +1666,8 @@ ignorehitpause = 1
 [State -1,ç≈í·çUåÇï€è·]
 		type = Varset
 		Trigger1=Time=0
-		Trigger1=fvar(0)<=0.35
-		fvar(10)= 0.35
+		Trigger1=fvar(0)<=0.45
+		fvar(10)= 0.45
 		persistent = 0
  		ignorehitpause = 1
 
@@ -1709,7 +1722,7 @@ triggerall=anim=2311
 trigger1 = animelem=5
 trigger2 = animelem=11
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = Ceil(15*fvar(0)), 0                   ;Damage that move inflicts, guard damage
+damage = Ceil(20*fvar(10)), 0                   ;Damage that move inflicts, guard damage
 animtype = Hard                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAF                    ;Flags of conditions that move can hit
@@ -1742,7 +1755,7 @@ fall=0
 kill=0
 air.fall=0
 forcestand=1
-getpower = 20,10
+getpower = 10,10
 GivePower = 20,10
 sprpriority=4
 ID=2000
@@ -1771,14 +1784,14 @@ ID=2000
 		;trigger1 = Target(1150),statetype = A
 		trigger1 = movehit =1
 		value = 2310
-		persistent = 0
+		persistent = 1
 		ignorehitpause=1
 
 
 
 [State 2000,Voice]
 		Type=playSnd
-		Trigger1=time>=175
+		Trigger1=time>=175-33
 		value=1200,0
 		channel=0
 		persistent=0
@@ -1786,7 +1799,7 @@ ID=2000
 ;Final Hit
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = time>=175 
+trigger1 = time>=175-33
 value = 2330
 ;elem = 1
 ignorehitpause =1 
@@ -1797,7 +1810,7 @@ type = HitDef
 triggerall=anim=2330
 trigger1 = 1
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = Ceil(55*fvar(0)), 0                   ;Damage that move inflicts, guard damage
+damage = Ceil(55*fvar(10)), 0                   ;Damage that move inflicts, guard damage
 animtype = Hard                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAF                    ;Flags of conditions that move can hit
@@ -2384,11 +2397,19 @@ fall.recover=0
 
 
 
-[State ]
-Type = ChangeState
+[State 800, 2]
+type = ChangeState
 Trigger1 = AnimTime = 0
-Value = 0
-Ctrl = 1
+trigger1=prevstateno=[1000,1099]
+value = 1001
+ctrl = 0
+
+[State 800, 2]
+type = ChangeState
+Trigger1 = AnimTime = 0
+trigger1=prevstateno!=[1000,1099]
+value = 0
+ctrl = 1
 
 ;------------------------------
 ;Tackle to ground
@@ -2543,6 +2564,14 @@ trigger1 = animelem = 5
 trigger2 = animelem = 14
 trigger3 = animelem = 26
 value = 0, 9
+
+[State 3000, 1]
+type = Poweradd
+triggerall=anim=2410
+trigger1 = animelem = 5
+trigger2 = animelem = 14
+trigger3 = animelem = 26
+value = 75
 
 [State 3000, Explod2]
 type = Explod

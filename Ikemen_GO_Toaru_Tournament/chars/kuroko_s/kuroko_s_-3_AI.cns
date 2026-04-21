@@ -38,6 +38,26 @@ Trigger2 = Random <= var(59)*100
 Trigger2 = var(59)>=8;AI LV8ˆÈãA‘Šè•m€‚Ì”½‰
 trigger2 = P2Life <=200
 
+[State -3,’@‚«‚Â‚Ô‚µ‚µ‚Ä·‚µã‚°‚Ü‚·‚í]
+Type = ChangeState
+value = 3000
+TriggerAll = var(59)!=0
+TriggerAll = RoundState = 2
+TriggerAll = StateType != A
+TriggerAll = EnemyNear,StateType != L
+;TriggerAll = EnemyNear,MoveType = A
+;TriggerAll = InGuardDist
+TriggerAll = P2BodyDist X = [-10,180+EnemyNear,vel x*8]
+TriggerAll = P2BodyDist Y = [-90,85]
+TriggerAll = Ctrl ||StateNo = 102 || StateNo = 107
+TriggerAll =power >=3000
+Trigger1 = Random <= var(59)*4+(var(59)>=9)*5
+trigger1 = Enemynear,Time >=30-(var(59)>=8)*10-(var(59)>=9)*10-random%15 || var(59)>=10
+Trigger2 = Random <= var(59)*100
+Trigger2 = var(59)>=8;AI LV8ˆÈãA‘Šè•m€‚Ì”½‰
+trigger2 = P2Life <=200
+Trigger3 = EnemyNear,MoveType = A
+
 
 ;¡”½Œ‚—p‰º’i
 [State -3,‚µ‚á‚ª‚İãUŒ‚]

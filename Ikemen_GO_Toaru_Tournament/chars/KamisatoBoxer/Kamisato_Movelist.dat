@@ -7,17 +7,19 @@ Kamisato can forward air dash
 
 Standing Jab						^LK / ^A
 
-Elbow Tackle 						^MK / ^B
-Baton Followup						^MK / ^B 
+Standing Straight						^MK / ^B
+Standing Body Blow						^MK / ^B (Close)
 
-Baton Grab						_F^MK / _F^B
 
-Heavy Punch						^HK / ^C
-_! Elbow Followup						^HK / ^C
-    _! Heavy Gut Punch Followup				^LK / ^A
-    _! Uppercut Followup					_B ^LK / _B ^A 
+Standing Hook						^HK / ^C
+(Do You Wish mode has projectile invincibility)	
+
+Standing Elbow						^HK / ^C (Close)
 
 Front Kick 						_F^HK / _F^C
+
+High Kick 						_B^HK / _B^C
+(Overhead)
 
 
 Crouching Jab						^LK / ^A (Crouching)
@@ -50,14 +52,13 @@ Successful uses of World Rejecter will refill
 the Do You Wish meter
 
 (Only in Do You Wish Mode)
-World Rejecter Swing 					^LP / ^X 
-World Rejecter Counter (After a succesful swing) 	
-^LP /  ^X 
+World Rejecter Counter 					^LP / ^X 
 
 (Only in Do You Wish Mode)
 Air World Rejecter Swing 				^LP / ^X (Air)
 
 Kick Throw 					_B / _F  _+ ^LP / ^X
+(Can Wall Splat)
 
 
 Spot Dodge						^LK + ^MK / ^A + ^B 
@@ -75,25 +76,120 @@ Neck Crack 					 	^S
 
 <#00ff00>Lvl-1</> <#ff00ff>Lvl-0.5 in Do You Wish</>
 Roman Cancel						^HP / ^Z 
+(You can hold _F or _B for a Stance Dash)
 
 
 <#ff0000>Supers and Hypers:</>
 
-Heavy Gut Punch (Can be held) (Held is Unblockable)		
+Boxing Stance Enter	
 _D_DF_F ^LK / _D_DF_F ^A
 
-Lunge Punch (Do You Wish mode has projectile invincibility)		
+Boxing Stance Jump Enter			
 _D_DF_F ^MK / _D_DF_F ^B
 
+<#ff00ff>Information about Boxing Stance:</>
+In Boxing Stance, you can walk, crouch, jump, charge meter
+But you cannot block or use the regular grab
 
-Uppercut 						
-_D_DB_B ^LK / _D_DB_B ^A 
+Boxing Dodge							^LP / ^X (Stance)
 
-Lunge Baton Overhead						
-_D_DB_B ^MK / _D_DB_B ^B 
+Stance Exit							_D^LP / _D^X (Stance)
 
-High Kick (Overhead) 					
-_D_DB_B ^HK / _D_DB_B ^C
+Forward Dash 							_F_D_DF (Stance)
+(Can be _F after certain moves)
+
+Backwards Dash							_B_D_DB (Stance)
+
+Standing Boxing Jab						^LK / ^A (Stance)
+
+_! Standing Boxing Straight					^LK / ^A (Stance)
+(Can Wall Splat)(Dash cancellable once per combo)
+
+Standing Overhead Punch						^MK / ^B (Stance)
+
+_! Standing Uppercut					^HK / ^C (Stance)
+(Launcher)
+
+Standing Uppercut					^HK / ^C (Stance)
+
+_! Standing Overhead Punch					^MK / ^B (Stance)
+(Ground Bounce)
+
+
+
+Heavy Body Blow						^LK / ^A (Stance Crouching)
+
+_! Boxing Low Sweep					^LK / ^A (Stance)
+(Low)
+   _! Standing Uppercut					
+^HK / ^C (Stance)
+(Launcher)
+   _! Standing Overhead Punch					
+^MK / ^B (Stance)
+(Ground Bounce)
+
+_! Body Blows Grab				
+_D_DB_B_DB_D_DF_F^LK / _D_DB_B_DB_D_DF_F^A (Stance)
+(Can dash cancel on Wall Splat)
+
+_! Tackle Ground Pound				
+_D_DB_B_DB_D_DF_F^MK / _D_DB_B_DB_D_DF_F^B (Stance)
+
+
+
+Heavy Body Blow						^MK / ^B (Stance Crouching)
+
+_! Boxing Heavy Overhead				^MK / ^B (Stance)
+(Overhead)
+
+   _! Lunge Gut Punch			
+_D_DB_B^LK / _D_DB_B^A (Stance)
+(Gets out of Stance)
+	
+   _! Lunge Gut Punch into Stance				
+_D_DB_B^MK / _D_DB_B^B (Stance)
+(You can press _F or _B for Stance Dash)
+
+_! Body Blows Grab				
+_D_DB_B_DB_D_DF_F^LK / _D_DB_B_DB_D_DF_F^A (Stance)
+(Can dash cancel on Wall Splat once)
+
+_! Tackle Ground Pound				
+_D_DB_B_DB_D_DF_F^MK / _D_DB_B_DB_D_DF_F^B (Stance)
+
+
+
+Boxing Anti Air Upper  					^HK / ^C (Stance Crouching)
+
+_! Standing Uppercut					^HK / ^C (Stance)
+
+   _! Standing Overhead Punch					
+^MK / ^B (Stance)
+(Ground Bounce)
+
+
+Air Jab into Straight					^LK / ^A (Stance Air)
+(Can Wall Splat)
+
+Air Down Punch Combo			 			^MK / ^B (Stance Air)
+(Ground Bounce on air opponents)
+
+Air Boxing Upper			 			^HK / ^C (Stance Air)
+
+
+
+
+Lunge Gut Punch						
+_D_DB_B^LK / _D_DB_B^A 
+	
+Lunge Gut Punch into Stance				
+_D_DB_B^MK / _D_DB_B^B 
+(You can press _F or _B for Stance Dash)
+
+<#00ff00>Lvl-1</>
+Ultra Kick						
+_D_DB_B^HK / _D_DB_B^C
+(Can Wall Splat)
 
 
 Fast Upperkick 						
@@ -107,24 +203,37 @@ Upperkick EX
 _F_D_DF ^HK / _F_D_DF ^C
 
 
+Body Blows Grab				
+_D_DB_B_DB_D_DF_F^LK / _D_DB_B_DB_D_DF_F^A 
+(Can dash cancel on Wall Splat once)
+
+_! Lunge Gut Punch			
+_D_DB_B^LK / _D_DB_B^A 
+(Gets out of Stance)
+	
+_! Lunge Gut Punch into Stance				
+_D_DB_B^MK / _D_DB_B^B 
+(You can press _F or _B for Stance Dash)
+
+Tackle Ground Pound				
+_D_DB_B_DB_D_DF_F^MK / _D_DB_B_DB_D_DF_F^B 
+
 <#00ff00>Lvl-1</>
-Baton Combo EX						
-_B_DB_D_DF_F ^MK / _B_DB_D_DF_F ^B
+Tackle Ground World Rejecter				
+_D_DB_B_DB_D_DF_F^HK / _D_DB_B_DB_D_DF_F^C
+(Gives half Do You Wish mode on hit)
 
 
-<#00ff00>Lvl-1</>
-Ultra Kick						
-_F_DF_D_DB_B ^HK / _F_DF_D_DB_B ^C
+<#00ff00>Lvl-2</>
+Boxing Combo EX						
+_D_DF_F ^HK / _D_DF_F ^C
+(Ends in Stance Dash Forward)
 
 
 <#00ff00>Lvl-3</>
 ATeNo Punch (Gives Do You Wish mode on hit)		
 _B_DB_D_DF_F ^HK / _B_DB_D_DF_F ^C
 
-
-<#00ff00>Lvl-1</>
-Slide Counter 	(Gives half of Do You Wish meter)(Doesn't work on supers)
-_D_D ^MP / _D_D ^X
 
 (Only in Do You Wish mode)
 <#00ff00>Lvl-1</>
@@ -141,6 +250,8 @@ _D_DF_F ^LP / _D_DF_F ^X (Air)
 World Rejecter Shadow Defense	 		
 _D_DB_B ^LP / _D_DB_B ^X
 (Will erase all projectiles that come in contact)
+(Can cancel into Stance Forward Dash 
+on _F after a succesful parry)
 
 (Only in Do You Wish mode)
 <#00ff00>Lvl-6.5</> <#ff0000>Low HP</>
