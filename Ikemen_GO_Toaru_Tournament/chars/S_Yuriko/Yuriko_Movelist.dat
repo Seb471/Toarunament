@@ -18,6 +18,8 @@ Forward Dash						_F_F
 
 Back Dash						_B_B
 
+Dash	(Hold direction)				^MP / ^Y 
+
 
 Finger Poke 						^LK / ^A
 
@@ -44,15 +46,15 @@ Air Claw		 				^HK / ^C (Air)
 Reflect Stance 						^LP / ^X
 (Makes battery deplete faster during the stance)
 
-Charge Up 						^MP / ^Y
+Charge Up   						^LK_+^HK / ^A_+^C 
 
 Battery Charge Up					^HP / ^Z
 
 <#00ff00>Lvl-1</>
-Battery Instant Up					^LK + ^HK / ^A + ^C
+Battery Instant Up					^LK_+^MK / ^A_+^B
 
 <#00ff00>Lvl-1</>
-Attack Multiplier Reset					^MK + ^HK / ^B + ^C
+Attack Multiplier Reset					^MK_+^HK / ^B_+^C
 
 Grab			^LK + ^MK / ^A + ^B
 

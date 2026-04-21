@@ -479,15 +479,26 @@ sysvar(4) = 0
 ;‰¡‚Á”ò‚ÑŒƒ“Ëƒ{ƒCƒX
 [State -2]
 Type = Helper
+Triggerall = enemynear,Time = 1
+Triggerall = enemynear,StateNo = 5602 || enemynear,StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
 Trigger1 = NumHelper(5605) = 0
 Trigger1 = NumTarget(5600) > 0
-Trigger1 = Target(5600),Time = 1
-Trigger1 = Target(5600),StateNo = 5602 || Target(5600),StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
 Trigger2 = numhelper(1605) > 0
 Trigger2 = helper(1605),NumHelper(5605) = 0
 Trigger2 = helper(1605),NumTarget(5600) > 0
-Trigger2 = helper(1605),Target(5600),Time = 1
-Trigger2 = helper(1605),Target(5600),StateNo = 5602 || helper(1605),Target(5600),StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
+Trigger3 = numhelper(2625) > 0
+Trigger3 = helper(2625),NumHelper(5605) = 0
+Trigger3 = helper(2625),NumTarget(5600) > 0
+;Trigger2 = numhelper(1605) > 0
+;Trigger2 = helper(1605),NumHelper(5605) = 0
+;Trigger2 = helper(1605),NumTarget(5600) > 0
+;Trigger2 = helper(1605),Target(5600),Time = 1
+;Trigger2 = helper(1605),Target(5600),StateNo = 5602 || helper(1605),Target(5600),StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
+;Trigger3 = numhelper(2625) > 0
+;Trigger3 = helper(2625),NumHelper(5605) = 0
+;Trigger3 = helper(2625),NumTarget(5600) > 0
+;Trigger3 = helper(2625),Target(5600),Time = 1
+;Trigger3 = helper(2625),Target(5600),StateNo = 5602 || helper(2625),Target(5600),StateNo = 5603; || Target(5600),StateNo = 5632 || Target(5600),StateNo = 5633
 StateNo = 5605
 PosType = P1
 Pos = 0, 0
@@ -496,23 +507,27 @@ ID = 5605
 
 [State -2]
 Type = Explod
+Triggerall = enemynear,Time >= 4
+Triggerall = enemynear,Time%6 = 4
+Triggerall = enemynear,StateNo = 5601 || Target(5600),StateNo = 5631
+Triggerall = enemynear,Pos Y >= -45
 Trigger1 = NumTarget(5600) > 0
-Trigger1 = Target(5600),Time >= 4
-Trigger1 = Target(5600),Time%6 = 4
-Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
-Trigger1 = Target(5600),Pos Y >= -45
 Trigger2 = numhelper(1605) > 0
 Trigger2 = helper(1605),NumTarget(5600) > 0
-Trigger2 = helper(1605),Target(5600),Time >= 4
-Trigger2 = helper(1605),Target(5600),Time%6 = 4
-Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
-Trigger2 = helper(1605), Target(5600),Pos Y >= -45
 Trigger3 = numhelper(2625) > 0
 Trigger3 = helper(2625),NumTarget(5600) > 0
-Trigger3 = helper(2625),Target(5600),Time >= 4
-Trigger3 = helper(2625),Target(5600),Time%6 = 4
-Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
-Trigger3 = helper(2625), Target(5600),Pos Y >= -45
+;Trigger2 = numhelper(1605) > 0
+;Trigger2 = helper(1605),NumTarget(5600) > 0
+;Trigger2 = helper(1605),Target(5600),Time >= 4
+;Trigger2 = helper(1605),Target(5600),Time%6 = 4
+;Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
+;Trigger2 = helper(1605), Target(5600),Pos Y >= -45
+;Trigger3 = numhelper(2625) > 0
+;Trigger3 = helper(2625),NumTarget(5600) > 0
+;Trigger3 = helper(2625),Target(5600),Time >= 4
+;Trigger3 = helper(2625),Target(5600),Time%6 = 4
+;Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
+;Trigger3 = helper(2625), Target(5600),Pos Y >= -45
 Anim = 15602
 ID = 15602
 Postype = P2
@@ -527,23 +542,27 @@ PauseMoveTime = 9999
 
 [State -2]
 Type = Explod
+Triggerall = enemynear,Time >= 4
+Triggerall = enemynear,Time%6 = 4
+Triggerall = enemynear,StateNo = 5601 || Target(5600),StateNo = 5631
+Triggerall = enemynear,Pos Y >= -45
 Trigger1 = NumTarget(5600) > 0
-Trigger1 = Target(5600),Time >= 4
-Trigger1 = Target(5600),Time%6 = 4
-Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
-Trigger1 = Target(5600),Pos Y >= -45
 Trigger2 = numhelper(1605) > 0
 Trigger2 = helper(1605),NumTarget(5600) > 0
-Trigger2 = helper(1605),Target(5600),Time >= 4
-Trigger2 = helper(1605),Target(5600),Time%6 = 4
-Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
-Trigger2 = helper(1605), Target(5600),Pos Y >= -45
 Trigger3 = numhelper(2625) > 0
 Trigger3 = helper(2625),NumTarget(5600) > 0
-Trigger3 = helper(2625),Target(5600),Time >= 4
-Trigger3 = helper(2625),Target(5600),Time%6 = 4
-Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
-Trigger3 = helper(2625), Target(5600),Pos Y >= -45
+;Trigger2 = numhelper(1605) > 0
+;Trigger2 = helper(1605),NumTarget(5600) > 0
+;Trigger2 = helper(1605),Target(5600),Time >= 4
+;Trigger2 = helper(1605),Target(5600),Time%6 = 4
+;Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
+;Trigger2 = helper(1605), Target(5600),Pos Y >= -45
+;Trigger3 = numhelper(2625) > 0
+;Trigger3 = helper(2625),NumTarget(5600) > 0
+;Trigger3 = helper(2625),Target(5600),Time >= 4
+;Trigger3 = helper(2625),Target(5600),Time%6 = 4
+;Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
+;Trigger3 = helper(2625), Target(5600),Pos Y >= -45
 Anim = 15600
 ID = 15600
 Postype = P2
@@ -558,23 +577,27 @@ PauseMoveTime = 9999
 
 [State -2]
 Type = Explod
+Triggerall = enemynear,Time >= 4
+Triggerall = enemynear,Time%6 = 4
+Triggerall = enemynear,StateNo = 5601 || Target(5600),StateNo = 5631
+Triggerall = enemynear,Pos Y >= -45
 Trigger1 = NumTarget(5600) > 0
-Trigger1 = Target(5600),Time >= 4
-Trigger1 = Target(5600),Time%6 = 4
-Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631
-Trigger1 = Target(5600),Pos Y >= -45
 Trigger2 = numhelper(1605) > 0
 Trigger2 = helper(1605),NumTarget(5600) > 0
-Trigger2 = helper(1605),Target(5600),Time >= 4
-Trigger2 = helper(1605),Target(5600),Time%6 = 4
-Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
-Trigger2 = helper(1605), Target(5600),Pos Y >= -45
 Trigger3 = numhelper(2625) > 0
 Trigger3 = helper(2625),NumTarget(5600) > 0
-Trigger3 = helper(2625),Target(5600),Time >= 4
-Trigger3 = helper(2625),Target(5600),Time%6 = 4
-Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
-Trigger3 = helper(2625), Target(5600),Pos Y >= -45
+;Trigger2 = numhelper(1605) > 0
+;Trigger2 = helper(1605),NumTarget(5600) > 0
+;Trigger2 = helper(1605),Target(5600),Time >= 4
+;Trigger2 = helper(1605),Target(5600),Time%6 = 4
+;Trigger2 = helper(1605),Target(5600),StateNo = 5601 || helper(1605),Target(5600),StateNo = 5631
+;Trigger2 = helper(1605), Target(5600),Pos Y >= -45
+;Trigger3 = numhelper(2625) > 0
+;Trigger3 = helper(2625),NumTarget(5600) > 0
+;Trigger3 = helper(2625),Target(5600),Time >= 4
+;Trigger3 = helper(2625),Target(5600),Time%6 = 4
+;Trigger3 = helper(2625),Target(5600),StateNo = 5601 || helper(2625),Target(5600),StateNo = 5631
+;Trigger3 = helper(2625), Target(5600),Pos Y >= -45
 Anim = 15601
 ID = 15601
 Postype = P2
