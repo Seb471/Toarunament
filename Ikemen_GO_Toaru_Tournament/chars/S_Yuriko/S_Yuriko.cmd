@@ -467,14 +467,8 @@ buffer.Time=10
 
 ;---------------------------------------
 [Command]
-name = "a+b"
-command = a+b
-time = 10
-
-;---------------------------------------
-[Command]
 name = "“d’r‰ñ•œ"
-command = a+c
+command = a+b
 time = 10
 
 ;---------------------------------------
@@ -697,6 +691,20 @@ name = "z_up"
 command = ~z
 time = 1
 
+[Command]
+name = "hold_a"
+command = /a
+time = 1
+
+[Command]
+name = "hold_b"
+command = /b
+time = 1
+
+[Command]
+name = "hold_c"
+command = /c
+time = 1
 
 [Command]
 	name="hold_z"
@@ -1064,7 +1072,7 @@ trigger2 = stateno=[100,101]
 	value = 100
 	triggerAll = Fvar(10) >= 5
 	triggerAll = Var(9) = 0
-	trigger1 = command = "FF"
+	trigger1 = command = "FF" || (command = "holdfwd" && command = "y")
 	trigger1 = statetype = S
 	trigger1 = ctrl
 
@@ -1073,7 +1081,7 @@ trigger2 = stateno=[100,101]
 	value = 105
 	triggerAll = Fvar(10) >= 5
 	triggerAll = Var(9) = 0
-	trigger1 = command = "BB"
+	trigger1 = command = "BB" || (command = "holdback" && command = "y")
 	trigger1 = statetype = S
 	trigger1 = ctrl
 
@@ -1087,6 +1095,23 @@ trigger2 = stateno=[100,101]
 	trigger1 = command = "down"
 	trigger1 = statetype != A
 	var(4) = 20
+
+;------------------------------------------------------------------------------
+[State -1, —­‚ß]
+	type = ChangeState
+	value = 850
+	triggerAll = Var(9) = 0
+	TriggerAll = Var(59) = [0,1]
+	TriggerAll=command="hold_a" && command="hold_c"
+	triggerall = statetype != A
+	TriggerAll = Power < PowerMax
+	trigger1 = ctrl
+
+[State -1, —­‚ßI—¹]
+	type = VarSet
+	TriggerAll=command!="hold_a" && command!="hold_c"
+	trigger1 = Var(30) = 1
+	var(30) = 0
 
 ;------------------------------------------------------------------------------
 ; ’ÊíUŒ‚‹Z
@@ -1362,23 +1387,6 @@ trigger2 = stateno=[100,101]
 	trigger1 = helper(20000),var(7) = 1
 	trigger2 = var(24) = 0
 	trigger2 = helper(20000),var(7) = 0
-
-;------------------------------------------------------------------------------
-[State -1, —­‚ß]
-	type = ChangeState
-	value = 850
-	triggerAll = Var(9) = 0
-	TriggerAll = Var(59) = [0,1]
-	triggerall = command = "y"
-	triggerall = statetype != A
-	TriggerAll = Power < PowerMax
-	trigger1 = ctrl
-
-[State -1, —­‚ßI—¹]
-	type = VarSet
-	trigger1 = command = "y_up"
-	trigger1 = Var(30) = 1
-	var(30) = 0
 
 ;------------------------------------------------------------------------------
 [State -1, [“d]

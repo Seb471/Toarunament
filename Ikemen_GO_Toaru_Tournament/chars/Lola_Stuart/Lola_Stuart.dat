@@ -6,12 +6,16 @@ The catch is that you take constant damage
 and you can die from said move
 (because you are smoking))
 
-Run					_F_F
+Run						_F_F
+Air Dash				_F_F (air)
 Back Hop				_B_B
+Back Air Dash			_B_B (air)
+
+Dash	(Hold direction)				^MP / ^Y 
 
 Spot Dodge				^LP / ^X
-Hair Stab				_F^LP / _F^X
-Charge up				^MP / ^Y
+Hair Stab				_B / _F  _+ ^LP / ^X
+Charge up				^LK_+^HK / ^A_+^C 
 
 Hair Whip				^LK / ^A
 Detonation				^MK / ^B

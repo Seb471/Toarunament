@@ -128,7 +128,9 @@ Last Order:
 	Charge moved from 5x to a+c x
 	Burst changed from any recovery attack to a+b x
 	Add dash macros x
-	Sisters on b version come out on animelem 5 instead of 2 (to differentiate from a version) x
+	Sisters on b version come out slower (to differentiate from a version) x
 
 Lola:
 	Add dash macros x
+	Canceling window from index summon x
+	Wings b has an invincible startup x

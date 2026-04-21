@@ -5,6 +5,7 @@ Type = A
 Physics = N
 SprPriority = 1
 
+
 [State -1]
 Type = NotHitBy
 Trigger1 = 1
@@ -20,7 +21,7 @@ Pos = 0,0
 type = AngleDraw
 trigger1 = 1
 ;value = 1
-scale = 1+time*(0.0078125*(1+(root,var(28)=1))), 1+time*(0.0078125*(1+(root,var(28)=1)))
+scale = 1 - (0.5*(root,stateno=3012))+ time * (0.0078125*(1+(root,var(28)=1))) , 1 - (0.5*(root,stateno=3012))+ time * (0.0078125*(1+(root,var(28)=1))) 
 ;ignorehitpause = 
 ;persistent = 
 ;+0.125*(sin((gametime%600)/600*2*pi)+1)
@@ -61,7 +62,7 @@ Add = 128,128,0
 Type = VarSet
 Trigger1 = Time = 0
 V = 30
-Value = Parent,Anim+20000
+Value = Parent,Anim+20000;mugen doesn't like anims with -1 for all anim elements
 
 [State -1]
 Type = VarSet
@@ -114,7 +115,7 @@ Pos = 0,0
 Type = VarSet
 Trigger1 = 1
 V = 30
-Value = Parent,Anim+20000
+Value = Parent,Anim+20000;mugen doesn't like anims with -1 for all anim elements
 
 [State -1]
 Type = VarSet
@@ -551,8 +552,8 @@ type = SelfState
 trigger1 = anim = 5100
 trigger1 = animtime = 0
 trigger2 = time>=180
-trigger3 = enemy,root,anim = 26232
-trigger3 = enemy,root,animtime = 0
+trigger3 = enemy,anim = 26232
+trigger3 = enemy,animtime = 0
 value = 5100
 ;anim =
 ;ctrl =
@@ -2088,7 +2089,7 @@ ignorehitpause = 1
 
 [State 0, BindToParent]
 type = BindToParent
-trigger1 = 1
+trigger1 = root,stateno!=3010
 pos = 0,-62.5
 
 [State 0, AngleDraw]
@@ -2109,11 +2110,13 @@ alpha = 256-ceil(time*256/30),ceil(time*256/30)
 
 [State 0, ParentVarSet]
 type = ParentVarSet
-trigger1 = time=0
+trigger1 = time = 0
 v =  20   ;fv = 
 value = ishelper(24001)+2*ishelper(24002)+3*ishelper(24003)+4*ishelper(24004)+5*ishelper(24005)
 ;ignorehitpause = 
 ;persistent = 
+
+
 
 [State 0, PalFX]
 type = PalFX
@@ -2344,6 +2347,23 @@ type	 = C
 movetype = A
 anim	 = 240120+ishelper(240121)+2*ishelper(240122)+3*ishelper(240123)+4*ishelper(240124)
 sprpriority = 3
+
+[State 0, AngleSet]
+type = AngleSet
+trigger1 = time = 0
+value = 90
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+;value = 1
+;scale = 
+ignorehitpause = 1
+;persistent = 
+
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -2652,7 +2672,7 @@ color = 256
 Type = VarSet
 Trigger1 = 1
 V = 30
-Value = Parent,Anim+20000
+Value = Parent,Anim+20000;mugen doesn't like anims with -1 for all anim elements
 
 [State -1]
 Type = VarSet
@@ -2682,7 +2702,7 @@ trigger2 = root,var(21)!=5
 [Statedef 24014]
 type	 = U
 movetype = A
-physics = U
+physics = N
 anim	 = 240140+ishelper(240141)+2*ishelper(240142)+3*ishelper(240143)+4*ishelper(240144)
 sprpriority = 3
 

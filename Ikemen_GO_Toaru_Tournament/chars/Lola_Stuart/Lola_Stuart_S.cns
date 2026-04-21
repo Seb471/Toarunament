@@ -837,6 +837,13 @@ poweradd=fvar(11)
 		Trigger1=time=0
 		var(1)=0
 
+	[State 1550,NotHit]
+		Type=notHitBy
+		Trigger1=AnimElemTime(1)>=0
+		Trigger1=AnimElemTime(6)<0
+		value=SCA
+		Time=1
+
 [State 210, Hitdef]
 type = HitDef
 trigger1 = (AnimElemtime(6) >= 0) && (AnimElemtime(9) < 0)   

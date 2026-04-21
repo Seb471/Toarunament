@@ -468,6 +468,15 @@ trigger2 = stateno = [0,160]
 var(1) = 0
 ignorehitpause=1
 
+[State -1, 41236_c]
+type = Changestate
+value = 3000
+triggerall = command = "41236_c"
+;triggerall=power>=4000
+triggerall = statetype!=A
+trigger1=ctrl
+trigger2=var(1)
+
 [State -1, 2236_c]
 type = Changestate
 value = 2600

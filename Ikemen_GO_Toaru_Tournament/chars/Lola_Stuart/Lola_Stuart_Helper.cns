@@ -22,6 +22,12 @@ type = PlaySnd
 trigger1 = AnimElem = 4
 value = 1500,0
 
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = animelem = 6
+value = 1
+;ignorehitpause = 
+;persistent = 
 
 [State 1500, Helper]
 type = Helper
@@ -239,6 +245,7 @@ time = 1
 type = ChangeState
 trigger1 = animtime = 0
 value = 1512
+
 ;Remote control : Swords
 [Statedef 1520]
 type    = S
@@ -263,6 +270,12 @@ type = PlaySnd
 trigger1 = AnimElem = 4
 value = 1500,0
 
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = animelem = 6
+value = 1
+;ignorehitpause = 
+;persistent = 
 
 [State 1500, Helper]
 type = Helper
@@ -1465,6 +1478,12 @@ type = PlaySnd
 trigger1 = AnimElem = 4
 value = 1500,0
 
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = animelem = 6
+value = 1
+;ignorehitpause = 
+;persistent = 
 
 [State 1500, Helper]
 type = Helper
@@ -1676,6 +1695,12 @@ type = PlaySnd
 trigger1 = AnimElem = 4
 value = 1500,0
 
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = animelem = 6
+value = 1
+;ignorehitpause = 
+;persistent = 
 
 [State 1500, Helper]
 type = Helper
