@@ -51,6 +51,7 @@ Make anti IB also consider air super of Touma
 Frenda:
 	Fix Frenda being A during normals
 	Make Frenda bomb UI same sprpriority as burst
+	Make her special bomb recovery not activate on block
 
 Kanzaki:
 	Make a small delay before stance switching again Kanzaki
@@ -117,6 +118,7 @@ Yuriko:
 
 Himegami:
 	- fix himegami being stuck from tsuchi's go to sleep
+	-Fix Himegami hurtboxes (Kamisato boxer combo doesn't work)
 
 Kazakiri:
 	- reduce distance of pushback of kazakiri's grab
