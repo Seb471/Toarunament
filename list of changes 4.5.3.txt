@@ -5,7 +5,7 @@
 
 - Itsuwa
 - Frenda X
-- all jabs have facep2 to not have infinites
+- all jabs have facep2 to not have infinites X
 - add another way of grab teching
 - add alternative half circle inputs
 - added just defend (only gains meter, no hp) x
@@ -20,9 +20,8 @@
 
 
 
-Put magic stages:
+Put magic stages: X
 	Sunset at beach X
-	Queen britannia?
 	Star of bethleem (new one?) X
 
 Put boss rush X
@@ -32,7 +31,7 @@ Put boss rush X
 		One Way Road: Experiment room  X
 		Judgement: Vending machine? NO
 
-Add grab tech to boss rush
+Add grab tech to boss rush X
 
 Maybe put NT Touma as boss -> AI Patch for him X
 	Add usability for his supers X

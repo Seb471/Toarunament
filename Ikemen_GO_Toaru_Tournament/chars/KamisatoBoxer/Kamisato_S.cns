@@ -217,6 +217,7 @@ poweradd= fvar(11)
 [State 1050,V1=0]
 		Type=VarAdd
 		Trigger1=Time=0
+		trigger1=prevstateno!=2320
 		var(9)=1
 		ignorehitpause=1
 		persistent=0
@@ -5623,7 +5624,7 @@ type = TargetLifeAdd
 triggerall=anim=1370
 trigger1 = AnimElem = 3
 trigger2 = AnimElem = 8
-value = -Ceil(25*fvar(10))
+value = -Ceil(20*fvar(10))
 kill = 1
 absolute=1
 
@@ -5649,7 +5650,7 @@ type = PowerAdd
 triggerall=anim=1370
 trigger1 = AnimElem = 3
 trigger2 = AnimElem = 8
-value=75
+value=65
 
 
 [State 3000, 10]

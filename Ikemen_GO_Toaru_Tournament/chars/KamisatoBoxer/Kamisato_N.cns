@@ -1308,7 +1308,7 @@ Poweradd=FVar(11)
 		type = Width
 		trigger1 = 1
 		player = -10,0
-		edge=15,0
+		edge=25,0
 		ignorehitpause=1
 
 

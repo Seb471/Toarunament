@@ -440,7 +440,7 @@ sprpriority = -1
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = animelemno(0)<3
+trigger1 = animelemno(0)<2
 value = ,NA,SA,HA,NP,SP,HP
 ;value2 = S,NA
 time = 1

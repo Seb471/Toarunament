@@ -1309,10 +1309,13 @@ trigger2= (StateNo=[1010,1014]) && var(1)
 type = ChangeState
 value = 1009
 TriggerAll = StateType != A
-triggerall = (command = "spot_dodge") || (command = "x")
+triggerall = (command = "spot_dodge") || (command = "hold_x")
 triggerall=(command!="holddown")
 trigger1 = stateno=1001
 trigger2= stateno=1000
+trigger3= stateno=1003 && time>=10
+trigger4 = stateno=1010 && animelemtime(3)>=0 
+trigger5= stateno=1000 && time>=4
 
 
 ;Stance Crouch BodyBlow

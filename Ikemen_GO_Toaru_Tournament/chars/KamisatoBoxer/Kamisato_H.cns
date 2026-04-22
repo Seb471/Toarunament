@@ -2571,7 +2571,7 @@ triggerall=anim=2410
 trigger1 = animelem = 5
 trigger2 = animelem = 14
 trigger3 = animelem = 26
-value = 75
+value = 45
 
 [State 3000, Explod2]
 type = Explod
@@ -2745,7 +2745,7 @@ persistent = 0
 [State 910, TargetBind]
 type = TargetLifeAdd
 trigger1 = animelem=26
-value=-Ceil(125*fvar(10))
+value=-Ceil(110*fvar(10))
 kill = 1
 absolute = 1
 ignorehitpause=1
