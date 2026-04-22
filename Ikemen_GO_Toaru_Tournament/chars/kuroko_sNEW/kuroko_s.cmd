@@ -911,11 +911,12 @@ type = ChangeState
 value = 2150
 triggerall= var(59)=0
 triggerall = command = "QCF_b"
-triggerall = (fvar(7) = 0 ||fvar(8)!=0) || (target(900),movetype=H)
+triggerall = (fvar(7) = 0 ||fvar(8)!=0) || (target(900),movetype=H) || ((stateno=910) && var(1))
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,499]) && var(1)
 trigger3 = (stateno = 810) && var(1)
+trigger4 = (stateno=910) && var(1)
 
 ;¡“Sji‹ó’†j
 [State -1, “Sji‹ó’†j]

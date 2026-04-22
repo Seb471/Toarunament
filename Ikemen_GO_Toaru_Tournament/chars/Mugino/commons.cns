@@ -408,6 +408,14 @@ ctrl = 0
 
 Facep2 = 1
 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time=0
+;id = 
+ignorehitpause = 1
+;persistent = 
+
+
 [State 0, CtrlSet]
 type = Varadd
 trigger1 = time=0

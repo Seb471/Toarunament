@@ -495,10 +495,23 @@ time = 20
 buffer.time = 10
 
 [Command]
-name = "QCF_z"
-command = ~D, DF, F, z
+name = "QCB_z"
+command = ~D, DB, B, z
 time = 10
 buffer.time = 7
+
+[Command]
+name = "QCB_z"
+command = ~D, DB, z
+time = 10
+buffer.time = 7
+
+[Command]
+name = "QCB_z"
+command = ~DB, B, z
+time = 10
+buffer.time = 7
+
 
 [Command]
 name = "QCB_a"
@@ -1385,7 +1398,7 @@ trigger1 = var(1)
 [State -1, Proj Slap]
 type = ChangeState
 value = 960
-triggerall = command = "QCF_z"
+triggerall = command = "QCB_z"
 triggerall=statetype!=A
 trigger1 = ctrl
 
@@ -1406,7 +1419,7 @@ ignorehitpause=1
 type = ChangeState
 value = 950
 triggerall = command = "F_z"
-triggerall = command != "QCF_z"
+;triggerall = command != "QCF_z"
 triggerall=stateno!=[950,953]
 triggerall=statetype!=A
 triggerall =fvar(8)=0

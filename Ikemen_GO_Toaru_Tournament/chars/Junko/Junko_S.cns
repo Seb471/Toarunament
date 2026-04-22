@@ -43,7 +43,7 @@ type = HitDef
 Trigger1 =  animelemtime(9)=0
 attr = S, SA  
 AnimType  = Hard
-Damage    = Ceil(10*fvar(10)), 5   
+Damage    = Ceil(10*fvar(10)), 1  
 HitFlag = MAF
 GuardFlag = MA
 PauseTime = 2,3

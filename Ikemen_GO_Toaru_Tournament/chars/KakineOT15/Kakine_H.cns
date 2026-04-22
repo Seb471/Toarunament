@@ -654,6 +654,12 @@ trigger1 = animelemtime(1) >= 0 && animelemtime(6) < 0
 x = 0
 y = 0
 
+[State 1350, 1]
+type = posset
+trigger1 = animelemtime(1) >= 0 && animelemtime(6) < 0
+trigger1=pos Y >=-10
+y = -10
+
 [State 1000, 音]
 type = PlaySnd
 trigger1 = AnimElem = 4
@@ -3292,7 +3298,7 @@ color = 256
 	[State 2953, 死亡ステート変更]
 		type = changeState
 		trigger1 = !alive
-		value = 5150
+		value = 3007
 
 	[State 3502,End]
 		Type=SelfState
@@ -3366,19 +3372,21 @@ ignorehitpause = 1
 
 ;---------------------------------------------------
 ;Lie Dead
-[Statedef 5150]
+[Statedef 3007]
 type    = L
 movetype= H
 physics = N
 sprpriority = -3
+ctrl=1
 
 [State 5110, 相手消滅]
 type = AssertSpecial
-trigger1 = PrevStateNo = 3006
+trigger1 = 1
 flag = invisible
+ignorehitpause=1
 
 [State 5150, アニメ変更] ;Normal anim
-type = ChangeAnim
+type = ChangeAnim2
 triggerall = time = 0
 triggerall = SelfAnimExist(5140)
 trigger1 = (anim != [5111,5119]) && (anim != [5171,5179])
@@ -3386,14 +3394,14 @@ trigger2 = !SelfAnimExist(5140 + (anim % 10))
 value = 5140
 
 [State 5150, アニメ変更] ;Hit up type anim
-type = ChangeAnim
+type = ChangeAnim2
 trigger1 = time = 0
 trigger1 = (anim = [5111,5119]) || (anim = [5171,5179])
 trigger1 = SelfAnimExist(5140 + (anim % 10))
 value = 5140 + (anim % 10)
 
 [State 5150, アニメ変更] ;Match over anim
-type = ChangeAnim
+type = ChangeAnim2
 persistent = 0
 ;trigger1 = time = 0
 trigger1 = MatchOver = 1
@@ -3402,7 +3410,7 @@ trigger1 = SelfAnimExist(anim+10)
 value = anim+10
 
 [State 5150, アニメ変更] ;Switch to 5110 if liedead anim does not exist
-type = ChangeAnim
+type = ChangeAnim2
 trigger1 = time = 0
 trigger1 = Anim != [5140,5159]
 trigger1 = Anim != [5110,5119]

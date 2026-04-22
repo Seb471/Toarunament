@@ -4858,7 +4858,7 @@ sprpriority = 10
 		Trigger1=!MoveReversed
 		trigger1 = AnimElemTime(14) >= 0
  		trigger1 = AnimElemTime(15) < 0
-		Attr=S,NA
+		Attr=S,HT
 		AnimType=back
 		Damage=Ceil(ifelse(enemynear,MoveType=A || var(2) != 0,100,80)*fvar(10)*fvar(1)) 
 		Guardflag=MA

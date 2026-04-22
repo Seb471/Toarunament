@@ -1348,6 +1348,14 @@ absolute = 0
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, TargetLifeAdd]
+type = HitAdd
+trigger1=animelem = 6
+value = 1
+persistent=0
+;ignorehitpause = 
+;persistent = 
+
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = animelemtime(4) = 0
@@ -1359,6 +1367,13 @@ loop = 0
 pan = 0
 ;abspan = 
 ;ignorehitpause = 
+;persistent = 
+
+[State 0, TargetLifeAdd]
+type = VarSet
+trigger1=animelem = 6
+var(1)=1
+ignorehitpause = 1
 ;persistent = 
 
 [State 2000,Voice]
@@ -1396,7 +1411,7 @@ Physics = N
 [State 0, VelSet]
 type = VelSet
 trigger1 = enemy,animelemtime(4)=0
-x = -6
+x = -5.5
 y = 0
 ;ignorehitpause = 
 ;persistent = 

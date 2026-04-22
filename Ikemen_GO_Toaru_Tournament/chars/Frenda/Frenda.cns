@@ -507,6 +507,7 @@ ignorehitpause = 1
 [State -2]
 	type = Varset
 	trigger1 = roundstate = 0
+	trigger2=stateno=[120,159]
 	var(13)=0
 	ignorehitpause = 1
 

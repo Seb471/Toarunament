@@ -54,7 +54,7 @@ ignorehitpause = 1
 
 [State -1, ???]
 Type = Explod
-Trigger1 = target,stateno=2162
+Trigger1 = enemynear,stateno=2162
 trigger1=numexplod(2152)=0
 Anim = 2152
 ID = 2152
@@ -71,14 +71,15 @@ facing =-1
 
 [State 0, RemoveExplod]
 type = RemoveExplod
-trigger1 = target,stateno!=2162
+trigger1 = enemynear,stateno!=2162
+triggerall=stateno!=2200
 id = 2152
 ignorehitpause = 1
 ;persistent = 
 
 [State -1, ???]
 Type = Explod
-Trigger1 = target,stateno=2161
+Trigger1 = enemynear,stateno=2161
 trigger1=numexplod(2151)=0
 Anim = 2151
 ID = 2151
@@ -96,7 +97,8 @@ facing =-1
 
 [State 0, RemoveExplod]
 type = RemoveExplod
-trigger1 = target,stateno!=2161
+trigger1 = enemynear,stateno!=2161
+triggerall=stateno!=2200
 id = 2151
 ignorehitpause = 1
 ;persistent = 

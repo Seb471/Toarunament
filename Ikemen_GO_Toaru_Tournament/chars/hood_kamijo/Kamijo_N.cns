@@ -31,7 +31,7 @@
 		Trigger1=!MoveReversed
 		Trigger1=AnimElem=3,>=0
 		Attr=S,NA
-		Damage=Ceil(18*fvar(0)),3
+		Damage=Ceil(18*fvar(0)),0
 		AnimType=Light
 		Guardflag=MA
 		Hitflag=MAF

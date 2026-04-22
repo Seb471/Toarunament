@@ -2831,7 +2831,7 @@ ignorehitpause = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = p2dist X <50 && anim = 1400 && time >8
+trigger1 = p2dist X <55 && anim = 1400 && time >8
 trigger2 = time >15 && anim = 1400
 value = 1405
 ;elem = 1
@@ -3148,7 +3148,7 @@ ignorehitpause = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = p2dist X <50 && anim = 1450 && time >20
+trigger1 = p2dist X <60 && anim = 1450 && time >20
 trigger2 = time >35 && anim = 1450
 value = 1455
 ;elem = 1

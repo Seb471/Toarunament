@@ -722,8 +722,7 @@ ignorehitpause = 1
 [State 1104]
 Type = AssertSpecial
 trigger1 = Anim = 233
-		flag = unguardable
-		flag2=noautoturn
+		flag=noautoturn
 
 
 [State ]
@@ -797,11 +796,11 @@ Attr = S, NA
 AnimType  = Hard
 Damage    = Ceil(100*fvar(0))
 HitFlag = MAF
-GuardFlag = M
+GuardFlag = MA
 PauseTime = 10,11
 Guard.PauseTime = 10,11
 HitSound=S0,9
-GuardSound=S1,0
+GuardSound=S0,9
 sparkno = s7001                     ;Spark anim no (Def: set above)
 Guard.SparkNo=S7500
 Sparkxy=-20,floor(-50*const(Size.yScale))
@@ -848,6 +847,85 @@ GivePower = 20,10
 		Trigger1=AnimElem=2
 		value=1,23
 		channel=-1
+
+[State 1100, ?????????]
+type = Projectile
+;trigger1 = time >= 83
+trigger1=anim = 233
+trigger1 = (moveguarded = 1)
+attr = S, HP ;????????(Standing, Special Projectile)
+damage = 5,0 
+getpower = 0,0
+animtype = back
+pausetime = 0,42
+;-----------------------------------Projectile????????
+offset = 0,0                    ;???????????(X?,Y?)
+velocity = 0,0                 ;?????????(X?,Y?)
+accel = 0,0                  ;????????(float)(X?,Y?)
+projID = 1206                 ;?????ID????(NumProjID?????)
+projanim = 1207               ;????????(?????????)
+projhitanim = -1             ;???????????????(?????????)
+projremanim = -1             ;?????????????(?????????)
+projscale = 0.5,0.5               ;????????(X?,Y?)???2?
+projshadow = 0,0,0             ;??????????(?,?,?)??????
+projhits = 1                   ;?????????(2????????????)
+projmisstime = 1               ;???????????????? ?projhits?2??????
+projpriority = 999999          ;??????????∑???Projectile?????????????
+projremovetime = 1            ;?????????????(????)?-1??????????????????
+;-----------------------------------????????????docs???????
+guardflag = -1
+hitflag = MAF
+priority = 3
+sparkno = -1
+guard.sparkno = -1
+hitsound = s1,13
+guardsound = -1
+ground.type = high
+ground.slidetime = 24
+ground.hittime  = 36
+ground.velocity = -8
+air.velocity = -8,-3
+air.hittime  = 120
+yaccel = 0.5
+numhits = 0
+air.fall = 1
+fall.recover = 0
+forcestand = 1
+ID = 1206
+envshake.time = 10
+envshake.freq = 120
+envshake.ampl =10
+kill = 0
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 0
+
+[State , ???????EF]
+type = Explod
+;trigger1 = time >= 83
+trigger1 = numtarget(1206) != 0
+Trigger1 = Moveguarded >= 1
+Trigger1 =  ProjHit(1206) = 1
+anim = 6008
+ID = 1208
+postype = P1
+pos = ceil(70*0.46),ceil(-160*0.46)
+facing = -1
+vfacing= 1
+scale = 1.2*0.46,1.2*0.46
+bindtime = 1
+removetime = -2
+sprpriority = 7
+ontop = 1
+shadow = 0, 0, 0
+Trans = add   ;Add ,None, Add1, Sub, AddAlpha
+ownpal = 1
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause	= 1 
+persistent= 0
+
 
 
 [State 0, EnvShake]
@@ -1010,8 +1088,8 @@ ignorehitpause = 1
 	[State -1,ç≈í·çUåÇï€è·]
 		type = Varset
 		Trigger1=Time=0
-		Trigger1=fvar(0)<=0.25
-		fvar(10)= 0.25
+		Trigger1=fvar(0)<=0.35
+		fvar(10)= 0.35
 		persistent = 0
  		ignorehitpause = 1
 
@@ -1027,7 +1105,7 @@ ignorehitpause = 1
 [State ]
 Type = TargetLifeAdd
 Trigger1 = AnimElem = 2 || AnimElem = 4 || AnimElem = 6 || AnimElem = 8 || AnimElem = 10
-Value = -(Ceil(15*fvar(10)))
+Value = -(Ceil(18*fvar(10)))
 Absolute = 0
 
 	[State 221, SE]
@@ -1604,7 +1682,7 @@ ignorehitpause = 1
 
 [State ]
 Type = HitDef
-Trigger1 = AnimElem = 3
+Trigger1 = !movecontact
 Attr = A, NA
 Damage  = Ceil(30*fvar(0))
 HitFlag = MAF

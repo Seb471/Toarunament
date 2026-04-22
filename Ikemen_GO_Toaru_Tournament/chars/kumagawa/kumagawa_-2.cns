@@ -262,6 +262,27 @@ value=10000
 	trigger2 = !numtarget
 	var(1) = 0
 	ignorehitpause = 1
+
+
+
+;--------------------VS ACCEL
+
+[State 190, 『僕は悪くない』]
+		type = LifeSet
+		Trigger1=P2Name="Accelerator" 
+		triggerall=roundno=1
+		TRIggerall=roundsexisted = 0 && roundstate=2
+		TriggerAll=var(10)=1
+		value = var(20)
+		persistent=0
+
+[State 190, 『僕は悪くない』]
+		type = VarSet
+		Trigger1=P2Name="Accelerator" 
+		triggerall=roundno=1
+		TRIggerall=roundsexisted = 0 && roundstate=2
+		TriggerAll=var(10)=1
+		var(10)=0
 	
 ;---------------------------------------------------------------------------
 ;ダメージ補正

@@ -571,6 +571,16 @@ TriggerAll = stateno != [3000,3199]
 trigger1 = ctrl
 trigger2 =var(1)
 
+[State -1, Astral Buddy Hyper]
+type = ChangeState
+value = 3100
+triggerall = command = "HCB_c"
+triggerall = statetype !=A
+TriggerAll = (var(20)=2 && power>1999) || (var(20)=1 && power>2999)
+triggerall=var(20)!=0
+TriggerAll = stateno = 3000
+trigger1 =var(1)
+
 
 
 ;Triple Kick Hyper
@@ -583,6 +593,16 @@ TriggerAll = Power>2999
 TriggerAll = stateno != [3000,3199] 
 trigger1 = ctrl
 trigger2 =var(1)
+
+;Triple Kick Hyper
+[State -1, Triple Kick Hyper]
+type = ChangeState
+value = 3000
+triggerall = command = "HCF_c"
+triggerall = statetype !=A
+TriggerAll = Power>1999
+TriggerAll = stateno = 3110
+trigger1 =var(1)
 
 
 ;-----------------------------------------
@@ -779,6 +799,9 @@ triggerall = command = "b"
 triggerall = stateno=1350
 trigger1 = animelemtime(6)>=0
 trigger2 = movecontact
+trigger2=prevstateno!=1150
+trigger3=prevstateno=1150
+trigger3=animelemtime(6)>=0
 
 ;------------------------------
 
