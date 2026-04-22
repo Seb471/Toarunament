@@ -41,7 +41,7 @@ Special icons for bosses X
 
 Put win count X
 
-Ass infinite prevention on every character
+Ass infinite prevention on every character X
 
 Make DP inputs more lenient?
 
@@ -119,8 +119,8 @@ Yuriko:
 	- fix yuriko's back grab
 
 Himegami:
-	- fix himegami being stuck from tsuchi's go to sleep
-	-Fix Himegami hurtboxes (Kamisato boxer combo doesn't work)
+	- fix himegami being stuck from tsuchi's go to sleep X
+	-Fix Himegami hurtboxes (Kamisato boxer combo doesn't work) X
 
 Kazakiri:
 	- reduce distance of pushback of kazakiri's grab X

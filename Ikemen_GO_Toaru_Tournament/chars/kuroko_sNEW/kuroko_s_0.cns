@@ -717,6 +717,7 @@ yaccel=.40+fvar(11)*.00066
 air.fall=1
 fall.recover=1
 fall.recovertime=32
+p2facing=1
 
 [State -1,攻撃補正,上書き,非カウンター]
 		type = Varset

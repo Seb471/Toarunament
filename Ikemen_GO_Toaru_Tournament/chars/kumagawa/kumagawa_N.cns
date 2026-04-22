@@ -54,6 +54,7 @@
 		givepower =25,5
 		kill = var(22)
 		guard.kill = var(22)
+		p2facing=1
 
 	[State 200,エフェクト]
 		Type = Explod

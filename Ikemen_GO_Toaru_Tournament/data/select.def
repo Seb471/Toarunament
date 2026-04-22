@@ -71,10 +71,10 @@
  ;Insert your characters below.
 
 ;Bosses Here
-Accelerator_CAI, order = 8, boss = 1,exclude=1, stages/SFIV_Training.def
-hood_kamijoCAI, order = 8, boss = 1,exclude=1,stages/NoMoreWorld.def
-kuroko_s, order = 8, boss = 1,exclude=1,stages/Underground-Sewer.def
-Himegami_Aisa/DeepBlood, order = 8, boss = 1, stages/room.def,exclude=1
+Accelerator_CAI, order = 8, boss = 1,exclude=1, stages/SFIV_Training.def,includestage=0,ordersurvival=0
+hood_kamijoCAI, order = 8, boss = 1,exclude=1,stages/NoMoreWorld.def,includestage=0,ordersurvival=0
+kuroko_s, order = 8, boss = 1,exclude=1,stages/Underground-Sewer.def,ordersurvival=0
+Himegami_Aisa/DeepBlood, order = 8, boss = 1, stages/room.def,exclude=1,includestage=0,ordersurvival=0
 ;-------
 
 empty 
@@ -221,7 +221,7 @@ empty
 empty
 empty
 
-training,order=9
+training,order=9,ordersurvival=0,hidden=2 ,unlock= gamemode() == "training"
 
 empty
 empty
@@ -261,7 +261,7 @@ empty
 empty
 empty
 empty
-empty
+empty;
 ;End of Row 6
 
 ;Row void

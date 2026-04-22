@@ -46,6 +46,7 @@ Fall = 0
 Air.Fall = 1
 Fall.Recover = IfElse(P2MoveType = A,0,1)
 Fall.RecoverTime = 28
+p2facing=1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset

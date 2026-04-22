@@ -175,6 +175,7 @@ fall.recover=1
 fall.recovertime=33
 getpower=5,10
 givepower=0,5
+p2facing=1
 
 ; Hitsparks (Accelerator)
 	[State 200, 線形ヒットエフェ]

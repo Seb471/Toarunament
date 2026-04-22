@@ -60,6 +60,7 @@
 		givepower = 20,10
 		ID=200
 		yaccel =.45
+		p2facing=1
 
 	[State 200,AttackDist]
 		Type=AttackDist

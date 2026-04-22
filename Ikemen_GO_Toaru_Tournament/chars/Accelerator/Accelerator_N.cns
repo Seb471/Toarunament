@@ -53,6 +53,7 @@
 		yaccel = .55
 		getpower = 40,5
 		givepower =25,5
+		p2facing=1
 
 	[State 200,エフェクト]
 		Type = Explod

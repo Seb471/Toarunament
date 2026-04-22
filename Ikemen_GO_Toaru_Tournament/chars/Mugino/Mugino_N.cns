@@ -46,6 +46,7 @@ Fall.RecoverTime=27
 ;Y-velocity at which opponent is pushed
 getpower = 20,10
 GivePower = 20,10
+p2facing=1
 
 
 [State -1,攻撃補正,上書き,カウンター]

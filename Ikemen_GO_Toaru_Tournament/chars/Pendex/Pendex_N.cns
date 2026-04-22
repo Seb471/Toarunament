@@ -148,6 +148,7 @@ GivePower = 20,10
 ground.cornerpush.veloff = 0
 Air.cornerpush.veloff= 0
 sprpriority=4
+p2facing=1
 
 ;Hitspark
 [State 200, 線形ヒットエフェ]
