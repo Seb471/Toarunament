@@ -569,7 +569,7 @@ sprpriority = 1
 [State 700, パワーゲージ増減]
 type = PowerAdd
 trigger1 = 1
-value = 0+time/13
+value = 3+time/12
 
 [State -2];DM Gauge add
 Type= VarAdd
@@ -586,6 +586,7 @@ facing = -1
 postype = p1
 pos = -5,0
 sprpriority = 3
+bindtime=-1
 ownpal = 1
 removetime = -1 ;「-1」なのでアニメーションが終わらず常に繰り返す
 ID = 130

@@ -46,7 +46,8 @@ air.fall=1
 fall.recover=1
 fall.recovertime=18
 ;Y-velocity at which opponent is pushed
-air.hittime = 15                 ;Time before opponent regains control in air
+air.hittime = 15  
+p2facing=1               ;Time before opponent regains control in air
 
 [State 0, LifeAdd]
 type = LifeAdd

@@ -979,6 +979,7 @@ trigger1 = target,statetype=A
 trigger1=target,backedgedist<20
 trigger1 = target,stateno!=2162
 triggerall=parent,var(26)=0
+triggerall=target,stateno!=[120,159]
 value = 2162
 ignorehitpause = 1
 persistent = 0
@@ -1402,10 +1403,10 @@ hitsound   = s1, 4
 guardsound = s6,2
 animtype = Hard
 ground.type = Low
-ground.slidetime = 28
-ground.hittime  = 28
-guard.slidetime = 23
-guard.hittime  = 23
+ground.slidetime = 26
+ground.hittime  = 26
+guard.slidetime = 21
+guard.hittime  = 21
 ground.velocity = 0,0
 air.velocity = -8,0
 yaccel=0.42
@@ -1858,6 +1859,7 @@ triggerall = NumTarget;()
 trigger1 = target,statetype=L
 trigger1 = target,stateno!=2161
 triggerall=parent,var(27)=0
+triggerall=target,stateno!=[120,159]
 value = 2161
 ignorehitpause = 1
 persistent = 0
@@ -2330,6 +2332,7 @@ triggerall = NumTarget;()
 trigger1 = target,statetype=L
 ;trigger1 = target,stateno!=2161
 ;triggerall=parent,var(27)=0
+triggerall=target,stateno!=[120,159]
 value = 2161
 ignorehitpause = 1
 persistent = 0
@@ -2557,6 +2560,7 @@ triggerall = NumTarget;()
 trigger1 = target,statetype=L
 ;trigger1 = target,stateno!=2161
 ;triggerall=parent,var(27)=0
+triggerall=target,stateno!=[120,159]
 value = 2161
 ignorehitpause = 1
 persistent = 0

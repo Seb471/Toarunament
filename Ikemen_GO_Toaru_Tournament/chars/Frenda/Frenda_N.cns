@@ -59,6 +59,7 @@ Fall.RecoverTime=8+10
 air.hittime = 15                 ;Time before opponent regains control in air
 getpower = 20,10
 GivePower = 20,10
+p2facing=1
 
 
 [State -1,攻撃補正,上書き,カウンター]
@@ -243,7 +244,7 @@ poweradd= Ceil(fvar(11))
 		ignorehitpause=1
 
 [State 0, StateTypeSet]
-type = StateTypeSet
+type = null;StateTypeSet
 trigger1 = animelemtime(2)>=0
 trigger1= animelemtime(4)<0
 statetype = A       ;S,A,C,L
@@ -631,7 +632,7 @@ GivePower =  20,10
 ;--------------------------------------------------------------------------------------
 
 [State 0, StateTypeSet]
-type = StateTypeSet
+type = null;StateTypeSet
 trigger1 = animelemtime(7)>=0
 trigger1= animelemtime(9)<0
 statetype = A       ;S,A,C,L
@@ -784,7 +785,7 @@ poweradd= Ceil(fvar(11))
 
 
 [State 0, StateTypeSet]
-type = StateTypeSet
+type = null;StateTypeSet
 trigger1 = animelemtime(5)>=0
 trigger1= animelemtime(9)<0
 statetype = A       ;S,A,C,L

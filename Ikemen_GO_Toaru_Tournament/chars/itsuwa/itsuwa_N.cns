@@ -47,6 +47,7 @@ fall.recover=1
 fall.recovertime=18
 ;Y-velocity at which opponent is pushed
 air.hittime = 15                 ;Time before opponent regains control in air
+p2facing=1
 
 
 [State -1,攻撃補正,上書き,カウンター]

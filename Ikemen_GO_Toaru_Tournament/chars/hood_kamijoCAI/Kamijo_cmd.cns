@@ -1397,8 +1397,28 @@ var(58)=ifelse(enemynear,alive,0,1)
 ;-------------------------------------------------------------
 ; 超必殺技
 ;-------------------------------------------------------------
-[State -1,竜王の顎];55
+
+[State -1,Fish Eggs]
 	Type=ChangeState
+	value=3500
+	triggerall=var(59)>0&&roundstate=2||fvar(39)
+	TriggerAll = command = "FishEggs"
+	TriggerAll = StateType != A
+	TriggerAll = var(3)>5
+	TriggerAll = var(12) || Power>5999
+	TriggerAll = Life < 0.3*LifeMax 
+	TriggerAll = stateno != [200,499];通常攻撃からキャンセル不可
+	TriggerAll = stateno != [1000,1999];必殺技からキャンセル不可
+	TriggerAll = stateno != 6667;ゲジマユエンハンスからキャンセル不可
+	trigger1=!helper(40010),var(41)
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=p2bodydist x>=0
+	trigger1=p2bodydist y>=-100
+	trigger1=(random<=50&&palno>=10)||(random<=var(59)*100&&palno<=9)
+	Trigger1=ctrl||stateno=100||stateno=101
+
+[State -1,竜王の顎];55
+	Type=null;ChangeState
 	value=3400
 	triggerall=var(59)>0&&roundstate=2||fvar(39)
 	TriggerAll=Alive!=0
@@ -1435,7 +1455,7 @@ var(58)=ifelse(enemynear,alive,0,1)
 
 [State -1,神浄];14
 	Type=ChangeState
-	value=3300
+	value=3600
 	triggerall=var(59)&&roundstate=2||fvar(39)
 	TriggerAll=Alive!=0
 	TriggerAll=StateType!=A
@@ -1464,8 +1484,8 @@ var(58)=ifelse(enemynear,alive,0,1)
 ;	Trigger1=Ctrl
 
 [State -1,最弱]
-	Type=ChangeState
-	value=3200
+	Type=null;ChangeState
+	value=null;3200
 	triggerall=var(59)&&roundstate=2||fvar(39)
 	TriggerAll=Alive!=0
 	TriggerAll=StateType!=A
@@ -1474,6 +1494,41 @@ var(58)=ifelse(enemynear,alive,0,1)
 	trigger1=ctrl||stateno=100||stateno=101
 	trigger1=random<=var(59)*100||fvar(39)
 	trigger1=helper(40010),var(43)=1
+
+
+[State -1,NT4];55
+	Type=ChangeState
+	value=3700
+	triggerall=var(59)>0&&roundstate=2||fvar(39)
+	TriggerAll=Alive!=0
+	TriggerAll=StateType!=A
+	TriggerAll=((var(3)=5||var(3)=7)&&(Power>3999&&(Life<0.3*LifeMax||PalNo>=9)))||var(12)
+	TriggerAll=Life < 0.3*LifeMax||palno>=9
+	TriggerAll = stateno != [200,499];通常攻撃からキャンセル不可
+	TriggerAll = stateno != [1000,1999];必殺技からキャンセル不可
+	TriggerAll = stateno != 6667;ゲジマユエンハンスからキャンセル不可
+	triggerall=helper(40010),var(9)
+	trigger1=!helper(40010),var(41)
+	trigger1=enemynear(var(58)),statetype!=L
+	trigger1=p2bodydist x>=0
+	trigger1=p2bodydist y>=-100
+	trigger1=(random<=50&&palno>=10)||(random<=var(59)*100&&palno<=9)
+	Trigger1=ctrl||stateno=100||stateno=101
+
+	trigger2=var(1)
+	;trigger2=stateno!=2501&&prevstateno!=1750&&stateno!=2400
+	trigger2=p2bodydist y>=-100
+	
+	trigger3=numpartner
+	trigger3=partner,movetype=a&&enemynear(0),movetype=h&&enemynear(1),movetype=h
+	trigger3=enemynear(var(58)),statetype!=l
+	trigger3=enemynear(var(58)),movetype=h
+	trigger3=random<=var(59)*100||fvar(39)
+	trigger3=p2bodydist x>=-30
+	trigger3=!p2bodydist y
+	trigger4= p2bodydist x>=70
+	trigger4= enemynear(0),movetype=A
+
 
 ;	Trigger1=Ctrl
 

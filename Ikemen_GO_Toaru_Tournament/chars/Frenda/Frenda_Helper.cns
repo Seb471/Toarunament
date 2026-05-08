@@ -113,15 +113,15 @@ triggerAll = numexplod(30000) = 0
 trigger1 = Parent,var(3) =0
 anim = 1329
 ID = 30000
-pos = ifelse(teamside=1,22-Parent,Var(32),285+Parent,Var(32)), 50+Parent,Var(31)
+pos = ifelse(teamside=1,22-Parent,Var(32),285+12+Parent,Var(32)), 50+Parent,Var(31)
 postype = left
 bindtime = -1
 removetime = -1
 supermovetime = 9999
 pausemovetime = 9999
-sprpriority = 9999
+sprpriority = 5
 scale = 0.7,0.7
-ontop = 1
+;ontop = 1
 ownpal = 1
 ignorehitpause = 1
 
@@ -138,15 +138,15 @@ triggerAll = numexplod(30001) = 0
 trigger1 = Parent,var(3) =1
 anim = 1328
 ID = 30001
-pos = ifelse(teamside=1,22-Parent,Var(32),285+Parent,Var(32)), 50+Parent,Var(31)
+pos = ifelse(teamside=1,22-Parent,Var(32),285+12+Parent,Var(32)), 50+Parent,Var(31)
 postype = left
 bindtime = -1
 removetime = -1
 supermovetime = 9999
 pausemovetime = 9999
-sprpriority = 9999
+sprpriority = 5
 scale = 0.7,0.7
-ontop = 1
+;ontop = 1
 ownpal = 1
 ignorehitpause = 1
 
@@ -174,7 +174,7 @@ triggerall=root,var(3)=0
 trigger1 = numexplod(4001)=0
 anim = 7000+(root,var(5)%10)
 ID = 4001
-pos = ifelse(teamside=1,35,280), 50
+pos = ifelse(teamside=1,35,295+12), 50
 postype = left
 bindtime = -1
 removetime = -1
@@ -183,7 +183,7 @@ pausemovetime = 9999
 sprpriority = 5
 scale = 0.77,0.77
 ownpal = 0
-ontop=1
+;ontop=1
 ignorehitpause = 1
 
 ;Dixaine remove
@@ -203,7 +203,7 @@ trigger1= !(((root,var(5)/10)%10)=0)
 trigger1 = numexplod(4101)=0
 anim = 7000+((root,var(5)/10)%10)
 ID = 4101
-pos = ifelse(teamside=1,30,275), 50
+pos = ifelse(teamside=1,30,290+12), 50
 postype = left
 bindtime = -1
 removetime = -1
@@ -212,7 +212,7 @@ pausemovetime = 9999
 sprpriority = 5
 scale = 0.77,0.77
 ownpal = 0
-ontop=1
+;ontop=1
 ignorehitpause = 1
 
 
@@ -248,7 +248,7 @@ trigger1 = numexplod(4201)=0
 trigger1=root,var(4)>0
 anim = 7000+(root,var(4)%10)
 ID = 4201
-pos = ifelse(teamside=1,10,260), 50
+pos = ifelse(teamside=1,10,273+12), 50
 postype = left
 bindtime = -1
 removetime = -1
@@ -257,7 +257,7 @@ pausemovetime = 9999
 sprpriority = 5
 scale = 0.77,0.77
 ownpal = 1
-ontop=1
+;ontop=1
 ignorehitpause = 1
 
 ;Dixaine remove
@@ -277,7 +277,7 @@ trigger1= !(((root,var(4)/10)%10)=0)
 trigger1 = numexplod(4301)=0
 anim = 7000+((root,var(4)/10)%10)
 ID = 4301
-pos = ifelse(teamside=1,5,255), 50
+pos = ifelse(teamside=1,5,268+12), 50
 postype = left
 bindtime = -1
 removetime = -1
@@ -286,7 +286,7 @@ pausemovetime = 9999
 sprpriority = 5
 scale = 0.77,0.77
 ownpal = 1
-ontop=1
+;ontop=1
 ignorehitpause = 1
 
 ;==========================================

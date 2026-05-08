@@ -62,6 +62,7 @@ air.fall = 1
 fall.recovertime = 20
 getpower  = 10,5
 givepower =5,5
+p2facing=1
 
 [State 200,V1=1]
 		Type=VarSet
@@ -784,7 +785,7 @@ volume = 256
 [State 1100, Velocity]
 type = VelSet
 trigger1 = AnimElem = 4
-x = 1
+;x = 4
 Y = -4
 
 [State 200,V1=1]
@@ -894,9 +895,8 @@ ignorehitpause = 1
 [State 1100, Velocity]
 type = VelSet
 trigger1 = AnimElem = 4
-x = 1 ; new!
+;x = 4
 Y = -4
-
 
 [State 191]
 type = PlaySnd

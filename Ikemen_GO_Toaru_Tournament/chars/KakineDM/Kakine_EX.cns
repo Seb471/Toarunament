@@ -589,6 +589,7 @@ trigger1 = animelem = 4
 trigger1 = NumExplod(130) = 0 ;ＩＤナンバー「130」のExplodが画面中に１枚も出ていない時
 anim = 710
 facing = -1
+bindtime=-1
 postype = p1
 pos = -5,0
 sprpriority = 3

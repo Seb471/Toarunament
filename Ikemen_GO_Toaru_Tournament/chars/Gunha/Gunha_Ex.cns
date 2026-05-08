@@ -2852,7 +2852,7 @@ persistent = 0
 	[State 6450, 弾き]
 		Type = ReversalDef
 		Trigger1=AnimElemTime(3)>=0
-		Trigger1=AnimElemTime(5)<0
+		Trigger1=AnimElemTime(6)<0
 		Reversal.Attr = SCA,AP ;攻撃属性指定：立ちと空中全ての打撃
 		PauseTime = 0,5 ;一時停止(30/60)秒
 		;SparkNo = S7002 ;ヒットエフェクト無し
@@ -2889,7 +2889,7 @@ sprpriority = -1
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = time=0
-trigger1=prevstateno=961
+;trigger1=prevstateno=961
 value = 960
 elem = 3
 ignorehitpause = 1
@@ -2900,7 +2900,7 @@ type = NotHitBy
 trigger1 = time=0
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 ;value2 = S,NA
-time = 5
+time = 1
 ignorehitpause = 1
 persistent = 0
 
@@ -2955,11 +2955,11 @@ persistent = 0
 
 	[State 6450, 弾き]
 		Type = ReversalDef
-		trigger1=time>5
+		;trigger1=time>5
 		Trigger1=AnimElemTime(3)>=0
-		Trigger1=AnimElemTime(5)<0
+		Trigger1=AnimElemTime(6)<0
 		Reversal.Attr = SCA,AP ;攻撃属性指定：立ちと空中全ての打撃
-		PauseTime = 5,5 ;一時停止(30/60)秒
+		PauseTime = 0,5 ;一時停止(30/60)秒
 		;SparkNo = S7002 ;ヒットエフェクト無し
 		;HitSound = S0,10 ;ヒット音声無し
 		;sparkxy = 40,-20

@@ -440,7 +440,7 @@ sprpriority = -1
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = animelemno(0)<3
+trigger1 = animelemno(0)<2
 value = ,NA,SA,HA,NP,SP,HP
 ;value2 = S,NA
 time = 1
@@ -749,6 +749,8 @@ ignorehitpause=1
 	triggerall = stateno != 6471
 	triggerall = stateno != 6200
 	triggerall = stateno != 6250
+	triggerall = stateno != 2410
+	triggerall = stateno != [3000,3100]
 	triggerall = !(stateno = [2000,2999] && time<32)
 	triggerall = !(stateno = [6430,6440] && time<32)
 	trigger1 = fvar(6) > 0
@@ -791,6 +793,14 @@ ignorehitpause=1
 	trigger1 = enemy,movetype != H
 	trigger2 = enemy,stateno = [120,155]
 	var(12)=0
+	ignorehitpause = 1
+
+;Grab Counter
+[State -2]
+	type = Varset
+	trigger1 = enemy,movetype != H
+	trigger2 = enemy,stateno = [120,155]
+	var(13)=0
 	ignorehitpause = 1
 
 
@@ -897,6 +907,7 @@ channel = 2
 ;var(8) is the high kick counter in a row
 ;var(9) is the luneg dash counter in a combo
 ;var(12) is wallsplat counter for grab
+;var(13) is grab counter for lunge cancel
 ;Var(14) is for the burst
 ;var(17) is the air dash count
 ;var(20) is for the counter effect

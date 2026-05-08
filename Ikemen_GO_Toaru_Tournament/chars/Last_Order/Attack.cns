@@ -36,6 +36,7 @@ airguard.velocity = -1.9,-.8
 air.type = high
 air.velocity = -2,-3
 air.hittime = 12
+p2facing=1
 
 [State 200, AttackMulSet]
 type = Varset

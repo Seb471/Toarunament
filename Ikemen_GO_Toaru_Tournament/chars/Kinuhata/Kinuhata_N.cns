@@ -76,6 +76,7 @@ Fall.Recover = 1-(P2MoveType=A)
 Fall.RecoverTime = 27
 GetPower = 20,10
 GivePower = 20,10
+p2facing=1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset

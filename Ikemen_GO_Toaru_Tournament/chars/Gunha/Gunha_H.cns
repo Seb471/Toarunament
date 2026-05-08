@@ -6424,7 +6424,7 @@ persistent= 1
 [State 1100, ガードクラッシュ用]
 type = Projectile
 ;trigger1 = time >= 83
-trigger1 = (projguarded(2600) = 1)
+trigger1 = (projguarded(2600) >= 1)
 attr = A, HP ;立ち必殺飛び道具（Standing, Special Projectile）
 damage = 5,0 
 getpower = 0,0
@@ -6479,12 +6479,12 @@ persistent= 0
 type = Explod
 ;trigger1 = time >= 83
 trigger1 = numtarget(1206) != 0
-Trigger1 = (projguarded(2600) >= 1)
+;Trigger1 = (projguarded(2600) >= 1)
 Trigger1 =  ProjHit(1206) = 1
 anim = 6008
 ID = 1208
-postype = P1
-pos = ceil(70*0.46),ceil(-160*0.46)
+postype = P2
+pos = ceil(30*0.46),ceil(-160*0.46)
 facing = -1
 vfacing= 1
 scale = 1.2*0.46,1.2*0.46
@@ -9852,7 +9852,7 @@ persistent= 1
 [State 1100, ガードクラッシュ用]
 type = Projectile
 ;trigger1 = time >= 83
-trigger1 = (projguarded(2600) = 1)
+trigger1 = (projguarded(2600) >= 1)
 attr = A, HP ;立ち必殺飛び道具（Standing, Special Projectile）
 damage = 10,0 
 getpower = 0,0
@@ -9907,12 +9907,12 @@ persistent= 0
 type = Explod
 ;trigger1 = time >= 83
 trigger1 = numtarget(1206) != 0
-Trigger1 = (projguarded(2600) >= 1)
+;Trigger1 = (projguarded(2600) >= 1)
 Trigger1 =  ProjHit(1206) = 1
 anim = 6008
 ID = 1208
-postype = P1
-pos = ceil(70*0.46),ceil(-160*0.46)
+postype = P2
+pos = ceil(30*0.46),ceil(-160*0.46)
 facing = -1
 vfacing= 1
 scale = 1.2*0.46,1.2*0.46

@@ -7469,19 +7469,31 @@ ignorehitpause = 1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset
-		trigger1 = animtime=0
-trigger1=anim=3130
+		triggerall=anim=3130
+		;triggerall=p2dist X <=15 || frontedgedist <50
+		trigger1 = animelemtime(14)>=0
 		
 		fvar(0)= fvar(0)*0.20
 		persistent = 0
  		ignorehitpause = 1
 [State 200 ノックバックカウント]
 		type = Varadd
-		trigger1 = animtime=0
-		trigger1=anim=3130
+		triggerall=anim=3130
+		;triggerall=p2dist X <=15 || frontedgedist <50
+		trigger1 = animelemtime(14)>=0
 		fVar(11) = 30
 		persistent = 0
  		ignorehitpause = 1
+
+[State 200 ノックバックカウント]
+		type = VarSet
+		triggerall=anim=3130
+		;triggerall=p2dist X <=15 || frontedgedist <50
+		trigger1 = animelemtime(14)>=0
+		var(1)=1
+		persistent = 0
+ 		ignorehitpause = 1
+
 
 
 [State 0, ChangeState]

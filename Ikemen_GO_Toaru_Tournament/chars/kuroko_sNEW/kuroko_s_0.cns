@@ -717,6 +717,7 @@ yaccel=.40+fvar(11)*.00066
 air.fall=1
 fall.recover=1
 fall.recovertime=32
+p2facing=1
 
 [State -1,攻撃補正,上書き,非カウンター]
 		type = Varset
@@ -1825,7 +1826,7 @@ channel =0
 [State 420, ヒット定義]
 type = HitDef
 trigger1 = AnimElem = 4
-attr = S, NP
+attr = S, NA
 damage = Ceil(50*fvar(10)), 0
 animtype = back
 guardflag = L
@@ -3563,6 +3564,18 @@ value = Ceil(-100*fvar(0))
 kill =1
 persistent = 0
 
+
+[State 0, VarSet]
+type = VarSet
+trigger1= target,Pos y >=0
+trigger1=time>=35
+var(1)=1
+ignorehitpause = 1
+;persistent = 
+
+
+
+
 [State -1, ヒットエフェクト]
 Type     = Helper
 trigger1 = AnimElemtime(6) =1
@@ -3759,7 +3772,7 @@ poweradd = 50
 [State 840, 制御した相手のアニメ変更]
 type = ChangeAnim2
 Trigger1 = Time = 0
-value = 920
+value = 940
 
 [State -1,地上に移動]
 Type = Posset

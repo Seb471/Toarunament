@@ -653,6 +653,12 @@ trigger1 = animelemtime(1) >= 0 && animelemtime(6) < 0
 x = 0
 y = 0
 
+[State 1350, 1]
+type = posset
+trigger1 = animelemtime(1) >= 0 && animelemtime(6) < 0
+trigger1=pos Y >=-10
+y = -10
+
 [State 1000, ‰¹]
 type = PlaySnd
 trigger1 = AnimElem = 4

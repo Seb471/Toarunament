@@ -217,15 +217,17 @@ poweradd= fvar(11)
 [State 1050,V1=0]
 		Type=VarAdd
 		Trigger1=Time=0
+		trigger1=prevstateno!=2320
 		var(9)=1
 		ignorehitpause=1
 		persistent=0
 
 [State ]
 Type = NotHitBy
-Trigger1 = Time = [3,7]
+Trigger1 = Time = [3,11]
 Value = , NA, SA, HA ,NP, SP, HP
 Time = 1
+ignorehitpause=1
 
 [State ]
 Type = PlaySnd
@@ -527,6 +529,7 @@ Type = NotHitBy
 Trigger1 = Time = [3,13]
 Value = , NA, SA, HA ,NP, SP, HP
 Time = 1
+ignorehitpause=1
 
 [State ]
 Type = PlaySnd
@@ -638,9 +641,9 @@ trigger1= time = 0
 time	= 27
 length	= 10
 Framegap = 4
-PalBright = 100,100,170
-PalContrast = 128,128,250
-PalAdd = 0,0,0
+PalBright = 120,50,120
+PalContrast = 200,128,200
+paladd= -0,-200,150
 trans = add1
 
 [State 107, ]
@@ -698,8 +701,8 @@ Sparkxy=-20,floor(-80*const(Size.yScale))
 HitSound=S0,0+random%2                  ;Sound to play on hit
 GuardSound=S1,0                ;Sound to play on guard
 Ground.Type=High
-		Ground.SlideTime=14
-		Ground.HitTime=14
+		Ground.SlideTime=18
+		Ground.HitTime=18
 		Guard.SlideTime=13
 		Guard.HitTime=12
 		Air.HitTime=12
@@ -956,6 +959,14 @@ facep2=1
 		var(1)=0
 		ignorehitpause=1
 
+
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 35,0
+ignorehitpause = 1
+;persistent = 
+
 [State ]
 Type = VelSet
 Trigger1 = animelem=2
@@ -1118,11 +1129,16 @@ facep2=1
 		var(1)=0
 		ignorehitpause=1
 
-
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 35,0
+ignorehitpause = 1
+;persistent = 
 [State 52,0];?
 		type = Width
 		trigger1 = !movehit
-		value = 5,0
+		player = 0,0
 		ignorehitpause=1
 
 
@@ -1552,8 +1568,8 @@ GuardFlag = MA
 Guard.SparkNo = s6105
 Sparkxy = -15,floor(-60*const(Size.yScale))
 Priority = 4, Hit
-PauseTime = 12,12
-Guard.PauseTime = 20,12
+PauseTime = 6,12
+Guard.PauseTime = 8,12
 HitSound=S0,11
 GuardSound=S1,1
 SparkNo = -1
@@ -1652,7 +1668,7 @@ ignorehitpause = 1
 
 [State ]
 Type = ChangeState
-Trigger1 = AnimTime = 0
+Trigger1 =animtime=0
 trigger2= movehit && animelem=8
 triggerall=command!="holdfwd"
 triggerall=command!="holdback"
@@ -1661,7 +1677,7 @@ Ctrl = 0
 
 [State ]
 Type = ChangeState
-Trigger1 = AnimTime = 0
+Trigger1 = animelem=8
 trigger2= movehit && animelem=8
 triggerall=command="holdfwd"
 triggerall=command!="holdback"
@@ -1670,7 +1686,7 @@ Ctrl = 0
 
 [State ]
 Type = ChangeState
-Trigger1 = AnimTime = 0
+Trigger1 = animelem=8
 trigger2= movehit && animelem=8
 triggerall=command!="holdfwd"
 triggerall=command="holdback"
@@ -2518,9 +2534,10 @@ sysvar(1) = -1
 type = VelSet
 trigger1 = time=0
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x)/1.5, ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)/1.5, const(velocity.jump.back.x)/1.5))
-y = const(velocity.jump.y)/1.6
+y = const(velocity.jump.y)/1.7
 ;??????????????????????[Velocity]?????????????
 ;????????????????????????
+persistent=0
 
 
 [State 600,d—Í]
@@ -2654,7 +2671,7 @@ air.fall=1
 [State 600,d—Í]
 		Type=VelAdd
 		Trigger1=1
-		y = .3
+		y = .34
 
 [State 0, NotHitBy]
 type = HitBy
@@ -2736,6 +2753,7 @@ air.hittime = 20                 ;Time before opponent regains control in air
 Air.fall=1
 getpower = 20,10
 GivePower = 20,10
+yaccel=.42
 ID=1033
 
 [State 0, PlaySnd]
@@ -3005,7 +3023,7 @@ sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in fro
 
 [State 620, ’âŽ~]
 		type = PosFreeze
-		trigger1 = pos y > -15
+		trigger1 = pos y > -10
 		trigger1 = AnimElemNo(0) <= 3
 		value = 1
 
@@ -3045,8 +3063,8 @@ Ground.Type=Low
 		AirGuard.velocity=-4.25,.8
 		Air.Type=High
 		Air.velocity=-1.9,-1.2  ;X-velocity at which opponent is pushed,
-Ground.CornerPush.VelOff = -9-fvar(11)
-Guard.CornerPush.VelOff = -15
+Ground.CornerPush.VelOff = -15-fvar(11)
+Guard.CornerPush.VelOff = -19
 Fall.RecoverTime=8+14
 ;Y-velocity at which opponent is pushed
 air.hittime = 20                 ;Time before opponent regains control in air
@@ -4268,7 +4286,7 @@ ignorehitpause = 1
      
 [state 802, 0]
     type = destroyself
-    trigger1 = parent,stateno!=1125
+    trigger1 = parent,stateno!=237
 
 ;WR Helper Hit
 [Statedef 1127]
@@ -4286,6 +4304,33 @@ time = 1
 ignorehitpause = 1
 ;persistent = 
 
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time=0
+time = 8
+freq = 40
+ampl = -7
+phase = 90
+ignorehitpause =1 
+persistent = 0
+
+
+[State 4110, Explod]
+type = Explod
+
+trigger1 = time=0
+anim = 3050
+id = 8201
+pos = 67+random%10,-75+random%20
+postype = P1
+ontop = 1
+bindtime = 1
+ownpal = 1
+facing = ifelse(Random<=500,-1,1)
+scale = 0.3,0.3
+pausemovetime = 9999
+persistent=0
+ignorehitpause=1
 
 [State 6402, ?????]
 type = PlaySnd
@@ -4367,7 +4412,7 @@ time = 1
      
 [state 802, 0]
     type = destroyself
-    trigger1 = parent,stateno!=1125
+    trigger1 = parent,stateno!=237
 
 
 ;---------------------------------------------------------------------------
@@ -5029,12 +5074,20 @@ air.fall=0
 ID=1310
 air.fall=0              ;Force p2 into falling down
 
+
 [State 800, 2]
 type = ChangeState
 Trigger1 = AnimTime = 0
+trigger1=prevstateno=[1000,1099]
+value = 1001
+ctrl = 0
+
+[State 800, 2]
+type = ChangeState
+Trigger1 = AnimTime = 0
+trigger1=prevstateno!=[1000,1099]
 value = 0
 ctrl = 1
-
 
 ;------------------
 ;Combo Grab Hit
@@ -5059,6 +5112,14 @@ player = 0,0
 ;value = 0,0
 ignorehitpause = 1
 ;persistent = 
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1 
+var(13)=1
+ignorehitpause =1 
+persistent = 0 
+
 
 
 [State 1250, ??]
@@ -5111,6 +5172,13 @@ Trigger2=animelem =8
 Trigger3=animelem =12
 value=1,9
 channel=1
+
+[State 810,Snd2]
+Type=Poweradd
+Trigger1=animelem =4
+Trigger2=animelem =8
+Trigger3=animelem =12
+value=50
 
 
 [State 0, EnvShake]
@@ -5207,8 +5275,8 @@ Fall.RecoverTime=8+14
 air.hittime = 20   
 fall=0              ;Time before opponent regains control in air
 Air.fall=0
-getpower = 20,10
-GivePower = 20,10                      ;p2's sprite priority is set to 0 by default
+getpower = 50,10
+GivePower = 30,10                      ;p2's sprite priority is set to 0 by default
 guard.dist = 0        ;This prevents p2 from going into a guard state if close
 fall = 0  
 Ground.CornerPush.VelOff = -0.2
@@ -5387,12 +5455,19 @@ fall.recover=0
 
 
 
-[State ]
-Type = ChangeState
+[State 800, 2]
+type = ChangeState
 Trigger1 = AnimTime = 0
-Value = 0
-Ctrl = 1
+trigger1=prevstateno=[1000,1099]
+value = 1001
+ctrl = 0
 
+[State 800, 2]
+type = ChangeState
+Trigger1 = AnimTime = 0
+trigger1=prevstateno!=[1000,1099]
+value = 0
+ctrl = 1
 ;------------------------------
 ;Tackle to ground
 [Statedef 1360]
@@ -5551,6 +5626,7 @@ trigger1 = AnimElem = 3
 trigger2 = AnimElem = 8
 value = -Ceil(20*fvar(10))
 kill = 1
+absolute=1
 
 [State 4605, HitAdd]
 type = HitAdd
@@ -5568,6 +5644,14 @@ time = 5
 freq = 120
 ampl = 4
 phase = 120
+
+[State 1000, 0]
+type = PowerAdd
+triggerall=anim=1370
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 8
+value=65
+
 
 [State 3000, 10]
 type = ChangeAnim

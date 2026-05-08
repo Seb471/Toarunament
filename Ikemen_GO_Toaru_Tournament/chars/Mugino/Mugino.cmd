@@ -213,7 +213,7 @@ buffer.time = 10
 
 [Command]
 name = "FDF_c"
-command =  ~F, D, DF, c
+command =  ~F,DF,D,DF,c
 time = 20
 buffer.time = 10
 
@@ -279,13 +279,13 @@ buffer.time = 10
 
 [Command]
 name = "DP_x"
-command =  ~F, D, DF, x
+command =  ~F,DF,D,DF,x
 time = 20
 buffer.time = 10
 
 [Command]
 name = "FDF_a"
-command =  ~F, D, DF, a
+command =  ~F,DF,D,DF,a
 time = 20
 buffer.time = 10
 
@@ -294,7 +294,7 @@ buffer.time = 10
 
 [Command]
 name = "FDF_b"
-command =  ~F, D, DF, b
+command =  ~F,DF,D,DF,b
 time = 20
 buffer.time = 10
 
