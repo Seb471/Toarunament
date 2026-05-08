@@ -56,7 +56,7 @@ Kanzaki:
 	Make a small delay before stance switching again Kanzaki
 	Investigate Thor overhead on Kanzaki and Kanzaki boxes 
 	Kanzaki qcf a must be set as air
-	Put inv on Nanasen
+	Put inv on Nanasen x
 	Set slashes as Phys
 	Add hurtboxes to Kanzaki throw attempt end
 	- buffed kanzaki's 5c (christian stance) x

@@ -2603,10 +2603,28 @@ physics = N
 anim = 3010
 ctrl = 0
 
-[State 0, AssertSpecial]
+;Setups UI Helper
+[State -2,Setups UI Helper]
+type = Helper
+trigger1 = time = 0
+trigger1 = Numhelper(3015) = 0
+stateno = 3015
+ID = 3015
+pos = 0,0
+postype = back
+helpertype = normal
+name = "Counter helper"
+keyctrl = 0
+ownpal = 1
+sprpriority = 0
+
+[State 4801, ???]
 type = AssertSpecial
 trigger1 = 1
 flag = nobardisplay
+flag2 = nomusic
+flag3 = timerfreeze
+ignorehitpause = 1
 
 [State 0, BGPalFX]
 type = BGPalFX
@@ -2662,11 +2680,20 @@ y = topedge/4+topedge/8
 [State 200, 2]
 type = PlaySnd
 trigger1 = Time = 0
+;volumescale = 50 
 value = 3000, 3
 channel = 0
 
+[State 200, 2]
+type = PlaySnd
+trigger1 = Time = 0
+volumescale = 150
+value = 3000, 0
+channel = -1
+
 [State 0, Helper]
 type = Helper
+triggerall = anim=3010
 trigger1 = animelem = 2
 helpertype = normal ;player
 name = "pentagram"
@@ -2682,6 +2709,47 @@ pausemovetime = 0
 size.xscale = 0.5
 size.yscale = 0.5
 
+[State 0, Explod]
+type = Explod
+triggerall = anim=3010
+trigger1 = animelem = 2
+ID = 245
+anim = 245
+pos = 0,-25
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 0.6,0.6
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State ]
+type = PlaySnd
+triggerall = anim=3010
+trigger1 = animelem = 2
+value = 6200,0
+
+[State ]
+type = PlaySnd
+triggerall = anim=3010
+trigger1 = animelem = 2
+value = 6200,1
+
+[State ]
+type = PlaySnd
+triggerall = anim=3010
+trigger1 = animelem = 2
+value = 6200,2
+
+[State ]
+type = PlaySnd
+triggerall = anim=3010
+trigger1 = animelem = 2
+value = 6200,5
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = anim = 3010
@@ -2691,11 +2759,18 @@ value = 3012
 ;ignorehitpause = 
 ;persistent = 
 
+[State 200, 2]
+type = null
+triggerall = anim = 3012
+trigger1 = animelem = 1
+value = 3000, 2
+channel = 0
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = anim = 3012
-x = 7.5
-y = -7.5
+x = 10
+y = -10
 ;ignorehitpause = 
 ;persistent = 
 
@@ -2730,7 +2805,11 @@ value = 30111
 ;ignorehitpause = 
 ;persistent = 
 
-
+[State 4801, ???]
+type = AssertSpecial
+trigger1 = enemy,stateno=3013
+flag = invisible
+ignorehitpause = 1
 
 
 [State 0, ScreenBound]
@@ -2752,8 +2831,8 @@ y = topedge
 [State 0, PosSet]
 type = PosSet
 trigger1 = enemy,stateno=3012
-x = 0
-y = bottomedge-screenwidth/2
+x = 10*-facing
+y = bottomedge-screenwidth/3
 ;ignorehitpause = 
 ;persistent = 
 
@@ -2773,14 +2852,18 @@ value = 0
 ;persistent = 
 
 
-[State 0, SelfState]
-type = SelfState
-trigger1 = enemy,stateno!=[3000,3020]
-value = 50
-;anim =
-;ctrl =
-;ignorehitpause = 0
-;persistent = 1
+
+[State 4704, ??????????]
+type = PosAdd
+trigger1 = enemy,stateno!=[3010,3013]
+x = -50
+y = -900
+
+[State 4704, ??(???)]
+type = ChangeState
+trigger1 = enemy,stateno!=[3010,3013]
+value = 4705
+
 
 ;Saint destroyer
 [Statedef 3012]
@@ -2790,6 +2873,34 @@ physics = N
 anim = 3012
 ctrl = 0
 
+[State 4801, ???]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = nofg
+flag3 = nobg
+ignorehitpause = 1
+
+[State 4801, ???]
+type = AssertSpecial
+trigger1 = 1
+flag = nobardisplay
+flag2 = nomusic
+flag3 = timerfreeze
+ignorehitpause = 1
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = 1
+time = 1
+add = -256,-256,-256
+;mul = 256,256,256
+;sinadd = -256,-256,-256,240
+;invertall = 0
+;color = 256
+;ignorehitpause = 
+;persistent =
+
 [State 0, AngleDraw]
 type = AngleDraw
 trigger1 = 1
@@ -2798,17 +2909,117 @@ scale = 0.5,0.5
 ;ignorehitpause = 
 ;persistent = 
 
+[State 7200, BG]
+type = Explod
+trigger1 = !NumExplod(7220)
+trigger1 = time = 0
+anim = 7220
+ID = 7220
+postype = p2
+;space = screen
+pos = 0,-25;screenwidth/2+10*facing, screenheight/2-screenheight/16
+removetime = -1
+scale = 0.25,0.25; * fvar(3), 1 * fvar(3)
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = -20
+angle = 0
+ontop = 0
+shadow = 0
+ownpal = 1
+;remappal = 7220,0
+ignorehitpause = 1
 
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = 1
-flag = nobardisplay
+[State 0, Explod]
+type = Explod
+trigger1 = helper(3015),time = 270
+ID = 6063
+anim = 6063
+pos = 30,-50
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+removetime = -2
+;scale = 0.75,0.75
+sprpriority = 5
+ownpal = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = helper(3015),time = 270
+value = 24000,5
+ignorehitpause = 1
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+trigger1 = helper(3015),time = 300
+ID = 30181
+anim = 30181
+pos = 30,-50
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = 50
+scale = 0.75,0.75
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State ]
+Type = PlaySnd
+trigger1 = abs(pos x) <= 20
+Value = s20, 0
+Persistent = 0
+
+[State ]
+Type = PlaySnd
+Trigger1 = helper(3015),time = [300,350)
+Value = s3000, 1
+Persistent = 10
+
+[State ]
+Type = PlaySnd
+Trigger1 = helper(3015),time = 350
+Value = s3000, 2
+channel = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = helper(3015),time = 350
+ID = 30180
+anim = 30180
+pos = 30,-50
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 0.75,0.75
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+;Setups UI Helper
+[State -2,Setups UI Helper]
+type = Helper
+trigger1 = helper(3015),time  = 360
+trigger1 = Numhelper(3016) = 0
+stateno = 3016
+ID = 3016
+pos = 0,topedge
+postype = back
+helpertype = normal
+name = "White screen helper"
+keyctrl = 0
+ownpal = 1
+sprpriority = 0
 
 
 [State 0, PosSet]
 type = PosSet
 trigger1 = time = 0
-x = facing*-screenwidth/2
+x = facing*-screenwidth/3
 y = bottomedge
 ;ignorehitpause = 
 ;persistent = 
@@ -2819,7 +3030,41 @@ trigger1 = abs(pos x) <= 20
 x = 0
 y = 0
 ;ignorehitpause = 
-;persistent = 
+;persistent =
+
+[State 0, Explod]
+type = Explod
+trigger1 = abs(pos x) <= 20
+ID = 7019
+anim = 7019
+pos = 15,-25
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 0.5,0.5
+sprpriority = 5
+ownpal = 1
+persistent = 0 
+
+[State 0, Explod]
+type = Explod
+trigger1 = abs(pos x) <= 20
+ID = 10064
+anim = 10064
+pos = 30,-50
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 0.5,0.5
+sprpriority = 5
+ownpal = 1
+persistent = 0 
+
+
 
 [State 0, PlayerPush]
 type = PlayerPush
@@ -2837,10 +3082,214 @@ movecamera = 0,0
 ignorehitpause = 1
 ;persistent = 
 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = helper(3015),time  = 450
+id = 30181
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 0
+ID = 245
+scale = 0.3,0.3
+pos = 0,-12.5
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = helper(3015),time  = 450
+id = 245
+;ignorehitpause = 
+;persistent = 
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = helper(3015),time  = 450
+id = 7220
+;ignorehitpause = 
+;persistent = 
+
+[State 4801, ???????]
+type = PosAdd
+trigger1 = helper(3015),time  = 450
+x = -50
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = helper(3015),time  = 450
+y = 0
+;ignorehitpause = 
+;persistent = 
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = time = 60
+triggerall = helper(3015),time  = 450
+trigger1 = target(3000),name = "Kanzaki Kaori"
+trigger2 = target(3000),name = "Itsuwa"
+value = 3013
+ctrl = 0
+;anim =
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = helper(3015),time  = 450
 value = 0
 ctrl = 1
 
+;Saint destroyer extension
+[Statedef 3013]
+type = U
+
+[State 4801, ???]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = nofg
+flag3 = nobg
+ignorehitpause = 1
+
+[State 4801, ???]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+flag2 = nobardisplay
+flag3 = nomusic
+ignorehitpause = 1
+
+[State 4801, ???]
+type = AssertSpecial
+trigger1 = 1
+flag = timerfreeze
+ignorehitpause = 1
+
+[State 4801, ????????]
+type = Explod
+triggerall = !NumExplod(9002)
+trigger1 = time = 9
+anim = 9002
+id = 9002
+pos = screenwidth/2,screenheight/2
+postype = back
+bindtime = 9999999
+ownpal = 1
+ontop = 1
+sprpriority = 1
+;ignorehitpause = 1
+
+[State 4801, ???SE]
+type = PlaySnd
+trigger1 = time = 0
+value = S40, 4
+persistent = 0
+channel = 0
+
+[State 4801, ????? - ????]
+type = Explod
+triggerall = !NumExplod(10069)
+trigger1 = time = 59
+;trigger1 = animelemtime(77) = 0
+anim = 10069
+id = 10069
+pos = screenwidth/2,screenheight/2
+postype = back
+bindtime = 999
+ownpal = 1
+ontop = 1
+scale = 1.0,1.0
+removeongethit = 1
+sprpriority = -1
+
+[State -1]
+Type = Explod
+Trigger1 = Time = 42
+ID = 3013
+Anim = 3013
+Pos = screenwidth/2,-35
+PosType = Back
+Ownpal = 0
+ontop = 1
+SprPriority = 1
+RemoveOnGetHit = 1
+IgnoreHitPause = 1
+BindTime = -1
+Persistent = 0
+SuperMoveTime  = 9999
+PauseMoveTime  = 9999
+
+[State -1]
+type = PlaySnd
+Trigger1 = Time = 42
+value = S3100, 1
+channel = -1
+persistent = 0
+
+[State -1]
+Type = ModifyExplod
+Trigger1 = time>=42+34;42 is when explod spawns, 46 is when the explod should start expanding
+ID = 3013
+Scale = 1+(time-(42+34))*0.03,1+(time-(42+34))*0.03
+trans = addalpha
+alpha = 256-((time-(42+34))*8),(time-(42+34))*8
+IgnoreHitPause = 1
+Persistent = 1
+SuperMoveTime  = 9999
+PauseMoveTime  = 9999
+
+
+
+[State 4801, ??????SE]
+type = PlaySnd
+trigger1 = time = 139
+value = S40, 6
+persistent = 0
+
+[State 4801, ?????????(??????????????)]
+type = Explod
+trigger1 = !NumExplod(15023)
+trigger1 = time = 139
+anim = 15023
+id = 15023
+pos = screenwidth/2,screenheight/2
+postype = back
+ownpal = 1
+ontop = 1
+sprpriority = 1
+persistent = 0
+scale = 0.2,0.2
+ignorehitpause = 1
+
+[State 4802, ???????????????(???)]
+type = Explod
+trigger1 = !NumExplod(9005)
+trigger1 = time = 175
+anim = 9005
+id = 9005
+pos = screenwidth/2,screenheight/2
+postype = back
+bindtime = 999999
+ownpal = 1
+ontop = 1
+sprpriority = 0
+
+[State 4802, ???????????????]
+type = Explod
+trigger1 = !NumExplod(9006)
+trigger1 = time = 190
+anim = 9006
+id = 9006
+pos = screenwidth/2,screenheight/2
+postype = back
+bindtime = 999999
+ownpal = 1
+ontop = 1
+sprpriority = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = time = 300
+value = 0
+ctrl = 1

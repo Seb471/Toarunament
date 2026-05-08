@@ -1063,11 +1063,10 @@ y = -7.5
 ;ignorehitpause = 
 ;persistent = 
 
-[State 0, Gravity]
-type = Gravity
-trigger1 = 1
-;ignorehitpause = 
-;persistent = 
+	[State 1500,vel]
+		Type=velAdd
+		Trigger1=1
+		y=0.55
 
 
 
@@ -1137,7 +1136,75 @@ Type = SelfState
 Trigger1 = (Vel Y > 0) && (Pos Y >= 0)
 Value = 5100
 
+;---------------------------------------------------------------------------
+; ????? 2P???(????)
+[Statedef 4705]
+type    = A
+movetype= H
+physics = N
+anim = 5061;5050
+ctrl = 0
 
+[State 4705, ??]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+ignorehitpause = 1
+
+[State 4705, ????]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State 4705, ??]
+type = VelAdd
+trigger1 = 1
+y = .30
+
+[State 4705, ??]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 4706
+
+;---------------------------------------------------------------------------
+; AD/AAD/LA/??????? 2P???(???????????????)
+; ?AD/AAD/LA/?????????????
+;
+[Statedef 4706]
+type    = L
+movetype= H
+physics = N
+velset = 0,0
+anim = 5100
+
+[State 4706, ??]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 4706, ?????]
+type = ChangeAnim
+trigger1 = time >= 6
+trigger1 = anim = 5100
+value = 5110
+
+[State 4706, ????]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 4706, ??(???) - ??????]
+type = SelfState
+trigger1 = time >= 1
+trigger1 = !alive
+value = 5110
+
+[State 4706, ?? - ??????]
+type = SelfState
+trigger1 = time >= 48
+value = 5120
 
 ;---------------------------------------------------------------------------
 ;Ground Bounce Normals

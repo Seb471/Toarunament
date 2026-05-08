@@ -232,7 +232,7 @@ value = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "fvar(10) = %f, fvar(0)=%f, var(20) = %d, var(21) = %d, vel x = %f"
-params = pos x,frontedgedist,var(20),var(21), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
+params = enemy,screenpos y,frontedgedist,var(20),var(21), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
 ;ignorehitpause = 
 ;persistent = 
 
@@ -610,6 +610,54 @@ IgnoreHitPause = 1
 SuperMoveTime = 9999
 PauseMoveTime = 9999
 
+;=============================================================================
+; AD/AAD/LA/????????????
+;=============================================================================
+[State 5100, ??]
+type = Explod
+triggerall = !NumExplod(10080)
+triggerall = Enemy,movetype = H
+trigger1 = Enemy,stateno = 4706	;???????
+trigger1 = Enemy,time = 1
+anim = 10080
+id = 10080
+pos = 0,-25
+postype = p2
+ownpal = 1
+bindtime = 1
+sprpriority = 3
+ignorehitpause = 1
+
+[State 5100, ??(?)]
+type = Explod
+triggerall = !NumExplod(12190)
+triggerall = Enemy,movetype = H
+trigger1 = Enemy,stateno = 4706	;???????
+trigger1 = Enemy,time = 1
+anim = 12190
+id = 12190
+pos = 0,-25
+postype = p2
+ownpal = 1
+bindtime = 1
+sprpriority = 2
+ignorehitpause = 1
+
+[State 5100, ???SE]
+type = PlaySnd
+triggerall = Enemy,movetype = H
+trigger1 = Enemy,stateno = 4706	;???????
+trigger1 = Enemy,time = 1
+value = S30,1
+ignorehitpause = 1
+
+[State -2, ??]
+type = EnvShake
+trigger1 = Enemy,stateno = 4706	;???????
+trigger1 = Enemy,time = 1
+time = 10
+ampl = 3
+ignorehitpause = 1
 
 ;---------------------------------------------------------------------------
 ; States that are executed when in self's state file (use statedef -3)

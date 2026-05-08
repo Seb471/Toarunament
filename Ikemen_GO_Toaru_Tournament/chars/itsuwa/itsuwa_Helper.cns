@@ -5,6 +5,11 @@ Type = A
 Physics = N
 SprPriority = 1
 
+[State 4801, ???]
+type = AssertSpecial
+trigger1 = root,stateno=3013
+flag = invisible
+ignorehitpause = 1
 
 [State -1]
 Type = NotHitBy
@@ -1307,6 +1312,173 @@ value = 50
 ctrl = 1
 ;ignorehitpause = 0
 ;persistent = 1
+
+;-------------------------------------------------
+;Counting Helper
+[Statedef 3015]
+type = U
+anim = 9999
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = root,stateno!=[3010,3012]
+;ignorehitpause = 
+;persistent = 
+
+
+;-------------------------------------------------
+;White/Black screen Helper
+[Statedef 3016]
+type = U
+anim = 9999
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 100000
+ID = 100000
+pos = 0,0
+postype = back  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 2,2
+sprpriority = 0
+ontop = 1
+ownpal = 1
+;ignorehitpause =
+;trans = add
+;alpha = time*8, 256-time*8
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,stateno!=3012
+id = 100000
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+trigger1 = numexplod(100002)=0
+trigger1 = root,stateno = 3013
+anim = 100002
+ID = 100002
+pos = 0,0
+postype = back  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 2,2
+sprpriority = 0
+ontop = 1
+ownpal = 1
+;ignorehitpause =
+;trans = add
+;alpha = time*8, 256-time*8
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,stateno!=3013
+id = 100002
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+trigger1 = numexplod(100003)=0
+trigger1 = root,stateno = 3013
+anim = 100001
+ID = 100003
+pos = 0,0
+postype = back  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 2,2
+sprpriority = 0
+ontop = 1
+ownpal = 1
+;ignorehitpause =
+;trans = add
+;alpha = time*8, 256-time*8
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,stateno!=3013
+id = 100003
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+trigger1 = numexplod(100001)=0
+trigger1 = enemy,stateno = 4705
+anim = 100001
+ID = 100001
+pos = 0,0
+postype = back  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 2,2
+sprpriority = 0
+ontop = 1
+ownpal = 1
+;ignorehitpause =
+;trans = add
+;alpha = time*8, 256-time*8
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = enemy,stateno!=[4705,4706]
+id = 100001
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = root,stateno!=[3012,3013]
+trigger1 = enemy,stateno!=3011
+trigger1 = enemy,stateno!=[4705,4706]
+;ignorehitpause = 
+;persistent = 
+
 
 ;Nanasen helper
 [StateDef 3206]
