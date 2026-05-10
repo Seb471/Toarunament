@@ -850,7 +850,7 @@ trigger2 = var(1)
 
 [State -1, 5z_hold]
 type = ChangeState
-value = 703
+value = 903
 triggerall = command = "hold_z" && var(24)=-1 && power>=500
 triggerall = statetype != A
 trigger1 = ctrl
@@ -859,12 +859,12 @@ trigger2 = stateno=[120,169]
 
 [State -1, 5z]
 type = ChangeState
-value = 700
+value = 900
 triggerall = command = "z" && var(20)>=20 * -(var(21)-1)
 triggerall=numhelper(701)<3
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = stateno=700 || stateno=195
+trigger2 = stateno=900 || stateno=195
 
 ;---------------------------------------------------------------------------
 ;Taunt
@@ -874,7 +874,7 @@ value = 195
 triggerall = command = "start"
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = stateno=700 || stateno=195
+trigger2 = stateno=900 || stateno=195
 
 ;---------------------------------------------------------------------------
 [State -1, 2a]

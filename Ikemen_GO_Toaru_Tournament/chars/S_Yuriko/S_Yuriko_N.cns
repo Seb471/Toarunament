@@ -2335,6 +2335,15 @@ Anim = 811
 		ignorehitpause=1
 		persistent=1
 
+[State 0, ScreenBound]
+type = Width
+trigger1 = 1
+Edge=-65,-10
+
+ignorehitpause = 1
+;persistent = 
+
+
 [State 0, VelSet]
 type = VelAdd
 trigger1 = time = 0
@@ -2584,6 +2593,15 @@ movetype= H
 physics = N
 velset = 0,0
 sprpriority=-1
+
+[State 0, ScreenBound]
+type = Width
+trigger1 = 1
+Edge=30,30
+
+ignorehitpause = 1
+;persistent = 
+
 
 [State 0, PosSet]
 type = PosAdd

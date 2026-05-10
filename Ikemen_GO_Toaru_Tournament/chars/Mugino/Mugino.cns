@@ -900,6 +900,20 @@ ignorehitpause = 1
 ;Meltdowner Shield Protection From Projectiles
 [State 0, NotHitBy]
 type = NotHitBy
+triggerall= numhelper(2800)>0 && (helper(2800),stateno =2811 || (helper(2800),stateno =2810 && time<=5))
+triggerall = numhelper(2800)>0 && helper(2800),stateno =[2800,2811]
+trigger1 =  pos X - helper(2800),pos X < 0 && facing = 1
+trigger2 =  pos X - helper(2800),pos X > 0 && facing = -1
+value = ,NP,SP,HP
+;value2 = S,NA
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+;Meltdowner Shield Protection From Projectiles
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall= abs(pos X - helper(2800),pos X)<60
 triggerall = numhelper(2800)>0 && helper(2800),stateno =[2800,2811]
 trigger1 =  pos X - helper(2800),pos X < 0 && facing = 1
 trigger2 =  pos X - helper(2800),pos X > 0 && facing = -1

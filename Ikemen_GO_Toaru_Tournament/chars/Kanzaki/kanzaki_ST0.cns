@@ -1447,7 +1447,7 @@ channel = 0
 ;---------------------------------------------------------------------------
 ;Slamslash
 [Statedef 900]
-type    = S
+type    = A
 movetype= A
 physics = N
 ctrl = 0

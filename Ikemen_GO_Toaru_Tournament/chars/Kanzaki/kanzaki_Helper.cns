@@ -1375,7 +1375,7 @@ Persistent = 1
 [State ]
 type = HitDef
 trigger1 = time = 0
-attr = A, SP
+attr = A, SA
 animtype  = up
 damage    = floor((root,fvar(10)*16)*(1+root,var(21))*parent,fvar(2)),0
 guardflag = MA

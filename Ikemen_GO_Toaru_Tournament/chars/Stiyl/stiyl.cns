@@ -510,7 +510,7 @@ sprpriority = 2
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = time=0
-value = ifelse(random%100<=39,700,195),0
+value = ifelse(random%100<=39,900,195),0
 channel = 0
 
 [State 200,V1=1]
@@ -739,7 +739,7 @@ ignorehitpause = 1
  	type = Varset
  	;triggerall = stateno !=[6300,6350] -> burst
  	;triggerall = stateno !=[6400,6425] -> parry mechanic
-	triggerall = stateno !=[700,705] ; -> mirage mechanic
+	triggerall = stateno !=[900,905] ; -> mirage mechanic
  	triggerall = stateno !=[800,849] ; -> grab states
  	triggerall = movetype != H
  	triggerall = enemynear,movetype = H 

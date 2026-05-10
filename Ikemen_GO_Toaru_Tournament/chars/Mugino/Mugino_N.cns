@@ -130,9 +130,44 @@ Player = 13,0
 [State ]
 Type = HitDef
 Trigger1 = Animelem = 4
+trigger1= prevstateno!=200
 Attr = S, NA
 Damage = Ceil(25*fvar(0)),0
 GuardFlag = L
+HitFlag = MAF
+PauseTime = 6, 7
+Guard.PauseTime = 6, 7
+sparkno = s7000                     ;Spark anim no (Def: set above)
+Guard.SparkNo=S7500
+Sparkxy=-20,floor(-15*const(Size.yScale))
+HitSound=S0,0
+GuardSound=S1,0
+Ground.Type = Low
+Ground.SlideTime = 10
+Ground.HitTime  = 10
+Ground.Velocity = -4
+Down.Velocity = -4,-2
+Air.Velocity = -1.5,-1.5
+Ground.CornerPush.VelOff = 0
+Fall.XVelocity = 0
+Fall.YVelocity = 0
+Down.Bounce = 1
+yaccel = .42+fvar(11)*.00066
+ID = 205
+Guard.Kill = 0
+Air.Fall = 1
+Fall.Recover = 1-(P2MoveType=A)
+Fall.RecoverTime = 22
+GetPower = 20,10
+GivePower = 20,10
+
+[State ]
+Type = HitDef
+Trigger1 = Animelem = 4
+Trigger1 = prevstateno=200
+Attr = S, NA
+Damage = Ceil(25*fvar(0)),0
+GuardFlag = MA
 HitFlag = MAF
 PauseTime = 6, 7
 Guard.PauseTime = 6, 7
@@ -221,22 +256,22 @@ poweradd =10 +FVar(11)
 [State ]
 Type = PosAdd
 Trigger1 = AnimElem = 2
-X = 9
-
-[State ]
-Type = PosAdd
-Trigger1 = AnimElem = 3
 X = 10
 
 [State ]
 Type = PosAdd
+Trigger1 = AnimElem = 3
+X = 12
+
+[State ]
+Type = PosAdd
 Trigger1 = AnimElem = 5
-X = -11
+X = -8
 
 [State ]
 Type = PosAdd
 Trigger1 = AnimElem = 6
-X = -8
+X = -5
 
 [State 225,Œø‰Ê‰¹]
 		Type=playSnd

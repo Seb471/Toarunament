@@ -3908,6 +3908,16 @@ fv = 10
 value = -65
 ignorehitpause = 0
 
+[State 0, VarAdd]
+type = VarAdd
+triggerall = movecontact=1
+triggerall=p2name="Kamijou Touma"
+trigger1=p2stateno=[6400,6401]
+trigger2=p2stateno=[6420,6421]
+fv = 10 
+value = -999
+ignorehitpause = 0
+
 
 [State 0, MoveHitReset]
 type = MoveHitReset

@@ -1,5 +1,5 @@
 ;Mirage
-[Statedef 700]
+[Statedef 900]
 type = S
 movetype = I
 anim = 195
@@ -29,7 +29,7 @@ trigger1 = time = 0
 helpertype = player ;player
 name = "Mirage"
 ID = 701
-stateno = 701
+stateno = 901
 pos = 0,0
 postype = p1    ;p2,front,back,left,right
 facing = 1
@@ -49,13 +49,13 @@ ctrl = 1
 
 
 ;Mirage helper
-[Statedef 701]
+[Statedef 901]
 type = S
 movetype = A
 anim = 700
 sprpriority = 2
 
-;aura ?
+;aura ? monster
 [State -3]
 Type = Helper
 Triggerall = NumHelper(999) <= 8
@@ -99,7 +99,7 @@ pausetime = 10,10
 sparkno = -1
 ;sparkxy = 0,0 ;offset
 hitsound = S1,0
-p1stateno = 702
+p1stateno = 902
 ;p2stateno = 0
 ignorehitpause = 1
 ;persistent = 
@@ -108,14 +108,14 @@ ignorehitpause = 1
 type = ChangeState
 trigger1 = animtime = 0 || parent,var(23)=0
 trigger2=root,movetype =H && (root,stateno!=[120,159])
-value = 710
+value = 910
 ctrl = 0
 ;anim =
 ;ignorehitpause = 
 ;persistent = 
 
 ;Mirage destroyed
-[Statedef 710]
+[Statedef 910]
 type = S
 movetype = I
 sprpriority = 2
@@ -129,7 +129,7 @@ trigger1 = time=0
 
 
 ;Mirage helper reversal
-[Statedef 702]
+[Statedef 902]
 type = S
 movetype = A
 anim = 700
@@ -168,7 +168,7 @@ trigger1 = animtime = 0
 ;persistent = 
 
 ;Mirage counter attack
-[Statedef 703]
+[Statedef 903]
 type	 = S
 movetype = A
 anim	 = 701
@@ -203,7 +203,7 @@ ignorehitpause = 1
 [State 0, HitDef]
 type = HitDef
 trigger1 = time=0
-attr = S,NA        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr = S,SA        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 hitflag = MAF        ;HLAFD+-
 ;guardflag = MA         ;HLA
 ;affectteam = E          ;B,E,F
@@ -212,8 +212,8 @@ air.animtype = light
 ;fall.animtype = Back
 ;priority = 4,Hit
 sparkno=-1
-p1stateno=704
-p2stateno=705
+p1stateno=904
+p2stateno=905
 
 
 [State 0, AssertSpecial]
@@ -267,7 +267,7 @@ ctrl = 1
 ;persistent = 
 
 ;Mirage counter success
-[Statedef 704]
+[Statedef 904]
 anim	 = 702
 type	 = S
 movetype = I
@@ -320,7 +320,7 @@ ctrl = 1
 ;persistent = 
 
 ;Mirage dizzy
-[Statedef 705]
+[Statedef 905]
 ;anim	 = 5300
 type	 = S
 movetype = H
@@ -908,6 +908,14 @@ ownpal = 1
 supermovetime = 0
 pausemovetime = 0
 
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = helper(852),moveguarded=1 && enemynear,backedgedist <20
+x = -1.17
+ignorehitpause = 1
+;persistent = 
+
+
 [State 0, Helper]
 type = Helper
 trigger1 = time=0
@@ -1124,9 +1132,47 @@ persistent = 0
 
 [State 0, VarAdd]
 type = VarAdd
+triggerall = time<=30
 trigger1 = anim=1070
 trigger1 = var(20)<999
-var(20)=ifelse(var(20)<=995,4,999-var(20))
+var(20)=4
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = anim=1070
+triggerall = time>30
+triggerall = time<=90
+trigger1 = var(20)<999
+var(20)=3
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = anim=1070
+triggerall = time>90
+triggerall = time<=180
+trigger1 = var(20)<999
+var(20)=2
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = anim=1070
+triggerall = time>180
+trigger1 = var(20)<999
+var(20)=1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarSet
+trigger1 = anim=1070
+trigger1 = var(20)>=999
+var(20)=999
 ;ignorehitpause = 
 ;persistent = 
 

@@ -276,7 +276,7 @@ movetype = I        ;I,A,H
 type = HitDef
 trigger1 = time%4=0
 attr = S, NP
-damage    = Ceil(5/(1+(time/60))),1
+damage    = Ceil(4/(1+(time/60))),1
 animtype  = Light
 hitflag = MAF
 guardflag = MA
@@ -288,7 +288,7 @@ guardsound = 6,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 17
-ground.velocity = -1
+ground.velocity = -1.4
 air.velocity = -3,-4
 palfx.time = 30
 Palfx.Mul =  255,255,255
@@ -335,6 +335,15 @@ anim=852
 type=U
 movetype=I
 sprpriority=4
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+;facing = 0
+;pos = 0,0
+ignorehitpause = 1
+;persistent = 
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -1885,8 +1894,15 @@ ignorehitpause=1
 type = VelSet
 trigger1=ishelper(1350)
 trigger1 = time=0
-x = 8
+x = 7
 persistent=0
+
+[State 670, ˆÚ“®‘¬“x]
+type = VelAdd
+trigger1=ishelper(1350)
+y = 0.15
+ignorehitpause=1
+
 
 [State 670, ˆÚ“®‘¬“x]
 type = VelSet
