@@ -2283,7 +2283,7 @@ value = 5050 ;common1.cns参照
 ;■■地上通常投げ■■■■■■
 [Statedef 800]
 type    = S
-movetype= A
+movetype= I
 physics =S
 juggle  = 0
 ;velset = 1,0
@@ -2291,6 +2291,13 @@ ctrl = 0
 anim = 800
 sprpriority = 2
 poweradd = 70
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 1
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
 
 [State -1, テレポゲージ消費]
 Type     = Varadd

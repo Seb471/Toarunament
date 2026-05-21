@@ -431,10 +431,10 @@ ignorehitpause = 1
 ;Throw Attempt
 [Statedef 800]
 type     = S
-movetype = A
+movetype = I
 physics  = S
 ctrl     = 0
-anim     = 760
+anim     = 800
 poweradd = 10
 velset   = 0,0
 
@@ -442,6 +442,13 @@ velset   = 0,0
 		Type=VarSet
 		Trigger1=time=0
 		var(1)=0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 2
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
 
 [State 820,Å@hitdef]
 type = HitDef

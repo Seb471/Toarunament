@@ -816,7 +816,6 @@ ID = 5605
 [State -2]
 Type = Explod
 Trigger1 = NumTarget(5600) > 0
-Trigger1 = Var(44) = 0
 Trigger1 = Target(5600),Time >= 4
 Trigger1 = Target(5600),Time%6 = 4
 Trigger1 = Target(5600),StateNo = 5601 || Target(5600),StateNo = 5631

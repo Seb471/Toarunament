@@ -387,7 +387,7 @@ ctrl = 1
 ;Throw Attempt
 [Statedef 800]
 type    = S
-movetype= A
+movetype= I
 physics = S
 juggle  = 0
 velset = 0,0
@@ -399,6 +399,14 @@ sprpriority = 2
 Type=varSet
 Trigger1=Time=0
 var(1)=0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 2
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
+
 ; Notes: The '-' symbol in the hitflag field means that it only affects
 ;   players who are not in a hit state. This prevents KFM from combo-ing
 ;   into the throw. The priority should be set to a low number, such as

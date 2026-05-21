@@ -988,7 +988,7 @@ y=.44
 ;Throw
 [Statedef 800]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 Juggle  = 0
 Ctrl = 0
@@ -1000,6 +1000,13 @@ Facep2 = 1
 		Type=VarSet
 		Trigger1=time=0
 		var(1)=0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 2
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
 
 [State 800, 1]
 Type = HitDef

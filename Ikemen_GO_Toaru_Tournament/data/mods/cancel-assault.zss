@@ -1,6 +1,6 @@
 [Function cancelAssault() condition]
 let condition = 0;
-if(roundState=2 && (stateNo = [200,899] || hitDefAttr = SCA ,NA,NP,NT) && (prevStateNo = [0,199] || prevStateNo = stateNo)   && command = "cancelassault" && moveType = A && power>=500 && stateType!=A){
+if(roundState=2 && ((stateNo = [200,599] || stateNo = 800) || hitDefAttr = SCA ,NA,NP,NT) && (prevStateNo = [0,199] || prevStateNo = stateNo)   && command = "cancelassault" && moveType = A && power>=500 && stateType!=A){
 	let condition = 1;
 	if (moveContact){
 		let condition = 0;

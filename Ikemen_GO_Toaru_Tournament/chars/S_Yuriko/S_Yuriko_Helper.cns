@@ -1,3 +1,148 @@
+;---------------------------------------------------------------------------
+;Åg?????????ÅÒÅÒ?o?w???p?[
+[Statedef 5605]
+Type = A
+Physics = N
+Anim = 9999
+SprPriority = -5
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+IgnoreHitPause = 1
+
+[State -1]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = s5600, 0
+
+[State -1]
+Type = Explod
+Trigger1 = Time = 0
+Anim = 15605
+ID = 15605
+Postype = P2
+Pos = -5,Const(Size.Mid.Pos.Y)-5
+Scale = 0.5,0.5
+Ownpal = 1
+SprPriority = -5
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Explod
+Trigger1 = Time = 0
+Anim = 15606
+ID = 15606
+Postype = P2
+Pos = -5,Const(Size.Mid.Pos.Y)-5
+Scale = 0.5,0.5
+Ownpal = 1
+SprPriority = -5
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = Time = 0
+StateNo = 5606
+ID = 5606
+Ownpal = 1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag2 = Invisible
+IgnoreHitPause = 1
+
+[State -1]
+Type = DestroySelf
+Trigger1 = Time = 1
+
+;---------------------------------------------------------------------------
+;Åg?????????ÅÒÅÒ?o?w???p?[2
+[Statedef 5606]
+Type = A
+Physics = N
+Anim = 9999
+SprPriority = -5
+
+[State -1]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+IgnoreHitPause = 1
+
+[State -1]
+Type = PalFx
+Trigger1 = Time <= 32
+Time = 1
+Add = 0-(Time-2)*8,0-(Time-2)*8,0-(Time-2)*8
+
+[State -1]
+Type = Explod
+Trigger1 = Time = 0
+Anim = 15607
+ID = 15107
+Postype = P2
+Pos = -5,Const(Size.Mid.Pos.Y)-5
+Scale = 0.12,0.12
+Ownpal = 0
+SprPriority = 3
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Explod
+Trigger1 = Time = 0
+Anim = 15607
+ID = 15108
+Postype = P2
+Pos = -5,Const(Size.Mid.Pos.Y)-5
+Scale = 0.12,0.12
+Ownpal = 0
+SprPriority = 3
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = ModifyExplod
+Trigger1 = Time > 0
+ID = 15107
+Scale = 0.12+(Time-1)*0.06,0.12+(Time-1)*0.06
+
+[State -1]
+Type = ModifyExplod
+Trigger1 = Time > 3
+ID = 15108
+Scale = 0.12+(Time-4)*0.012,0.12+(Time-4)*0.012
+
+[State -1]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+
+[State -1]
+Type = DestroySelf
+Trigger1 = Time = 33
+
 ;===========================================================================
 ; ÉwÉãÉpÅ[
 ;===========================================================================

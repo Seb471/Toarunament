@@ -729,7 +729,7 @@ Clsn2Default: 1
 4001,42, 0,0, -1
 
 ; Throw
-[Begin Action 706]
+[Begin Action 800]
 
 Clsn2:4
 Clsn2[0]=-21,-99,15,0

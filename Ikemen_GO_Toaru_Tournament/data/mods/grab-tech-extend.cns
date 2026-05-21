@@ -123,6 +123,10 @@ type = VelSet
 trigger1 = time = 21
 x = 0
 
+		
+
+
+
 [State 200, 3]; vai pro state 0 e faz tudo voltar ao normal (n?)
 type = selfState
 trigger1 = time = 33
@@ -150,6 +154,27 @@ trigger2 = target,AILevel>0
 trigger2 = random <=floor(AILevel*100/1.5)
 value = 805
 ctrl = 0
+
+[State 200, PlaySnd];som de grito(?)
+type = PlaySnd
+triggerall = map(grabAttempt)=1
+trigger1 = stateno=805
+value = F 2500,1
+
+	[State 3501,Hit Explod]
+		Type=Explod
+		triggerall = map(grabAttempt)=1
+		trigger1 = stateno=805
+		Anim=F 7002
+		Pos=enemy,const(size.ground.front),enemy,const(size.head.pos.y)
+		bindTime=-1
+		PosType=p2
+		ontop = 1
+		sprPriority=-1
+		SuperMoveTime=30
+		PauseMoveTime=30
+		Persistent=0
+ 		ignorehitpause = 1
 
 [State -3, Enemy grab attempt]
 type = MapSet

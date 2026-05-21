@@ -1387,7 +1387,7 @@ value = 0
 ;---------------------------------------------------------------------------
 [Statedef 800, Throw]
 type    = S
-movetype= A
+movetype= I
 physics = S
 juggle  = 26
 velset = 0,0
@@ -1395,6 +1395,13 @@ ctrl = 0
 anim = 800
 poweradd = 50
 sprpriority = 2
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 2
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
 
 [State 800, sound]
 type = PlaySnd

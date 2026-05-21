@@ -176,13 +176,12 @@ ctrl	 = 0
 physics	 = S
 poweradd=-500
 
-[State 0, Width]
+[State 0, ScreenBound]
 type = Width
-trigger1 = time = 0
-edge = 0,0
-player = 0,0
-;value = 0,0
-;ignorehitpause = 
+trigger1 = 1
+Edge=-65,-10
+
+ignorehitpause = 1
 ;persistent = 
 
 [State 0, PlaySnd]
@@ -326,6 +325,14 @@ type	 = S
 movetype = H
 velset=0,0
 
+[State 0, ScreenBound]
+type = Width
+trigger1 = 1
+Edge=30,30
+
+ignorehitpause = 1
+;persistent = 
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = time=0
@@ -377,7 +384,7 @@ ctrl = 0
 [Statedef 800]
 type	 = S
 movetype = I
-anim	 = 706
+anim	 = 800
 ctrl	 = 0
 velset=0,0
 physics	 = S

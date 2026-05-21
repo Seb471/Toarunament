@@ -913,13 +913,13 @@ ignorehitpause = 1
 
 ;=====================================================
 
-;Throw Attmept
+;Throw Attempt
 [Statedef 800]
 Type    = S
-MoveType= A
+MoveType= I
 Physics = S
 Ctrl = 0
-Anim = 900
+Anim = 800
 SprPriority = 2
 Facep2 = 1
 
@@ -927,6 +927,13 @@ Facep2 = 1
 		Type=VarSet
 		Trigger1=Time=0
 		var(1)=0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 2
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
 
 [State ]
 Type = VelSet

@@ -6,7 +6,7 @@
 - Itsuwa
 - Frenda X
 - all jabs have facep2 to not have infinites X
-- add another way of grab teching
+- add another way of grab teching x
 - add alternative half circle inputs
 - added just defend (only gains meter, no hp) x
 - changed input/invul data for cancel assault, and it now costs 0.5 instead of 1 bar x
@@ -45,6 +45,8 @@ Ass infinite prevention on every character X
 Make DP inputs more lenient?
 
 Make anti IB also consider air super of Touma
+
+Changed the combo action numbers
 
 
 Frenda:
@@ -115,7 +117,7 @@ Kumagawa:
 
 Yuriko:
 	- fix Yuriko's overhead moves (Enhanced 5C, 2B and 2C) x
-	- fix yuriko's back grab
+	- fix yuriko's back grab x (she also has vfx)
 
 Himegami:
 	- fix himegami being stuck from tsuchi's go to sleep X
@@ -133,8 +135,12 @@ Last Order:
 	Burst changed from any recovery attack to a+b x
 	Add dash macros x
 	Sisters on b version come out slower (to differentiate from a version) x
+	Deleted her old variant x
 
 Lola:
 	Add dash macros x
 	Canceling window from index summon x
 	Wings b has an invincible startup x
+
+Stiyl
+	Fix his mirage on the corner x

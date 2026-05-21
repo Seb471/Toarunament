@@ -3,7 +3,7 @@
 ;Throw Attempt
 [Statedef 800]
 type    = S
-movetype= A
+movetype= I
 physics = S
 velset = 0,0
 ctrl = 0
@@ -15,6 +15,13 @@ poweradd=fvar(11)
 		Type=VarSet
 		Trigger1=time=0
 		var(1)=0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 3
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
 
 
 ; Notes: The '-' symbol in the hitflag field means that it only affects

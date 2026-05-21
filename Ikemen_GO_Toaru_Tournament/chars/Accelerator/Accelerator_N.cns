@@ -2211,19 +2211,25 @@ sprpriority = 10
 ;投げ
 [Statedef 800]
 	type    = S
-	movetype= A
+	movetype= I
 	physics = S
 	velset = 0,0
 	ctrl = 0
 	anim = 800
 	poweradd = 0
 	sprpriority = 2
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 4
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
 	
 	[State 800, ヒット定義]
 		type = HitDef
 ;		Trigger1 = Time = 0
 		Trigger1 = P2bodydist x < 24
-		Trigger1 = animelem = 3
 		attr = S, NT          ;三文字目をＴにするのを忘れないでください。
 		hitflag = M-          ;マイナスが付加されてるので相手が食らい中の時は掴めない
 		priority = 1, Miss    
