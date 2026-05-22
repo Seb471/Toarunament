@@ -58,10 +58,10 @@ Frenda:
 Kanzaki:
 	Make a small delay before stance switching again Kanzaki
 	Investigate Thor overhead on Kanzaki and Kanzaki boxes 
-	Kanzaki qcf a must be set as air
+	Kanzaki qcf a must be set as air X
 	Put inv on Nanasen x
-	Set slashes as Phys
-	Add hurtboxes to Kanzaki throw attempt end
+	Set slashes as Phys X
+	Add hurtboxes to Kanzaki throw attempt end X
 	- buffed kanzaki's 5c (christian stance) x
 
 Junko:

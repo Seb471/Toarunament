@@ -1,6 +1,6 @@
 ; Kamijo TRIALS LIST ---------------------------
 
-[TrialDef, Touma's First Trial]
+[TrialDef, The Story Begins]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -10,7 +10,7 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = This is Touma's first trial. Good luck! This is the story of a man named Stanley. Stanley worked for a company in a big building where he was employee # 427. Employee # 427’s job was simple: he sat at his desk in room 427 and he pushed buttons on a keyboard. Orders came to him through a monitor on his desk, telling him what buttons to push, how long to push them, and in what order. This is what employee 427 did every day of every month of every year, and although others might have considered it soul rending, Stanley relished every moment that the orders came in, as though he had been made exactly for this job. And Stanley was happy. And then one day, something very peculiar happened, something that would forever change Stanley, something he would never quite forget. He had been at his desk for nearly an hour when he realized that not one, single order had arrived on the monitor for him to follow. No one had shown up to give him instructions, call a meeting, or even say hi. Never in all his years at the company had this happened, this complete isolation. Something was very clearly wrong. Shocked, frozen solid, Stanley found himself unable to move for the longest time, but as he came to his wits and regained his senses, he got up from his desk and stepped out of his office.
+trial.textbox = All characters in the game can do this combo!
 
 trialstep.1.text = punch
 trialstep.1.glyphs = ^A
@@ -32,6 +32,1132 @@ trialstep.3.stateno = 225
 ; trialstep.1.isproj =
 ; trialstep.1.validforvarvalpairs = 
 ; trialstep.1.validfortickcount = 
+
+
+;-------------------------------ABC Special
+
+[TrialDef, Going Further]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = You can cancel Normal moves into Special moves!
+
+trialstep.1.text = punch
+trialstep.1.glyphs = ^A
+trialstep.1.stateno = 200
+
+trialstep.2.text = tackle
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 215
+
+trialstep.3.text = kick
+trialstep.3.glyphs = ^C
+trialstep.3.stateno = 225
+
+trialstep.4.text = lunge
+trialstep.4.glyphs = _D _DB _B ^A
+trialstep.4.stateno = 1600
+
+
+;-------------------------------ABC Special Super
+
+[TrialDef, And Further]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = You can cancel Special moves into Super moves! For Level 1 Supers, Touma needs at least Unlucky, obtained by pressing Y Button once
+
+;trialstep.1.text = luck up
+;trialstep.1.glyphs = ^Y
+;trialstep.1.stateno = 6661
+;trialstep.1.validfortickcount = 3,1|2|3|4|5|6|7
+;trialstep.1.numhits=0
+
+trialstep.1.text = punch
+trialstep.1.glyphs = ^A
+trialstep.1.stateno = 200
+
+trialstep.2.text = tackle
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 215
+
+trialstep.3.text = kick
+trialstep.3.glyphs = ^C
+trialstep.3.stateno = 225
+
+trialstep.4.text = lunge
+trialstep.4.glyphs = _D _DB _B ^A
+trialstep.4.stateno = 1600
+
+trialstep.5.text = Punch Combo EX
+trialstep.5.glyphs = _D _DF _F ^C
+trialstep.5.stateno = 2200
+trialstep.5.isthrow = true
+
+
+;-------------------------------ABC Special Super 1 Hyper
+
+[TrialDef, And Even Further]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = You can cancel Super moves into Hyper moves! For Level 2 and 3 Hypers, Touma needs at least Hard Luck, obtained by pressing Y Button twice
+
+;trialstep.1.text = luck up
+;trialstep.1.glyphs = ^Y
+;trialstep.1.stateno = 6661
+;trialstep.1.validfortickcount = 3,1|2|3|4|5|6|7
+;trialstep.1.numhits=0
+
+trialstep.1.text = punch
+trialstep.1.glyphs = ^A
+trialstep.1.stateno = 200
+
+trialstep.2.text = tackle
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 215
+
+trialstep.3.text = kick
+trialstep.3.glyphs = ^C
+trialstep.3.stateno = 225
+
+trialstep.4.text = lunge
+trialstep.4.glyphs = _D _DB _B ^A
+trialstep.4.stateno = 1600
+
+trialstep.5.text = Punch Combo EX
+trialstep.5.glyphs = _D _DF _F ^C
+trialstep.5.stateno = 2200
+trialstep.5.isthrow = true
+
+trialstep.6.text = SoGeBu
+trialstep.6.glyphs = _B _DB _D _DF _F ^C
+trialstep.6.stateno = 3000
+trialstep.6.isthrow = true
+
+
+;-------------------------------ABC Special Super 1 Super 2 Hyper
+
+[TrialDef, And Even Further Beyond!!]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = You can cancel Level 1s into Level 2s and then Level 3s! For Level 2 and 3 Hypers, Touma needs at least Hard Luck, obtained by pressing Y Button twice
+
+;trialstep.1.text = luck up
+;trialstep.1.glyphs = ^Y
+;trialstep.1.stateno = 6661
+;trialstep.1.validfortickcount = 3,1|2|3|4|5|6|7
+;trialstep.1.hitcount=0
+
+trialstep.1.text = punch
+trialstep.1.glyphs = ^A
+trialstep.1.stateno = 200
+
+trialstep.2.text = tackle
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 215
+
+trialstep.3.text = kick
+trialstep.3.glyphs = ^C
+trialstep.3.stateno = 225
+
+trialstep.4.text = lunge
+trialstep.4.glyphs = _D _DB _B ^A
+trialstep.4.stateno = 1600
+
+trialstep.5.text = Punch Combo EX
+trialstep.5.glyphs = _D _DF _F ^C
+trialstep.5.stateno = 2200
+trialstep.5.isthrow = true
+
+trialstep.6.text = Buster Impact
+trialstep.6.glyphs = _D _DB _B ^C
+trialstep.6.stateno = 2500
+trialstep.6.isthrow = true
+
+trialstep.7.text = SoGeBu
+trialstep.7.glyphs = _B _DB _D _DF _F ^C
+trialstep.7.stateno = 3000
+trialstep.7.isthrow = true
+
+
+;------------------------------ B B DP
+
+[TrialDef, Uppercuts]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some normals have surprises!
+
+trialstep.1.text = tackle
+trialstep.1.glyphs = ^B
+trialstep.1.stateno = 215
+
+trialstep.2.text = uppercut
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 220
+
+trialstep.3.text = Rising Breaker 
+trialstep.3.glyphs = _F_DF_F^A
+trialstep.3.stateno = 1500
+
+
+
+;------------------------------ C QCB A (poke)
+
+[TrialDef, Make Some Room!]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = A Normal attack that needs a direction is called a Command Normal! You can usually do them in between Normals and Specials!
+
+trialstep.1.text = kick
+trialstep.1.glyphs = ^C
+trialstep.1.stateno = 225
+
+trialstep.2.text = jaw breaker
+trialstep.2.glyphs = _F^C
+trialstep.2.stateno = 230
+
+
+
+;------------------------------ C QCB A (poke) Y
+
+[TrialDef, And Preach!]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Use the time you get to tell them they aren't living their life correctly! Get Hard Luck!! (Blue) the third time you press Y
+
+trialstep.1.text = jaw breaker
+trialstep.1.glyphs = _F^C
+trialstep.1.stateno = 230
+trialstep.1.isthrow=true
+
+
+trialstep.2.text = luck up speech
+trialstep.2.glyphs = ^Y
+trialstep.2.stateno = 6662
+trialstep.2.hitcount = 0
+
+
+
+
+;------------------------------ A FA B C
+
+[TrialDef, Low Blow]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some Command Normals can be cancelled into Normals! Usually follows the A B C order still
+
+trialstep.1.text = jab
+trialstep.1.glyphs = ^A
+trialstep.1.stateno = 200
+
+trialstep.2.text = low kick
+trialstep.2.glyphs = _F^A
+trialstep.2.stateno = 210
+
+trialstep.3.text = tackle
+trialstep.3.glyphs = ^B
+trialstep.3.stateno = 215
+
+trialstep.4.text = kick
+trialstep.4.glyphs = ^C
+trialstep.4.stateno = 225
+
+;------------------------------ DA DB B C
+
+[TrialDef, Standing Again]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some moves can allow you to switch between the crouching set of Normals and the standing set of normals! Use that for more variety in pressure!
+
+trialstep.1.text = crouching low kick
+trialstep.1.glyphs = _D^A
+trialstep.1.stateno = 400
+
+trialstep.2.text = crouching elbow
+trialstep.2.glyphs = _D^B
+trialstep.2.stateno = 410
+
+trialstep.3.text = crouching backhand
+trialstep.3.glyphs = _D^B
+trialstep.3.stateno = 415
+
+trialstep.4.text = kick
+trialstep.4.glyphs = ^C
+trialstep.4.stateno = 225
+
+
+;-------------------------------Rekka QCF A A A Rekka QCF B
+
+[TrialDef, Punch Combo: First Series]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the A version. These moves are all coated with Imagine Breaker! This one only fully works in corner.
+
+trialstep.1.text = Opening Punch
+trialstep.1.glyphs = _D_DF_F^A
+trialstep.1.stateno = 1000
+
+trialstep.2.text = Follow Up Punch
+trialstep.2.glyphs = ^A
+trialstep.2.stateno = 1050
+
+trialstep.3.text = Final Punch
+trialstep.3.glyphs = ^A
+trialstep.3.stateno = 1125
+
+trialstep.4.text = Gut Punch Combo 1
+trialstep.4.glyphs = _D_DF_F^B
+trialstep.4.stateno = 1250
+
+trialstep.5.text = Gut Punch Combo 2
+trialstep.5.glyphs = ^B
+trialstep.5.stateno = 1251
+
+trialstep.6.text = Gut Punch Combo 3
+trialstep.6.glyphs = ^B
+trialstep.6.stateno = 1252
+
+
+;-------------------------------Rekka QCF A B B JumpCancel Divekick
+
+[TrialDef, Punch Combo: Second Series]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the B version. These moves are all coated with Imagine Breaker! This one is great on block!
+
+trialstep.1.text = Opening Punch
+trialstep.1.glyphs = _D_DF_F^A
+trialstep.1.stateno = 1000
+
+trialstep.2.text = Overhead Kick
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 1075
+
+trialstep.3.text = Uppercut
+trialstep.3.glyphs = ^B
+trialstep.3.stateno = 1150
+
+trialstep.4.text = Jump Cancel
+trialstep.4.glyphs = _U
+trialstep.4.stateno = 40
+trialstep.4.hitcount= 0
+
+trialstep.5.text = Divekick
+trialstep.5.glyphs = _D_DB_B^A
+trialstep.5.stateno = 1700
+
+
+
+;-------------------------------Rekka QCF A C C DP A
+
+[TrialDef, Punch Combo: Third Series]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the C version. These moves are all coated with Imagine Breaker! 
+
+trialstep.1.text = Opening Punch
+trialstep.1.glyphs = _D_DF_F^A
+trialstep.1.stateno = 1000
+
+trialstep.2.text = Sweeping Punch
+trialstep.2.glyphs = ^C
+trialstep.2.stateno = 1100
+
+trialstep.3.text = Uppercut
+trialstep.3.glyphs = ^C
+trialstep.3.stateno = 1200
+
+trialstep.4.text = Rising Breaker 
+trialstep.4.glyphs = _F_DF_F^A
+trialstep.4.stateno = 1500
+
+
+;-------------------------------QCB B QCF B 
+
+
+[TrialDef, Get In Closer]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = The best combo from afar! This one only fully works in corner.
+
+trialstep.1.text = heavy lunge
+trialstep.1.glyphs = _D_DB_B^B
+trialstep.1.stateno = 1650
+
+
+trialstep.2.text = Gut Punch Combo 1
+trialstep.2.glyphs = _D_DF_F^B
+trialstep.2.stateno = 1250
+
+trialstep.3.text = Gut Punch Combo 2
+trialstep.3.glyphs = ^B
+trialstep.3.stateno = 1251
+
+trialstep.4.text = Gut Punch Combo 3
+trialstep.4.glyphs = ^B
+trialstep.4.stateno = 1252
+
+
+;-------------------------------DP A jC J2c jQCB
+
+[TrialDef, Up And Down]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = What to do after a Rising Breaker! Rising Breaker is coated in Imagine Breaker!
+
+trialstep.1.text = Rising Breaker 
+trialstep.1.glyphs = _F_DF_F^A
+trialstep.1.stateno = 1500
+
+
+trialstep.2.text = Air Kick
+trialstep.2.glyphs = ^C
+trialstep.2.stateno = 620
+
+trialstep.3.text = Air Down Kick
+trialstep.3.glyphs = _D^C
+trialstep.3.stateno = 630
+
+trialstep.4.text = Divekick
+trialstep.4.glyphs = _D_DB_B^B
+trialstep.4.stateno = 1750
+
+;-------------------------------DP B Air Dash  
+
+[TrialDef, Up And Down 2]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = What to do after a Heavy Rising Breaker! Heavy Rising Breaker is coated in Imagine Breaker AND invincible at the start!
+
+trialstep.1.text = Heavy Rising Breaker 
+trialstep.1.glyphs = _F_DF_F^B
+trialstep.1.stateno = 1550
+
+
+trialstep.2.text = Air Dash
+trialstep.2.glyphs = _F_F
+trialstep.2.stateno = 110
+trialstep.2.hitcount= 0
+
+trialstep.3.text = Air Down Kick
+trialstep.3.glyphs = _D^C
+trialstep.3.stateno = 630
+
+
+;-------------------------------Dropkick A Command Grab 6C
+
+[TrialDef, Air Pressure]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = This one works when you hit near the ground!
+
+trialstep.1.text = Divekick
+trialstep.1.glyphs = _D_DB_B^A
+trialstep.1.stateno = 1700
+
+
+trialstep.2.text = command grab
+trialstep.2.glyphs = _F_D_DF^X
+trialstep.2.stateno = 1810
+trialstep.2.isthrow = true
+
+trialstep.3.text = Jaw Breaker
+trialstep.3.glyphs = _F^C
+trialstep.3.stateno = 230
+trialstep.3.isthrow=true
+
+
+;------------------------------ IB Parry 
+
+[TrialDef, Imagine Breaker Parry]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = a
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = You can parry any hit with Imagine Breaker if you time it well!
+
+trialstep.1.text = Imagine Breaker
+trialstep.1.glyphs = ^X
+trialstep.1.stateno = 6402
+trialstep.1.hitcount=0
+
+
+
+
+;------------------------------ IB Parry into Uppercut (special cancellable)
+
+[TrialDef, Imagine Breaker Uppercut]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = a
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = You can do it after a parry or while negating projectiles! You can cancel it into any Special or Super!
+
+;trialstep.1.text = Imagine Breaker
+;trialstep.1.glyphs = ^X
+;trialstep.1.stateno = 6402
+;trialstep.1.iscounterhit=true
+
+trialstep.1.text = Imagine Breaker Uppercut
+trialstep.1.glyphs = _D_DF_F^X
+trialstep.1.stateno = 6430
+
+
+
+
+;------------------------------ Slap into 6C
+
+[TrialDef, You're not living your life correctly!]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = a
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = This counters any physical hit!
+
+trialstep.1.text = Imagine Breaker Slap
+trialstep.1.glyphs = _D_DF_F^X
+trialstep.1.stateno = 6450
+trialstep.1.numhits=0
+;trialstep.1.iscounterhit=true
+
+trialstep.2.text = Jaw Breaker
+trialstep.2.glyphs = _F^C
+trialstep.2.stateno = 230
+trialstep.2.isthrow=true
+
+
+
+;------------------------------ QCB A into 6C (counter)
+[TrialDef, Counter Hit Specific 1]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = a
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = This cancel is only possible on counter hit!
+
+trialstep.1.text = Lunge
+trialstep.1.glyphs = _D_DB_B^A
+trialstep.1.stateno = 1600
+
+
+trialstep.2.text = Jaw Breaker
+trialstep.2.glyphs = _F^C
+trialstep.2.stateno = 230
+trialstep.2.isthrow=true
+
+
+;------------------------------ QCF B into 6C (counter)
+[TrialDef, Counter Hit Specific 2]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = a
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = This cancel is only possible on counter hit!
+
+trialstep.1.text = Gut Punch Combo 1
+trialstep.1.glyphs = _D_DF_F^B
+trialstep.1.stateno = 1250
+
+trialstep.2.text = Gut Punch Combo 2
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 1251
+
+trialstep.3.text = Gut Punch Combo 3
+trialstep.3.glyphs = ^B
+trialstep.3.stateno = 1252
+
+
+
+trialstep.4.text = Jaw Breaker
+trialstep.4.glyphs = _F^C
+trialstep.4.stateno = 230
+trialstep.4.isthrow=true
+
+
+;------------------------------ EX QCF EX DP j2C Divekick A EX Dive
+[TrialDef, Super Cancels 1]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some Level 1 supers are well used together! All these supers are coated in Imagine Breaker!
+
+trialstep.1.text = Punch Combo EX
+trialstep.1.glyphs = _D_DF_F^C
+trialstep.1.stateno = 2200
+trialstep.1.isthrow=true
+
+trialstep.2.text = Rising Breaker EX
+trialstep.2.glyphs = _F_DF_F^C
+trialstep.2.stateno = 2000
+
+trialstep.3.text = Air Down Kick
+trialstep.3.glyphs = _D^C
+trialstep.3.stateno = 630
+
+trialstep.4.text = Divekick
+trialstep.4.glyphs = _D_DB_B^A
+trialstep.4.stateno = 1700
+
+trialstep.5.text = Divepunch EX
+trialstep.5.glyphs = _D_DB_B^C
+trialstep.5.stateno = 2100
+
+;------------------------------ QCB C QCF C (corner)
+[TrialDef, Retro Extension]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some Level 2 Supers can be cancelled into Level 1 Supers! This lets you extend the combo thanks to the more varied Level 1 cancels!  All these supers are coated in Imagine Breaker! This cancel only works in corner.
+
+
+
+trialstep.1.text = Buster Impact
+trialstep.1.glyphs = _D_DB_B^C
+trialstep.1.stateno = 2500
+trialstep.1.isthrow=true
+
+trialstep.2.text = Punch Combo EX
+trialstep.2.glyphs = _D_DF_F^C
+trialstep.2.stateno = 2200
+trialstep.1.isthrow=true
+
+;------------------------------ HCF A EX DP
+
+[TrialDef, Retro Extension 2]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some Level 2 Supers can be cancelled into Level 1 Supers! This lets you extend the combo thanks to the more varied Level 1 cancels!  Hand Of Glory is unblockable in the air!
+
+
+
+trialstep.1.text = Hand Of Glory
+trialstep.1.glyphs = _B_DB_D_DF_F^A
+trialstep.1.stateno = 2400
+trialstep.1.ishelper=true
+
+trialstep.2.text = Rising Breaker EX
+trialstep.2.glyphs = _F_DF_F^C
+trialstep.2.stateno = 2000
+
+
+;------------------------------ QCB C HCF C (corner)
+;[TrialDef, Hyper Cancel]
+
+;trial.dummymode = stand
+;trial.guardmode = none
+;trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+;trial.textbox = Some cancels aren't instant but need the timing to be right! Aim your punch carefully!
+
+
+
+;trialstep.1.text = Buster Impact
+;trialstep.1.glyphs = _D_DB_B^C
+;trialstep.1.stateno = 2500
+;trialstep.1.isthrow=true
+
+;trialstep.2.text = SoGeBu
+;trialstep.2.glyphs = _B_DB_D_DF_F^C
+;trialstep.2.stateno = 3001
+;trialstep.2.isthrow=true
+
+;------------------------------ HCF B (counter jam C)
+
+[TrialDef, Armored Moves]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = c
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = This Hyper has armor! It is well used in corner or when the enemy gets up!
+
+
+
+trialstep.1.text = First Comes Rock
+trialstep.1.glyphs = _B_DB_D_DF_F^B
+trialstep.1.stateno = 2300
+
+
+
+
+;------------------------------ HCF A Good Luck HCF A HCF C
+[TrialDef, Heat Mode!]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = In Hard Luck!! (Blue), use 3 bars or more to go into a heat mode, or Good Luck!! when you have low health! This lets you use more meter than you would be otherwise and unlocks special moves! Time the SoGeBu well!
+
+
+
+trialstep.1.text = Hand Of Glory
+trialstep.1.glyphs = _B_DB_D_DF_F^A
+trialstep.1.stateno = 2400
+trialstep.1.ishelper=true
+
+trialstep.2.text = Heat Mode
+trialstep.2.glyphs = ^Y
+trialstep.2.stateno = 6667
+trialstep.2.ishelper=true
+
+trialstep.3.text = Hand Of Glory
+trialstep.3.glyphs = _B_DB_D_DF_F^A
+trialstep.3.stateno = 2400
+trialstep.3.ishelper=true
+
+trialstep.4.text = SoGeBu
+trialstep.4.glyphs = _B_DB_D_DF_F^C
+trialstep.4.stateno = 3001
+trialstep.4.isthrow=true
+
+;------------------------------ HCB C ( Counter)
+[TrialDef, It's gonna ring a little!]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = a
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = In Hard Luck!! (Blue), use 3 bars or more to go into a heat mode! You unlock the Weakest Punch Counter! 
+
+
+
+trialstep.1.text = Weakest Punch Counter
+trialstep.1.glyphs = _F_DF_D_DB_B^C
+trialstep.1.stateno = 3205
+;trialstep.1.iscounterhit=true
+trialstep.1.hitcount=0
+
+
+;------------------------------ A B C Rekka A Rekka B DP C j2C Divekick B Rekka A
+[TrialDef, Corner Loop]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = You will be pushed away from the corner if the combo is too long!
+
+trialstep.1.text = punch
+trialstep.1.glyphs = ^A
+trialstep.1.stateno = 200
+
+trialstep.2.text = tackle
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 215
+
+trialstep.3.text = kick
+trialstep.3.glyphs = ^C
+trialstep.3.stateno = 225
+
+trialstep.4.text = Opening Punch
+trialstep.4.glyphs = _D_DF_F^A
+trialstep.4.stateno = 1000
+
+trialstep.5.text = Follow Up Punch
+trialstep.5.glyphs = ^A
+trialstep.5.stateno = 1050
+
+trialstep.6.text = Final Punch
+trialstep.6.glyphs = ^A
+trialstep.6.stateno = 1125
+
+trialstep.7.text = Gut Punch Combo 1
+trialstep.7.glyphs = _D_DF_F^B
+trialstep.7.stateno = 1250
+
+trialstep.8.text = Gut Punch Combo 2
+trialstep.8.glyphs = ^B
+trialstep.8.stateno = 1251
+
+trialstep.9.text = Gut Punch Combo 3
+trialstep.9.glyphs = ^B
+trialstep.9.stateno = 1252
+
+trialstep.10.text = Rising Breaker EX
+trialstep.10.glyphs = _F_DF_F^C
+trialstep.10.stateno = 2000
+
+trialstep.11.text = Air Down Kick
+trialstep.11.glyphs = _D^C
+trialstep.11.stateno = 630
+
+trialstep.12.text = Divekick
+trialstep.12.glyphs = _D_DB_B^A
+trialstep.12.stateno = 1700
+
+trialstep.13.text = Opening Punch
+trialstep.13.glyphs = _D_DF_F^A
+trialstep.13.stateno = 1000
+
+trialstep.14.text = Follow Up Punch
+trialstep.14.glyphs = ^A
+trialstep.14.stateno = 1050
+
+trialstep.15.text = Final Punch
+trialstep.15.glyphs = ^A
+trialstep.15.stateno = 1125
+
+trialstep.16.text = Gut Punch Combo 1
+trialstep.16.glyphs = _D_DF_F^B
+trialstep.16.stateno = 1250
+
+trialstep.17.text = Gut Punch Combo 2
+trialstep.17.glyphs = ^B
+trialstep.17.stateno = 1251
+
+trialstep.18.text = Gut Punch Combo 3
+trialstep.18.glyphs = ^B
+trialstep.18.stateno = 1252
+
+
+
+
+;------------------------------ A B B DPA jC j2C Air Dash j2C Run B B 
+
+[TrialDef, Corner Carry]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = This loop works everywhere. You might have to run after landing to catch with the tackle.
+
+trialstep.1.text = tackle
+trialstep.1.glyphs = ^B
+trialstep.1.stateno = 215
+
+trialstep.2.text = uppercut
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 220
+
+trialstep.3.text = Jump Cancel
+trialstep.3.glyphs = _U
+trialstep.3.stateno = 40
+trialstep.3.hitcount= 0
+
+trialstep.4.text = Air Jab
+trialstep.4.glyphs = ^A
+trialstep.4.stateno = 600
+
+trialstep.5.text = Air Knee
+trialstep.5.glyphs = ^B
+trialstep.5.stateno = 610
+
+trialstep.6.text = Air Kick
+trialstep.6.glyphs = ^C
+trialstep.6.stateno = 620
+
+trialstep.7.text = Air Down Kick
+trialstep.7.glyphs = _D^C
+trialstep.7.stateno = 630
+
+trialstep.8.text = Air Dash
+trialstep.8.glyphs = _F_F
+trialstep.8.stateno = 110
+trialstep.8.hitcount= 0
+
+trialstep.9.text = Air Down Kick
+trialstep.9.glyphs = _D^C
+trialstep.9.stateno = 630
+
+
+trialstep.10.text = tackle
+trialstep.10.glyphs = ^B
+trialstep.10.stateno = 215
+
+trialstep.11.text = uppercut
+trialstep.11.glyphs = ^B
+trialstep.11.stateno = 220
+
+
+;---------------------------------------------
+[TrialDef, Command Grab Loop]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = This is the command grab loop
+
+trialstep.1.text = command grab
+trialstep.1.glyphs = _F_D_DF^X
+trialstep.1.stateno = 1810
+trialstep.1.isthrow = true
+
+trialstep.2.text = punch
+trialstep.2.glyphs = _F^C
+trialstep.2.stateno = 230
+trialstep.2.isthrow=true
+
+trialstep.3.text = lunge
+trialstep.3.glyphs = _D_DB_B^B
+trialstep.3.stateno = 1650
+trialstep.3.hitcount = 0
+
+trialstep.4.text = command grab
+trialstep.4.glyphs = _F_D_DF^X
+trialstep.4.stateno = 1810
+trialstep.4.isthrow = true
+
+trialstep.5.text = punch
+trialstep.5.glyphs = _F^C
+trialstep.5.stateno = 230
+
+trialstep.6.text = lunge
+trialstep.6.glyphs = _D_DB_B^B
+trialstep.6.stateno = 1650
+trialstep.6.hitcount = 0
+
+trialstep.7.text = command grab
+trialstep.7.glyphs = _F_D_DF^X
+trialstep.7.stateno = 1810
+trialstep.7.isthrow = true
+
+trialstep.8.text = punch
+trialstep.8.glyphs = _F^C
+trialstep.8.stateno = 230
+
+trialstep.9.text = lunge
+trialstep.9.glyphs = _D_DB_B^B
+trialstep.9.stateno = 1650
+trialstep.9.hitcount = 0
+
+trialstep.10.text = command grab
+trialstep.10.glyphs = _F_D_DF^X
+trialstep.10.stateno = 1810
+trialstep.10.isthrow = true
+
+trialstep.11.text = punch
+trialstep.11.glyphs = _F^C
+trialstep.11.stateno = 230
+
+trialstep.12.text = lunge
+trialstep.12.glyphs = _D_DB_B^B
+trialstep.12.stateno = 1650
+trialstep.12.hitcount = 0
+
+;------------------------------ Bnb OHKO 3306
+[TrialDef, Illusion Broken!]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+trial.playerlife = 1
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Go in Heat Mode when you have low health for Good Luck!! You unlock the One Hit KO move! 
+
+trialstep.1.text = Rising Breaker 
+trialstep.1.glyphs = _F_DF_F^A
+trialstep.1.stateno = 1500
+
+trialstep.2.text = Air Kick
+trialstep.2.glyphs = ^C
+trialstep.2.stateno = 620
+
+trialstep.3.text = Air Down Kick
+trialstep.3.glyphs = _D^C
+trialstep.3.stateno = 630
+
+trialstep.4.text = Air Dash
+trialstep.4.glyphs = _F_F
+trialstep.4.stateno = 110
+trialstep.4.hitcount= 0
+
+trialstep.5.text = Air Down Kick
+trialstep.5.glyphs = _D^C
+trialstep.5.stateno = 630
+
+trialstep.6.text = God's SYSTEM
+trialstep.6.glyphs = _F_DF_D_DB_B^X
+trialstep.6.stateno = 3300
+trialstep.6.isthrow=true
+
 
 ; TrialDef Parameter Descriptions
 ; ===============================
@@ -61,71 +1187,3 @@ trialstep.3.stateno = 225
 ; trialstep.X.isproj - optional - (true or false, or comma-separated true/false), will default to false if not defined. Identifies whether the trial step is a projectile. Should be 'true' is trial step is a hit from a projectile.
 ; trialstep.X.validforvarvalpairs - optional - (comma-separated integers, specified in pairs, can specify 0..n pairs). Sister functionality to "showforvarvalpairs". These variable-value pairs are used to optionally check a trial step. Useful if you are forcing the trial step to be completed when certain var-val pairs are met (for instance, while in a custom combo state). Variable-value pairs are considered valid for entire trial step (regardless if the trial step is specified using condensed terminology).
 ; trialstep.X.validfortickcount - optional (integer, or comma-separate integers), will default to nil if not defined. Makes the trials checking logic pause until the next hit is registered for the tickcount specified.
-
-[TrialDef, Command grab loop]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = This is the command grab loop
-
-trialstep.1.text = command grab
-trialstep.1.glyphs = _F_D_DF^X
-trialstep.1.stateno = 1810
-trialstep.1.isthrow = true
-
-trialstep.2.text = punch
-trialstep.2.glyphs = _F^C
-trialstep.2.stateno = 230
-
-trialstep.3.text = buster impact
-trialstep.3.glyphs = _D_DB_B^B
-trialstep.3.stateno = 1650
-trialstep.3.hitcount = 0
-
-trialstep.4.text = command grab
-trialstep.4.glyphs = _F_D_DF^X
-trialstep.4.stateno = 1810
-trialstep.4.isthrow = true
-
-trialstep.5.text = punch
-trialstep.5.glyphs = _F^C
-trialstep.5.stateno = 230
-
-trialstep.6.text = buster impact
-trialstep.6.glyphs = _D_DB_B^B
-trialstep.6.stateno = 1650
-trialstep.6.hitcount = 0
-
-trialstep.7.text = command grab
-trialstep.7.glyphs = _F_D_DF^X
-trialstep.7.stateno = 1810
-trialstep.7.isthrow = true
-
-trialstep.8.text = punch
-trialstep.8.glyphs = _F^C
-trialstep.8.stateno = 230
-
-trialstep.9.text = buster impact
-trialstep.9.glyphs = _D_DB_B^B
-trialstep.9.stateno = 1650
-trialstep.9.hitcount = 0
-
-trialstep.10.text = command grab
-trialstep.10.glyphs = _F_D_DF^X
-trialstep.10.stateno = 1810
-trialstep.10.isthrow = true
-
-trialstep.11.text = punch
-trialstep.11.glyphs = _F^C
-trialstep.11.stateno = 230
-
-trialstep.12.text = buster impact
-trialstep.12.glyphs = _D_DB_B^B
-trialstep.12.stateno = 1650
-trialstep.12.hitcount = 0
