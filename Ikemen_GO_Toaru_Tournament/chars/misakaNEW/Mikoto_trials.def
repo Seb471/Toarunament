@@ -1,6 +1,6 @@
-; Kamijo TRIALS LIST ---------------------------
+; Mikoto TRIALS LIST ---------------------------
 
-[TrialDef, The Story Begins]
+[TrialDef, CHASER!]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -12,17 +12,17 @@ trial.dummybuttonjam = none
 ; trial.showforvarvalpairs = 
 trial.textbox = All characters in the game can do this combo!
 
-trialstep.1.text = jab
+trialstep.1.text = Low Kick
 trialstep.1.glyphs = ^A
 trialstep.1.stateno = 200
 
-trialstep.2.text = tackle
+trialstep.2.text = Side Kick
 trialstep.2.glyphs = ^B
-trialstep.2.stateno = 215
+trialstep.2.stateno = 230
 
-trialstep.3.text = kick
+trialstep.3.text = Chaser
 trialstep.3.glyphs = ^C
-trialstep.3.stateno = 225
+trialstep.3.stateno = 240
 
 ; trialstep.1.animno =
 ; trialstep.1.hitcount =
@@ -48,21 +48,22 @@ trial.dummybuttonjam = none
 ; trial.showforvarvalpairs = 
 trial.textbox = You can cancel Normal moves into Special moves!
 
-trialstep.1.text = jab
+trialstep.1.text = Low Kick
 trialstep.1.glyphs = ^A
 trialstep.1.stateno = 200
 
-trialstep.2.text = tackle
+trialstep.2.text = Side Kick
 trialstep.2.glyphs = ^B
-trialstep.2.stateno = 215
+trialstep.2.stateno = 230
 
-trialstep.3.text = kick
+trialstep.3.text = Chaser
 trialstep.3.glyphs = ^C
-trialstep.3.stateno = 225
+trialstep.3.stateno = 240
 
-trialstep.4.text = lunge
-trialstep.4.glyphs = _D _DB _B ^A
-trialstep.4.stateno = 1600
+trialstep.4.text = Elec Ball
+trialstep.4.glyphs = _D _DF _F ^A
+trialstep.4.stateno = 1000
+trialstep.4.ishelper=true
 
 
 ;-------------------------------ABC Special Super
@@ -77,34 +78,29 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = You can cancel Special moves into Super moves! For Level 1 Supers, Touma needs at least Unlucky, obtained by pressing Y Button once
+trial.textbox = You can cancel Special moves into Super moves! 
 
-;trialstep.1.text = luck up
-;trialstep.1.glyphs = ^Y
-;trialstep.1.stateno = 6661
-;trialstep.1.validfortickcount = 3,1|2|3|4|5|6|7
-;trialstep.1.numhits=0
-
-trialstep.1.text = jab
+trialstep.1.text = Low Kick
 trialstep.1.glyphs = ^A
 trialstep.1.stateno = 200
 
-trialstep.2.text = tackle
+trialstep.2.text = Side Kick
 trialstep.2.glyphs = ^B
-trialstep.2.stateno = 215
+trialstep.2.stateno = 230
 
-trialstep.3.text = kick
+trialstep.3.text = Chaser
 trialstep.3.glyphs = ^C
-trialstep.3.stateno = 225
+trialstep.3.stateno = 240
 
-trialstep.4.text = lunge
-trialstep.4.glyphs = _D _DB _B ^A
-trialstep.4.stateno = 1600
+trialstep.4.text = Lightning Spear
+trialstep.4.glyphs = _D _DF _F ^B
+trialstep.4.stateno = 1050
+trialstep.4.ishelper=true
 
-trialstep.5.text = Punch Combo EX
+trialstep.5.text = Elec Ball EX
 trialstep.5.glyphs = _D _DF _F ^C
-trialstep.5.stateno = 2200
-trialstep.5.isthrow = true
+trialstep.5.stateno = 2000
+trialstep.5.ishelper=true
 
 
 ;-------------------------------ABC Special Super 1 Hyper
@@ -119,40 +115,34 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = You can cancel Super moves into Hyper moves! For Level 2 and 3 Hypers, Touma needs at least Hard Luck, obtained by pressing Y Button one more time
+trial.textbox = You can cancel Super moves into Hyper moves!
 
-;trialstep.1.text = luck up
-;trialstep.1.glyphs = ^Y
-;trialstep.1.stateno = 6661
-;trialstep.1.validfortickcount = 3,1|2|3|4|5|6|7
-;trialstep.1.numhits=0
-
-trialstep.1.text = jab
+trialstep.1.text = Low Kick
 trialstep.1.glyphs = ^A
 trialstep.1.stateno = 200
 
-trialstep.2.text = tackle
+trialstep.2.text = Side Kick
 trialstep.2.glyphs = ^B
-trialstep.2.stateno = 215
+trialstep.2.stateno = 230
 
-trialstep.3.text = kick
+trialstep.3.text = Chaser
 trialstep.3.glyphs = ^C
-trialstep.3.stateno = 225
+trialstep.3.stateno = 240
 
-trialstep.4.text = lunge
-trialstep.4.glyphs = _D _DB _B ^A
-trialstep.4.stateno = 1600
+trialstep.4.text = Lightning Spear
+trialstep.4.glyphs = _D _DF _F ^B
+trialstep.4.stateno = 1050
+trialstep.4.ishelper=true
 
-trialstep.5.text = Punch Combo EX
+trialstep.5.text = Elec Ball EX
 trialstep.5.glyphs = _D _DF _F ^C
-trialstep.5.stateno = 2200
-trialstep.5.isthrow = true
+trialstep.5.stateno = 2050
+trialstep.5.ishelper=true
 
-trialstep.6.text = SoGeBu
-trialstep.6.glyphs = _B _DB _D _DF _F ^C
+trialstep.6.text = Railgun
+trialstep.6.glyphs = _B_DB_D _DF _F ^C
 trialstep.6.stateno = 3000
-trialstep.6.isthrow = true
-
+trialstep.6.ishelper=true
 
 ;-------------------------------ABC Special Super 1 Super 2 Hyper
 
@@ -166,126 +156,38 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = You can cancel Level 1s into Level 2s and then Level 3s! For Level 2 and 3 Hypers, Touma needs at least Hard Luck, obtained by pressing Y Button one more time
+trial.textbox = You can cancel Level 2s into Level 3s or even Level 4s! 
 
-;trialstep.1.text = luck up
-;trialstep.1.glyphs = ^Y
-;trialstep.1.stateno = 6661
-;trialstep.1.validfortickcount = 3,1|2|3|4|5|6|7
-;trialstep.1.hitcount=0
-
-trialstep.1.text = jab
+trialstep.1.text = Low Kick
 trialstep.1.glyphs = ^A
 trialstep.1.stateno = 200
 
-trialstep.2.text = tackle
+trialstep.2.text = Side Kick
 trialstep.2.glyphs = ^B
-trialstep.2.stateno = 215
-
-trialstep.3.text = kick
-trialstep.3.glyphs = ^C
-trialstep.3.stateno = 225
-
-trialstep.4.text = lunge
-trialstep.4.glyphs = _D _DB _B ^A
-trialstep.4.stateno = 1600
-
-trialstep.5.text = Punch Combo EX
-trialstep.5.glyphs = _D _DF _F ^C
-trialstep.5.stateno = 2200
-trialstep.5.isthrow = true
-
-trialstep.6.text = Buster Impact
-trialstep.6.glyphs = _D _DB _B ^C
-trialstep.6.stateno = 2500
-trialstep.6.isthrow = true
-
-trialstep.7.text = SoGeBu
-trialstep.7.glyphs = _B _DB _D _DF _F ^C
-trialstep.7.stateno = 3000
-trialstep.7.isthrow = true
-
-
-;------------------------------ B B DP
-
-[TrialDef, Uppercuts]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = Some normals have surprises!
-
-trialstep.1.text = tackle
-trialstep.1.glyphs = ^B
-trialstep.1.stateno = 215
-
-trialstep.2.text = uppercut
-trialstep.2.glyphs = ^B
-trialstep.2.stateno = 220
-
-trialstep.3.text = Rising Breaker 
-trialstep.3.glyphs = _F_D_DF^A
-trialstep.3.stateno = 1500
-
-
-
-;------------------------------ C QCB A (poke)
-
-[TrialDef, Make Some Room!]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = A Normal attack that needs a direction is called a Command Normal! You can usually do them in between Normals and Specials!
-
-trialstep.1.text = kick
-trialstep.1.glyphs = ^C
-trialstep.1.stateno = 225
-
-trialstep.2.text = jaw breaker
-trialstep.2.glyphs = _F^C
 trialstep.2.stateno = 230
 
+trialstep.3.text = Chaser
+trialstep.3.glyphs = ^C
+trialstep.3.stateno = 240
 
+trialstep.4.text = Lightning Spear
+trialstep.4.glyphs = _D _DF _F ^B
+trialstep.4.stateno = 1050
+trialstep.4.ishelper=true
 
-;------------------------------ C QCB A (poke) Y
+trialstep.5.text = Railgun
+trialstep.5.glyphs = _B_DB_D _DF _F ^C
+trialstep.5.stateno = 3000
+trialstep.5.ishelper=true
 
-[TrialDef, And Preach!]
+trialstep.6.text = Hyper Railgun
+trialstep.6.glyphs = _F_DF_D _DB _B ^C
+trialstep.6.stateno = 3100
+trialstep.6.ishelper=true
 
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = Use the time you get to tell them they aren't living their life correctly! Get Hard Luck!! (Blue) the third time you press Y
+;------------------------------ FF C
 
-trialstep.1.text = jaw breaker
-trialstep.1.glyphs = _F^C
-trialstep.1.stateno = 230
-trialstep.1.isthrow=true
-
-
-trialstep.2.text = luck up speech
-trialstep.2.glyphs = ^Y
-trialstep.2.stateno = 6662
-trialstep.2.hitcount = 0
-
-;-------------------------
-
-[TrialDef, Make Some Room! 2]
+[TrialDef, Running Slide]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -295,83 +197,17 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = Some moves have a long range and a travelling speed which makes them very good to poke at unsuspecting opponents!
+trial.textbox = Press C while running! 
 
-trialstep.1.text = low sweep 
-trialstep.1.glyphs = _D^C
-trialstep.1.stateno = 420
+trialstep.1.text = running slide
+trialstep.1.glyphs = _F_F^C
+trialstep.1.stateno = 370
 
-trialstep.2.text = heavy lunge
-trialstep.2.glyphs = _D_DB_B^B
-trialstep.2.stateno = 1650
-
-
-
-
-;------------------------------ A FA B C
-
-[TrialDef, Low Blow]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = Some Command Normals can be cancelled into Normals! Usually follows the A B C order still
-
-trialstep.1.text = jab
-trialstep.1.glyphs = ^A
-trialstep.1.stateno = 200
-
-trialstep.2.text = low kick
-trialstep.2.glyphs = _F^A
-trialstep.2.stateno = 210
-
-trialstep.3.text = tackle
-trialstep.3.glyphs = ^B
-trialstep.3.stateno = 215
-
-trialstep.4.text = kick
-trialstep.4.glyphs = ^C
-trialstep.4.stateno = 225
-
-;------------------------------ DA DB B C
-
-[TrialDef, Standing Again]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = Some moves can allow you to switch between the crouching set of Normals and the standing set of normals! Use that for more variety in pressure!
-
-trialstep.1.text = crouching low kick
-trialstep.1.glyphs = _D^A
-trialstep.1.stateno = 400
-
-trialstep.2.text = crouching elbow
-trialstep.2.glyphs = _D^B
-trialstep.2.stateno = 410
-
-trialstep.3.text = crouching backhand
-trialstep.3.glyphs = _D^B
-trialstep.3.stateno = 415
-
-trialstep.4.text = kick
-trialstep.4.glyphs = ^C
-trialstep.4.stateno = 225
 
 
 ;-------------------------------Rekka QCF A A A Rekka QCF B
 
-[TrialDef, Punch Combo: First Series]
+[TrialDef, Iron Sand Combo: First Series]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -381,36 +217,30 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the A version. These moves are all coated with Imagine Breaker! This one only fully works in corner.
+trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the A version. This one only fully works in corner. Second drill hit is overhead!
 
-trialstep.1.text = Opening Punch
-trialstep.1.glyphs = _D_DF_F^A
-trialstep.1.stateno = 1000
+trialstep.1.text = Iron Sand Sword Slash
+trialstep.1.glyphs = _D_DB_B^A
+trialstep.1.stateno = 1100
 
-trialstep.2.text = Follow Up Punch
+trialstep.2.text = Follow Up Slash
 trialstep.2.glyphs = ^A
-trialstep.2.stateno = 1050
+trialstep.2.stateno = 1125
 
-trialstep.3.text = Final Punch
-trialstep.3.glyphs = ^A
-trialstep.3.stateno = 1125
+trialstep.3.text = Iron Sand Drill Lunge
+trialstep.3.glyphs = _D_DB_B^B
+trialstep.3.stateno = 1300
 
-trialstep.4.text = Gut Punch Combo 1
-trialstep.4.glyphs = _D_DF_F^B
-trialstep.4.stateno = 1250
+trialstep.4.text = Iron Sand Drill Overhead
+trialstep.4.glyphs = ^B
+trialstep.4.stateno = 1305
+trialstep.4.hitcount=0
 
-trialstep.5.text = Gut Punch Combo 2
-trialstep.5.glyphs = ^B
-trialstep.5.stateno = 1251
-
-trialstep.6.text = Gut Punch Combo 3
-trialstep.6.glyphs = ^B
-trialstep.6.stateno = 1252
 
 
 ;-------------------------------Rekka QCF A B B JumpCancel Divekick
 
-[TrialDef, Punch Combo: Second Series]
+[TrialDef, Iron Sand Combo: Second Series 1]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -420,34 +250,60 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the B version. These moves are all coated with Imagine Breaker! This one is great on block!
+trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the B version. 
 
-trialstep.1.text = Opening Punch
-trialstep.1.glyphs = _D_DF_F^A
-trialstep.1.stateno = 1000
+trialstep.1.text = Iron Sand Sword Slash
+trialstep.1.glyphs = _D_DB_B^A
+trialstep.1.stateno = 1100
 
-trialstep.2.text = Overhead Kick
+trialstep.2.text = Overhead Slash
 trialstep.2.glyphs = ^B
-trialstep.2.stateno = 1075
+trialstep.2.stateno = 1150
 
-trialstep.3.text = Uppercut
+trialstep.3.text = Vertical Slash
 trialstep.3.glyphs = ^B
-trialstep.3.stateno = 1150
+trialstep.3.stateno = 1175
 
-trialstep.4.text = Jump Cancel
-trialstep.4.glyphs = _U
-trialstep.4.stateno = 40
-trialstep.4.hitcount= 0
+trialstep.4.text = Rising Upper
+trialstep.4.glyphs = _F_D_DF^A
+trialstep.4.stateno = 1400
 
-trialstep.5.text = Divekick
-trialstep.5.glyphs = _D_DB_B^A
-trialstep.5.stateno = 1700
+;---------------------------------
+
+[TrialDef, Iron Sand Combo: Second Series 2]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the B version. This is a variant that lets you stay on the ground.
+
+trialstep.1.text = Iron Sand Sword Slash
+trialstep.1.glyphs = _D_DB_B^A
+trialstep.1.stateno = 1100
+
+trialstep.2.text = Overhead Slash
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 1150
+
+trialstep.3.text = Vertical Slash
+trialstep.3.glyphs = ^B
+trialstep.3.stateno = 1175
+
+trialstep.4.text = Lightning Strike
+trialstep.4.glyphs = _F_D_DF^B
+trialstep.4.stateno = 1450
+trialstep.4.ishelper=true
 
 
 
 ;-------------------------------Rekka QCF A C C DP A
 
-[TrialDef, Punch Combo: Third Series]
+[TrialDef, Iron Sand Combo: Third Series]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -457,29 +313,18 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the C version. These moves are all coated with Imagine Breaker! 
+trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the Forward C version. Moves that get you behind the enemy are called Crossups! They can confuse the opponent on which way to block! 
 
-trialstep.1.text = Opening Punch
-trialstep.1.glyphs = _D_DF_F^A
-trialstep.1.stateno = 1000
+trialstep.1.text = Iron Sand Sword Slash
+trialstep.1.glyphs = _D_DB_B^A
+trialstep.1.stateno = 1100
 
-trialstep.2.text = Sweeping Punch
-trialstep.2.glyphs = ^C
-trialstep.2.stateno = 1100
+trialstep.2.text = Crossup Slash
+trialstep.2.glyphs = _F^C
+trialstep.2.stateno = 1200
 
-trialstep.3.text = Uppercut
-trialstep.3.glyphs = ^C
-trialstep.3.stateno = 1200
-
-trialstep.4.text = Rising Breaker 
-trialstep.4.glyphs = _F_D_DF^A
-trialstep.4.stateno = 1500
-
-
-;-------------------------------QCB B QCF B 
-
-
-[TrialDef, Get In Closer]
+;----------------------------------------
+[TrialDef, Iron Sand Combo: Fourth Series]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -489,27 +334,75 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = The best combo from afar! This one only fully works in corner.
+trial.textbox = Some characters have a Special that changes based on the series of inputs! This is the Back C version. Moves that send the opponent flying up are called Launchers, the ones that let you either do a lot of options or jump cancel are some of the most useful moves!
 
-trialstep.1.text = heavy lunge
+trialstep.1.text = Iron Sand Sword Slash
+trialstep.1.glyphs = _D_DB_B^A
+trialstep.1.stateno = 1100
+
+trialstep.2.text = Iron Sand Wave
+trialstep.2.glyphs = _B^C
+trialstep.2.stateno = 1275
+trialstep.2.ishelper=true
+
+
+;-------------------------------TK Air Ball
+
+
+[TrialDef, Fastest Air Special]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = This way of using air Specials make them trigger as close to the ground as possible! This kind of technique is called a TK, like the Tiger Knee from Street Fighter. Try to TK every air Special to see what it does!
+
+trialstep.1.text = TK Air Ball
+trialstep.1.glyphs = _D_DF_F_UF^A
+trialstep.1.stateno = 1800
+trialstep.1.ishelper=true
+
+
+
+;-------------------------------QCB B B QCF B DP C
+
+[TrialDef, Control From Afar]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = With these moves you can catch opponents from the other side of the stage! Lightning Strike EX is a tracking move!
+
+trialstep.1.text = Iron Sand Drill Lunge
 trialstep.1.glyphs = _D_DB_B^B
-trialstep.1.stateno = 1650
+trialstep.1.stateno = 1300
+
+trialstep.2.text = Iron Sand Drill Overhead
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 1305
+trialstep.2.hitcount=0
 
 
-trialstep.2.text = Gut Punch Combo 1
-trialstep.2.glyphs = _D_DF_F^B
-trialstep.2.stateno = 1250
+trialstep.3.text = Lightning Spear
+trialstep.3.glyphs = _D _DF _F ^B
+trialstep.3.stateno = 1050
+trialstep.3.ishelper=true
 
-trialstep.3.text = Gut Punch Combo 2
-trialstep.3.glyphs = ^B
-trialstep.3.stateno = 1251
+trialstep.4.text = Lightning Strike EX
+trialstep.4.glyphs = _F _D _DF ^C
+trialstep.4.stateno = 2200
+trialstep.4.ishelper=true
 
-trialstep.4.text = Gut Punch Combo 3
-trialstep.4.glyphs = ^B
-trialstep.4.stateno = 1252
-
-
-;-------------------------------DP A jC J2c jQCB
+;-------------------------------DP B Air Dash  
 
 [TrialDef, Up And Down]
 
@@ -521,42 +414,11 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = What to do after a Rising Breaker! Rising Breaker is coated in Imagine Breaker!
+trial.textbox = A lot of the air Command Normals make the opponent Ground Bounce!
 
-trialstep.1.text = Rising Breaker 
+trialstep.1.text = Rising Upper
 trialstep.1.glyphs = _F_D_DF^A
-trialstep.1.stateno = 1500
-
-
-trialstep.2.text = Air Kick
-trialstep.2.glyphs = ^C
-trialstep.2.stateno = 620
-
-trialstep.3.text = Air Down Kick
-trialstep.3.glyphs = _D^C
-trialstep.3.stateno = 630
-
-trialstep.4.text = Divekick
-trialstep.4.glyphs = _D_DB_B^B
-trialstep.4.stateno = 1750
-
-;-------------------------------DP B Air Dash  
-
-[TrialDef, Up And Down 2]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = What to do after a Heavy Rising Breaker! Heavy Rising Breaker is coated in Imagine Breaker AND invincible at the start!
-
-trialstep.1.text = Heavy Rising Breaker 
-trialstep.1.glyphs = _F_D_DF^B
-trialstep.1.stateno = 1550
+trialstep.1.stateno = 1400
 
 
 trialstep.2.text = Air Dash
@@ -566,12 +428,12 @@ trialstep.2.hitcount= 0
 
 trialstep.3.text = Air Down Kick
 trialstep.3.glyphs = _D^C
-trialstep.3.stateno = 630
+trialstep.3.stateno = 680
 
 
-;-------------------------------Dropkick A Command Grab 6C
+;-------------------------------Air QCF B Run C QCB B B
 
-[TrialDef, Air Pressure]
+[TrialDef, Electrical Pressure]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -581,158 +443,29 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = This one works when you hit near the ground!
+trial.textbox = Send the Elec Ball when near the ground and then start running! 
 
-trialstep.1.text = Divekick
-trialstep.1.glyphs = _D_DB_B^A
-trialstep.1.stateno = 1700
-
-
-trialstep.2.text = command grab
-trialstep.2.glyphs = _F_D_DF^X
-trialstep.2.stateno = 1810
-trialstep.2.isthrow = true
-
-trialstep.3.text = Jaw Breaker
-trialstep.3.glyphs = _F^C
-trialstep.3.stateno = 230
-trialstep.3.isthrow=true
-
-
-;------------------------------ IB Parry 
-
-[TrialDef, Imagine Breaker Parry]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = a
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = You can parry any hit with Imagine Breaker if you time it well!
-
-trialstep.1.text = Imagine Breaker
-trialstep.1.glyphs = ^X
-trialstep.1.stateno = 6402
-trialstep.1.hitcount=0
-
-
-
-
-;------------------------------ IB Parry into Uppercut (special cancellable)
-
-[TrialDef, Imagine Breaker Uppercut]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = a
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = You can do it after a parry or while negating projectiles! You can cancel it into any Special or Super!
-
-;trialstep.1.text = Imagine Breaker
-;trialstep.1.glyphs = ^X
-;trialstep.1.stateno = 6402
-;trialstep.1.iscounterhit=true
-
-trialstep.1.text = Imagine Breaker Uppercut
-trialstep.1.glyphs = _D_DF_F^X
-trialstep.1.stateno = 6430
-
-
-
-
-;------------------------------ Slap into 6C
-
-[TrialDef, You're not living your life correctly!]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = a
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = This counters any physical hit!
-
-trialstep.1.text = Imagine Breaker Slap
-trialstep.1.glyphs = _D_DF_F^X
-trialstep.1.stateno = 6450
-trialstep.1.numhits=0
-;trialstep.1.iscounterhit=true
-
-trialstep.2.text = Jaw Breaker
-trialstep.2.glyphs = _F^C
-trialstep.2.stateno = 230
-trialstep.2.isthrow=true
-
-
-
-;------------------------------ QCB A into 6C (counter)
-[TrialDef, Counter Hit Specific 1]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = a
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = This cancel is only possible on counter hit!
-
-trialstep.1.text = Lunge
-trialstep.1.glyphs = _D_DB_B^A
-trialstep.1.stateno = 1600
-
-
-trialstep.2.text = Jaw Breaker
-trialstep.2.glyphs = _F^C
-trialstep.2.stateno = 230
-trialstep.2.isthrow=true
-
-
-;------------------------------ QCF B into 6C (counter)
-[TrialDef, Counter Hit Specific 2]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = a
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = This cancel is only possible on counter hit!
-
-trialstep.1.text = Gut Punch Combo 1
+trialstep.1.text = Air Straight Elec Ball
 trialstep.1.glyphs = _D_DF_F^B
-trialstep.1.stateno = 1250
-
-trialstep.2.text = Gut Punch Combo 2
-trialstep.2.glyphs = ^B
-trialstep.2.stateno = 1251
-
-trialstep.3.text = Gut Punch Combo 3
-trialstep.3.glyphs = ^B
-trialstep.3.stateno = 1252
+trialstep.1.stateno = 1851
+trialstep.1.ishelper=true
 
 
+trialstep.2.text = Running Slide
+trialstep.2.glyphs = _F_F^C
+trialstep.2.stateno = 370
 
-trialstep.4.text = Jaw Breaker
-trialstep.4.glyphs = _F^C
-trialstep.4.stateno = 230
-trialstep.4.isthrow=true
+trialstep.3.text = Iron Sand Drill Lunge
+trialstep.3.glyphs = _D_DB_B^B
+trialstep.3.stateno = 1300
 
+trialstep.4.text = Iron Sand Drill Overhead
+trialstep.4.glyphs = ^B
+trialstep.4.stateno = 1305
+trialstep.4.hitcount=0
 
-;------------------------------ EX QCF EX DP j2C Divekick A EX Dive
-[TrialDef, Super Cancels 1]
+;-------------------------------------------------------
+[TrialDef, Electrical Pressure 2]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -742,30 +475,102 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = Some Level 1 supers are well used together! All these supers are coated in Imagine Breaker!
+trial.textbox = Send the Elec Ball when near the ground and then send another! You might have to run a bit for Lightning Spear.
 
-trialstep.1.text = Punch Combo EX
-trialstep.1.glyphs = _D_DF_F^C
-trialstep.1.stateno = 2200
+trialstep.1.text = Air Straight Elec Ball
+trialstep.1.glyphs = _D_DF_F^B
+trialstep.1.stateno = 1851
+trialstep.1.ishelper=true
+
+
+trialstep.2.text = Elec Ball
+trialstep.2.glyphs = _D_DF_F^A
+trialstep.2.stateno = 1005
+trialstep.2.ishelper=true
+
+trialstep.3.text = Lightning Spear
+trialstep.3.glyphs = _D_DF_F^B
+trialstep.3.stateno = 1050
+
+
+
+
+
+
+
+;------------------------------ Grab 
+
+[TrialDef, Electrifying Grab]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some characters can cancel their throw into Supers or other types of moves!
+
+trialstep.1.text = Throw
+trialstep.1.glyphs = _F^X
+trialstep.1.stateno = 800
 trialstep.1.isthrow=true
 
-trialstep.2.text = Rising Breaker EX
-trialstep.2.glyphs = _F_D_DF^C
-trialstep.2.stateno = 2000
+trialstep.2.text = Elec Ball EX
+trialstep.2.glyphs = _D _DF _F ^C
+trialstep.2.stateno = 2050
+trialstep.2.ishelper=true
 
-trialstep.3.text = Air Down Kick
-trialstep.3.glyphs = _D^C
-trialstep.3.stateno = 630
 
-trialstep.4.text = Divekick
-trialstep.4.glyphs = _D_DB_B^A
-trialstep.4.stateno = 1700
 
-trialstep.5.text = Divepunch EX
-trialstep.5.glyphs = _D_DB_B^C
-trialstep.5.stateno = 2100
 
-;------------------------------ QCB C QCF C (corner)
+
+;------------------------------ TK Elec Ball EX into Ball EX
+[TrialDef, Get Up!!]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some attacks hit the characters on the ground! Sometimes you can even restart a combo after it drops!
+
+trialstep.1.text = Low Sweep
+trialstep.1.glyphs = _D^C
+trialstep.1.stateno = 440
+
+
+trialstep.2.text = TK Air Ball EX
+trialstep.2.glyphs = _D_DF_F_UF^C
+trialstep.2.stateno = 11100
+trialstep.2.ishelper=true
+
+trialstep.3.text = Elec Ball EX
+trialstep.3.glyphs = _D _DF _F ^C
+trialstep.3.stateno = 2050
+trialstep.3.ishelper=true
+
+trialstep.4.text = Low Kick
+trialstep.4.glyphs = ^A
+trialstep.4.stateno = 200
+
+trialstep.5.text = Side Kick
+trialstep.5.glyphs = ^B
+trialstep.5.stateno = 230
+
+trialstep.6.text = Chaser
+trialstep.6.glyphs = ^C
+trialstep.6.stateno = 240
+
+;------------------------------ Railgun into Iron Sand Sword EX
+
+;------------------------------ Railgun into Railgun into Railgun
+
+;;------------------------------ QCB C QCF C (corner)
 [TrialDef, Retro Extension]
 
 trial.dummymode = stand
@@ -776,7 +581,7 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = Some Level 2 Supers can be cancelled into Level 1 Supers! This lets you extend the combo thanks to the more varied Level 1 cancels!  All these supers are coated in Imagine Breaker! This cancel only works in corner.
+trial.textbox = Some Level 2 Supers can be cancelled into Level 1 Supers! This lets you extend the combo thanks to the more varied Level 1 cancels! This cancel only works in corner.
 
 
 
@@ -794,8 +599,8 @@ trialstep.1.isthrow=true
 
 [TrialDef, Retro Extension 2]
 
-trial.dummymode = jump
-trial.guardmode = auto
+trial.dummymode = stand
+trial.guardmode = none
 trial.dummybuttonjam = none
 ; trial.dummylife =
 ; trial.playerlife =
@@ -812,7 +617,7 @@ trialstep.1.stateno = 2400
 trialstep.1.ishelper=true
 
 trialstep.2.text = Rising Breaker EX
-trialstep.2.glyphs = _F_D_DF^C
+trialstep.2.glyphs = _F_DF_F^C
 trialstep.2.stateno = 2000
 
 
@@ -934,7 +739,7 @@ trial.dummybuttonjam = none
 ; trial.showforvarvalpairs = 
 trial.textbox = You will be pushed away from the corner if the combo is too long!
 
-trialstep.1.text = jab
+trialstep.1.text = punch
 trialstep.1.glyphs = ^A
 trialstep.1.stateno = 200
 
@@ -971,7 +776,7 @@ trialstep.9.glyphs = ^B
 trialstep.9.stateno = 1252
 
 trialstep.10.text = Rising Breaker EX
-trialstep.10.glyphs = _F_D_DF^C
+trialstep.10.glyphs = _F_DF_F^C
 trialstep.10.stateno = 2000
 
 trialstep.11.text = Air Down Kick
@@ -1089,7 +894,7 @@ trialstep.1.glyphs = _F_D_DF^X
 trialstep.1.stateno = 1810
 trialstep.1.isthrow = true
 
-trialstep.2.text = Jaw Breaker
+trialstep.2.text = punch
 trialstep.2.glyphs = _F^C
 trialstep.2.stateno = 230
 trialstep.2.isthrow=true
@@ -1104,7 +909,7 @@ trialstep.4.glyphs = _F_D_DF^X
 trialstep.4.stateno = 1810
 trialstep.4.isthrow = true
 
-trialstep.5.text = Jaw Breaker
+trialstep.5.text = punch
 trialstep.5.glyphs = _F^C
 trialstep.5.stateno = 230
 
@@ -1118,7 +923,7 @@ trialstep.7.glyphs = _F_D_DF^X
 trialstep.7.stateno = 1810
 trialstep.7.isthrow = true
 
-trialstep.8.text = Jaw Breaker
+trialstep.8.text = punch
 trialstep.8.glyphs = _F^C
 trialstep.8.stateno = 230
 
@@ -1132,7 +937,7 @@ trialstep.10.glyphs = _F_D_DF^X
 trialstep.10.stateno = 1810
 trialstep.10.isthrow = true
 
-trialstep.11.text = Jaw Breaker
+trialstep.11.text = punch
 trialstep.11.glyphs = _F^C
 trialstep.11.stateno = 230
 
@@ -1155,7 +960,7 @@ trial.playerlife = 1
 trial.textbox = Go in Heat Mode when you have low health for Good Luck!! You unlock the One Hit KO move! 
 
 trialstep.1.text = Rising Breaker 
-trialstep.1.glyphs = _F_D_DF^A
+trialstep.1.glyphs = _F_DF_F^A
 trialstep.1.stateno = 1500
 
 trialstep.2.text = Air Kick

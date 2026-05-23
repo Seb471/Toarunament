@@ -26,4 +26,5 @@ st4 = misaka_H.cns
 st5 = misaka_Ex.cns
 pal1 = user.act
 movelist = movelist_Mikoto.dat
+trials	 = Mikoto_trials.def
 

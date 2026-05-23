@@ -129,6 +129,8 @@ Kazakiri:
 
 Mikoto
 	- made the dp inputs of Mikoto like the rest of the case (so, simpler) x
+	-Improved crossup move a little X
+	-Nerfed jab X
 
 Last Order:
 	Charge moved from 5x to a+c x
