@@ -2760,11 +2760,35 @@ value = 3012
 ;persistent = 
 
 [State 200, 2]
-type = null
+type = playsnd
 triggerall = anim = 3012
 trigger1 = animelem = 1
-value = 3000, 2
-channel = 0
+value = 0, 100
+volumescale = 150
+
+[State 4020, Wind]
+type = Explod
+triggerall = !NumExplod(7124)
+trigger1 = Anim = 3012
+trigger1 = AnimElem = 1
+anim = 7124
+ID = 7124
+space = stage
+bindID = ID
+pos = 42 * facing * Const(Size.xScale), -75 * Const(Size.yScale)
+facing = facing
+bindtime = -1
+removetime = -2
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = 3
+scale = 0.375 * Const(Size.xScale), 0.5 * Const(Size.yScale)
+angle = 135
+;xangle = -80 + (((ScreenPos y - (ScreenHeight / 2.0)) / (ScreenHeight / 2.0)) * 10.0)
+;yangle = -20 - ((Pos x * facing / (GameWidth/2))*18.0)
+ownpal = 1
+remappal = 6001, 1
+ignorehitpause = 1
 
 [State 0, VelSet]
 type = VelSet
@@ -2919,7 +2943,7 @@ postype = p2
 ;space = screen
 pos = 0,-25;screenwidth/2+10*facing, screenheight/2-screenheight/16
 removetime = -1
-scale = 0.25,0.25; * fvar(3), 1 * fvar(3)
+scale = 0.25,0.25
 ;supermovetime = 4294967295
 ;pausemovetime = 4294967295
 sprpriority = -20
@@ -3004,7 +3028,7 @@ persistent = 0
 [State -2,Setups UI Helper]
 type = Helper
 trigger1 = helper(3015),time  = 360
-trigger1 = Numhelper(3016) = 0
+trigger1 = !Numhelper(3016)
 stateno = 3016
 ID = 3016
 pos = 0,topedge
@@ -3096,6 +3120,13 @@ ID = 245
 scale = 0.3,0.3
 pos = 0,-12.5
 
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 0
+ID = 7124
+scale = 0.1875 * Const(Size.xScale), 0.25 * Const(Size.yScale)
+pos = 21 * facing * Const(Size.xScale), -37.5 * Const(Size.yScale)
+
 [State 0, RemoveExplod]
 type = RemoveExplod
 trigger1 = helper(3015),time  = 450
@@ -3166,7 +3197,9 @@ trigger1 = 1
 flag = timerfreeze
 ignorehitpause = 1
 
-[State 4801, ????????]
+;---- Phase 1 ---------
+
+[State 4801, condensation]
 type = Explod
 triggerall = !NumExplod(9002)
 trigger1 = time = 9
@@ -3187,7 +3220,7 @@ value = S40, 4
 persistent = 0
 channel = 0
 
-[State 4801, ????? - ????]
+[State 4801, starry sky]
 type = Explod
 triggerall = !NumExplod(10069)
 trigger1 = time = 59
@@ -3229,6 +3262,7 @@ persistent = 0
 
 [State -1]
 Type = ModifyExplod
+triggerall = numexplod(3013)
 Trigger1 = time>=42+34;42 is when explod spawns, 46 is when the explod should start expanding
 ID = 3013
 Scale = 1+(time-(42+34))*0.03,1+(time-(42+34))*0.03
@@ -3247,7 +3281,7 @@ trigger1 = time = 139
 value = S40, 6
 persistent = 0
 
-[State 4801, ?????????(??????????????)]
+[State 4801, small expansion]
 type = Explod
 trigger1 = !NumExplod(15023)
 trigger1 = time = 139
@@ -3262,7 +3296,7 @@ persistent = 0
 scale = 0.2,0.2
 ignorehitpause = 1
 
-[State 4802, ???????????????(???)]
+[State 4802, northern star]
 type = Explod
 trigger1 = !NumExplod(9005)
 trigger1 = time = 175
@@ -3275,10 +3309,10 @@ ownpal = 1
 ontop = 1
 sprpriority = 0
 
-[State 4802, ???????????????]
+[State 4802, white expansion]
 type = Explod
 trigger1 = !NumExplod(9006)
-trigger1 = time = 190
+trigger1 = time = 190;+17 white expansion +32 on screen +32 fade out
 anim = 9006
 id = 9006
 pos = screenwidth/2,screenheight/2
@@ -3288,8 +3322,327 @@ ownpal = 1
 ontop = 1
 sprpriority = 0
 
+[State White]
+type = ModifyExplod
+triggerall = NumExplod(9006)
+trigger1 = time = [239,271]
+ID = 9006
+trans = add
+alpha = 224 - 7*(time-239), 8*(time-239)
+sprpriority = 20
+ignorehitpause = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+triggerall = numexplod(10069)
+trigger1 = time = 207
+id = 10069
+;ignorehitpause = 
+;persistent = 
+
+[State 4021, Snd_LightBean]
+type = PlaySnd
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 1
+trigger1 = Helper(3016),var(6) = 175
+value = 5,1005
+channel = 5
+abspan = 0
+
+[State 4021, Snd_LightBean]
+type = PlaySnd
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 6
+value = 5,1009
+channel = 6
+abspan = 0
+
+[State 4021, Snd_LightBean]
+type = PlaySnd
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 6
+value = 5,1009
+channel = 7
+abspan = 0
+
+;---- Phase 1 End ---------
+
+
+;---- Phase 2 -------------
+
+
+[State 4021, BG Sky]
+type = Explod
+triggerall = !NumExplod(6050)
+trigger1 = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 2
+anim = 6050
+ID = 6050
+space = screen
+facing = facing
+pos = ScreenWidth * IFElse(Facing=1,0.25,0.75) , Floor(ScreenHeight * 0.75)
+removetime = 300
+scale = 0.25 * Helper(3016),fvar(3), 0.25 * Helper(3016),fvar(3)
+vel = 0.0625 * facing ,-0.0625
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = 10
+angle = 0
+ontop = 1
+shadow = 0
+ownpal = 1
+;remappal = 6001, var(2)
+ignorehitpause = 1
+
+[State 4021, Cloud_big]
+type = Explod
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 2
+anim = 6052
+ID = 6052
+space = screen
+facing = facing
+pos = IFElse(Facing=1,0.7,0.3)*ScreenWidth , Floor(ScreenHeight * 0.4)
+removetime = 300
+scale = 0.1625 * Helper(3016),fvar(3), 0.1625 * Helper(3016),fvar(3)
+vel = 0,0
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = 11
+;angle = 0
+xangle = -60 + (((ScreenPos y - (ScreenHeight / 2.0)) / (ScreenHeight / 2.0)) * 10.0)
+yangle = -30 - ((Pos x * facing / (GameWidth/2))*18.0)
+ontop = 1
+shadow = 0
+ownpal = 1
+;remappal = 6001, var(2)
+ignorehitpause = 1
+
+[State 4021, Cloud_small]
+type = Explod
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 2
+anim = 6053
+ID = 6053
+space = screen
+facing = facing
+pos = IFElse(Facing=1,0.7,0.3)*ScreenWidth , Floor(ScreenHeight * 0.4)
+removetime = 300
+scale = 0.25 * Helper(3016),fvar(3), 0.25 * Helper(3016),fvar(3)
+vel = 0,0
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = 11
+;angle = 0
+xangle = -60 + (((ScreenPos y - (ScreenHeight / 2.0)) / (ScreenHeight / 2.0)) * 10.0)
+yangle = -30 - ((Pos x * facing / (GameWidth/2))*18.0)
+ontop = 1
+shadow = 0
+ownpal = 1
+;remappal = 6001, var(2)
+ignorehitpause = 1
+
+[State 4021, Cloud_small]
+type = ModifyExplod
+triggerall = NumExplod(6053)
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = [2,110]
+ID = 6053
+scale = (0.0025*Helper(3016),var(6)) * Helper(3016),fvar(3), (0.0025*Helper(3016),var(6)) * Helper(3016),fvar(3)
+
+[State 4021, Light_yello]
+type = Explod
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 2
+anim = 6060
+ID = 7000
+space = screen
+facing = facing
+pos = IFElse(Facing=1,0.7,0.3)*ScreenWidth , Floor(ScreenHeight * 0.4)
+removetime = 300
+scale = 0.5 * Helper(3016),fvar(3), 0.5 * Helper(3016),fvar(3)
+vel = 0,0
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = 11
+;angle = 0
+trans = add
+alpha = 96,256
+xangle = -60 + (((ScreenPos y - (ScreenHeight / 2.0)) / (ScreenHeight / 2.0)) * 10.0)
+yangle = -30 - ((Pos x * facing / (GameWidth/2))*18.0)
+ontop = 1
+shadow = 0
+ownpal = 1
+remappal = 6001, 1
+ignorehitpause = 1
+
+[State 4021, Light_yello]
+type = ModifyExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(7000)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = [2,110]
+ID = 7000
+scale = (0.0075*Helper(3016),var(6)) * Helper(3016),fvar(3), (0.0075*Helper(3016),var(6)) * Helper(3016),fvar(3)
+trans = add
+alpha = 96,256
+
+[State 4021, Light_white]
+type = Explod
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 2
+anim = 6060
+ID = 7001
+space = screen
+facing = facing
+pos = IFElse(Facing=1,0.7,0.3)*ScreenWidth , Floor(ScreenHeight * 0.4)
+removetime = 300
+scale = 0.5 * Helper(3016),fvar(3), 0.5 * Helper(3016),fvar(3)
+vel = 0,0
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = 12
+trans = add
+alpha = 224,256
+;angle = 0
+;xangle = -60 + (((ScreenPos y - (ScreenHeight / 2.0)) / (ScreenHeight / 2.0)) * 10.0)
+;yangle = -30 - ((Pos x * facing / (GameWidth/2))*18.0)
+ontop = 1
+shadow = 0
+ownpal = 1
+;remappal = 6001, var(2)
+ignorehitpause = 1
+
+[State 4021, Light_white]
+type = ModifyExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(7001)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = [2,110]
+ID = 7001
+scale = (0.002*Helper(3016),var(6)) * Helper(3016),fvar(3), (0.002*Helper(3016),var(6)) * Helper(3016),fvar(3)
+trans = add
+alpha = 224,256
+
+[State 4021, Light_Bean]
+type = Explod
+triggerall = !NumExplod(6055)
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 2
+anim = 6055
+ID = 6055
+space = screen
+facing = facing
+pos = IFElse(Facing=1,0.7,0.3)*ScreenWidth , Floor(ScreenHeight * 0.4)
+removetime = 300
+scale = 0.25 * Helper(3016),fvar(3), 0.25 * Helper(3016),fvar(3)
+vel = 0,0
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = 12
+angle = 0
+ontop = 1
+shadow = 0
+ownpal = 1
+;remappal = 6055, var(2)
+ignorehitpause = 1
+
+[State 4021, Aura]
+type = Explod
+trigger1 = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) >= 1
+trigger1 = Helper(3016),var(6)%32= 0
+anim = 6057
+ID = 6057
+space = screen
+facing = facing
+pos = IFElse(Facing=1,0.7,0.3)*ScreenWidth - 400*facing , Floor(ScreenHeight * 0.4) + 620
+removetime = -2
+scale = 0.25 * Helper(3016),fvar(3), 0.25 * Helper(3016),fvar(3)
+vel = 0.5 * facing, -0.75
+;supermovetime = 4294967295
+;pausemovetime = 4294967295
+sprpriority = 13
+angle = -35
+ontop = 1
+shadow = 0
+ownpal = 1
+;remappal = 6001, var(2)
+ignorehitpause = 1
+
+;---- Phase 2 End ---------
+
+;---- Phase 3 ----------
+
+[State Clean]
+type = RemoveExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(6050)
+trigger1 = Helper(3016),var(5) = 3
+trigger1 = Helper(3016),var(6) > 0
+ID = 6050
+
+[State Clean]
+type = RemoveExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(6052)
+trigger1 = Helper(3016),var(5) = 3
+trigger1 = Helper(3016),var(6) > 0
+ID = 6052
+
+[State Clean]
+type = RemoveExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(6053)
+trigger1 = Helper(3016),var(5) = 3
+trigger1 = Helper(3016),var(6) > 0
+ID = 6053
+
+[State Clean]
+type = RemoveExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(7000)
+trigger1 = Helper(3016),var(5) = 3
+trigger1 = Helper(3016),var(6) > 0
+ID = 7000
+
+[State Clean]
+type = RemoveExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(7001)
+trigger1 = Helper(3016),var(5) = 3
+trigger1 = Helper(3016),var(6) > 0
+ID = 7001
+
+[State Clean]
+type = RemoveExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(6055)
+trigger1 = Helper(3016),var(5) = 3
+trigger1 = Helper(3016),var(6) > 0
+ID = 6055
+
+[State Clean]
+type = RemoveExplod
+triggerall = NumHelper(3016)
+triggerall = NumExplod(6057)
+trigger1 = Helper(3016),var(5) = 3
+trigger1 = Helper(3016),var(6) > 0
+ID = 6057
+
+
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = time = 300
+trigger1 = time = 239+180;phase 1 + phase 2
 value = 0
 ctrl = 1

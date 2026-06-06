@@ -1332,6 +1332,39 @@ trigger1 = root,stateno!=[3010,3012]
 type = U
 anim = 9999
 
+[State ScreenRatioVar]
+type = varset
+trigger1 = !time
+fvar(3) = (1.77778 / (ScreenWidth/ScreenHeight))
+
+;---------- Phase ----------
+;Starting in state 3013 and Bringing things together
+[State 4010, Phase 1]
+type = varset
+trigger1 = var(5) = 0
+trigger1 = root,StateNo = 3013
+trigger1 = var(6) := 1
+var(5) = 1
+ignorehitpause = 1
+
+;Itsuwa finishing move
+[State 4010, Phase 2]
+type = varset
+trigger1 = var(5) = 1
+trigger1 = var(6) >= 239
+trigger1 = var(6) := 1
+var(5) = 2
+ignorehitpause = 1
+
+;Fade Out
+[State 4010, Phase 3]
+type = varset
+trigger1 = var(5) = 2
+trigger1 = var(6) >= 180
+trigger1 = var(6) := 1
+var(5) = 3
+ignorehitpause = 1
+
 [State 0, Explod]
 type = Explod
 trigger1 = time = 0
@@ -1438,6 +1471,43 @@ id = 100003
 
 [State 0, Explod]
 type = Explod
+trigger1 = numexplod(100004)=0
+trigger1 = root,stateno = 3013
+trigger1 = var(5) = 2
+trigger1 = var(6) = 148
+anim = 100000
+ID = 100004
+pos = 0,0
+postype = back  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 2,2
+sprpriority = 0
+ontop = 1
+ownpal = 1
+;ignorehitpause =
+;trans = add
+;alpha = time*8, 256-time*8
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,stateno!=3013
+id = 100004
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
 trigger1 = numexplod(100001)=0
 trigger1 = enemy,stateno = 4705
 anim = 100001
@@ -1469,6 +1539,21 @@ trigger1 = enemy,stateno!=[4705,4706]
 id = 100001
 ;ignorehitpause = 
 ;persistent = 
+
+[State 3119, Debug 2]
+type = displaytoclipboard
+trigger1 = 1
+text = "ActSTAT=%d, COUNT=%d"  
+params = var(5),var(6)
+ignorehitpause = 1
+
+;------- Run Counter must put at end--------
+[State 4010, Run Counter]
+type = varadd
+triggerall = root,stateno = 3013
+trigger1 = var(6) < 16777215
+var(6) = 1
+ignorehitpause = 1
 
 
 [State 0, DestroySelf]
