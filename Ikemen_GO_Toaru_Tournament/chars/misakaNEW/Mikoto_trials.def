@@ -430,6 +430,41 @@ trialstep.3.text = Air Down Kick
 trialstep.3.glyphs = _D^C
 trialstep.3.stateno = 680
 
+;-------------------------------QCB B B jc JC J2C
+
+[TrialDef, Up And Down 2]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.dummylife =
+; trial.playerlife =
+; trial.dummypos =
+; trial.playerpos =
+; trial.showforvarvalpairs = 
+trial.textbox = Some moves are Jump Cancellable! That means you can jump on hit!
+
+trialstep.1.text = Iron Sand Drill Lunge
+trialstep.1.glyphs = _D_DB_B^B
+trialstep.1.stateno = 1300
+
+trialstep.2.text = Iron Sand Drill Overhead
+trialstep.2.glyphs = ^B
+trialstep.2.stateno = 1305
+trialstep.2.hitcount=0
+
+trialstep.3.text = Jump Cancel
+trialstep.3.glyphs = _U
+trialstep.3.stateno = 50
+trialstep.3.hitcount= 0
+
+trialstep.4.text = Air Kick
+trialstep.4.glyphs = ^C
+trialstep.4.stateno = 640
+
+trialstep.5.text = Air Down Kick
+trialstep.5.glyphs = _D^C
+trialstep.5.stateno = 680
 
 ;-------------------------------Air QCF B Run C QCB B B
 
@@ -514,7 +549,7 @@ trial.textbox = Some characters can cancel their throw into Supers or other type
 
 trialstep.1.text = Throw
 trialstep.1.glyphs = _F^X
-trialstep.1.stateno = 800
+trialstep.1.stateno = 810
 trialstep.1.isthrow=true
 
 trialstep.2.text = Elec Ball EX
@@ -537,7 +572,7 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = Some attacks hit the characters on the ground! Sometimes you can even restart a combo after it drops!
+trial.textbox = Some attacks hit the characters on the ground! Sometimes you can even restart a combo after it drops!This one works in corner, might have to run for the physical hits
 
 trialstep.1.text = Low Sweep
 trialstep.1.glyphs = _D^C
@@ -567,10 +602,6 @@ trialstep.6.glyphs = ^C
 trialstep.6.stateno = 240
 
 ;------------------------------ Railgun into Iron Sand Sword EX
-
-;------------------------------ Railgun into Railgun into Railgun
-
-;;------------------------------ QCB C QCF C (corner)
 [TrialDef, Retro Extension]
 
 trial.dummymode = stand
@@ -585,19 +616,18 @@ trial.textbox = Some Level 2 Supers can be cancelled into Level 1 Supers! This l
 
 
 
-trialstep.1.text = Buster Impact
-trialstep.1.glyphs = _D_DB_B^C
-trialstep.1.stateno = 2500
-trialstep.1.isthrow=true
+trialstep.1.text = Railgun
+trialstep.1.glyphs = _B_DB_D _DF _F ^C
+trialstep.1.stateno = 3005
+trialstep.1.ishelper=true
 
-trialstep.2.text = Punch Combo EX
-trialstep.2.glyphs = _D_DF_F^C
-trialstep.2.stateno = 2200
-trialstep.1.isthrow=true
+trialstep.2.text = Iron Sand Sword EX
+trialstep.2.glyphs = _D_DB_B^C
+trialstep.2.stateno = 2100
 
-;------------------------------ HCF A EX DP
 
-[TrialDef, Retro Extension 2]
+;------------------------------ Railgun into Railgun into Railgun
+[TrialDef, Do You Know What A Railgun Is?]
 
 trial.dummymode = stand
 trial.guardmode = none
@@ -607,126 +637,33 @@ trial.dummybuttonjam = none
 ; trial.dummypos =
 ; trial.playerpos =
 ; trial.showforvarvalpairs = 
-trial.textbox = Some Level 2 Supers can be cancelled into Level 1 Supers! This lets you extend the combo thanks to the more varied Level 1 cancels!  Hand Of Glory is unblockable in the air!
+trial.textbox = Some Level 2 Supers can be cancelled into other Level 2 Supers!
 
 
 
-trialstep.1.text = Hand Of Glory
-trialstep.1.glyphs = _B_DB_D_DF_F^A
-trialstep.1.stateno = 2400
+trialstep.1.text = Railgun
+trialstep.1.glyphs = _B_DB_D _DF _F ^C
+trialstep.1.stateno = 3005
 trialstep.1.ishelper=true
 
-trialstep.2.text = Rising Breaker EX
-trialstep.2.glyphs = _F_DF_F^C
-trialstep.2.stateno = 2000
-
-
-;------------------------------ QCB C HCF C (corner)
-;[TrialDef, Hyper Cancel]
-
-;trial.dummymode = stand
-;trial.guardmode = none
-;trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-;trial.textbox = Some cancels aren't instant but need the timing to be right! Aim your punch carefully!
-
-
-
-;trialstep.1.text = Buster Impact
-;trialstep.1.glyphs = _D_DB_B^C
-;trialstep.1.stateno = 2500
-;trialstep.1.isthrow=true
-
-;trialstep.2.text = SoGeBu
-;trialstep.2.glyphs = _B_DB_D_DF_F^C
-;trialstep.2.stateno = 3001
-;trialstep.2.isthrow=true
-
-;------------------------------ HCF B (counter jam C)
-
-[TrialDef, Armored Moves]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = c
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = This Hyper has armor! It is well used in corner or when the enemy gets up!
-
-
-
-trialstep.1.text = First Comes Rock
-trialstep.1.glyphs = _B_DB_D_DF_F^B
-trialstep.1.stateno = 2300
-
-
-
-
-;------------------------------ HCF A Good Luck HCF A HCF C
-[TrialDef, Heat Mode!]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = In Hard Luck!! (Blue), use 3 bars or more to go into a heat mode, or Good Luck!! when you have low health! This lets you use more meter than you would be otherwise and unlocks special moves! Time the SoGeBu well!
-
-
-
-trialstep.1.text = Hand Of Glory
-trialstep.1.glyphs = _B_DB_D_DF_F^A
-trialstep.1.stateno = 2400
-trialstep.1.ishelper=true
-
-trialstep.2.text = Heat Mode
-trialstep.2.glyphs = ^Y
-trialstep.2.stateno = 6667
+trialstep.2.text = Railgun
+trialstep.2.glyphs = _B_DB_D _DF _F ^C
+trialstep.2.stateno = 3005
 trialstep.2.ishelper=true
+trialstep.2.hitcount=2
 
-trialstep.3.text = Hand Of Glory
-trialstep.3.glyphs = _B_DB_D_DF_F^A
-trialstep.3.stateno = 2400
+trialstep.3.text = Railgun
+trialstep.3.glyphs = _B_DB_D _DF _F ^C
+trialstep.3.stateno = 3005
+trialstep.3.hitcount=2
 trialstep.3.ishelper=true
 
-trialstep.4.text = SoGeBu
-trialstep.4.glyphs = _B_DB_D_DF_F^C
-trialstep.4.stateno = 3001
-trialstep.4.isthrow=true
-
-;------------------------------ HCB C ( Counter)
-[TrialDef, It's gonna ring a little!]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = a
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = In Hard Luck!! (Blue), use 3 bars or more to go into a heat mode! You unlock the Weakest Punch Counter! 
 
 
 
-trialstep.1.text = Weakest Punch Counter
-trialstep.1.glyphs = _F_DF_D_DB_B^C
-trialstep.1.stateno = 3205
-;trialstep.1.iscounterhit=true
-trialstep.1.hitcount=0
 
 
-;------------------------------ A B C Rekka A Rekka B DP C j2C Divekick B Rekka A
+;------------------------------ FF C QCB B B FF C QCB B B
 [TrialDef, Corner Loop]
 
 trial.dummymode = stand
@@ -739,251 +676,46 @@ trial.dummybuttonjam = none
 ; trial.showforvarvalpairs = 
 trial.textbox = You will be pushed away from the corner if the combo is too long!
 
-trialstep.1.text = punch
-trialstep.1.glyphs = ^A
-trialstep.1.stateno = 200
+trialstep.1.text = Running Slide
+trialstep.1.glyphs = _F_F^C
+trialstep.1.stateno = 370
 
-trialstep.2.text = tackle
-trialstep.2.glyphs = ^B
-trialstep.2.stateno = 215
+trialstep.2.text = Iron Sand Drill Lunge
+trialstep.2.glyphs = _D_DB_B^B
+trialstep.2.stateno = 1300
 
-trialstep.3.text = kick
-trialstep.3.glyphs = ^C
-trialstep.3.stateno = 225
+trialstep.3.text = Iron Sand Drill Overhead
+trialstep.3.glyphs = ^B
+trialstep.3.stateno = 1305
+trialstep.3.hitcount=0
 
-trialstep.4.text = Opening Punch
-trialstep.4.glyphs = _D_DF_F^A
-trialstep.4.stateno = 1000
+trialstep.4.text = Running Slide
+trialstep.4.glyphs = _F_F^C
+trialstep.4.stateno = 370
 
-trialstep.5.text = Follow Up Punch
-trialstep.5.glyphs = ^A
-trialstep.5.stateno = 1050
+trialstep.5.text = Iron Sand Drill Lunge
+trialstep.5.glyphs = _D_DB_B^B
+trialstep.5.stateno = 1300
 
-trialstep.6.text = Final Punch
-trialstep.6.glyphs = ^A
-trialstep.6.stateno = 1125
+trialstep.6.text = Iron Sand Drill Overhead
+trialstep.6.glyphs = ^B
+trialstep.6.stateno = 1305
+trialstep.6.hitcount=0
 
-trialstep.7.text = Gut Punch Combo 1
-trialstep.7.glyphs = _D_DF_F^B
-trialstep.7.stateno = 1250
+trialstep.7.text = Running Slide
+trialstep.7.glyphs = _F_F^C
+trialstep.7.stateno = 370
 
-trialstep.8.text = Gut Punch Combo 2
-trialstep.8.glyphs = ^B
-trialstep.8.stateno = 1251
+trialstep.8.text = Iron Sand Drill Lunge
+trialstep.8.glyphs = _D_DB_B^B
+trialstep.8.stateno = 1300
 
-trialstep.9.text = Gut Punch Combo 3
+trialstep.9.text = Iron Sand Drill Overhead
 trialstep.9.glyphs = ^B
-trialstep.9.stateno = 1252
-
-trialstep.10.text = Rising Breaker EX
-trialstep.10.glyphs = _F_DF_F^C
-trialstep.10.stateno = 2000
-
-trialstep.11.text = Air Down Kick
-trialstep.11.glyphs = _D^C
-trialstep.11.stateno = 630
-
-trialstep.12.text = Divekick
-trialstep.12.glyphs = _D_DB_B^A
-trialstep.12.stateno = 1700
-
-trialstep.13.text = Opening Punch
-trialstep.13.glyphs = _D_DF_F^A
-trialstep.13.stateno = 1000
-
-trialstep.14.text = Follow Up Punch
-trialstep.14.glyphs = ^A
-trialstep.14.stateno = 1050
-
-trialstep.15.text = Final Punch
-trialstep.15.glyphs = ^A
-trialstep.15.stateno = 1125
-
-trialstep.16.text = Gut Punch Combo 1
-trialstep.16.glyphs = _D_DF_F^B
-trialstep.16.stateno = 1250
-
-trialstep.17.text = Gut Punch Combo 2
-trialstep.17.glyphs = ^B
-trialstep.17.stateno = 1251
-
-trialstep.18.text = Gut Punch Combo 3
-trialstep.18.glyphs = ^B
-trialstep.18.stateno = 1252
+trialstep.9.stateno = 1305
+trialstep.9.hitcount=0
 
 
-
-
-;------------------------------ A B B DPA jC j2C Air Dash j2C Run B B 
-
-[TrialDef, Corner Carry]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = This loop works everywhere. You might have to run after landing to catch with the tackle.
-
-trialstep.1.text = tackle
-trialstep.1.glyphs = ^B
-trialstep.1.stateno = 215
-
-trialstep.2.text = uppercut
-trialstep.2.glyphs = ^B
-trialstep.2.stateno = 220
-
-trialstep.3.text = Jump Cancel
-trialstep.3.glyphs = _U
-trialstep.3.stateno = 40
-trialstep.3.hitcount= 0
-
-trialstep.4.text = Air Jab
-trialstep.4.glyphs = ^A
-trialstep.4.stateno = 600
-
-trialstep.5.text = Air Knee
-trialstep.5.glyphs = ^B
-trialstep.5.stateno = 610
-
-trialstep.6.text = Air Kick
-trialstep.6.glyphs = ^C
-trialstep.6.stateno = 620
-
-trialstep.7.text = Air Down Kick
-trialstep.7.glyphs = _D^C
-trialstep.7.stateno = 630
-
-trialstep.8.text = Air Dash
-trialstep.8.glyphs = _F_F
-trialstep.8.stateno = 110
-trialstep.8.hitcount= 0
-
-trialstep.9.text = Air Down Kick
-trialstep.9.glyphs = _D^C
-trialstep.9.stateno = 630
-
-
-trialstep.10.text = tackle
-trialstep.10.glyphs = ^B
-trialstep.10.stateno = 215
-
-trialstep.11.text = uppercut
-trialstep.11.glyphs = ^B
-trialstep.11.stateno = 220
-
-
-;---------------------------------------------
-[TrialDef, Command Grab Loop]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-; trial.playerlife =
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = This is the command grab loop
-
-trialstep.1.text = command grab
-trialstep.1.glyphs = _F_D_DF^X
-trialstep.1.stateno = 1810
-trialstep.1.isthrow = true
-
-trialstep.2.text = punch
-trialstep.2.glyphs = _F^C
-trialstep.2.stateno = 230
-trialstep.2.isthrow=true
-
-trialstep.3.text = lunge
-trialstep.3.glyphs = _D_DB_B^B
-trialstep.3.stateno = 1650
-trialstep.3.hitcount = 0
-
-trialstep.4.text = command grab
-trialstep.4.glyphs = _F_D_DF^X
-trialstep.4.stateno = 1810
-trialstep.4.isthrow = true
-
-trialstep.5.text = punch
-trialstep.5.glyphs = _F^C
-trialstep.5.stateno = 230
-
-trialstep.6.text = lunge
-trialstep.6.glyphs = _D_DB_B^B
-trialstep.6.stateno = 1650
-trialstep.6.hitcount = 0
-
-trialstep.7.text = command grab
-trialstep.7.glyphs = _F_D_DF^X
-trialstep.7.stateno = 1810
-trialstep.7.isthrow = true
-
-trialstep.8.text = punch
-trialstep.8.glyphs = _F^C
-trialstep.8.stateno = 230
-
-trialstep.9.text = lunge
-trialstep.9.glyphs = _D_DB_B^B
-trialstep.9.stateno = 1650
-trialstep.9.hitcount = 0
-
-trialstep.10.text = command grab
-trialstep.10.glyphs = _F_D_DF^X
-trialstep.10.stateno = 1810
-trialstep.10.isthrow = true
-
-trialstep.11.text = punch
-trialstep.11.glyphs = _F^C
-trialstep.11.stateno = 230
-
-trialstep.12.text = lunge
-trialstep.12.glyphs = _D_DB_B^B
-trialstep.12.stateno = 1650
-trialstep.12.hitcount = 0
-
-;------------------------------ Bnb OHKO 3306
-[TrialDef, Illusion Broken!]
-
-trial.dummymode = stand
-trial.guardmode = none
-trial.dummybuttonjam = none
-; trial.dummylife =
-trial.playerlife = 1
-; trial.dummypos =
-; trial.playerpos =
-; trial.showforvarvalpairs = 
-trial.textbox = Go in Heat Mode when you have low health for Good Luck!! You unlock the One Hit KO move! 
-
-trialstep.1.text = Rising Breaker 
-trialstep.1.glyphs = _F_DF_F^A
-trialstep.1.stateno = 1500
-
-trialstep.2.text = Air Kick
-trialstep.2.glyphs = ^C
-trialstep.2.stateno = 620
-
-trialstep.3.text = Air Down Kick
-trialstep.3.glyphs = _D^C
-trialstep.3.stateno = 630
-
-trialstep.4.text = Air Dash
-trialstep.4.glyphs = _F_F
-trialstep.4.stateno = 110
-trialstep.4.hitcount= 0
-
-trialstep.5.text = Air Down Kick
-trialstep.5.glyphs = _D^C
-trialstep.5.stateno = 630
-
-trialstep.6.text = God's SYSTEM
-trialstep.6.glyphs = _F_DF_D_DB_B^X
-trialstep.6.stateno = 3300
-trialstep.6.isthrow=true
 
 
 ; TrialDef Parameter Descriptions

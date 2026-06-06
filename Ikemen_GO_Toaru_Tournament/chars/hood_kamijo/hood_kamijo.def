@@ -19,6 +19,7 @@
 	cns      = Kamijo.cns
 	stcommon = common.cns
 	Movelist = NTTouma_Movelist.dat
+	trials = NTTouma_trials.def
 
 	st       = Kamijo.cns
 	st1      = Kamijo_N.cns
