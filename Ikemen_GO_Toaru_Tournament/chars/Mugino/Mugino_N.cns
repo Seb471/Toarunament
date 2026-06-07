@@ -2457,9 +2457,9 @@ ignorehitpause =1
 
 [State ]
 Type = HitDef
-Trigger1 = P2MoveType != H || P2StateNo = [120,159]
+Trigger1 = 1; P2MoveType != H || P2StateNo = [120,159]
 Attr = S, NT
-HitFlag = A-
+HitFlag = AF
 Priority = 1, Miss
 HitSound = s1,5
 SprPriority = 3

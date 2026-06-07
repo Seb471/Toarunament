@@ -972,6 +972,7 @@ type = HitOverRide
 trigger1 = IsHelper(8000)
 attr = SCA,AP,AA
 stateno = 8041
+ignorehitpause=1
 
 [State 6410, 0]; 本体が反射パートを過ぎたら消滅
 type = DestroySelf
@@ -982,9 +983,9 @@ trigger2=parent,movetype=H
 
 [State 6410, 0]; 本体が反射パートを過ぎたら消滅
 type = DestroySelf
-triggerall=root,stateno=1102
-triggerall=root,stateno=1112
-trigger1=parent,movetype=H
+trigger1=root,stateno=1102 && time>=10
+trigger2=root,stateno=1112 && time>=15
+
 
 
 [State 6410, 0]
@@ -1005,6 +1006,12 @@ sprpriority = 10
 		type = AssertSpecial
 		trigger1 = 1
 		flag = Noshadow
+
+[State 6410, 0]; 飛び道具以外無敵
+type = NotHitBy
+trigger1 =1
+value = SCA
+time = 1
 
 [State 0, ParentVarAdd]
 type = ParentVarAdd
@@ -1060,7 +1067,7 @@ ctrl = 0
 		type = HitDef
 		triggerall = !moveGuarded && !moveReversed
 		trigger1 = hitCount < 1
-		trigger1 = time >= 5
+		trigger1 = time >= 3
 		attr = S, HP
 		damage = Ceil(var(8)),10
 		getpower = 0

@@ -89,6 +89,9 @@ Mugino:
 	Fix Moog balls staying after dash cancelling laser X
 	Add guard break effect to moog 6C X
 	Make air B hit better on jumpins X
+	Make anti air command grab work in combos X
+	Improve B Grab and EX Grab when close 
+	Make EX Grab change anim when it grabs otg
 
 Tsuchi:
 	Add more recovery on tsuchi crouch shots X
@@ -146,3 +149,8 @@ Lola:
 
 Stiyl
 	Fix his mirage on the corner x
+
+Accel Sisters:
+	Fix leftover reflect X
+	Improved DP Reflect X
+

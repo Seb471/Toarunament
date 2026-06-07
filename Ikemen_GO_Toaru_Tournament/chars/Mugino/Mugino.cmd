@@ -925,7 +925,7 @@ triggerall = command != "holddown"
 trigger1 = statetype !=A
 trigger1 = ctrl
 Trigger2 = StateNo = 200 && var(1) 
-trigger3=(stateno=100 && time>13) || (stateno=101)
+trigger3=(stateno=100 && time>11) || (stateno=101)
 
 ;Standing Jab
 [State -1, Standing Jab]
@@ -937,7 +937,7 @@ trigger1 = statetype !=A
 trigger1 = ctrl
 Trigger2 = StateNo = 200 && (var(1) || animelemtime(4)>=0)
 Trigger3 = StateNo = 205 && var(1)
-trigger4=(stateno=100 && time>13) || (stateno=101)
+trigger4=(stateno=100 && time>11) || (stateno=101)
 
 
 ;---------------------------------------------------------------------------
@@ -954,7 +954,7 @@ trigger1 = statetype !=A
 trigger1 = ctrl
 trigger2 = (stateno = 200) && var(1)
 Trigger3 = StateNo = 205 && var(1)
-trigger4=(stateno=100 && time>13) || (stateno=101)
+trigger4=(stateno=100 && time>11) || (stateno=101)
 
 
 ;Standing Knee
@@ -967,7 +967,7 @@ trigger1 = statetype !=A
 trigger1 = ctrl
 Trigger2 = StateNo = 200 && var(1)
 Trigger3 = StateNo = 205 && var(1)
-trigger4=(stateno=100 && time>13) || (stateno=101)
+trigger4=(stateno=100 && time>11) || (stateno=101)
 
 
 [State -1, Step On]
@@ -985,7 +985,7 @@ trigger4 = (stateno = 215) && var(1)
 trigger5 = (stateno = 205) && var(1)
 trigger6 = (stateno = 420) && var(1)
 trigger7 = (stateno = 1550) && var(1)
-trigger8=(stateno=100 && time>13) || (stateno=101)
+trigger8=(stateno=100 && time>11) || (stateno=101)
 trigger9=stateno=810 && var(1)
 trigger10=stateno=840 && var(1)
 
@@ -1012,7 +1012,7 @@ trigger2 = (stateno = 200) && var(1)
 trigger3 = (stateno = 210) && var(1)
 trigger4 = (stateno = 215) && var(1)
 trigger5 = (stateno = 205) && var(1)
-trigger6=(stateno=100 && time>13) || (stateno=101)
+trigger6=(stateno=100 && time>11) || (stateno=101)
 
 ;High Kick
 [State -1, High Kick]
