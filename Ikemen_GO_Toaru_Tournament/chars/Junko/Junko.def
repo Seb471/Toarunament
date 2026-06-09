@@ -24,6 +24,7 @@ st5= Junko_Ex.cns
 st6= Junko_Helper.cns
 stcommon = common.cns      ;Common states (from data/ or motif)
 movelist = Junko_Movelist.dat
+trials= Junko_trials.def
 sprite  = Junko.sff           ;Sprite
 anim    = Junko.air           ;Animation
 sound   = Junko.snd           ;Sound
