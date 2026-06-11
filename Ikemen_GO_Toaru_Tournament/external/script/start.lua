@@ -4859,6 +4859,16 @@ function start.f_trialsDummySetup()
 		elseif start.trials.trial[start.trials.currenttrial].buttonjam == 'w' then
 			charMapSet(2, '_iksys_trialsButtonJam', 9)
 		end
+		-- additional code
+		if start.trials.trial[start.trials.currenttrial].distance == 'any' then
+			charMapSet(2, '_iksys_trialsDistance', 0)
+		elseif start.trials.trial[start.trials.currenttrial].distance == 'close' then
+			charMapSet(2, '_iksys_trialsDistance', 1)
+		elseif start.trials.trial[start.trials.currenttrial].distance == 'medium' then
+			charMapSet(2, '_iksys_trialsDistance', 2)
+		elseif start.trials.trial[start.trials.currenttrial].distance == 'far' then
+			charMapSet(2, '_iksys_trialsDistance', 3)
+		end
 		start.trials.trial[start.trials.currenttrial].active = true
 	end
 end
@@ -5436,6 +5446,8 @@ function start.f_trialsSuccess(successstring, index)
 	charMapSet(2, '_iksys_trialsDummyMode', 0)
 	charMapSet(2, '_iksys_trialsGuardMode', 0)
 	charMapSet(2, '_iksys_trialsButtonJam', 0)
+	-- additional code
+	charMapSet(2, '_iksys_trialsDistance', 0)
 	if not start.trials.trial[index].complete or (successstring == "allclear" and not start.trials.allclear) then
 		-- Play sound only once
 		sndPlay(motif.files.snd_data, motif.trials_mode[successstring .. '_snd'][1], motif.trials_mode[successstring .. '_snd'][2])
@@ -5642,6 +5654,9 @@ for row = 1, #main.t_selChars, 1 do
 				trial[i].dummymode = f_trimafterchar(lcline, "=")
 			elseif lcline:find("guardmode") then
 				trial[i].guardmode = f_trimafterchar(lcline, "=")
+			--additional code
+			elseif lcline:find("distance") then
+				trial[i].distance = f_trimafterchar(lcline, "=")
 			elseif lcline:find("dummybuttonjam") then
 				trial[i].buttonjam = f_trimafterchar(lcline, "=")
 			elseif lcline:find("playerlife") then
