@@ -98,6 +98,7 @@ PauseMoveTime = 9999
 [State 0, Helper]
 type = Helper
 triggerall = animelem = 3
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -105,23 +106,6 @@ name = "water"
 ID = 240120
 stateno = 24012
 pos = ifelse(p2dist x >= 100 && p2dist x <= 200, p2dist x, 100),0
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 1
-supermovetime = 0
-pausemovetime = 0
-
-[State 0, Helper]
-type = Helper
-triggerall = animelem = 3
-trigger1 = var(21) = 1
-trigger2 = var(21) = 5
-helpertype = normal ;player
-name = "fire"
-ID = 240110
-stateno = 24011
-pos = ifelse(p2dist x >= 100 && p2dist x <= 200, p2dist x, 100),-enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -276,6 +260,25 @@ PauseMoveTime = 9999
 [State 0, Helper]
 type = Helper
 triggerall = animelem = 4
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240123
+stateno = 24012
+pos = ifelse(p2dist x >= 100 && p2dist x <= 300, p2dist x, 200),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 4
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -374,6 +377,20 @@ Type = PosSet
 Trigger1 = time = 0
 y = 0
 
+[State 1210, Helper]
+type = Helper
+trigger1 =animelem=1
+helpertype = normal ;player
+name ="slash"
+ID =1055
+stateno =1055
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
 [State 1210, Hit]
 type=hitdef
 triggerall=!movecontact && !movereversed
@@ -450,6 +467,43 @@ name = "super atmosphere high"
 ID = 240144
 stateno = 24014
 pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = prevstateno = 1000
+triggerall = animelem = 5
+trigger1 = var(21) = 1
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "fire"
+ID = 240110
+stateno = 24011
+pos = ifelse(p2dist x >= 0 && p2dist x <= 200, p2dist x, 200),-enemyNear,const(size.height)
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = prevstateno = 1000
+triggerall = animelem = 5
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240123
+stateno = 24012
+pos = ifelse(p2dist x >= 0 && p2dist x <= 200, p2dist x, 200),0
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -542,6 +596,26 @@ poweradd = fvar(11)
 Type=VarSet
 Trigger1=time=0
 var(1)=0
+
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 3
+value = 30, 4
+channel = 1
+
+[State 220, Helper]
+type = Helper
+trigger1 =animelem=4
+helpertype = normal ;player
+name ="slash"
+ID =1105
+stateno =1105
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 220, Hit]
 type=hitdef
@@ -766,6 +840,26 @@ Type=VarSet
 Trigger1=time=0
 var(1)=0
 
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 8
+value = 30, 4
+channel = 1
+
+[State 220, Helper]
+type = Helper
+trigger1 =animelem=9
+helpertype = normal ;player
+name ="slash"
+ID =1105
+stateno =1105
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
 [State 220, Hit]
 type=hitdef
 triggerall=target(1025),stateno!=1028
@@ -935,7 +1029,26 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
+triggerall = animelem = 13
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240123
+stateno = 24012
+pos = ifelse(p2dist x <= 100, p2dist x, 100),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
 triggerall = animelem = 4
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1010,6 +1123,31 @@ var(1)=0
 		fvar(10)= 0.18*ifelse(fVar(11) < 30,1,.5)
 		persistent = 0
  		ignorehitpause = 1
+
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 5
+value = 30, 4
+channel = 1
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 5
+value = 1105, 0
+channel = 10
+
+[State 1400, Helper]
+type = Helper
+trigger1 =animelem=5
+helpertype = normal ;player
+name ="slash"
+ID =1205
+stateno =1205
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 1400, Hit]
 type=hitdef
@@ -1137,6 +1275,25 @@ PauseMoveTime = 9999
 [State 0, Helper]
 type = Helper
 triggerall = animelem = 3
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240123
+stateno = 24012
+pos = 0,-pos y
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 3
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1224,6 +1381,31 @@ var(1)=0
 		fvar(10)= 0.30*ifelse(fVar(11) < 30,1,.5)
 		persistent = 0
  		ignorehitpause = 1
+
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 5
+value = 30, 4
+channel = 1
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 5
+value = 1105, 0
+channel = 10
+
+[State 1400, Helper]
+type = Helper
+trigger1 =animelem=5
+helpertype = normal ;player
+name ="slash"
+ID =1205
+stateno =1205
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 1400, Hit]
 type=hitdef
@@ -1439,6 +1621,23 @@ type = PosSet
 trigger1 = 1
 y = 0
 
+[State 1404, Landing Dust Explod]
+type = Explod
+trigger1 = !Time
+anim = 8102
+sprPriority = -3
+posType = P1
+pos = ceil(15 * const(size.xScale)),0;ceil(23 * const(size.yScale))
+scale = 0.75,0.75
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 1404, Landing Sound]
+type = PlaySnd
+trigger1 = !Time
+value = 1121,0
+
 [State 1404, EnvShake]
 type = EnvShake
 trigger1 = time=0
@@ -1544,6 +1743,25 @@ pausemovetime = 0
 [State 0, Helper]
 type = Helper
 triggerall = animelem = 2
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240123
+stateno = 24012
+pos = ifelse(p2dist x <= 200, p2dist x, 200),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 2
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1580,6 +1798,23 @@ pausemovetime = 0
 type = PosSet
 trigger1 = 1
 y = 0
+
+[State 1404, Landing Dust Explod]
+type = Explod
+trigger1 = !Time
+anim = 8102
+sprPriority = -3
+posType = P1
+pos = ceil(15 * const(size.xScale)),0;ceil(23 * const(size.yScale))
+scale = 0.75,0.75
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 1404, Landing Sound]
+type = PlaySnd
+trigger1 = !Time
+value = 1121,0
 
 [State 1404, EnvShake]
 type = EnvShake
@@ -1636,6 +1871,20 @@ var(1)=0
 		Trigger1=AnimElemTime(3)<0
 		value=SCA
 		Time=1
+
+[State 3311, Helper]
+type = Helper
+trigger1 =animelem=3
+helpertype = normal ;player
+name ="slash"
+ID =1305
+stateno =1305
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 	[State 1500,Hitdef]
 		Type=HitDef
@@ -1820,7 +2069,28 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
+triggerall = animelemtime(7) > 0
+triggerall = pos y > -30
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240123
+stateno = 24012
+pos = ifelse(p2dist x <= 100, p2dist x, 100),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+persistent = 0
+
+[State 0, Helper]
+type = Helper
 triggerall = animelem = 2
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1938,6 +2208,34 @@ var(1)=0
 		fvar(10)= 0.20
 		persistent = 0
  		ignorehitpause = 1
+
+[State 3300, Helper]
+type = Helper
+trigger1 =animelem=3
+helpertype = normal ;player
+name ="initial slash"
+ID =1315
+stateno =1315
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
+[State 3311, Helper]
+type = Helper
+trigger1 =animelem=11
+helpertype = normal ;player
+name ="slash"
+ID =1305
+stateno =1305
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 920, ƒqƒbƒg’è‹`]
 type = HitDef
@@ -2192,7 +2490,26 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
+triggerall = animelem = 6
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240123
+stateno = 24012
+pos = ifelse(p2dist x <= 100, p2dist x, 100),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
 triggerall = animelem = 1
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -2371,7 +2688,6 @@ value = 1
 [State 0, Helper]
 type = Helper
 triggerall = animelemtime(8) = 15
-triggerall = var(26) = 1
 trigger1 = var(21) = 4
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -2389,7 +2705,6 @@ pausemovetime = 0
 [State 0, Helper]
 type = Helper
 triggerall = animelemtime(8) = 5
-triggerall = var(26) = 1
 trigger1 = var(21) = 4
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -2436,11 +2751,11 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 3
+trigger1 = animelem = 8
 trigger1 = var(21) = 2
 helpertype = normal ;player
-name = "water"
-ID = 240121
+name = "super water"
+ID = 240123
 stateno = 24012
 pos = ifelse(p2dist x <= 200, p2dist x, 200),0
 postype = p1    ;p2,front,back,left,right
@@ -2452,7 +2767,7 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 3
+trigger1 = animelem = 8
 trigger1 = var(21) = 1
 helpertype = normal ;player
 name = "fire"
@@ -2639,6 +2954,102 @@ v = 22
 value = 1
 ;ignorehitpause = 
 ;persistent = 
+
+[State 0, Helper]
+type = Helper
+triggerall = animelemtime(3) = 15
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere high"
+ID = 240144
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelemtime(3) = 5
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere low"
+ID = 240143
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 3
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "atmosphere"
+ID = 240140
+stateno = 24014
+pos = 25,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+trigger1 = var(21) = 3
+helpertype = normal ;player
+name = "earth"
+ID = 24013
+stateno = 24013
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 3
+trigger1 = var(21) = 2
+helpertype = normal ;player
+name = "super water"
+ID = 240123
+stateno = 24012
+pos = ifelse(p2dist x <= 200, p2dist x, 200),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 3
+trigger1 = var(21) = 1
+helpertype = normal ;player
+name = "fire"
+ID = 240111
+stateno = 24011
+pos = ifelse(p2dist x <= 200, p2dist x, 200),-enemyNear,const(size.height)
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
 
 [State 1010, Hit]
 type = hitdef

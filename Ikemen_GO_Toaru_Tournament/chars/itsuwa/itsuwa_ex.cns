@@ -372,6 +372,440 @@ trigger1 = !animtime
 value = 0
 ctrl = 1
 
+;grab attempt
+[Statedef 800]
+Type=S
+MoveType=I
+PhySics=S
+velset=0,0
+Ctrl=0
+Anim=800
+sprPriority=2
+
+[State 800,v1=0]
+Type=varSet
+Trigger1=Time=0
+var(1)=0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 2
+movetype = A        ;I,A,H
+;ignorehitpause = 
+;persistent = 
+
+[State 800,AttackDist]
+Type=AttackDist
+Trigger1=!IsHelper
+value=0
+IgnoreHitPause=1
+
+[State 800,hitdef]
+Type=HitDef
+Trigger1 = P2MoveType != H || P2StateNo = [120,159]
+Trigger1 = P2BodyDist X = [-45,45]
+Trigger1=!MoveContAct
+Trigger1=!MoveReversed
+Attr=S,NT
+Hitflag=M-
+Priority=1,Miss
+SparkNo=-1
+P1sprPriority=1
+P1facing=cond(command="holdback",-1,1)
+P2facing=1
+P1StateNo=810
+Guard.Dist=0
+fall=1
+
+[State 800,End]
+Type=changeState
+Trigger1=AnimTime=0
+value=0
+Ctrl=1
+
+;==================================================================
+; Teched Going Back - attacker state
+[Statedef 805]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 =  time = 0
+channel = -1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, TargetState]; faz o techador entrar no state do tech
+type = TargetState
+trigger1 = time = 0
+value = 806
+
+[State 200, PlaySnd];som de grito(?)
+type = PlaySnd
+trigger1 = time = 0
+value = 0,14
+
+	[State 3501,Hit Explod]
+		Type=Explod
+		Trigger1=time = 0
+		Anim=20026
+		Pos=0,0
+		bindTime=-1
+		PosType=back
+		sprPriority=-1
+		SuperMoveTime=30
+		PauseMoveTime=30
+		Persistent=0
+ 		ignorehitpause = 1
+
+	[State 3000,????]
+		Type=envColor
+		Trigger1= time = 0
+		value=0,0,0
+		Time=13
+		under=1
+		Persistent=0
+ 		ignorehitpause = 1
+
+[State 150, 1];anima?o
+type = ChangeAnim
+trigger1 = 1
+value = 120
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 9
+x = -6
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 14
+x = -3
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 17
+x = -1.5
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 21
+x = 0
+
+[State 0, ChangeState]
+type = selfState
+trigger1 = time = 30
+value = 0
+ctrl = 1
+
+;==================================================================================
+; Throw Escape - victim state
+[Statedef 806]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+poweradd = 0                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 0, ChangeAnim2]
+type = ChangeAnim
+trigger1 = 1
+value = 120
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, PosSet];fique no ch? agora
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 9
+x = -6
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 14
+x = -3
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 17
+x = -1.5
+
+[State 0, VelSet];pushback
+type = VelSet
+trigger1 = time = 21
+x = 0
+
+[State 200, 3]; vai pro state 0 e faz tudo voltar ao normal (n?)
+type = selfState
+trigger1 = time = 33
+value = 0
+ctrl = 1
+
+;============================================
+
+;Throw
+[Statedef 810]
+type = S
+physics = N
+moveType = A
+anim = 810
+ctrl = 0
+velSet = 0,0
+sprPriority = 1
+
+[State 810, Guard Dist]
+type=attackdist
+trigger1= 1
+value=0
+
+[State 810, Lost Target]
+type = ChangeState
+trigger1 = !Time && !NumTarget
+value = 0
+ctrl = 1
+
+[State 810, Throw]
+type = TargetState
+trigger1 = !Time && NumTarget
+value = 815
+
+[State 810, Throw]
+type = TargetFacing
+trigger1 = !Time && NumTarget
+value = -1
+
+[State 810, Width]
+type = Width
+trigger1 = AnimElemTime(6) < 0
+edge = 64,0
+ignoreHitPause = 1
+
+[State 810, PosAdd]
+Type = PosSet
+Trigger1 = AnimElemTime(10) >= 0
+y = 0
+
+[State 810, TargetBind 1]
+type = TargetBind
+trigger1 = NumTarget
+trigger1 = AnimElemTime(4) < 0
+pos = 28,0;ceil(83 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 810, TargetBind 2]
+type = TargetBind
+trigger1 = NumTarget
+trigger1 = AnimElemTime(4) >= 0 && AnimElemTime(6) < 0
+pos = 53,0;ceil(160 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 810, Damage 1]
+type = TargetLifeAdd
+trigger1 = NumTarget && AnimElem = 4
+value = -30
+kill = 0
+
+[State 810, Damage 2]
+type = TargetLifeAdd
+trigger1 = NumTarget && AnimElem = 6
+value = -60
+kill = 1
+
+[State 810, TargetPowerAdd]
+type = TargetPowerAdd
+trigger1 = NumTarget && AnimElem = 6
+value = 36
+
+[State 810, Power]
+type = PowerAdd
+trigger1 = NumTarget && AnimElem = 6 && (!var(20)&&!var(53))
+value = 72
+
+[State 810, HitAdd]
+type = HitAdd
+trigger1 = NumTarget && (AnimElem = 4 || AnimElem = 6)
+value = 1
+
+[State 810, Throw]
+type = TargetState
+trigger1 = NumTarget && AnimElem = 6
+value = 816
+
+[State 810, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 810,random%3
+channel = 0
+
+[State 810, Woosh Sound]
+type = PlaySnd
+trigger1= AnimElem = 4
+value = 1,2
+channel = 1
+
+[State 810, Hit Sound]
+type = PlaySnd
+trigger1 = NumTarget && AnimElem = 6
+value = 2,13
+channel = 2
+
+[State 810, Special Sound]
+type = PlaySnd
+trigger1 = NumTarget && AnimElem = 6
+value = 1105,0
+channel = 10
+
+;------------------------------------------------------------------------------------------
+;‰¡‚Á”ò‚ÑŒƒ“Ëƒ{ƒCƒX
+[State -2]
+Type = Helper
+trigger1 =NumTarget && AnimElem = 4
+StateNo = 5605
+PosType = P1
+Pos = 0, 0
+Ownpal = 0
+ID = 5605
+
+[State -2]
+Type = Helper
+TriggerAll = AnimElem = 6
+TriggerAll = P2MoveType = H
+Trigger1 = NumHelper(170000) = 0
+StateNo = 170000
+ID = 170000
+PosType = P1
+Pos = 50,-50
+random = 20,20
+Ownpal = 1
+Persistent = 0
+SprPriority = 5
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 810, EnvShake]
+type = EnvShake
+triggerall=NumTarget
+trigger1=animelem=4
+time = 10
+ampl = 3
+
+[State 810, EnvShake]
+type = EnvShake
+triggerall = NumTarget
+trigger1 = AnimElemTime(6) = 0
+time = 12
+freq = 60
+ampl = 4
+
+[State 810, Weapon]
+Type = Explod
+Trigger1 = AnimElem = 2
+Anim = 811
+Id = 811
+PosType = P1
+pos = 0,0
+Scale = const(size.xScale),const(size.yScale)
+SprPriority = 2
+OwnPal = 0
+BindTime = -1
+ignorehitpause = 1
+shadow = -1
+
+[State 810, Weapon]
+Type = RemoveExplod
+Trigger1 = AnimElem = 13
+Id = 811
+ignorehitpause = 1
+
+[State 0, ChangeState]; confere se o alvo apertou o bot? pra techar, se sim, te leva pro state de tomar o tech
+type = ChangeState
+triggerall = NumTarget;()
+triggerall = time <= 8
+trigger1 = target,AILevel=0
+trigger1 = target, command = "x" && (target, command = "holdfwd" || target,command = "holdback")
+trigger2 = target,AILevel>0
+trigger2 = random <=floor(AILevel*100/1.5)
+value = 805
+ctrl = 0
+
+[State 810, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+
+
+;===========<Forward Throw (TARGET)>==========
+;Being Thrown
+[StateDef 815]
+type = S
+moveType = H
+physics = N
+velSet = 0,0
+sprPriority = 0
+
+[State 815, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+value = 815
+
+[State 815, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+moveCamera = 0,0
+ignoreHitPause = 1
+
+[State 0, SelfState]
+type = SelfState
+trigger1 = animtime=0
+value = 0
+ctrl = 1
+
+
+;After Throw
+[StateDef 816]
+type = L
+physics = N
+movetype = H
+ctrl = 0
+
+[State 816, ChangeAnim]
+type = ChangeAnim
+trigger1 = !Time
+value = 5070
+
+[State 816, End]
+type = SelfState
+trigger1 = animtime = 0
+trigger2 = time >= 23;cutting layline time effect end
+value = 5100
+
 ;charge
 [Statedef 850]
 	type     = S

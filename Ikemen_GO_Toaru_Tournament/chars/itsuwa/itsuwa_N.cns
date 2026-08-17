@@ -15,6 +15,20 @@ Type=VarSet
 Trigger1=time=0
 var(1)=0
 
+[State 200, Helper]
+type = Helper
+trigger1 =animelem=2
+helpertype = normal ;player
+name ="slash"
+ID =300
+stateno =300
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
 [State 0, HitDef]
 type = HitDef
 triggerall=!movecontact && !movereversed
@@ -90,6 +104,12 @@ trigger1 = random%2=0
 trigger1 = Time = 0
 value = 200, 0
 channel = 0
+
+[State 1400, Snd]
+type = playsnd
+trigger1 = time = 0
+value = 30, 2
+channel = 1
 
 
 [State 200,V1=1]
@@ -220,6 +240,26 @@ trigger1 = Time = 0
 value = 210, 0
 channel = 0
 
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 3
+value = 30, 3
+channel = 1
+
+[State 210, Helper]
+type = Helper
+trigger1 =animelem=4
+helpertype = normal ;player
+name ="slash"
+ID =310
+stateno =310
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
 [State 210, Hit]
 type=hitdef
 triggerall=!movecontact && !movereversed
@@ -316,6 +356,26 @@ trigger1 = Time = 0
 value = 220, 0
 channel = 0
 
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 3
+value = 30, 4
+channel = 1
+
+[State 3500, Helper]
+type = Helper
+trigger1 =animelem=4
+helpertype = normal ;player
+name ="slash"
+ID =320
+stateno =320
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
 [State 200, 1]
 type = HitDef
 triggerall=!movecontact && !movereversed
@@ -411,6 +471,12 @@ trigger1 = Time = 0
 value = 420, 0
 channel = 0
 
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 2
+value = 30, 4
+channel = 1
+
 
 [State 200,V1=0]
 		Type=VarSet
@@ -422,6 +488,19 @@ Type = VelSet
 Trigger1 = AnimElem = 1
 x = 6.5
 
+[State 1200, Helper]
+type = Helper
+trigger1 =animelem=3
+helpertype = normal ;player
+name ="slash"
+ID =350
+stateno =350
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 370, hitdef]
 type = HitDef
@@ -512,6 +591,20 @@ channel = 0
 		Trigger1=Time=0
 		value=1,3
 		channel=-1
+
+[State 400, Helper]
+type = Helper
+trigger1 =animelem=2
+helpertype = normal ;player
+name ="slash"
+ID =500
+stateno =500
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 400, Hit]
 type=hitdef
@@ -606,6 +699,20 @@ type = PlaySnd
 trigger1 = Time = 0
 value = 410, 0
 channel = 0
+
+[State 410, Helper]
+type = Helper
+trigger1 =animelem=3
+helpertype = normal ;player
+name ="slash"
+ID =510
+stateno =510
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 410, Hit]
 type=hitdef
@@ -703,6 +810,20 @@ trigger1 = Time = 0
 value = 420, 0
 channel = 0
 
+[State 420, Helper]
+type = Helper
+trigger1 =animelem=4
+helpertype = normal ;player
+name ="slash"
+ID =520
+stateno =520
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
 [State 420, Hit]
 type=hitdef
 triggerall=!movecontact && !movereversed
@@ -797,6 +918,20 @@ channel = 0
 		Trigger1=Time=0
 		value=1,3
 		channel=-1
+
+[State 600, Helper]
+type = Helper
+trigger1 =animelem=2
+helpertype = normal ;player
+name ="slash"
+ID =660
+stateno =660
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 600, 2]
 type = HitDef
@@ -894,6 +1029,20 @@ type = PlaySnd
 trigger1 = Time = 0
 value = 210, 0
 channel = 0
+
+[State 610, Helper]
+type = Helper
+trigger1 =animelem=4
+helpertype = normal ;player
+name ="slash"
+ID =661
+stateno =661
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 600, 2]
 type = HitDef
@@ -993,6 +1142,20 @@ type = PlaySnd
 trigger1 = Time = 0
 value = 410, 0
 channel = 0
+
+[State 620, Helper]
+type = Helper
+trigger1 =animelem=5
+helpertype = normal ;player
+name ="slash"
+ID =662
+stateno =662
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 600, 2]
 type = HitDef

@@ -193,7 +193,25 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
+triggerall = animelem = 10
+triggerall = var(26) = 1
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super earth"
+ID = 24030
+stateno = 24030
+pos = 0,-pos y
+postype = p1
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
 triggerall = animelem = 6
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -286,6 +304,20 @@ Type = PosSet
 Trigger1 = time = 0
 y = 0
 
+[State 1210, Helper]
+type = Helper
+trigger1 =animelem=1
+helpertype = normal ;player
+name ="slash"
+ID =1055
+stateno =1055
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
 [State 1210, Hit]
 type=hitdef
 triggerall=!movecontact && !movereversed
@@ -349,6 +381,24 @@ stateno = 1505
 ownpal = 1
 size.xscale = 0.75
 size.yscale = 0.75
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 14
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240124
+stateno = 24012
+pos = ifelse(p2dist x >= 0 && p2dist x <= 200, p2dist x, 200),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
 
 [State 200,V1=1]
 		Type=VarSet
@@ -423,6 +473,26 @@ PosType = P1
 Ownpal = 1
 SuperMoveTime = 9999
 PauseMoveTime = 9999
+
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 8
+value = 30, 4
+channel = 1
+
+[State 220, Helper]
+type = Helper
+trigger1 =animelem=9
+helpertype = normal ;player
+name ="slash"
+ID =1105
+stateno =1105
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 210, 2]
 type = HitDef
@@ -603,6 +673,23 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
+triggerall = animelem = 8
+triggerall = var(26) = 1
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super earth"
+ID = 24030
+stateno = 24030
+pos = 0,0
+postype = p1
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
 triggerall = animelem = 10
 triggerall = var(26) = 1
 trigger1 = var(21) = 2
@@ -738,6 +825,31 @@ PauseMoveTime = 9999
 		fvar(10)= 0.30*ifelse(fVar(11) < 30,1,.5)
 		persistent = 0
  		ignorehitpause = 1
+
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 14
+value = 30, 4
+channel = 1
+[State 1400, Snd]
+type = playsnd
+trigger1 = animelem = 14
+value = 1105, 0
+channel = 10
+
+[State 3100, Helper]
+type = Helper
+trigger1 =animelem=14
+helpertype = normal ;player
+name ="slash"
+ID =2225
+stateno =2225
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 1400, Hit]
 type=hitdef
@@ -908,6 +1020,25 @@ PauseMoveTime = 9999
 [State 0, Helper]
 type = Helper
 triggerall = animelem = 12
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240124
+stateno = 24012
+pos = 0,-pos y
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 12
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1002,6 +1133,17 @@ time = 10
 ampl = -4
 ignorehitpause =1
 
+[State 1500, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "mini earthquake"
+ID = 1603
+stateno = 1603 
+pos = 15,10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+
 [State 3101, Hit]
 type=hitdef
 triggerall=!movecontact && !movereversed
@@ -1071,12 +1213,22 @@ ownpal = 1
 supermovetime = 0
 pausemovetime = 0
 
-[State 3101, Hit Sparks Pos]
-type = Null
-trigger1 = AnimElem = 2, < 0
-trigger1 = 1||var(35):=ifElse(P2Dist x >= 0, ceil(229*const(size.xScale)), ceil(-128*const(size.xScale)))
-trigger1 = 1||var(36):=ifElse(P2Dist x >= 0, 0, 0)
-ignoreHitPause = 1
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 1
+triggerall = var(26) = 1
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super earth"
+ID = 24030
+stateno = 24030
+pos = 0,0
+postype = p1
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
 
 [State 3101, StateTypeSet: Idle]
 type = StateTypeSet
@@ -1157,6 +1309,48 @@ PosType = P1
 Ownpal = 1
 SuperMoveTime = 9999
 PauseMoveTime = 9999
+
+[State 3300, Helper]
+type = Helper
+trigger1 =animelem=13
+helpertype = normal ;player
+name ="initial slash"
+ID =1315
+stateno =1315
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
+[State 3311, Helper]
+type = Helper
+trigger1 =animelem=21
+helpertype = normal ;player
+name ="slash"
+ID =1305
+stateno =1305
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
+[State 610, Helper]
+type = Helper
+trigger1 =animelem=26
+helpertype = normal ;player
+name ="slash"
+ID =661
+stateno =661
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
 
 [State 920, ƒqƒbƒg’è‹`]
 type = HitDef
@@ -1393,7 +1587,43 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
+triggerall = animelem = 27
+triggerall = var(26) = 1
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super earth"
+ID = 24030
+stateno = 24030
+pos = 0,-pos y
+postype = p1
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 29
+triggerall = var(26) = 1
+trigger1 = var(21) = 2
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super water"
+ID = 240124
+stateno = 24012
+pos = ifelse(p2dist x <= 100, p2dist x, 100),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
 triggerall = animelem = 11
+triggerall = var(26) = 0
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1512,7 +1742,7 @@ var(1)=0
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = time = 0
-time = 30
+time = 50
 movetime = 12
 anim = -1
 sound = -1
@@ -1523,6 +1753,150 @@ poweradd = 0
 unhittable = 1
 ;ignorehitpause = 
 ;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 20
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 25
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 26
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 26
+value = var(25)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = null
+trigger1 = time=0
+v = 22
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 21
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere high"
+ID = 240144
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 21
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super atmosphere low"
+ID = 240143
+stateno = 24014
+pos = 25,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 21
+trigger1 = var(21) = 4
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "atmosphere"
+ID = 240142
+stateno = 24014
+pos = 25,-62.5
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+trigger1 = var(21) = 3
+helpertype = normal ;player
+name = "earth"
+ID = 24013
+stateno = 24013
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 21
+trigger1 = var(21) = 2
+helpertype = normal ;player
+name = "super water"
+ID = 240124
+stateno = 24012
+pos = ifelse(p2dist x <= 200, p2dist x, 200),0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 21
+trigger1 = var(21) = 1
+helpertype = normal ;player
+name = "fire"
+ID = 240111
+stateno = 24011
+pos = ifelse(p2dist x <= 200, p2dist x, 200),-enemyNear,const(size.height)
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
 
 [State 1000, Sekkarou]
 type = Helper
@@ -1542,7 +1916,7 @@ supermovetime = 9999
 [State 0, BGPalFX]
 type = BGPalFX
 trigger1 = time = 0
-time = 30
+time = 50
 add = -256,-256,-256
 ;mul = 256,256,256
 ;sinadd = 0,0,0,10
@@ -1555,7 +1929,7 @@ add = -256,-256,-256
 Type = Helper
 Trigger1 = time = 0
 StateNo = 6010
-ID = 10001
+ID = 10003
 Pos = 12,-63
 PosType = P1
 Ownpal = 1
@@ -1744,66 +2118,13 @@ GuardSound=S120,0                ;Sound to play on guardenvShake.time = 14
 envShake.ampl = 4
 envShake.freq = 120
 
-[State 0, Helper]
-type = Helper
-triggerall = animelem = 21
-triggerall = var(26) = 1
-trigger1 = var(21) = 4
-trigger2 = var(21) = 5
-helpertype = normal ;player
-name = "super atmosphere high"
-ID = 240144
-stateno = 24014
-pos = 25,0
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 1
-supermovetime = 0
-pausemovetime = 0
-
-[State 0, Helper]
-type = Helper
-triggerall = animelem = 21
-triggerall = var(26) = 1
-trigger1 = var(21) = 4
-trigger2 = var(21) = 5
-helpertype = normal ;player
-name = "super atmosphere low"
-ID = 240143
-stateno = 24014
-pos = 25,0
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 1
-supermovetime = 0
-pausemovetime = 0
-
-[State 0, Helper]
-type = Helper
-triggerall = animelem = 21
-trigger1 = var(21) = 4
-trigger2 = var(21) = 5
-helpertype = normal ;player
-name = "atmosphere"
-ID = 240142
-stateno = 24014
-pos = 25,-62.5
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 1
-supermovetime = 0
-pausemovetime = 0
-
 [State 1211, End]
 type = ChangeState
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
 
-;Nanasen
+;Shichiten Shichitou
 [Statedef 2600]
 type = S
 movetype = A
@@ -1818,6 +2139,38 @@ Type=VarSet
 Trigger1=time=0
 var(1)=0
 ignorehitpause=1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 20
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 25
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 21
+value = var(20)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = animtime = 0
+v = 26
+value = var(25)
+;ignorehitpause = 
+;persistent = 
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1904,6 +2257,22 @@ trigger1 = animelem = 3
 value = S3000,88
 channel = -1
 persistent = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 3
+trigger1 = var(21) = 3
+trigger2 = var(21) = 5
+helpertype = normal ;player
+name = "super earth"
+ID = 24030
+stateno = 24030
+pos = 0,0
+postype = p1
+keyctrl = 0
+ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
 
 
 [State 0, ChangeState]
@@ -2501,7 +2870,7 @@ y = const(velocity.run.back.y)*(1+0.25*(var(20)=4 || (var(20)=0 && var(21)=4)))
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = time = 0
-time = 30
+time = 42
 anim = -1
 sound = -1
 pos = 0,0
@@ -2515,7 +2884,7 @@ unhittable = 1
 [State 0, BGPalFX]
 type = BGPalFX
 trigger1 = time = 0
-time = 30
+time = 42
 add = -256,-256,-256
 ;mul = 256,256,256
 ;sinadd = 0,0,0,10
@@ -2528,7 +2897,7 @@ add = -256,-256,-256
 Type = Helper
 Trigger1 = time = 0
 StateNo = 6010
-ID = 10001
+ID = 10003
 Pos = 12,-63
 PosType = P1
 Ownpal = 1

@@ -779,6 +779,16 @@ TriggerAll = Command = "holdup"
 Trigger1 = Ctrl
 trigger2 = stateno = 108
 
+;Grab
+[State -1,S_k];??
+	Type=ChangeState
+	value=800
+	triggerall = command = "x"
+	triggerall = statetype != A
+	triggerall = ctrl
+	trigger1 = command = "holdfwd"
+	trigger2 = command = "holdback"
+
 [State -1, dash.C]
 type = ChangeState
 value = 250

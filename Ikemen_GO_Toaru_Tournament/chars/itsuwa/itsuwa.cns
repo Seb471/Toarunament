@@ -232,7 +232,7 @@ value = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "fvar(10) = %f, fvar(0)=%f, var(20) = %d, var(21) = %d, vel x = %f"
-params = enemy,screenpos y,frontedgedist,var(20),var(21), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
+params = pos y,frontedgedist,var(20),var(21), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
 ;ignorehitpause = 
 ;persistent = 
 

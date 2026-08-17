@@ -2493,6 +2493,7 @@ trigger1 = (parent,stateno = 1512 && parent,Pos Y >= 50) || (parent,stateno = 15
 ;persistent = 
 
 [statedef 1602, black lightning]
+type = A
 anim=1552
 sprpriority = 4
 
@@ -2546,7 +2547,7 @@ trigger1 = animtime = 0
 
 
 [Statedef 1604, earthquake]
-	type = A ;
+	type = S ;
 	movetype= A ;
 	velset = 0,0
 	anim =  11501;
@@ -2556,6 +2557,7 @@ trigger1 = animtime = 0
 		type = AssertSpecial
 		trigger1 = 1
 		flag = Noshadow
+
 	[State 2310,?????????]
  		Type = Explod
  		trigger1 = time = 0
