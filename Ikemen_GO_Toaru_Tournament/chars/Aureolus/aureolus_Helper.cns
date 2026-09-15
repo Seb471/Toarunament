@@ -1225,22 +1225,45 @@ Trigger1 = Time = 33
 [Statedef 10980]
 Anim = 9999
 
+;condition for the specific magic name heat mode state
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 0    ;fv = 10
+value = root,var(20) = 1
+;ignorehitpause = 
+;persistent = 
+
+;magic name users
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 2    ;fv = 10
+value = root,var(12)=[1,5]
+;ignorehitpause = 
+;persistent = 
+
 [State ]
 Type = VarSet
-Trigger1 = RoundState = 2 && Parent,Var(20) = 1
+Trigger1 = RoundState = 2 && var(0)
 V = 1
 Value = 11
 
 [State ]
 Type = VarAdd
 Trigger1 = Var(1) > 0
-Trigger1 = RoundState != 2 || Parent,Var(20) = 0
+Trigger1 = RoundState != 2 || !var(0)
 V = 1
-Value = -1-((parent,var(12)=[1,4]) && EnemyNear,NumHelper(10980) = 1 && IsHomeTeam = 1)*(Var(1)-1)
+Value = -1-(var(2) && EnemyNear,NumHelper(10980) = 1 && IsHomeTeam = 1)*(Var(1)-1)
 
 [State ]
 Type = Explod
-Trigger1 = (parent,var(12)=[1,4]) && EnemyNear,NumHelper(10980) = 0 && IsHomeTeam = 0 || (parent,var(12)!=[1,4]) && IsHomeTeam = 0 || IsHomeTeam = 1
+trigger1 = var(2)
+trigger1 = EnemyNear,NumHelper(10980) = 0
+trigger1 = IsHomeTeam = 0
+trigger2 = !var(2) 
+trigger2 = IsHomeTeam = 0 
+trigger3 = IsHomeTeam = 1
 Anim = 10980
 ID = 10980
 PosType = Left
@@ -1255,7 +1278,12 @@ PauseMoveTime = 999
 
 [State ]
 Type = Explod
-Trigger1 = (parent,var(12)=[1,4]) && EnemyNear,NumHelper(10980) = 0 && IsHomeTeam = 0 || (parent,var(12)!=[1,4]) && IsHomeTeam = 0 || IsHomeTeam = 1
+trigger1 = var(2)
+trigger1 = EnemyNear,NumHelper(10980) = 0
+trigger1 = IsHomeTeam = 0
+trigger2 = !var(2) 
+trigger2 = IsHomeTeam = 0 
+trigger3 = IsHomeTeam = 1
 Anim = 10985
 ID = 10985
 PosType = Left
@@ -1283,7 +1311,12 @@ Value = 0.0021*(1-(Time%240=[60,159])*2)
 ;Character specific bgpalfx
 [State 0, BGPalFX]
 type = BGPalFX
-Trigger1 = (parent,var(12)=[1,4]) && EnemyNear,NumHelper(10980) = 0 && IsHomeTeam = 0 || (parent,var(12)!=[1,4]) && IsHomeTeam = 0 || IsHomeTeam = 1
+trigger1 = var(2)
+trigger1 = EnemyNear,NumHelper(10980) = 0
+trigger1 = IsHomeTeam = 0
+trigger2 = !var(2) 
+trigger2 = IsHomeTeam = 0 
+trigger3 = IsHomeTeam = 1
 time = 1
 ;add = 95,12,0
 ;mul = 256,256,256
@@ -1301,13 +1334,13 @@ Time = 1
 
 [State ]
 Type = AssertSpecial
-Trigger1 = Parent,Var(20) = 1
+Trigger1 = var(0)
 Flag = NoFG
 
 [State ]
 Type = DestroySelf
 Trigger1 = Var(1) <= 0
-Trigger1 = RoundState != 2 || Parent,Var(20) = 0
+Trigger1 = RoundState != 2 || !var(0)
 RemoveExplods = 1
 
 [Statedef 11070]

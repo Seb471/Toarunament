@@ -2645,6 +2645,15 @@ Physics  = N
 Ctrl     = 0
 VelSet   = 0,0
 
+[State 0, ScreenBound]
+type = ScreenBound
+triggerall = enemy,name = "Itsuwa"
+trigger1 = enemy,stateno=3005
+value = 0
+movecamera = 0,0
+;ignorehitpause = 
+;persistent = 
+
 [State -1]
 Type = PosSet
 Trigger1 = Pos Y > 0
@@ -2688,6 +2697,15 @@ MoveType = H
 Physics  = N
 Ctrl     = 0
 VelSet   = 0,0
+
+[State 0, ScreenBound]
+type = ScreenBound
+triggerall = enemy,name = "Itsuwa"
+trigger1 = enemy,stateno=3005
+value = 0
+movecamera = 0,0
+;ignorehitpause = 
+;persistent = 
 
 [State -1]
 Type = PlayerPush
@@ -2734,12 +2752,16 @@ Value = 5050
 
 [State -1]
 Type = ScreenBound
+triggerall = enemy,name = "Itsuwa"
+trigger1 = enemy,stateno!=3005
 Trigger1 = Time <= 29
 Value = 1
 MoveCamera = 1,1
 
 [State -1]
 Type = ScreenBound
+triggerall = enemy,name = "Itsuwa"
+trigger1 = enemy,stateno!=3005
 Trigger1 = Time > 29
 Value = 1
 MoveCamera = 0,1
@@ -2766,6 +2788,15 @@ MoveType = H
 Physics  = N
 Ctrl     = 0
 VelSet   = 0,0
+
+[State 0, ScreenBound]
+type = ScreenBound
+triggerall = enemy,name = "Itsuwa"
+trigger1 = enemy,stateno=3005
+value = 0
+movecamera = 0,0
+;ignorehitpause = 
+;persistent = 
 
 [State -1]
 Type = Width
@@ -2865,6 +2896,15 @@ MoveType = H
 Physics  = N
 Ctrl     = 0
 VelSet   = 0,0
+
+[State 0, ScreenBound]
+type = ScreenBound
+triggerall = enemy,name = "Itsuwa"
+trigger1 = enemy,stateno=3005
+value = 0
+movecamera = 0,0
+;ignorehitpause = 
+;persistent = 
 
 [State -1]
 Type = Width

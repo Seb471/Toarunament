@@ -159,6 +159,12 @@ time = 32
 buffer.Time=16
 
 [Command]
+name = "41236_s"
+command = ~B, DB, D, DF, F, s
+time = 32
+buffer.Time=16
+
+[Command]
 name = "236_a"
 command = ~D, DF, F, a
 time = 20
@@ -180,6 +186,18 @@ buffer.Time=10
 [Command]
 name = "[4]]6[_a"
 command = ~35$B, F, a;~45$B, F, a
+time = 20
+buffer.Time=10
+
+[Command]
+name = "[6]]4[_a"
+command = ~35$F, B, a;~45$B, F, b
+time = 20
+buffer.Time=10
+
+[Command]
+name = "[4]]6[_b"
+command = ~35$B, F, b;~45$B, F, a
 time = 20
 buffer.Time=10
 
@@ -472,6 +490,16 @@ ignorehitpause=1
 type = Changestate
 value = 3000
 triggerall = command = "41236_c"
+triggerall = stateno != 3000
+triggerall = power >= 3000
+trigger1=ctrl
+trigger2=var(1)
+
+;testing of saint destroyer
+[State -1, 41236_s]
+type = null
+value = 3002
+triggerall = command = "41236_s"
 ;triggerall=power>=4000
 triggerall = statetype!=A
 trigger1=ctrl
@@ -665,9 +693,27 @@ trigger1=ctrl
 trigger2 =(StateNo=[200,499]) && var(1)
 
 ;---------------------------------------------------------------------------
-[State -1, (6))4(_b]
+[State -1, (4))6(_b]
+type = ChangeState
+value = 1601
+triggerall = command = "[4]]6[_b"
+triggerall = statetype!=A
+trigger1=ctrl
+trigger2 =(StateNo=[200,499]) && var(1)
+
+;---------------------------------------------------------------------------
+[State -1, (6))4(_a]
 type = ChangeState
 value = 1610
+triggerall = command = "[6]]4[_a"
+triggerall = statetype!=A
+trigger1=ctrl
+trigger2 =(StateNo=[200,499]) && var(1)
+
+;---------------------------------------------------------------------------
+[State -1, (6))4(_b]
+type = ChangeState
+value = 1611
 triggerall = command = "[6]]4[_b"
 triggerall = statetype!=A
 trigger1=ctrl
@@ -725,9 +771,10 @@ Trigger1 = Ctrl
 [State -1, Run Fwd]
 type = ChangeState
 value = 100
-trigger1 = command = "FF" || (command = "holdfwd" && command = "y")
+triggerall = command = "FF" || (command = "holdfwd" && command = "y")
 trigger1 = statetype = S
 trigger1 = ctrl
+trigger1 = stateno!=100
 ;---------------------------------------------------------------------------
 ;Dash Back
 [State -1, Dash Back]

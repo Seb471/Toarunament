@@ -12,7 +12,7 @@
 - changed input/invul data for cancel assault, and it now costs 0.5 instead of 1 bar x
 - changed guard cancel's and pushblock's input to be with x+a x
 - changed the meter cost of guard cancel to be 1 bar instead of 0.5 and added the possibility to combo from it x
-
+- streamlined more the magic name helpers' code
 
 
 

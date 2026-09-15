@@ -302,7 +302,7 @@ helpertype = normal ;player
 name = "fire"
 ID = 240111
 stateno = 24011
-pos = ifelse(p2dist x >= 100 && p2dist x <= 200, p2dist x, 100),-enemyNear,const(size.height)
+pos = ifelse(p2dist x >= 100 && p2dist x <= 200, p2dist x, 100),enemyNear,pos y - enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -484,7 +484,7 @@ helpertype = normal ;player
 name = "fire"
 ID = 240110
 stateno = 24011
-pos = ifelse(p2dist x >= 0 && p2dist x <= 200, p2dist x, 200),-enemyNear,const(size.height)
+pos = ifelse(p2dist x >= 0 && p2dist x <= 200, p2dist x, 200),enemyNear,pos y - enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -623,7 +623,7 @@ triggerall=!movecontact && !movereversed
 trigger1= time=0
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 damage = ceil(60*fvar(0)), 6
 ;getpower = 30 * (!var(20)&&!var(53)), 0
 ;givepower = 30, 30
@@ -804,7 +804,7 @@ helpertype = normal ;player
 name = "fire"
 ID = 240110
 stateno = 24011
-pos = ifelse(p2dist x <= 100, p2dist x, 100),-enemyNear,const(size.height)
+pos = ifelse(p2dist x <= 100, p2dist x, 100),enemyNear,pos y - enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -867,7 +867,7 @@ triggerall=!movecontact && !movereversed
 trigger1= time=0
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 damage = ceil(60*fvar(0)), 6
 ;getpower = 30 * (!var(20)&&!var(53)), 0
 ;givepower = 30, 30
@@ -1072,7 +1072,7 @@ helpertype = normal ;player
 name = "fire"
 ID = 240111
 stateno = 24011
-pos = ifelse(p2dist x <= 100, p2dist x, 100),-enemyNear,const(size.height)
+pos = ifelse(p2dist x <= 100, p2dist x, 100),enemyNear,pos y - enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -1344,6 +1344,11 @@ y = .45
 		fvar(0)=fvar(0)*0.85
 		persistent = 0
  		ignorehitpause = 1
+[State 200,V1=1]
+		Type=VarSet
+		Trigger1=MoveContact
+		var(1)=1
+		ignorehitpause = 1
 
 [State 1210, ChangeState]
 type = ChangeState
@@ -1550,6 +1555,11 @@ y = .45
 		fvar(0)=fvar(0)*0.45
 		persistent = 0
  		ignorehitpause = 1
+[State 200,V1=1]
+		Type=VarSet
+		Trigger1=MoveContact
+		var(1)=1
+		ignorehitpause = 1
 
 [State 1210, ChangeState]
 type = ChangeState
@@ -1785,7 +1795,7 @@ helpertype = normal ;player
 name = "fire"
 ID = 240111
 stateno = 24011
-pos = ifelse(p2dist x <= 200, p2dist x, 200),-enemyNear,const(size.height)
+pos = ifelse(p2dist x <= 200, p2dist x, 200),enemyNear,pos y - enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -1892,7 +1902,7 @@ size.yscale = 0.3
 		trigger1 = animelemno(0)=[3,4]
 		trigger1 = time%2=0
 		Attr=A,SA
-		AnimType=down
+		AnimType=diagup
 		Hitflag=MAF
 		Guardflag=M
 		Ground.Type=Low
@@ -1920,7 +1930,7 @@ size.yscale = 0.3
 		Guard.cornerpush.veloff=-10
 		Air.cornerpush.veloff=0
 		AirGuard.cornerpush.veloff=0
-		Yaccel=0.5
+		Yaccel=0.75
 		fall=1
 		fall.recover=0
 
@@ -1930,7 +1940,7 @@ size.yscale = 0.3
 		Trigger1=AnimElemTime(3)>=0
 		Trigger1=AnimElemTime(5)<0
 		time = 1
-		pos = 50,0
+		pos = 50,-25
 
 [State 200 ノックバックカウント]
 		type = Varadd
@@ -2266,7 +2276,7 @@ fall = 1
 		trigger1 = animelemno(0)=[11,12]
 		trigger1 = time%2=0
 		Attr=A,SA
-		AnimType=down
+		AnimType=diagup
 		Hitflag=MAF
 		Guardflag=M
 		Ground.Type=Low
@@ -2312,7 +2322,7 @@ fall = 1
 		Type=HitDef
 		Trigger1=AnimElem=13
 		Attr=S,SA
-		AnimType=down
+		AnimType=up
 		Hitflag=MAF
 		Guardflag=M
 		Ground.Type=Low
@@ -2325,15 +2335,15 @@ fall = 1
 		Priority=5,Hit
 ;		GetPower=31,16
 ;		GivePower=31,16
-		PauseTime=4,4
+		PauseTime=12,12
 		Ground.SlideTime=28
 		Guard.SlideTime=24
 		Ground.HitTime=26
 		Guard.HitTime=24
 		Guard.CtrlTime=24
 		Air.HitTime=24
-		Ground.velocity=-4,-8.5
-		Air.velocity=-4,-8.5
+		Ground.velocity=-2,-16
+		Air.velocity=-2,-16
 		Guard.velocity=-8
 		AirGuard.velocity=-2.5,-5
 		Ground.cornerpush.veloff=0
@@ -2533,7 +2543,7 @@ helpertype = normal ;player
 name = "fire"
 ID = 240111
 stateno = 24011
-pos = ifelse(p2dist x <= 100, p2dist x, 100),-enemyNear,const(size.height)
+pos = ifelse(p2dist x <= 100, p2dist x, 100),enemyNear,pos y - enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -2773,7 +2783,7 @@ helpertype = normal ;player
 name = "fire"
 ID = 240111
 stateno = 24011
-pos = ifelse(p2dist x <= 200, p2dist x, 200),-enemyNear,const(size.height)
+pos = ifelse(p2dist x <= 200, p2dist x, 200),enemyNear,pos y - enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -3043,7 +3053,7 @@ helpertype = normal ;player
 name = "fire"
 ID = 240111
 stateno = 24011
-pos = ifelse(p2dist x <= 200, p2dist x, 200),-enemyNear,const(size.height)
+pos = ifelse(p2dist x <= 200, p2dist x, 200),enemyNear,pos y - enemyNear,const(size.height)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -3170,8 +3180,43 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
-;Icy night wind
+;Icy wind
 [Statedef 1600]
+type    = S
+movetype= A
+physics = S
+anim = 200                       ;Change animation (Def: no change)
+ctrl = 0
+poweradd = fvar(11)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=0
+var(1) = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 2
+helpertype = normal ;player
+name = "icy night wind"
+ID = 1604
+stateno = 1605
+pos = 80,25
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 1010, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;Icy night wind
+[Statedef 1601]
 type    = S
 movetype= A
 physics = S
@@ -3184,11 +3229,6 @@ poweradd = fvar(11)
 type = VarSet
 trigger1 = time=0
 var(1) = 0
-
-[State 1000, VelSet]
-Type = null
-Trigger1 = AnimElemtime(2)>= 0
-x = .6
 
 [State 0, Helper]
 type = Helper
@@ -3257,3 +3297,90 @@ type = ChangeState
 trigger1 = Vel Y > 0
 trigger1 = Pos Y >= 0
 value = 106
+
+;charge
+[Statedef 1611]
+	type     = S
+	movetype = I
+	physics  = S
+	ctrl     = 0
+	velset   = 0,0
+	anim     = 850
+	sprpriority = 2
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 850
+trigger1 = animtime=0
+value = 850
+elem = 4
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 850
+trigger1 = time>= 9 + 60 ;9 ticks to get to 1 second to heal
+value = 851
+;elem = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 730, FX]
+type = helper
+trigger1 = !numhelper(8330)
+trigger1 = time = 9
+stateno = 8330
+ID = 8330
+name = "Power Charge"
+postype = p1
+pos = 0,0
+pausemovetime = 65535
+supermovetime = 65535
+ownpal = 1
+
+[State 730, FX]
+type = helper
+trigger1 = !numhelper(8331)
+trigger1 = time = 9
+stateno = 8331
+ID = 8331
+name = "Particles"
+postype = p1
+pausemovetime = 65535
+supermovetime = 65535
+ownpal = 1
+
+	[State 6700,]
+		type = Explod
+		trigger1 = anim = 851
+		trigger1 = animelem = 1
+		anim = 16000
+		pos = 0, -65
+		postype = p1
+		bindtime = -1
+		supermovetime = 9999
+		pausemovetime = 9999
+		scale = 1, 1
+		sprpriority = 3
+		ownpal = 1
+		removeongethit = 1
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = anim = 851
+trigger1 = animelem = 1 
+value = lifemax*15/100
+kill = 1
+absolute = 1
+;ignorehitpause = 
+;persistent = 
+
+
+
+[State 6500, ??????]
+		type = ChangeState
+		trigger1 = anim = 851
+		trigger1 = animtime = 0
+		value = 0
+		ctrl = 1

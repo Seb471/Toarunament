@@ -902,6 +902,7 @@ trigger2 = enemynear,name = "Stiyl Magnus" && var(12):= 1
 trigger3 = enemynear,name = "Tsuchimikado Motoharu" && var(12):= 2
 trigger4 = enemynear,name = "Kanzaki Kaori" && var(12):= 3
 trigger5 = enemynear,name = "Aureolus Izzard" && var(12):= 4
+trigger6 = enemynear,name = "Itsuwa" && var(12):= 5
 IgnoreHitPause = 1
 
 ;---------------------------------------------------------------------------

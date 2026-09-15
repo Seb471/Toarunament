@@ -38,7 +38,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=200;&&root,stateno!=3410
+trigger1 =root,stateno!=200;&&root,stateno!=[3000,3005]
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 trigger4 =root,stateno=200&&root,animelem=2,<0
@@ -84,7 +84,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=210;&&root,stateno!=3410
+trigger1 =root,stateno!=210;&&root,stateno!=[3000,3005]
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 trigger4 =root,stateno=210&&root,animelem=2,<0
@@ -254,7 +254,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=400;&&root,stateno!=3410
+trigger1 =root,stateno!=400;&&root,stateno!=[3000,3005]
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 trigger4 =root,stateno=400&&root,animelem=2,<0
@@ -300,7 +300,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=410;&&root,stateno!=3410
+trigger1 =root,stateno!=410;&&root,stateno!=[3000,3005]
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 trigger4 =root,stateno=410&&root,animelem=2,<0
@@ -351,7 +351,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=420;&&root,stateno!=3410
+trigger1 =root,stateno!=420;&&root,stateno!=[3000,3005]
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 trigger4 =root,stateno=420&&root,animelem=2,<0
@@ -703,7 +703,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=1050&&root,stateno!=2050
+trigger1 =root,stateno!=1050&&root,stateno!=2050 && (root,stateno!=3005 || root,stateno=3005 && root,anim!=30056)
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 
@@ -753,7 +753,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=1100 && root,stateno!=1110 && root,stateno!=2120
+trigger1 =root,stateno!=1100 && root,stateno!=1110 && root,stateno!=2120 && (root,stateno!=3005 || root,stateno=3005 && root,anim!=30054)
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 
@@ -912,13 +912,15 @@ type = AssertSpecial
 Trigger1 = 1
 flag = noshadow
 ignorehitpause =1
+
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=1300 && root,stateno!=1310 && root,stateno!=2320
+trigger1 =root,stateno!=1300 && root,stateno!=1310 && root,stateno!=2320 && (root,stateno!=3005 || root,stateno=3005 && root,anim!=30057)
 trigger2 =root,Movetype=H
 trigger3 =root,stateno=1300&&root,animelem=5,>=0
 trigger4 =root,stateno=1310&&root,animelem=13,>=0
 trigger5 =root,stateno=2320&&root,animelem=23,>=0
+trigger6 =(root,stateno=3005 && root,anim=30057)&&root,animelem=23,>=0
 
 ;---------------------------------------------------------------------------
 ;Slash - Strike the Blood 1st
@@ -978,7 +980,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=1310&&root,stateno!=2320
+trigger1 =root,stateno!=1310&&root,stateno!=2320 && (root,stateno!=3005 || root,stateno=3005 && root,anim!=30057)
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 
@@ -994,6 +996,7 @@ sprpriority = 3
 
 [State 210, 5]
 type = HitDef
+triggerall = root,stateno!=3005
 triggerall=!movecontact && !movereversed
 ;triggerall=enemynear,gethitvar(chainid)!=1505
 ;triggerall=target(1505),Movetype!=H
@@ -1099,7 +1102,7 @@ trigger1 = animtime = 0
 [Statedef 1605]
 type = A
 movetype = A
-anim = 1605
+anim = 1605-ishelper(1604)
 sprpriority = 5
 
 [State 0, PlaySnd]
@@ -1120,7 +1123,7 @@ volumescale = 50
 
 [State 0, Explod]
 type = Explod
-triggerall=!movecontact && !movereversed
+triggerall = !movereversed
 trigger1 = time = 0
 anim = 1606
 ID = 1606
@@ -1134,7 +1137,7 @@ accel = 0,0
 random = 0,0
 removetime = -2
 pausemovetime = 0
-scale = 1,1
+scale = 1-(ishelper(1604)*0.5),1-(ishelper(1604)*0.5)
 sprpriority = 0
 ontop = 0
 shadow = 0,0,0
@@ -1146,13 +1149,54 @@ removeongethit = 0
 ;supermove = 0
 ;pausemove = 0
 
+[State 220, Hit]
+type=hitdef
+triggerall = ishelper(1604)
+triggerall=!movecontact && !movereversed
+trigger1= time=0
+attr = A,SP
+hitflag = MAF
+guardflag = MA
+damage = ceil(40*root,fvar(0)), 4
+;getpower = 30 * (!var(20)&&!var(53)), 0
+;givepower = 30, 30
+pausetime = 12,12
+guard.pausetime = 12,12
+animtype = Hard
+air.animtype = Back
+fall.animtype = Back
+ground.type = High
+air.type = Low
+ground.hittime = 18
+ground.slidetime = 18
+guard.hittime = 18
+air.hittime = 120
+ground.velocity = -27
+;ifElse(PrevStateNo = 700, -6.46, ifElse(var(20), -4.5, -9)), ifElse(PrevStateNo = 700, -5.25, 0)
+ground.cornerPush.velOff = 0
+guard.velocity = -9
+guard.cornerPush.velOff = 0
+air.velocity = -18, -6
+air.cornerPush.velOff = 0
+yAccel = 0.58
+HitSound=S20,0                  ;Sound to play on hit
+GuardSound=S120,0                ;Sound to play on guard
+sparkno = S6001
+guard.sparkno = S6100
+sparkxy = -10,-20
+palfx.time = 60
+Palfx.Mul =  255,255,255
+Palfx.Add = -130,-30,-30
+Palfx.SinAdd = 30,100,100,6
+
 [State 210, 2]
 type = HitDef
+triggerall = ishelper(1605)
+triggerall=!movecontact && !movereversed
 trigger1 = time = 0
-trigger1=!movereversed
-attr = A, NP
+attr = A, SP
 animtype  = Hard
-damage    = Ceil(50*root,fvar(0)),5
+damage    = Ceil(60*root,fvar(0)),6
 guardflag = MA
 pausetime = 2,3
 sparkno = -1
@@ -1405,7 +1449,8 @@ ignorehitpause=1
 
 [State 300, Changestate]
 type = changestate
-trigger1 =root,stateno=2270
+trigger1 = root,stateno=2270
+trigger2 = root,stateno=3005 && root,anim=30053
 value = 2226
 
 [State 300, Transparency]
@@ -1435,7 +1480,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=[2220,2270]
+trigger1 =(root,stateno!=[2220,2270]) && (root,stateno!=3005 || root,stateno=3005 && root,anim!=[30052,30053])
 trigger2 =root,Movetype=H
 trigger3 =root,animelem=2,<0
 
@@ -1505,7 +1550,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=[2220,2270]
+trigger1 =(root,stateno!=[2220,2270]) && (root,stateno!=3005 || root,stateno=3005 && root,anim!=[30052,30053])
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 
@@ -1931,7 +1976,7 @@ type = DestroySelf
 trigger1 = !AnimTime
 
 ;---------------------------------------------------------------------------
-;DP EX Helper
+;Lightning
 [Statedef 2627]
 type    = S
 movetype= A
@@ -2304,6 +2349,106 @@ ctrl = 1
 ;ignorehitpause = 0
 ;persistent = 1
 
+;---------------------------------------------------------------------------
+;Slash - Arrow Strike
+[Statedef 3003]
+physics  = N
+anim = 3003
+ctrl = 0
+velset=0,0
+sprpriority=4
+
+[State 1105, FreezeAnim from hit pause]
+type = ChangeAnim
+triggerall = Root,HitPauseTime
+trigger1 = Root,StateNo = 3000
+trigger1 = Root,AnimElem = 8, < 0
+trigger2 = root,stateno = 3005
+trigger2 = root,anim = 30050
+value = anim
+elem = 1;animelemno(0)
+ignorehitpause=1
+
+[State 300, Anim]
+type = ChangeAnim
+triggerall = AnimElem = 3
+trigger1 = Root,StateNo = 3000
+trigger1 = Root,AnimElem = 8, < 0
+trigger2 = root,stateno = 3005
+trigger2 = root,anim = 30050
+value = anim
+elem = 1
+[State 300, Anim]
+type = ChangeAnim
+triggerall = AnimElem = 4, < 0
+trigger1 = Root,StateNo = 3000 
+trigger1 = Root,AnimElem = 8, >= 0
+trigger2 = root,stateno = 3005
+trigger2 = root,anim != 30050
+value = anim
+elem = 4
+
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 4, < 0
+trans = Add
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 4, >= 0 && AnimElem = 5, < 0
+trans = AddAlpha
+alpha = 213,256
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 5, >= 0 && AnimElem = 6, < 0
+trans = AddAlpha
+alpha = 170,256
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 6, >= 0 && AnimElem = 7, < 0
+trans = AddAlpha
+alpha = 256,256
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 7, >= 0 && AnimElem = 8, < 0
+trans = AddAlpha
+alpha = 170,256
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 8, >= 0
+trans = AddAlpha
+alpha = 85,256
+
+[State 300, Scale]
+type = AngleDraw
+trigger1 = AnimElem = 4, < 0
+scale = 1.0 * ifelse((root,stateno=[3000,3005]),1.5,1), 2.0 * ifelse((root,stateno=[3000,3005]),1.5,1)
+[State 300, Scale]
+type = AngleDraw
+trigger1 = AnimElem = 4, >= 0
+scale = 0.75 * ifelse((root,stateno=[3000,3005]),1.5,1), 2.0 * ifelse((root,stateno=[3000,3005]),1.5,1)
+
+[State 300, Rotate]
+type = AngleSet
+trigger1 = !Time
+value = -90
+
+[State 300, BindToRoot]
+type = BindToRoot
+trigger1 =AnimElem = 4, < 0
+pos = ceil(379 * const(size.xScale)),ceil(-247 * const(size.yScale))
+ignorehitpause =1
+[State 300, Assert]
+type = AssertSpecial
+Trigger1 = 1
+flag = noshadow
+ignorehitpause =1
+[State 300, Destroyself]
+type = destroyself
+trigger1 =root,stateno!=3000 && root,stateno!=3005
+trigger2 =root,Movetype=H
+trigger3 =!animtime
+trigger4 =root,animelem=2,<0
+
 ;-------------------------------------------------
 ;Counting Helper
 [Statedef 3015]
@@ -2568,7 +2713,7 @@ SprPriority = 4
 type = HitDef
 trigger1 = time<14 && time%2=0
 attr = S, HA
-damage    = ceil(parent,fvar(10)*42*parent,fvar(2)),5
+damage    = ceil(parent,fvar(10)*21*parent,fvar(2)),5
 priority  = 3
 animtype  = Hard
 hitflag = MAF
@@ -2788,7 +2933,7 @@ VelSet = 0,0
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = time<=30
+trigger1 = time<=30+20*ishelper(10002)
 flag = nobardisplay
 
 [State -1]
@@ -2803,6 +2948,19 @@ Time = 1
 		trigger1 = isHelper(10003)
 		Anim=4120
 		Pos=floor(0*const(Size.xScale)),floor(-55*const(Size.yScale))
+		postype=p1
+		SuperMove=1
+		sprPriority=-3
+		Ownpal=1
+		RemoveonGetHit=1
+		IgnoreHitPause=1
+		Scale=const(Size.xScale),const(Size.yScale)
+[State 2500,Explod]
+		Type=Explod
+		Trigger1=Time=0
+		trigger1 = isHelper(10002)
+		Anim=3004
+		;Pos=floor(0*const(Size.xScale)),floor(-55*const(Size.yScale))
 		postype=p1
 		SuperMove=1
 		sprPriority=-3
@@ -2826,6 +2984,21 @@ IgnoreHitPause = 1
 Persistent = 0
 SuperMoveTime  = 9999
 PauseMoveTime  = 9999
+
+[State ]
+Type = Explod
+trigger1 = ishelper(10002)
+Trigger1 = Time = 0
+ID = 10000
+Anim = 10000
+Pos = 0,ScreenHeight/2+120
+PosType = Back
+Scale = 0.5,0.5
+SprPriority = -6
+BindTime = -1
+RemoveTime = -2
+SuperMoveTime = -1
+PauseMoveTime = -1
 
 [State -1]
 Type = Explod
@@ -2862,6 +3035,12 @@ PauseMoveTime  = 9999
 		Trigger1 = IsHelper(10001) || isHelper(10003)
 		Trigger1=time=0
 		value=1,13
+		channel=-1
+[State 2000,SE]
+		Type=playSnd
+		Trigger1 = IsHelper(10002)
+		Trigger1=time=0
+		value=3004,0
 		channel=-1
 
 [State 0, DestroySelf]
@@ -3047,7 +3226,7 @@ flag = noshadow
 ignorehitpause =1
 [State 7000, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=1010 && root,stateno!=1400 && root,stateno!=2020 && root,stateno!=2420 && root,stateno!=2620
+trigger1 =root,stateno!=1010 && root,stateno!=1400 && root,stateno!=2020 && root,stateno!=2420 && root,stateno!=2620 && root,stateno!=3005
 trigger2 =root,Movetype=H
 trigger3 =root,animelem=4,>=0
 ;trigger4 =root,animelem=3,>=0 && root,stateno=2620
@@ -3146,6 +3325,107 @@ trigger1 =root,stateno!=1050
 trigger2 =root,Movetype=H
 trigger3 =root,animelem=5,>=0
 
+;HEALING MAIN FX 
+[Statedef 8330]
+type = A
+physics = N
+movetype = I
+anim = 9999
+ctrl = 0
+velset = 0, 0
+
+[State 8330, Bind]
+type = bindtoroot
+trigger1 = (root, stateno = 1611)
+pos = 0,0
+
+[State 8330, Snd]
+type = playsnd
+trigger1 = !time
+value = 1611,2
+channel = 1
+
+[State 8330, Snd]
+type = playsnd
+trigger1 = time=60
+value = 1611,random%2
+channel = 0
+
+[State 8330, Aura]
+type = explod
+trigger1 = !numexplod(8330)
+ID = 8330
+anim = 8330
+sprpriority = 3
+postype = p1
+bindtime = -1
+removetime = -1
+scale = 0.5, 0.5
+pausemovetime = -1
+supermovetime = -1
+ownpal = 1
+
+[State 8330, FX]
+type = modifyexplod
+trigger1 = numexplod(8330) && time < 60
+ID = 8330
+scale = 0.5, 0.1 + 0.4 * (time/60.)
+
+[State 8330, FX]
+type = modifyexplod
+trigger1 = numexplod(8330) && time >= 60
+ID = 8330
+scale = 0.5, 0.5
+
+[State 8330, End]
+type = removeexplod
+trigger1 = root, stateno != 1611
+
+[State 8330, End]
+type = destroyself
+trigger1 = root, stateno != 1611
+
+;HEALING Particles 
+[Statedef 8331]
+type = A
+physics = N
+movetype = I
+anim = 9999
+ctrl = 0
+velset = 0, 0
+
+[State 8331, Bind]
+type=bindtoroot
+trigger1= !(time%8)
+pos=ceil(-153+(random/3.125)),ceil(82-(random/3.125))
+
+[State 8330, Snd]
+type = playsnd
+trigger1 = !time
+value = 1611,3
+channel = 0
+
+[State 8331, Particle]
+type=explod
+triggerall = root,anim = 850
+trigger1= (time%8)=1
+anim=8331
+sprpriority=ifelse(random<750,5,-1)
+postype=p1
+vel= ((rootdist x+6)/32.0), ((rootdist y-69)/32.0)
+scale= ifelse(random<500,.5,-.5), ifelse(random<500,.5,-.5)
+pausemovetime=-1
+supermovetime=-1
+ownpal=1
+
+[State 8331, End]
+type = removeexplod
+trigger1 = root, stateno != 1611
+
+[State 8331, End]
+type = destroyself
+trigger1 = root, stateno != 1611
+
 ;---------------------------------------------------------------------------
 ; ニュートラルハイジャンプヘルパー
 [Statedef 10043]
@@ -3221,11 +3501,385 @@ Flag = Noshadow
 Type = DestroySelf
 Trigger1 = Time = 31
 
+;---------------------------------------------------------------------------
+;Magic circuit random waves
+[Statedef 8030]
+SprPriority = 5
+Anim = 10966
+
+[State ]
+Type = VarAdd
+Trigger1 = Time = [8,23]
+V = 5
+Value = 16
+
+[State ]
+Type = VarAdd
+Trigger1 = Time = [8,15]
+V = 6
+Value = 30
+
+[State ]
+Type = Null
+Trigger1 = Time = 0
+Trigger1 = Var(9):= -15-Random%11 && Var(10):= -15-Random%11
+
+[State ]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+Alpha = 256-Var(5),256
+
+[State ]
+Type = VarAdd
+Trigger1 = Time = [4,17]
+FV = 1
+Value = 0.068
+
+[State ]
+Type = VarAdd
+Trigger1 = Time = [4,5]
+FV = 2
+Value = 0.2
+
+[State ]
+Type = VarAdd
+Trigger1 = Time = [5,7]
+FV = 3
+Value = 0.15-(Time-5)*0.05
+
+[State ]
+Type = Null
+Trigger1 = Time > 4
+Trigger1 = FVar(6):= FVar(6)+Cond(Time>10,0.02,0.2)
+Trigger1 = Time > 7
+Trigger1 = FVar(7):= FVar(7)+Cond(Time>13,0.02,0.2) && FVar(3):= FVar(3)-Cond(Time>14,0.025,0.1)
+
+[State ]
+Type = VarAdd
+Trigger1 = Time = [4,6]
+FV = 4
+Value = 0.07
+
+[State ]
+Type = VarAdd
+Trigger1 = Time = [4,17]
+FV = 5
+Value = Cond((Time=[4,5]),0.05,Cond((Time=[6,7]),0.035,0.03))
+
+[State ]
+Type = AngleDraw
+Trigger1 = 1
+Scale = 0.1+FVar(2),0.1+FVar(2)
+
+[State ]
+Type = AngleSet
+Trigger1 = Time = 0
+Value = -12+Random%11*2
+
+[State ]
+Type = AngleAdd
+Trigger1 = Time > 3
+Value = Cond(Time>14,-2,-4)
+
+[State ]
+Type = Explod
+Trigger1 = Time = 4 || Time = 7
+Anim = 10962+(Time=7)*2
+ID = 10962+(Time=7)*2
+PosType = P1
+SprPriority = 6-(Time=7)
+SuperMoveTime = 99
+PauseMoveTime = 99
+
+[State ]
+Type = Explod
+Trigger1 = Time = 0
+Anim = 10963
+ID = 10963
+PosType = P1
+SprPriority = 5
+SuperMoveTime = 99
+PauseMoveTime = 99
+
+[State ]
+Type = Explod
+Trigger1 = Time = 0 || Time = 4 || Time = 7
+Anim = Cond(Time=0,10967,8010+Random%4)
+ID = 10967+(Time=4)+(Time=7)*2
+PosType = P1
+Angle = Cond(Time=0,0,Random%180+(Time=7)*180)
+SprPriority = 5
+SuperMoveTime = 99
+PauseMoveTime = 99
+
+[State ]
+Type = ModifyExplod
+Trigger1 = 1
+ID = 10962
+Scale = 0.6+FVar(3),0.6+FVar(3)
+
+[State ]
+Type = ModifyExplod
+Trigger1 = 1
+ID = 10963
+Trans = Add
+Alpha = 256-Var(6),256
+Angle = Cond(Time<4,80,80-(Time-3)*4)
+Scale = 0.14+FVar(4),0.14+FVar(4)
+
+[State ]
+Type = ModifyExplod
+Trigger1 = 1
+ID = 10964
+Scale = 0.25+Cond(Time<8,0,(Time-7)*0.075),0.25+Cond(Time<8,0,(Time-7)*0.075)
+
+[State ]
+Type = ModifyExplod
+Trigger1 = 1
+ID = 10967
+Scale = 0.5-FVar(5),0.5-FVar(5)
+
+[State ]
+Type = ModifyExplod
+Trigger1 = 1
+ID = 10968
+Scale = (0.25+Var(9)*0.006)*(0.5+FVar(6)),(0.25-Var(9)*0.006)*(0.5+FVar(6))
+
+[State ]
+Type = ModifyExplod
+Trigger1 = 1
+ID = 10969
+Scale = (0.25+Var(10)*0.006)*(0.5+FVar(7)),(0.25-Var(10)*0.006)*(0.5+FVar(7))
+
+[State ]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+
+[State ]
+Type = DestroySelf
+Trigger1 = AnimTime = 0
+
+
+;---------------------------------------------------------------------------
+;Magic circuit Stop/Resume time
+[Statedef 10968]
+Anim = 9999
+
+[State ]
+Type = EnvShake
+Trigger1 = IsHelper(10968)
+Trigger1 = Time = 0
+Time  = 16
+Ampl  = 4
+Freq  = 90
+
+[State ]
+Type = Explod
+Trigger1 = IsHelper(10968)
+Trigger1 = Time = 3
+Anim = 10965
+ID = 10965
+Postype = Left
+Pos = 160,0
+Scale = 0.5,0.5
+Ownpal = 1
+BindTime = -1
+SprPriority = 5
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State ]
+Type = Explod
+Trigger1 = Time = 1
+Anim = 10968
+ID = 10968+IsHelper(10969)
+Postype = Left
+Pos = 160,20
+BindTime = -1
+SprPriority = 4
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State ]
+Type = ModifyExplod
+Trigger1 = 1
+ID = 10968
+Scale = 0.25+(Time-1)*0.025,0.25+(Time-1)*0.025
+
+[State ]
+Type = ModifyExplod
+Trigger1 = Time = [1,21]
+ID = 10969
+Scale = 0.8-(Time-1)*0.0275,0.8-(Time-1)*0.0275
+
+[State ]
+Type = PalFX
+Trigger1 = IsHelper(10968)
+add = 128,128,128
+Mul = 256-(Time-1)*8,256-(Time-1)*8,256-(Time-1)*8
+Time = 1
+
+[State ]
+Type = PalFX
+Trigger1 = IsHelper(10969)
+Trigger1 = Time = [0,19]
+add = 128,128,128
+Mul = Time*13,Time*13,Time*13
+Time = 1
+
+[State ]
+Type = PalFX
+Trigger1 = IsHelper(10969)
+Trigger1 = Time = [21,32]
+add = 128,128,128
+Mul = 256-(Time-20)*21,256-(Time-20)*21,256-(Time-20)*21
+Time = 1
+
+[State ]
+Type = DestroySelf
+Trigger1 = Time = 33
+
+;---------------------------------------------------------------------------
+;Magic circuit veil
+[Statedef 10980]
+Anim = 9999
+
+;condition for the specific magic name heat mode state
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 0    ;fv = 10
+value = root,var(27) = 5 && root,var(28) = 1
+;ignorehitpause = 
+;persistent = 
+
+;magic name users
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 2    ;fv = 10
+value = root,var(12)=[1,5]
+;ignorehitpause = 
+;persistent = 
+
+[State ]
+Type = VarSet
+Trigger1 = RoundState = 2 && var(0)
+V = 1
+Value = 11
+
+[State ]
+Type = VarAdd
+Trigger1 = Var(1) > 0
+Trigger1 = RoundState != 2 || !var(0)
+V = 1
+Value = -1-(var(2) && EnemyNear,NumHelper(10980) = 1 && IsHomeTeam = 1)*(Var(1)-1)
+
+[State ]
+Type = Explod
+triggerall = root,stateno!=[3010,3013]
+trigger1 = var(2)
+trigger1 = EnemyNear,NumHelper(10980) = 0
+trigger1 = IsHomeTeam = 0
+trigger2 = !var(2) 
+trigger2 = IsHomeTeam = 0 
+trigger3 = IsHomeTeam = 1
+Anim = 10980
+ID = 10980
+PosType = Left
+Pos = 160, ScreenHeight/2
+BindTime = -1
+Trans = Add
+Alpha = 8*Var(1),256
+Scale = 0.625+FVar(1),0.625+FVar(2)
+SprPriority = -10
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State ]
+Type = Explod
+triggerall = root,stateno!=[3010,3013]
+trigger1 = var(2)
+trigger1 = EnemyNear,NumHelper(10980) = 0
+trigger1 = IsHomeTeam = 0
+trigger2 = !var(2) 
+trigger2 = IsHomeTeam = 0 
+trigger3 = IsHomeTeam = 1
+Anim = 10985
+ID = 10985
+PosType = Left
+Pos = 160, ScreenHeight/2
+BindTime = -1
+Trans = Add
+Alpha = 8*Var(1),256
+Scale = 0.625,0.625
+SprPriority = -10
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State ]
+Type = VarAdd
+Trigger1 = (Time%240= [0,99]) || Time%240= [120,219]
+FV = 1
+Value = 0.0021*(1-(Time%240=[120,219])*2)
+
+[State ]
+Type = VarAdd
+Trigger1 = (Time%240= [60,159]) || (Time%240= [0,39]) || Time%240= [180,239]
+FV = 2
+Value = 0.0021*(1-(Time%240=[60,159])*2)
+
+;Character specific bgpalfx
+[State 0, BGPalFX]
+type = BGPalFX
+triggerall = root,stateno!=[3010,3013]
+trigger1 = var(2)
+trigger1 = EnemyNear,NumHelper(10980) = 0
+trigger1 = IsHomeTeam = 0
+trigger2 = !var(2) 
+trigger2 = IsHomeTeam = 0 
+trigger3 = IsHomeTeam = 1
+time = 1
+;add = 95,12,0
+;mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = ifelse(gametime%128<64,gametime%128,128-gametime%128)
+ignorehitpause = 1
+persistent = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = root,stateno=[3010,3013]
+flag = invisible
+
+[State ]
+Type = PalFX
+Trigger1 = 1
+Add = -80,-80,-80
+Time = 1
+
+[State ]
+Type = AssertSpecial
+Trigger1 = var(0)
+Flag = NoFG
+
+[State ]
+Type = DestroySelf
+Trigger1 = Var(1) <= 0
+Trigger1 = RoundState != 2 || !var(0)
+RemoveExplods = 1
+
 ;-------------------------------------------------
 ;Setups Helper
 [Statedef 24000]
 type = U
 anim = 9999
+
+;var(0) is colour of current sigil
+;var(1) will be current sigil during magic combination
 
 [State 0, VarSet]
 type = VarSet
@@ -3249,7 +3903,7 @@ type = Explod
 trigger1 = numexplod(24000) = 0
 anim = 24000+cond(root,var(27)!=5,root,var(27),((gametime-1)%4)+1);/4)+1)
 ID = 24000
-pos = ifelse(teamside=1,37.5,320-37.5), 37.5
+pos = (teamside=2)*320 + (1-(teamside=2)*2)*37.5, 37.5
 postype = left
 bindtime = -1
 removetime = -1
@@ -3289,7 +3943,7 @@ Add = 128,128,0
 ;super sigil remove
 [State 0, RemoveExplod]
 type = RemoveExplod
-trigger1 = numexplod(24001)=1
+triggerall = numexplod(24001)=1
 trigger1 = !root,var(28)
 id = 24001
 ignorehitpause = 1
@@ -3305,11 +3959,11 @@ anim = 24000+var(0);cond(root,var(27)!=5,root,var(27),((time%4+1)))
 ;super sigil thing
 [State 30000] 
 type = Explod
-trigger1 = numexplod(24001) = 0
+triggerall = numexplod(24001) = 0
 trigger1 = root,var(28)
 anim = 24000+cond(root,var(27)!=5,root,var(27),(((gametime-1)%4+1)));/4)+1)
 ID = 24001
-pos = ifelse(teamside=1,37.5,320-37.5), 37.5
+pos = (teamside=2)*320 + (1-(teamside=2)*2)*37.5, 37.5
 postype = left
 bindtime = -1
 removetime = -1
@@ -3321,6 +3975,193 @@ ownpal = 0
 ignorehitpause = 1
 vfacing = -1
 facing = 1-(teamside=2)*2
+
+
+;extra sigils during magic combination into saint destroyer
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = root,stateno = 3005
+v = 1    ;fv = 10
+value = root,var(27)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarSet]
+type = VarSet
+triggerall = root,stateno = 3005
+trigger1 = var(2)!=0
+v = 2    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+
+;mini sigil spawn
+[State 30000] 
+type = Explod
+triggerall = root,stateno = 3005
+triggerall = numexplod(30050+var(1)) = 0
+trigger1 = var(1)>0
+anim = 24000+var(1)
+ID = 30050+var(1)
+pos = (teamside=2)*320 + (1-(teamside=2)*2)*(50+12.5*var(1)), 37.5
+postype = left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = 5-var(1)
+scale = 0.375,0.375
+ownpal = 1
+ignorehitpause = 1
+vfacing = -1
+facing = 1-(teamside=2)*2
+
+;mini sigil fades
+[State 0, ModifyExplod]
+type = ModifyExplod
+triggerall = var(2) = 0
+triggerall = root,stateno != 3005
+;triggerall = (numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054)) > 0
+trigger1 = root,stateno != 3010
+trigger2 = root,stateno = 3010
+trigger2 = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) < 4
+trigger2 = root,animelem = 1
+trigger3 = root,stateno = 3010
+trigger3 = root,animelem = 2
+ID = 30051
+anim = 24011
+removetime = -2
+;persistent = 0
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+triggerall = var(2) = 0
+triggerall = root,stateno != 3005
+;triggerall = (numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054)) > 0
+trigger1 = root,stateno != 3010
+trigger2 = root,stateno = 3010
+trigger2 = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) < 4
+trigger2 = root,animelem = 1
+trigger3 = root,stateno = 3010
+trigger3 = root,animelem = 2
+ID = 30052
+anim = 24012
+removetime = -2
+;persistent = 0
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+triggerall = var(2) = 0
+triggerall = root,stateno != 3005
+;triggerall = (numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054)) > 0
+trigger1 = root,stateno != 3010
+trigger2 = root,stateno = 3010
+trigger2 = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) < 4
+trigger2 = root,animelem = 1
+trigger3 = root,stateno = 3010
+trigger3 = root,animelem = 2
+ID = 30053
+anim = 24013
+removetime = -2
+;persistent = 0
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+triggerall = var(2) = 0
+triggerall = root,stateno != 3005
+;triggerall = (numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054)) > 0
+trigger1 = root,stateno != 3010
+trigger2 = root,stateno = 3010
+trigger2 = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) < 4
+trigger2 = root,animelem = 1
+trigger3 = root,stateno = 3010
+trigger3 = root,animelem = 2
+ID = 30054
+anim = 24014
+removetime = -2
+;persistent = 0
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+triggerall = root,stateno = 3010
+triggerall = root,anim = 3010
+triggerall = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) = 4
+trigger1 = root,animelem = 2
+v =  25   ;fv = 
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+;mini sigil fade trigger
+[State 0, VarSet]
+type = VarSet
+triggerall = root,stateno != 3005
+;triggerall = (numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054)) > 0
+trigger1 = root,stateno != 3010
+trigger2 = root,stateno = 3010
+trigger2 = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) < 4
+trigger2 = root,animelem = 1
+trigger3 = root,stateno = 3010
+trigger3 = root,var(25)
+v = 2    ;fv = 10
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+;mini sigil velocity
+[State 0, ModifyExplod]
+type = ModifyExplod
+triggerall = root,stateno = 3010
+triggerall = root,anim = 3010
+triggerall = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) = 4
+trigger1 = root,animelemtime(1) >= 0
+trigger1 = root,animelemtime(2) < 0
+ID = 30051
+pos = (teamside=2)*320 + (1-(teamside=2)*2)*(37.5+25.*(120.-root,animelemtime(1))/120.), 37.5
+;x = (dist to sigil center + relative position)/time
+;vel = -25./120.,0
+
+;mini sigil velocity
+[State 0, ModifyExplod]
+type = ModifyExplod
+triggerall = root,stateno = 3010
+triggerall = root,anim = 3010
+triggerall = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) = 4
+trigger1 = root,animelemtime(1) >= 0
+trigger1 = root,animelemtime(2) < 0
+ID = 30052
+pos = (teamside=2)*320 + (1-(teamside=2)*2)*(37.5+37.5*(120.-root,animelemtime(1))/120.), 37.5
+;x = (dist to sigil center + relative position)/time
+;vel = -25./120.,0
+
+;mini sigil velocity
+[State 0, ModifyExplod]
+type = ModifyExplod
+triggerall = root,stateno = 3010
+triggerall = root,anim = 3010
+triggerall = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) = 4
+trigger1 = root,animelemtime(1) >= 0
+trigger1 = root,animelemtime(2) < 0
+ID = 30053
+pos = (teamside=2)*320 + (1-(teamside=2)*2)*(37.5+50.*(120.-root,animelemtime(1))/120.), 37.5
+;x = (dist to sigil center + relative position)/time
+;vel = -25./120.,0
+
+;mini sigil velocity
+[State 0, ModifyExplod]
+type = ModifyExplod
+triggerall = root,stateno = 3010
+triggerall = root,anim = 3010
+triggerall = numexplod(30051) + numexplod(30052) + numexplod(30053) + numexplod(30054) = 4
+trigger1 = root,animelemtime(1) >= 0
+trigger1 = root,animelemtime(2) < 0
+ID = 30054
+pos = (teamside=2)*320 + (1-(teamside=2)*2)*(37.5+62.5*(120.-root,animelemtime(1))/120.), 37.5
+;x = (dist to sigil center + relative position)/time
+;vel = -25./120.,0
+
 
 ;Pentagram
 [Statedef 24006]
@@ -3491,6 +4332,26 @@ movetype = A
 anim	 = 240110+ishelper(240111)+2*ishelper(240112)+3*ishelper(240113)+4*ishelper(240114)
 sprpriority = 3
 
+;var(26)
+[State 0, VarSet]
+type = VarSet
+triggerall = anim=[240110,240112]
+trigger1 = time = 0
+v = 0    ;fv = 10
+value = root,var(26)
+;ignorehitpause = 
+;persistent = 
+
+;stateno
+[State 0, VarSet]
+type = VarSet
+triggerall = anim=[240110,240112]
+trigger1 = time = 0
+v = 1    ;fv = 10
+value = root,stateno
+;ignorehitpause = 
+;persistent = 
+
 [State ]
 Type = AngleDraw
 Trigger1 = anim=240113
@@ -3511,8 +4372,11 @@ triggerall = time = 0
 trigger1 = anim=[240110,240112]
 trigger1 = root,var(26)=0
 trigger2 = anim=240113
-trigger2 = root,var(26)=1
-trigger2 = root,stateno<2000
+trigger2 = parent,var(0)=1
+trigger2 = parent,var(1)<2000
+trigger3 = anim=240113
+trigger3 = parent,var(0)=0
+trigger3 = parent,var(1)=2600
 attr = S, SP 
 AnimType  = Hard
 Damage    = Ceil((75+5*(anim-240110))*root,fvar(0)), 7+(anim-240110)  
@@ -3750,8 +4614,12 @@ Flag = Noshadow
 [State 0, Helper]
 type = Helper
 triggerall = time = 2
-trigger1 = anim=[240110,240112]
-trigger1 = root,var(26) = 1
+triggerall = anim=[240110,240112]
+trigger1 = var(0) = 1
+trigger1 = var(1) != 2600
+trigger1 = var(1) != 2420
+trigger2 = var(0) = 0
+trigger2 = var(1) = 2600
 helpertype = normal ;player
 name = "super fire"
 ID = 240113
@@ -3766,10 +4634,10 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-triggerall = time = 6
-trigger1 = anim=[240110,240112]
-trigger1 = root,var(26) = 1
-trigger1 = root,stateno=[2000,2500]
+triggerall = time = 2
+triggerall = anim=[240110,240112]
+trigger1 = var(0) = 1
+trigger1 = var(1)=[2000,2600]
 helpertype = normal ;player
 name = "hyper fire"
 ID = 240114
@@ -4337,7 +5205,7 @@ x = 10.5
 type = VelSet
 triggerall = time = 0
 trigger1 = root,stateno=[1400,1499]
-trigger2 = root,stateno=[2400,2499]
+trigger2 = root,stateno=[2400,2600]
 x = 6
 
 [State 0, VelSet]
@@ -4642,9 +5510,10 @@ IgnoreHitPause = 1
 Type = DestroySelf
 Trigger1 = Anim = [24021,24022]
 Trigger1 = AnimTime = 0
+trigger2 = root,stateno = 3000
 
 [Statedef 24030, earthquake]
-	type = A ;
+	type = C ;
 	movetype= A ;
 	velset = 0,0
 	anim =  11501;

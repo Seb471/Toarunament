@@ -625,13 +625,13 @@ pos = 53,0;ceil(160 * const(size.xScale)), ceil(0 * const(size.yScale))
 [State 810, Damage 1]
 type = TargetLifeAdd
 trigger1 = NumTarget && AnimElem = 4
-value = -30
+value = -40
 kill = 0
 
 [State 810, Damage 2]
 type = TargetLifeAdd
 trigger1 = NumTarget && AnimElem = 6
-value = -60
+value = -80
 kill = 1
 
 [State 810, TargetPowerAdd]
@@ -1109,6 +1109,15 @@ movetype = H
 physics = N
 sprpriority=1
 
+[State 0, ScreenBound]
+type = null
+triggerall = enemy,name = "Itsuwa"
+trigger1 = enemy,stateno=3005
+value = 0
+movecamera = 0,0
+;ignorehitpause = 
+;persistent = 
+
 [State 1230, ChangeAnim2]
 type = Changeanim2
 trigger1 = !SelfAnimExist(5012)
@@ -1146,6 +1155,15 @@ movetype = H
 physics = N
 velset = 0,0
 sprpriority = 1
+
+[State 0, ScreenBound]
+type = null
+triggerall = enemy,name = "Itsuwa"
+trigger1 = enemy,stateno=3005
+value = 0
+movecamera = 0,0
+;ignorehitpause = 
+;persistent = 
 
 [State 1231]
 type = PosSet

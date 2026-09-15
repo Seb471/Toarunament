@@ -707,9 +707,10 @@ trigger2=var(1)
 [State -1, Run Fwd]
 type = ChangeState
 value = 100
-trigger1 = command = "FF" || (command = "holdfwd" && command = "y")
+triggerall = command = "FF" || (command = "holdfwd" && command = "y")
 trigger1 = statetype != A
 trigger1 = ctrl
+trigger1 = stateno!=100
 
 ;---------------------------------------------------------------------------
 ;Run Back
