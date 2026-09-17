@@ -1002,7 +1002,7 @@ triggerall=!movecontact && !movereversed
 ;triggerall=target(1505),Movetype!=H
 trigger1 = time=0
 attr = A, SP
-damage   = ceil(10*root,fvar(10)), 1 ;14
+damage   = ceil(10*root,fvar(10)*root,fvar(2)), 1 ;14
 animtype = Hard
 guardflag = MA
 pausetime = 0,30; 46
@@ -1157,7 +1157,7 @@ trigger1= time=0
 attr = A,SP
 hitflag = MAF
 guardflag = MA
-damage = ceil(40*root,fvar(0)), 4
+damage = ceil(40*root,fvar(0)*root,fvar(2)), 4
 ;getpower = 30 * (!var(20)&&!var(53)), 0
 ;givepower = 30, 30
 pausetime = 12,12
@@ -1196,7 +1196,7 @@ triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = A, SP
 animtype  = Hard
-damage    = Ceil(60*root,fvar(0)),6
+damage    = Ceil(60*root,fvar(0)*root,fvar(2)),6
 guardflag = MA
 pausetime = 2,3
 sparkno = -1
@@ -1663,7 +1663,7 @@ trigger1 = root,anim = 26230
 trigger2 = root,anim = 26231
 trigger3 = root,anim = 26232
 trigger3 = root,animelemtime(3)<0
-value = 2
+value = ceil(2*root,fvar(2))
 ID = 2623
 kill = 0
 absolute = 0
@@ -1705,7 +1705,7 @@ value = 26241
 type = HitDef
 trigger1 = Time = 0
 attr = S, NA
-damage    = Ceil(root,fvar(10)*50),5
+damage    = Ceil(root,fvar(10)*50*root,fvar(2)),5
 priority  = 3
 animtype  = Hard
 hitflag = MAFD
@@ -1752,7 +1752,7 @@ trigger1 = root,anim = 1920
 
 
 
-;White explosion helper
+;White explosion
 [Statedef 2625]
 type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
@@ -1832,7 +1832,7 @@ triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = A, NP
 animtype  = Hard
-damage    = Ceil(60*root,fvar(0)),6
+damage    = Ceil(60*root,fvar(0)*root,fvar(2)),6
 guardflag = MA
 pausetime = 2,3
 sparkno = -1
@@ -2000,7 +2000,7 @@ time = -1
 type = HitDef
 trigger1 = AnimElem = 1
 attr = A, HP
-damage    = Ceil(150*root,fvar(10)),15
+damage    = Ceil(150*root,fvar(10)*root,fvar(2)),15
 animtype = up
 guardflag = MA
 hitflag = MAF
@@ -4379,7 +4379,7 @@ trigger3 = parent,var(0)=0
 trigger3 = parent,var(1)=2600
 attr = S, SP 
 AnimType  = Hard
-Damage    = Ceil((75+5*(anim-240110))*root,fvar(0)), 7+(anim-240110)  
+Damage    = Ceil((65+5*(anim-240110))*root,fvar(0)*root,fvar(2)), 6+(anim-240110)  
 HitFlag = MAF
 GuardFlag = HA
 PauseTime = 5,10
@@ -4421,7 +4421,7 @@ trigger1 = anim=[240110,240112]
 trigger1 = root,var(26)=1
 attr = S, SP 
 AnimType  = Hard
-Damage    = Ceil((75+5*(anim-240110))*root,fvar(0)), 7+(anim-240110)  
+Damage    = Ceil((65+5*(anim-240110))*root,fvar(0)*root,fvar(2)), 6+(anim-240110)  
 HitFlag = MAF
 GuardFlag = HA
 PauseTime = 5,10
@@ -4546,7 +4546,7 @@ triggerall = anim=240114
 Trigger1 =! MoveContact &&! MoveReversed
 Trigger1 = AnimElem = 2, >= 0
 Attr = A, SP
-Damage = 130,16
+Damage = Ceil(125*root,fvar(0)*root,fvar(2)), 13;130,16
 AnimType  = Hard
 HitFlag = MAFD
 GuardFlag = HA
@@ -4728,7 +4728,7 @@ triggerall=anim=[240120,240122]
 triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = C, SP
-Damage    = Ceil((75+5*(anim-240120))*root,fvar(0)), 7+(anim-240120) 
+Damage    = Ceil((75+5*(anim-240120))*root,fvar(0)*root,fvar(2)), 7+(anim-240120) 
 animtype = Hard
 hitflag = MAF;MAFD
 guardflag = LA
@@ -4778,7 +4778,7 @@ animtype = Hard        ;light,medium,hard,back,up,diagup
 air.animtype = hard
 ;fall.animtype = Back
 priority = 5,Hit
-damage = Ceil(100*parent,fvar(10)),10
+damage = Ceil(100*root,fvar(10)*root,fvar(2)),10
 pausetime = 10 ,10
 guard.pausetime = 9,9
 sparkno = -1
@@ -5085,7 +5085,7 @@ triggerall=anim=[240140,240142]
 triggerall=!movecontact && !movereversed
 trigger1 = time = 0
 attr = A, SP 
-Damage    = Ceil((75+5*(anim-240140))*root,fvar(0)), 7+(anim-240140) 
+Damage    = Ceil((55+5*(anim-240140))*root,fvar(0)), 5+(anim-240140) 
 ;getpower = 110,45
 animtype = Hard
 pausetime = 0,5
@@ -5445,7 +5445,7 @@ Trigger1 =! MoveContact &&! MoveReversed
 Trigger1 = Anim = 24021
 Trigger1 = Time > 1
 Attr = S, SP
-Damage = Ceil(root,FVar(0)*90),9
+Damage = Ceil(root,FVar(0)*90*root,fvar(2)),9
 AnimType  = Hard
 HitFlag = MAFD
 GuardFlag = MA
@@ -5540,7 +5540,7 @@ trigger2 = root,stateno = 3000
 type = hitdef
 trigger1 = time = 0
  		attr = S, HA
- 		damage = 100
+ 		damage = ceil(100*root,fvar(2)),10
  		animtype = Light
  		;guardflag = A
  		hitflag = MAFD

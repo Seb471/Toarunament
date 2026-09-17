@@ -1750,6 +1750,22 @@ Type=VarSet
 Trigger1=time=0
 var(1)=0
 
+
+[State -1,????]
+		type = Varset
+		Trigger1=Time=0
+		fvar(10)= fvar(0)
+		persistent = 0
+ 		ignorehitpause = 1
+
+	[State -1,??????]
+		type = Varset
+		Trigger1=Time=0
+		Trigger1=fvar(0)<=0.45
+		fvar(10)= 0.45
+		persistent = 0
+ 		ignorehitpause = 1
+
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = time = 0
@@ -1866,7 +1882,7 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-triggerall = animelem = 5
+triggerall = animelem = 6
 trigger1 = var(21) = 3
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -2426,6 +2442,22 @@ poweradd = -1000
 Type=VarSet
 Trigger1=time=0
 var(1)=0
+
+
+[State -1,????]
+		type = Varset
+		Trigger1=Time=0
+		fvar(10)= fvar(0)
+		persistent = 0
+ 		ignorehitpause = 1
+
+	[State -1,??????]
+		type = Varset
+		Trigger1=Time=0
+		Trigger1=fvar(0)<=0.45
+		fvar(10)= 0.45
+		persistent = 0
+ 		ignorehitpause = 1
 
 [State 0, SuperPause]
 type = SuperPause
@@ -3066,6 +3098,11 @@ anim = 3000
 ctrl = 0
 facep2=1
 
+[State 200,V1=0]
+		Type=VarSet
+		Trigger1=time=0
+		var(1)=0
+
 [State 0, VarSet]
 type = VarSet
 trigger1 = time = 0
@@ -3097,6 +3134,22 @@ v = 26
 value = var(25)
 ;ignorehitpause = 
 ;persistent = 
+
+
+[State -1,????]
+		type = Varset
+		Trigger1=Time=0
+		fvar(10)= fvar(0)
+		persistent = 0
+ 		ignorehitpause = 1
+
+	[State -1,??????]
+		type = Varset
+		Trigger1=Time=0
+		Trigger1=fvar(0)<=0.45
+		fvar(10)= 0.45
+		persistent = 0
+ 		ignorehitpause = 1
 
 [State 0, SuperPause]
 type = SuperPause
@@ -3210,11 +3263,11 @@ trigger1 = time = 0
 attr = A,SA
 hitflag = MAF
 guardflag = M
-damage = 0,0;ceil(ifElse(fvar(11) * 65 < 7, 7, fvar(11) * 65)), 7
+damage = ceil(fvar(0)*65),0;ceil(ifElse(fvar(11) * 65 < 7, 7, fvar(11) * 65)), 7
 getPower = 0, 0
 givePower = 18, 18
-pauseTime = ifElse(var(20), 6, 12), ifElse(var(20), 6, 12)
-guard.pauseTime = ifElse(var(20), 6, 12), ifElse(var(20), 6, 12)
+pauseTime = 12,12;ifElse(var(20), 6, 12), ifElse(var(20), 6, 12)
+guard.pauseTime = 12,12;ifElse(var(20), 6, 12), ifElse(var(20), 6, 12)
 animtype = Hard
 air.animtype = Back
 fall.animtype = Back
@@ -3225,9 +3278,9 @@ ground.slidetime = 20
 guard.hittime = 20
 air.hittime = 120
 airguard.ctrltime = 16
-ground.velocity = ifElse(var(20), -4.75, -4.75), -8
+ground.velocity = -4.75, -8
 ground.cornerPush.velOff = 0
-guard.velocity = ifElse(var(20), -8.75, -8.75)
+guard.velocity = -8.75
 guard.cornerPush.velOff = 0
 air.velocity = -4.75, -7
 air.cornerPush.velOff = 0
@@ -3239,10 +3292,10 @@ fall.recover = 0
 fall.recoverTime = 120
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
-sparkno = -1 + 0*(var(33):=8018)
-guard.sparkno = -1 + 0*(var(34):=8001)
-sparkxy = -10 + 0 * (var(35) := ceil(379*const(size.xScale))), var(36):=ceil(-247*const(size.yScale))
-palfx.time = 12*var(9)
+sparkno = -1
+guard.sparkno = -1
+;sparkxy = -10 + 0 * (var(35) := ceil(379*const(size.xScale))), var(36):=ceil(-247*const(size.yScale))
+palfx.time = 12;*var(9)
 palfx.add = 255,255,255
 palfx.sinadd= -255,-255,-255,48
 envshake.time = 12
@@ -3542,6 +3595,19 @@ value = 1
 ;ignorehitpause = 
 persistent = 0
 
+[State 0, TargetLifeAdd]
+type = TargetLifeAdd
+triggerall = anim = 30051
+trigger1 = frontedgedist<=100
+trigger1 = animelemtime(3)>=0
+value = -25
+ID = 3000
+kill = 0
+absolute = 0
+;ignorehitpause = 
+persistent = 0
+
+
 [State 1404, EnvShake]
 type = EnvShake
 triggerall = anim = 30051
@@ -3679,7 +3745,7 @@ trigger1= animelem = 16
 attr = A,SA
 hitflag = MAF
 guardflag = HA
-damage = 0,0;ceil(90*fvar(10)), 9
+damage = ceil(90*fvar(10)), 9
 ;getPower = ifElse(!var(13), 36, 18) * (!var(20)&&!var(53)), 10 * (!var(20)&&!var(53))
 ;givePower = 18, 18
 pauseTime = 12,12
@@ -3730,7 +3796,7 @@ trigger1= animelem = 1
 attr = S,HA
 hitflag = MAFD
 guardflag = MA
-damage = 0,0;ceil(60*fvar(10)), 6
+damage = ceil(60*fvar(10)), 6
 ;getPower = 0, 0
 ;givePower = 18, 18
 pauseTime = 12,12
@@ -3827,7 +3893,7 @@ triggerall = anim = 30054
 trigger1 = animelem = 9
 attr = S, HA
 animtype  = Hard
-damage    = 0,0;Ceil(60*fvar(0)),6
+damage    = Ceil(60*fvar(10)),6
 guardflag = MA
 pausetime = 12,12
 guard.pausetime = 12,12
@@ -3993,7 +4059,7 @@ trigger1= AnimElem = 1
 attr = A,SA
 hitflag = MAF
 guardflag = HA
-damage = 0,0;ceil(50*fvar(0)), 5
+damage = ceil(50*fvar(10)), 5
 ;getPower = ifElse(!var(13), 36, 18) * (!var(20)&&!var(53)), 10 * (!var(20)&&!var(53))
 ;givePower = 18, 18
 pauseTime = 6,8
@@ -4056,7 +4122,7 @@ type = HitDef
 triggerall = anim = 30056
 trigger1= AnimElem = 11
 attr = A, SP
-damage   = 0,0;ceil(10*root,fvar(10)), 1 ;14
+damage   = ceil(10*fvar(10)), 1 ;14
 animtype = Hard
 guardflag = MA
 pausetime = 0,30; 46
@@ -4226,7 +4292,7 @@ type = HitDef
 triggerall = anim = 30057
 trigger1 = animelem = 13
 attr = S, SA
-damage    = 0,0;Ceil(40*fvar(10))
+damage    = Ceil(40*fvar(10))
 hitflag		  = MAF
 guardflag = HA
 priority = 4
@@ -4302,7 +4368,7 @@ ignorehitpause = 1
 		Sparkxy=-15,floor(-60*const(Size.yScale))
 		HitSound=S20,0                  ;Sound to play on hit
 		GuardSound=S120,0                ;Sound to play on guard
-		Damage=0,0;Ceil(20*fvar(10)),2
+		Damage=Ceil(20*fvar(10)),2
 		Priority=5,Hit
 		GetPower=4,1
 		GivePower=2,1
@@ -4359,7 +4425,7 @@ ID = 1310
 		Sparkxy=-15,floor(-60*const(Size.yScale))
 		HitSound=S20,0                  ;Sound to play on hit
 		GuardSound=S120,0                ;Sound to play on guard
-		Damage=0,0;Ceil(30*fvar(0)),12
+		Damage=Ceil(30*fvar(10)),12
 		Priority=5,Hit
 ;		GetPower=31,16
 ;		GivePower=31,16
@@ -5053,6 +5119,16 @@ value = 1
 ;ignorehitpause = 
 persistent = 0
 
+[State 0, TargetLifeAdd]
+type = TargetLifeAdd
+trigger1 = abs(pos x) <= 20
+value = -target(1311),lifemax*3./64. * fvar(10) * fvar(2)
+ID = 1311
+kill = 0
+absolute = 0
+;ignorehitpause = 
+persistent = 0
+
 [State ]
 Type = PlaySnd
 Trigger1 = helper(3015),time = [300,350)
@@ -5066,6 +5142,16 @@ value = 1
 ;ignorehitpause = 
 persistent = 10
 
+[State 0, TargetLifeAdd]
+type = TargetLifeAdd
+Trigger1 = helper(3015),time = [300,350)
+value = -target(1311),lifemax*1./64. * fvar(10) * fvar(2)
+ID = 1311
+kill = 0
+absolute = 0
+;ignorehitpause = 
+persistent = 10
+
 [State ]
 Type = PlaySnd
 Trigger1 = helper(3015),time = 350
@@ -5076,6 +5162,16 @@ channel = 0
 type = HitAdd
 Trigger1 = helper(3015),time = 350
 value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, TargetLifeAdd]
+type = TargetLifeAdd
+Trigger1 = helper(3015),time = 350
+value = -target(1311),lifemax*2./64. * fvar(10) * fvar(2)
+ID = 1311
+kill = 1
+absolute = 0
 ;ignorehitpause = 
 ;persistent = 
 
@@ -5228,7 +5324,7 @@ y = 0
 type = ChangeState
 triggerall = helper(3015),time  = 450
 trigger1 = target(1311),name = "Kanzaki Kaori"; || target(3000),name = "Kanzaki Kaori"
-trigger2 = target(1311),name = "Itsuwa"; || target(3000),name = "Itsuwa"
+;trigger2 = target(1311),name = "Itsuwa"; || target(3000),name = "Itsuwa"
 value = 3013
 ctrl = 0
 ;anim =
@@ -5359,6 +5455,16 @@ value = 1
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, TargetLifeAdd]
+type = TargetLifeAdd
+trigger1 = time = 139
+value = -target(1311),lifemax*2./64. * fvar(10) * fvar(2)
+ID = 1311
+kill = 0
+absolute = 0
+;ignorehitpause = 
+;persistent = 
+
 [State 4801, small expansion]
 type = Explod
 trigger1 = !NumExplod(15023)
@@ -5451,6 +5557,18 @@ triggerall = NumHelper(3016)
 trigger1 = Helper(3016),var(5) = 2
 trigger1 = Helper(3016),var(6) = 6
 value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, TargetLifeAdd]
+type = TargetLifeAdd
+triggerall = NumHelper(3016)
+trigger1 = Helper(3016),var(5) = 2
+trigger1 = Helper(3016),var(6) = 6
+value = -target(1311),lifemax*6./64. * fvar(10) * fvar(2)
+ID = 1311
+kill = 1
+absolute = 0
 ;ignorehitpause = 
 ;persistent = 
 
