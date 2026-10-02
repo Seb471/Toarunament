@@ -10,7 +10,8 @@ passive and active effects on her gameplan.
 
 Itsuwa can have one sigil at a time.
 You have passives when a sigil is active.
-You consume a sigil on (sigil) specials and throw the active ability
+You consume a sigil on sigil specials
+and throw the active ability
 
 There are 5 kinds of sigils:
 <#ff0000>_`Ryousen (Fire)</>
@@ -22,6 +23,7 @@ Actively creates a low water attack on sigil specials
 <#00ff00>_`Chisen (Earth)</>
 Passively increases attack
 Actively increases the attack further on sigil specials
+Earthquake on super sigil variant for supers
 <#ffff00>_`Kuusen (Atmosphere)</>
 Passively increases air mobility and gives air jump(s)
 Actively creates air projectile(s) on sigil specials
@@ -30,7 +32,7 @@ Passively combines all the passives
 Actively launches all the actives
 
 The logic of sigil specials is in general :
-special a : fast
+special a : fast and mixes up upon consumption of sigil
 special b : slow and gives sigil
 <#00ff00>Lvl-1</>
 special c : fast and gives super sigil
@@ -41,6 +43,31 @@ While not being the only way she can fight,
 this system is central to her kit
 
 <#f0f000>XYZs :</>
+
+Run									_F_F
+<#ff0000>Needs Ryousen</>
+Air Dash								_F_F (air)
+Back Hop								_B_B
+<#ff0000>Needs Ryousen</>
+Back Air Dash								_B_B (air)
+<#ffff00>Needs Kuusen</>
+Air Jump								_UB / _U / _UF (air)
+<#ff0000>Needs Ryousen</>
+Dash									_F_B_F
+<#ffff00>Needs Kuusen</>
+Super Jump								_D_U
+<#ff0000>Needs Ryousen</>
+Super Front Jump							_DB_UF
+
+Lay line grab								_B / _F  _+ ^LP / ^X
+
+Spot Dodge								_. / _D _+ ^HP / ^Z
+_!Counter attack							^K / ^A / ^B / ^C
+Dodge forward								_F^HP / _F^Z
+Dodge backward								_B^HP / _B^Z
+
+
+Charge up								^LK_+^HK / ^A_+^C
 
 <#f0f000>Normals :</>
 
@@ -62,122 +89,87 @@ Air Sweep		 						^HK / ^C (air)
 Sigil :
 
 Lunge									_D_DB_B^LK / _D_DB_B^A
-Ryousen Lunge							_D_DB_B^MK / _D_DB_B^B
+Ryousen Lunge								_D_DB_B^MK / _D_DB_B^B
 <#00ff00>Lvl-1</>
-Ryousen Lunge EX 						_D_DB_B^HK / _D_DB_B^C
+Ryousen Lunge EX 							_D_DB_B^HK / _D_DB_B^C
 
 Slash									_D_DF_F^LK / _D_DF_F^A
 Hasen Slash								_D_DF_F^MK / _D_DF_F^B
 <#00ff00>Lvl-1</>
-Hasen Slash EX 							_D_DF_F^HK / _D_DF_F^C
+Hasen Slash EX 								_D_DF_F^HK / _D_DF_F^C
 
 Strike									_D_DF_F^LK / _D_DF_F^A (air)
-Chisen Strike							_D_DF_F^MK / _D_DF_F^B (air)
+Chisen Strike								_D_DF_F^MK / _D_DF_F^B (air)
 <#00ff00>Lvl-1</>
-Chisen Strike EX						_D_DF_F^HK / _D_DF_F^C (air)
+Chisen Strike EX							_D_DF_F^HK / _D_DF_F^C (air)
 
 Upperslash								_F_D_DF^LK / _F_D_DF^A
-Kuusen Upperslash						_F_D_DF^MK / _F_D_DF^B
+Kuusen Upperslash							_F_D_DF^MK / _F_D_DF^B
 <#00ff00>Lvl-1</>
-Kuusen Upperslash EX 					_F_D_DF^HK / _F_D_DF^C
+Kuusen Upperslash EX 							_F_D_DF^HK / _F_D_DF^C
 
-Magic Amplificator						^LK^LK^MK / ^A^A^B
+Magic Amplificator							^LK_-^LK_-^MK / ^A_-^A_-^B
 _!Pull in								^K / ^A/^B/^C
 <#00ff00>Lvl-2</>
-Super Magic Amplificator				^LK^LK^HK / ^A^A^C
+Super Magic Amplificator						^LK_-^LK_-^HK / ^A_-^A_-^C
 
 <#00ff00>Lvl-2</>
-Shichikou Shichijin						_D_D_DF_F^HK /_D_D_DF_F^C
-(Amplifies like Magic Amplificator)
+Shichikou Shichijin							_D_D_DF_F^HK /_D_D_DF_F^C
+(Amplifies like Magic Amplificator kind of)
 
 Non-Sigil :
 
 Wires									_D_D^K / _D_D^A/^B/^C
 (strength level changes distance)
 
-Icy Night Wind							~B_F^LK / ~B_F^A
+Icy Wind								~B_F^LK / ~B_F^A
+Icy Night Wind								~B_F^MK / ~B_F^B
 <#00ff00>Lvl-1</>
-White Explosion							~B_F^HK / ~B_F^C
+White Explosion								~B_F^HK / ~B_F^C
 <#00ff00>Lvl-1</>
-_!St Andrew's Lightning spell			^HK / ^C (hold)
+_!St Andrew's Lightning spell						^HK / ^C (hold)
 
-Slow down zone							~F_B^MK / ~F_B^B
+Slow down zone								~F_B^LK / ~F_B^A
+Healing spell								~F_B^MK / ~F_B^B
 <#00ff00>Lvl-2</>
-Punishment for murder					~F_B^HK / ~F_B^C
+Punishment for murder							~F_B^HK / ~F_B^C
 
 <#f0f000>Hypers :</>
 
 <#00ff00>Lvl-3</>
-Magic combination						_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
+Magic combination							_B_DB_D_DF_F^HK / _B_DB_D_DF_F^C
 <#00ff00>Lvl-2</>
 _!Saint Destroyer						^HK / ^C (hold)
 
 About Magic combination :
-You obtain automatically the sigils during the move.
-Water -> Fire -> Earth -> Atmosphere.
-Thus, you obtain the last one at the end of the move.
-There is also a "deadly rave" system, that increases the damage
-of each hit if the command is successfully inputed.
+There is a "deadly rave" system, that changes the sigil
+during the move.
 A successful input is shown with a pentagram
-(like in normal sigil obtention)
+The order of sigils obtained is:
+<#00ff00>Earth</> -> <#0000ff>Water</> -> <#ff0000>Fire</> -> <#ffff00>Atmosphere</>.
 The input windows are when Itsuwa is readying up her hit.
 The inputs are the following:
-Water									_D_DF_F^HK / _D_DF_F^C
-Fire									_D_DB_B^HK / _D_DB_B^C
-Earth									_D_DF_F_UF^HK / _D_DF_F_UF^C
-Atmosphere								_F_D_DF^HK / _F_D_DF^C
+<#00ff00>Earth</>							_D_DF_F^HK / _D_DF_F^C
+<#0000ff>Water</>							_D_DF_F^HK / _D_DF_F^C
+<#ff0000>Fire</>							_D_DB_B^HK / _D_DB_B^C
+<#ffff00>Atmosphere</>							_F_D_DF^HK / _F_D_DF^C
+The last sigil obtained will be the one kept at the end
+of the move.
 
 About Saint Destroyer :
-You obtain Zensen while performing Saint Destroyer.
-If you've inputed every input of the "deadly rave" succesfully
-you get:
+You obtain Zensen automatically
+while performing Saint Destroyer.
+If you've inputed every input of
+the deadly rave successfully you get:
 _`super sigil version of Zensen
-_`increased damage on Saint Destroyer.
-If your opponent is a Saint, the Saint Destroyer does more damage.
+_`pseudo magic name state
+If your opponent is a Saint,
+the Saint Destroyer does more damage
+(with an extended animation).
 
+Credits :
 
-Movelist :
-
-a,b,c's of yukina are ok
-
-c different
-
-6a is kick
-
-3rd intro ? to think about maybe
-
-Special mechanic :
-special a : fastest
-special b : slowest but gives sigil
-special c : fastest and gives super sigil
-
-implementing the dodge mechanic ? done
-
-all of them can do the thing
-
-214 -> fire lunge
-236 -> water slash
-623 -> atmosphere dp
-236 air -> earth strike
-
-aab -> magic amplification with pull-in (uses wires), releases amped sigil
-aac -> super magic amplification lvl-2, releases super amped sigil
------------
-22 -> wires
-
-46 a -> icy night wind
-64 b -> slow zone
-46 c -> white explosion lvl-1 -> St Andrew's lightning spell lvl-2 extension
-64 c -> murderous intent lvl-2
-
-2236c -> Shichikō Shichijin - lvl-2
-
-41236c -> magic combination lvl-3 + saint destroyer lvl-2 extension
-(water wall bounce -> fire lunge wires -> earth crash earthquake -> atmosphere dp -> saint destroyer)
-saint destroyer gives an all-around sigil
-400 dmg + 1/4th health of opponent when saint destroyer (so 250 in general)
-deadly rave mechanic  where each successive input gives +25 dmg
-when all are successfull, gives super sigil as a reward
-more effective against kanzaki (saint destroyer x2)
-even more effective against acqua (saint destroyer x4)
-effectiveness shown via saber's excalibur animation
+Writing (movelist) : Seb368
+Coding : Seb368
+Spritework : Yukina's sprites reworked,
+ebora for downscaling them (?)

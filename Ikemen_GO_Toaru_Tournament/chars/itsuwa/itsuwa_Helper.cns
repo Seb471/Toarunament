@@ -3009,7 +3009,7 @@ Anim = 10003
 Pos = -20,250
 PosType = Back
 Ownpal = 0
-Scale = 0.5,0.5
+Scale = 0.625,0.625
 SprPriority = -5
 RemoveTime = 50
 RemoveOnGetHit = 1
@@ -3020,10 +3020,30 @@ SuperMoveTime  = 9999
 PauseMoveTime  = 9999
 
 [State -1]
+Type = Explod
+Trigger1 = IsHelper(10002)
+Trigger1 = Time = 0
+ID = 10001
+Anim = 10002
+Pos = -20,270
+PosType = Back
+Ownpal = 0
+Scale = 0.625,0.625
+SprPriority = -5
+RemoveTime = 50
+RemoveOnGetHit = 1
+IgnoreHitPause = 1
+BindTime = -1
+Persistent = 0
+SuperMoveTime  = 9999
+PauseMoveTime  = 9999
+
+
+[State -1]
 Type = ModifyExplod
 Trigger1 = Time >= 30 && IsHelper(10001)
 ID = 10001
-Scale = 0.50+(time -30)*0.015,0.50+(time -30)*0.015
+Scale = 0.6250+(time -30)*0.015,0.6250+(time -30)*0.015
 IgnoreHitPause = 1
 Persistent = 1
 SuperMoveTime  = 9999

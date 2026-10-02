@@ -1,0 +1,94 @@
+Movelist :
+
+
+
+a,b,c's of yukina are ok
+
+
+
+c different
+
+
+
+6a is kick
+
+
+
+3rd intro ? to think about maybe
+
+
+
+Special mechanic :
+
+special a : fastest
+
+special b : slowest but gives sigil
+
+special c : fastest and gives super sigil
+
+
+
+implementing the dodge mechanic ? done
+
+
+
+all of them can do the thing
+
+
+
+214 -> fire lunge
+
+236 -> water slash
+
+623 -> atmosphere dp
+
+236 air -> earth strike
+
+
+
+aab -> magic amplification with pull-in (uses wires), releases amped sigil
+
+aac -> super magic amplification lvl-2, releases super amped sigil
+
+\-----------
+
+22 -> wires
+
+
+
+46 a -> icy wind
+
+46 b -> icy night wind
+
+46 c -> white explosion lvl-1 -> St Andrew's lightning spell lvl-2 extension
+
+64 a -> slow zone
+
+64 b -> healing spell
+
+64 c -> murderous intent lvl-2
+
+
+
+2236c -> Shichikō Shichijin - lvl-2
+
+
+
+41236c -> magic combination lvl-3 + saint destroyer lvl-2 extension
+
+(earth crash earthquake -> water wall bounce -> fire lunge wires -> atmosphere dp -> saint destroyer)
+
+saint destroyer gives an all-around sigil
+
+~~400~~ \~500 dmg + ~~1/4th~~ 1/8th health of opponent when saint destroyer (so 250 in general)
+
+~~deadly rave mechanic  where each successive input gives +25 dmg~~
+
+when all are successfull, gives super sigil as a reward
+
+more effective against kanzaki (saint destroyer x2)
+
+even more effective against acqua (saint destroyer x4)
+
+effectiveness shown via saber's excalibur animation (and archetype earth's last arc)
+

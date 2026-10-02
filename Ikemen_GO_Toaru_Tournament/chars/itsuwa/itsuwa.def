@@ -4,7 +4,7 @@
 ; Player information
 [Info]
 name = "Itsuwa"        ;Name of character
-displayname = "Itsuwa" ;Name of character to display
+displayname = "Itsuwa (WIP)" ;Name of character to display
 versiondate = 08,07,2022    ;Version date of character (MM-DD-YYYY or X.XX)
 mugenversion = 1.1          ;Version of M.U.G.E.N character works on (X.XX)
 ikemenversion = 1
