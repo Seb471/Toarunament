@@ -100,13 +100,19 @@ sprpriority=4
 
 [State 300, Anim]
 type = ChangeAnim
+trigger1 = root,anim = 220
 trigger1 = Root,AnimElem = 5, < 1
+trigger2 = root,anim = 2420
+trigger2 = Root,AnimElem = 21, < 1
 value = 320
 elem = 1
 [State 300, Anim]
 type = ChangeAnim
+trigger1 = root,anim = 220
 trigger1 = Root,AnimElem = 5, >= 1
-trigger1 = AnimElem = 2, < 0
+trigger2 = root,anim = 2420
+trigger2 = Root,AnimElem = 21, >= 1
+triggerall = AnimElem = 2, < 0
 value = 320
 elem = 2
 
@@ -147,7 +153,7 @@ flag = noshadow
 ignorehitpause =1
 [State 300, Destroyself]
 type = destroyself
-trigger1 =root,stateno!=220
+trigger1 =root,stateno!=220&&root,stateno!=2420
 trigger2 =root,Movetype=H
 trigger3 =!animtime
 
@@ -983,6 +989,79 @@ type = destroyself
 trigger1 =root,stateno!=1310&&root,stateno!=2320 && (root,stateno!=3005 || root,stateno=3005 && root,anim!=30057)
 trigger2 =root,Movetype=H
 trigger3 =!animtime
+
+;---------------------------------------------------------------------------
+;Slash - Wild Strike
+[Statedef 1405]
+physics  = N
+anim = 1405
+ctrl = 0
+velset=0,0
+sprpriority=4
+
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 3, < 0
+trans = Add
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 3, >= 0 && AnimElem = 4, < 0
+trans = AddAlpha
+alpha = 213,256
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 4, >= 0 && AnimElem = 5, < 0
+trans = AddAlpha
+alpha = 170,256
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 5, >= 0 && AnimElem = 6, < 0
+trans = AddAlpha
+alpha = 256,256
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 6, >= 0 && AnimElem = 7, < 0
+trans = AddAlpha
+alpha = 170,256
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 7, >= 0
+trans = AddAlpha
+alpha = 85,256
+
+[State 300, Scale]
+type = AngleDraw
+trigger1 = AnimElem = 2, < 0
+scale = 1.0,2.0 + (0.1*time)
+[State 300, Scale]
+type = AngleDraw
+trigger1 = AnimElem = 2, >= 0
+scale = 0.75,2.0 + (0.1*time)
+
+[State 300, Rotate]
+type = AngleSet
+trigger1 = !Time
+value = -90
+
+[State 300, BindToRoot]
+type = BindToRoot
+trigger1 =1
+pos = ceil(576 * const(size.xScale)),ceil(-178 * const(size.yScale))
+ignorehitpause =1
+[State 300, Assert]
+type = AssertSpecial
+Trigger1 = 1
+flag = noshadow
+ignorehitpause =1
+[State 300, Destroyself]
+type = destroyself
+trigger1 =(root,stateno!=[1400,1410])&&root,stateno!=2420&&root,stateno!=2620
+trigger2 =root,Movetype=H
+trigger3 =!animtime
+trigger4 =(root,stateno=1400||root,stateno=2420||root,stateno=2620)&&root,animelem=2,<0
+trigger5 =root,stateno=1410&&root,animelem=2,>=0
+trigger6 =(root,stateno=2420)&&root,animelem=7,>=0
+trigger7 =(root,stateno=2620)&&root,animelem=9,>=0
 
 ;Wire attack
 [Statedef 1505]

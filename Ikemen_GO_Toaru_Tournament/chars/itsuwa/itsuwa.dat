@@ -66,6 +66,15 @@ _!Counter attack							^K / ^A / ^B / ^C
 Dodge forward								_F^HP / _F^Z
 Dodge backward								_B^HP / _B^Z
 
+About Dodges :
+You can dodge in 3 manners :
+_`When you have control of itsuwa
+_`After obtaining a sigil (<#0000ff>Hasen</>, <#ff0000>Ryousen</>)
+_`After attacking (<#00ff00>Chisen</>, <#ffff00>Kuusen</>)
+
+For the latter 2, it only concerns the b version
+of the sigil moves
+
 
 Charge up								^LK_+^HK / ^A_+^C
 
@@ -75,6 +84,7 @@ Thrust									^LK / ^A
 Low Kick								_F^LK / _F^A
 Swing									^MK / ^B
 Overslash								^HK / ^C
+Slide Slash								^HK / ^C (while run)
 
 Low Thrust								^LK / ^A (crouch)
 Low Swing								^MK / ^B (crouch)
@@ -144,7 +154,7 @@ _!Saint Destroyer						^HK / ^C (hold)
 About Magic combination :
 There is a "deadly rave" system, that changes the sigil
 during the move.
-A successful input is shown with a pentagram
+A successful input is shown with a pentagram.
 The order of sigils obtained is:
 <#00ff00>Earth</> -> <#0000ff>Water</> -> <#ff0000>Fire</> -> <#ffff00>Atmosphere</>.
 The input windows are when Itsuwa is readying up her hit.
@@ -157,15 +167,14 @@ The last sigil obtained will be the one kept at the end
 of the move.
 
 About Saint Destroyer :
-You obtain Zensen automatically
-while performing Saint Destroyer.
-If you've inputed every input of
-the deadly rave successfully you get:
+You obtain Zensen automatically while performing
+Saint Destroyer.
+If you've inputed every input of the deadly rave
+successfully you get:
 _`super sigil version of Zensen
 _`pseudo magic name state
-If your opponent is a Saint,
-the Saint Destroyer does more damage
-(with an extended animation).
+If your opponent is a Saint, the Saint Destroyer
+does more damage (with an extended animation).
 
 Credits :
 

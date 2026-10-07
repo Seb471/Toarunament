@@ -509,7 +509,8 @@ trigger2=var(1)
 type = Changestate
 value = 2600
 triggerall = power >= 2000
-triggerall = command = "2236_c" && statetype != A
+triggerall = command = "2236_c"
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
