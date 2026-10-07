@@ -3022,6 +3022,13 @@ Clsn2: 3
 21000,8, 0,0, 1
 21000,9, 0,0, 1
 
+[Begin Action 1415]
+330,0, 0,0, 4, V, A
+330,1, 0,0, 2, V, A
+330,1, 0,0, 2, V, AS128D256
+
+
+
 ; Super Magic Amplification
 [Begin Action 2420]
 Clsn2: 2

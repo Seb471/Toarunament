@@ -2503,6 +2503,20 @@ ctrl = 0
 anim = 2620
 poweradd = -1000
 
+[State 1010, Helper]
+type = Helper
+trigger1 =animelem=9
+helpertype = normal ;player
+name ="slash"
+ID =1415
+stateno =1415
+pos = 0,0
+postype = p1
+ownpal = 1
+persistent=0
+size.xscale = 0.3
+size.yscale = 0.3
+
 [State 200,V1=0]
 Type=VarSet
 Trigger1=time=0
@@ -3341,7 +3355,7 @@ trigger1 = time = 0
 ;forcenofall = !var(20)
 attr = A,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 damage = ceil(fvar(0)*65),0;ceil(ifElse(fvar(11) * 65 < 7, 7, fvar(11) * 65)), 7
 getPower = 0, 0
 givePower = 18, 18
@@ -3357,11 +3371,11 @@ ground.slidetime = 20
 guard.hittime = 20
 air.hittime = 120
 airguard.ctrltime = 16
-ground.velocity = -4.75, -8
+ground.velocity = 0, 0
 ground.cornerPush.velOff = 0
 guard.velocity = -8.75
 guard.cornerPush.velOff = 0
-air.velocity = -4.75, -7
+air.velocity = 0, 0
 air.cornerPush.velOff = 0
 airguard.velocity = -5, 0
 airguard.cornerPush.velOff = 0
@@ -3381,6 +3395,7 @@ envshake.time = 12
 envshake.ampl = Ifelse(random<=500,-4,4)
 snap = 100,-enemy,const(size.height)/4
 id = 3000
+;p2facing = -1
 ;p1stateno = 3005
 ;p2stateno = 3006
 
@@ -3701,6 +3716,7 @@ persistent = 0
 [State 0, ChangeAnim]
 type = ChangeAnim
 triggerall = anim = 30051
+triggerall = animelemtime(3)>=0
 trigger1 = frontedgedist<=50
 value = 30052
 ;elem = 1
@@ -4634,6 +4650,15 @@ physics = N
 ;anim = 30060
 ctrl = 0
 
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+trigger1 = enemy,numtarget(3000)
+y = 0
+ignorehitpause = 1 
+;persistent = 
+
+
 [State 0, ScreenBound]
 type = null
 trigger1 = 1
@@ -4664,7 +4689,7 @@ value = 30060
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-triggerall = enemy,stateno = 3005
+;triggerall = enemy,stateno = 3005
 triggerall = selfanimexist(5030)
 triggerall = anim!=5030
 trigger1 = enemy,numtarget(1309)
@@ -4673,12 +4698,12 @@ trigger2 = enemy,numtarget(3000)
 trigger3 = enemy,numtarget(1505)
 value = 5030
 ;elem = 1
-;ignorehitpause = 
+ignorehitpause = 1
 ;persistent = 
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-triggerall = enemy,stateno = 3005
+;triggerall = enemy,stateno = 3005
 triggerall = enemy,numtarget(1309)
 trigger1 = selfanimexist(5035)
 trigger1 = anim=5030

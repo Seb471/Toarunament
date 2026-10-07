@@ -1063,6 +1063,52 @@ trigger5 =root,stateno=1410&&root,animelem=2,>=0
 trigger6 =(root,stateno=2420)&&root,animelem=7,>=0
 trigger7 =(root,stateno=2620)&&root,animelem=9,>=0
 
+;---------------------------------------------------------------------------
+;Slash - Pull In
+[Statedef 1415]
+physics  = N
+anim = 1415
+ctrl = 0
+velset=0,0
+sprpriority=4
+
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 3, < 0
+trans = Add
+[State 300, Transparency]
+type = Trans
+trigger1 = AnimElem = 3, >= 0
+trans = AddAlpha
+alpha = 128,256
+
+[State 300, Scale]
+type = AngleDraw
+trigger1 = 1
+scale = 1.0,2.5
+
+[State 300, Rotate]
+type = AngleSet
+trigger1 = !Time
+value = -82
+
+[State 300, BindToRoot]
+type = BindToRoot
+trigger1 =1
+pos = ceil(-62 * const(size.xScale)),ceil(-118 * const(size.yScale))
+ignorehitpause =1
+[State 300, Assert]
+type = AssertSpecial
+Trigger1 = 1
+flag = noshadow
+ignorehitpause =1
+[State 300, Destroyself]
+type = destroyself
+trigger1 =root,stateno!=2620
+trigger2 =root,Movetype=H
+trigger3 =!animtime
+trigger4 =root,animelem=2,<0
+
 ;Wire attack
 [Statedef 1505]
 type    = A
