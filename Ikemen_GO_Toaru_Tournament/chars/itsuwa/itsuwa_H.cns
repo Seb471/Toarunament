@@ -365,11 +365,28 @@ fall.recover = 0
 fall.recoverTime = 120
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
-sparkno = S6001
-guard.sparkno = S6100
+sparkno = -1;S6001
+guard.sparkno = S6105
 sparkxy = -10,-20
 p2facing = 1
 id = 1050
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-20*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 1210, p2state]
 type=targetstate
@@ -516,8 +533,8 @@ guardflag = MA
 pausetime = 12,12
 guard.pausetime = 12,12
 sparkno = -1
-guard.sparkno=-1
-sparkxy = -10,-70
+guard.sparkno=s6100
+sparkxy = -10,-50
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
 ground.type = High
@@ -539,6 +556,23 @@ yaccel =.40+parent,fvar(11)*.00066
 GetPower=15,11
 GivePower=9,6
 id=5600
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 
 [State 1450]
@@ -895,13 +929,30 @@ yAccel = 0.58
 fall = 1
 fall.recover = 0
 fall.recoverTime = 120
-sparkno = S6001
-guard.sparkno = S6100
+sparkno = -1;S6001
+guard.sparkno = S6105
 sparkxy = -10,-20
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
 p2facing = 1
 id = 2220
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = 0,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 1400, p2state]
 type=targetstate
@@ -1193,7 +1244,7 @@ yAccel = 0.58
 fall = 1
 fall.recover = 0
 fall.recoverTime = 120
-sparkno = S6001
+sparkno = -1;S6001
 guard.sparkno = S6100
 sparkxy = -10,-20
 HitSound=S20,0                  ;Sound to play on hit
@@ -1202,6 +1253,23 @@ envshake.time = 12
 envshake.ampl = Ifelse(random<=500,-4,4)
 p2facing = 1
 id = 2270
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = 0,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 3101, p2state]
 type=targetstate
@@ -1391,7 +1459,7 @@ channel = 10
 type = HitDef
 trigger1 = animelem = 13
 attr = S, HA
-damage    = Ceil(40*fvar(10))
+damage    = Ceil(50*fvar(10))
 hitflag		  = MAF
 guardflag = HA
 priority = 4
@@ -1409,6 +1477,24 @@ air.velocity = -3,-6
 envshake.time = 4
 fall.recover = 0
 fall = 1
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = animelemno(0) = 13
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-80*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 	[State 1500,Hitdef]
 		Type=HitDef
@@ -1449,6 +1535,27 @@ fall = 1
 		fall.recover=0
 		ID = 2320
 
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = animelemno(0)=[21,22]
+		trigger1 = time%2=0
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -15,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		size.xscale = 0.5
+		size.yscale = 0.5
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 3
+		ignorehitpause = 1
+
 	[State 1500,位置固定]
 		type = TargetBind
 		trigger1 = hitcount=1
@@ -1467,7 +1574,7 @@ animtype = heavy
 guardflag = HA
 priority = 3
 pausetime = 12,15
-sparkno = S7002
+sparkno = -1;S7002
 guard.sparkno = S6105
 sparkxy = -10,-58
 hitsound   = s20,0
@@ -1484,7 +1591,96 @@ fall.recover=1
 fall.recovertime=45
 ground.cornerpush.veloff = -(fVar(11)*0.666)
 air.cornerpush.veloff= -(fVar(11)*0.666)
-ID = 2320
+ID = 2321
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		triggerall = numtarget(2321)
+		trigger1 = animelemno(0) = 26
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-75*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
+
+
+[State 3311, FX]
+type = Helper
+triggerall = numtarget(2321)
+triggerall = numhelper(3366)=0
+trigger1 =animelemno(0)=26
+helpertype = normal ;player
+name ="slash"
+ID =3366
+stateno =3366
+pos = ceil(p2dist x),ceil(p2dist y+(Target, Const(size.mid.pos.y)))
+postype = p1
+ownpal = 1
+persistent=0
+ignorehitpause=1
+size.xscale = 0.1
+size.yscale = 0.1
+
+[State 3311, FX]
+type = Helper
+triggerall = numtarget(2321)
+triggerall = numhelper(3367)=0
+trigger1 =animelemno(0)=26
+helpertype = normal ;player
+name ="slash"
+ID =3367
+stateno =3366
+pos = ceil(p2dist x),ceil(p2dist y+(Target, Const(size.mid.pos.y)))
+postype = p1
+ownpal = 1
+persistent=0
+ignorehitpause=1
+size.xscale = 0.1
+size.yscale = 0.1
+
+[State 3311, FX]
+type = Helper
+triggerall = numtarget(2321)
+triggerall = numhelper(3368)=0
+trigger1 =animelemno(0)=26
+helpertype = normal ;player
+name ="slash"
+ID =3368
+stateno =3366
+pos = ceil(p2dist x),ceil(p2dist y+(Target, Const(size.mid.pos.y)))
+postype = p1
+ownpal = 1
+persistent=0
+ignorehitpause=1
+size.xscale = 0.1
+size.yscale = 0.1
+
+[State 3311, FX]
+type = Helper
+triggerall = numtarget(2321)
+triggerall = numhelper(3369)=0
+trigger1 =animelemno(0)=26
+helpertype = normal ;player
+name ="slash"
+ID =3369
+stateno =3366
+pos = ceil(p2dist x),ceil(p2dist y+(Target, Const(size.mid.pos.y)))
+postype = p1
+ownpal = 1
+persistent=0
+ignorehitpause=1
+size.xscale = 0.1
+size.yscale = 0.1
 
 [State 0, VarSet]
 type = VarSet
@@ -1769,6 +1965,40 @@ ctrl = 0
 anim = 2420
 poweradd = -2000
 
+[State ]
+Type = EnvShake
+triggerall = numhelper(10968)
+triggerall = var(27) = 5 ;&& var(28) = 1
+Trigger1 = time=3
+Time  = 16
+Ampl  = 4
+Freq  = 90
+
+[State ]
+Type = Helper
+triggerall = var(27) = 5 && var(28) = 0
+Trigger1 = time = 0
+StateNo = 10968
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+Ownpal = 1
+ID = 10968
+
+[State ]
+Type = Helper
+triggerall = numhelper(10968)
+triggerall = var(27) = 5 ;&& var(28) = 1
+Trigger1 = time=4
+StateNo = 8030
+PosType = P1
+Pos = 0, -75
+Ownpal = 1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+ID = 8030
+
 [State 200,効果音]
 		Type=PlaySnd
 		Trigger1=animelem = 5
@@ -1885,7 +2115,7 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-triggerall = animelem = 21
+triggerall = animelem = 5
 trigger1 = var(21) = 4
 trigger2 = var(21) = 5
 helpertype = normal ;player
@@ -1935,8 +2165,9 @@ PauseMoveTime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 0
+triggerall = time = 0
 trigger1 = var(21) = 3
+trigger2 = var(21) = 5
 helpertype = normal ;player
 name = "earth"
 ID = 24013
@@ -1948,8 +2179,9 @@ PauseMoveTime = 9999
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 21
+triggerall = animelem = 21
 trigger1 = var(21) = 2
+trigger2 = var(21) = 5
 helpertype = normal ;player
 name = "super water"
 ID = 240124
@@ -1964,8 +2196,9 @@ pausemovetime = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 21
+triggerall = animelem = 21
 trigger1 = var(21) = 1
+trigger2 = var(21) = 5
 helpertype = normal ;player
 name = "fire"
 ID = 240111
@@ -2084,9 +2317,9 @@ air.fall = 1
 fall.recover = 1
 fall.recovertime = 120;37
 forcestand = 1
-sparkno = S6001
+sparkno = -1;S6001
 guard.sparkno = S6100
-sparkxy = -10,-20
+sparkxy = -10,-60
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
 envshake.time = 14
@@ -2095,6 +2328,24 @@ envshake.freq = 120
 id = 2420
 kill = 1
 guard.kill = 1
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = animelemno(0) = 5
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 3000, p2state]
 type=targetstate
@@ -2173,6 +2424,24 @@ envshake.time = 14
 envshake.ampl = 4
 envshake.freq = 120
 
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = animelemno(0) = 7
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
 [State 210, 3]
 type = Helper
 trigger1 = animelemtime(12) = 0
@@ -2218,13 +2487,31 @@ fall = 1
 fall.recover = 0
 fall.recoverTime = 120
 forceStand = 1
-sparkno = S6001
-guard.sparkno = S6100
-sparkxy = -10,-20
+sparkno = -1;S6001
+guard.sparkno = S6105
+sparkxy = -10,-76
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guardenvShake.time = 14
 envShake.ampl = 4
 envShake.freq = 120
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = animelemno(0) = 20
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-76*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 1211, End]
 type = ChangeState
@@ -2670,9 +2957,9 @@ air.fall = 1
 fall.recover = 1
 fall.recovertime = 120;37
 forcestand = 1
-sparkno = S6001
+sparkno = -1;S6001
 guard.sparkno = S6100
-sparkxy = -10,-20
+sparkxy = -10,-60
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
 ground.cornerpush.veloff = -fvar(11)*0.444
@@ -2680,6 +2967,23 @@ Air.cornerpush.veloff= -fvar(11)*0.444
 envshake.time = 14
 envshake.ampl = 4
 envshake.freq = 120
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 0, PlaySnd]
 type = null
@@ -3723,14 +4027,18 @@ value = 30052
 ;ignorehitpause = 
 ;persistent = 
 
-[State 0, PosSet]
-type = null
-trigger1 = anim = 30052
-trigger1 = animelemtime(3) < 0
-trigger2 = anim = 30051
-y = target(3000),pos y
-;ignorehitpause = 
-;persistent = 
+[State 1400, Snd]
+type = playsnd
+triggerall = anim = 30052
+trigger1 = animelem = 16
+value = 30, 4
+channel = 1
+[State 1400, Snd]
+type = playsnd
+triggerall = anim = 30052
+trigger1 = animelem = 16
+value = 1105, 0
+channel = 10
 
 
 [State 0, Turn]
@@ -3833,6 +4141,26 @@ triggerall = anim = 30053
 trigger1 = AnimElem = 1
 y = 0
 
+[State 1404, EnvShake]
+type = EnvShake
+triggerall = anim = 30053
+trigger1 = animelem=1
+time = 10
+ampl = -4
+ignorehitpause =1
+
+[State 1500, Helper]
+type = Helper
+triggerall = anim = 30053
+trigger1 = animelem = 1
+helpertype = normal ;player
+name = "mini earthquake"
+ID = 1603
+stateno = 1603 
+pos = 15,10
+postype = p1    ;p2,front,back,left,right
+ownpal = 1
+
 [State 1400, Hit]
 type=hitdef
 triggerall = anim = 30052
@@ -3866,13 +4194,32 @@ yAccel = 0.58
 fall = 1
 fall.recover = 0
 fall.recoverTime = 120
-sparkno = S6001
+sparkno = -1;S6001
 guard.sparkno = S6100
 sparkxy = -10,-20
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
 p2facing = 1
 id = 2220
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		triggerall = anim = 30052
+		trigger1= animelemno(0) = 16
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = 0,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 1400, p2state]
 type=targetstate
@@ -3917,7 +4264,7 @@ yAccel = 0.58
 fall = 1
 fall.recover = 0
 fall.recoverTime = 120
-sparkno = S6001
+sparkno = -1;S6001
 guard.sparkno = S6100
 sparkxy = -10,-20
 HitSound=S20,0                  ;Sound to play on hit
@@ -3926,6 +4273,25 @@ envshake.time = 12
 envshake.ampl = Ifelse(random<=500,-4,4)
 p2facing = 1
 id = 2270
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		triggerall = anim = 30053
+		trigger1= animelemno(0) = 1
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = 0,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 3101, p2state]
 type=targetstate
@@ -4016,6 +4382,25 @@ yaccel =.40+parent,fvar(11)*.00066
 GetPower=15,11
 GivePower=9,6
 id=5600
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		triggerall = anim = 30054
+		trigger1= animelemno(0) = 9
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p1
+		Pos = 75,floor(-75*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 
 [State 1450]
@@ -4196,11 +4581,30 @@ fall.recover = 0
 fall.recoverTime = 120
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
-sparkno = S6001
-guard.sparkno = S6100
+sparkno = -1;S6001
+guard.sparkno = S6105
 sparkxy = -10,-20
 p2facing = 1
 id = 1050
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		triggerall = anim = 30056
+		trigger1= animelemno(0) = 1
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-20*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 1210, p2state]
 type=targetstate
@@ -4345,6 +4749,21 @@ persistent=0
 size.xscale = 0.3
 size.yscale = 0.3
 
+[State 1400, Snd]
+type = playsnd
+triggerall = anim = 30057
+trigger1 = animelem = 13
+trigger2 = animelem = 21
+trigger3 = animelem = 23
+value = 30, 4
+channel = 1
+[State 1400, Snd]
+type = playsnd
+triggerall = anim = 30057
+trigger1 = animelem = 21
+value = 1105, 0
+channel = 10
+
 	[State 1500,vel]
 		Type=velSet
 		triggerall = anim = 30057
@@ -4420,6 +4839,25 @@ fall.recover = 0
 fall = 1
 id = 1309
 
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		triggerall = anim = 30057
+		trigger1= animelemno(0) = 13
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-76*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
 [State 0, TargetState]
 type = TargetState
 triggerall = anim = 30057
@@ -4463,6 +4901,7 @@ ignorehitpause = 1
 
 	[State 1500,Hitdef]
 		Type=hitdef
+		triggerall = anim = 30057
 		;triggerall=!movecontact && !movereversed
 		trigger1 = animelemno(0)=[21,22]
 		trigger1 = time%2=0
@@ -4500,6 +4939,28 @@ ignorehitpause = 1
 		fall.recover=0
 		ID = 1310
 
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		triggerall = anim = 30057
+		trigger1 = animelemno(0)=[21,22]
+		trigger1 = time%2=0
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -15,floor(-60*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		size.xscale = 0.5
+		size.yscale = 0.5
+		;scale = 0.5,0.5
+		sprpriority = 9
+		;persistent = 3
+		ignorehitpause = 1
+
 [State 0, TargetState]
 type = TargetState
 triggerall = anim = 30057
@@ -4512,6 +4973,7 @@ ID = 1310
 
 	[State 1500,位置固定]
 		type = TargetBind
+		triggerall = anim = 30057
 		trigger1 = hitcount=1
 		Trigger1=AnimElemTime(21)>=0
 		Trigger1=AnimElemTime(23)<0
@@ -4522,6 +4984,7 @@ ID = 1310
 
 	[State 1550,Hitdef]
 		Type=hitdef
+		triggerall = anim = 30057
 		Trigger1=AnimElem=23
 		Attr=S,SA
 		AnimType=up
@@ -4558,6 +5021,82 @@ ID = 1310
 		persistent=0
 		id = 1311
 
+[State 3311, FX]
+type = Helper
+triggerall = anim = 30057
+triggerall = numtarget(1311)
+triggerall = numhelper(3366)=0
+trigger1=AnimElemtime(23)>=0
+trigger1=AnimElemtime(25)<0
+helpertype = normal ;player
+name ="slash"
+ID =3366
+stateno =3366
+pos = ceil(p2dist x),ceil(p2dist y+(Target, Const(size.mid.pos.y)))
+postype = p1
+ownpal = 1
+persistent=0
+ignorehitpause=1
+size.xscale = 0.1
+size.yscale = 0.1
+
+[State 3311, FX]
+type = Helper
+triggerall = anim = 30057
+triggerall = numtarget(1311)
+triggerall = numhelper(3367)=0
+trigger1=AnimElemtime(23)>=0
+trigger1=AnimElemtime(25)<0
+helpertype = normal ;player
+name ="slash"
+ID =3367
+stateno =3366
+pos = ceil(p2dist x),ceil(p2dist y+(Target, Const(size.mid.pos.y)))
+postype = p1
+ownpal = 1
+persistent=0
+ignorehitpause=1
+size.xscale = 0.1
+size.yscale = 0.1
+
+[State 3311, FX]
+type = Helper
+triggerall = anim = 30057
+triggerall = numtarget(1311)
+triggerall = numhelper(3368)=0
+trigger1=AnimElemtime(23)>=0
+trigger1=AnimElemtime(25)<0
+helpertype = normal ;player
+name ="slash"
+ID =3368
+stateno =3366
+pos = ceil(p2dist x),ceil(p2dist y+(Target, Const(size.mid.pos.y)))
+postype = p1
+ownpal = 1
+persistent=0
+ignorehitpause=1
+size.xscale = 0.1
+size.yscale = 0.1
+
+[State 3311, FX]
+type = Helper
+triggerall = anim = 30057
+triggerall = numtarget(1311)
+triggerall = numhelper(3369)=0
+trigger1=AnimElemtime(23)>=0
+trigger1=AnimElemtime(25)<0
+helpertype = normal ;player
+name ="slash"
+ID =3369
+stateno =3366
+pos = ceil(p2dist x),ceil(p2dist y+(Target, Const(size.mid.pos.y)))
+postype = p1
+ownpal = 1
+persistent=0
+ignorehitpause=1
+size.xscale = 0.1
+size.yscale = 0.1
+
 [State 0, TargetState]
 type = TargetState
 triggerall = anim = 30057
@@ -4573,7 +5112,7 @@ type = ChangeAnim
 triggerall = anim = 30057
 triggerall = power>=2000
 triggerall = command = "hold_c"
-trigger1=AnimElemtime(23)>=0
+trigger1=AnimElemtime(23)>0
 trigger1=AnimElemtime(25)<0
 value = 3009
 ;elem = 1

@@ -825,7 +825,7 @@ value = 5100
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = animtime=0 && ((command = "hold_y") || (command = "hold_a" && command = "hold_c"))
+trigger1 = animtime=0 && (command = "hold_a" && command = "hold_c")
 value = 850
 elem = 4
 ;ignorehitpause = 
@@ -864,13 +864,13 @@ Persistent = 0
 
 [State 6500, ??????]
 		type = Ctrlset
-		trigger1 = command != "hold_y" && (command!= "hold_a" && command!="hold_c")
+		trigger1 = command!= "hold_a" && command!="hold_c"
 		trigger2 = Power >= powerMax
 		value = 1
 
 [State 6500, ??????]
 		type = ChangeState
-		trigger1 = command != "hold_y" && (command!= "hold_a" && command!="hold_c")
+		trigger1 = command!= "hold_a" && command!="hold_c"
 		trigger2 = Power >= powerMax
 		value = 851
 
@@ -1048,6 +1048,16 @@ value = 1028
 type    = A
 movetype= H
 physics = N
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = !enemynear,numhelper(240123)
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;value2 = S,NA
+time = 1
+;ignorehitpause = 
+;persistent = 
+
 
 [State 1028, ????]
 type = VelSet

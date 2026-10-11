@@ -794,7 +794,7 @@ trigger1 = ctrl
 	TriggerAll = pos Y<=-30+(vel y>0)*20
 	TriggerAll = var(17) < 1+(var(28)=1)
 	TriggerAll = anim!=110
-	triggerall = var(27)=1 || var(27)=5
+	triggerall = var(21)=1 || var(21)=5
 	Trigger1 = Ctrl
 	trigger2 = var(1)
 
@@ -807,7 +807,7 @@ trigger1 = ctrl
 	TriggerAll = pos Y<=-30+(vel y>0)*20
 	TriggerAll = var(17) < 1+(var(28)=1)
 	TriggerAll = anim!=115
-	triggerall = var(27)=1 || var(27)=5
+	triggerall = var(21)=1 || var(21)=5
 	Trigger1 = Ctrl
 	trigger2 = var(1)
 
@@ -849,7 +849,7 @@ trigger2 = stateno = 108
 	Type=ChangeState
 	value=850
 	TriggerAll = StateType != A
-	triggerall = ((command = "hold_y") || (command = "hold_a" && command = "hold_c")) && !(command =  "holdback" || command = "holdfwd")
+	triggerall = command = "hold_a" && command = "hold_c"
 	TriggerAll = Power < PowerMax
 	trigger1 = ctrl
 

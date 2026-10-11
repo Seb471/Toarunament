@@ -44,9 +44,9 @@ air.animtype = light
 damage = ceil(23*fvar(0)), 0                   ;Damage that move inflicts, guard damage
 pausetime = 6 ,7
 ;guard.pausetime = 0,0
-sparkno = S6001
+sparkno = -1;S6001
 guard.sparkno = S6100
-sparkxy = -10,-20
+sparkxy = -10,-50
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
 ground.type = High      ;Low,Trip,None
@@ -62,6 +62,23 @@ fall.recovertime=18
 ;Y-velocity at which opponent is pushed
 air.hittime = 15                 ;Time before opponent regains control in air
 p2facing=1
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-50*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 
 [State -1,攻撃補正,上書き,カウンター]
@@ -160,9 +177,9 @@ var(1)=0
 		Damage=Ceil(21*fvar(0)),3
 		Guardflag=L
 		PauseTime=6,6
-		SparkNo=S6000
+		SparkNo=S6001
 		Guard.SparkNo=S6100
-		Sparkxy=-10,floor(-30*const(Size.yScale))
+		Sparkxy=-10,-20
 		HitSound=S0,4
 		GuardSound=S1,1
 		Ground.Type=Low
@@ -289,11 +306,28 @@ fall.recover = 1
 fall.recovertime = 120
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
-sparkno = S6001                    ;Spark anim no (Def: set above)
+sparkno = -1;S6001                    ;Spark anim no (Def: set above)
 guard.sparkno = S6100
-sparkxy = -20, -76               ;X-offset for the "hit spark" rel. to p2,
+sparkxy = -20, -65               ;X-offset for the "hit spark" rel. to p2,
 ground.cornerpush.veloff = -(fVar(11)*0.333)
 air.cornerpush.veloff= -(fVar(11)*0.333)
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-65*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset
@@ -411,6 +445,23 @@ air.hittime = 15                 ;Time before opponent regains control in air
 ground.cornerpush.veloff = -(fVar(11)*0.666)
 air.cornerpush.veloff= -(fVar(11)*0.666)
 
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-76*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
+
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset
 		Trigger1=MoveHit=1
@@ -512,7 +563,8 @@ animtype = Hard
 hitflag = MAF;MAFD
 guardflag = LA
 pausetime = 11,10
-sparkno = s7052
+sparkno = -1;s7052
+guard.sparkno = s6100
 sparkxy = -4, -17
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
@@ -524,6 +576,23 @@ down.velocity = -5,-6
 down.hittime = 24
 fall = 1
 fall.recover = 0
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -4,floor(-17*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 200 ノックバックカウント]
 		type = Varadd
@@ -589,7 +658,7 @@ channel = 0
 [State 200,効果音]
 		Type=PlaySnd
 		Trigger1=Time=0
-		value=1,3
+		value=30,2
 		channel=-1
 
 [State 400, Helper]
@@ -635,9 +704,26 @@ fall.recover = 1
 fall.recovertime = 120
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
-sparkno = S6001                    ;Spark anim no (Def: set above)
+sparkno = -1;S6001                    ;Spark anim no (Def: set above)
 guard.sparkno = S6100
-sparkxy = -20, -76               ;X-offset for the "hit spark" rel. to p2,
+sparkxy = -10, -38               ;X-offset for the "hit spark" rel. to p2,
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-38*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset
@@ -743,11 +829,28 @@ fall.recover = 1
 fall.recovertime = 120
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
-sparkno = S6001                    ;Spark anim no (Def: set above)
+sparkno = -1;S6001                    ;Spark anim no (Def: set above)
 guard.sparkno = S6100
-sparkxy = -20, -76               ;X-offset for the "hit spark" rel. to p2,
+sparkxy = -10, -10               ;X-offset for the "hit spark" rel. to p2,
 ground.cornerpush.veloff = -(fVar(11)*0.333)
 air.cornerpush.veloff= -(fVar(11)*0.333)
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-10*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset
@@ -853,12 +956,29 @@ fall.recover = 1
 fall.recoverTime = 120
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
-sparkno = S6001                    ;Spark anim no (Def: set above)
+sparkno = -1;S6001                    ;Spark anim no (Def: set above)
 guard.sparkno = S6100
-sparkxy = -20, -76               ;X-offset for the "hit spark" rel. to p2,
+sparkxy = -10, -20               ;X-offset for the "hit spark" rel. to p2,
 ground.cornerpush.veloff = -(fVar(11)*0.666)
 air.cornerpush.veloff= -(fVar(11)*0.666)
 givepower = 30,15
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-20*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State 200 ??????????]
 		type = Varadd
@@ -916,7 +1036,7 @@ channel = 0
 [State 200,効果音]
 		Type=PlaySnd
 		Trigger1=Time=0
-		value=1,3
+		value=30,2
 		channel=-1
 
 [State 600, Helper]
@@ -943,9 +1063,9 @@ animtype = Light
 guardflag = HA
 priority = 3
 pausetime = 8,8
-sparkno = S6001
-guard.sparkno = S6100
-sparkxy = -10,-58
+sparkno = -1;S6001
+guard.sparkno = S6105
+sparkxy = -10,-35
 HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
 ground.type = High
@@ -957,6 +1077,23 @@ air.hittime = 14
 air.fall=1
 fall.recover=1
 fall.recovertime=16
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-70*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset
@@ -1054,7 +1191,7 @@ animtype = Medium
 guardflag = HA
 priority = 3
 pausetime = 12,14
-sparkno = S7002
+sparkno = -1;S7002
 guard.sparkno = S6105
 sparkxy = -10,-58
 hitsound   = s20,0
@@ -1070,6 +1207,23 @@ fall.recover=1
 fall.recovertime=30
 ground.cornerpush.veloff = -(fVar(11)*0.444)
 air.cornerpush.veloff= -(fVar(11)*0.444)
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-75*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset
@@ -1166,7 +1320,7 @@ animtype = heavy
 guardflag = HA
 priority = 3
 pausetime = 12,15
-sparkno = S7002
+sparkno = -1;S7002
 guard.sparkno = S6105
 sparkxy = -10,-58
 hitsound   = s20,0
@@ -1183,6 +1337,23 @@ fall.recover=1
 fall.recovertime=45
 ground.cornerpush.veloff = -(fVar(11)*0.666)
 air.cornerpush.veloff= -(fVar(11)*0.666)
+
+;Hitspark
+[State 200, 線形ヒットエフェ]
+		type = helper
+		trigger1 = movehit
+		trigger1=!movereversed
+		stateno=6001
+		id=6001
+		postype = p2
+		Pos = -10,floor(-80*const(Size.yScale))
+		pausemovetime = 999
+		supermovetime = 999
+		ownpal = 1
+		;scale = 0.5,0.5
+		sprpriority = 9
+		persistent = 0
+		ignorehitpause = 1
 
 [State -1,攻撃補正,上書き,カウンター]
 		type = Varset
