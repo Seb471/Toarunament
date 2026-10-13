@@ -95,13 +95,9 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 ;If this section is included, the default language victory quotes must be in English.
 [Quotes]
 ; Up to 100 victory quotes can be specified per language (victory0 - victory99)
-victory1 = "The speed of my slash woven by my Shichiten Shichitou, Nanasen, can kill a person seven times in the period known as ‘an instant’."
-victory2 = "You need a lot of training. Come back in ten years."
-victory3 = "You look familiar. Did I see you on TV?"
-victory4 = "Your moves are too predictable. You want to learn Kung Fu Palm? It's not for novices."
-victory5 = "That was a good workout."
-victory6 = "I want to challenge more skilled fighters."
-victory7 = "What do you mean my girlfriend is in another temple?"
+victory1 = "It won’t do if I don’t do my best."
+victory2 = "…If you have something to say, say it later. After I beat you to a pulp over and over again!! If your jaw isn't all broken, I'll let you talk all you want!!"
+victory3 = "We are from Necessarius, the 0th Parish of the Anglican Church. Do you understand?"
 
 ;Alternate language victory quotes (optional).
 ;0 or more alternate language sections may be added, preceded by the
@@ -115,6 +111,57 @@ victory4 = "??????????????? ??????????????????? ????????"
 victory5 = "??? ??????"
 victory6 = "?????????????"
 victory7 = "????!????????????"
+
+;---------------------------------------------------------------------------
+; Lose by Time Over
+; CNS difficulty: basic
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S170,0
+
+channel = 0
+persistent = 0
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+
+;---------------------------------------------------------------------------
+; Win state decider
+; CNS difficulty: basic
+[Statedef 180]
+type = S
+
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 0
+value = 181
+
+;---------------------------------------------------------------------------
+; Win pose 1 - Bow
+; CNS difficulty: basic
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 180+random%2
+velset = 0,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S180,0+random%3
+
+channel = 0
+persistent = 0
 
 
 ;intro decider
@@ -140,6 +187,12 @@ type = S
 ctrl = 0
 anim = 190
 velset = 0,0
+
+[State 1100, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 190,random%2*2
+channel = 0
 
 [State 191, Sekkarou Box]
 type = Helper
@@ -167,6 +220,18 @@ type = A
 anim = 0
 ctrl = 0
 velset = 0,0
+
+[State 1100, Voice]
+type = PlaySnd
+trigger1 = time = 0
+value = 190,1
+channel = 0
+
+[State 1100, Voice]
+type = PlaySnd
+trigger1 = time = 30
+value = 20,0
+channel = -1
 
 [State 191, Sekkarou Box]
 type = Helper
@@ -232,7 +297,7 @@ value = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "fvar(10) = %f, fvar(0)=%f, var(20) = %d, var(21) = %d, vel x = %f"
-params =  (topedge+bottomedge)/2 - pos y,frontedgedist,var(20),var(28), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
+params =  fvar(11),frontedgedist,var(20),var(28), (facing * enemyNear,screenpos x - facing * screenpos x) + enemyNear,pos y*0.1;1.+(0.125*(var(20)=3 || var(20)=5 || (var(20)!=3 && var(21)=3) || (var(20)!=5 && var(21)=5))+0.125*(numhelper(24013)>0))*(1+(var(26)=1))
 ;ignorehitpause = 
 ;persistent = 
 
@@ -842,6 +907,16 @@ trigger1 = stateno = 52 ;Jump land
 trigger2 = stateno = 106 ;Run-back land
 trigger3 = stateno = 1051 ;Lunge land
 value = 105, 0
+
+;Gethit sounds
+[State -3, Get Hit Sounds]
+type = PlaySnd
+triggerall = alive && time = 1
+trigger1 = (stateno = 5000 || stateno = 5010 || stateno = 5020 || stateno = 5070 || stateno = 5080)
+trigger1 = enemynear,hitdefattr = SCA,NA,SA,HA
+value = S5000,random%6
+volume = 255
+channel = 0
 
 
 ;Var(1) > 0 means you can combo with another move

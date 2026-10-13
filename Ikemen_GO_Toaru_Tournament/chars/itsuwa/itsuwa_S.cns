@@ -2213,7 +2213,7 @@ PauseMoveTime = 9999
 [State 0, Helper]
 type = Helper
 triggerall = animelemtime(7) > 0
-triggerall = pos y > -30
+triggerall = pos y > -20
 triggerall = var(26) = 1
 trigger1 = var(21) = 2
 trigger2 = var(21) = 5

@@ -3111,6 +3111,13 @@ pausemovetime = 0
 size.xscale = 0.5
 size.yscale = 0.5
 
+[State 1100, Voice]
+type = PlaySnd
+triggerall = anim = 2621
+trigger1 = AnimElem = 1
+value = 2621,0
+channel = 0
+
 [State 0, VelSet]
 type = VelSet
 triggerall = anim = 2621
@@ -3214,6 +3221,13 @@ value = 26232
 ;elem = 1
 ;ignorehitpause = 
 ;persistent = 
+
+[State 1100, Voice]
+type = PlaySnd
+triggerall = anim = 26232
+trigger1 = AnimElem = 1
+value = 180,1
+channel = 0
 
 [State 810, ???????]
 type = Helper
@@ -3585,8 +3599,8 @@ PauseMoveTime = 9999
 
 [State 1100, Voice]
 type = PlaySnd
-trigger1 = AnimElem = 1
-value = 1150,random%2
+trigger1 = AnimElem = 5
+value = 3000,4
 channel = 0
 
 [State 1100, Woosh Sound]
@@ -3829,6 +3843,12 @@ physics = N
 anim = 30050
 ctrl = 0
 
+	[State 6500,Snd2]
+		Type=playSnd
+		Trigger1=time=0
+		value=850,0
+		channel=0
+
 [State 0, ScreenBound]
 type = ScreenBound
 trigger1 = anim>30050
@@ -4026,6 +4046,33 @@ value = 30052
 ;elem = 1
 ;ignorehitpause = 
 ;persistent = 
+
+[State 1100, Voice]
+type = PlaySnd
+triggerall = anim = 30052
+trigger1 = AnimElem = 7
+value = 3000,5
+channel = 0
+
+[State -1]
+Type = Explod
+triggerall = anim = 30052
+trigger1 = AnimElem = 7
+ID = 10004
+Anim = 10004
+Pos = -25*-facing,screenheight
+PosType = front
+facing = -facing
+Ownpal = 1
+Scale = 0.6875,0.6875
+SprPriority = 5
+RemoveTime = 50
+RemoveOnGetHit = 1
+IgnoreHitPause = 1
+BindTime = -1
+Persistent = 0
+SuperMoveTime  = 9999
+PauseMoveTime  = 9999
 
 [State 1400, Snd]
 type = playsnd
@@ -4688,6 +4735,26 @@ value = 30057
 ;elem = 1
 ;ignorehitpause = 
 ;persistent = 
+
+[State -1]
+Type = Explod
+triggerall = anim = 30057
+trigger1 = AnimElem = 1
+ID = 10005
+Anim = 10005
+Pos = -25,screenheight
+PosType = back
+;facing = -facing
+Ownpal = 1
+Scale = 0.6875,0.6875
+SprPriority = 5
+RemoveTime = 50
+RemoveOnGetHit = 1
+IgnoreHitPause = 1
+BindTime = -1
+Persistent = 0
+SuperMoveTime  = 9999
+PauseMoveTime  = 9999
 
 [State 0, VelSet]
 type = VelSet

@@ -1225,7 +1225,7 @@ trigger1 = animtime = 0
 ;ignorehitpause = 
 ;persistent = 
 
-;Explosion
+;Icy Night Wind
 [Statedef 1605]
 type = A
 movetype = A
@@ -1296,7 +1296,7 @@ ground.type = High
 air.type = Low
 ground.hittime = 18
 ground.slidetime = 18
-guard.hittime = 18
+guard.hittime = 12
 air.hittime = 120
 ground.velocity = -27
 ;ifElse(PrevStateNo = 700, -6.46, ifElse(var(20), -4.5, -9)), ifElse(PrevStateNo = 700, -5.25, 0)
@@ -1310,7 +1310,7 @@ HitSound=S20,0                  ;Sound to play on hit
 GuardSound=S120,0                ;Sound to play on guard
 sparkno = S6001
 guard.sparkno = S6100
-sparkxy = -10,-20
+sparkxy = -10,-70
 palfx.time = 60
 Palfx.Mul =  255,255,255
 Palfx.Add = -130,-30,-30
@@ -1327,8 +1327,8 @@ damage    = Ceil(60*root,fvar(0)*root,fvar(2)),6
 guardflag = MA
 pausetime = 2,3
 sparkno = -1
-guard.sparkno=-1
-sparkxy = -10,-70
+guard.sparkno=s6100
+sparkxy = -10,-150
 hitsound   = -1;S20,1
 guardsound = 6,0
 ground.type = High
@@ -1379,8 +1379,8 @@ persistent=0
 
 [State 200 ノックバックカウント]
 		type = ParentVaradd
-		trigger1 = movecontact
-		fVar(11) = 4
+		trigger1 = movehit
+		fVar(11) = 10
 		persistent = 0
  		ignorehitpause = 1
 
@@ -1418,6 +1418,20 @@ attr = S,NP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 hitflag = MA       ;HLAFD+-
 ;guardflag = MA         ;HLA
 p2stateno = 1616
+id = 1615
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = numtarget(1615)
+time = 1
+add = 0,0,0
+mul = 256,256,256
+;sinadd = 0,0,0,10
+invertall = 1
+color = 256
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -4852,7 +4866,7 @@ guardsound = S2,0
 Ground.Type = High
 Ground.SlideTime = 32
 Ground.HitTime  = 32
-Guard.HitTime  = 23
+Guard.HitTime  = 16
 Ground.Velocity = -7;-10.5
 guard.Velocity = -10;-10.5
 Air.Velocity = -4,-6.5
@@ -4873,6 +4887,8 @@ palfx.time = 30
 Palfx.Mul =  255,255,255
 Palfx.Add = -30,-130,-130
 Palfx.SinAdd = 100,30,30,6
+ground.cornerpush.veloff = -(root,fVar(11)*0.666)
+air.cornerpush.veloff= -(root,fVar(11)*0.666)
 
 [State 240]
 type = HitDef
@@ -4914,6 +4930,8 @@ palfx.time = 30
 Palfx.Mul =  255,255,255
 Palfx.Add = -30,-130,-130
 Palfx.SinAdd = 100,30,30,6
+ground.cornerpush.veloff = -(root,fVar(11)*0.666)
+air.cornerpush.veloff= -(root,fVar(11)*0.666)
 
 ;Tekken Bounce
 [State -2,????]
@@ -5065,7 +5083,7 @@ persistent = 0
 [State 200 ノックバックカウント]
 		type = ParentVaradd
 		trigger1 = movehit
-		fVar(11) = 3
+		fVar(11) = 10
 		persistent = 0
  		ignorehitpause = 1
 
