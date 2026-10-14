@@ -2615,7 +2615,7 @@ size.yscale = 0.1
 [State 200 ノックバックカウント]
 		type = Varadd
 		Trigger1=movehit
-		fvar(11) = 5
+		fvar(11) = 10
 		persistent = 0
  		ignorehitpause = 1
 
