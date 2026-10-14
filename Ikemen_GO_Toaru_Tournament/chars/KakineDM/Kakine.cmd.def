@@ -174,10 +174,22 @@ command = ~F,DF,D,DB,B, x
 time = 32
 buffer.Time=16
 
+[Command]
+name = "OHKO"
+command = ~D, DF, F, D, DB, B, x
+time = 32
+buffer.Time=16
+
 
 [Command]
 name = "SH"
 command = ~F,DF,D,DB,B,c
+time = 32
+buffer.Time=16
+
+[Command]
+name = "SH"
+command = ~D, DF, F, D, DB, B, c
 time = 32
 buffer.Time=16
 

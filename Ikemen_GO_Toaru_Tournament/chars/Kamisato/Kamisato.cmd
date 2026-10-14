@@ -170,6 +170,12 @@ time = 32
 buffer.Time=16
 
 [Command]
+name = "WROHKO"
+command = ~D, DF, F, D, DB, B, x
+time = 32
+buffer.Time=16
+
+[Command]
 name = "WRAttackEX"
 command = ~D, DF, F, x
 Time=20
@@ -188,9 +194,21 @@ time = 32
 buffer.Time=16
 
 [Command]
+name = "NT14Punch"
+command = ~D, DB, B, D, DF, F, c
+time = 32
+buffer.Time=16
+
+[Command]
 name = "BatonComboEX"   
 command = ~B, DB, D, DF, F, b
 Time=32
+buffer.Time=16
+
+[Command]
+name = "BatonComboEX"
+command = ~D, DB, B, D, DF, F, b
+time = 32
 buffer.Time=16
 
 

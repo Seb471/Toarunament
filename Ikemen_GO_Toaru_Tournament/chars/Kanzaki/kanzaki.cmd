@@ -171,8 +171,20 @@ time = 32
 buffer.Time=16
 
 [Command]
+name = "41236_b"
+command = ~D, DB, B, D, DF, F, b
+time = 32
+buffer.Time=16
+
+[Command]
 name = "41236_c"
 command = ~B, DB, D, DF, F, c
+time = 32
+buffer.Time=16
+
+[Command]
+name = "41236_c"
+command = ~D, DB, B, D, DF, F, c
 time = 32
 buffer.Time=16
 

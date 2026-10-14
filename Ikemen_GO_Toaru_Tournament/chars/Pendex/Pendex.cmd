@@ -154,8 +154,20 @@ time = 32
 buffer.Time=16
 
 [Command]
+name = "HCB_c"
+command = ~D, DF, F, D, DB, B, c
+time = 32
+buffer.Time=16
+
+[Command]
 name = "HCB_b"
 command = ~F,DF,D,DB,B, b
+time = 32
+buffer.Time=16
+
+[Command]
+name = "HCB_b"
+command = ~D, DF, F, D, DB, B, b
 time = 32
 buffer.Time=16
 
@@ -163,6 +175,12 @@ buffer.Time=16
 [Command]
 name = "HCF_c"  
 command = ~B, DB, D, DF, F, c
+time = 32
+buffer.Time=16
+
+[Command]
+name = "HCF_c"
+command = ~D, DB, B, D, DF, F, c
 time = 32
 buffer.Time=16
 

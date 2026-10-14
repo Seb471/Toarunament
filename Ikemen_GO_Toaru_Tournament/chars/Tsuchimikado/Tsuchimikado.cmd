@@ -159,6 +159,12 @@ command = ~B,DB,D, DF, F, c
 Time=32
 buffer.Time=16
 
+[Command]
+name = "Red Spell"
+command = ~D, DB, B, D, DF, F, c
+time = 32
+buffer.Time=16
+
 
 [Command]
 name = "BlackSpellDragon"

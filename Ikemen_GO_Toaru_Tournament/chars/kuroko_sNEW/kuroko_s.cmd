@@ -506,14 +506,32 @@ time = 32
 buffer.Time=16
 
 [Command]
+name = "OHKO"
+command = ~D, DB, B, D, DF, F, x
+time = 32
+buffer.Time=16
+
+[Command]
 name = "NeedleHyper"
 command =  ~B,DB,D,DF,F,c
 time = 32
 buffer.Time=16
 
 [Command]
+name = "NeedleHyper"
+command = ~D, DB, B, D, DF, F, c
+time = 32
+buffer.Time=16
+
+[Command]
 name = "KickHyper"
 command =  ~F,DF,D,DB,B,c
+time = 32
+buffer.Time=16
+
+[Command]
+name = "KickHyper"
+command = ~D, DF, F, D, DB, B, c
 time = 32
 buffer.Time=16
 

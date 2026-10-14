@@ -165,8 +165,14 @@ command = x,$F
 time = 3
 
 [Command]
-name = "HCB_c"
+name = "63214_c"
 command = ~F,DF,D,DB,B, c
+time = 32
+buffer.Time=16
+
+[Command]
+name = "63214_c"
+command = ~D, DF, F, D, DB, B, c
 time = 32
 buffer.Time=16
 
@@ -174,6 +180,12 @@ buffer.Time=16
 [Command]
 name = "41236_c"
 command = ~B, DB, D, DF, F, c
+time = 32
+buffer.Time=16
+
+[Command]
+name = "41236_c"
+command = ~D, DB, B, D, DF, F, c
 time = 32
 buffer.Time=16
 

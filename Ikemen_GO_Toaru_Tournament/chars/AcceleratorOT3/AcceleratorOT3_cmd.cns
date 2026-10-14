@@ -37,26 +37,50 @@ command.buffer.time = 1
 [Command]
 name = "ŒŒ—¬‘€ì"
 command = ~B, DB, D, DF, F, a
-time = 20
-buffer.Time=10
+time = 32
+buffer.Time=16
+
+[Command]
+name = "ŒŒ—¬‘€ì"
+command = ~D, DB, B, D, DF, F, a
+time = 32
+buffer.Time=16
 
 [Command]
 name = "‹ó‹Cˆ³k"
 command = ~B, DB, D, DF, F, b
-time = 20
-buffer.Time=10
+time = 32
+buffer.Time=16
+
+[Command]
+name = "‹ó‹Cˆ³k"
+command = ~D, DB, B, D, DF, F, b
+time = 32
+buffer.Time=16
 
 [Command]
 name = "’´‹ó‹Cˆ³k"
 command = ~B, DB, D, DF, F, c
-time = 20
-buffer.Time=10
+time = 32
+buffer.Time=16
+
+[Command]
+name = "’´‹ó‹Cˆ³k"
+command = ~D, DB, B, D, DF, F, c
+time = 32
+buffer.Time=16
 
 [Command]
 name = "•—ƒ"
 command = ~B, DB, D, DF, F, x
-time = 20
-buffer.Time=10
+time = 32
+buffer.Time=16
+
+[Command]
+name = "•—ƒ"
+command = ~D, DB, B, D, DF, F, x
+time = 32
+buffer.Time=16
 
 [Command]
 name = "—³ŠªEX"

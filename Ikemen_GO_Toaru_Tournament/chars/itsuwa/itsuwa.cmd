@@ -159,6 +159,12 @@ time = 32
 buffer.Time=16
 
 [Command]
+name = "41236_c"
+command = ~D, DB, B, D, DF, F, c
+time = 32
+buffer.Time=16
+
+[Command]
 name = "41236_s"
 command = ~B, DB, D, DF, F, s
 time = 32

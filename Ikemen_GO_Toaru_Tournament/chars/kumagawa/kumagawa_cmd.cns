@@ -258,9 +258,21 @@ command = ~B, DB, D, DF, F,  x
 time = 20
 
 [Command]
+name = "『パニッシュメント』"
+command = ~D, DB, B, D, DF, F, x
+time = 32
+buffer.Time=16
+
+[Command]
 name = "『楔』"
 command = ~B, DB, D, DF, F,  y
 time = 20
+
+[Command]
+name = "『楔』"
+command = ~D, DB, B, D, DF, F, y
+time = 32
+buffer.Time=16
 
 [Command]
 name = "『却本作り』"
@@ -268,9 +280,21 @@ command = ~F, DF, D, DB, B, F, a
 time = 20
 
 [Command]
+name = "『却本作り』"
+command = ~D, DF, F, D, DB, B, a
+time = 32
+buffer.Time=16
+
+[Command]
 name = "『格好』付けずに"
 command = ~F, DF, D, DB, B, F, b
 time = 20
+
+[Command]
+name = "『格好』付けずに"
+command = ~D, DF, F, D, DB, B, b
+time = 32
+buffer.Time=16
 
 [Command]
 name = "『却本作り＋大嘘憑き』"
@@ -278,9 +302,21 @@ command = ~F, DF, D, DB, B, F, c
 time = 20
 
 [Command]
+name = "『却本作り＋大嘘憑き』"
+command = ~D, DF, F, D, DB, B, c
+time = 32
+buffer.Time=16
+
+[Command]
 name = "『It's』『All Fiction!!』"
 command = ~B, DB, D, DF, F,  a
 time = 20
+
+[Command]
+name = "『It's』『All Fiction!!』"
+command = ~D, DB, B, D, DF, F, a
+time = 32
+buffer.Time=16
 
 [Command]
 name = "『魔獣をも殺す刀』"
@@ -288,9 +324,21 @@ command = ~B, DB, D, DF, F,  b
 time = 20
 
 [Command]
+name = ""
+command = ~D, DB, B, D, DF, F, b
+time = 32
+buffer.Time=16
+
+[Command]
 name = "『勇者の剣』過負荷ver"
 command = ~B, DB, D, DF, F,  c
 time = 20
+
+[Command]
+name = ""
+command = ~D, DB, B, D, DF, F, c
+time = 32
+buffer.Time=16
 
 [Command]
 name = "『グングニルの螺子』"

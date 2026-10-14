@@ -408,6 +408,12 @@ command = ~B , D , F,c
 time = 32
 buffer.Time=16
 
+[Command]
+name = "•—ƒ"
+command = ~D, DB, B, D, DF, F, c
+time = 32
+buffer.Time=16
+
 ;---------------------------------------
 ;[Command]
 ;name = "ƒvƒ‰ƒYƒ}"

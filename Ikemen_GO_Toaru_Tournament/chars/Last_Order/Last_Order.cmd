@@ -98,6 +98,12 @@ command = ~B, DB, D, DF, F, c
 time = 20
 buffer.time = 10
 
+[Command]
+name = "41236c"
+command = ~D, DB, B, D, DF, F, c
+time = 32
+buffer.Time=16
+
 
 
 [Command]
@@ -105,6 +111,12 @@ name = "41236b"
 command = ~B, DB, D, DF, F, b
 time = 20
 buffer.time = 10
+
+[Command]
+name = "41236b"
+command = ~D, DB, B, D, DF, F, b
+time = 32
+buffer.Time=16
 
 
 
@@ -114,6 +126,12 @@ name = "41236a"
 command = ~B, DB, D, DF, F, a
 time = 20
 buffer.time = 10
+
+[Command]
+name = "41236a"
+command = ~D, DB, B, D, DF, F, a
+time = 32
+buffer.Time=16
 
 
 
@@ -176,6 +194,12 @@ command = ~F, DF, D, DB, B, b
 time = 20
 buffer.time = 10
 
+[Command]
+name = "63214b"
+command = ~D, DF, F, D, DB, B, b
+time = 32
+buffer.Time=16
+
 
 
 [Command]
@@ -183,6 +207,12 @@ name = "63214a"
 command = ~F, DF, D, DB, B, a
 time = 20
 buffer.time = 10
+
+[Command]
+name = "63214a"
+command = ~D, DF, F, D, DB, B, a
+time = 32
+buffer.Time=16
 
 
 
