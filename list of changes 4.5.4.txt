@@ -1,0 +1,7 @@
+- Lola rework
+- Standardisation/universalisation of certain elements :
+	- chip damage (smth like normals shouldn't do chip dmg and only specials and above can do that)
+	- get power/give power (subject to think about)
+	- smth else... to see ?
+- eventually if Didi has time : Misaki (I believe she's better fit to be made first, so that there's enough time for me to complete Rensa and she could be launched with Acqua on the next update)
+- More trials
