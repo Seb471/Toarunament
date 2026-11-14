@@ -517,6 +517,7 @@ ID = 24000
 ;	Auto-Rebirth
 [State -2, LifeAdd]
 type = LifeAdd
+triggerall = var(20) = 70
 triggerAll = alive
 trigger1 = roundstate = 2
 trigger1 = gametime%(6+3*ceil(life/50))=0 

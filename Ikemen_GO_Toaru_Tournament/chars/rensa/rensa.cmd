@@ -440,6 +440,7 @@ type = ChangeState
 value = 196
 triggerall = command = "22_s"
 triggerall = power>=1000
+triggerall = stateno!=196
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -447,7 +448,7 @@ trigger2 = var(1)
 [State -1, 236_a]
 type = ChangeState
 value = 1000
-triggerall = var(20) <= 4 ;|| var(20)=6
+triggerall = var(20) <= 4 || var(20)=6
 triggerall = command="236_a"
 triggerall = statetype!=A
 trigger1 = ctrl
@@ -480,6 +481,24 @@ triggerall = statetype=A
 trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
+[State -1, 214_a]
+type = ChangeState
+value = 1050
+triggerall = var(20) = 4
+triggerall = command="214_a"
+triggerall = statetype!=A
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+[State -1, 214_a]
+type = ChangeState
+value = 1060
+triggerall = var(20) = 4
+triggerall = command="214_b"
+triggerall = statetype!=A
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
 ;Run Fwd
 [State -1, Run Fwd]
 type = ChangeState
@@ -502,5 +521,6 @@ trigger1 = ctrl
 type = ChangeState
 value = 195
 triggerall = command = "start"
+triggerall = stateno!=195
 trigger1 = ctrl
 trigger2 = var(1)

@@ -2693,7 +2693,7 @@ type = HitDef
 trigger1 = ifelse(((p2name = "Kamijou Touma" || p2name = "Kamijo Toma") && p2stateno = [6400,6405]),(time%32=0 && parent,stateno=1542),(time%4=0 && parent,stateno=1542))
 attr = S, SP
 animtype  = Medium
-damage    = 3,1
+damage    = 4,1
 guardflag = MA
 hitflag = MAF
 priority = 3,hit
@@ -2768,7 +2768,7 @@ type = HitDef
 trigger1 = ifelse(((p2name = "Kamijou Touma" || p2name = "Kamijo Toma") && p2stateno = [6400,6405]),(time%32=16 && parent,stateno=1542),(time%2=1 && parent,stateno=1542))
 attr = S, HP
 animtype  = Hard
-damage    = 2
+damage    = 4,1
 hitflag = MAF
 priority = 3,hit
 pausetime = 0,0

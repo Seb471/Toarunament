@@ -5,3 +5,17 @@
 	- smth else... to see ?
 - eventually if Didi has time : Misaki (I believe she's better fit to be made first, so that there's enough time for me to complete Rensa and she could be launched with Acqua on the next update)
 - More trials
+- Fix that tech spam when air teching (investigation necessary)
+
+Itsuwa:
+- Give invincibility to hyper
+- Make initial hit of hyper (and subsequent) Hyper attacks (and maybe the rest
+- Make it so that the fire bomb doesn't disappear when she's hit
+- Add Shichikou Shichijin
+
+Lola:
+
+- Add the charges moves (sonic boom, sonic boom with ice pillar, fire balls with pillars + extension)
+- Reconfigure the beams (maybe add aerial versions)
+- Other configs to make her stronger
+- Stronger index starting beam

@@ -1,0 +1,32 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Rensa"        ;Name of character
+displayname = "Rensa" ;Name of character to display
+versiondate = 11,02,2024    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.1          ;Version of M.U.G.E.N character works on (X.XX)
+author = "Seb368"         ;Character author name
+pal.defaults = 1,2,3,4,5,6      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+localcoord = 320,240        ;Local coordinate space width and height
+[Files]
+sprite	= rensa.sff
+anim	= rensa.air
+cns	= rensa.cns
+cmd	= rensa.cmd
+sound	= rensa.snd
+st	= rensa.cns
+st1	= rensa_N.cns
+st2	= rensa_S.cns
+st3	= rensa_H.cns
+st4	= rensa_Helper.cns
+st5	= rensa_ex.cns
+stcommon= common.cns
+
+;for ikemen go
+st6	= rensa_text.zss
+font0	= jg.fnt
+
+movelist= rensa.dat
