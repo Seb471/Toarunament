@@ -10,9 +10,9 @@ edge = 15,0
 ignorehitpause = 1
 ;persistent = 
 
-
+;helper to distinguish p1 from p2 no longer needed
 [State 0, Helper]
-type = Helper
+type = Null;Helper
 ;trigger1 =  roundstate = 0 
 trigger1=numhelper(961)=0
 trigger1=(p2name="Misaka Mikoto") 

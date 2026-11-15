@@ -18,4 +18,8 @@ Lola:
 - Add the charges moves (sonic boom, sonic boom with ice pillar, fire balls with pillars + extension)
 - Reconfigure the beams (maybe add aerial versions)
 - Other configs to make her stronger
-- Stronger index starting beam
+- Stronger index starting beam x
+
+Mikoto:
+
+- Palette fix and palettes by @Adam Frost
